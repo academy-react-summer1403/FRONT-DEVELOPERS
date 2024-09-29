@@ -22,7 +22,7 @@ const SearchBar = ({placeholder}) => {
               className='mx-2 backdrop-blur-sm my-6 border border-gray-200 w-full h-[70px] shadow-md rounded-full text-right px-4
                 
             '
-              onChange={""}
+              onChange={" "}
             />
         </div>
       )
