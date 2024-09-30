@@ -9,3 +9,23 @@
 body{
     font-family: "Rubik", sans-serif;;
 }
+
+
+@layer components{
+    .mark{
+        @apply absolute right-0 -top-10 text-right h-[32px]  text-[#005351] font-Yekan font-bold leading-[25px] text-[25px]
+    }
+}
+
+
+
+@layer base{
+    @font-face {
+        font-family: "Yekan";
+        src: url(./assets/fonts/B_Yekan/Yekan.ttf) format("truetype"),
+        url(./assets/fonts/B_Yekan/Fontyab.com.url),
+        url(./assets/fonts/B_Yekan/Fontyab.ir.url),
+        url(./assets/fonts/B_Yekan/read\ me!.txt),
+
+    }
+}
