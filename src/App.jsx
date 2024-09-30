@@ -1,6 +1,7 @@
 
 import Layout from "./components/layout/Layout"
 import Landing from "./pages/landing/Landing"
+// import CoursPage from "./pages/cousrses/CoursPage" 
 
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
     <Layout>
 
       <Landing/>
+      {/* <CoursPage/> */}
 
     </Layout>
     </>
