@@ -106,7 +106,7 @@ const HeadLines = () => {
   return (
     <>
       {/* headlines */}
-      <div className=" relative w-[811px]    border-[rgba(0,0,0,0)]">
+      <div className=" relative w-[811px]   border-[rgba(0,0,0,0)]">
         <div className=" w-full mt-[35px]  relative">
           <h4 className=" mark  ">سرفصل ها</h4>
 

@@ -13,7 +13,7 @@ const Description = () => {
 
       <div className=' relative '>
             <h4 className=" mark ">توضیحات</h4>
-            <div style={{boxShadow:" 0px 1px 2px 0 rgba(0, 0, 0, 0.25)"}} className="bg-white      mt-[35px] rounded-[15px] w-[809px]  p-[36px]   ">
+            <div style={{boxShadow:" 0px 1px 2px 0 rgba(0, 0, 0, 0.25)"}} className="bg-white   mt-[35px] rounded-[15px] w-[809px]  p-[36px]   ">
               <div className=" overflow-hidden  relative">
                 <p 
                   className={` text-[#7B7B7B] text-[19px] text-right font-Yekan font-normal leading-[32px] ${
@@ -67,9 +67,15 @@ const Description = () => {
 leading-[32px] font-normal font-Yekan text-[20px] flex items-center w-[174px] h-[45px] rounded-[45px] mx-auto justify-center gap-2 mt-3  "
               >
                 {showMore ? (
-                  <FaAngleDown className="  text-[#005B58] h-[15px] w-[20px]" />
+                  <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M13.25 0.875L7 7.125L0.75 0.875" stroke="#005B58" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  
                 ) : (
-                  <FaAngleUp  className="  text-[#005B58] h-[15px] w-[20px]"/>
+                  <svg width="14" height="8" className=' rotate-180' viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M13.25 0.875L7 7.125L0.75 0.875" stroke="#005B58" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
                 )}
                 مطالعه بیشتر
               </button>

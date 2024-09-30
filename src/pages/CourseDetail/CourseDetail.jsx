@@ -6,6 +6,7 @@ import Detail from "../../components/coursedetailComponents/detail/Detail";
 import Description from "../../components/coursedetailComponents/Description/Description";
 import HeadLines from "../../components/coursedetailComponents/Headlines/HeadLines";
 import SameCourses from "../../components/coursedetailComponents/samecourses/SameCourses";
+import Comments from "../../components/coursedetailComponents/comments/Comments";
 const CourseDetial = () => {
 
   
@@ -48,12 +49,16 @@ const CourseDetial = () => {
 
          
 
-        <div className=" ">
+        <div className="  ">
           {/* Description section */}
 
           <Description/>
           {/* headlines */}
           <HeadLines/>
+
+          {/* comments */}
+
+          <Comments/>
           
         </div>
       </div>
