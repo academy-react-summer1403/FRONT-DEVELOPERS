@@ -43,7 +43,7 @@ const Hero = () => {
               transition={{type:"spring" , stiffness:100 , delay:0.2}}
   
               className="w-[300px] md:w-[4000px] h-[350px] md:h-[4000px] xl:h-[450px]
-              xl:w-[450px] rounded-2xl bg-gradient-to-r from- from-primary/20 to-light/10 z-20"
+              xl:w-[450px] rounded-2xl bg-gradient-to-r from-primary/20 to-light/10 z-20"
             >
 
 

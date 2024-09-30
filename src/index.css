@@ -9,3 +9,58 @@
 body{
     font-family: "Rubik", sans-serif;;
 }
+
+
+.slick-slide > div {
+    margin:0 30px;
+}
+
+
+.button__bar {
+    display: inline-block;
+    vertical-align: middle;
+    margin:40px auto;
+    padding: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 40px;
+    width: 100px;
+    text-align: center;
+   
+  }
+  
+  .button__bar li {
+    list-style: none;
+    cursor: pointer;
+    display: inline-block;
+    margin: 0 3px;
+    padding: 0;
+  }
+  
+  .button__bar li button {
+    border: none;
+    background: #01CEC9;
+    color: transparent;
+    cursor: pointer;
+    display: block;
+    height: 15px;
+    width: 15px;
+    border-radius: 7.5px;
+  }
+  
+  .button__bar :global(li.slick-active) button {
+    background-color: #D47300;
+  }
+  
+  .button__bar li button:hover,
+  .button__bar li button:focus {
+    background: #D47300;
+    outline: 0;
+  }
+  
+  .slick-slide img {
+    border: 5px solid #fff;
+    display: block;
+    margin: auto;
+  }
+
+

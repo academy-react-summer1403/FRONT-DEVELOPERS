@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import FavImg from "../assets/landing/Favorite.svg";
 import ShopImg from "../assets/landing/Shopping Bag.svg";
 import UserImg from "../assets/landing/user.png";
+import Logo from "../assets/landing/logo1.svg";
 
 
 
@@ -66,7 +67,7 @@ const Navbar = () => {
  </div>
  {/* menu section  */}
  <div className='hidden lg:block'>
-    <ul className='flex items-center gap-4 pr-10'>
+    <ul className='flex items-center gap-4 pr-10 mx-auto'>
         {
             NavbarMenu.map((item)=>(
                 <li key={item.id}>
@@ -83,7 +84,9 @@ const Navbar = () => {
  </div>
  {/* Logo section  */}
  <div className='hidden lg:block space-x-6'>
-   <div className=' bg-gray-600 px-16 py-6 mt-8'></div> 
+   <div className=' py-6 mt-0'>
+   <img src={Logo} alt="" className='rounded-full shadow-xl shadow-gray-600'/>
+    </div> 
    
  </div>
  
