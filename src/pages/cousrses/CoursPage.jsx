@@ -29,10 +29,10 @@ const CoursPage = () => {
          
 
     return(
-    <div className='container flex-1 z-10'>
-        <img src={BackImg} alt=""  
-          className='rotate-45 w-[90%] h-[90%] top-[500px] left-[100px] absolute opacity-80 z-0'/>
-          
+    <div className='container  z-10'>
+        {/* <img src={BackImg} alt=""  
+          className='rotate-45 w-[90%] h-[90%] rotate top-[500px] left-[100px] absolute opacity-80 z-[-9000]'/>
+           */}
 
         {/* cours page hero */}
         <div style={{backgroundColor:"rgba(235,249,249,0.51)"}} className='flex flex-row  rounded-lg my-10 p-4 shadow-md
@@ -90,7 +90,9 @@ const CoursPage = () => {
 
         {/* body of CoursPage */}
         <div className='my-32  grid grid-cols-4 gap-4
-
+            max-md:flex flex-col-reverse
+            max-sm:flex flex-col-reverse
+           
         '>
             {/* cards section  */}
             <div className='relative border-2  col-span-3'>
