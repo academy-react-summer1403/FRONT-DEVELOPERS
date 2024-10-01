@@ -9,11 +9,11 @@ const Description = () => {
     <>
      {/* Description section */}
 
-     <div className="   mb-[60px]">
+     <div className="   mb-[15px]">
 
       <div className=' relative '>
             <h4 className=" mark ">توضیحات</h4>
-            <div style={{boxShadow:" 0px 1px 2px 0 rgba(0, 0, 0, 0.25)"}} className="bg-white   mt-[35px] rounded-[15px] w-[809px]  p-[36px]   ">
+            <div style={{boxShadow:" 0px 1px 2px 0 rgba(0, 0, 0, 0.25)"}} className="bg-white   mt-[15px] rounded-[15px] w-[809px]  p-[36px]   ">
               <div className=" overflow-hidden  relative">
                 <p 
                   className={` text-[#7B7B7B] text-[19px] text-right font-Yekan font-normal leading-[32px] ${

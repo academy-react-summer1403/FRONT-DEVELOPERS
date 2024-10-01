@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import image from "../../assets/detail/dimage.png";
-import { FaAngleDown, FaAngleUp } from "react-icons/fa";
+
 import CourseCard from "../../components/coursedetailComponents/coursecard/CourseCard";
 import Detail from "../../components/coursedetailComponents/detail/Detail";
 import Description from "../../components/coursedetailComponents/Description/Description";
 import HeadLines from "../../components/coursedetailComponents/Headlines/HeadLines";
-import SameCourses from "../../components/coursedetailComponents/samecourses/SameCourses";
+
 import Comments from "../../components/coursedetailComponents/comments/Comments";
+import RelatedCourses from "../../components/coursedetailComponents/RelatedCourses/RelatedCourses";
 const CourseDetial = () => {
 
   
@@ -41,10 +42,10 @@ const CourseDetial = () => {
           {/* detail section */}
           <Detail/>
 
-          {/* SameCourses section */}
+          {/* RelatedCourses section */}
 
-          <SameCourses/>
-
+          <RelatedCourses/>
+ 
         </div>
 
          

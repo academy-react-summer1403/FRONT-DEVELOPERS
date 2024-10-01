@@ -91,6 +91,8 @@ const HeadLines = () => {
     },
   ]);
 
+
+  // function accardion
   const toggleAccordion = (accordionkey) => {
     const updatedAccordions = accordions.map((accord) => {
       if (accord.key === accordionkey) {
@@ -105,14 +107,14 @@ const HeadLines = () => {
 
   return (
     <>
-      {/* headlines */}
+      {/* headlines section*/}
       <div className=" relative w-[811px]   border-[rgba(0,0,0,0)]">
-        <div className=" w-full mt-[35px]  relative">
+        <div className=" w-full mt-[15px]  relative">
           <h4 className=" mark  ">سرفصل ها</h4>
 
-          <div className=" flex    gap-[10px] flex-wrap">
+          <div className=" flex  mt-[15px] gap-[10px] flex-wrap">
             {accordions.map((data, index) => (
-              <div
+              <div key={index}
                 style={{ boxShadow: " 0px 1px 3px 0 rgba(0, 0, 0, 0.25)" }}
                 className={`  flex cursor-pointer items-center flex-wrap  rounded-t-[10px]  rounded-b-[10px]  w-[809px] ${
                   data.isOpen ? "bg-[#00E2DC] " : " bg-[#FFFFFF] h-[51px]"
