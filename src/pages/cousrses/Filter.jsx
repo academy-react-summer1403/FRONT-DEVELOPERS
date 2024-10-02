@@ -1,10 +1,11 @@
+import { useState } from 'react'
+
+// images:
 import trash from '../../assets/courses/icons8-trash-can 1.svg'
 import fillter from '../../assets/courses/Vector(1).svg'
 import arrow from '../../assets/courses/arrow.svg'
 import stars from '../../assets/landing/stars.svg'
 import star2 from '../../assets/courses/star2.svg'
-
-import { useState } from 'react'
 
 const Filter = () => {
     const [filter, setFilter] = useState([

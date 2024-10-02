@@ -1,3 +1,10 @@
+
+import Filter from './Filter';
+import Pagination from '../../components/Pagination';
+import CoursGridCard from './CoursGridCard';
+import SearchBar from '../../components/SearchBar';
+
+
 // images: 
 import Herobg from '../../assets/courses/49.svg'
 import Herovector from '../../assets/courses/12.svg'
@@ -7,12 +14,8 @@ import WindowView from '../../assets/courses/Vector.svg'
 import ListView from '../../assets/courses/Frame.svg'
 import dropdown from '../../assets/courses/Frame(4).svg'
 import List from '../../assets/courses/1221.svg'
+import CoursListCard from './CoursListCard';
 
-
-import Filter from './Filter';
-import Pagination from '../../components/Pagination';
-import CoursCard from './CoursCard';
-import SearchBar from '../../components/SearchBar';
 
 const CoursPage = () => {
     const categories =[
@@ -136,7 +139,8 @@ const CoursPage = () => {
                 </div>
 
                 {/* cards  */}
-                <CoursCard/>
+                <CoursListCard/>
+                <CoursGridCard/>
 
                 {/* paginantion  */}
                 <Pagination/>
