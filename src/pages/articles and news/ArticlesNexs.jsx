@@ -1,33 +1,35 @@
+import React, { useState } from 'react' 
+
 // images: 
-import Herobg from '../../assets/courses/49.svg'
-import Herovector from '../../assets/courses/12.svg'
+import Herobg from '../../assets/articles and news/Ellipse 38.svg'
+import Herovector from '../../assets/articles and news/hero.svg'
 import Heroring from '../../assets/courses/Ellipse 4.svg'
 import BackImg from "../../assets/courses/background.svg";
-import WindowView from '../../assets/courses/Vector.svg'
-import ListView from '../../assets/courses/Frame.svg'
+import SearchBar from '../../components/SearchBar';
 import dropdown from '../../assets/courses/Frame(4).svg'
 import List from '../../assets/courses/1221.svg'
 
-
-import Filter from './Filter';
+//  , backdropFilter:" blur(4px)",boxShadow: "0px 1px 1px 0px rgba(0, 0, 0, 0.25"
 import Pagination from '../../components/Pagination';
-import CoursCard from './CoursCard';
-import SearchBar from '../../components/SearchBar';
 
-const CoursPage = () => {
+
+const ArticlesNexs = () => {
     const categories =[
-        "ارزان ترین",
         "جدید ترین",
         "محبوب ترین",
-    ]    
+    ]
+  
 
     return(
     <div className='container  z-10'>
         <img src={BackImg} alt=""  
           className='absolute w-96 left-[300px]  opacity-80 z-[-9999]'/>
+          
 
-        {/* cours page hero */}
-        <div style={{backgroundColor:"rgba(235,249,249,0.51)"}} className='flex flex-row  rounded-lg my-10 px-4 shadow-md
+        {/*  page hero */}
+        <div style={{backgroundColor:"rgba(235,249,249,0.71)"}}
+         className='flex flex-row  
+        rounded-tl-lg rounded-tr-[80px] rounded-br-lg rounded-bl-[80px] my-10 px-4 
         max-md:flex-col 
         max-sm:flex-col
         max-lg:flex-col
@@ -70,36 +72,34 @@ const CoursPage = () => {
 
                 <div className='flex flex-row-reverse mt-4 pt-6'>
                     <div className='relative w-3 h-3 bg-primary rounded-full top-4 ml-2'></div>
-                    <h2 className='text-3xl font-bold dark:text-white'>دوره های آموزشی</h2>
+                    <h2 className='text-3xl font-bold dark:text-white'>اخبار و مقالات</h2>
                 </div>
-                <p className='mr-4 mt-6 text-xl text-gray-400 dark:text-gray-200'>به روز ترین دوره هایی که میتونید پیدا کنید</p>
+                <p className='mr-4 mt-6 text-xl text-gray-400 dark:text-gray-200'>با ما خودت رو به روز کن</p>
                 {/* search box  */}
-                <SearchBar placeholder={"...چی میخوای یاد بگیری؟"}/>
+                <SearchBar placeholder={"...چی میخوای یاد بدونی؟"}/>
                 
             </div>
 
         </div>
 
         {/* body of CoursPage */}
-        <div className='mt-44  grid grid-cols-4 gap-4
+        <div className='my-32  grid grid-cols-4 gap-4
             max-md:flex flex-col-reverse
             max-sm:flex flex-col-reverse
            
         '>
-            {/* cards section  */}
-            <div className='relative  col-span-3'>
-                {/* top part for view */}
+            
+            {/*right: offer section  */}
+            
+
+            {/*left: news section  */}
+            <div className='relative border-2  col-span-3'>
+                {/* top part */}
                 <div className='relative flex flex-row'>
-                    {/* right: buttons */}
                     <div >
-                        <button className='relative shadow-md border border-gray-100 mr-2 p-3 hover:bg-gray-200 
-                         transition duration-300 shadow-sm shadow-gray-400 outline-none indent-1
-                         rounded rounded-tl-2xl top-0' > <img src={WindowView} className='w-full h-full' /></button>
-                        <button className='relative shadow-md  border border-gray-100 p-2 hover:bg-gray-200 
-                        transition duration-300 shadow-sm shadow-gray-400 outline-none indent-1
-                        rounded rounded-tr-2xl top-1'> <img src={ListView} className='w-8 h-8'/> </button>
+                        جدید ترین اخبار و مقالات
                     </div>
-                    {/* left: menu  */}
+                    {/* menu  */}
                     <div className="group absolute right-0 " >
                         
                         <div className="group flex p-2 
@@ -136,18 +136,17 @@ const CoursPage = () => {
                 </div>
 
                 {/* cards  */}
-                <CoursCard/>
+                <div className='grid-cols-3 mb-8'>
+                   
+                </div>
 
                 {/* paginantion  */}
                 <Pagination/>
             </div>
-
-            {/* filter section  */}
-            <Filter/>
         </div>
 
     </div>
     )
 }
 
-export default CoursPage
+export default ArticlesNexs

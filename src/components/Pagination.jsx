@@ -6,7 +6,7 @@ const Pagination = () => {
     const num=[1,2,"...",8,9];
     
     return (
-        <div className='absolute bottom-0 left-[29%] flex flex-row justify-self-center
+        <div className='absolute bottom-0 left-[29%] flex flex-row justify-self-center my-4  
             max-md:left-12
         '>
             <button className='shadow-sm shadow-gray-400 outline-none indent-1 cursor-pointer

@@ -10,7 +10,7 @@ const SearchBar = ({placeholder}) => {
             max-xl:w-3/4'
         >
 
-            <div className="relative top-[31px] left-[70px] bg-orange rounded-full p-4 w-14 h-14 z-40 ">               
+            <div className="relative top-[29px] left-[70px] bg-orange rounded-full p-4 w-14 h-14 z-40 ">               
               <img src={Search} className="w-full h-full "/>
             </div>
 
@@ -19,10 +19,11 @@ const SearchBar = ({placeholder}) => {
               name="search"
               type="text"
               placeholder={placeholder}
-              className='mx-2 backdrop-blur-sm my-6 border border-gray-200 w-full
-               h-[70px] rounded-full text-right px-4
-               shadow-sm shadow-gray-400 outline-none indent-1 
+              className='mx-2 backdrop-blur-sm my-6 border w-full
+               h-[65px] rounded-full text-right pr-8 pb-2 
               '
+              style={{boxShadow:" 0px 1px 1px 0px rgba(0, 0, 0, 0.2)"}}
+              
               onChange={" "}
             />
         </div>
