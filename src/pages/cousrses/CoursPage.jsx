@@ -158,7 +158,9 @@ const [view, setView] = useState(<CoursGridCard/>)
             </div>
 
             {/* filter section  */}
-            <Filter/>
+            <div className='relative  col-span-1 '>
+                <Filter/>
+            </div>
         </div>
 
     </div>

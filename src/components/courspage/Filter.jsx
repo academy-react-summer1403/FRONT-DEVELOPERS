@@ -77,7 +77,7 @@ const Filter = () => {
     } 
 
   return (
-    <div className=' shadow-sm shadow-gray-300 outline-none rounded-xl p-4 '>
+    <div className='shadow-sm shadow-gray-300 outline-none rounded-xl p-4 '>
         <div className="flex p-3 relative
             rounded-sm rounded-t-lg shadow-sm shadow-gray-400 
             text-gray-900 bg-neutral-200 "
@@ -99,7 +99,7 @@ const Filter = () => {
             `}
             >         
             
-                    <div className='relative flex flex-row text-right border-b-[1.5px] py-1 cursor-pointer'
+                    <div className='relative flex flex-row text-right border-b-[1.5px] py-2 cursor-pointer'
                         onClick={()=>toggleAccordeion(data.id)}
                     >
                         <img src={arrow}  className={`top-0 ${data.isOpen? "rotate-180":"rotate-0"} transition duration-500 `} />                 
