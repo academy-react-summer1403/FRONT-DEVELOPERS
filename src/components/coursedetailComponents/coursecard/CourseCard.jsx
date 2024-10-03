@@ -4,11 +4,11 @@ const CourseCard = () => {
   return (
     <>
     {/* course detail card */}
-    <div style={{boxShadow:" 0px 1px 2px 0 rgba(0, 0, 0, 0.25)"}} className="  w-[598px] p-[36px]  bg-[#FFFFFF]  rounded-[15px]  h-[395px]">
-          <div className=" flex justify-between  relative">
+    <div style={{boxShadow:" 0px 1px 2px 0 rgba(0, 0, 0, 0.25)"}} className="max-xl:w-[500px]  max-sm:mx-auto max-xl:h-[320px] max-lg:h-[300px]  w-[598px] p-[36px]  bg-[#FFFFFF]  rounded-[15px]  h-[395px]">
+          <div className=" flex justify-between  relative"> 
             <svg
               width="27"
-              className=""
+              className="h-[20px]"
               height="27"
               viewBox="0 0 27 27"
               fill="none"
@@ -25,23 +25,24 @@ const CourseCard = () => {
 
             {/* course name */}
 
-            <h2 className=" text-right font-bold text-[24px]  leading-10 text-black">
+            <h2 className=" text-right font-bold max-lg:mt-[-20px]  text-[24px] max-xl:text-[20px] max-lg:text-[18px]  leading-10 text-black">
               React Jsدوره تخصصی و جامع
             </h2>
           </div>
 
-          <p className="   mt-[40px] text-[#777777] font-normal text-[18px] leading-7 text-right">
+          <p className="max-xl:text-[16px] max-xl:mt-[10px] max-lg:text-[14px]   mt-[40px] text-[#777777] font-normal text-[18px] leading-7 text-right">
             حدود 40 ساعت آموزش جامع و تخصصی ری اکت!  شما در دوره آموزش ری اکت
             ReactJS ، این کتابخانه قدرتمند و پر استفاده جاوا اسکریپت را به صورت
             کاملا پروژه محور و کاربردی یاد میگیرید
           </p>
 
-          <div className="   flex-row-reverse  justify-between flex mt-[30px] ">
+          <div className="   flex-row-reverse  justify-between flex max-xl:mt-[10px] mt-[30px] ">
             <div className="   flex-row-reverse items-center  flex ">
               <svg
                 width="24"
                 height="25"
-                className=" "
+                className='max-xl:w-[20px] max-lg:w-[18px]'
+
                 viewBox="0 0 24 25"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -55,7 +56,7 @@ const CourseCard = () => {
                 />
               </svg>
 
-              <h3 className=" font-normal  text-right text-[22px]  leading-6 text-[#005B58]">
+              <h3 className=" font-normal max-xl:text-[18px] max-lg:text-[14px] text-right text-[22px]  leading-6 text-[#005B58]">
                 مهدی اصغری
               </h3>
             </div>
@@ -64,6 +65,8 @@ const CourseCard = () => {
               <svg
                 width="26"
                 height="23"
+                className='max-xl:w-[20px] max-lg:w-[18px]'
+                
                 viewBox="0 0 26 23"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -77,20 +80,23 @@ const CourseCard = () => {
                 />
               </svg>
 
-              <h4 className=" font-normal text-[16px] leading-[22.7px] font-Yekan text-[#006865]">
+              <h4 className="max-xl:text-[14px] font-normal text-[16px] max-lg:text-[14px]  leading-[22.7px] font-Yekan text-[#006865]">
                 تومان
               </h4>
-              <h2 className="    leading-[42.55px]  font-normal font-Yekan text-[30px]  text-[#005B58]">
+              <h2 className=" max-lg:text-[18px]  max-xl:text-[27px]  leading-[42.55px]  font-normal font-Yekan text-[30px]  text-[#005B58]">
                 ۳,۴۰۰,۰۰۰
               </h2>
             </div>
           </div>
+         
 
-          <button className="bg-[#FF8A00] ml-[18%] mt-[25px] flex gap-3 items-center justify-center  w-[347px] h-[55px] text-white rounded-[9px] font-bold text-[22px]  ">
+                
+          <button className="bg-[#FF8A00] max-lg:text-[16px]   max-md:mx-auto  max-xl:w-[280px] max-xl:h-[40px] max-lg:ml-[0] max-xl:ml-[10%] ml-[18%] max-xl:mt-[15px] mt-[25px] flex gap-3 items-center justify-center  w-[347px] h-[55px] text-white rounded-[9px] font-bold max-xl:text-[19px] text-[22px]  ">
             !شرکت در دوره
             <svg
               width="25"
               height="22"
+              className='max-xl:h-[18px] max-xl:w-[21px]'
               viewBox="0 0 25 22"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"

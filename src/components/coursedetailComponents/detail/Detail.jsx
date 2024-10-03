@@ -13,6 +13,7 @@ const Detail = () => {
         <svg
           width="28"
           height="28"
+          className='max-lg:h-[22px] max-lg:w-[22px]'
           viewBox="0 0 28 28"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -35,6 +36,8 @@ const Detail = () => {
         <svg
           width="28"
           height="28"
+          className='max-lg:h-[22px] max-lg:w-[22px]'
+
           viewBox="0 0 28 28"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -57,6 +60,8 @@ const Detail = () => {
         <svg
           width="28"
           height="28"
+          className='max-lg:h-[22px] max-lg:w-[22px]'
+
           viewBox="0 0 28 28"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -79,6 +84,8 @@ const Detail = () => {
         <svg
           width="28"
           height="28"
+          className='max-lg:h-[22px] max-lg:w-[22px]'
+
           viewBox="0 0 28 28"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -101,6 +108,8 @@ const Detail = () => {
         <svg
           width="28"
           height="28"
+          className='max-lg:h-[22px] max-lg:w-[22px]'
+
           viewBox="0 0 28 28"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -124,6 +133,8 @@ const Detail = () => {
         <svg
           width="28"
           height="28"
+          className='max-lg:h-[22px] max-lg:w-[22px]'
+
           viewBox="0 0 28 28"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -144,11 +155,11 @@ const Detail = () => {
     <>
           {/* detail section */}
 
-          <div style={{boxShadow:" 0px 1px 2px 0 rgba(0, 0, 0, 0.25)"}} className="bg-white rounded-[15px] w-[412px] h-[1015px]  p-[23px]">
+          <div style={{boxShadow:" 0px 1px 2px 0 rgba(0, 0, 0, 0.25)"}} className="bg-white max-md:w-[500px] rounded-[15px] w-full h-[1015px] max-md:h-[700px]  p-[23px] max-2xl:p-[15px]">
             {/* consent section & students number */}
-            <div className=" w-[366px] h-[71px]  flex justify-between">
+            <div className=" w-[366px] h-[71px] max-xl:w-full max-2xl:justify-start max-2xl:gap-4  max-xl:justify-between flex justify-between">
               {/* consent section */}
-              <div style={{boxShadow:" 0px 1px 2px 0 rgba(0, 0, 0, 0.25)"}} className="w-[174px]  h-[71px]  flex justify-center items-center gap-5 bg-[#F7F7F7] rounded-[10px]">
+              <div style={{boxShadow:" 0px 1px 2px 0 rgba(0, 0, 0, 0.25)"}} className="w-[174px] max-2xl:w-[45%] h-[71px]  flex justify-center items-center gap-5 bg-[#F7F7F7] rounded-[10px]">
                 <svg
                   width="35"
                   height="35"
@@ -172,7 +183,7 @@ const Detail = () => {
 
               {/* students number section */}
 
-              <div style={{boxShadow:" 0px 1px 2px 0 rgba(0, 0, 0, 0.25)"}} className="w-[174px]  h-[71px] flex justify-center items-center gap-5  bg-[#F7F7F7] rounded-[10px] ">
+              <div style={{boxShadow:" 0px 1px 2px 0 rgba(0, 0, 0, 0.25)"}} className="w-[174px] max-2xl:w-[45%]  h-[71px] flex justify-center items-center gap-5  bg-[#F7F7F7] rounded-[10px] ">
                 <svg
                   width="30"
                   height="30"
@@ -198,11 +209,11 @@ const Detail = () => {
               </div>
             </div>
 
-            <div className=" w-[367px] h-[860px] mt-[23px] flex flex-wrap gap-[20px]">
+            <div className=" w-[367px] h-[860px] mt-[23px] flex flex-wrap gap-[20px] max-md:w-[500px]">
               {/* class members percentage */}
 
-              <div className=" w-full h-[44px]  ">
-                <div className="flex justify-between">
+              <div className=" w-full max-2xl:w-[95%] max-xl:w-[88%]  max-lg:w-[75%] max-md:w-[93%] h-[44px]  ">
+                <div className="flex justify-between ">
                   <h3 className=" font-Yekan font-normal text-[16px] text-[#000000] ">
                     87%
                   </h3>
@@ -221,37 +232,38 @@ const Detail = () => {
                 </div>
               </div>
 
-              <hr className="-[1.5px] border-[#F6F6F6] w-full" />
+              <hr className="-[1.5px] max-2xl:w-[95%]  border-[#F6F6F6] w-full max-xl:w-[88%] max-lg:w-[75%] max-md:hidden" />
 
               {/* more details of classes */}
+              <div className='flex flex-wrap w-full gap-5   max-md:justify-start'>
               {coursedetals.map((item, index) => (
                 <div
                   key={index}
                   style={{boxShadow:" 0px 1px 2px 0 rgba(0, 0, 0, 0.25)"}}
-                  className=" w-full h-[70px]  bg-[#F7F7F7] rounded-[10px] flex gap-4 items-center justify-end p-[25px] "
+                  className=" w-full max-2xl:w-[95%] h-[70px]  bg-[#F7F7F7] max-md:w-[45%] max-md:mt-[-250px] max-lg:w-[75%] rounded-[10px] max-xl:w-[88%] flex gap-4 items-center justify-end p-[25px] "
                 >
                   <div>
-                    <h3 className=" text-[#888888] font-Yekan font-normal text-[15px] leading-[24px] text-right">
+                    <h3 className=" max-lg:text-[13px]  text-[#888888] font-Yekan font-normal text-[15px] leading-[24px] text-right">
                       {item.title}
                     </h3>
-                    <h2 className=" text-[#005351] font-Yekan font-normal text-[21px] leading-[24px] text-right">
+                    <h2 className=" text-[#005351] max-lg:text-[18px] font-Yekan font-normal text-[21px] leading-[24px] text-right ">
                       {item.subtitle}
                     </h2>
                   </div>
                   {item.icon}
                 </div>
-              ))}
+              ))}</div>
 
-              <hr className="border-[1.5px] border-[#F6F6F6] w-full" />
+              <hr className="border-[1.5px] border-[#F6F6F6] w-full max-2xl:w-[95%] max-xl:w-[88%] max-lg:w-[75%] max-md:hidden" />
 
               {/* teachers profile */}
-              <div className="  w-[177px] h-[200px] mx-auto">
+              <div className="   w-[177px] h-[200px] max-lg:mr-[130px] max-md:mt-[-260px] max-md:mr-[160px]  mx-auto max-xl:pr-[30px]">
                 <img
                   className=" rounded-full   h-[135px] w-[135px] shadow-lg mx-auto mb-5"
                   src={profile}
                   alt=""
                 />
-                <button className=" text-[#6B3A00]  border-[2px] border-[#E48900] rounded-[25px] w-[177px] h-[40px] text-center font-Yekan text-[16px] font-normal mx-auto">
+                <button className=" text-[#6B3A00] max-xl:ml-[-15px] border-[2px] border-[#E48900] rounded-[25px] w-[177px] h-[40px] text-center font-Yekan text-[16px] font-normal mx-auto">
                   پروفایل مدرس دوره
                 </button>
               </div>

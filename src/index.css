@@ -35,6 +35,14 @@ body{
     .comment{
         @apply text-right text-[#333333]  font-Yekan font-normal
     }
+
+    .share{
+        @apply font-normal font-Yekan text-[16px] text-[#888888] leading-[32px]
+    }
+
+    .text{
+        @apply font-Yekan font-normal  text-[16px]  text-[#AAAAAA] leading-[16px] 
+    }
     
 }
 

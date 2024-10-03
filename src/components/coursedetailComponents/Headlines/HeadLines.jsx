@@ -108,21 +108,21 @@ const HeadLines = () => {
   return (
     <>
       {/* headlines section*/}
-      <div className=" relative w-[811px]   border-[rgba(0,0,0,0)]">
+      <div className=" relative w-full   border-[rgba(0,0,0,0)]">
         <div className=" w-full mt-[15px]  relative">
-          <h4 className=" mark  ">سرفصل ها</h4>
+          <h4 className=" mark max-xl:text-[20px]  ">سرفصل ها</h4>
 
-          <div className=" flex  mt-[15px] gap-[10px] flex-wrap">
+          <div className=" flex   mt-[15px] gap-[10px] flex-wrap">
             {accordions.map((data, index) => (
               <div key={index}
                 style={{ boxShadow: " 0px 1px 3px 0 rgba(0, 0, 0, 0.25)" }}
-                className={`  flex cursor-pointer items-center flex-wrap  rounded-t-[10px]  rounded-b-[10px]  w-[809px] ${
+                className={`  flex cursor-pointer items-center flex-wrap   rounded-t-[10px]  rounded-b-[10px]  w-[809px] ${
                   data.isOpen ? "bg-[#00E2DC] " : " bg-[#FFFFFF] h-[51px]"
                 }`}
               >
                 <div
                   onClick={() => toggleAccordion(data.key)}
-                  className="  my-auto w-full justify-between items-center  px-[35px] mb-3 pt-[10px]   flex"
+                  className="  my-auto w-full justify-between items-center   px-[35px] pb-3  pt-[10px]   flex"
                 >
                   <div className="    gap-3  flex">
                     <div className=" flex items-center">
@@ -131,6 +131,7 @@ const HeadLines = () => {
                         <svg
                           width="14"
                           height="8"
+                          className="h-[6px] w-[12px] "
                           viewBox="0 0 14 8"
                           fill="none"
                           xmlns="http://www.w3.org/2000/svg"
@@ -147,6 +148,8 @@ const HeadLines = () => {
                         <svg
                           width="20"
                           height="20"
+                          className="h-[18px] w-[15px] "
+
                           viewBox="0 0 20 20"
                           fill="none"
                           xmlns="http://www.w3.org/2000/svg"
@@ -167,13 +170,13 @@ const HeadLines = () => {
                         data.isOpen ? "text-[#005B58]" : "text-[#888888]"
                       } `}
                     >
-                      ساعت<h3 className="  ">{data.time}</h3>
-                      .جلسه<h3 className="    ">{data.setion}</h3>
+                      ساعت<h3 className="max-lg:text-[13px]  ">{data.time}</h3>
+                      .جلسه<h3 className=" max-lg:text-[13px]   ">{data.setion}</h3>
                     </div>
                   </div>
 
                   <h2
-                    className={` text-[#555555] text-right    font-normal font-Yekan text-[20px] h-[32px] ${
+                    className={` text-[#555555] text-right  max-lg:text-[13px] max-lg:line-clamp-1 max-xl:text-[16px]  font-normal font-Yekan text-[20px] h-[32px] ${
                       data.isOpen ? "text-[#006865]" : "text-[#555555]"
                     } `}
                   >

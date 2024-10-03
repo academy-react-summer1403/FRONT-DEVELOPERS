@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { FaAngleDown, FaAngleUp } from "react-icons/fa";
 
-const Comments = () => {
+
+const Comments = ({width,height}) => {
   const [showMore, setShowMore] = useState(true);
 
   const comment = [
@@ -176,17 +176,17 @@ const Comments = () => {
 
         {/* comments */}
         <div className=" relative  ">
-          <h4 className=" mark ">نظرات</h4>
+          
           <div
             style={{ boxShadow: " 0px 1px 2px 0 rgba(0, 0, 0, 0.25)" }}
-            className={`bg-white   mt-[15px] rounded-[15px]  w-[809px] p-[20.5px] gap-[20.5px] justify-normal overflow-hidden ${
-              showMore ? "h-[852px]" : "h-[]"
+            className={`bg-white  mt-[15px] max-lg:mt-[8px] rounded-[15px]  ${width} max-xl:w-full max-lg:w-full     p-[20.5px] gap-[20.5px] justify-normal overflow-hidden ${
+              showMore ? {height}  : "h-[]"
             }`}
           >
             <div className=" w-full h-[37px] mb-[20.5px] ">
 
               {/* new comment button */}
-              <button className="  w-[185px] h-[37px] rounded-[7px] bg-[#00E2DC] flex items-center justify-center  gap-2 ">
+              <button className="  w-[185px] h-[37px] max-xl:w-[170px] max-xl:h-[37px] rounded-[7px] bg-[#00E2DC] flex items-center justify-center  gap-2 ">
                 <h3 className="font-normal font-Yekan text-[15px] text-[#005653]">
                   ارسال دیدگاه جدید
                 </h3>
@@ -194,6 +194,7 @@ const Comments = () => {
                 <svg
                   width="17"
                   height="16"
+                
                   viewBox="0 0 17 16"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -212,8 +213,8 @@ const Comments = () => {
 
             {/* map commnets */}
             <div
-              className={` w-full   flex flex-wrap gap-[20.5px] overflow-hidden ${
-                showMore ? "h-[700px]" : "h-[]"
+              className={` w-full   flex flex-wrap gap-[20.5px]  overflow-hidden ${
+                showMore ? "h-[700px] max-md:h-[400px] max-md:gap-20" : "h-[] max-md:gap-[20.5px]"
               }`}
             >
               {comment.map((data, index) => (
@@ -241,10 +242,11 @@ const Comments = () => {
 
                       {/* like & dislike & reply svg */}
                       <div className="  flex  flex-row-reverse gap-3">
-                        <h1 className=" like">{data.comdislike}</h1>
+                        <h1 className=" like max-lg:text-[13px]">{data.comdislike}</h1>
                         <svg
                           width="20"
                           height="19"
+                            className=" max-lg:w-[15px] max-lg:h-[17px]"
                           viewBox="0 0 20 19"
                           fill="none"
                           xmlns="http://www.w3.org/2000/svg"
@@ -258,11 +260,12 @@ const Comments = () => {
                           />
                         </svg>
 
-                        <h1 className=" like">{data.comlikes}</h1>
+                        <h1 className=" like max-lg:text-[13px]">{data.comlikes}</h1>
 
                         <svg
                           width="20"
                           height="19"
+                            className=" max-lg:w-[15px] max-lg:h-[17px]"
                           viewBox="0 0 20 19"
                           fill="none"
                           xmlns="http://www.w3.org/2000/svg"
@@ -397,8 +400,9 @@ const Comments = () => {
 
             <button
               onClick={() => setShowMore(!showMore)}
-              className="border-[#E48900] border-[1px] text-[#D47300] mt-[20.5px]
-leading-[32px] font-normal font-Yekan text-[12px] flex items-center w-[120px] h-[35px] rounded-[25px] mx-auto justify-center gap-2   "
+              
+              className="border-[#E48900] relative border-[1px] text-[#D47300] mt-[20.5px] hover:scale-105 ease-in-out duration-150 
+leading-[32px] font-normal font-Yekan text-[12px] flex items-center w-[120px] h-[35px] rounded-[25px] mx-auto justify-center gap-2 max-md:mt-[-50px]   "
             >
               {showMore ? (
                 <svg
