@@ -1,6 +1,6 @@
 
 import Layout from "./components/layout/Layout"
-import ArticlesNexs from "./pages/articles and news/ArticlesNexs"
+import ArticlesNews from "./pages/articles and news/ArticlesNews"
 import Landing from "./pages/landing/Landing"
 import CoursPage from "./pages/cousrses/CoursPage" 
 
@@ -14,7 +14,7 @@ function App() {
 
       {/* <Landing/> */}
       <CoursPage/>
-      {/* <ArticlesNexs/> */}
+      {/* <ArticlesNews/> */}
     </Layout>
     </>
   )

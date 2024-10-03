@@ -77,7 +77,7 @@ const Filter = () => {
     } 
 
   return (
-    <div className='shadow-sm shadow-gray-300 outline-none rounded-xl p-4'>
+    <div className=' shadow-sm shadow-gray-300 outline-none rounded-xl p-4 '>
         <div className="flex p-3 relative
             rounded-sm rounded-t-lg shadow-sm shadow-gray-400 
             text-gray-900 bg-neutral-200 "

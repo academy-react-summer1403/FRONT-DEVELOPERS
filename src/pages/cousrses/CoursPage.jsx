@@ -1,9 +1,9 @@
-
-import Filter from './Filter';
+import { useState } from 'react';
+import Filter from '../../components/courspage/Filter';
 import Pagination from '../../components/Pagination';
-import CoursGridCard from './CoursGridCard';
+import CoursGridCard from '../../components/courspage/CoursGridCard';
+import CoursListCard from '../../components/courspage/CoursListCard';
 import SearchBar from '../../components/SearchBar';
-
 
 // images: 
 import Herobg from '../../assets/courses/49.svg'
@@ -14,8 +14,6 @@ import WindowView from '../../assets/courses/Vector.svg'
 import ListView from '../../assets/courses/Frame.svg'
 import dropdown from '../../assets/courses/Frame(4).svg'
 import List from '../../assets/courses/1221.svg'
-import CoursListCard from './CoursListCard';
-
 
 const CoursPage = () => {
     const categories =[
@@ -23,11 +21,19 @@ const CoursPage = () => {
         "جدید ترین",
         "محبوب ترین",
     ]    
+const [view, setView] = useState(<CoursGridCard/>)
+
+// const HandleView =(view)=>{
+//     set
+// }
 
     return(
     <div className='container  z-10'>
         <img src={BackImg} alt=""  
-          className='absolute w-96 left-[300px]  opacity-80 z-[-9999]'/>
+          className='absolute w-96 left-[300px] 
+           max-md:left-0
+            max-sm:left-0
+          opacity-80 z-[-9999]'/>
 
         {/* cours page hero */}
         <div style={{backgroundColor:"rgba(235,249,249,0.51)"}} className='flex flex-row  rounded-lg my-10 px-4 shadow-md
@@ -84,23 +90,29 @@ const CoursPage = () => {
         </div>
 
         {/* body of CoursPage */}
-        <div className='mt-44  grid grid-cols-4 gap-4
+        <div className='relative mt-44  grid grid-cols-4 gap-4
             max-md:flex flex-col-reverse
             max-sm:flex flex-col-reverse
            
         '>
             {/* cards section  */}
-            <div className='relative  col-span-3'>
+            <div className='relative  col-span-3 '>
                 {/* top part for view */}
                 <div className='relative flex flex-row'>
                     {/* right: buttons */}
                     <div >
                         <button className='relative shadow-md border border-gray-100 mr-2 p-3 hover:bg-gray-200 
                          transition duration-300 shadow-sm shadow-gray-400 outline-none indent-1
-                         rounded rounded-tl-2xl top-0' > <img src={WindowView} className='w-full h-full' /></button>
+                         rounded rounded-tl-2xl top-0' 
+                            onClick={()=>setView(<CoursGridCard/>)} 
+                        > <img src={WindowView} className='w-full h-full' /></button>
+
                         <button className='relative shadow-md  border border-gray-100 p-2 hover:bg-gray-200 
                         transition duration-300 shadow-sm shadow-gray-400 outline-none indent-1
-                        rounded rounded-tr-2xl top-1'> <img src={ListView} className='w-8 h-8'/> </button>
+                        rounded rounded-tr-2xl top-1'
+                            onClick={()=>setView(<CoursListCard/>)} 
+                        > <img src={ListView} className='w-8 h-8'/> </button>
+
                     </div>
                     {/* left: menu  */}
                     <div className="group absolute right-0 " >
@@ -139,8 +151,7 @@ const CoursPage = () => {
                 </div>
 
                 {/* cards  */}
-                <CoursListCard/>
-                <CoursGridCard/>
+                {view}
 
                 {/* paginantion  */}
                 <Pagination/>
