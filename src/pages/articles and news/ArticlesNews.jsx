@@ -24,11 +24,10 @@ const ArticlesNews = () => {
     return(
     <div className='container'>
         <img src={BackImg} alt=""  
-          className='absolute w-96 left-[300px] 
-            max-md:left-0
+          className='absolute w-[690px] left-[290px] 
+           max-md:left-0
             max-sm:left-0
-          opacity-80 z-0'/>
-          
+          opacity-80 z-[-9999]'/>
 
         {/*  page hero */}
         <div style={{backgroundColor:"rgba(235, 249, 249, 0.51)"}}
@@ -44,7 +43,7 @@ const ArticlesNews = () => {
             max-lg:h-[400px]
             max-md:h-[400px]'>
                 <img src={Herobg} alt=""  
-                className="absolute w-[390px] top-[168px]
+                className="absolute w-[390px] top-[160px]
                 max-sm:left-[3%]
                 max-md:w-[400px]  max-md:h-[400px] max-md:left-[20%]
                 max-lg:left-[26%]
@@ -86,7 +85,7 @@ const ArticlesNews = () => {
 
         </div>
 
-        {/* body of CoursPage */}
+        {/* body  */}
         <div className='my-28  grid grid-cols-4 gap-4
             max-md:flex flex-col-reverse
             max-sm:flex flex-col-reverse

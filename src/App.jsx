@@ -13,8 +13,8 @@ function App() {
     <Layout>
 
       {/* <Landing/> */}
-      <CoursPage/>
-      {/* <ArticlesNews/> */}
+      {/* <CoursPage/> */}
+      <ArticlesNews/>
     </Layout>
     </>
   )

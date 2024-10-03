@@ -18,7 +18,7 @@ const CoursGridCard = () => {
     max-md:grid-cols-2 
     max-lg:grid-cols-2 
     '>
-        <div className='relative grid-cols-1 rounded-xl max-md:m-4 px-4 '
+        <div className='relative grid-cols-1 rounded-xl max-md:m-4 px-4 bg-white'
             style={{boxShadow: "0px 1px 2px 0px rgba(0, 0, 0, 0.25)"}
             }
         >   

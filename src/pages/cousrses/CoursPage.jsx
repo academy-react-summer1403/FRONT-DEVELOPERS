@@ -23,22 +23,19 @@ const CoursPage = () => {
     ]    
 const [view, setView] = useState(<CoursGridCard/>)
 
-// const HandleView =(view)=>{
-//     set
-// }
-
     return(
     <div className='container  z-10'>
         <img src={BackImg} alt=""  
-          className='absolute w-96 left-[300px] 
+          className='absolute w-[690px] left-[300px] 
            max-md:left-0
             max-sm:left-0
           opacity-80 z-[-9999]'/>
 
         {/* cours page hero */}
-        <div style={{backgroundColor:"rgba(235,249,249,0.51)"}} className='flex flex-row  rounded-lg my-10 px-4 shadow-md
-        max-md:flex-col 
-        max-sm:flex-col
+        <div className='flex flex-row  rounded-lg my-10 px-4 shadow-md 
+        bg-gradient-to-tr from-teal-50 to-white 
+        max-md:flex-col max-md:m-4
+        max-sm:flex-col max-sm:m-4
         max-lg:flex-col
         max-xl:flex-row  
         ' >
@@ -63,7 +60,7 @@ const [view, setView] = useState(<CoursGridCard/>)
                 />
 
                 <img src={Heroring} alt="" 
-                className='absolute z-30 left-34 top-60 w-[470px] left-[60px] top-[310px]
+                className='absolute z-30 left-34 top-60 w-[470px] left-[68px] top-[291px]
                 max-sm:left-[3%]
                 max-md:w-[400px]  max-md:left-[20%]
                 max-lg:left-[20%]
@@ -91,8 +88,8 @@ const [view, setView] = useState(<CoursGridCard/>)
 
         {/* body of CoursPage */}
         <div className='relative mt-44  grid grid-cols-4 gap-4
-            max-md:flex flex-col-reverse
-            max-sm:flex flex-col-reverse
+            max-md:flex flex-col-reverse max-md:m-2
+            max-sm:flex flex-col-reverse max-sm:m-2
            
         '>
             {/* cards section  */}
@@ -115,7 +112,7 @@ const [view, setView] = useState(<CoursGridCard/>)
 
                     </div>
                     {/* left: menu  */}
-                    <div className="group absolute right-0 " >
+                    <div className="group absolute right-0 bg-white" >
                         
                         <div className="group flex p-2 
                         rounded rounded-t-2xl shadow-sm shadow-gray-400 outline-none indent-1 border border-gray-100 font-medium 
