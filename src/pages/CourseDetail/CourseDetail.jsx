@@ -43,17 +43,17 @@ const CourseDetial = () => {
 
      
 
-        <div className=" mt-8 w-[412px] max-md:left-16 max-md:absolute   max-sm:ml-1   max-sm:right-16  max-2xl:w-[380px] max-lg:w-[300px] max-xl:w-[350px] ">
+        <div className=" mt-8 w-[412px] max-md:left-16 max-md:absolute    max-sm:w-full max-sm:container max-sm:left-0   max-2xl:w-[380px] max-lg:w-[300px] max-xl:w-[350px] ">
        
           {/* detail section */}
           <Detail/>
 
           {/* RelatedCourses section */}
 
-          <div style={{boxShadow:" 0px 1px 2px 0 rgba(0, 0, 0, 0.25)"}} className="bg-white  flex max-md:h-[300px] max-lg:w-[300px] max-md:w-[500px]  flex-wrap max-2xl:w-[380px]  max-xl:w-[350px] mt-[35px]  rounded-[15px] w-[412px] h-[601px]  p-[23px]">
+          <div style={{boxShadow:" 0px 1px 2px 0 rgba(0, 0, 0, 0.25)"}} className="bg-white max-sm:w-full max-md:justify-center     dark:bg-slate-700 flex max-md:h-[300px] max-lg:w-[300px] max-md:w-[500px]  flex-wrap max-2xl:w-[380px]  max-xl:w-[350px] mt-[35px]  rounded-[15px] w-[412px] h-[601px]  p-[23px]">
 
-<div style={{boxShadow:" 0px 1px 2px 0 rgba(0, 0, 0, 0.25)"}} className=' bg-[#E8E8E8] rounded-t-[10px]  max-md:w-[500px] w-[378px] h-[50px] pr-[25px] justify-end flex items-center
- text-right text-[#555555] font-Yekan font-normal text-[20px] mb-[8px]'>دوره های مرتبط
+<div style={{boxShadow:" 0px 1px 2px 0 rgba(0, 0, 0, 0.25)"}} className=' bg-[#E8E8E8] rounded-t-[10px]  max-md:w-[500px] w-[378px] max-sm:w-full  h-[50px] pr-[25px] justify-end flex items-center
+ text-right text-[#555555] font-Yekan font-normal text-[20px] mb-[8px] dark:text-slate-100 dark:bg-slate-600'>دوره های مرتبط
     </div>
 
 
@@ -66,7 +66,7 @@ const CourseDetial = () => {
 
          
 
-        <div className="  max-xl:right-16 max-lg:right-8 max-lg:top-[303px] max-2xl:right-20 absolute right-24 top-[430px] mt-8 w-[809px] max-sm:left-7  max-2xl:top-[398px] max-xl:top-[335px] max-md:top-[1370px] max-md:left-5 max-2xl:w-[700px] max-lg:w-[400px] max-xl:w-[520px] max-md:w-[500px] max-md:mx-auto">
+        <div className="  max-xl:right-16 max-sm:w-full max-sm:left-0   max-lg:right-8 max-lg:top-[303px] max-2xl:right-20 absolute right-24 top-[430px]  w-[809px]   max-2xl:top-[398px] max-xl:top-[335px] max-md:top-[1370px] max-md:left-5 max-2xl:w-[700px] max-lg:w-[400px] max-xl:w-[520px] max-md:w-[500px] max-md:mx-auto">
           {/* Description section */}
 
           <Description/>
@@ -79,7 +79,7 @@ const CourseDetial = () => {
 
           {/* comments */}
           
-          <h4 className=" mark mt-5 max-xl:text-[20px]   ">نظرات</h4><div className="max-lg:w-[400px] max-xl:w-[520px]  max-md:w-[500px]">
+          <h4 className=" mark mt-5 max-xl:text-[20px] dark:text-slate-300  ">نظرات</h4><div className="max-lg:w-full max-xl:w-full]  max-sm:w-full max-md:w-[500px]">
           <Comments width={"w-[809px]"} height={"h-852px"}/></div>
           
        </div>

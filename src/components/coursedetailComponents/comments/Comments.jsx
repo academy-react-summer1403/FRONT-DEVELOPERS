@@ -172,28 +172,29 @@ const Comments = ({width,height}) => {
 
   return (
     <>
-      <div className="mt-[15px]">
+      <div className="mt-[15px] ">
 
         {/* comments */}
-        <div className=" relative  ">
+        <div className=" relative  w-full  ">
           
           <div
             style={{ boxShadow: " 0px 1px 2px 0 rgba(0, 0, 0, 0.25)" }}
-            className={`bg-white  mt-[15px] max-lg:mt-[8px] rounded-[15px]  ${width} max-xl:w-full max-lg:w-full     p-[20.5px] gap-[20.5px] justify-normal overflow-hidden ${
+            className={`bg-white dark:bg-slate-700 mt-[15px] max-lg:mt-[8px] rounded-[15px] w-full   ${width} max-xl:w-full max-lg:w-full     p-[20.5px] gap-[20.5px] justify-normal overflow-hidden ${
               showMore ? {height}  : "h-[]"
             }`}
           >
             <div className=" w-full h-[37px] mb-[20.5px] ">
 
               {/* new comment button */}
-              <button className="  w-[185px] h-[37px] max-xl:w-[170px] max-xl:h-[37px] rounded-[7px] bg-[#00E2DC] flex items-center justify-center  gap-2 ">
-                <h3 className="font-normal font-Yekan text-[15px] text-[#005653]">
+              <button className="  w-[185px] h-[37px] max-xl:w-[170px] max-xl:h-[37px] rounded-[7px] dark:bg-[#FF8A00] bg-[#00E2DC] flex items-center justify-center  gap-2 ">
+                <h3 className="font-normal font-Yekan text-[15px] text-[#005653] dark:text-white">
                   ارسال دیدگاه جدید
                 </h3>
 
                 <svg
                   width="17"
                   height="16"
+                  className=" dark:stroke-white stroke-[#005351]"
                 
                   viewBox="0 0 17 16"
                   fill="none"
@@ -201,7 +202,7 @@ const Comments = ({width,height}) => {
                 >
                   <path
                     d="M5.82813 7.5C5.82813 7.57874 5.79685 7.65425 5.74117 7.70992C5.6855 7.7656 5.60999 7.79687 5.53125 7.79687C5.45251 7.79687 5.377 7.7656 5.32133 7.70992C5.26565 7.65425 5.23438 7.57874 5.23438 7.5C5.23438 7.42126 5.26565 7.34575 5.32133 7.29008C5.377 7.2344 5.45251 7.20312 5.53125 7.20312C5.60999 7.20312 5.6855 7.2344 5.74117 7.29008C5.79685 7.34575 5.82813 7.42126 5.82813 7.5ZM5.82813 7.5H5.53125M8.79688 7.5C8.79688 7.57874 8.7656 7.65425 8.70992 7.70992C8.65425 7.7656 8.57874 7.79687 8.5 7.79687C8.42126 7.79687 8.34575 7.7656 8.29008 7.70992C8.2344 7.65425 8.20313 7.57874 8.20313 7.5C8.20313 7.42126 8.2344 7.34575 8.29008 7.29008C8.34575 7.2344 8.42126 7.20312 8.5 7.20312C8.57874 7.20312 8.65425 7.2344 8.70992 7.29008C8.7656 7.34575 8.79688 7.42126 8.79688 7.5ZM8.79688 7.5H8.5M11.7656 7.5C11.7656 7.57874 11.7343 7.65425 11.6787 7.70992C11.623 7.7656 11.5475 7.79687 11.4688 7.79687C11.39 7.79687 11.3145 7.7656 11.2588 7.70992C11.2032 7.65425 11.1719 7.57874 11.1719 7.5C11.1719 7.42126 11.2032 7.34575 11.2588 7.29008C11.3145 7.2344 11.39 7.20312 11.4688 7.20312C11.5475 7.20312 11.623 7.2344 11.6787 7.29008C11.7343 7.34575 11.7656 7.42126 11.7656 7.5ZM11.7656 7.5H11.4688M15.625 7.5C15.625 11.1068 12.4346 14.0312 8.5 14.0312C7.81694 14.0321 7.13678 13.9424 6.47729 13.7645C5.54769 14.4183 4.41367 14.7153 3.28292 14.6012C3.1572 14.5891 3.03201 14.572 2.90767 14.5498C3.29785 14.0899 3.56433 13.5382 3.68192 12.9467C3.75317 12.5849 3.57663 12.2334 3.31221 11.9761C2.11125 10.8076 1.375 9.23296 1.375 7.5C1.375 3.89317 4.56542 0.96875 8.5 0.96875C12.4346 0.96875 15.625 3.89317 15.625 7.5Z"
-                    stroke="#005351"
+                   
                     stroke-width="1.5"
                     stroke-linecap="round"
                     stroke-linejoin="round"
@@ -220,7 +221,7 @@ const Comments = ({width,height}) => {
               {comment.map((data, index) => (
                 <div
                   key={index}
-                  className=" p-[20.5px] w-full bg-[#f9f9f9] rounded-[7px]"
+                  className=" p-[20.5px] w-full bg-[#f9f9f9] dark:bg-slate-800 rounded-[7px]"
                 >
                   <div className="w-full h-[117]  flex justify-end flex-wrap">
                     <div className="h-[60px] w-full  flex justify-between flex-row-reverse">
@@ -231,7 +232,7 @@ const Comments = ({width,height}) => {
                         <div className=" profile ">{data.comprofile}</div>
 
                         <div className="text-right">
-                          <h3 className=" commentname">
+                          <h3 className=" commentname  max-lg:text-[12px]   max-lg:line-clamp-1 max-md:text-[15px]  max-md:line-clamp-none  ">
                             {" "}
                             {data.person} | {data.username}
                           </h3>
@@ -242,7 +243,7 @@ const Comments = ({width,height}) => {
 
                       {/* like & dislike & reply svg */}
                       <div className="  flex  flex-row-reverse gap-3">
-                        <h1 className=" like max-lg:text-[13px]">{data.comdislike}</h1>
+                        <h1 className=" like max-lg:text-[13px] max-md:text-[16px] ">{data.comdislike}</h1>
                         <svg
                           width="20"
                           height="19"
@@ -260,7 +261,7 @@ const Comments = ({width,height}) => {
                           />
                         </svg>
 
-                        <h1 className=" like max-lg:text-[13px]">{data.comlikes}</h1>
+                        <h1 className=" like max-lg:text-[13px] max-md:text-[16px]">{data.comlikes}</h1>
 
                         <svg
                           width="20"
@@ -301,13 +302,13 @@ const Comments = ({width,height}) => {
                     {/* text comment */}
 
                     <div className="h-[60px]  ">
-                      <p className=" comment text-[13px]">{data.commnetper}</p>
+                      <p className=" comment text-[13px] max-lg:text-[11px]  max-md:text-[12px]">{data.commnetper}</p>
                     </div>
                   </div>
 
                   <div
                     style={{ boxShadow: "inset 0px 1px 2px 0px #00000040 " }}
-                    className="border-r-[4px] border-r-[#01CEC9] p-[23.5px] w-full h-[160px] flex flex-wrap justify-end bg-[#ECECEC] rounded-[10px]"
+                    className="border-r-[4px] border-r-[#01CEC9] dark:border-r-[#FF8A00] p-[23.5px] w-full h-[160px] flex flex-wrap justify-end dark:bg-slate-900 bg-[#ECECEC] rounded-[10px]"
                   >
                     <div className="h-[60px] w-full  flex justify-between flex-row-reverse">
 
@@ -316,7 +317,7 @@ const Comments = ({width,height}) => {
                         <div className="profile">{data.replyprofile}</div>
 
                         <div className="text-right">
-                          <h3 className="commentname ">
+                          <h3 className="commentname  max-lg:text-[11px] max-md:text-[15px]  ">
                             {" "}
                             {data.reply} | {data.replyperson}
                           </h3>
@@ -326,7 +327,7 @@ const Comments = ({width,height}) => {
 
                       {/* reply svg like& dislike & reply */}
 
-                      <div className="  flex  flex-row-reverse gap-3 ">
+                      <div className="  flex  flex-row-reverse gap-3  max-lg:gap-1 max-md:gap-3  ">
                         <h1 className=" like leading-[15px]">
                           {data.replydislike}
                         </h1>
@@ -388,7 +389,7 @@ const Comments = ({width,height}) => {
 
                     {/* text reply */}
                     <div className="h-[60px]  w-[439px] ">
-                      <p className=" comment text-[12px]">{data.replyper}</p>
+                      <p className=" comment text-[12px]  max-lg:text-[11px] max-md:text-[12px]  max-md:line-clamp-none  max-lg:line-clamp-3">{data.replyper}</p>
                     </div>
                   </div>
                 </div>
@@ -401,7 +402,7 @@ const Comments = ({width,height}) => {
             <button
               onClick={() => setShowMore(!showMore)}
               
-              className="border-[#E48900] relative border-[1px] text-[#D47300] mt-[20.5px] hover:scale-105 ease-in-out duration-150 
+              className="border-[#E48900]  dark:border-[#E48900]  dark:text-[#fdb359]  relative border-[1px] text-[#D47300] mt-[20.5px] hover:scale-105 ease-in-out duration-150 
 leading-[32px] font-normal font-Yekan text-[12px] flex items-center w-[120px] h-[35px] rounded-[25px] mx-auto justify-center gap-2 max-md:mt-[-50px]   "
             >
               {showMore ? (

@@ -27,7 +27,7 @@ const ArticleDetail = () => {
         <div
           style={{ boxShadow: "box-shadow: 0 1px 2px 0 #00000026" }}
           className=" h-[328.15px] max-xl:h-[300.15px] max-lg:h-[250.15px] max-md:hidden w-full bg-gradient-to-bl
-     from-[#E4890026] to-[#01CEC939] rounded-tl-[75px] rounded-[10px] "
+     from-[#E4890026] dark:from-[#ce9e018a]  to-[#01CEC939] rounded-tl-[75px] rounded-[10px] "
         >
           <img
             style={{
@@ -45,14 +45,14 @@ const ArticleDetail = () => {
 
         <div
           style={{ boxShadow: " 0px 1px 2px 0 rgba(0, 0, 0, 0.25)" }}
-          className="bg-white max-xl:w-[400px] max-lg:h-[500px] max-md:w-full max-lg:w-[300px] flex flex-wrap max-md:h-72 max-md:justify-between max-md:gap-2  mt-[35px]  rounded-[15px] w-[479px] h-[601px]  p-[23px]"
+          className="bg-white dark:bg-slate-700 max-xl:w-[400px] max-lg:h-[500px] max-md:w-full max-lg:w-[300px] flex flex-wrap max-md:h-72 max-md:justify-between max-md:gap-2  mt-[35px]  rounded-[15px] w-[479px] h-[601px]  p-[23px]"
         >
           <div
             style={{ boxShadow: " 0px 1px 2px 0 rgba(0, 0, 0, 0.25)" }}
             className=" bg-[#E8E8E8] rounded-t-[10px]  w-[448px]
          h-[50px] pr-[25px] justify-end flex items-center
          text-right text-[#555555] font-Yekan
-         font-normal text-[20px] mb-[8px] max-lg:text-[18px] max-md:w-full"
+         font-normal text-[20px] mb-[8px] max-lg:text-[18px] max-md:w-full dark:bg-slate-600 dark:text-slate-100"
           >
             دوره های مرتبط
           </div>
@@ -74,12 +74,12 @@ const ArticleDetail = () => {
 
         <div
           style={{ boxShadow: " 0px 1px 2px 0 rgba(0, 0, 0, 0.25)" }}
-          className="bg-white max-xl:w-[420px] max-lg:w-[300px] max-md:w-full flex max-md:h-72  flex-wrap  mt-[35px] max-md:justify-center max-md:gap-2  rounded-[15px] w-[479px] h-[470px]  p-[23px]"
+          className="bg-white dark:bg-slate-700 max-xl:w-[420px] max-lg:w-[300px] max-md:w-full flex max-md:h-72  flex-wrap  mt-[35px] max-md:justify-center max-md:gap-2  rounded-[15px] w-[479px] h-[470px]  p-[23px]"
         >
           <div
             style={{ boxShadow: " 0px 1px 2px 0 rgba(0, 0, 0, 0.25)" }}
             className=" bg-[#E8E8E8] rounded-t-[10px]  w-[448px] h-[50px] pr-[25px] justify-end flex items-center
- text-right text-[#555555] font-Yekan font-normal  text-[20px] mb-[8px] max-lg:text-[18px] max-md:w-full"
+ text-right text-[#555555] font-Yekan font-normal  text-[20px] mb-[8px] max-lg:text-[18px] max-md:w-full dark:bg-slate-600 dark:text-slate-100 "
           >
             مطالب پیشنهادی
           </div>
@@ -109,11 +109,11 @@ const ArticleDetail = () => {
             boxShadow: "0px 1px 2px 0px #00000040",
             backdropFilter: " blur(7px)",
           }}
-          className=" h-[159px] max-xl:h-[131px] w-full    max-md:rounded-t-[75px] rounded-tr-[75px] rounded-[10px]  rounded-br-[5px]  bg-gradient-to-bl pt-[35px]  pl-[35px] pr-[30px]  from-[#01CEC939] to-[#E4890026] "
+          className=" h-[159px] max-xl:h-[131px] w-full    max-md:rounded-t-[75px] rounded-tr-[75px] rounded-[10px]  rounded-br-[5px]  bg-gradient-to-bl pt-[35px]  pl-[35px] pr-[30px] dark:from-[#ce9e018a]  from-[#01CEC939] to-[#E4890026] "
         >
           <div className=" flex items-center gap-2">
             <h1
-              className=" text-[25px] max-2xl:text-[19px] max-lg:text-[14px] max-lg:line-clamp-1 max-md:text-[18px] max-xl:text-[17px] font-bold font-Yekan flex  text-[#005351] text-justify  
+              className=" text-[25px] max-2xl:text-[19px] max-lg:text-[14px] max-lg:line-clamp-1 max-md:text-[18px] max-xl:text-[17px] font-bold font-Yekan flex dark:text-secondary  text-[#005351] text-justify  
         "
             >
               ری اکت چیست و چه کاربرد هایی دارد؟ + ۵ دلیل استفاده از ری اکت
@@ -123,11 +123,11 @@ const ArticleDetail = () => {
               width="11"
               height="10"
               viewBox="0 0 11 10"
-              className=" max-xl:w-[9px] max-xl:h-[8px]"
+              className=" max-xl:w-[9px] max-xl:h-[8px] dark:fill-orange fill-[#01CEC9]"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <ellipse cx="5.15439" cy="5" rx="5.10068" ry="5" fill="#01CEC9" />
+              <ellipse cx="5.15439" cy="5" rx="5.10068" ry="5" />
             </svg>
           </div>
 
@@ -200,7 +200,7 @@ const ArticleDetail = () => {
 
             <svg
               width="18"
-              className=" max-2xl:w-[16px] h-[18px]  max-xl:h-[16px] max-xl:w-[14px] "
+              className=" max-2xl:w-[16px] h-[18px]  max-xl:h-[16px] max-xl:w-[14px] dark:stroke-secondary stroke-[#00B4AF] "
               height="20"
               viewBox="0 0 18 20"
               fill="none"
@@ -208,7 +208,7 @@ const ArticleDetail = () => {
             >
               <path
                 d="M14.593 1.322C15.693 1.45 16.5 2.399 16.5 3.507V19L9 15.25L1.5 19V3.507C1.5 2.399 2.306 1.45 3.407 1.322C7.12319 0.890633 10.8768 0.890633 14.593 1.322Z"
-                stroke="#00B4AF"
+                
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
@@ -221,8 +221,8 @@ const ArticleDetail = () => {
  {/* comment section */}
 
          <div className="">
-          <h4 className="mark mt-5 max-lg:mt-1 max-xl:text-[23px] ">نظرات</h4>
-          <Comments width={"w-[754px] max-md:w-full"} height={"h-[808px] "} />
+          <h4 className="mark mt-5 max-lg:mt-1 max-xl:text-[23px]  dark:text-slate-300   ">نظرات</h4>
+          <Comments width={"w-[754px] "} height={"h-[808px] "} />
         </div>
     </div>
 
