@@ -1,4 +1,5 @@
 import React from 'react'
+import { motion } from 'framer-motion';
 
 import profile from "../../../assets/detail/prof.jpg"
 
@@ -157,7 +158,11 @@ const Detail = () => {
 
           <div style={{boxShadow:" 0px 1px 2px 0 rgba(0, 0, 0, 0.25)"}} className="bg-white dark:bg-slate-700 max-sm:w-full  max-md:w-[500px] rounded-[15px] w-full h-[1015px] max-md:h-[700px]  p-[23px] max-2xl:p-[15px]">
             {/* consent section & students number */}
-            <div className=" w-[366px]   h-[71px] max-xl:w-full  max-2xl:justify-start max-2xl:gap-4  max-xl:justify-between flex justify-between">
+            <motion.div
+            initial={{ x:200,opacity:0,y:0}}
+            animate={{ x:0,y:0,opacity:1}}
+            transition={{type:"spring" , stiffness:70,duration:100 , delay:0}}
+             className=" w-[366px]   h-[71px] max-xl:w-full  max-2xl:justify-start max-2xl:gap-4  max-xl:justify-between flex justify-between">
               {/* consent section */}
               <div style={{boxShadow:" 0px 1px 2px 0 rgba(0, 0, 0, 0.25)"}} className="w-[174px] max-2xl:w-[45%] h-[71px]  flex justify-center items-center gap-5 dark:bg-slate-800  bg-[#F7F7F7] rounded-[10px]">
                 <svg
@@ -208,7 +213,7 @@ const Detail = () => {
                   216 <h4 className="text-[#888888] dark:text-slate-200 ">دانشجو</h4>
                 </h4>{" "}
               </div>
-            </div>
+            </motion.div>
 
             <div className=" w-[367px] h-[860px] mt-[23px] max-sm:w-full  flex flex-wrap gap-[20px] max-md:w-[500px]">
               {/* class members percentage */}
@@ -224,21 +229,31 @@ const Detail = () => {
                 </div>
 
                 <div className=" h-[8px] rounded-full max-sm:w-full  bg-[#F0F0F0] mt-2">
-                  <div
+                  <motion.div
+                  initial={{ width:0, x:0,opacity:0,y:0}}
+                  animate={{width: "87%", x:0,y:0,opacity:1}}
+                  transition={{type:"keyframe" ,stiffness:90,duration:3 , delay:0}}
                     className="h-[8px] rounded-full bg-[#01CEC9]  max-sm:w-full  dark:bg-secondary"
-                    style={{ width: "87%" }}
+                  
                   >
                     {" "}
-                  </div>
+                  </motion.div>
                 </div>
               </div>
 
               <hr className="border-[1.5px] max-2xl:w-[95%]  border-[#F6F6F6]  w-full max-xl:w-[88%] max-lg:w-[75%] max-md:hidden" />
 
               {/* more details of classes */}
-              <div className='flex flex-wrap w-full gap-5 max-sm:justify-center  max-md:justify-start'>
+              <motion.div 
+              
+                
+              className='flex flex-wrap w-full gap-5  max-sm:justify-center  max-md:justify-start'>
               {coursedetals.map((item, index) => (
-                <div
+                <motion.div
+                initial={{ x:0,height:"0px",opacity:0,y:0}}
+              animate={{ x:0,y:0,opacity:1,height:"70px"}}
+              transition={{type:"spring" , stiffness:70,duration:3 , delay:0}}
+              
                   key={index}
                   style={{boxShadow:" 0px 1px 2px 0 rgba(0, 0, 0, 0.25)"}}
                   className=" w-full max-2xl:w-[95%] h-[70px]  dark:bg-slate-800 bg-[#F7F7F7] max-sm:w-[45%]      max-md:w-[45%] max-md:mt-[-250px] max-lg:w-[75%] rounded-[10px] max-xl:w-[88%] flex gap-4 items-center justify-end p-[25px] "
@@ -252,8 +267,8 @@ const Detail = () => {
                     </h2>
                   </div>
                   {item.icon}
-                </div>
-              ))}</div>
+                </motion.div>
+              ))}</motion.div>
 
               <hr className="border-[1.5px] border-[#F6F6F6] w-full max-2xl:w-[95%] max-xl:w-[88%] max-lg:w-[75%] max-md:hidden" />
 

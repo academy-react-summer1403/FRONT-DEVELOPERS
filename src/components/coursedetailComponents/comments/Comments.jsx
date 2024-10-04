@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 
 
 const Comments = ({width,height}) => {
@@ -213,7 +214,10 @@ const Comments = ({width,height}) => {
 
 
             {/* map commnets */}
-            <div
+            <motion.div
+             initial={{ x:0,opacity:0,y:-200}}
+             animate={{ x:0,y:0,opacity:1}}
+             transition={{type:"spring" , stiffness:70,duration:3 , delay:0}}
               className={` w-full   flex flex-wrap gap-[20.5px]  overflow-hidden ${
                 showMore ? "h-[700px] max-md:h-[400px] max-md:gap-20" : "h-[] max-md:gap-[20.5px]"
               }`}
@@ -394,7 +398,7 @@ const Comments = ({width,height}) => {
                   </div>
                 </div>
               ))}
-            </div>
+            </motion.div>
 
 
             {/* show more button */}

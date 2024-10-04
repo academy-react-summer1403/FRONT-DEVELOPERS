@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import image from "../../assets/detail/article.jpg";
 import RelatedCourses from "../../components/coursedetailComponents/RelatedCourses/RelatedCourses";
 import { samecourses, suggestion } from "../CourseDetail/CourseDetail";
 import ArticleDescription from "../../components/articledetail/articleDescription/ArticleDescription";
 import Comments from "../../components/coursedetailComponents/comments/Comments";
+import { motion } from "framer-motion";
 
 const ArticleDetail = () => {
   return (
@@ -22,9 +23,13 @@ const ArticleDetail = () => {
   {/*  2 */}
     
 
-      <div className="flex mt-[35px] max-2xl:left-0 max-md:w-full  max-2xl:absolute max-md:h-[650px] w-[479px] max-xl:w-[400px] max-lg:w-[300px]  max-lg:h-[1300px]   h-[1450px]  flex-wrap  justify-between">
+      <div className="flex mt-[35px]  max-2xl:left-0 max-md:w-full  max-2xl:absolute max-md:h-[650px] w-[479px] max-xl:w-[400px] max-lg:w-[300px]  max-lg:h-[1300px]   h-[1450px]  flex-wrap  justify-between">
         {/* image section */}
-        <div
+        <motion.div
+        
+        initial={{ x:0,opacity:0,y:-300}}
+        animate={{ x:0,y:0,opacity:1}}
+        transition={{type:"spring" ,duration:3 , delay:0}}
           style={{ boxShadow: "box-shadow: 0 1px 2px 0 #00000026" }}
           className=" h-[328.15px] max-xl:h-[300.15px] max-lg:h-[250.15px] max-md:hidden w-full bg-gradient-to-bl
      from-[#E4890026] dark:from-[#ce9e018a]  to-[#01CEC939] rounded-tl-[75px] rounded-[10px] "
@@ -39,7 +44,7 @@ const ArticleDetail = () => {
             src={image}
             alt=""
           />
-        </div>
+        </motion.div>
 
         {/* RelatedCourses section */}
 
@@ -102,9 +107,13 @@ const ArticleDetail = () => {
 
 
 {/*  1 */}
-    <div className="w-[754px] max-xl:w-[600px] top-[35px] right-24 max-2xl:right-0  max-lg:w-[450px] max-md:top-[800px] max-md:w-full  max-md:right-0 absolute">
+    <div className="w-[754px] max-xl:w-[600px] top-[0px] max-2xl:top-[35px]  right-24 max-2xl:right-0  max-lg:w-[450px] max-md:top-[800px] max-md:w-full  max-md:right-0 absolute">
 
-           <div
+           <motion.div
+
+        initial={{ x:300,opacity:0,y:0}}
+        animate={{ x:0,y:0,opacity:1}}
+        transition={{type:"spring" ,duration:3 , delay:0}}
           style={{
             boxShadow: "0px 1px 2px 0px #00000040",
             backdropFilter: " blur(7px)",
@@ -215,7 +224,7 @@ const ArticleDetail = () => {
               />
             </svg>
           </div>
-        </div>
+        </motion.div>
         {/* description section */}
         <ArticleDescription />
  {/* comment section */}

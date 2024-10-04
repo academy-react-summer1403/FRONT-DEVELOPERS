@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-
+import { motion } from 'framer-motion';
 
 const Description = () => {
 
@@ -14,9 +14,13 @@ const Description = () => {
 
       <div className=' relative '>
             <h4 className=" mark max-xl:text-[20px] max-md:mt-5 dark:text-slate-300 ">توضیحات</h4>
-            <div style={{boxShadow:" 0px 1px 2px 0 rgba(0, 0, 0, 0.25)"}} className="bg-white  dark:bg-slate-700 max-sm:w-full    mt-[15px] rounded-[15px] w-full  p-[36px]    ">
+            <motion.div style={{boxShadow:" 0px 1px 2px 0 rgba(0, 0, 0, 0.25)"}} className="bg-white  dark:bg-slate-700 max-sm:w-full    mt-[15px] rounded-[15px] w-full  p-[36px]    ">
               <div className="overflow-hidden relative ">
-                <p 
+                <motion.p 
+                 initial={{ x:0,opacity:0,y:-300}}
+                 animate={{ x:0,y:0,opacity:1}}
+                 transition={{type:"spring" ,duration:3 , delay:0}}
+
                   className={` text-[#7B7B7B] dark:text-slate-300 dark:bg-slate-700 max-sm:w-full text-[19px] text-right font-Yekan font-normal max-xl:text-[17px] max-lg:text-[15px]  leading-[32px] ${
                     showMore ? " h-[570px] " : "h-[]  "
                   }`}
@@ -59,7 +63,7 @@ const Description = () => {
                   برنامه نویسی سمت کاربر، طراحی رابط کاربری (UI) و به طور کلی
                   پروژه های تعامل محور و سریع علاقه دارید، ری اکت یکی از بهترین
                   دستیاران شما برای شما
-                </p>
+                </motion.p>
               </div>
               <button
                 onClick={() => setShowMore(!showMore)}
@@ -79,7 +83,7 @@ leading-[32px] font-normal font-Yekan text-[20px] flex items-center w-[174px] h-
                 )}
                 مطالعه بیشتر
               </button>
-            </div>
+            </motion.div>
           </div></div>
 </>
   )

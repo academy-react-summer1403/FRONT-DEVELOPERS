@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import image from "../../assets/detail/dimage.png";
-
+import { motion } from 'framer-motion';
 import CourseCard from "../../components/coursedetailComponents/coursecard/CourseCard";
 import Detail from "../../components/coursedetailComponents/detail/Detail";
 import Description from "../../components/coursedetailComponents/Description/Description";
@@ -30,9 +30,14 @@ const CourseDetial = () => {
 
       <div className="flex max-md:container  mt-[35px] justify-between">
         {/* image section */}
-        <div style={{boxShadow:"box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25)"}} className="max-xl:w-[550px] max-md:hidden max-lg:h-[300px] h-[395px] max-xl:h-[320px] w-[624px] max-2xl:mr-10">
+        <motion.div 
+            initial={{  x:-500,opacity:0,y:-200}}
+            animate={{ x:0,y:0,opacity:1}}
+            transition={{type:"spring",stiffness:40, delay:0.2}}
+        
+        style={{boxShadow:"box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25)"}} className="max-xl:w-[550px] max-md:hidden max-lg:h-[300px] h-[395px] max-xl:h-[320px] w-[624px] max-2xl:mr-10">
           <img className=" h-full w-full  rounded-[15px]" src={image} alt="" />
-        </div>
+        </motion.div>
         {/* course detail card */}
 
         <CourseCard/>

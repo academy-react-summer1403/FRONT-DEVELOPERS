@@ -1,7 +1,6 @@
 import { div, style } from "framer-motion/client";
 import React, { useState } from "react";
-import { FaAngleDown, FaAngleUp } from "react-icons/fa";
-
+import { motion } from "framer-motion";
 const HeadLines = () => {
   const [accordions, setAccordion] = useState([
     {
@@ -112,7 +111,12 @@ const HeadLines = () => {
         <div className=" w-full mt-[15px]  relative">
           <h4 className=" mark max-xl:text-[20px] dark:text-slate-300 ">سرفصل ها</h4>
 
-          <div className=" flex   mt-[15px] gap-[10px] flex-wrap">
+          <motion.div
+           initial={{ x:0,opacity:0,y:300}}
+           animate={{ x:0,y:0,opacity:1}}
+           transition={{type:"spring" , duration:3 , delay:0}}
+          
+          className=" flex   mt-[15px] gap-[10px] flex-wrap">
             {accordions.map((data, index) => (
               <div key={index}
                 style={{ boxShadow: " 0px 1px 3px 0 rgba(0, 0, 0, 0.25)" }}
@@ -224,7 +228,7 @@ const HeadLines = () => {
                 </div>
               </div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
     </>

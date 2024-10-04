@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 
 const ArticleDescription = () => {
   const [showMore, setShowMore] = useState(true);
@@ -13,7 +14,10 @@ const ArticleDescription = () => {
         <div
           className={` overflow-hidden    ${showMore ? "h-[1586px] max-lg:h-[800px] max-xl:h-[995px]" : "h-[] transition delay-150 duration-300"}`}
         >
-          <p 
+          <motion.p 
+                 initial={{ x:0,opacity:0,y:-300}}
+                 animate={{ x:0,y:0,opacity:1}}
+                 transition={{type:"spring" ,duration:3 , delay:0}}
             className={`bg-white dark:text-slate-300 dark:bg-slate-700 text-right  font-Yekan  max-sm:w-fullfont-normal text-[18px] max-lg:text-[14px] max-xl:text-[16px] text-[#555555] leading-[30px]   ${
               showMore ? "h-[1586px] max-xl:h-[995px] max-lg:h-[1200px]" : "h-[]"
             }`}
@@ -105,7 +109,7 @@ const ArticleDescription = () => {
             ذهن شما به وجود بیاره برای همین چندتا تعریف کوتاه دیگه رو در تکمیل
             اون به شما می‌گیم تا اگر مبتدی و تازه کار هم باشید خیلی راحت و
             مفهومی درکش کنید. یکبار برای همیشه!  dddhdh
-          </p>
+          </motion.p>
         </div>
 
         <button
@@ -152,7 +156,10 @@ leading-[32px] font-normal font-Yekan text-[20px] max-xl:text-[18px] flex items-
         </button>
       </div>
 
-      <div
+      <motion.div
+       initial={{ x:200,opacity:0,y:0}}
+       animate={{ x:0,y:0,opacity:1}}
+       transition={{type:"spring" , stiffness:70,duration:3 , delay:0}}
         style={{ boxShadow: " 0px 1px 2px 0 #00000040" }}
         className="max-sm:w-full my-[20px] px-[24.5px]  w-full h-[52px] rounded-[8px] bg-white dark:bg-slate-700  flex justify-between items-center"
       >
@@ -263,7 +270,7 @@ leading-[32px] font-normal font-Yekan text-[20px] max-xl:text-[18px] flex items-
             امتیاز ۳۵ نفر
           </h1>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

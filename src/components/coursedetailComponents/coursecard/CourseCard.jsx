@@ -1,10 +1,14 @@
 import React from 'react'
+import { motion } from 'framer-motion';
 
 const CourseCard = () => {
   return (
     <>
     {/* course detail card */}
-    <div style={{boxShadow:" 0px 1px 2px 0 rgba(0, 0, 0, 0.25)"}} className="max-xl:w-[500px]  max-sm:mx-auto max-xl:h-[320px] max-lg:h-[300px]  w-[598px] p-[36px] dark:dark:bg-slate-700 bg-[#FFFFFF]  rounded-[15px]  h-[395px]">
+    <motion.div 
+            initial={{  x:500,opacity:0,y:-200}}
+            animate={{ x:0,y:0,opacity:1}}
+            transition={{type:"spring",stiffness:40, delay:0.2}} style={{boxShadow:" 0px 1px 2px 0 rgba(0, 0, 0, 0.25)"}} className="max-xl:w-[500px]  max-sm:mx-auto max-xl:h-[320px] max-lg:h-[300px]  w-[598px] p-[36px] dark:dark:bg-slate-700 bg-[#FFFFFF]  rounded-[15px]  h-[395px]">
           <div className=" flex justify-between  relative"> 
             <svg
               width="27"
@@ -117,7 +121,7 @@ const CourseCard = () => {
               />
             </svg>
           </button>
-        </div>
+        </motion.div>
     </>
   )
 }
