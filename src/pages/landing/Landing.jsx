@@ -8,9 +8,11 @@ import News from '../../components/news/News'
 import Pudcasts from '../../components/pudcasts/Pudcasts'
 
 
+
 const Landing = () => {
   return (
     <div>
+        
         <Hero/>
         <Famous/>
         <Learning/>
@@ -18,6 +20,7 @@ const Landing = () => {
         <Products/>
         <News/>
         <Pudcasts/>
+        
     </div>
   )
 }

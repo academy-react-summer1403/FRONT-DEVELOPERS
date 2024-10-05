@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import FavImg from "../assets/landing/Favorite.svg";
 import ShopImg from "../assets/landing/Shopping Bag.svg";
 import UserImg from "../assets/landing/user.png";
-import Logo from "../assets/landing/logo1.svg";
+// import Logo from "../assets/landing/";
 import ResponsiveMenu from './ResponsiveMenu';
 import { MdDarkMode, MdMenu } from 'react-icons/md';
 import DarkMode from './DarkMode';
@@ -97,7 +97,7 @@ const Navbar = () => {
  {/* Logo section  */}
  <div className='hidden lg:block space-x-6'>
    <div className=' py-6 mt-0'>
-   <img src={Logo} alt="" className='rounded-full shadow-xl shadow-gray-600'/>
+   {/* <img src={Logo} alt="" className='rounded-full shadow-xl shadow-gray-600'/> */}
     </div> 
    
  </div>

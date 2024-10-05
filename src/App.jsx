@@ -1,19 +1,21 @@
+import { Outlet } from "react-router-dom"
+import Footer from "./components/Footer"
+import Navbar from "./components/Navbar"
 
-import Layout from "./components/layout/Layout"
-import Landing from "./pages/landing/Landing"
 
 
 function App() {
 
 
   return (
-    <>
-    <Layout>
+    <div className="bg-white dark:bg-gray-900 dark:text-white duration-200">
+    <Navbar/>
 
-      <Landing/>
+      <Outlet/>
+      
 
-    </Layout>
-    </>
+    <Footer/>
+    </div>
   )
 }
 
