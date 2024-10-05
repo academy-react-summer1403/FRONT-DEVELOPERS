@@ -1,4 +1,6 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
+
 
 // images: 
 import fima from '../../assets/courses/figma.svg'
@@ -13,10 +15,12 @@ import buy from '../../assets/landing/Rounded.svg'
 
 const CoursListCard = () => {
   return (
+    // container 
     <div className='grid grid-cols-1 gap-4 mt-8 p-2'>
-        
-        <div className='relative flex flex-row-reverse rounded-xl p-3 w-full
-         gap-[2%] max-md:gap-[9%] max-lg:gap-[10%] bg-white'
+        {/* map part of card:  */}
+        <NavLink to={"/"}>
+        <div className='group relative flex flex-row-reverse rounded-xl p-3 w-full
+         gap-[2%] max-md:gap-[9%] max-lg:gap-[10%] bg-white  dark:bg-gray-600/70 dark:hover:bg-secondary transition duration-500'
             style={{boxShadow: "0px 0px 2px 0px rgba(0, 0, 0, 0.25)"}
             }
         >   
@@ -35,10 +39,10 @@ const CoursListCard = () => {
                 <h3 className='text-right text-lg font-semibold'>دوره پیشرفته دیزاین</h3>
 
                 <div className='grid grid-cols-2 my-2 px-2 gap-3'>
-                    <div className='flex text-gray-400 text-sm'>
+                    <div className='flex text-gray-400 text-sm dark:text-gray-400 dark:group-hover:text-gray-200'>
                         <img src={hat} className='mr-1 relative top-[2px] w-[17px] h-[17px]'/>50
                     </div>
-                    <div className='flex flex-row-reverse text-sm text-gray-500'>
+                    <div className='flex flex-row-reverse text-sm text-gray-500 dark:text-gray-400 dark:group-hover:text-gray-200'>
                         <img src={teacher} className='ml-1 relative top-1 w-[18px] h-[18px]'/>حامدنظر
                     </div>
                     <div className='flex flex-rows'> 
@@ -49,7 +53,7 @@ const CoursListCard = () => {
                          <img src={star} className='w-[18px] h-[18px]'/>
                     </div>
                    
-                    <div className='flex flex-row-reverse text-sm text-gray-500'>
+                    <div className='flex flex-row-reverse text-sm text-gray-500 dark:text-gray-400 dark:group-hover:text-gray-200'>
                         <img src={level} className='ml-1 relative top-1 w-[18px] h-[18px]'/>    مقدماتی                    
                     </div>
                 </div>
@@ -65,9 +69,9 @@ const CoursListCard = () => {
                 </div>
             </div>
         </div> 
-
-    
+        </NavLink>
     </div>
+    
   )
 }
 

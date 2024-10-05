@@ -78,14 +78,14 @@ const Filter = () => {
 
   return (
     <div className='shadow-sm shadow-gray-300 outline-none rounded-xl p-4 '>
-        <div className="flex p-3 relative
+        <div className="flex p-3 relative 
             rounded-sm rounded-t-lg shadow-sm shadow-gray-400 
-            text-gray-900 bg-neutral-200 "
+            text-gray-900 bg-neutral-200 dark:bg-gray-700/70 dark:text-white"
         >
-            <img src={trash} className="h-6 w-6 mr-8 flex-none" />    
+            <img src={trash} className="h-6 w-6 mr-8 flex-none " />    
             <p className='absolute right-10 '>فیلتر ها</p>                        
             <img src={fillter}  
-            className="absolute right-2 top-4 " />                    
+            className="absolute right-2 top-4" />                    
 
         </div>
     
@@ -94,7 +94,7 @@ const Filter = () => {
             max-sm:grid'>
             {filter.map((data ,index )=>(
             <li key={index}         
-            className={`relative group bg-gray-50 p-2 my-4 text-right rounded-md shadow-sm shadow-gray-300
+            className={`relative group bg-gray-50 dark:bg-gray-700 p-2 my-4 text-right rounded-md shadow-sm shadow-gray-300
             max-md:m-2 max-md:px-4 max-md:${data.isOpen ? "h-2":"h-12"}
             `}
             >         
