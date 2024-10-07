@@ -12,6 +12,8 @@ import VarificationVorod from "./components/mainAuth/VarificationVorod.jsx";
 import AuthRoot from "./AuthRoot.jsx";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import CoursPage from "./pages/cousrses/CoursPage.jsx";
+import CourseDetial from "./pages/CourseDetail/CourseDetail.jsx";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +24,16 @@ const router = createBrowserRouter([
         index: true,
         path: "/",
         element: <Landing />,
+      },
+      {
+        index: true,
+        path: "/courses",
+        element: <CoursPage />,
+      },
+      {
+        index: true,
+        path: "/courses-detail",
+        element: <CourseDetial />,
       },
     ],
   },
