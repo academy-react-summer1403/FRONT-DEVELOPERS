@@ -7,10 +7,14 @@ import Background from "../../assets/landing/background.png";
 import more from "../../assets/landing/moreCourse.png";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as yup from "yup";
+import { NavLink } from "react-router-dom";
 
 
 
 const SignAuth = () => {
+
+  // const navigate = useNavigate()
+
   const validation = yup.object().shape({
     title: yup.string().required("پر کردن این فیلد اجباریست"),
   });
@@ -78,7 +82,7 @@ const SignAuth = () => {
               <div className="absolute w-[300px] h-[200px] left-[25px] top-[150px] ">
                 {/* text section  */}
 
-                <h1 className="w-[200px] h-[50px] text-green text-xl mx-auto text-center absolute left-[50px] -top-[70px] font-semibold">
+                <h1  className="w-[200px] h-[50px] text-green text-xl mx-auto text-center absolute left-[50px] -top-[70px] font-semibold">
                   ایجاد حساب کاربری
                 </h1>
 
@@ -105,14 +109,15 @@ const SignAuth = () => {
                       component="div"
                       className="text-red-500 w-[50px] text-[10px] font-semibold absolute whitespace-nowrap left-[50px] "
                     />
-
+                    <NavLink to={`/auth/v1`}>
                     <button
+                    // onClick={()=>navigate("/authS2")}
                       type="submit"
                       className="w-[90px] h-[30px] rounded-2xl bg-orange absolute top-[80px] right-[105px] text-white text-[10px] font-semibold"
                     >
                       دریافت کد تایید
                     </button>
-
+                    </NavLink>
                     <button
                       type="submit"
                       className="w-[90px] h-[30px] rounded-2xl  absolute top-[110px] right-[105px] text-green text-[10px] font-semibold"

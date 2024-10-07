@@ -1,14 +1,15 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { loginApi } from "../auth/auth";
 
 
-export function useCreateTodo(){
+export function useLogin(){
 
 
     const queryClient = useQueryClient()
 
 return useMutation({
 
-    mutationFn:(data)=>createTodo(data),
+    mutationFn:(data)=>loginApi(data),
     onMutate:()=>{
        console.log("mutate")
     },
@@ -27,7 +28,7 @@ return useMutation({
             console.log(error)
         }
         else{
-           await queryClient.invalidateQueries({queryKey:["todos"]})
+           await queryClient.invalidateQueries({queryKey:["login"]})
         }
         
     }

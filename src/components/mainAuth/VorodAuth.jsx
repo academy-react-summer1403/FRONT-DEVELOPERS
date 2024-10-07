@@ -10,33 +10,13 @@ import * as yup from "yup";
 import { loginApi } from '../../core/services/auth/auth';
 import { setItem } from '../../core/services/common/Storage.Services';
 import { getProfile } from '../../core/services/auth/user';
+import { useLogin } from '../../core/services/query/mutation';
+// import HandleChange from '../../hooks/handleChange';
 
 
 const VorodAuth = () => {
 
-  const [message, setMessage] = useState('');
-  // const [error, setError] = useState(null);
-
-function isValidEmail(email) {
-  return /\S+@\S+\.\S+/.test(email);
-}
-
-
-function isValidPhone(phone){
-  return /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/.test(phone);
-}
-
-  const handleChange = event => {
-    if (!(isValidEmail(event.target.value) || (isValidPhone(event.target.value) ))) {
-      // setError('ایمیل یا شماره همراه وارد نشده');
-    } else {
-      setError(null);
-    }
-
-    setMessage(event.target.value);
-  };
-  
-  
+    
 
 const loginUser =async ()=>{
 
@@ -46,8 +26,8 @@ const loginUser =async ()=>{
     "rememberMe": true
   }
 
-  const user = await loginApi(userObj);
-
+  // const user = await loginApi(userObj);
+    const user = useLogin(userObj)
 
   console.log(user.token);
   setItem("token" , user.token)
@@ -59,6 +39,15 @@ const getProfileFunc = async()=>{
   console.log(user)
 }
 
+
+// const HandleChangeItem = (e) => {
+//   return((prevState) => ({
+//     ...prevState,
+//     [e.target.name]: e.target.value,
+//   }));
+
+// };
+//   console.log(e.target.value);
 
 useEffect(()=>{
   // loginUser();
@@ -128,7 +117,7 @@ useEffect(()=>{
             initial={{ opacity: 0, x: 200 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ type: "spring", stiffness: 100, delay: 0.2 }}
-            //   src={HeroAImg}
+          
             alt=""
             className="w-[350px] h-[360px] absolute left-[225px] top-[80px]"
           >
@@ -158,11 +147,10 @@ useEffect(()=>{
                      id="email"
                      name="email"
                      placeholder="ایمیل یا شماره همراه"
-                    //  onChange={handleChange}
+                    //  onChange={HandleChangeItem}
                     className="w-[200px] h-[40px] ml-[50px] outline-none shadow-inner shadow-gray-400 border border-gray-300 rounded-lg bg-gray-100
                     text-[10px] font-semibold text-left indent-[10px] dark:text-black"
-                    // onChange={HandleChangeItem}
-                    // value={item.title}
+                   
                     required
                   />
               

@@ -10,6 +10,8 @@ import VarificationAuth from "./components/mainAuth/VarificationAuth.jsx";
 import VorodAuth from "./components/mainAuth/VorodAuth.jsx";
 import VarificationVorod from "./components/mainAuth/VarificationVorod.jsx";
 import AuthRoot from "./AuthRoot.jsx";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 const router = createBrowserRouter([
   {
@@ -29,24 +31,25 @@ const router = createBrowserRouter([
     element: <AuthRoot />,
     children: [
       {
-        index: true,
+        index:true,  
         path: "/auth",
         element: <SignAuth />,
       },
       {
-        path: "/authS2",
+        
+        path: "/auth/2",
         element: <VarificationAuth />,
       },
       {
-        path: "/authS3",
+        path: "/auth/3",
         element: <LoginAuth />,
       },
       {
-        path: "/authV1",
+        path: "/auth/v1",
         element: <VorodAuth />,
       },
       {
-        path: "/authV2",
+        path: "/auth/v2",
         element: <VarificationVorod />,
       },
     ],
@@ -54,8 +57,18 @@ const router = createBrowserRouter([
 
 ]);
 
+
+const queryClient = new   QueryClient({
+  defaultOptions:{queries:{retry:3 , retryDelay:1000}}
+})
+
+
+
 createRoot(document.getElementById("root")).render(
   <StrictMode>
+     <QueryClientProvider client={queryClient}>
     <RouterProvider router={router} />
+    <ReactQueryDevtools/>
+    </QueryClientProvider>
   </StrictMode>
 );
