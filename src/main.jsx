@@ -14,6 +14,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import CoursPage from "./pages/cousrses/CoursPage.jsx";
 import CourseDetial from "./pages/CourseDetail/CourseDetail.jsx";
+import ArticleDetail from "./pages/ArticleDetail/ArticleDetail.jsx";
+import ArticlesNews from "./pages/articles and news/ArticlesNews.jsx";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +36,16 @@ const router = createBrowserRouter([
         index: true,
         path: "/courses-detail",
         element: <CourseDetial />,
+      },
+      {
+        index: true,
+        path: "/article-detail",
+        element: <ArticleDetail />,
+      },
+      {
+        index: true,
+        path: "/article-news",
+        element: <ArticlesNews />,
       },
     ],
   },
