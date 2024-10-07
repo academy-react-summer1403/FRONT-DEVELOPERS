@@ -5,7 +5,6 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
 
-  darkMode:"class",
 
   theme: {
     extend: {
@@ -28,18 +27,13 @@ export default {
           "2xl":"8rem",
         }
       },
-      // container:{
-      //   center:true,
-      //   padding:{
-      //     DEFUALT:"1rem",
-      //     sm:"2rem",
-      //     lg:"4rem",
-      //     xl:"5rem",
-      //     "2xl":"6rem",
-      //   }
-      // },
+      
       
     },
+
+    fontFamily:{
+      Yekan:['Yekan','sans-serif']
+    }
   },
   plugins: [],
 }
