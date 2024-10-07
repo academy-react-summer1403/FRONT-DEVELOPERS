@@ -125,24 +125,7 @@ const Hero = () => {
              با دسترسی به بیش از هفت هزار ویدیوی اموزشی به زبان فارسی
             </motion.p>
             </div>
-            {/* button section  */}
-            <motion.div
-             variants={SliderRight(1.0)}
-             initial="hidden"
-             animate="visible"
-              className="flex gap-8 justify-center md:justify-start
-              !mt-8 items-center relative"
-            >
-              <div className='w-10 h-10 rounded-full bg-orange absolute left-[140px] z-50 -top-[15px]'>
-                <img src={SearchImg} alt="" className='px-1.5 py-1.5'/>
-                </div>  
-                <input placeholder='... دنبال چی میگردی ؟' type="search" className='w-3/4 h-[50px]  absolute right-0 -top-5 rounded-3xl shadow-sm shadow-gray-400  text-right font-semibold
-                text-gray-600 text-sm outline-none indent-1' />
-              
-              
-
-             
-            </motion.div>
+            
           </div>
        
         </div>
