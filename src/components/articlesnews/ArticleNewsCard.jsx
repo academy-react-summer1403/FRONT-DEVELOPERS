@@ -11,11 +11,12 @@ import flash from '../../assets/articles and news/Frame(2).svg'
 
 const ArticleNewsCard = () => {
   return (
-    <motion.NavLink
+    <NavLink to={"/article-detail"}>
+    <motion.div
         initial={{opacity:0 ,y:-200}}
         animate={{opacity:1 ,y:0}}
         transition={{type:"spring" , stiffness:100 , delay:0.3}}
-    to={"/"}>
+    >
         <div className='group bg-white dark:bg-gray-600/70 dark:hover:bg-secondary transition duration-500 relative grid-col-1 rounded-t-full shadow px-6
             max-sm:w-[70%] max-sm:mx-auto  max-sm:px-2          
         '>
@@ -47,7 +48,8 @@ const ArticleNewsCard = () => {
             </div>   
 
         </div>
-    </motion.NavLink>
+    </motion.div>
+    </NavLink>
   )
 }
 

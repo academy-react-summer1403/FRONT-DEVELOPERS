@@ -18,17 +18,18 @@ import { motion } from 'framer-motion'
 const CoursGridCard = () => {
   return (
     // container 
+    <NavLink to={"/courses-detail"}>
     <div className=' grid grid-cols-3 gap-4 mt-8 p-2 
     max-sm:grid-cols-1
     max-md:grid-cols-2 
     max-lg:grid-cols-2 
     '>
         {/* map part of card:  */}
-        <motion.NavLink 
+        <motion.div 
             initial={{opacity:0 ,y:-200}}
             animate={{opacity:1 , y:0}}
             transition={{type:"spring" , stiffness:50 , delay:0.2}}
-        to={"/"}>
+        >
             <div 
                 
             className='group relative grid-cols-1 rounded-xl max-md:m-4 px-4 mb-8 bg-white
@@ -81,10 +82,10 @@ const CoursGridCard = () => {
                 </div>
             </div>
 
-        </motion.NavLink>
+        </motion.div>
       
     </div>
-    
+    </NavLink>
   )
 }
 
