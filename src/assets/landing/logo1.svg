@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="232" height="85" viewBox="0 0 232 85">
+  <defs>
+    <clipPath id="clip-logo1">
+      <rect width="232" height="85"/>
+    </clipPath>
+  </defs>
+  <g id="logo1" clip-path="url(#clip-logo1)">
+    <rect width="232" height="85" fill="#fff"/>
+    <g id="Component_10_1" data-name="Component 10 – 1" transform="translate(0 -1)">
+      <path id="Path_3" data-name="Path 3" d="M0,0H47.894V72H0Z" transform="translate(79 0.9)" fill="#e80000"/>
+      <g id="Ellipse_5" data-name="Ellipse 5" transform="translate(59 0.9)" fill="none" stroke="#fff" stroke-width="15">
+        <circle cx="36" cy="36" r="36" stroke="none"/>
+        <circle cx="36" cy="36" r="28.5" fill="none"/>
+      </g>
+      <rect id="Rectangle_61" data-name="Rectangle 61" width="47" height="72" transform="translate(0 0.9)" fill="#ff8a00"/>
+      <rect id="Rectangle_62" data-name="Rectangle 62" width="54" height="72" transform="translate(178 0.9)" fill="#ff8a00"/>
+      <rect id="Rectangle_63" data-name="Rectangle 63" width="51" height="72" transform="translate(127 0.9)" fill="#01cec9"/>
+      <rect id="Rectangle_65" data-name="Rectangle 65" width="32" height="72" transform="translate(47 0.9)" fill="#008d8a"/>
+      <path id="Path_6" data-name="Path 6" d="M1571.894-2959l34.874,40.964V-2959.9H1623v73.153h-14.058l-37.048-44.522Z" transform="translate(-1445 2959.9)" fill="#fff"/>
+      <path id="Path_7" data-name="Path 7" d="M0,0H61.418V22.275H39.766V72.946H20.513V22.275H0Z" transform="translate(174.3)" fill="#fff"/>
+      <path id="Path_4" data-name="Path 4" d="M1493.33-2943.643h-29.672v14.25h29.672v12.278h-29.672v30.814H1446.23v-72.307h47.1Z" transform="translate(-1446.23 2959.453)" fill="#fff"/>
+      <path id="Path_5" data-name="Path 5" d="M31.215.036C46.088.036,57.006,8.019,56.9,20.5S52.057,37.71,38.6,39.776c0,0,17.221,32.476,16.249,32.476H41.574L25.1,41.132V29.039s18.541,4.5,18.741-7.053S25.1,14.81,25.1,14.81V.036A52.358,52.358,0,0,1,31.215.036Z" transform="translate(22 0.9)" fill="#fff"/>
+      <g id="Rectangle_66" data-name="Rectangle 66" transform="translate(0 0.9)" fill="none" stroke="#e80000" stroke-width="1">
+        <rect width="232" height="85" stroke="none"/>
+        <rect x="0.5" y="0.5" width="231" height="84" fill="none"/>
+      </g>
+      <text id="developers" transform="translate(45 81.9)" fill="#e80000" font-size="10" font-family="SegoeUIBlack-Italic, Segoe UI" font-style="italic" letter-spacing="1em"><tspan x="0" y="0">developers</tspan></text>
+    </g>
+  </g>
+</svg>
