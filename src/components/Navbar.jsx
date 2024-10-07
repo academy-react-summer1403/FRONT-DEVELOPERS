@@ -8,6 +8,7 @@ import ResponsiveMenu from './ResponsiveMenu';
 import { MdDarkMode, MdMenu } from 'react-icons/md';
 import DarkMode from './DarkMode';
 import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 
@@ -57,12 +58,12 @@ const Navbar = () => {
              justify-between items-center py-6 dark:bg-gray-900 duration-200'>
                 {/* ACCOUNT section  */}
                 <div className='text-2xl flex flex-row items-center gap-1 font-bold '>
-                    <div className='relative w-36 max-md:w-[150px]  max-sm:w-[150px] max-lg:w-[150px] max-xl:w-[180px] bg-primary
+                    <Link to="/auth" className='relative w-36 max-md:w-[150px]  max-sm:w-[150px] max-lg:w-[150px] max-xl:w-[180px] bg-primary
                     mt-8 rounded-3xl hover:shadow-lg hover:shadow-orange dark:bg-orange  dark:hover:shadow-lg dark:hover:shadow-orange
                     transition-shadow px-4 py-[7px]'>
                         <img src={UserImg} alt="" className='w-6 h-6  absolute '/>
                         <h1 className='text-sm  font-semibold text-white text-right leading-loose mr-1 pb-1 '>حساب کاربری</h1>
-                    </div> 
+                    </Link> 
 
                     <div className='flex justify-center flex-row gap-2 ml-3'>
                         <div className='relative'>
