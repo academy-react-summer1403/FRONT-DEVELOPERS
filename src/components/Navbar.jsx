@@ -7,6 +7,7 @@ import UserImg from "../assets/landing/user.png";
 import ResponsiveMenu from './ResponsiveMenu';
 import { MdDarkMode, MdMenu } from 'react-icons/md';
 import DarkMode from './DarkMode';
+import { NavLink } from 'react-router-dom';
 
 
 
@@ -52,10 +53,11 @@ const Navbar = () => {
     >
 
         <div>
-            <div className='container flex justify-between items-center py-6 dark:bg-gray-900  duration-200'>
+            <div className='container flex flex-row 
+             justify-between items-center py-6 dark:bg-gray-900 duration-200'>
                 {/* ACCOUNT section  */}
-                <div className='text-2xl flex items-center gap-1 font-bold '>
-                    <div className='relative w-36 max-md:w-[150px]  max-sm:w-[150px] max-lg:w-[150px] max-xl:w-[150px] bg-primary
+                <div className='text-2xl flex flex-row items-center gap-1 font-bold '>
+                    <div className='relative w-36 max-md:w-[150px]  max-sm:w-[150px] max-lg:w-[150px] max-xl:w-[180px] bg-primary
                     mt-8 rounded-3xl hover:shadow-lg hover:shadow-orange dark:bg-orange  dark:hover:shadow-lg dark:hover:shadow-orange
                     transition-shadow px-4 py-[7px]'>
                         <img src={UserImg} alt="" className='w-6 h-6  absolute '/>
@@ -63,9 +65,15 @@ const Navbar = () => {
                     </div> 
 
                     <div className='flex justify-center flex-row gap-2 ml-3'>
-                        <div className='relative '>
-                            <img src={ShopImg} alt="" className='mt-9'/>
-                            <div className='w-3 h-3 bg-orange rounded-full absolute bottom-[1px] right-0 '></div>
+                        <div className='relative'>
+                            <img src={ShopImg} alt="" className='  mt-8
+                                max-lg:w-[30px] 
+                                max-xl:mt-[35px] max-xl:w-[41px]  
+                                max-2xl:mt-[35px] max-2xl:w-[33px]       
+                              '
+                            />
+                            <div className='w-[14px] h-[14px] bg-orange rounded-full absolute bottom-[1px] right-0 leading-[13px] pl-[5px]
+                            text-white text-[8px] font-normal '>2</div>
                         </div>
                         <img src={FavImg} alt=""  className='mt-8 
                         max-lg:w-[30px] 
@@ -73,7 +81,7 @@ const Navbar = () => {
                         max-2xl:mt-[35px] max-2xl:w-[30px]'/>
 
                         {/* darkmode switch */}
-                        <div className='mt-[40px] max-lg:mt-[35px]'>
+                        <div className='mt-[40px] max-lg:mt-[35px] '>
                            <DarkMode/>
                         </div>
                     </div>                  
@@ -81,17 +89,19 @@ const Navbar = () => {
                 </div>
 
                 {/* menu section  */}
-                <div className='hidden lg:block'>
-                    <ul className='flex items-center gap-4 pr-10 mx-auto'>
+                <div className='hidden lg:block mt-8'>
+                    <ul className='flex  items-stretch gap-2'>
                         {
                             NavbarMenu.map((item)=>(
                                 <li key={item.id}>
-                                    <a href={item.link}
-                                        className='inline-block justify-center text-gray-500
-                                        text-lg max-xl:text-base max-xl:text-right whitespace-nowrap  py-1 px-2 xl:px-3
-                                        hover:text-secondary transition-all duration-300 
-                                        font-medium  mt-8 dark:text-white  dark:hover:text-orange'
-                                    >{item.title}</a>
+                                    <div className='hover:bg-gradient-to-r from-white from-1% via-secondary via-50% to-white to-99% pb-1
+                                    transition-all duration-300 dark:pb-0'>
+                                    <NavLink to={item.link}
+                                        className='inline-block justify-center text-gray-600 bg-white dark:bg-gray-900
+                                        text-md max-xl:text-base max-xl:text-right whitespace-nowrap  py-1 px-2 xl:px-3
+                                        font-medium  dark:text-white  dark:hover:text-orange'
+                                    >{item.title}</NavLink>
+                                    </div>
                                 </li>
                             ))
                         }
@@ -99,11 +109,10 @@ const Navbar = () => {
                 </div>
 
                 {/* Logo section  */}
-                <div className='hidden lg:block space-x-6'>
-                <div className=' py-6 mt-0'>
-                {/* <img src={Logo} alt="" className='rounded-full shadow-xl shadow-gray-600'/> */}
-                    </div> 
-                
+                <div className='hidden lg:block space-x-6 border'>
+                    <div className=' py-6 px-14 mt-0'>
+                    {/* <img src={Logo} alt="" className='rounded-full shadow-xl shadow-gray-600'/> */}...
+                    </div>                 
                 </div>
 
                 {/* mobile hamburger section  */}
