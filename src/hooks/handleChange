@@ -1,0 +1,10 @@
+//   const HandleChange = (e) => {
+//     return((prevState) => ({
+//       ...prevState,
+//       [e.target.name]: e.target.value,
+//     }));
+//   };
+
+//  console.log(e.target.value);
+
+//   export default HandleChange;
