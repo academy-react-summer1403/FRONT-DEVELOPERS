@@ -5,13 +5,14 @@ import BestTeachers from '../../components/BestTeachers/BestTeachers'
 import Products from '../../components/products/Products'
 import News from '../../components/news/News'
 import Pudcasts from '../../components/pudcasts/Pudcasts'
+import Hero from '../../components/Hero/Hero'
 
 
 
 const Landing = () => {
   return (
     <div>
-        
+        <Hero/>
         <Famous/>
         <Learning/>
         <BestTeachers/>
