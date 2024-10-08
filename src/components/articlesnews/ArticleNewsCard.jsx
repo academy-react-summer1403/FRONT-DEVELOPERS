@@ -9,7 +9,7 @@ import calenderIcon from '../../assets/articles and news/Frame.svg'
 import flash from '../../assets/articles and news/Frame(2).svg'
 
 
-const ArticleNewsCard = ({categoryName , googleDescribe , insertDate}) => {
+const ArticleNewsCard = ({title,miniDescribe  , addUserFullName , currentRate , currentView}) => {
   return (
     <NavLink to={"/article-detail"}>
     <motion.div
@@ -23,18 +23,18 @@ const ArticleNewsCard = ({categoryName , googleDescribe , insertDate}) => {
             <img src={newsImage} className='mx-auto  max-sm:w-[70%]'/>
 
             <div className='py-4 '>
-                <h3 className='text-lg font-medium text-teal-900 dark:text-white text-right'>{categoryName}</h3>
+                <h3 className='text-lg font-medium text-teal-900 dark:text-white text-right'>{title}</h3>
 
-                <p className='text-xs text-gray-400 dark:text-gray-300 text-right my-4'>{googleDescribe}
+                <p className='text-xs text-gray-400 dark:text-gray-300 text-right my-4'>{miniDescribe}
                 </p>
 
                 <div className='relative flex flex-row-reverse my-4'>
                     <div className='flex flex-row gap-1 text-xs text-gray-500 dark:text-gray-400 dark:group-hover:text-gray-200'>
-                        56بازدید
+                        {currentView}
                         <img src={seenIcon} />
                     </div>
                     <div className='absolute left-0 flex flex-row-reverse gap-1 text-xs text-gray-500 dark:text-gray-400 dark:group-hover:text-gray-200'>
-                        {insertDate}
+                        {currentRate}
                         <img src={calenderIcon}/>
                     </div>
                 </div>

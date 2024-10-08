@@ -16,15 +16,24 @@ import Heroring from '../../assets/courses/Ellipse 4.svg'
 import BackImg from "../../assets/courses/background.svg"
 import WindowView from '../../assets/courses/Vector.svg'
 import ListView from '../../assets/courses/Frame.svg'
+import { useCourses } from '../../core/services/query/queries';
 
 
 const CoursPage = () => {
+
+
+    const CoursesData = useCourses()
+    console.log(CoursesData)
+
+
+
+
     const categories =[
         "ارزان ترین",
         "جدید ترین",
         "محبوب ترین",
     ]    
-const [view, setView] = useState(<CoursGridCard/>)
+// const [view, setView] = useState(<CoursGridCard/>)
 
     return(
     <div className='container  z-10'>
@@ -111,7 +120,7 @@ const [view, setView] = useState(<CoursGridCard/>)
            
         '>
             {/* cards section  */}
-            <div className='relative  col-span-3  '>
+            <div className='relative  col-span-3  bg-red-200'>
                 {/* top part for view */}
                 <div className='relative flex flex-row'>
                     {/* right: buttons */}
@@ -167,7 +176,15 @@ const [view, setView] = useState(<CoursGridCard/>)
                 </div>
 
                 {/* cards  */}
-                {view}
+                {
+                     CoursesData.data?.courseFilterDtos.map((item)=>(
+
+                                <CoursGridCard  {...item}/>
+
+                        ))
+
+
+                   }               
 
                 {/* paginantion  */}
                 <Pagination/>

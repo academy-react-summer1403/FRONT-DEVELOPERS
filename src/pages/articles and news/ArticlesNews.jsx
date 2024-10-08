@@ -14,17 +14,13 @@ import { BiMenuAltRight } from 'react-icons/bi';
 import { IoIosArrowDown } from 'react-icons/io';
 import { motion } from 'framer-motion';
 import { useNewsData } from '../../core/services/query/queries';
-// import { useState } from 'react';
-// import { useState } from 'react';
-
 
 
 const ArticlesNews = () => {
 
-   
 
-    const {data} = useNewsData();
-    // console.log(newsDataQuery)
+    const newsDataQuery = useNewsData();
+    console.log(newsDataQuery)
 
 
 
@@ -180,18 +176,17 @@ const ArticlesNews = () => {
                     
                 '>
                    {
-                
-                        data?.map((item)=>(
+                       newsDataQuery.data?.news.map((item)=>(
 
-                            <ArticleNewsCard key={item.id} {...item}/>
+                                <ArticleNewsCard  {...item}/>
 
-                    ))
-                    
+                        ))
 
 
                    }     
 
-                    
+
+                  
                 </div>
 
                 <Pagination/>

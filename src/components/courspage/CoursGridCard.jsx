@@ -15,7 +15,7 @@ import { motion } from 'framer-motion'
 
 
 
-const CoursGridCard = () => {
+const CoursGridCard = ({teacherName}) => {
   return (
     // container 
     <NavLink to={"/courses-detail"}>
@@ -23,6 +23,7 @@ const CoursGridCard = () => {
     max-sm:grid-cols-1
     max-md:grid-cols-2 
     max-lg:grid-cols-2 
+    bg-blue-200
     '>
         {/* map part of card:  */}
         <motion.div 
@@ -55,7 +56,7 @@ const CoursGridCard = () => {
                             <img src={hat} className='mr-1 relative top-[2px] w-[17px] h-[17px]'/>50
                         </div>
                         <div className='flex flex-row-reverse text-sm text-gray-500 dark:text-gray-400 dark:group-hover:text-gray-200'>
-                            <img src={teacher} className='ml-1 relative top-1 w-[18px] h-[18px]'/>حامدنظر
+                            <img src={teacher} className='ml-1 relative top-1 w-[18px] h-[18px]'/>{teacherName}
                         </div>
                         <div className='flex flex-rows'> 
                             <img src={starbg} className='w-[18px] h-[18px]'/>
