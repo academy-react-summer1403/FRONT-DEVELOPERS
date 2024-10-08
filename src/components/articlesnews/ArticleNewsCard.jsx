@@ -9,7 +9,7 @@ import calenderIcon from '../../assets/articles and news/Frame.svg'
 import flash from '../../assets/articles and news/Frame(2).svg'
 
 
-const ArticleNewsCard = () => {
+const ArticleNewsCard = ({categoryName , googleDescribe , insertDate}) => {
   return (
     <NavLink to={"/article-detail"}>
     <motion.div
@@ -18,15 +18,14 @@ const ArticleNewsCard = () => {
         transition={{type:"spring" , stiffness:100 , delay:0.3}}
     >
         <div className='group bg-white dark:bg-gray-600/70 dark:hover:bg-secondary transition duration-500 relative grid-col-1 rounded-t-full shadow px-6
-            max-sm:w-[70%] max-sm:mx-auto  max-sm:px-2          
+            max-sm:w-[70%] max-sm:mx-auto  max-sm:px-2  overflow-hidden        
         '>
             <img src={newsImage} className='mx-auto  max-sm:w-[70%]'/>
 
             <div className='py-4 '>
-                <h3 className='text-lg font-medium text-teal-900 dark:text-white text-right'>انگولار بهتر است یا ریکت؟</h3>
+                <h3 className='text-lg font-medium text-teal-900 dark:text-white text-right'>{categoryName}</h3>
 
-                <p className='text-xs text-gray-400 dark:text-gray-300 text-right my-4'>طرح‌نما یا لورم ایپسوم به نوشتاری آزمایشی و
-                    بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود
+                <p className='text-xs text-gray-400 dark:text-gray-300 text-right my-4'>{googleDescribe}
                 </p>
 
                 <div className='relative flex flex-row-reverse my-4'>
@@ -35,7 +34,7 @@ const ArticleNewsCard = () => {
                         <img src={seenIcon} />
                     </div>
                     <div className='absolute left-0 flex flex-row-reverse gap-1 text-xs text-gray-500 dark:text-gray-400 dark:group-hover:text-gray-200'>
-                        1403/02/03
+                        {insertDate}
                         <img src={calenderIcon}/>
                     </div>
                 </div>

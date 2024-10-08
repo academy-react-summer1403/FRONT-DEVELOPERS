@@ -2,6 +2,7 @@ import React from 'react'
 import Search from '../assets/landing/Search.svg'
 import { motion } from 'framer-motion'
 import { SliderRight } from '../utility/animation';
+// import HandleChange from '../hooks/handleChange';
 
 
 const SearchBar = ({placeholder}) => {
@@ -31,7 +32,7 @@ const SearchBar = ({placeholder}) => {
               '
               style={{boxShadow:" 0px 0.1px 1px 1px rgba(0, 0, 0, 0.1)"}}
               
-              onChange={" "}
+              // onChange={HandleChange}
             />
         </motion.div>
       )

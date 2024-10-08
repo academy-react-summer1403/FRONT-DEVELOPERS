@@ -13,9 +13,24 @@ import OfferSection from '../../components/articlesnews/OfferSection';
 import { BiMenuAltRight } from 'react-icons/bi';
 import { IoIosArrowDown } from 'react-icons/io';
 import { motion } from 'framer-motion';
+import { useNewsData } from '../../core/services/query/queries';
+// import { useState } from 'react';
+// import { useState } from 'react';
+
 
 
 const ArticlesNews = () => {
+
+   
+
+    const {data} = useNewsData();
+    // console.log(newsDataQuery)
+
+
+
+    
+
+
     const categories =[
         "جدید ترین",
         "محبوب ترین",
@@ -161,9 +176,22 @@ const ArticlesNews = () => {
                 <div className='grid grid-cols-3 my-8 gap-4
                     max-sm:grid-cols-1
                     max-md:grid-cols-2 
-                    max-lg:grid-cols-2 
+                    max-lg:grid-cols-2
+                    
                 '>
-                   <ArticleNewsCard/>
+                   {
+                
+                        data?.map((item)=>(
+
+                            <ArticleNewsCard key={item.id} {...item}/>
+
+                    ))
+                    
+
+
+                   }     
+
+                    
                 </div>
 
                 <Pagination/>

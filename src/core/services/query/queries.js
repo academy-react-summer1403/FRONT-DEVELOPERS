@@ -1,10 +1,14 @@
-import { useQuery } from "@tanstack/react-query";
-import { getProfile } from "../auth/user";
+import {  useQuery } from "@tanstack/react-query";
+import { getNews } from "../api";
 
-export function useProductsIds() {
+
+
+export function useNewsData() {
     return useQuery({
-      queryKey: ["profile"],
-      queryFn: () => getProfile(),
+      queryKey: ["news" ],
+      queryFn: () => getNews(),
 
     });
   }
+
+ 
