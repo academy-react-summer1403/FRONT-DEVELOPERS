@@ -1,7 +1,20 @@
 import React from 'react'
 import { motion } from 'framer-motion';
+import { useParams } from 'react-router-dom';
+import { useCourses } from '../../../core/services/query/queries';
 
 const CourseCard = () => {
+  
+
+  // const {id} = useParams();
+
+  
+  // const CourseDetail = useCourses(id);
+  // console.log(CourseDetail.data?.courseFilterDtos);
+
+
+
+
   return (
     <>
     {/* course detail card */}
@@ -30,7 +43,7 @@ const CourseCard = () => {
             {/* course name */}
 
             <h2 className=" text-right font-bold max-lg:mt-[-20px] dark:text-white text-[24px] max-xl:text-[20px] max-lg:text-[18px]  leading-10 text-black">
-              React Jsدوره تخصصی و جامع
+              {/* {CourseDetail.data?.courseFilterDtos.title} */}
             </h2>
           </div>
 

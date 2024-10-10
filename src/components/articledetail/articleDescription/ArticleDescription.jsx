@@ -1,7 +1,18 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { useArticleDetail } from "../../../core/services/query/queries";
+import { useParams } from "react-router-dom";
 
 const ArticleDescription = () => {
+
+  const { id } = useParams();
+
+  
+  const articleDetail = useArticleDetail(id);
+  console.log(articleDetail.data?.news[0].title);
+
+
+
   const [showMore, setShowMore] = useState(true);
   console.log(showMore);
 
@@ -181,7 +192,7 @@ leading-[32px] font-normal font-Yekan text-[20px] max-xl:text-[18px] flex items-
                 stroke-linejoin="round"
               />
             </svg>
-            26
+          {articleDetail.data?.news[0].currentLikeCount}
             <svg
               className="max-xl:h-[15px] max-xl:w-[16px] stroke-[#AAAAAA] dark:stroke-orange"
               width="20"
@@ -199,7 +210,8 @@ leading-[32px] font-normal font-Yekan text-[20px] max-xl:text-[18px] flex items-
                 stroke-linejoin="round"
               />
             </svg>
-            1
+          {articleDetail.data?.news[0].currentDissLikeCount}
+            
           </div>
 
           <div className="  flex items-center gap-2">
@@ -267,7 +279,7 @@ leading-[32px] font-normal font-Yekan text-[20px] max-xl:text-[18px] flex items-
           </svg>
 
           <h1 className=" share max-xl:text-[14px]  max-sm:text-[12px] ">
-            امتیاز ۳۵ نفر
+            امتیاز {articleDetail.data?.news[0].currentView} نفر
           </h1>
         </div>
       </motion.div>

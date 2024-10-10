@@ -34,12 +34,12 @@ const router = createBrowserRouter([
       },
       {
         index: true,
-        path: "/courses-detail",
+        path: "/courses-detail/:courseId",
         element: <CourseDetial />,
       },
       {
         index: true,
-        path: "/article-detail",
+        path: "/article-detail/:id",
         element: <ArticleDetail />,
       },
       {

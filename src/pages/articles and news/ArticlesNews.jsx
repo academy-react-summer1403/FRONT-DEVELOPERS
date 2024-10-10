@@ -14,15 +14,20 @@ import { BiMenuAltRight } from 'react-icons/bi';
 import { IoIosArrowDown } from 'react-icons/io';
 import { motion } from 'framer-motion';
 import { useNewsData } from '../../core/services/query/queries';
+import { useState } from 'react';
+import { SliderRight } from '../../utility/animation';
 
 
 const ArticlesNews = () => {
 
 
-    const newsDataQuery = useNewsData();
+    const [query, setQuery] = useState({});
+
+    const newsDataQuery = useNewsData(query);
     console.log(newsDataQuery)
 
 
+  
 
     
 
@@ -103,7 +108,36 @@ const ArticlesNews = () => {
                 </div>
                 <p className='mr-5 mt-3 text-lg text-gray-400 dark:text-gray-600'>با ما خودت رو به روز کن</p>
                 {/* search box  */}
-                <SearchBar placeholder={"...چی میخوای یاد بدونی؟"}/>
+                {/* <SearchBar  placeholder={"...چی میخوای یاد بدونی؟"}/> */}
+                <motion.div
+        variants={SliderRight(1.0)}
+        initial="hidden"
+        animate="visible"
+        className='flex flex-row  w-3/4 
+            max-sm:w-full max-sm:mr-2
+            max-md:w-full
+            max-lg:w-full
+            max-xl:w-3/4'
+        >
+
+            <div className="relative top-[32px] left-[65px] bg-orange rounded-full  w-14 h-[50px] z-40 ">               
+              <img  className="w-[25px] h-[29px] mt-[11px] ml-3 "/>
+            </div>
+
+            <input
+               onChange={(e)=>setQuery(e.target.value)}
+              id="search"
+              name="search"
+              type="text"
+            //   placeholder={placeholder}
+              className='mx-2 backdrop-blur-sm my-6  w-full
+               h-[65px] rounded-full text-right pr-8 pb-2 dark:bg-gray-700/70  
+              '
+              style={{boxShadow:" 0px 0.1px 1px 1px rgba(0, 0, 0, 0.1)"}}
+              
+              // onChange={HandleChange}
+            />
+        </motion.div>
                 
             </div>
 
@@ -178,6 +212,7 @@ const ArticlesNews = () => {
                    {
                        newsDataQuery.data?.news.map((item)=>(
 
+                        
                                 <ArticleNewsCard  {...item}/>
 
                         ))
@@ -189,7 +224,7 @@ const ArticlesNews = () => {
                   
                 </div>
 
-                <Pagination/>
+                <Pagination />
             </div>
 
         </div>

@@ -1,23 +1,36 @@
 import http from "../services/interceptor"
 
-// export const getNews = async ()=>{
-//     const data =await http.get("/News/GetListNewsCategory")
-//     console.log(data)
-//     return data;
-// }
 
 
-export const getNews = async ()=>{
-    const data =await http.get("/News?PageNumber=1&RowsOfPage=9&SortingCol=InsertDate&SortType=DESC")
+
+export const getNews = async (query)=>{
+    const data =await http.get(`/News?PageNumber=1&RowsOfPage=10&Query=${query}`)
     console.log(data)
     return data;
     
 }
 
 
-export const getCourse = async ()=>{
-    const data =await http.get("/Home/GetCoursesWithPagination?PageNumber=1&RowsOfPage=3&SortingCol=Active&SortType=DESC&TechCount=0")
+export const getNewsId = async (id) => {
+    const data = await http.get(`/News/?id=${id}`);
+    console.log(data)
+    return data
+  };
+
+
+export const getCourse = async (query)=>{
+    const data =await http.get(`/Home/GetCoursesWithPagination?PageNumber=1&RowsOfPage=9&Query=${query}`)
     console.log(data)
     return data;
     
 }
+
+export const getCourseId = async (courseId)=>{
+    const data =await http.get(`/Home/GetCourseDetails?CourseId=${courseId}`)
+    console.log(data)
+    console.log(courseId)
+    return data;
+  
+    
+}
+

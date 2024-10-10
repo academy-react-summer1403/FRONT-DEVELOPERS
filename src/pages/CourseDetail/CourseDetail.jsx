@@ -9,10 +9,22 @@ import HeadLines from "../../components/coursedetailComponents/Headlines/HeadLin
 import Comments from "../../components/coursedetailComponents/comments/Comments";
 import RelatedCourses from "../../components/coursedetailComponents/RelatedCourses/RelatedCourses";
 
+import {   useCourseId } from "../../core/services/query/queries";
+import { useParams } from "react-router-dom";
+
 const CourseDetial = () => {
 
 
 
+
+  const {courseId} = useParams();
+  console.log({courseId})
+  
+
+ 
+
+  const CourseDetail = useCourseId(courseId);
+  console.log(CourseDetail);
 
   
   

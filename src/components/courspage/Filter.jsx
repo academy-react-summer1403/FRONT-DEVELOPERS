@@ -6,8 +6,12 @@ import fillter from '../../assets/courses/Vector(1).svg'
 import arrow from '../../assets/courses/arrow.svg'
 import stars from '../../assets/landing/stars.svg'
 import star2 from '../../assets/courses/star2.svg'
+// import { useCourses } from '../../core/services/query/queries'
 
 const Filter = () => {
+
+
+
     const [filter, setFilter] = useState([
             {
                 id:1,
@@ -16,9 +20,9 @@ const Filter = () => {
                         "react",
                         "java script",
                         ".net core",
-                        "tail wind",
+                        "tailwind",
                 ],
-
+               
                 isOpen : false,
             },
             {
@@ -74,6 +78,7 @@ const Filter = () => {
         });
 
         setFilter(updateAccordions);
+           
     } 
 
   return (
@@ -111,10 +116,10 @@ const Filter = () => {
                     {data.isOpen && <div>
                         
                         {data.enName.map((item , index)=>(
-                            <div key={index} className="z-40 relative">
+                            <div key={index} className="z-40 relative bg-red-500" >
                                 
                                 <label to='checkbox'>{item}</label>
-                                <input type='checkbox' name='checkbox' className='ml-2 cursor-pointer z-[800]'/>
+                                <input type='checkbox' name='checkbox' className='ml-2 cursor-pointer z-[800]' />
                             </div>
                         ))}
                     </div>}                  

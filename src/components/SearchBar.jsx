@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Search from '../assets/landing/Search.svg'
 import { motion } from 'framer-motion'
 import { SliderRight } from '../utility/animation';
+// import { useCourses } from '../core/services/query/queries';
 // import HandleChange from '../hooks/handleChange';
 
 
 const SearchBar = ({placeholder}) => {
+
+
     return (
         <motion.div
         variants={SliderRight(1.0)}
@@ -23,6 +26,7 @@ const SearchBar = ({placeholder}) => {
             </div>
 
             <input
+               onChange={(e)=>setSearch(e.target.value)}
               id="search"
               name="search"
               type="text"

@@ -3,7 +3,7 @@ import Filter from '../../components/courspage/Filter';
 import Pagination from '../../components/Pagination';
 import CoursGridCard from '../../components/courspage/CoursGridCard';
 import CoursListCard from '../../components/courspage/CoursListCard';
-import SearchBar from '../../components/SearchBar';
+// import SearchBar from '../../components/SearchBar';
 import { IoIosArrowDown } from 'react-icons/io';
 import { BiMenuAltRight } from 'react-icons/bi';
 import { motion } from 'framer-motion';
@@ -17,13 +17,36 @@ import BackImg from "../../assets/courses/background.svg"
 import WindowView from '../../assets/courses/Vector.svg'
 import ListView from '../../assets/courses/Frame.svg'
 import { useCourses } from '../../core/services/query/queries';
+import { SliderRight } from '../../utility/animation';
+
+
 
 
 const CoursPage = () => {
+  
+    const [query, setQuery] = useState({});
+
+   
+
+  
 
 
-    const CoursesData = useCourses()
+    const CoursesData = useCourses(query)
     console.log(CoursesData)
+
+    
+
+    
+//    const params = {
+//     PageNumber,
+//     RowsOfPage,
+//     SortingCol,
+//     SortType,
+//     Query,
+//     TechCount,
+//     ListTech
+//   }
+//   console.log(params)
 
 
 
@@ -107,7 +130,36 @@ const CoursPage = () => {
                 </div>
                 <p className='mr-4 mt-6 text-xl text-gray-400 dark:text-gray-200'>به روز ترین دوره هایی که میتونید پیدا کنید</p>
                 {/* search box  */}
-                <SearchBar placeholder={"...چی میخوای یاد بگیری؟"}/>
+                {/* <SearchBar placeholder={"...چی میخوای یاد بگیری؟"}/> */}
+                <motion.div
+        variants={SliderRight(1.0)}
+        initial="hidden"
+        animate="visible"
+        className='flex flex-row  w-3/4 
+            max-sm:w-full max-sm:mr-2
+            max-md:w-full
+            max-lg:w-full
+            max-xl:w-3/4'
+        >
+
+            <div className="relative top-[32px] left-[65px] bg-orange rounded-full  w-14 h-[50px] z-40 ">               
+              {/* <img src={Search} className="w-[25px] h-[29px] mt-[11px] ml-3 "/> */}
+            </div>
+
+            <input
+               onChange={(e)=>setQuery(e.target.value)}
+              id="search"
+              name="search"
+              type="text"
+            //   placeholder={placeholder}
+              className='mx-2 backdrop-blur-sm my-6  w-full
+               h-[65px] rounded-full text-right pr-8 pb-2 dark:bg-gray-700/70  
+              '
+              style={{boxShadow:" 0px 0.1px 1px 1px rgba(0, 0, 0, 0.1)"}}
+              
+              // onChange={HandleChange}
+            />
+        </motion.div>
                 
             </div>
 
@@ -120,20 +172,20 @@ const CoursPage = () => {
            
         '>
             {/* cards section  */}
-            <div className='relative  col-span-3  bg-red-200'>
+            <div className='relative  col-span-3   grid grid-cols-3 h-[1100px]'>
                 {/* top part for view */}
-                <div className='relative flex flex-row'>
+                <div className='absolute flex flex-row'>
                     {/* right: buttons */}
-                    <div >
+                    <div className='w-[150px] h-[50px] '>
                         <button className='relative shadow-md border border-gray-100 mr-2 p-3 hover:bg-gray-200 
                          transition duration-300 shadow-sm shadow-gray-400 outline-none indent-1
-                         rounded rounded-tl-2xl top-0' 
+                         rounded rounded-tl-2xl top-0  w-[50px]'  
                             onClick={()=>setView(<CoursGridCard/>)} 
                         > <img src={WindowView} className='w-full h-full' /></button>
 
                         <button className='relative shadow-md  border border-gray-100 p-2 hover:bg-gray-200 
-                        transition duration-300 shadow-sm shadow-gray-400 outline-none indent-1
-                        rounded rounded-tr-2xl top-1'
+                        transition duration-300 shadow-sm shadow-gray-400 outline-none indent-1 
+                        rounded rounded-tr-2xl top-1 w-[50px] h-[50px]'
                             onClick={()=>setView(<CoursListCard/>)} 
                         > <img src={ListView} className='w-8 h-8'/> </button>
 
@@ -141,9 +193,9 @@ const CoursPage = () => {
                     {/* left: menu  */}
                     <div className="group absolute right-0" >
                         
-                        <div className="group flex p-2 bg-white dark:bg-gray-700
-                        rounded rounded-t-2xl shadow-sm shadow-gray-400 outline-none indent-1 font-medium 
-                        text-gray-900 dark:text-white hover:bg-gray-50 cursor-pointer text-xl"
+                        <div className="group flex p-2 bg-white dark:bg-gray-700 absolute z-50 left-[600px]
+                        rounded rounded-t-2xl shadow-sm shadow-gray-400 outline-none indent-1 font-semibold 
+                        text-gray-900 dark:text-white hover:bg-gray-50 cursor-pointer text-lg w-[200px] whitespace-nowrap"
                         >
                             <IoIosArrowDown className="relative top-1 h-5 w-5 mr-8 flex-none rotate-180 group-hover:rotate-0 
                                 duration-300 text-teal-900 dark:text-teal-600" />
@@ -153,16 +205,16 @@ const CoursPage = () => {
                             <BiMenuAltRight  className="w-7 h-7 mt-1 text-teal-900 dark:text-teal-600 ml-6" />                         
                             
                         </div>
-                        <div className='absolute z-[9999] hidden group-hover:block 
+                        <div className='absolute top-[45px] left-[600px] z-[9999] hidden group-hover:block  h-[150px]
                             w-[200px] rounded-md bg-white shadow-md dark:bg-gray-900 p-2 dark:text-white'
                         >
                             <ul className='space-y-2'>
                                 {categories.map((item , index)=>(
                                     <li key={index} className='group'>
                                         <div 
-                                        className='inline-block px-4 font-semibold text-gray-500
+                                        className='block px-4 font-semibold text-gray-500
                                         hover:text-black dark:hover:text-white duration-200 p-2
-                                        inline-block w-full hover:bg-primary rounded-md text-right
+                                         w-full hover:bg-primary rounded-md text-right
                                         group-data-[selected]:font-semibold cursor-pointer
                                         '
                                         >{item}</div>
@@ -178,16 +230,20 @@ const CoursPage = () => {
                 {/* cards  */}
                 {
                      CoursesData.data?.courseFilterDtos.map((item)=>(
-
-                                <CoursGridCard  {...item}/>
-
+                                // <button onClick={filterQuery}>click</button>
+                                <CoursGridCard   {...item}/>
+                                    
                         ))
-
-
+                        
+                        
                    }               
-
+                    
                 {/* paginantion  */}
-                <Pagination/>
+                
+                 <div className='w-[1000px]  h-[100px] flex justify-center mt-[10px]'>
+                   <Pagination/> 
+                </div>   
+                
             </div>
 
             {/* filter section  */}
