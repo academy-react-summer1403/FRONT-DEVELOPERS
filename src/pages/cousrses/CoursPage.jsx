@@ -3,7 +3,7 @@ import Filter from '../../components/courspage/Filter';
 import Pagination from '../../components/Pagination';
 import CoursGridCard from '../../components/courspage/CoursGridCard';
 import CoursListCard from '../../components/courspage/CoursListCard';
-import SearchBar from '../../components/SearchBar';
+// import SearchBar from '../../components/SearchBar';
 import { IoIosArrowDown } from 'react-icons/io';
 import { BiMenuAltRight } from 'react-icons/bi';
 import { motion } from 'framer-motion';
@@ -16,9 +16,22 @@ import Heroring from '../../assets/courses/Ellipse 4.svg'
 import BackImg from "../../assets/courses/background.svg"
 import WindowView from '../../assets/courses/Vector.svg'
 import ListView from '../../assets/courses/Frame.svg'
+import { SliderRight } from '../../utility/animation';
 
 
 const CoursPage = () => {
+
+
+
+    const [query, setQuery] = useState({});
+
+
+    const CoursesData = useCourses(query)
+    console.log(CoursesData)
+
+
+    
+
     const categories =[
         "ارزان ترین",
         "جدید ترین",
@@ -98,7 +111,35 @@ const [view, setView] = useState(<CoursGridCard/>)
                 </div>
                 <p className='mr-4 mt-6 text-xl text-gray-400 dark:text-gray-200'>به روز ترین دوره هایی که میتونید پیدا کنید</p>
                 {/* search box  */}
-                <SearchBar placeholder={"...چی میخوای یاد بگیری؟"}/>
+                {/* <SearchBar onClick={} placeholder={"...چی میخوای یاد بگیری؟"}/> */}
+                <motion.div
+        variants={SliderRight(1.0)}
+        initial="hidden"
+        animate="visible"
+        className='flex flex-row  w-3/4 
+            max-sm:w-full max-sm:mr-2
+            max-md:w-full
+            max-lg:w-full
+            max-xl:w-3/4'
+        >
+
+            <div className="relative top-[32px] left-[65px] bg-orange rounded-full  w-14 h-[50px] z-40 ">               
+              <img  className="w-[25px] h-[29px] mt-[11px] ml-3 "/>
+            </div>
+
+            <input
+              id="search"
+              name="search"
+              type="text"
+            //   placeholder={placeholder}
+              className='mx-2 backdrop-blur-sm my-6  w-full
+               h-[65px] rounded-full text-right pr-8 pb-2 dark:bg-gray-700/70  
+              '
+              style={{boxShadow:" 0px 0.1px 1px 1px rgba(0, 0, 0, 0.1)"}}
+              
+              onChange={(e)=>setQuery(e.target.value)}
+            />
+        </motion.div>
                 
             </div>
 
