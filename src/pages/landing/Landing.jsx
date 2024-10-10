@@ -9,11 +9,17 @@ import Pudcasts from '../../components/pudcasts/Pudcasts'
 import { div } from 'framer-motion/m'
 
 
+
 const Landing = () => {
   return (
+<<<<<<< HEAD
 
 
     <div className=' overflow-hidden'>
+=======
+    <div>
+        
+>>>>>>> e2bc6f3078ddf1de989bd059195101b674e9dba1
         <Hero/>
         <Famous/>
         <Learning/>
@@ -21,6 +27,7 @@ const Landing = () => {
         <Products/>
         <News/>
         <Pudcasts/>
+        
     </div>
   )
 }

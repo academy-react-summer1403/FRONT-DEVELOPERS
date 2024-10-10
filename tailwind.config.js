@@ -5,7 +5,6 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
 
-  darkMode:"class",
 
   theme: {
     extend: {
@@ -22,12 +21,13 @@ export default {
         center:true,
         padding:{
           DEFUALT:"1rem",
-          sm:"2rem",
+          sm:"5rem",
           lg:"4rem",
-          xl:"5rem",
-          "2xl":"6rem",
+          xl:"1rem",
+          "2xl":"8rem",
         }
       },
+      
       
     },
 
