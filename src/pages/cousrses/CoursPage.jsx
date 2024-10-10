@@ -18,35 +18,36 @@ import WindowView from '../../assets/courses/Vector.svg'
 import ListView from '../../assets/courses/Frame.svg'
 import { useCourses } from '../../core/services/query/queries';
 import { SliderRight } from '../../utility/animation';
+import { useDispatch, useSelector } from 'react-redux';
+import { QuerySlice } from '../../core/redux/slices/QueryState/Query';
 
 
 
 
 const CoursPage = () => {
   
-    const [query, setQuery] = useState({});
+    // const [query, setQuery] = useState({});
 
-   
+    const query = useSelector((state) => state.data)
+    console.log(query)
 
-  
+    const dispatch = useDispatch()
+    console.log(dispatch)
+
+
+
 
 
     const CoursesData = useCourses(query)
     console.log(CoursesData)
 
-    
+
+    console.log(CoursesData)
+
+
 
     
-//    const params = {
-//     PageNumber,
-//     RowsOfPage,
-//     SortingCol,
-//     SortType,
-//     Query,
-//     TechCount,
-//     ListTech
-//   }
-//   console.log(params)
+
 
 
 
@@ -147,7 +148,7 @@ const CoursPage = () => {
             </div>
 
             <input
-               onChange={(e)=>setQuery(e.target.value)}
+               onChange={(e)=>dispatch(QuerySlice.actions.ChangeRegType(e.target.value))}
               id="search"
               name="search"
               type="text"
@@ -248,7 +249,7 @@ const CoursPage = () => {
 
             {/* filter section  */}
             <div className='relative  col-span-1 '>
-                <Filter/>
+                <Filter />
             </div>
         </div>
 

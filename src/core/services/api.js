@@ -34,3 +34,11 @@ export const getCourseId = async (courseId)=>{
     
 }
 
+
+
+export const categoryCourses = async ()=>{
+    const data = await http.get(`/Home/GetTechnologies`)
+    console.log(data)
+    return data;
+}
+

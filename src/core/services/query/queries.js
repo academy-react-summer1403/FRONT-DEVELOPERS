@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 
-import { getCourse,  getCourseId,  getNews, getNewsId } from "../api";
+import { categoryCourses, getCourse,  getCourseId,  getNews, getNewsId } from "../api";
 
 
 
@@ -24,6 +24,7 @@ export function useNewsData(query) {
 
 
 
+
   export function useCourses(query) {
     return useQuery({
       queryKey: ["courses" , query],
@@ -44,6 +45,12 @@ export function useNewsData(query) {
 
 
 
-
+  export function useCategoryCourses() {
+    return useQuery({
+      queryKey: ["categoryC"],
+      queryFn: () => categoryCourses(),
+      
+    });
+  }
 
   

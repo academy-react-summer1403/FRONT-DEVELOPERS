@@ -16,6 +16,8 @@ import CoursPage from "./pages/cousrses/CoursPage.jsx";
 import CourseDetial from "./pages/CourseDetail/CourseDetail.jsx";
 import ArticleDetail from "./pages/ArticleDetail/ArticleDetail.jsx";
 import ArticlesNews from "./pages/articles and news/ArticlesNews.jsx";
+import { Provider } from "react-redux";
+import { store } from "./core/redux/store.js";
 
 const router = createBrowserRouter([
   {
@@ -91,7 +93,9 @@ const queryClient = new   QueryClient({
 createRoot(document.getElementById("root")).render(
   <StrictMode>
      <QueryClientProvider client={queryClient}>
-    <RouterProvider router={router} />
+      <Provider store={store}>
+          <RouterProvider router={router} />
+      </Provider>
     <ReactQueryDevtools/>
     </QueryClientProvider>
   </StrictMode>
