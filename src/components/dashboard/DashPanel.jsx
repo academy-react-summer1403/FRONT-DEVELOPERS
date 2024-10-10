@@ -117,20 +117,20 @@ const DashPanel = () => {
 
         {/* menu  */}
         <div className={`relative bg-primary font-red-500 rounded-r-xl py-6 w-[35%]
-        max-md:${resposive ? " " : "w-[10%]" }
+        max-lg:${resposive ? " " : "w-[10%]" }
         max-sm:w-full max-sm:rounded-t-xl max-sm:rounded-br-none max-sm:${resposive ? "h-[35%] " : "h-2"} 
         `} >
             {/* responsive icon  */}
             <IoIosMenu onClick={()=>setResposive(HandeleResposive)} className={`hidden w-6 h-6 text-teal-900
              ${resposive ? "rotate-0" : "rotate-90"} transition duration-500 
-                max-md:block 
+                max-lg:block 
                 max-sm:ml-[90%]
-                max-md:absolute max-md:right-4           
+                max-lg:absolute max-lg:right-4           
             `}/>
              {/* profile section: */}
             <div className={`border-b-[1.5px] border-gray-200/60 mx-4 py-6
                 max-sm:mx-0 max-sm:block max-sm:${resposive ? "border-b-[1.5px]" : "border-none  "}
-                max-md:${resposive ? "block" : "hidden"}
+                max-lg:${resposive ? "block" : "hidden"}
             `}>
                 <img src={profile} className='w-[130px] h-[130px] rounded-full mx-auto
                 max-md:w-[100px] max-md:h-[100px]  max-lg:w-24  max-lg:h-24
@@ -143,7 +143,7 @@ const DashPanel = () => {
             {/* menuBar */}
             <ul className={`my-8 mr-8  
                 max-lg:mr-1 
-                max-md:mr-0 max-md:${resposive ? "w-full" : "w-14"} 
+                max-md:mr-0 max-lg:${resposive ? "w-full" : "w-14"} 
                 max-sm:${resposive ? "block" : "hidden"}
             `}>
                 {dashboard.map((items)=>(
@@ -151,17 +151,17 @@ const DashPanel = () => {
                         className={`group flex flex-row-reverse font-semibold text-teal-900 my-2 py-3 p-4 
                             gap-4 rounded-r-full hover:bg-white hover:border-l-4 hover:border-l-orange
                             transition duration-300 cursor-pointer   
-                            max-md:${resposive ? "max-md:hover:bg-white max-md:hover:border-l-4 max-md:hover:border-l-orange "
+                            max-lg:${resposive ? "max-md:hover:bg-white max-md:hover:border-l-4 max-md:hover:border-l-orange "
                              : " max-md:hover:border-none max-md:hover:rounded-full "}
                             max-lg:gap-0
                             max-md:gap-0 max-md:text-sm
                             `}
                     >
                         <img src={items.icon} className={`hidden group-hover:block
-                            max-md:${resposive ? "hidden" : "block"}
+                            max-lg:${resposive ? "hidden" : "block"}
                           
                          `}/>
-                        <p className={`${resposive? "max-md:block" : "max-md:hidden" } `}> {items.title} </p>
+                        <p className={`${resposive? "max-lg:block" : "max-lg:hidden" } `}> {items.title} </p>
                     </li>
                 ))}
             </ul>
@@ -172,7 +172,7 @@ const DashPanel = () => {
                  max-md:mx-[5%] max-md:gap-0
                  max-lg:mx-[10%] max-md:gap-0
                 `}>                         
-                <div className={`max-md:${resposive ? "block" : "hidden"} 
+                <div className={`max-lg:${resposive ? "block" : "hidden"} 
                 max-sm:${resposive ? "block" : "hidden"} 
                 `}>خروج از حساب</div>               
                 <img src={logout}/>

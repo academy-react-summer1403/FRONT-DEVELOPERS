@@ -25,7 +25,7 @@ const DashNavbar = () => {
 
                 {/* shop basket  */}
                 <div className='relative '>
-                    <img src={ShopImg} alt=""  className='mt-8 w-10 h-10 '/>
+                    <img src={ShopImg} className="mt-8 w-10 h-10 dark:fill-white"/>                                       
                     <div className='absolute w-4 h-4 bg-orange leading-4 text-white
                      text-[10px] text-center rounded-full ml-6 bottom-[1px]'
                     >

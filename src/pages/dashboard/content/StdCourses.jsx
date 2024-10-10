@@ -3,10 +3,11 @@ import ListMap from '../../../components/dashboard/stdcourse/ListMap'
 import ListHeader from '../../../components/dashboard/stdcourse/ListHeader'
 
 const StdCourses = () => {
+  
+
   return (
-    <div className='px-8 py-2 max-lg:px-4 min-w-[400px]
-    max-lg:px-1
-    max-sm:px-1
+    <div className='px-1 py-2 max-lg:px-4 min-w-[400px]
+    
   '>
       {/* search & fillter:  */}
       <div className='border-b grid grid-cols-4 justify-items-end pb-8 my-4' >

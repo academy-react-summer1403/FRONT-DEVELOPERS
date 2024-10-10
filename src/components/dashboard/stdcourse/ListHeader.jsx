@@ -2,17 +2,19 @@ import React from 'react'
 
 const ListHeader = () => {
   const header=[
-    "نام دوره","مدرس دوره","تاریخ شروع","قیمت (تومان)"
+   "قیمت (تومان)", "تاریخ شروع","مدرس دوره","نام دوره"
   ]
   return (
     <div>
-      <ul className="flex flex-row-reverse gap-20 px-28 border-b-2 border-teal-700 font-medium text-md py-2 
-      
-      max-md:gap-10
+      <ul className="grid grid-cols-6 border-b-2 border-teal-700 dark:border-teal-500 list-none
+      font-semibold text-[12px] text-teal-900 dark:text-white justify-items-center pb-2
       ">
+        <li className='col-1 '></li>
         {header.map((title ,index)=>(
-          <li key={index}>{title}</li>
+          <li key={index} className='col-1'>{title}</li>
         ))}
+      
+      <li className='col-1'></li>
       </ul>
     </div>
   )
