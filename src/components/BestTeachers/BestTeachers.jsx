@@ -18,19 +18,19 @@ const BestTeachers = () => {
     
 
   return (
-    <div className='flex-1 h-[500px]  '>
+    <div className='flex-1 h-[402px]  '>
 
-        <div className='flex-1   mx-auto  rounded-xl h-[400px] relative '>
+        <div className='    mx-auto   h-[402px] relative  max-xl:flex justify-center'>
             <img src={BGImg} alt=""  className=' w-full  h-full mx-auto'/>
 
-        <div className='flex-1 justify-center items-center w-full absolute top-10'>
-              <div className='w-[1500px] h-[400px]  mx-auto relative'>      
+        <div className='flex  justify-between items-center w-full   absolute top-10'>
+              <div className='w-[1500px]  max-xl:flex justify-between max-xl:w-[full] gap-96  h-[400px]  mx-auto relative'>      
                 
             {/* Tinder card  */}
 
         
                
-                        <div className=' w-[400px] h-[400px]  absolute left-[200px] bottom-[50px] max-xl:left-[100px] max-md:left-[5px] max-sm:-left-[30px]'>
+                        <div className=' w-[400px] h-[400px] max-sm:h-[250px] max-sm:w-[250px] max-sm:left-5 max-xl:left-[100px] max-md:-left-2  max-2xl:left-[200px]  max-lg:left-[80px] absolute left-[250px] bottom-[50px] '>
 
                   
                         <SwipeCards/>
@@ -46,38 +46,35 @@ const BestTeachers = () => {
 
             {/* text section  */}
           <div
-            className="flex flex-col  w-[700px] h-[120px] justify-center py-14 
-          md:pr-16 xl:pr-40 md:py-0 absolute top-[140px] right-[100px]  max-xl:right-[400px] max-xl:w-[600px]
-          max-lg:right-[600px] max-md:right-[800px] max-sm:right-[900px] "
+            className="max-xl:right-10  max-md:right-3    absolute right-48 top-20
+            "
           >
         
+
+          <div className='    flex flex-row-reverse items-center gap-2 max-sm:gap-1 mb-3'>
             <motion.h1
              variants={SliderRight(0.4)}
              initial="hidden"
              animate="visible"
-              className="text-4xl font-semibold 
-              !leading-tight
-              text-right absolute -top-[20px] right-[180px] max-xl:-top-[80px] max-lg:-top-[70px] max-lg:text-5xl max-sm:right-[60px]"
+              className=" text-[#000000] max-lg:text-[20px] max-sm:text-[18px] text-right font-Yekan font-bold text-[40px] "
             >
               برترین اساتید  
         
             </motion.h1>
 
-            <motion.span 
+            <motion.h1
             variants={SliderRight(0.4)}
             initial="hidden"
             animate="visible"
-            className=' font-sans text-[30px] text-green absolute -top-[20px] left-[95px] max-xl:left-[220px] max-xl:-top-[10px] max-sm:left-[280px]
-            max-sm:text-4xl'>رو همینجا پیدا کنید</motion.span>
+            className=' text-[#006865] font-Yekan font-normal text-[25px] max-lg:text-[18px] max-sm:text-[16px]'>!!رو همینجا پیدا می کنید</motion.h1></div>
 
             <motion.p
                variants={SliderRight(0.6)}
                initial="hidden"
                animate="visible"
-               className=' text-center indent-[130px] font-sans text-gray-600 pt-[50px] leading-[10px] max-xl:indent-[150px] max-xl:text-right max-md:text-center
-               max-sm:text-sm max-sm:ml-[100px]'
+               className='text-center max-sm:text-[16px] max-sm:w-[200px] text-[#777777] text-[20px] font-normal font-Yekan max-lg:text-[18px] max-lg:w-[280px] max-lg:text-right max-lg:ml-[100px] '
             >
-            ! برجسته ترین اساتید بزرگترین مجموعه برنامه نویسی<p className='indent-[130px] pt-[25px]'> استان مازندران رو بهتر بشناسیم </p>
+          برجسته ترین اساتید بزرگترین مجموعه برنامه نویسی<p className=''> ! استان مازندران رو بهتر بشناسیم </p>
             </motion.p>
             </div>
             </div>

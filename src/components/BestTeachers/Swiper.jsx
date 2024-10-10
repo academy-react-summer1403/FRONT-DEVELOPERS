@@ -80,7 +80,7 @@ const Card = ({ id, url, setCards, cards }) => {
 
       alt="Placeholder alt"
 
-      className="h-80 w-64 origin-bottom rounded-lg  object-cover hover:cursor-grab active:cursor-grabbing max-md:w-[200px] max-md:h-[300px]"
+      className="h-[364px] w-[266px] origin-bottom rounded-[20px]  object-cover hover:cursor-grab active:cursor-grabbing "
 
       style={{
 

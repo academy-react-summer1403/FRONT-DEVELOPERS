@@ -30,6 +30,10 @@ export default {
       },
       
     },
+
+    fontFamily:{
+      Yekan:['Yekan','sans-serif']
+    }
   },
   plugins: [],
 }

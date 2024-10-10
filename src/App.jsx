@@ -1,4 +1,5 @@
 
+import { Route, Routes } from "react-router-dom"
 import Layout from "./components/layout/Layout"
 import Landing from "./pages/landing/Landing"
 
@@ -7,13 +8,20 @@ function App() {
 
 
   return (
-    <>
-    <Layout>
+    <div className=" border overflow-x-hidden">
+       <Layout>
 
-      <Landing/>
+     
+<Routes> 
+  
+ <Route path="/" element={<Landing/>} />
 
-    </Layout>
-    </>
+
+
+</Routes>
+
+</Layout>
+    </div>
   )
 }
 
