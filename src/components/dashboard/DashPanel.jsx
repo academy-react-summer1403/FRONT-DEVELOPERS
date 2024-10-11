@@ -95,7 +95,7 @@ const DashPanel = () => {
         if(resposive === false){return true}
         else{return false}
     }
-   
+   console.log(resposive)
 
   return (
     <div style={{boxShadow:"0px 0px 7px 0px rgba(0,0,0,0.3)"}}
@@ -117,8 +117,8 @@ const DashPanel = () => {
 
         {/* menu  */}
         <div className={`relative bg-primary font-red-500 rounded-r-xl py-6 w-[35%]
-        max-lg:${resposive ? " " : "w-[10%]" }
-        max-sm:w-full max-sm:rounded-t-xl max-sm:rounded-br-none max-sm:${resposive ? "h-[35%] " : "h-2"} 
+        max-lg:${resposive ? " " : "w-[10%]" } 
+        max-sm:w-full max-sm:rounded-t-xl max-sm:rounded-br-none max-sm:${resposive ? "h-[35%]" : "h-2"} 
         `} >
             {/* responsive icon  */}
             <IoIosMenu onClick={()=>setResposive(HandeleResposive)} className={`hidden w-6 h-6 text-teal-900
@@ -129,7 +129,7 @@ const DashPanel = () => {
             `}/>
              {/* profile section: */}
             <div className={`border-b-[1.5px] border-gray-200/60 mx-4 py-6
-                max-sm:mx-0 max-sm:block max-sm:${resposive ? "border-b-[1.5px]" : "border-none  "}
+                max-sm:mx-0 max-sm:block max-sm:${resposive ? "border-b-[1.5px]" : "border-none"}
                 max-lg:${resposive ? "block" : "hidden"}
             `}>
                 <img src={profile} className='w-[130px] h-[130px] rounded-full mx-auto
@@ -141,18 +141,18 @@ const DashPanel = () => {
             </div>
 
             {/* menuBar */}
-            <ul className={`my-8 mr-8  
+            <ul className={`my-8 mr-8 
                 max-lg:mr-1 
-                max-md:mr-0 max-lg:${resposive ? "w-full" : "w-14"} 
-                max-sm:${resposive ? "block" : "max-sm:hidden"}
+                max-md:mr-0 
+                max-sm:${resposive ? " " : "hidden"}
             `}>
                 {dashboard.map((items)=>(
                     <li key={items.id} onClick={()=>HandleDashContent(items.id)}
                         className={`group flex flex-row-reverse font-semibold text-teal-900 my-2 py-3 p-4 
                             gap-4 rounded-r-full hover:bg-white hover:border-l-4 hover:border-l-orange
                             transition duration-300 cursor-pointer   
-                            max-lg:${resposive ? "max-md:hover:bg-white max-md:hover:border-l-4 max-md:hover:border-l-orange "
-                             : " max-md:hover:border-none max-md:hover:rounded-full "}
+                            max-lg:${resposive ?" ":"hover:border-none hover:bg-white hover:rounded-full"}
+                             
                             max-lg:gap-0
                             max-md:gap-0 max-md:text-sm
                             `}
