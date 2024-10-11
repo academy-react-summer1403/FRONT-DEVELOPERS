@@ -104,7 +104,7 @@ const DashPanel = () => {
         '
     >
         {/* content  */}
-        <div className={`p-6 w-full rounded-l-xl dark:bg-gray-700 min-w-[458px]
+        <div className={`p-6 w-full rounded-l-xl bg-white dark:bg-gray-700 min-w-[458px]
         max-sm:p-2  
         max-lg:p-2
        
@@ -144,7 +144,7 @@ const DashPanel = () => {
             <ul className={`my-8 mr-8  
                 max-lg:mr-1 
                 max-md:mr-0 max-lg:${resposive ? "w-full" : "w-14"} 
-                max-sm:${resposive ? "block" : "hidden"}
+                max-sm:${resposive ? "block" : "max-sm:hidden"}
             `}>
                 {dashboard.map((items)=>(
                     <li key={items.id} onClick={()=>HandleDashContent(items.id)}
