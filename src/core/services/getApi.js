@@ -7,7 +7,7 @@ export const getNews = async (query , page , sort) => {
 };
 
 export const getNewsId = async (id) => {
-  const data = await http.get(`/News/?id=${id}`);
+  const data = await http.get(`/News/${id}`);
   console.log(data);
   return data;
 };

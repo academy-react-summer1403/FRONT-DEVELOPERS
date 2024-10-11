@@ -29,6 +29,7 @@ const CoursPage = () => {
   const [page, setPage] = useState(1);
   console.log(page);
 
+
   
   const query = useSelector((state) => state.QueryState.data);
   console.log(query);

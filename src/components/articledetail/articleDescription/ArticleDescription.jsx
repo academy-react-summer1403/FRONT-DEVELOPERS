@@ -9,7 +9,7 @@ const ArticleDescription = () => {
 
   
   const articleDetail = useArticleDetail(id);
-  console.log(articleDetail.data?.news[0].title);
+  console.log(articleDetail?.data);
 
 
 
@@ -193,7 +193,7 @@ leading-[32px] font-normal font-Yekan text-[20px] max-xl:text-[18px] flex items-
                 stroke-linejoin="round"
               />
             </svg>
-          {articleDetail.data?.news.currentLikeCount}
+          {/* {articleDetail.data?.news.currentLikeCount} */}
             <svg
               className="max-xl:h-[15px] max-xl:w-[16px] stroke-[#AAAAAA] dark:stroke-orange"
               width="20"
@@ -211,7 +211,7 @@ leading-[32px] font-normal font-Yekan text-[20px] max-xl:text-[18px] flex items-
                 stroke-linejoin="round"
               />
             </svg>
-          {articleDetail.data?.news.currentDissLikeCount}
+          {/* {articleDetail.data?.news.currentDissLikeCount} */}
             
           </div>
 
@@ -280,7 +280,7 @@ leading-[32px] font-normal font-Yekan text-[20px] max-xl:text-[18px] flex items-
           </svg>
 
           <h1 className=" share max-xl:text-[14px]  max-sm:text-[12px] ">
-            امتیاز {articleDetail.data?.news.currentView} نفر
+            {/* امتیاز {articleDetail.data?.news.currentView} نفر */}
           </h1>
         </div>
       </motion.div>

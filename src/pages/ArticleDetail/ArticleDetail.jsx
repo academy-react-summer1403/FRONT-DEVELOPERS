@@ -8,13 +8,14 @@ import { motion } from "framer-motion";
 import { useArticleDetail } from "../../core/services/query/queries";
 import { useParams } from "react-router-dom";
 
+
 const ArticleDetail = () => {
 
   const { id } = useParams();
 
   
   const articleDetail = useArticleDetail(id);
-  console.log(articleDetail.data?.news);
+  console.log(articleDetail.data?.detailsNewsDto.title);
 
 
 
@@ -153,7 +154,7 @@ const ArticleDetail = () => {
 
           <div className=" flex h-[20px] max-md:justify-between mt-10 max-xl:mt-7 flex-nowrap flex-row-reverse justify-end  gap-11 max-lg:gap-5 items-center ">
             <h3 className=" max-2xl:text-[15px] max-xl:text-[13px] max-lg:text-[12px] max-lg:w-24 max-lg:gap-2  flex gap-3 max-lg:flex-row-reverse  flex-row-reveers text">
-             {articleDetail.data?.news.title} 
+             {/* {articleDetail.data?.news.title}  */}
               <svg
                 width="20"
                 height="19"
@@ -195,7 +196,7 @@ const ArticleDetail = () => {
                   stroke-linejoin="round"
                 />
               </svg>
-            {articleDetail.data?.news.updateDate}
+            {/* {articleDetail.data?.news.updateDate} */}
               
             </h3>
 
@@ -216,7 +217,7 @@ const ArticleDetail = () => {
                   stroke-linejoin="round"
                 />
               </svg>
-          {articleDetail.data?.news.title}
+          {/* {articleDetail.data?.news.title} */}
             
               
             </h3>
