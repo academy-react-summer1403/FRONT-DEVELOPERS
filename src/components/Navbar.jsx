@@ -62,7 +62,7 @@ const Navbar = () => {
      
      <h1 className='text-[16px]  font-semibold text-white text-right leading-[24px]  '>حساب کاربری</h1>
   </NavLink>  
-  <div className='flex justify-center  flex-row gap-4 ml-4'>
+  <div className='flex justify-center flex-row gap-4 ml-4'>
       <img src={ShopImg} alt="" className='mt-8 w-[32px] h-[32px]'/>
       <div className='relative'>
    <img src={FavImg} alt=""  className='mt-8  w-[32px] h-[32px] max-xl:mt-[35px] max-xl:w-[80px]  max-lg:w-[30px] max-2xl:mt-[35px] max-2xl:w-[40px]'/>
@@ -71,8 +71,7 @@ const Navbar = () => {
       </div>
 
           {/* darkmode switch */}
-          <div className='  relative'>
-      
+          <div className=' relative'>
         <div className='mt-[34px] max-lg:mt-[35px]'>
             <DarkMode/>
         </div></div>
