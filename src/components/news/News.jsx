@@ -10,7 +10,7 @@ import { IoIosArrowBack } from "react-icons/io";
 
 const News = () => {
   return (
-    <div className='container flex items-center flex-col mt-[170px] h-[700px] max-md:h-[870px]'>
+    <div className='max-md:px-5 max-sm:px-1 flex items-center flex-col mt-[170px] h-[700px] max-md:h-[870px]'>
 
     {/* text section  */}
     <h1 className=' head1'>اخبار و مقالات

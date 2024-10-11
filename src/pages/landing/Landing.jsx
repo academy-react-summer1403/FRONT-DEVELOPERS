@@ -6,20 +6,20 @@ import BestTeachers from '../../components/BestTeachers/BestTeachers'
 import Products from '../../components/products/Products'
 import News from '../../components/news/News'
 import Pudcasts from '../../components/pudcasts/Pudcasts'
-import { div } from 'framer-motion/m'
+
 
 
 
 const Landing = () => {
   return (
-<<<<<<< HEAD
+
 
 
     <div className=' overflow-hidden'>
-=======
+ 
     <div>
         
->>>>>>> e2bc6f3078ddf1de989bd059195101b674e9dba1
+
         <Hero/>
         <Famous/>
         <Learning/>
@@ -28,6 +28,7 @@ const Landing = () => {
         <News/>
         <Pudcasts/>
         
+    </div>
     </div>
   )
 }

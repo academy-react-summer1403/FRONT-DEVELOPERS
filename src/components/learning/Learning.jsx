@@ -162,7 +162,7 @@ const Learning = () => {
           </h3></NavLink>
      <img src={BackImg} alt="" className='w-[324px] max-xl:hidden h-[420px] right-2 top-3  absolute '/>
    
-        <div className='mt-10  max-sm:pl-[3%] max-2xl:pr-5 max-lg:pr-0 '>
+        <div className='mt-10  max-sm:pl-[3%] max-lg:pr-0 '>
             <Slider  {...settings}>
                 
             {Data.map((item)=>{
