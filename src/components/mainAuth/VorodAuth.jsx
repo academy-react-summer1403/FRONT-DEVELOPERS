@@ -7,11 +7,10 @@ import Background from "../../assets/landing/backgroundV.png";
 import more from "../../assets/landing/moreCourse.png";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as yup from "yup";
-import { loginApi } from '../../core/services/auth/auth';
-import { setItem } from '../../core/services/common/Storage.Services';
+import { setItem } from '../../core/services/Storage/Storage.Services';
 import { getProfile } from '../../core/services/auth/user';
 import { useLogin } from '../../core/services/query/mutation';
-// import HandleChange from '../../hooks/handleChange';
+
 
 
 const VorodAuth = () => {

@@ -13,8 +13,9 @@ const ArticleDescription = () => {
 
 
 
+
   const [showMore, setShowMore] = useState(true);
-  console.log(showMore);
+  // console.log(showMore);
 
   return (
     <div className=" max-xl:w-[600px] max-sm:w-full max-lg:w-[450px] max-md:w-full">
@@ -192,7 +193,7 @@ leading-[32px] font-normal font-Yekan text-[20px] max-xl:text-[18px] flex items-
                 stroke-linejoin="round"
               />
             </svg>
-          {articleDetail.data?.news[0].currentLikeCount}
+          {articleDetail.data?.news.currentLikeCount}
             <svg
               className="max-xl:h-[15px] max-xl:w-[16px] stroke-[#AAAAAA] dark:stroke-orange"
               width="20"
@@ -210,7 +211,7 @@ leading-[32px] font-normal font-Yekan text-[20px] max-xl:text-[18px] flex items-
                 stroke-linejoin="round"
               />
             </svg>
-          {articleDetail.data?.news[0].currentDissLikeCount}
+          {articleDetail.data?.news.currentDissLikeCount}
             
           </div>
 
@@ -279,7 +280,7 @@ leading-[32px] font-normal font-Yekan text-[20px] max-xl:text-[18px] flex items-
           </svg>
 
           <h1 className=" share max-xl:text-[14px]  max-sm:text-[12px] ">
-            امتیاز {articleDetail.data?.news[0].currentView} نفر
+            امتیاز {articleDetail.data?.news.currentView} نفر
           </h1>
         </div>
       </motion.div>

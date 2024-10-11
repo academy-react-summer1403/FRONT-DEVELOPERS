@@ -1,5 +1,5 @@
 import axios from "axios";
-import { getItem } from "../common/Storage.Services";
+// import { getItem } from "../common/Storage.Services";
 
 const baseURl = import.meta.env.VITE_BASE_URL
 
@@ -23,14 +23,14 @@ const onError = (err) =>{
 
 instance.interceptors.response.use(onSucces,onError);
 
-instance.interceptors.request.use((opt)=>{
+// instance.interceptors.request.use((opt)=>{
 
-    const token = getItem("token") ? getItem("token") : "" ;
+//     const token = getItem("token") ? getItem("token") : "" ;
 
 
-    opt.headers.Authorization = "Bearer " + token;
-    return opt;
+//     opt.headers.Authorization = "Bearer " + token;
+//     return opt;
 
-})
+// })
 
 export default instance

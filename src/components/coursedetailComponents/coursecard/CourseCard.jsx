@@ -6,11 +6,11 @@ import { useCourses } from '../../../core/services/query/queries';
 const CourseCard = () => {
   
 
-  // const {id} = useParams();
+  const {id} = useParams();
 
   
-  // const CourseDetail = useCourses(id);
-  // console.log(CourseDetail.data?.courseFilterDtos);
+  const CourseDetail = useCourses(id);
+  console.log(CourseDetail.data?.courseFilterDtos[0]);
 
 
 
