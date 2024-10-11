@@ -1,19 +1,9 @@
 import React from 'react'
 import { motion } from 'framer-motion';
-import { useParams } from 'react-router-dom';
-import { useCourses } from '../../../core/services/query/queries';
+
 
 const CourseCard = () => {
   
-
-  const {id} = useParams();
-
-  
-  const CourseDetail = useCourses(id);
-  console.log(CourseDetail.data?.courseFilterDtos[0]);
-
-
-
 
   return (
     <>

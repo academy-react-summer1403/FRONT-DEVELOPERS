@@ -24,7 +24,7 @@ const CourseDetial = () => {
  
 
   const CourseDetail = useCourseId(courseId);
-  console.log(CourseDetail);
+  console.log(CourseDetail.data?.title);
 
   
   
