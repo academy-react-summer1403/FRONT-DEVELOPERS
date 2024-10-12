@@ -1,6 +1,5 @@
-import { Outlet } from "react-router-dom"
-import Navbar from "./components/Navbar"
-// import Footer from "./components/Footer"
+
+import Dashboard from "./pages/dashboard/Dashboard"
 
 
 
@@ -11,6 +10,11 @@ function App() {
 
   return (
 
+    <>
+    {/* <Layout>
+
+
+
  
 
     <div className="bg-white dark:bg-gray-900 dark:text-white duration-200">
@@ -18,8 +22,18 @@ function App() {
 
       <Outlet/>
     
-    {/* <Footer/> */}
-    </div>
+    {/* <Footer/> 
+     </div> 
+
+
+
+     </Layout> */}
+    
+    <Dashboard/>
+
+    
+    </>
+
 
   )
 }
