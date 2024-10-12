@@ -1,66 +1,133 @@
 import React from 'react'
-
-// images: 
 import fima from '../assets/landing/figma.png'
-import starbg from '../assets/landing/stars.svg'
-// import star from '../../assets/courses/star2.svg'
-import hat from '../assets/landing/academic hat.svg'
-import teacher from '../assets/landing/Frame(1).svg'
-import level from '../assets/landing/Frame(2).svg'
-import buy from '../assets/landing/Rounded.svg'
+
 
 
 
 const CoursGridCard = () => {
   return (
-    <div className='mt-[80px]'
+    <div className=' mt-[80px] max-2xl:-ml-7  mb-5  max-sm:-ml-8'
     >
-        <div className='relative grid-cols-1 rounded-xl px-4 dark:bg-gray-700/70 dark:hover:bg-orange'
-            style={{boxShadow: "0px 1px 2px 0px rgba(0, 0, 0, 0.25)"}
+        <div className='relative rounded-[15px] w-[265px] max-xl:w-[200px] max-sm:w-[190px]  max-md:h-[320px]    max-md:w-[155px] max-sm:h-[310px] h-[305px]  max-xl:flex flex-wrap justify-center  bg-white px-4 dark:bg-gray-700/70'
+            style={{boxShadow: "0px 1px 2px 0px #00000040"}
             }
-        >   
+        >  
+
             {/* card image   */}
             <div 
-                style={{boxShadow:" 0px 1px 4px 0px rgba(0, 0, 0, 0.25)" }}
-                className='relative grid justify-items-center py-12 top-[-25px]
-                rounded-xl bg-gradient-to-tr from-purple to-secondary'
+                style={{boxShadow:" 0px 1px 4px 0px #00000040" }}
+                className='relative w-[233px] h-[150px] rounded-[10px] py-[40px]  top-[-20px]
+             bg-gradient-to-l from-[#D47300] to-[#A259FF] max-md:h-[130px]'
             >
-                <img src={fima} className=' w-[76px] h-[76px]'/>
+                <img src={fima} className=' w-[71px] h-[71px]  rounded-full'/>
+                
             </div>
 
-            {/* carde body  */}
+            {/* card body  */}
             <div className='relative top-[-10px]' >
-                <h3 className='text-right text-lg font-semibold'>دوره پیشرفته دیزاین</h3>
+                <h3 className=' text-[#444444] text-right text-[19px] max-md:text-[16px] font-Yekan font-bold mr-1 dark:text-white'>دوره پیشرفته دیزاین</h3>
 
-                <div className='grid grid-cols-2 my-2 gap-3'>
-                    <div className='flex text-gray-400 text-sm'>
-                        <img src={hat} className='mr-1 relative top-[2px] w-[17px] h-[17px]'/>50
-                    </div>
-                    <div className='flex flex-row-reverse text-sm text-gray-500'>
-                        <img src={teacher} className='ml-1 relative top-1 w-[18px] h-[18px]'/>حامدنظر
-                    </div>
-                    <div className='flex flex-rows'> 
-                         <img src={starbg} className='w-[18px] h-[18px]'/>
-                         <img src={starbg} className='w-[18px] h-[18px]'/>
-                         <img src={starbg} className='w-[18px] h-[18px]'/>
-                         <img src={starbg} className='w-[18px] h-[18px]'/>
-                         {/* <img src={star} className='w-[18px] h-[18px]'/> */}
-                    </div>
+              <div className='  mt-6 mr-1'>
+                <div className='  h-[17px] flex justify-between'>
+        
+
+
+
+
+            <h3 className='  flex h-full items-center gap-1 text-[16px] max-md:text-[14px] font-normal font-Yekan text-[#888888]'>
+            <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_90_164)">
+<path d="M7.5 1.875L0.46875 5.625L7.5 9.375L14.5312 5.625L7.5 1.875Z" stroke="#AAAAAA" stroke-width="1.3" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M3.28125 7.125V10.3125C3.28125 11.3437 5.15625 12.6562 7.5 12.6562C9.84375 12.6562 11.7188 11.3437 11.7188 10.3125V7.125" stroke="#AAAAAA" stroke-width="1.3" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M14.5312 5.625V11.7188" stroke="#AAAAAA" stroke-width="1.3" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_90_164">
+<rect width="15" height="15" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+50
+
+            </h3>
+
+            <h3 className='  flex h-full items-center gap-1 text-[16px] max-md:text-[14px] font-normal font-Yekan text-[#888888]'>حامد نظری
+                    <svg width="13" height="17" viewBox="0 0 13 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M9.35378 4.25C9.35378 4.95448 9.08533 5.63011 8.6075 6.12825C8.12966 6.6264 7.48158 6.90625 6.80581 6.90625C6.13005 6.90625 5.48197 6.6264 5.00413 6.12825C4.5263 5.63011 4.25785 4.95448 4.25785 4.25C4.25785 3.54552 4.5263 2.86989 5.00413 2.37175C5.48197 1.8736 6.13005 1.59375 6.80581 1.59375C7.48158 1.59375 8.12966 1.8736 8.6075 2.37175C9.08533 2.86989 9.35378 3.54552 9.35378 4.25ZM1.71057 14.2503C1.73241 12.8565 2.27883 11.5275 3.23199 10.5499C4.18516 9.57237 5.4687 9.0245 6.80581 9.0245C8.14293 9.0245 9.42647 9.57237 10.3796 10.5499C11.3328 11.5275 11.8792 12.8565 11.9011 14.2503C10.3026 15.0144 8.56435 15.4087 6.80581 15.4063C4.98759 15.4063 3.26177 14.9926 1.71057 14.2503Z" stroke="#888888" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+</h3>
+
+
+                </div>
+
+
+                <div className=' h-[17px] mt-2 flex justify-between'>
+
                    
-                    <div className='flex flex-row-reverse text-sm text-gray-500'>
-                        <img src={level} className='ml-1 relative top-1 w-[18px] h-[18px]'/>    مقدماتی                    
-                    </div>
+
+               <div> <svg width="85" height="17" viewBox="0 0 85 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M7.64152 2.27369C7.95886 1.51082 9.04119 1.51082 9.35852 2.27369L10.8333 5.81961L14.6611 6.12703C15.4856 6.1929 15.8199 7.2214 15.1916 7.75974L12.2754 10.258L13.1658 13.9931C13.3578 14.7977 12.483 15.4331 11.7775 15.0024L8.50002 13.0007L5.22256 15.0024C4.51706 15.4331 3.64227 14.797 3.83423 13.9931L4.72461 10.258L1.8084 7.75974C1.18011 7.2214 1.51444 6.1929 2.33894 6.12703L6.16677 5.81961L7.64152 2.27369Z" fill="#FFC700"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M24.6415 2.27369C24.9589 1.51082 26.0412 1.51082 26.3585 2.27369L27.8333 5.81961L31.6611 6.12703C32.4856 6.1929 32.8199 7.2214 32.1916 7.75974L29.2754 10.258L30.1658 13.9931C30.3578 14.7977 29.483 15.4331 28.7775 15.0024L25.5 13.0007L22.2226 15.0024C21.5171 15.4331 20.6423 14.797 20.8342 13.9931L21.7246 10.258L18.8084 7.75974C18.1801 7.2214 18.5144 6.1929 19.3389 6.12703L23.1668 5.81961L24.6415 2.27369Z" fill="#FFC700"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M41.6415 2.27369C41.9589 1.51082 43.0412 1.51082 43.3585 2.27369L44.8333 5.81961L48.6611 6.12703C49.4856 6.1929 49.8199 7.2214 49.1916 7.75974L46.2754 10.258L47.1658 13.9931C47.3578 14.7977 46.483 15.4331 45.7775 15.0024L42.5 13.0007L39.2226 15.0024C38.5171 15.4331 37.6423 14.797 37.8342 13.9931L38.7246 10.258L35.8084 7.75974C35.1801 7.2214 35.5144 6.1929 36.3389 6.12703L40.1668 5.81961L41.6415 2.27369Z" fill="#FFC700"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M58.6415 2.27369C58.9589 1.51082 60.0412 1.51082 60.3585 2.27369L61.8333 5.81961L65.6611 6.12703C66.4856 6.1929 66.8199 7.2214 66.1916 7.75974L63.2754 10.258L64.1658 13.9931C64.3578 14.7977 63.483 15.4331 62.7775 15.0024L59.5 13.0007L56.2226 15.0024C55.5171 15.4331 54.6423 14.797 54.8342 13.9931L55.7246 10.258L52.8084 7.75974C52.1801 7.2214 52.5144 6.1929 53.3389 6.12703L57.1668 5.81961L58.6415 2.27369Z" fill="#FFC700"/>
+<path d="M76.1317 2.47841C76.1616 2.40533 76.2127 2.34281 76.2782 2.29882C76.3438 2.25482 76.421 2.23132 76.5 2.23132C76.579 2.23132 76.6562 2.25482 76.7218 2.29882C76.7874 2.34281 76.8384 2.40533 76.8683 2.47841L78.3736 6.0987C78.4017 6.16644 78.448 6.2251 78.5074 6.26821C78.5668 6.31133 78.6369 6.33723 78.71 6.34307L82.6186 6.65616C82.9721 6.68449 83.1151 7.12578 82.846 7.35599L79.8681 9.90741C79.8125 9.955 79.771 10.017 79.7483 10.0866C79.7256 10.1562 79.7224 10.2307 79.7392 10.3019L80.6494 14.1163C80.6677 14.1929 80.6629 14.2731 80.6357 14.3469C80.6084 14.4207 80.5598 14.4848 80.4962 14.531C80.4325 14.5772 80.3566 14.6036 80.2779 14.6067C80.1993 14.6098 80.1215 14.5895 80.0544 14.5484L76.7076 12.5049C76.6451 12.4667 76.5732 12.4465 76.5 12.4465C76.4268 12.4465 76.355 12.4667 76.2925 12.5049L72.9456 14.5491C72.8785 14.5902 72.8007 14.6105 72.7221 14.6074C72.6435 14.6043 72.5675 14.5779 72.5039 14.5317C72.4402 14.4855 72.3917 14.4214 72.3644 14.3476C72.3371 14.2738 72.3323 14.1936 72.3506 14.117L73.2608 10.3019C73.2777 10.2307 73.2746 10.1562 73.2518 10.0865C73.2291 10.0169 73.1876 9.95495 73.1319 9.90741L70.1541 7.35599C70.0941 7.30487 70.0506 7.23711 70.0292 7.16128C70.0078 7.08545 70.0094 7.00497 70.0337 6.93003C70.0581 6.85509 70.1041 6.78907 70.166 6.74031C70.2279 6.69156 70.3029 6.66227 70.3814 6.65616L74.29 6.34307C74.3631 6.33723 74.4333 6.31133 74.4926 6.26821C74.552 6.2251 74.5983 6.16644 74.6265 6.0987L76.1317 2.47841Z" stroke="#FFC700" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></div>
+
+
+
+ <h3 className=' flex h-full items-center gap-1 text-[16px] max-md:text-[14px] font-normal font-Yekan text-[#888888]'>7:44
+
+
+
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M7.00006 3V7H10.0001M13.0001 7C13.0001 7.78793 12.8449 8.56815 12.5433 9.2961C12.2418 10.0241 11.7999 10.6855 11.2427 11.2426C10.6855 11.7998 10.0241 12.2417 9.29616 12.5433C8.56821 12.8448 7.78799 13 7.00006 13C6.21213 13 5.43191 12.8448 4.70396 12.5433C3.97601 12.2417 3.31457 11.7998 2.75742 11.2426C2.20027 10.6855 1.75831 10.0241 1.45678 9.2961C1.15526 8.56815 1.00006 7.78793 1.00006 7C1.00006 5.4087 1.6322 3.88258 2.75742 2.75736C3.88264 1.63214 5.40876 1 7.00006 1C8.59136 1 10.1175 1.63214 11.2427 2.75736C12.3679 3.88258 13.0001 5.4087 13.0001 7Z" stroke="#888888" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+</h3>
                 </div>
+              </div>
+
+              <hr className=' my-3' />
+
+              <div className='  h-[25px] flex items-center  justify-between'> 
+
+
+            <div className=' h-full flex items-center gap-1'>
+            <h3 className=' text-[#006865] text-[12px] max-md:text-[10px] font-Yekan font-normal mt-2 dark:text-[#01CEC9] '>تومان</h3>
+            
+            <h3 className='  text-[#006865] max-md:text-[20px] font-Yekan font-normal text-[23px] dark:text-[#01CEC9] '>
+            1,450,000
+            </h3>
+
+            
+            </div>
+              <svg width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_i_90_194)">
+<g clip-path="url(#clip0_90_194)">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M12.0476 8.7619C12.65 8.7619 13.1429 8.26905 13.1429 7.66667V5.47619H15.3333C15.9357 5.47619 16.4286 4.98333 16.4286 4.38095C16.4286 3.77857 15.9357 3.28571 15.3333 3.28571H13.1429V1.09524C13.1429 0.492857 12.65 0 12.0476 0C11.4452 0 10.9524 0.492857 10.9524 1.09524V3.28571H8.7619C8.15952 3.28571 7.66667 3.77857 7.66667 4.38095C7.66667 4.98333 8.15952 5.47619 8.7619 5.47619H10.9524V7.66667C10.9524 8.26905 11.4452 8.7619 12.0476 8.7619ZM6.57143 18.619C5.36667 18.619 4.3919 19.6048 4.3919 20.8095C4.3919 22.0143 5.36667 23 6.57143 23C7.77619 23 8.7619 22.0143 8.7619 20.8095C8.7619 19.6048 7.77619 18.619 6.57143 18.619ZM17.5238 18.619C16.319 18.619 15.3443 19.6048 15.3443 20.8095C15.3443 22.0143 16.319 23 17.5238 23C18.7286 23 19.7143 22.0143 19.7143 20.8095C19.7143 19.6048 18.7286 18.619 17.5238 18.619ZM7.77619 13.1429H15.9357C16.7571 13.1429 17.48 12.6938 17.8524 12.0148L21.5543 5.30095C21.85 4.77524 21.6529 4.10714 21.1271 3.81143C20.6014 3.52667 19.9333 3.71286 19.6486 4.23857L15.9357 10.9524H8.24714L3.87714 1.71952C3.7019 1.33619 3.30762 1.09524 2.89143 1.09524H1.09524C0.492857 1.09524 0 1.5881 0 2.19048C0 2.79286 0.492857 3.28571 1.09524 3.28571H2.19048L6.13333 11.5986L4.65476 14.271C3.85524 15.7386 4.90667 17.5238 6.57143 17.5238H18.619C19.2214 17.5238 19.7143 17.031 19.7143 16.4286C19.7143 15.8262 19.2214 15.3333 18.619 15.3333H6.57143L7.77619 13.1429Z" fill="#01CEC9"/>
+</g>
+</g>
+<defs>
+<filter id="filter0_i_90_194" x="0" y="0" width="21.9048" height="24" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="1"/>
+<feGaussianBlur stdDeviation="2"/>
+<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="shape" result="effect1_innerShadow_90_194"/>
+</filter>
+<clipPath id="clip0_90_194">
+<rect width="21.9048" height="23" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+              </div>
                 
-                <div className='flex flex-row-reverse py-2 border-t-[1.5px]' >
+                
                     
-                    <img src={buy} className='w-6 h-6'/>
-                    <div className='absolute left-0 flex flex-row text-green text-lg'>
-                        <p className='text-[10px] mr-2 relative top-1'>تومان</p>
-                        1,450,000
-                        
-                    </div>
-                </div>
+                   
+               
             </div>
         </div>
 

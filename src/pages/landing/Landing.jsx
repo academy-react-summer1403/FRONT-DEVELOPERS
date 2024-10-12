@@ -9,9 +9,16 @@ import Hero from '../../components/Hero/Hero'
 
 
 
+
 const Landing = () => {
   return (
+
+
+
+    <div className=' overflow-hidden'>
+ 
     <div>
+
         <Hero/>
         <Famous/>
         <Learning/>
@@ -20,6 +27,7 @@ const Landing = () => {
         <News/>
         <Pudcasts/>
         
+    </div>
     </div>
   )
 }
