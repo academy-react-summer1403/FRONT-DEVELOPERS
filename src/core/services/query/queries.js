@@ -10,6 +10,7 @@ import {
   TypeCourses,
 } from "../getApi";
 
+
 export function useNewsData(query , page , sort) {
   return useQuery({
     queryKey: ["news", query , page , sort],
@@ -26,10 +27,10 @@ export function useArticleDetail(id) {
   return query;
 }
 
-export function useCourses(query , page , sort) {
+export function useCourses(page , params ) {
   return useQuery({
-    queryKey: ["courses", query , page , sort],
-    queryFn: () => getCourse(query , page , sort),
+    queryKey: ["courses",  params , page  ],
+    queryFn: () => getCourse(  params , page),
   });
 }
 
@@ -62,3 +63,6 @@ export function useLevelCourses() {
     queryFn: () => LevelCourses(),
   });
 }
+
+
+

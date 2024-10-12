@@ -17,16 +17,16 @@ const CourseDetial = () => {
 
 
 
-  const {courseId} = useParams();
+  const {courseId } = useParams();
+
   console.log({courseId})
   
 
  
 
   const CourseDetail = useCourseId(courseId);
-  console.log(CourseDetail.data?.title);
+  console.log(CourseDetail.data);
 
-  
   
 
   return (
@@ -97,7 +97,7 @@ const CourseDetial = () => {
           {/* comments */}
           
           <h4 className=" mark mt-5 max-xl:text-[20px] dark:text-slate-300  ">نظرات</h4><div className="max-lg:w-full max-xl:w-full]  max-sm:w-full max-md:w-[500px]">
-          <Comments width={"w-[809px]"} height={"h-852px"}/></div>
+          <Comments width={"w-[809px]"} height={"h-852px"} courseId={courseId}/></div>
           
        </div>
      

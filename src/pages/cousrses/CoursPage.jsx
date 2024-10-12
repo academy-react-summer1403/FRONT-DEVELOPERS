@@ -24,7 +24,8 @@ const CoursPage = () => {
   const [sort, setSort] = useState();
   console.log(sort);
 
-
+  const [search , setSearch] = useState({});
+  console.log(search)
 
   const [page, setPage] = useState(1);
   console.log(page);
@@ -34,11 +35,21 @@ const CoursPage = () => {
   const query = useSelector((state) => state.QueryState.data);
   console.log(query);
 
+  
+
+  const params = {
+     Query : search,
+     courseLevelId : query,
+     SortingCol : sort,
+     CourseTypeId : query
+    
+  }
+
   const dispatch = useDispatch();
   console.log(dispatch);
 
 
-  const CoursesData = useCourses(query, page, sort );
+  const CoursesData = useCourses(params ,page );
   console.log(CoursesData);
 
   const lastPage = () => {
@@ -48,7 +59,21 @@ const CoursPage = () => {
     setPage((old) => Math.min(old + 1, 2));
   };
 
-  const categories = ["ارزان ترین", "جدید ترین", "محبوب ترین"];
+  const categories = [
+    {
+      title:"ارزان ترین",
+      col : "cost"
+    },
+    {
+      title:"جدید ترین",
+      col : "lastUpdate"
+    },
+    {
+      title:"محبوب ترین",
+      col : "likeCount"
+    },
+  
+  ];
 
   return (
     <div className="container  z-10">
@@ -151,7 +176,8 @@ const CoursPage = () => {
             </div>
 
             <input
-                 onChange={(e) => dispatch(QuerySlice.actions.search(e.target.value))}
+            // onChange={(e) => dispatch(QuerySlice.actions.search(e.target.value))}
+            onChange={(e) => setSearch(e.target.value)}
 
               
               
@@ -226,14 +252,14 @@ const CoursPage = () => {
                 <ul className="space-y-2">
                   {categories.map((item, index) => (
                     <li key={index} className="group">
-                      <div
+                      <div onClick={()=>setSort(item.col)}
                         className="block px-4 font-semibold text-gray-500
                                         hover:text-black dark:hover:text-white duration-200 p-2
                                          w-full hover:bg-primary rounded-md text-right
                                         group-data-[selected]:font-semibold cursor-pointer
                                         "
                       >
-                        {item}
+                        {item.title}
                       </div>
                     </li>
                   ))}

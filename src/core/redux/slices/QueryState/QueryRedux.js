@@ -14,12 +14,16 @@ export const QuerySlice = createSlice({
     
         Add:(state , action) =>{
             state.data = action.payload
-        }
+        },
 
+      
     },
 
 
 })
+
+
+
 
 
 

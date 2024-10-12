@@ -5,54 +5,46 @@ import Squer from "../../assets/landing/one.svg";
 import Back from "../../assets/landing/authBack.png";
 import Background from "../../assets/landing/backgroundV.png";
 import more from "../../assets/landing/moreCourse.png";
-import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as yup from "yup";
-import { setItem } from '../../core/services/Storage/Storage.Services';
-import { getProfile } from '../../core/services/auth/user';
-import { useLogin } from '../../core/services/query/mutation';
+// import { getLogin, getRegister } from '../../core/services/authApi';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { login } from '../../core/services/authApi';
+
 
 
 
 const VorodAuth = () => {
 
     
+  const [phoneOrGmail , setPhoneOrGmail] = useState("");
+  const [password , setPassword] = useState("");
 
-const loginUser =async ()=>{
 
-  const userObj = {
-    "phoneOrGmail": "masg1377@gmail.com",
-    "password": "123456",
-    "rememberMe": true
+  const navigate = useNavigate()
+
+console.log(phoneOrGmail)
+console.log(password)
+
+
+  const onSubmit = (e)=>{
+    e.preventDefault();
+    const user = {
+      
+      phoneOrGmail,
+      password,
+      rememberMe:true
+    };
+    console.log(user)
+
+  const res = login(user)
+    console.log(res)
+
+
+
+
+    navigate("/auth/v2");
+
   }
-
-  // const user = await loginApi(userObj);
-    const user = useLogin(userObj)
-
-  console.log(user.token);
-  setItem("token" , user.token)
-}
-
-
-const getProfileFunc = async()=>{
-  const user = await getProfile();
-  console.log(user)
-}
-
-
-// const HandleChangeItem = (e) => {
-//   return((prevState) => ({
-//     ...prevState,
-//     [e.target.name]: e.target.value,
-//   }));
-
-// };
-//   console.log(e.target.value);
-
-useEffect(()=>{
-  // loginUser();
-  getProfileFunc()
-},[])
-
 
 
 
@@ -103,7 +95,7 @@ useEffect(()=>{
           className="absolute w-[90px] h-[50px] z-[5000] text-center font-semibold text-green hover:text-orange dark:text-white 
       leading-[50px] -bottom-[10px] left-[20px]"
         >
-          <img src={more} alt="" />
+         <NavLink to={"/"}> <img src={more} alt="" /></NavLink>
         </div>
 
         <img
@@ -136,60 +128,64 @@ useEffect(()=>{
 
               {/* form  */}
 
-              <Formik
-                initialValues={{ title: "", desc: "" }}
-                // onSubmit={(values) => onSubmit(values)}
+              <form
+                // initialValues={{ title: "", desc: "" }}
+                onSubmit={(values) => onSubmit(values)}
                 validationSchema={validation}
               >
-                <Form className='flex flex-col gap-4'>
-                  <Field
+                <div className='flex flex-col gap-4'>
+                  <input
                      id="email"
                      name="email"
                      placeholder="ایمیل یا شماره همراه"
-                    //  onChange={HandleChangeItem}
+                     onChange={(e)=>setPhoneOrGmail(e.target.value)}
                     className="w-[200px] h-[40px] ml-[50px] outline-none shadow-inner shadow-gray-400 border border-gray-300 rounded-lg bg-gray-100
                     text-[10px] font-semibold text-left indent-[10px] dark:text-black"
                    
                     required
                   />
               
-                  <ErrorMessage
+                  {/* <ErrorMessage
                     name="email"
                     component="div"
                     className="text-red-500 w-[50px] text-[10px] font-semibold absolute whitespace-nowrap left-[50px] top-[35px]"
-                  />
+                  /> */}
 
-                  <Field
+                  <input
                     type="password"
                     placeholder="رمز عبور"
                     name="password"
                     className="w-[200px] h-[40px] ml-[50px] outline-none shadow-inner shadow-gray-400 border border-gray-300 rounded-lg bg-gray-100
                     text-[10px] font-semibold text-left indent-[10px] dark:text-black"
-                    // onChange={HandleChangeItem}
+                    onChange={(e)=>setPassword(e.target.value)}
+                    
                     // value={item.title}
                     required
                   />
-                  <ErrorMessage
+                  {/* <ErrorMessage
                     name="password"
                     component="div"
                     className="text-red-500 w-[50px] text-[10px] font-semibold absolute whitespace-nowrap left-[50px] top-[93px]"
-                  />
-
+                  /> */}
+             
                   <button
                     type="submit"
                     className="w-[90px] h-[30px] rounded-2xl bg-orange absolute top-[130px] right-[105px] text-white text-[10px] font-semibold"
                   >
                     دریافت کد تایید
                   </button>
+          
 
+                  <NavLink to={"/auth"}> 
                   <button
-                    type="submit"
+                    
                     className="w-[90px] h-[30px] rounded-2xl  absolute top-[160px] right-[105px] text-green text-[10px] font-semibold"
                   >
                     ثبت نام
                   </button>
-                </Form>
-              </Formik>
+                  </NavLink>   
+                </div>
+              </form>
 
 
               <h1 className='w-[60px] h-[10px]  absolute left-[55px] bottom-[85px] text-[8px] font-semibold text-orange text-center whitespace-nowrap'>فراموشی رمز عبور</h1>

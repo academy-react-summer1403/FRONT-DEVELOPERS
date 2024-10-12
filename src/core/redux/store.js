@@ -4,6 +4,8 @@ import { QuerySlice } from "./slices/QueryState/QueryRedux";
 export const store = configureStore({
   reducer: {
     QueryState: QuerySlice.reducer,
+
   },
 
+  
 });

@@ -1,7 +1,7 @@
 import React from 'react'
-// import { useLevelCourses } from '../../core/services/query/queries'
 import { QuerySlice } from '../../core/redux/slices/QueryState/QueryRedux'
 import { useDispatch, useSelector } from 'react-redux';
+import { useLevelCourses } from '../../core/services/query/queries';
 
 const LevelFilter = () => {
 
@@ -10,8 +10,8 @@ const LevelFilter = () => {
   
     const dispatch = useDispatch();
 
-  //  const Levels = useLevelCourses()
-  //   console.log(Levels)
+   const Levels = useLevelCourses()
+    console.log(Levels)
 
   return (
     <>

@@ -94,6 +94,9 @@ const Filter = () => {
 
         <LevelAccar filter={level} toggleAccordeion={toggleAccordeionLevel} />
 
+
+        
+
         
 
       </ul>

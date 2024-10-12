@@ -1,175 +1,56 @@
-import React, { useState } from "react";
+import React, {  useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { useCommentCourse, useReplyCourse } from "../../../core/services/query/CommentQuery";
+// import { useMutation } from "@tanstack/react-query";
+// import http from "../../../core/services/interceptor"
 
 
-const Comments = ({width,height}) => {
+
+const Comments = ({width,height , courseId }) => {
+
   const [showMore, setShowMore] = useState(true);
 
-  const comment = [
-    {
-      id: 1,
-      commnetper:
-        "سلام. من خيلي دوست دارم اين دوره رو بخرم ولي قيمتش خيلي بالاست، چه زماني دوباره اين دوره تخفيف ميخوره؟",
-      person: "کاربر ",
-      username: "ali@gmail.com ",
-      datecomment: "۱۴۰۳/۰۱/۲۵",
-      comlikes: 25,
-      comdislike: 6,
-      comprofile: (
-        <svg
-          width="42"
-          height="42"
-          viewBox="0 0 42 42"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
-            d="M34.9271 35.7854C36.9459 33.8885 38.5541 31.5977 39.6524 29.0546C40.7507 26.5115 41.3157 23.7701 41.3125 21C41.3125 9.78125 32.2188 0.6875 21 0.6875C9.78126 0.6875 0.687514 9.78125 0.687514 21C0.684308 23.7701 1.24932 26.5115 2.34762 29.0546C3.44592 31.5977 5.05416 33.8885 7.07293 35.7854C10.8374 39.3414 15.8216 41.3195 21 41.3125C26.1785 41.3195 31.1626 39.3414 34.9271 35.7854ZM8.8021 33.1083C10.2648 31.2784 12.1209 29.8015 14.2326 28.7873C16.3443 27.7731 18.6574 27.2477 21 27.25C23.3427 27.2477 25.6557 27.7731 27.7674 28.7873C29.8792 29.8015 31.7353 31.2784 33.1979 33.1083C31.6021 34.7202 29.7022 35.9992 27.6083 36.8711C25.5144 37.743 23.2682 38.1904 21 38.1875C18.7318 38.1904 16.4856 37.743 14.3917 36.8711C12.2978 35.9992 10.3979 34.7202 8.8021 33.1083ZM28.8125 14.75C28.8125 16.822 27.9894 18.8091 26.5243 20.2743C25.0592 21.7394 23.072 22.5625 21 22.5625C18.928 22.5625 16.9409 21.7394 15.4757 20.2743C14.0106 18.8091 13.1875 16.822 13.1875 14.75C13.1875 12.678 14.0106 10.6909 15.4757 9.22573C16.9409 7.7606 18.928 6.9375 21 6.9375C23.072 6.9375 25.0592 7.7606 26.5243 9.22573C27.9894 10.6909 28.8125 12.678 28.8125 14.75Z"
-            fill="#E4E4E4"
-          />
-        </svg>
-      ),
+  // const likeMutation = useMutation({
+  //   mutationFn: async(newTodo) => {
+  //   const data =  await http.post('/Course/AddCourseCommentLike', newTodo)
+  //   return data;
+  //   },
+  // })
+  // console.log(likeMutation)
 
-      replyper:
-        "سلام عزیز.حدودا 9 روز دیگه (1 اردیبهشت) برای این دوره تخفیف خواهیم داشت.برای مطلع شدن از تخفیف‌ها و جشنواره‌ها لطفا خود سایت و سوشال های سبزلرن رو دنبال کنین 👌❤️",
-      replyperson: "مدرس",
-      reply: "مهدی اصغری",
-      datereply: "۱۴۰۳/۰۱/۲۵",
-      replylikes: 25,
-      replydislike: 6,
-      replyprofile: (
-        <svg
-          width="42"
-          height="42"
-          viewBox="0 0 42 42"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
-            d="M34.9271 35.7854C36.9459 33.8885 38.5541 31.5977 39.6524 29.0546C40.7507 26.5115 41.3157 23.7701 41.3125 21C41.3125 9.78125 32.2188 0.6875 21 0.6875C9.78126 0.6875 0.687514 9.78125 0.687514 21C0.684308 23.7701 1.24932 26.5115 2.34762 29.0546C3.44592 31.5977 5.05416 33.8885 7.07293 35.7854C10.8374 39.3414 15.8216 41.3195 21 41.3125C26.1785 41.3195 31.1626 39.3414 34.9271 35.7854ZM8.8021 33.1083C10.2648 31.2784 12.1209 29.8015 14.2326 28.7873C16.3443 27.7731 18.6574 27.2477 21 27.25C23.3427 27.2477 25.6557 27.7731 27.7674 28.7873C29.8792 29.8015 31.7353 31.2784 33.1979 33.1083C31.6021 34.7202 29.7022 35.9992 27.6083 36.8711C25.5144 37.743 23.2682 38.1904 21 38.1875C18.7318 38.1904 16.4856 37.743 14.3917 36.8711C12.2978 35.9992 10.3979 34.7202 8.8021 33.1083ZM28.8125 14.75C28.8125 16.822 27.9894 18.8091 26.5243 20.2743C25.0592 21.7394 23.072 22.5625 21 22.5625C18.928 22.5625 16.9409 21.7394 15.4757 20.2743C14.0106 18.8091 13.1875 16.822 13.1875 14.75C13.1875 12.678 14.0106 10.6909 15.4757 9.22573C16.9409 7.7606 18.928 6.9375 21 6.9375C23.072 6.9375 25.0592 7.7606 26.5243 9.22573C27.9894 10.6909 28.8125 12.678 28.8125 14.75Z"
-            fill="#E4E4E4"
-          />
-        </svg>
-      ),
-    },
-    {
-      id: 2,
-      commnetper:
-        ". من خيلي دوست دارم اين دوره رو بخرم ولي قيمتش خيلي بالاست، چه زماني دوباره اين دوره تخفيف ميخوره؟",
-      person: "دانشجو",
-      username: "khalilpour4271 ",
-      datecomment: "۱۴۰۳/۰۱/۲۲",
-      comlikes: 25,
-      comdislike: 6,
-      comprofile: (
-        <svg
-          width="42"
-          height="42"
-          viewBox="0 0 42 42"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
-            d="M34.9271 35.7854C36.9459 33.8885 38.5541 31.5977 39.6524 29.0546C40.7507 26.5115 41.3157 23.7701 41.3125 21C41.3125 9.78125 32.2188 0.6875 21 0.6875C9.78126 0.6875 0.687514 9.78125 0.687514 21C0.684308 23.7701 1.24932 26.5115 2.34762 29.0546C3.44592 31.5977 5.05416 33.8885 7.07293 35.7854C10.8374 39.3414 15.8216 41.3195 21 41.3125C26.1785 41.3195 31.1626 39.3414 34.9271 35.7854ZM8.8021 33.1083C10.2648 31.2784 12.1209 29.8015 14.2326 28.7873C16.3443 27.7731 18.6574 27.2477 21 27.25C23.3427 27.2477 25.6557 27.7731 27.7674 28.7873C29.8792 29.8015 31.7353 31.2784 33.1979 33.1083C31.6021 34.7202 29.7022 35.9992 27.6083 36.8711C25.5144 37.743 23.2682 38.1904 21 38.1875C18.7318 38.1904 16.4856 37.743 14.3917 36.8711C12.2978 35.9992 10.3979 34.7202 8.8021 33.1083ZM28.8125 14.75C28.8125 16.822 27.9894 18.8091 26.5243 20.2743C25.0592 21.7394 23.072 22.5625 21 22.5625C18.928 22.5625 16.9409 21.7394 15.4757 20.2743C14.0106 18.8091 13.1875 16.822 13.1875 14.75C13.1875 12.678 14.0106 10.6909 15.4757 9.22573C16.9409 7.7606 18.928 6.9375 21 6.9375C23.072 6.9375 25.0592 7.7606 26.5243 9.22573C27.9894 10.6909 28.8125 12.678 28.8125 14.75Z"
-            fill="#E4E4E4"
-          />
-        </svg>
-      ),
-      replyper:
-        "سلام عزیز.حدودا 9 روز دیگه (1 اردیبهشت) برای این دوره تخفیف خواهیم داشت.برای مطلع شدن از تخفیف‌ها و جشنواره‌ها لطفا خود سایت و سوشال های سبزلرن رو دنبال کنین 👌❤️",
-      replyperson: "مدرس",
-      reply: "مهدی اصغری",
-      datereply: "۱۴۰۳/۰۱/۲۵",
-      replylikes: 22,
-      replydislike: 3,
-      replyprofile: (
-        <svg
-          width="42"
-          height="42"
-          viewBox="0 0 42 42"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
-            d="M34.9271 35.7854C36.9459 33.8885 38.5541 31.5977 39.6524 29.0546C40.7507 26.5115 41.3157 23.7701 41.3125 21C41.3125 9.78125 32.2188 0.6875 21 0.6875C9.78126 0.6875 0.687514 9.78125 0.687514 21C0.684308 23.7701 1.24932 26.5115 2.34762 29.0546C3.44592 31.5977 5.05416 33.8885 7.07293 35.7854C10.8374 39.3414 15.8216 41.3195 21 41.3125C26.1785 41.3195 31.1626 39.3414 34.9271 35.7854ZM8.8021 33.1083C10.2648 31.2784 12.1209 29.8015 14.2326 28.7873C16.3443 27.7731 18.6574 27.2477 21 27.25C23.3427 27.2477 25.6557 27.7731 27.7674 28.7873C29.8792 29.8015 31.7353 31.2784 33.1979 33.1083C31.6021 34.7202 29.7022 35.9992 27.6083 36.8711C25.5144 37.743 23.2682 38.1904 21 38.1875C18.7318 38.1904 16.4856 37.743 14.3917 36.8711C12.2978 35.9992 10.3979 34.7202 8.8021 33.1083ZM28.8125 14.75C28.8125 16.822 27.9894 18.8091 26.5243 20.2743C25.0592 21.7394 23.072 22.5625 21 22.5625C18.928 22.5625 16.9409 21.7394 15.4757 20.2743C14.0106 18.8091 13.1875 16.822 13.1875 14.75C13.1875 12.678 14.0106 10.6909 15.4757 9.22573C16.9409 7.7606 18.928 6.9375 21 6.9375C23.072 6.9375 25.0592 7.7606 26.5243 9.22573C27.9894 10.6909 28.8125 12.678 28.8125 14.75Z"
-            fill="#E4E4E4"
-          />
-        </svg>
-      ),
-    },
-    {
-      id: 3,
-      commnetper:
-        ". من خيلي دوست دارم اين دوره رو بخرم ولي قيمتش خيلي بالاست، چه زماني دوباره اين دوره تخفيف ميخوره؟",
-      person: "دانشجو",
-      username: "khalilpour4271 ",
-      datecomment: "۱۴۰۳/۰۱/۲۵",
-      comlikes: 25,
-      comdislike: 6,
-      comprofile: (
-        <svg
-          width="42"
-          height="42"
-          viewBox="0 0 42 42"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
-            d="M34.9271 35.7854C36.9459 33.8885 38.5541 31.5977 39.6524 29.0546C40.7507 26.5115 41.3157 23.7701 41.3125 21C41.3125 9.78125 32.2188 0.6875 21 0.6875C9.78126 0.6875 0.687514 9.78125 0.687514 21C0.684308 23.7701 1.24932 26.5115 2.34762 29.0546C3.44592 31.5977 5.05416 33.8885 7.07293 35.7854C10.8374 39.3414 15.8216 41.3195 21 41.3125C26.1785 41.3195 31.1626 39.3414 34.9271 35.7854ZM8.8021 33.1083C10.2648 31.2784 12.1209 29.8015 14.2326 28.7873C16.3443 27.7731 18.6574 27.2477 21 27.25C23.3427 27.2477 25.6557 27.7731 27.7674 28.7873C29.8792 29.8015 31.7353 31.2784 33.1979 33.1083C31.6021 34.7202 29.7022 35.9992 27.6083 36.8711C25.5144 37.743 23.2682 38.1904 21 38.1875C18.7318 38.1904 16.4856 37.743 14.3917 36.8711C12.2978 35.9992 10.3979 34.7202 8.8021 33.1083ZM28.8125 14.75C28.8125 16.822 27.9894 18.8091 26.5243 20.2743C25.0592 21.7394 23.072 22.5625 21 22.5625C18.928 22.5625 16.9409 21.7394 15.4757 20.2743C14.0106 18.8091 13.1875 16.822 13.1875 14.75C13.1875 12.678 14.0106 10.6909 15.4757 9.22573C16.9409 7.7606 18.928 6.9375 21 6.9375C23.072 6.9375 25.0592 7.7606 26.5243 9.22573C27.9894 10.6909 28.8125 12.678 28.8125 14.75Z"
-            fill="#E4E4E4"
-          />
-        </svg>
-      ),
-      replyper:
-        "سلام. من خيلي دوست دارم اين دوره رو بخرم ولي قيمتش خيلي بالاست، چه زماني دوباره اين دوره تخفيف ميخوره؟",
-      replyperson: "مدرس",
-      reply: "مهدی اصغری",
-      datereply: "۱۴۰۳/۰۱/۲۵",
-      replylikes: 25,
-      replydislike: 6,
-      replyprofile: (
-        <svg
-          width="40"
-          height="40"
-          viewBox="0 0 40 40"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-        >
-          <circle
-            cx="20"
-            cy="20"
-            r="20"
-            transform="matrix(-1 0 0 1 40 0)"
-            fill="url(#pattern0_261_275)"
-          />
-          <defs>
-            <pattern
-              id="pattern0_261_275"
-              patternContentUnits="objectBoundingBox"
-              width="1"
-              height="1"
-            >
-              <use
-                xlink:href="#image0_261_275"
-                transform="translate(-0.214834 -0.154865) scale(0.00225524)"
-              />
-            </pattern>
-          </defs>
-        </svg>
-      ),
-    },
-  ];
+
+  // const dislikeMutation = useMutation({
+  //   mutationFn: async(newTodo) => {
+  //   const data =  await http.delete('/Course/AddCourseCommentLike', newTodo)
+  //   return data;
+  //   },
+  // })
+  // console.log(dislikeMutation)
+
+
+
+  const [reply , setReply] = useState();
+  console.log(reply)
+
+
+  const GetComment = useCommentCourse(courseId);
+  console.log(GetComment.data?.[0].id);
+
+  useEffect(()=>{
+    setReply(GetComment.data?.[0].id)
+  })
+  // console.log(id)
+
+  // const commentId = GetComment.data?.[0].id
+  // console.log(commentId)
+
+
+
+  const replyCourse = useReplyCourse(courseId , reply);
+  console.log(replyCourse)
+
+
+  
 
   return (
     <>
@@ -222,7 +103,7 @@ const Comments = ({width,height}) => {
                 showMore ? "h-[700px] max-md:h-[400px] max-md:gap-20" : "h-[] max-md:gap-[20.5px]"
               }`}
             >
-              {comment.map((data, index) => (
+              {GetComment.data?.map((data, index) => (
                 <div
                   key={index}
                   className=" p-[20.5px] w-full bg-[#f9f9f9] dark:bg-slate-800 rounded-[7px]"
@@ -233,25 +114,26 @@ const Comments = ({width,height}) => {
 
 
                         {/* comment details */}
-                        <div className=" profile ">{data.comprofile}</div>
+                        <div className=" profile ">{data?.author}</div>
 
                         <div className="text-right">
                           <h3 className=" commentname  max-lg:text-[12px]   max-lg:line-clamp-1 max-md:text-[15px]  max-md:line-clamp-none  ">
                             {" "}
                             {data.person} | {data.username}
                           </h3>
-                          <h4 className=" datecomment ">{data.datecomment}</h4>
+                          <h4 className=" datecomment ">{data?.insertDate}</h4>
                         </div>
                       </div>
 
 
                       {/* like & dislike & reply svg */}
                       <div className="  flex  flex-row-reverse gap-3">
-                        <h1 className=" like max-lg:text-[13px] max-md:text-[16px] ">{data.comdislike}</h1>
+                        <h1 className=" like max-lg:text-[13px] max-md:text-[16px]">{data?.disslikeCount}</h1>
                         <svg
+                       
                           width="20"
                           height="19"
-                            className=" max-lg:w-[15px] max-lg:h-[17px]"
+                            className=" max-lg:w-[15px] max-lg:h-[17px] bg-blue-400"
                           viewBox="0 0 20 19"
                           fill="none"
                           xmlns="http://www.w3.org/2000/svg"
@@ -265,15 +147,22 @@ const Comments = ({width,height}) => {
                           />
                         </svg>
 
-                        <h1 className=" like max-lg:text-[13px] max-md:text-[16px]">{data.comlikes}</h1>
+                        <h1 className=" like max-lg:text-[13px] max-md:text-[16px]"
+                        
+                         
+                        > {data?.likeCount}
+
+                        </h1>
 
                         <svg
                           width="20"
                           height="19"
-                            className=" max-lg:w-[15px] max-lg:h-[17px]"
+                            className= "max-lg:w-[15px] max-lg:h-[17px]  bg-red-500"
                           viewBox="0 0 20 19"
                           fill="none"
                           xmlns="http://www.w3.org/2000/svg"
+                         
+            
                         >
                           <path
                             d="M5.08025 8.39587C5.81909 8.39587 6.4855 7.98704 6.942 7.40587C7.65357 6.49802 8.54682 5.74871 9.56459 5.20587C10.2273 4.85387 10.8021 4.32954 11.0798 3.63379C11.2749 3.14635 11.3751 2.62615 11.375 2.10112V1.52087C11.375 1.33854 11.4474 1.16367 11.5764 1.03474C11.7053 0.905807 11.8802 0.833374 12.0625 0.833374C12.6095 0.833374 13.1341 1.05067 13.5209 1.43747C13.9077 1.82426 14.125 2.34887 14.125 2.89587C14.125 3.95187 13.8867 4.95196 13.4623 5.84571C13.2184 6.35721 13.5603 7.02087 14.1268 7.02087M14.1268 7.02087H16.9923C17.9328 7.02087 18.7753 7.65704 18.8752 8.59296C18.9164 8.97979 18.9375 9.37212 18.9375 9.77087C18.9413 12.2792 18.0841 14.7128 16.5093 16.6651C16.1536 17.107 15.6045 17.3334 15.038 17.3334H11.3567C10.9139 17.3334 10.473 17.2619 10.0523 17.1225L7.19775 16.1692C6.7771 16.0293 6.33665 15.9581 5.89334 15.9584H4.412M14.1268 7.02087H12.0625M4.412 15.9584C4.48809 16.1463 4.57059 16.3296 4.6595 16.5102C4.84009 16.8769 4.588 17.3334 4.18009 17.3334H3.34775C2.53284 17.3334 1.7775 16.8585 1.54009 16.0794C1.22259 15.0373 1.06164 13.9539 1.0625 12.8646C1.0625 11.441 1.33292 10.0816 1.82425 8.83312C2.10475 8.12362 2.81975 7.70837 3.58334 7.70837H4.54859C4.98125 7.70837 5.2315 8.21804 5.00692 8.58837C4.22399 9.87716 3.81106 11.3567 3.81342 12.8646C3.81342 13.9591 4.02609 15.0032 4.41292 15.9584H4.412Z"
@@ -306,11 +195,14 @@ const Comments = ({width,height}) => {
                     {/* text comment */}
 
                     <div className="h-[60px]  ">
-                      <p className=" comment text-[13px] max-lg:text-[11px]  max-md:text-[12px]">{data.commnetper}</p>
+                      <p className=" comment text-[13px] max-lg:text-[11px]  max-md:text-[12px]">{data?.describe}</p>
                     </div>
                   </div>
 
-                  <div
+                  {
+                     replyCourse.data?.map((item)=>(
+
+                         <div
                     style={{ boxShadow: "inset 0px 1px 2px 0px #00000040 " }}
                     className="border-r-[4px] border-r-[#01CEC9] dark:border-r-[#FF8A00] p-[23.5px] w-full h-[160px] flex flex-wrap justify-end dark:bg-slate-900 bg-[#ECECEC] rounded-[10px]"
                   >
@@ -318,14 +210,14 @@ const Comments = ({width,height}) => {
 
                       {/* reply details */}
                       <div className="flex flex-row-reverse  ">
-                        <div className="profile">{data.replyprofile}</div>
+                        <div className="profile">{item?.pictureAdress}</div>
 
                         <div className="text-right">
                           <h3 className="commentname  max-lg:text-[11px] max-md:text-[15px]  ">
                             {" "}
-                            {data.reply} | {data.replyperson}
+                              {item?.author}
                           </h3>
-                          <h4 className="datecomment">{data.datereply}</h4>
+                          <h4 className="datecomment">{item?.title}</h4>
                         </div>
                       </div>
 
@@ -333,7 +225,7 @@ const Comments = ({width,height}) => {
 
                       <div className="  flex  flex-row-reverse gap-3  max-lg:gap-1 max-md:gap-3  ">
                         <h1 className=" like leading-[15px]">
-                          {data.replydislike}
+                          {item?.disslikeCount}
                         </h1>
                         <svg
                           width="16"
@@ -352,7 +244,7 @@ const Comments = ({width,height}) => {
                         </svg>
 
                         <h1 className=" like leading-[15px]">
-                          {data.replylikes}
+                          {item?.likeCount}
                         </h1>
 
                         <svg
@@ -393,9 +285,13 @@ const Comments = ({width,height}) => {
 
                     {/* text reply */}
                     <div className="h-[60px]  w-[439px] ">
-                      <p className=" comment text-[12px]  max-lg:text-[11px] max-md:text-[12px]  max-md:line-clamp-none  max-lg:line-clamp-3">{data.replyper}</p>
+                      <p className=" comment text-[12px]  max-lg:text-[11px] max-md:text-[12px]  max-md:line-clamp-none  max-lg:line-clamp-3">{item?.describe}</p>
                     </div>
                   </div>
+                     ))
+                  }
+
+               
                 </div>
               ))}
             </motion.div>
