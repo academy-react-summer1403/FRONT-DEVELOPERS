@@ -13,15 +13,6 @@ import Logo from "../assets/landing/logo1.svg";
 
 
 
-// const FooterImg = {
-
-//     backgroundImage:`url(${FooterLogo})`,
-//     backgroundPosition:"50%",
-//     backgroundReapet:"no-repeat",
-//     backgroundSize:"cover",
-//     height:"100%",
-//     width:"100%"
-// }
 
     const footerLinks = [
         {
