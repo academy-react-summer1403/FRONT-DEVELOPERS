@@ -1,25 +1,40 @@
 
-import Layout from "./components/layout/Layout"
 import Dashboard from "./pages/dashboard/Dashboard"
-import Landing from "./pages/landing/Landing"
+
+
+
 
 
 function App() {
 
 
   return (
+
     <>
     {/* <Layout>
 
-      <Landing/>
 
 
-    </Layout> */}
+ 
+
+    <div className="bg-white dark:bg-gray-900 dark:text-white duration-200">
+    <Navbar/>
+
+      <Outlet/>
+    
+    {/* <Footer/> 
+     </div> 
+
+
+
+     </Layout> */}
     
     <Dashboard/>
 
     
     </>
+
+
   )
 }
 

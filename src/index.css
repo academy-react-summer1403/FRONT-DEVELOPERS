@@ -6,6 +6,112 @@
 @tailwind utilities;
 
 
+
 body{
     font-family: "Rubik", sans-serif;;
 }
+
+
+
+@layer components{
+    .mark{
+        @apply  right-0 -top-10 text-right h-[32px]  text-[#005351] font-Yekan font-bold leading-[25px] text-[25px]
+    }
+
+    .like{
+        @apply font-normal font-Yekan text-[#888888] text-[16px] dark:text-slate-300
+    }
+
+    .commentname{
+        @apply h-[32px] text-[#003B39] text-[15px] font-Yekan  font-normal dark:text-slate-200
+    }
+
+    .datecomment{
+        @apply h-[32px] text-[#888888] text-[14px] font-Yekan  font-normal 
+    }
+
+    .profile{
+        @apply flex items-center justify-center  ml-2 border rounded-full h-[50px] w-[50px]
+    }
+
+    .comment{
+        @apply text-right text-[#333333]  font-Yekan font-normal dark:text-slate-400
+    }
+
+    .share{
+        @apply font-normal font-Yekan text-[16px] text-[#888888] leading-[32px] dark:text-slate-200
+    }
+
+    .text{
+        @apply font-Yekan font-normal  text-[16px]  text-[#AAAAAA] leading-[16px] dark:text-slate-400
+    }
+    
+}
+
+
+
+@layer base{
+    @font-face {
+        font-family: "Yekan";
+        src: url(./assets/fonts/B_Yekan/Yekan.ttf) format("truetype"),
+        url(./assets/fonts/B_Yekan/Fontyab.com.url),
+        url(./assets/fonts/B_Yekan/Fontyab.ir.url),
+        url(./assets/fonts/B_Yekan/read\ me!.txt),
+
+    }
+}
+
+.slick-slide > div {
+    margin:0 30px;
+}
+
+
+.button__bar {
+    display: inline-block;
+    vertical-align: middle;
+    margin:40px auto;
+    padding: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 40px;
+    width: 100px;
+    text-align: center;
+   
+  }
+  
+  .button__bar li {
+    list-style: none;
+    cursor: pointer;
+    display: inline-block;
+    margin: 0 3px;
+    padding: 0;
+  }
+  
+  .button__bar li button {
+    border: none;
+    background: #01CEC9;
+    color: transparent;
+    cursor: pointer;
+    display: block;
+    height: 15px;
+    width: 15px;
+    border-radius: 7.5px;
+  }
+  
+  .button__bar :global(li.slick-active) button {
+    background-color: #D47300;
+  }
+  
+  .button__bar li button:hover,
+  .button__bar li button:focus {
+    background: #D47300;
+    outline: 0;
+  }
+  
+  .slick-slide img {
+    border: 5px solid #fff;
+    display: block;
+    margin: auto;
+  }
+
+
+
