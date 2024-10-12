@@ -9,12 +9,28 @@ import HeadLines from "../../components/coursedetailComponents/Headlines/HeadLin
 import Comments from "../../components/coursedetailComponents/comments/Comments";
 import RelatedCourses from "../../components/coursedetailComponents/RelatedCourses/RelatedCourses";
 
+import {   useCourseId } from "../../core/services/query/queries";
+import { useParams } from "react-router-dom";
+
 const CourseDetial = () => {
 
 
 
 
+  const {courseId } = useParams();
+
+  console.log({courseId})
   
+
+ 
+
+  const CourseDetail = useCourseId(courseId);
+
+  console.log(CourseDetail.data);
+
+  console.log(CourseDetail.data?.courseId);
+
+
   
 
   return (
@@ -36,7 +52,7 @@ const CourseDetial = () => {
             transition={{type:"spring",stiffness:40, delay:0.2}}
         
         style={{boxShadow:"box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25)"}} className="max-xl:w-[550px] max-md:hidden max-lg:h-[300px] h-[395px] max-xl:h-[320px] w-[624px] max-2xl:mr-10">
-          <img className=" h-full w-full  rounded-[15px]" src={image} alt="" />
+          <img className=" h-full w-full  rounded-[15px]" src={CourseDetail.data?.imageAddress} alt="" />
         </motion.div>
         {/* course detail card */}
 
@@ -85,7 +101,7 @@ const CourseDetial = () => {
           {/* comments */}
           
           <h4 className=" mark mt-5 max-xl:text-[20px] dark:text-slate-300  ">نظرات</h4><div className="max-lg:w-full max-xl:w-full]  max-sm:w-full max-md:w-[500px]">
-          <Comments width={"w-[809px]"} height={"h-852px"}/></div>
+          <Comments width={"w-[809px]"} height={"h-852px"} courseId={courseId}/></div>
           
        </div>
      

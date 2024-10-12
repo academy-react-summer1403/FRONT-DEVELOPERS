@@ -12,6 +12,12 @@ import VarificationVorod from "./components/mainAuth/VarificationVorod.jsx";
 import AuthRoot from "./AuthRoot.jsx";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import CoursPage from "./pages/cousrses/CoursPage.jsx";
+import CourseDetial from "./pages/CourseDetail/CourseDetail.jsx";
+import ArticleDetail from "./pages/ArticleDetail/ArticleDetail.jsx";
+import ArticlesNews from "./pages/articles and news/ArticlesNews.jsx";
+import { Provider } from "react-redux";
+import { store } from "./core/redux/store.js";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +28,26 @@ const router = createBrowserRouter([
         index: true,
         path: "/",
         element: <Landing />,
+      },
+      {
+        index: true,
+        path: "/courses",
+        element: <CoursPage />,
+      },
+      {
+        index: true,
+        path: "/courses-detail/:courseId",
+        element: <CourseDetial />,
+      },
+      {
+        index: true,
+        path: "/article-detail/:id",
+        element: <ArticleDetail />,
+      },
+      {
+        index: true,
+        path: "/article-news",
+        element: <ArticlesNews />,
       },
     ],
   },
@@ -67,7 +93,9 @@ const queryClient = new   QueryClient({
 createRoot(document.getElementById("root")).render(
   <StrictMode>
      <QueryClientProvider client={queryClient}>
-    <RouterProvider router={router} />
+      <Provider store={store}>
+          <RouterProvider router={router} />
+      </Provider>
     <ReactQueryDevtools/>
     </QueryClientProvider>
   </StrictMode>

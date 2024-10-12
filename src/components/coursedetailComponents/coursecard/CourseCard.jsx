@@ -1,7 +1,22 @@
 import React from 'react'
 import { motion } from 'framer-motion';
+import { useCourseId } from '../../../core/services/query/queries';
+import { useParams } from 'react-router-dom';
+
 
 const CourseCard = () => {
+
+  const {courseId} = useParams();
+  console.log({courseId})
+  
+
+ 
+
+  const CourseDetail = useCourseId(courseId);
+  console.log(CourseDetail.data?.title);
+
+  
+
   return (
     <>
     {/* course detail card */}
@@ -30,14 +45,12 @@ const CourseCard = () => {
             {/* course name */}
 
             <h2 className=" text-right font-bold max-lg:mt-[-20px] dark:text-white text-[24px] max-xl:text-[20px] max-lg:text-[18px]  leading-10 text-black">
-              React Jsدوره تخصصی و جامع
+             {CourseDetail.data?.title}
             </h2>
           </div>
 
           <p className="max-xl:text-[16px] max-xl:mt-[10px] max-lg:text-[14px]   mt-[40px] dark:text-slate-300 text-[#777777] font-normal text-[18px] leading-7 text-right">
-            حدود 40 ساعت آموزش جامع و تخصصی ری اکت!  شما در دوره آموزش ری اکت
-            ReactJS ، این کتابخانه قدرتمند و پر استفاده جاوا اسکریپت را به صورت
-            کاملا پروژه محور و کاربردی یاد میگیرید
+            {CourseDetail.data?.miniDescribe}
           </p>
 
           <div className="   flex-row-reverse  justify-between flex max-xl:mt-[10px] mt-[30px] ">
@@ -61,7 +74,7 @@ const CourseCard = () => {
               </svg>
 
               <h3 className=" font-normal max-xl:text-[18px] max-lg:text-[14px] text-right text-[22px] dark:text-blue-200 leading-6 text-[#005B58]">
-                مهدی اصغری
+                {CourseDetail.data?.teacherName}
               </h3>
             </div>
 
@@ -95,7 +108,7 @@ const CourseCard = () => {
                 تومان
               </h4>
               <h2 className=" max-lg:text-[18px]  dark:text-blue-200  max-xl:text-[27px]  leading-[42.55px]  font-normal font-Yekan text-[30px]  text-[#005B58]">
-                ۳,۴۰۰,۰۰۰
+                {CourseDetail.data?.cost}
               </h2>
             </div>
           </div>

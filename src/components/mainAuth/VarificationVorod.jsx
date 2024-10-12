@@ -1,18 +1,35 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { motion } from "framer-motion";
 import AuthB1Img from "../../assets/landing/authback3.png";
 import Squer from "../../assets/landing/one.svg";
 import Back from "../../assets/landing/authBack.png";
 import Background from "../../assets/landing/backgroundV.png";
 import more from "../../assets/landing/more course 2.png";
-import {  Field, Form, Formik } from "formik";
+
 import * as yup from "yup";
-import ReactVerificationInput from "react-verification-input-aria";
-import "react-verification-input-aria/lib/style.css";
+
+import { NavLink, } from 'react-router-dom';
+import OTPInput from 'react-otp-input';
+// import {  postCode } from '../../core/services/authApi';
 
 
 
 const VarificationVorod = () => {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   const style = {
     margin: "auto",
     display: "flex",
@@ -69,7 +86,7 @@ const VarificationVorod = () => {
           className="absolute w-[90px] h-[50px] z-[5000] text-center font-semibold text-green hover:text-orange dark:text-white 
       leading-[50px] -bottom-[10px] right-[50px]"
         >
-          <img src={more} alt="" />
+          <NavLink to={"/auth/v1"}><img src={more} alt="" /></NavLink>
         </div>
 
         <img
@@ -106,51 +123,52 @@ const VarificationVorod = () => {
 
               {/* form  */}
 
-              <Formik 
-                initialValues={{ title: "", desc: "" }}
-                // onSubmit={(values) => onSubmit(values)}
+              <form
+                // initialValues={{ title: "", desc: "" }}
+                onSubmit={(values) => onSubmit(values)}
                 validationSchema={validation}
               >
-                <Form className='-mt-[10px]'>
+                <div className='-mt-[10px]'>
 
                 
-                <div 
-                  style={{
-                    ...style,
-                    background: "#fff",
+                <OTPInput
+                   
                     
+                  //  value={verifyCode.toString("")}
+                  //  onChange={(e)=>setVerifyCode(e.toString(""))}
+                   numInputs={5}
+                   
+                   renderInput={(inputProps , index) => <input {...inputProps} key={index} />}
+                   
+                  inputStyle={{
+                   width:"3rem",
+                   height:"3rem",
+                   border:"1px solid #ccc",
+                   margin:"10px 0.35rem",
+                   fontSize:"1.5rem",
+                   borderRadius:"4px",
+                   
                   }}
-                >
-                  <ReactVerificationInput number fields={5} styleType="underlined" />
-                </div>
-
-                  {/* <Field
-                    type="text"
-                    placeholder="شماره همراه"
-                    name="title"
-                    className="w-[200px] h-[40px] ml-[50px] outline-none shadow-inner shadow-gray-400 border border-gray-300 rounded-lg bg-gray-100
-                    text-[10px] font-semibold text-left indent-[10px] dark:text-black"
-                    // onChange={HandleChangeItem}
-                    // value={item.title}
-                    required
-                  /> */}
-                 
+                   
                   
+                 />
+                 
+               
                   <button
                     type="submit"
                     className="w-[90px] h-[30px] rounded-2xl bg-orange absolute top-[100px] right-[105px] text-white text-[10px] font-semibold"
                   >
                     ایجاد حساب کاربری
                   </button>
-
+          
                   <button
                     type="submit"
                     className="w-[90px] h-[30px] rounded-2xl  absolute top-[130px] right-[105px] text-green text-[10px] font-semibold underline underline-offset-[5px]"
                   >
                     ارسال دوباره کد
                   </button>
-                </Form>
-              </Formik>
+                </div>
+              </form>
             </div>
 
 

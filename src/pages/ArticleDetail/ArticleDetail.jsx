@@ -5,8 +5,20 @@ import { samecourses, suggestion } from "../CourseDetail/CourseDetail";
 import ArticleDescription from "../../components/articledetail/articleDescription/ArticleDescription";
 import Comments from "../../components/coursedetailComponents/comments/Comments";
 import { motion } from "framer-motion";
+import { useArticleDetail } from "../../core/services/query/queries";
+import { useParams } from "react-router-dom";
+
 
 const ArticleDetail = () => {
+
+  const { id } = useParams();
+
+  
+  const articleDetail = useArticleDetail(id);
+  console.log(articleDetail.data?.detailsNewsDto.title);
+
+
+
   return (
     <div
       className="  relative  container  " >
@@ -120,12 +132,12 @@ const ArticleDetail = () => {
           }}
           className=" h-[159px] max-xl:h-[131px] w-full    max-md:rounded-t-[75px] rounded-tr-[75px] rounded-[10px]  rounded-br-[5px]  bg-gradient-to-bl pt-[35px]  pl-[35px] pr-[30px] dark:from-[#ce9e018a]  from-[#01CEC939] to-[#E4890026] "
         >
-          <div className=" flex items-center gap-2">
+          <div className=" flex items-center justify-end gap-2">
             <h1
               className=" text-[25px] max-2xl:text-[19px] max-lg:text-[14px] max-lg:line-clamp-1 max-md:text-[18px] max-xl:text-[17px] font-bold font-Yekan flex dark:text-secondary  text-[#005351] text-justify  
         "
             >
-              ری اکت چیست و چه کاربرد هایی دارد؟ + ۵ دلیل استفاده از ری اکت
+            {articleDetail.data?.detailsNewsDto.title}
             </h1>
 
             <svg
@@ -141,11 +153,12 @@ const ArticleDetail = () => {
           </div>
 
           <div className=" flex h-[20px] max-md:justify-between mt-10 max-xl:mt-7 flex-nowrap flex-row-reverse justify-end  gap-11 max-lg:gap-5 items-center ">
-            <h3 className=" max-2xl:text-[15px] max-xl:text-[13px] max-lg:text-[12px] max-lg:w-24 max-lg:gap-2  flex gap-3 max-lg:flex-row-reverse  flex-row-reveers text">
-              بازدید 56
+            <h3 className=" max-2xl:text-[15px] max-xl:text-[13px] max-lg:text-[12px] max-lg:w-24   flex  max-lg:flex-row-reverse  flex-row-reveers text">
+          
               <svg
                 width="20"
                 height="19"
+                className="mr-3 max-lg:mr-2"
                
                 viewBox="0 0 20 19"
                 fill="none"
@@ -165,7 +178,7 @@ const ArticleDetail = () => {
                   stroke-linecap="round"
                   stroke-linejoin="round"
                 />
-              </svg>
+              </svg> <h3 className="max-2xl:text-[15px] max-xl:text-[13px] max-lg:text-[12px] text mr-1"> بازدید</h3> {articleDetail.data?.detailsNewsDto.currentView} 
             </h3>
 
             <h3 className=" max-2xl:text-[15px] text max-xl:text-[13px] flex gap-3">
@@ -184,7 +197,8 @@ const ArticleDetail = () => {
                   stroke-linejoin="round"
                 />
               </svg>
-              ۱۴۰۳/۰۱/۱۸
+              {articleDetail.data?.detailsNewsDto.updateDate} 
+              
             </h3>
 
             <h3 className=" max-2xl:text-[15px] text max-xl:text-[13px] flex gap-3   max-lg:text-[12px] max-lg:w-28 max-lg:gap-1">
@@ -204,7 +218,9 @@ const ArticleDetail = () => {
                   stroke-linejoin="round"
                 />
               </svg>
-              مهدی اصغری
+     {articleDetail.data?.detailsNewsDto.addUserFullName} 
+            
+              
             </h3>
 
             <svg

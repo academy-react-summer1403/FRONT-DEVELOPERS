@@ -1,14 +1,55 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { motion } from "framer-motion";
 import AuthB1Img from "../../assets/landing/authback3.png";
 import Squer from "../../assets/landing/one.svg";
 import Back from "../../assets/landing/authBack.png";
 import Background from "../../assets/landing/background.png";
 import more from "../../assets/landing/more course 2.png";
-import {  ErrorMessage, Field, Form, Formik } from "formik";
+
 import * as yup from "yup";
+import { NavLink, useNavigate } from 'react-router-dom';
+import { postRegister } from '../../core/services/authApi';
 
 const LoginAuth = () => {
+
+
+  const [password , setPassword] = useState("")
+  const [gmail , setGmail] = useState("")
+  const [phoneNumber , setPhoneNumber] = useState("")
+
+
+  console.log(password)
+  console.log(gmail)
+  console.log(phoneNumber)
+
+  const navigate = useNavigate()
+
+
+  const onSubmit = (e)=>{
+    e.preventDefault();
+    const user = {
+      phoneNumber:"09926695494",
+      phoneNumber:"09057048345",
+      gmail,
+      password
+    };
+    console.log(user)
+
+  const res = postRegister(user)
+    console.log(res)
+
+    navigate("/");
+  }
+
+
+
+
+
+
+
+
+
+
   const validation = yup.object().shape({
     email: yup.string().email("InvalidEmail").required("پر کردن این فیلد اجباریست"),
 
@@ -61,7 +102,7 @@ const LoginAuth = () => {
               className="absolute w-[90px] h-[50px] z-[5000] text-center font-semibold text-green hover:text-orange dark:text-white 
           leading-[50px] -bottom-[10px] right-[50px]"
             >
-              <img src={more} alt="" />
+            <NavLink to={"/auth/2"}>  <img src={more} alt="" /></NavLink>
             </div>
   
             <img
@@ -89,74 +130,76 @@ const LoginAuth = () => {
                   {/* text section  */}
   
                   <h1 className="w-[200px] h-[50px] text-green text-xl mx-auto text-center absolute left-[50px] -top-[70px] font-semibold">
-                    ورود حساب کاربری
+                    ورود به حساب کاربری
                   </h1>
   
                   {/* form  */}
   
-                  <Formik
-                    initialValues={{ title: "", desc: "" }}
-                    // onSubmit={(values) => onSubmit(values)}
+                  <form
+                    // initialValues={{ title: "", desc: "" }}
+                    onSubmit={(values) => onSubmit(values)}
                     validationSchema={validation}
                   >
-                    <Form className='flex flex-col gap-4'>
-                      <Field
-                        type="email"
-                        placeholder="ایمیل"
+                    <div className='flex flex-col gap-4'>
+                      <input
+                        type="text"
+                        placeholder="شماره همراه"
                         name="email"
                         className="w-[200px] h-[40px] ml-[50px] outline-none shadow-inner shadow-gray-400 border border-gray-300 rounded-lg bg-gray-100
                         text-[10px] font-semibold text-left indent-[10px] dark:text-black"
-                        // onChange={HandleChangeItem}
+                        onChange={(e)=>setPhoneNumber(e.target.value)}
                         // value={item.title}
                         required
                       />
-                      <ErrorMessage
+                      {/* <ErrorMessage
                         name="email"
                         component="div"
                         className="text-red-500 w-[50px] text-[10px] font-semibold absolute whitespace-nowrap top-[35px] left-[50px] "
-                      />
+                      /> */}
 
-                      <Field
-                        type="password"
-                        placeholder="رمز عبور"
+                      <input
+                        type="text"
+                        placeholder="ایمیل"
                         name="password"
                         className="w-[200px] h-[40px] ml-[50px] outline-none shadow-inner shadow-gray-400 border border-gray-300 rounded-lg bg-gray-100
                         text-[10px] font-semibold text-left indent-[10px] dark:text-black"
-                        // onChange={HandleChangeItem}
+                        onChange={(e)=>setGmail(e.target.value)}
+
                         // value={item.title}
                         required
                       />
-                      <ErrorMessage
+                      {/* <ErrorMessage
                         name="password"
                         component="div"
                         className="text-red-500 w-[50px] text-[10px] font-semibold absolute whitespace-nowrap top-[90px] left-[50px] "
-                      />
+                      /> */}
 
-                      <Field
+                      <input
                         type="password"
-                        placeholder="تایید رمز عبور"
+                        placeholder=" رمز عبور"
                         name="confirmPassword"
                         className="w-[200px] h-[40px] ml-[50px] outline-none shadow-inner shadow-gray-400 border border-gray-300 rounded-lg bg-gray-100
                         text-[10px] font-semibold text-left indent-[10px] dark:text-black"
-                        // onChange={HandleChangeItem}
+                        onChange={(e)=>setPassword(e.target.value)}
+
                         // value={item.title}
                         required
                       />
-                      <ErrorMessage
+                      {/* <ErrorMessage
                         name="confirmPassword"
                         component="div"
                         className="text-red-500 w-[50px] text-[10px] font-semibold absolute whitespace-nowrap top-[150px] left-[50px] "
-                      />
-  
+                      /> */}
+                   
                       <button
                         type="submit"
                         className="w-[100px] h-[30px] rounded-2xl bg-orange absolute top-[180px] right-[100px] text-white text-[10px] font-semibold"
                       >
                         ورود به حساب کاربری
                       </button>
-  
-                    </Form>
-                  </Formik>
+              
+                    </div>
+                  </form>
                 </div>
   
   

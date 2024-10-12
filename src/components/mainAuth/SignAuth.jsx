@@ -1,19 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import AuthB1Img from "../../assets/landing/authback1.png";
 import Squer from "../../assets/landing/one.svg";
 import Back from "../../assets/landing/authBack.png";
 import Background from "../../assets/landing/background.png";
 import more from "../../assets/landing/moreCourse.png";
-import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as yup from "yup";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { postNumber } from "../../core/services/authApi";
+
 
 
 
 const SignAuth = () => {
 
-  // const navigate = useNavigate()
+  const [phoneNumber , setPhoneNumber] = useState("");
+
+  const navigate = useNavigate()
+
+console.log(phoneNumber)
+
+  const onSubmit = (e)=>{
+    e.preventDefault();
+    const number = {
+      phoneNumber
+    };
+    console.log(number)
+
+  const res = postNumber(number)
+    console.log(res)
+
+    navigate("/auth/2");
+
+  }
+
+
+
+
+
+
+
 
   const validation = yup.object().shape({
     title: yup.string().required("پر کردن این فیلد اجباریست"),
@@ -55,7 +81,7 @@ const SignAuth = () => {
             className="absolute w-[90px] h-[50px] z-[5000] text-center font-semibold text-green hover:text-orange dark:text-white 
         leading-[50px] -bottom-[10px] left-[20px]"
           >
-            <img src={more} alt="" />
+           <NavLink to={"/"}> <img src={more} alt="" /></NavLink>
           </div>
 
           <img
@@ -88,44 +114,45 @@ const SignAuth = () => {
 
                 {/* form  */}
 
-                <Formik
-                  initialValues={{ title: "", desc: "" }}
-                  // onSubmit={(values) => onSubmit(values)}
+                <form
+                  // initialValues={{ title: "", desc: "" }}
+                  onSubmit={(values) => onSubmit(values)}
                   validationSchema={validation}
                 >
-                  <Form>
-                    <Field
+                  
+                    <input
                       type="text"
                       placeholder="شماره همراه"
                       name="title"
                       className="w-[200px] h-[40px] ml-[50px] outline-none shadow-inner shadow-gray-400 border border-gray-300 rounded-lg bg-gray-100
                       text-[10px] font-semibold text-left indent-[10px] dark:text-black"
-                      // onChange={HandleChangeItem}
+                      onChange={(e)=>setPhoneNumber(e.target.value)}
                       // value={item.title}
                       required
                     />
-                    <ErrorMessage
+                    {/* <ErrorMessage
                       name="title"
                       component="div"
                       className="text-red-500 w-[50px] text-[10px] font-semibold absolute whitespace-nowrap left-[50px] "
-                    />
-                    <NavLink to={`/auth/v1`}>
+                    /> */}
+                    
                     <button
-                    // onClick={()=>navigate("/authS2")}
+                   
                       type="submit"
                       className="w-[90px] h-[30px] rounded-2xl bg-orange absolute top-[80px] right-[105px] text-white text-[10px] font-semibold"
                     >
                       دریافت کد تایید
                     </button>
-                    </NavLink>
+                
+                    <NavLink to={"/auth/v1"}>
                     <button
-                      type="submit"
+                    
                       className="w-[90px] h-[30px] rounded-2xl  absolute top-[110px] right-[105px] text-green text-[10px] font-semibold"
                     >
                       ورود
                     </button>
-                  </Form>
-                </Formik>
+                    </NavLink>  
+                </form>
               </div>
 
 
