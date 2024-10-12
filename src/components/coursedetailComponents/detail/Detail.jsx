@@ -1,15 +1,26 @@
 import React from 'react'
 import { motion } from 'framer-motion';
-
 import profile from "../../../assets/detail/prof.jpg"
+import { useParams } from 'react-router-dom';
+import { useCourseId, useCourses } from '../../../core/services/query/queries';
+
 
 const Detail = () => {
 
+  const {courseId} = useParams();
+  
+  
+
+ 
+
+  const CourseDetail = useCourseId(courseId);
+
+ 
   const coursedetals = [
     {
       id: 1,
       title: "دسته بندی",
-      subtitle: "فــرانت اند",
+      subtitle: `${CourseDetail.data?.techs}`,
       icon: (
         <svg
           width="28"
@@ -80,7 +91,7 @@ const Detail = () => {
     {
       id: 4,
       title: "وضعیت دوره ",
-      subtitle: "درحال برگزاری",
+      subtitle:`${CourseDetail.data?.courseStatusName}`,
       icon: (
         <svg
           width="28"
@@ -104,7 +115,7 @@ const Detail = () => {
     {
       id: 5,
       title: "تاریخ شروع دوره",
-      subtitle: "۱۴۰۳/۰۲/۱۱",
+      subtitle: `${CourseDetail.data?.startTime}`,
       icon: (
         <svg
           width="28"
@@ -129,7 +140,7 @@ const Detail = () => {
     {
       id: 6,
       title: "تاریخ پایان دوره",
-      subtitle: "۱۴۰۳/۰۲/۱۱",
+      subtitle: `${CourseDetail.data?.endTime}`,
       icon: (
         <svg
           width="28"

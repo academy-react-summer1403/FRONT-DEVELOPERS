@@ -25,7 +25,11 @@ const CourseDetial = () => {
  
 
   const CourseDetail = useCourseId(courseId);
+<<<<<<< HEAD
   console.log(CourseDetail.data);
+=======
+  console.log(CourseDetail.data?.courseId);
+>>>>>>> 4e3d41cf8ad49e579023484652f95029212c8919
 
   
 
@@ -48,7 +52,7 @@ const CourseDetial = () => {
             transition={{type:"spring",stiffness:40, delay:0.2}}
         
         style={{boxShadow:"box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25)"}} className="max-xl:w-[550px] max-md:hidden max-lg:h-[300px] h-[395px] max-xl:h-[320px] w-[624px] max-2xl:mr-10">
-          <img className=" h-full w-full  rounded-[15px]" src={image} alt="" />
+          <img className=" h-full w-full  rounded-[15px]" src={CourseDetail.data?.imageAddress} alt="" />
         </motion.div>
         {/* course detail card */}
 
