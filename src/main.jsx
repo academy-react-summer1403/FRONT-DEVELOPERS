@@ -1,6 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import App from "./App.jsx";
+
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Landing from "./pages/landing/Landing.jsx";
@@ -18,6 +18,7 @@ import ArticleDetail from "./pages/ArticleDetail/ArticleDetail.jsx";
 import ArticlesNews from "./pages/articles and news/ArticlesNews.jsx";
 import { Provider } from "react-redux";
 import { store } from "./core/redux/store.js";
+import App from "./App.jsx";
 
 const router = createBrowserRouter([
   {
