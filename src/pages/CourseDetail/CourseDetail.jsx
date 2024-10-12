@@ -25,11 +25,11 @@ const CourseDetial = () => {
  
 
   const CourseDetail = useCourseId(courseId);
-<<<<<<< HEAD
+
   console.log(CourseDetail.data);
-=======
+
   console.log(CourseDetail.data?.courseId);
->>>>>>> 4e3d41cf8ad49e579023484652f95029212c8919
+
 
   
 
