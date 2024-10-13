@@ -22,12 +22,13 @@ import view from '../../assets/dashboard/111.svg'
 import favorite from '../../assets/dashboard/Vector.svg'
 import setting from '../../assets/dashboard/Vector(1).svg'
 import { IoIosMenu } from 'react-icons/io'
+import EditeProfileForm from './editeprofile/EditeProfileForm'
 
 
 
 
 const DashPanel = () => {
-    const [dashPage, setDashPage] = useState(<StdDashboard/>)
+    const [dashPage, setDashPage] = useState(<EditeProfileForm/>)
     const dashboard=[
         {
             id:1,

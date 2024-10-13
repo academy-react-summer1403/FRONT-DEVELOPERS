@@ -62,7 +62,7 @@ const ChangPassword = () => {
                     className='px-4 pt-1 rounded-md bg-gray-50 leading-8 text-teal-800 
                     placeholder-md placeholder-teal-800'/>
                   </label>
-                  {errors.confirmPassword && <p>{errors.confirmPassword}</p>}
+                  {errors.confirmPassword && <p className='text-red-300'>{errors.confirmPassword}</p>}
                 </div>
 
                 <div className='text-right text-xs grid-col-1 text-gray-400'>
@@ -77,7 +77,7 @@ const ChangPassword = () => {
                     className='px-4 pt-1 rounded-md bg-gray-50 leading-8 text-teal-800 
                     placeholder-md placeholder-teal-800'/>
                   </label>
-                  {errors.password && <p>{errors.password}</p>}                    
+                  {errors.password && <p className='text-red-300'>{errors.password}</p>}                    
                 </div>
 
                 <div className='text-right text-xs grid-col-1 text-gray-400'>
@@ -93,7 +93,7 @@ const ChangPassword = () => {
                     placeholder-md placeholder-teal-800'/>
                     
                   </label>
-                  {errors.previousPassword && <p>{errors.previousPassword}</p>}   
+                  {errors.previousPassword && <p className='text-red-300'>{errors.previousPassword}</p>}   
                 </div>   
 
               </div>
