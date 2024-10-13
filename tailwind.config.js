@@ -4,6 +4,9 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+
+  darkMode:"class",
+
   theme: {
     extend: {
       colors:{
@@ -19,14 +22,19 @@ export default {
         center:true,
         padding:{
           DEFUALT:"1rem",
-          sm:"2rem",
+          sm:"5rem",
           lg:"4rem",
-          xl:"5rem",
-          "2xl":"6rem",
+          xl:"1rem",
+          "2xl":"8rem",
         }
       },
       
+      
     },
+
+    fontFamily:{
+      Yekan:['Yekan','sans-serif']
+    }
   },
   plugins: [],
 }
