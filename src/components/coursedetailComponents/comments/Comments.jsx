@@ -39,7 +39,7 @@ const Comments = ({width,height , courseId }) => {
 
 
   const GetComment = useCommentCourse(courseId);
-  console.log(GetComment.data?.[0].id);   /*  dont accept (GetComment.data?.id) */
+  console.log(GetComment.data?.id);   /*  dont accept (GetComment.data?.id) */
 
   useEffect(()=>{
     setReply(GetComment.data?.[0].id)
