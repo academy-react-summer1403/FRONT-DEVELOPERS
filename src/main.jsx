@@ -1,6 +1,5 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Landing from "./pages/landing/Landing.jsx";
@@ -19,6 +18,8 @@ import ArticlesNews from "./pages/articles and news/ArticlesNews.jsx";
 import { Provider } from "react-redux";
 import { store } from "./core/redux/store.js";
 import App from "./App.jsx";
+import Dashboard from "./pages/dashboard/Dashboard.jsx";
+
 
 const router = createBrowserRouter([
   {
@@ -52,6 +53,16 @@ const router = createBrowserRouter([
       },
     ],
   },
+
+  {
+    path:"/Dashboard",
+    element:<Dashboard/>
+
+  },
+ 
+
+
+
 
   {
     path: "/auth",

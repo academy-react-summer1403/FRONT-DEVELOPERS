@@ -1,8 +1,8 @@
 import React, {  useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useCommentCourse, useReplyCourse } from "../../../core/services/query/CommentQuery";
-// import { useMutation } from "@tanstack/react-query";
-// import http from "../../../core/services/interceptor"
+import { postAddComment } from "../../../core/services/apiComment";
+
 
 
 
@@ -10,23 +10,28 @@ const Comments = ({width,height , courseId }) => {
 
   const [showMore, setShowMore] = useState(true);
 
-  // const likeMutation = useMutation({
-  //   mutationFn: async(newTodo) => {
-  //   const data =  await http.post('/Course/AddCourseCommentLike', newTodo)
-  //   return data;
-  //   },
-  // })
-  // console.log(likeMutation)
+
+  const [Title , setTitle] = useState("")
+  const [Describe , setDescribe] = useState("")
+
+  console.log(Title)
+  console.log(Describe)
 
 
-  // const dislikeMutation = useMutation({
-  //   mutationFn: async(newTodo) => {
-  //   const data =  await http.delete('/Course/AddCourseCommentLike', newTodo)
-  //   return data;
-  //   },
-  // })
-  // console.log(dislikeMutation)
+  const onSubmit = (e)=>{
+    e.preventDefault();
+    const comment = {
+      CourseId : courseId,
+      Describe,
+      Title,
+      
+    };
+    console.log(comment)
 
+  const res = postAddComment(comment)
+    console.log(res)
+
+  }
 
 
   const [reply , setReply] = useState();
@@ -34,16 +39,11 @@ const Comments = ({width,height , courseId }) => {
 
 
   const GetComment = useCommentCourse(courseId);
-  console.log(GetComment.data?.[0].id);
+  console.log(GetComment.data?.[0].id);   /*  dont accept (GetComment.data?.id) */
 
   useEffect(()=>{
     setReply(GetComment.data?.[0].id)
   })
-  // console.log(id)
-
-  // const commentId = GetComment.data?.[0].id
-  // console.log(commentId)
-
 
 
   const replyCourse = useReplyCourse(courseId , reply);
@@ -73,6 +73,7 @@ const Comments = ({width,height , courseId }) => {
                   ارسال دیدگاه جدید
                 </h3>
 
+
                 <svg
                   width="17"
                   height="16"
@@ -92,7 +93,21 @@ const Comments = ({width,height , courseId }) => {
                 </svg>
               </button>
             </div>
-
+            <form 
+                  onSubmit={(values) => onSubmit(values)}
+            
+            >
+              <div className="bg-red-500 w-[300px] h-[30px] mb-20">
+                <input type="text" placeholder="Reply" className="w-[100%] h-[100%] border border-red-300 outline-none"
+                  onChange={(e)=>setDescribe(e.target.value)}
+                />
+                 <input type="text" placeholder="Reply" className="w-[100%] h-[100%] border border-red-300 outline-none"
+                  onChange={(e)=>setTitle(e.target.value)}
+                />
+                </div>
+                <button type="submit" className="bg-blue-100 w-[60px] h-[20px] mb-10">click</button>
+            </form>
+            
 
             {/* map commnets */}
             <motion.div

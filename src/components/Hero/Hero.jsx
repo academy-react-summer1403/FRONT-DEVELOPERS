@@ -1,19 +1,32 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { motion } from 'framer-motion';
 import HeroAImg from "../../assets/landing/hero section pic.svg";
 import HeroBImg from "../../assets/landing/Ellipse 4.svg";
 import { SliderRight } from '../../utility/animation';
-import TImg from "../../assets/landing/teacher.png";
-import SImg from "../../assets/landing/student.png";
 import SearchImg from "../../assets/landing/Search.svg";
 import BackImg from "../../assets/landing/Rectangle 8.svg";
-import VidImg from "../../assets/landing/Circled Play.svg";
-import HatImg from "../../assets/landing/Hat.png";
 
+import { useDispatch, useSelector } from "react-redux";
+import { searchSlice } from '../../core/redux/slices/QueryState/QueryRedux';
+import { useLandingReport } from '../../core/services/query/queries';
 
 
 
 const Hero = () => {
+
+
+
+const reportLanding =  useLandingReport()
+console.log(reportLanding)
+
+  const query = useSelector((state) => state.searchLanding.data);
+  console.log(query);
+
+  const dispatch = useDispatch();
+
+
+
+
     return (
       <>
         <div
@@ -34,7 +47,7 @@ const Hero = () => {
               <div style={{boxShadow: "0px 0px 5px 0px #00000059"}} className='flex items-center justify-center  max-lg:w-[48px] max-lg:h-[48px] bg-[#FFB803] rounded-full max-xl:ml-[40px] ml-[60px] mt-[-30px] w-[68px] h-[68px] '>
                 <img className='  w-[45px] h-[45px] max-lg:w-[35px] max-lg:h-[35px]' src="https://s3-alpha-sig.figma.com/img/964f/1424/c9d17b05e8bbb686022aab84b0a67d3f?Expires=1729468800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=f0uhG151j7P91t9POto~TDdcx0K~1s-Ox6HA3kT2TJK7YarMAykNDpjDnnXd3gomWn9LyitL8mxgp0NVlZk9cbACowFE8qLwHFPf4wCCXWlXLsvdfqjyApVohI9zt6jHUuUXUyVYWSc2NavwyJqio8pqFhXcrl44flKUPzqU0pPquzgn5b-1aBp3k7AKudhuWpLCw9t6Aonnrz6oZcMJpkIwAo2uSOJGXR0W72t9NRUOYU3yVvB35cTqMweSvAfdW4XwUYrwSVYkAMB8HmAxAY84J1EdhoDxQigqGEResrvDl48KblV3Dv8M0Zm4vE4Dk0kDlA~Hd7YtHiziiCw7gA__" alt="" />
               </div>
-              <h1 className=' mx-auto max-xl:text-[20px] max-xl:w-[140px] h-[40px] w-[170px] mt-3 text-center text-[25px] font-normal font-Yekan text-[#434343] text-gray-800/90  dark:text-white'>+1000دانشجو</h1>
+              <h1 className=' mx-auto max-xl:text-[20px] max-xl:w-[140px] h-[40px] w-[170px] mt-3 text-center text-[25px] font-normal font-Yekan text-[#434343] text-gray-800/90  dark:text-white'>+{reportLanding.data?.studentCount}دانشجو</h1>
             </div>
        
 
@@ -108,7 +121,7 @@ const Hero = () => {
               <div style={{boxShadow: "0px 0px 5px 0px #00000059"}} className='flex  max-lg:w-[48px] max-lg:h-[48px] items-center justify-center max-xl:ml-[40px]   bg-[#E48900] rounded-full ml-[60px] mt-[-30px] w-[68px] h-[68px] '>
                 <img className='  w-[45px] h-[45px]  max-lg:w-[35px] max-lg:h-[35px]' src="https://s3-alpha-sig.figma.com/img/4023/9fba/94fd981a002097b15ac8447a32011119?Expires=1729468800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=WGIAvGcGoUeBrR1j90KPqb-L6OyIj0N7LuazF6YCrogopaKn~g339clcY~JkS8AJHsjsfaZV0Vm1HtmNV4T~uyD~6N6MBiOASQpT40PGipNpqYaF-y79T79FQe~yehiD7j6k0Xr8eu0-vDxlWtDuqaf110lOB-jR8XPcN2v5Tzxcg2wZooZGG0R-2d~lAEBmuu~3heABblQKMAn4Xa7KTgCHIoiunDMOPzM7sphevLqPse04fQr-Epew2jaJc09ACXfHMFIQB1orCFTnPYLmoTT9lItwcrplZxpxAMLU4RpHQN8vfj5xMxhWeLJLX3pxtX2hRWPK0PIpNuzFiAZTtw__" alt="" />
               </div>
-              <h1 className=' mx-auto h-[40px] w-[170px] mt-3 text-center text-[25px] max-xl:text-[20px] max-xl:w-[140px]  font-normal font-Yekan text-[#434343] text-gray-800/90  dark:text-white'>+50 مدرس</h1>
+              <h1 className=' mx-auto h-[40px] w-[170px] mt-3 text-center text-[25px] max-xl:text-[20px] max-xl:w-[140px]  font-normal font-Yekan text-[#434343] text-gray-800/90  dark:text-white'>+{reportLanding.data?.teacherCount} مدرس</h1>
             </div>
 
 
@@ -148,13 +161,18 @@ const Hero = () => {
              variants={SliderRight(1.0)}
              initial="hidden"
              animate="visible"
-              className="flex  bg-white max-md:z-50 rounded-[35px] max-lg:mt-[-80px] max-xl:w-[315px] max-md:w-[220px] max-lg:w-[240px] h-[65px] w-[415px] "
+              className="flex  bg-white max-md:z-50 rounded-[35px] max-lg:mt-[-80px] max-xl:w-[315px] max-md:w-[220px] max-lg:w-[240px] h-[65px] w-[415px] z-[5000]"
             >
               <div className='w-[48px] h-[49px] rounded-full bg-[#D47300] absolute left-[10px] top-[8px] flex items-center justify-center'>
                 <img src={SearchImg} alt="" className='px-1.5 py-1.5'/>
                 </div>  
-                <input style={{boxShadow:" 0px 1px 3px 0px #00000033"}} placeholder='... دنبال چی میگردی ؟' type="search" className='w-full h-full  rounded-[35px]  text-right font-normal
-                font-Yekan text-[#AAAAAA] text-[16px] pr-5 outline-none ' />
+                <input
+            onChange={(e) => dispatch(searchSlice.actions.search(e.target.value))}
+                
+                style={{boxShadow:" 0px 1px 3px 0px #00000033"}} placeholder='... دنبال چی میگردی ؟' type="text" className='w-full h-full  rounded-[35px]  text-right font-normal
+                font-Yekan text-[#AAAAAA] text-[16px] pr-5 outline-none' 
+                 
+                />
               
               
              

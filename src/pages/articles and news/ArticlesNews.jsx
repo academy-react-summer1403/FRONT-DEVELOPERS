@@ -21,9 +21,15 @@ const ArticlesNews = () => {
   const [page, setPage] = useState(1);
   console.log(page);
 
-  const [query, setQuery] = useState({});
+  const [query, setQuery] = useState("");
 
-  const newsDataQuery = useNewsData(query, page, sort);
+  const params = {
+    SortingCol:sort,
+    Query:query
+  }
+
+
+  const newsDataQuery = useNewsData(params, page );
   console.log(newsDataQuery);
 
   const lastPage = () => {

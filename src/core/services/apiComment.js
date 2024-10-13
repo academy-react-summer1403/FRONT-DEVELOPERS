@@ -13,6 +13,11 @@ export const getCommentCourse = async (courseId) => {
     return data;
   };
 
+  export const postAddComment = async (comment) => {
+    const data = await http.post("/Course/AddCommentCourse" , comment);
+    console.log(data);
+    return data;
+  };
 
 
 

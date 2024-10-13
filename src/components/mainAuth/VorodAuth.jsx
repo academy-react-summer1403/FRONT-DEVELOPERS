@@ -39,10 +39,11 @@ console.log(password)
   const res = login(user)
     console.log(res)
 
+    const token = res.token;
 
+    localStorage.setItem("token" , token);
 
-
-    navigate("/auth/v2");
+    navigate("/courses");
 
   }
 

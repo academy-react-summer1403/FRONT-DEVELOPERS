@@ -1,11 +1,13 @@
 import React from 'react'
 import fima from '../assets/landing/figma.png'
+import { NavLink } from 'react-router-dom'
 
 
 
 
-const CoursGridCard = () => {
+const CoursGridCard = ({title  , cost , teacherName , currentRegistrants , courseId}) => {
   return (
+    <NavLink to={"/courses-detail/" + courseId}>
     <div className=' mt-[80px] max-2xl:-ml-7  mb-5  max-sm:-ml-8'
     >
         <div className='relative rounded-[15px] w-[265px] max-xl:w-[200px] max-sm:w-[190px]  max-md:h-[320px]    max-md:w-[155px] max-sm:h-[310px] h-[305px]  max-xl:flex flex-wrap justify-center  bg-white px-4 dark:bg-gray-700/70'
@@ -25,7 +27,7 @@ const CoursGridCard = () => {
 
             {/* card body  */}
             <div className='relative top-[-10px]' >
-                <h3 className=' text-[#444444] text-right text-[19px] max-md:text-[16px] font-Yekan font-bold mr-1 dark:text-white'>دوره پیشرفته دیزاین</h3>
+                <h3 className=' text-[#444444] text-right text-[19px] max-md:text-[16px] font-Yekan font-bold mr-1 dark:text-white'>{title}</h3>
 
               <div className='  mt-6 mr-1'>
                 <div className='  h-[17px] flex justify-between'>
@@ -47,11 +49,11 @@ const CoursGridCard = () => {
 </clipPath>
 </defs>
 </svg>
-50
+{currentRegistrants}
 
             </h3>
 
-            <h3 className='  flex h-full items-center gap-1 text-[16px] max-md:text-[14px] font-normal font-Yekan text-[#888888]'>حامد نظری
+            <h3 className='  flex h-full items-center gap-1 text-[16px] max-md:text-[14px] font-normal font-Yekan text-[#888888]'>{teacherName}
                     <svg width="13" height="17" viewBox="0 0 13 17" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M9.35378 4.25C9.35378 4.95448 9.08533 5.63011 8.6075 6.12825C8.12966 6.6264 7.48158 6.90625 6.80581 6.90625C6.13005 6.90625 5.48197 6.6264 5.00413 6.12825C4.5263 5.63011 4.25785 4.95448 4.25785 4.25C4.25785 3.54552 4.5263 2.86989 5.00413 2.37175C5.48197 1.8736 6.13005 1.59375 6.80581 1.59375C7.48158 1.59375 8.12966 1.8736 8.6075 2.37175C9.08533 2.86989 9.35378 3.54552 9.35378 4.25ZM1.71057 14.2503C1.73241 12.8565 2.27883 11.5275 3.23199 10.5499C4.18516 9.57237 5.4687 9.0245 6.80581 9.0245C8.14293 9.0245 9.42647 9.57237 10.3796 10.5499C11.3328 11.5275 11.8792 12.8565 11.9011 14.2503C10.3026 15.0144 8.56435 15.4087 6.80581 15.4063C4.98759 15.4063 3.26177 14.9926 1.71057 14.2503Z" stroke="#888888" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
@@ -95,7 +97,7 @@ const CoursGridCard = () => {
             <h3 className=' text-[#006865] text-[12px] max-md:text-[10px] font-Yekan font-normal mt-2 dark:text-[#01CEC9] '>تومان</h3>
             
             <h3 className='  text-[#006865] max-md:text-[20px] font-Yekan font-normal text-[23px] dark:text-[#01CEC9] '>
-            1,450,000
+            {cost}
             </h3>
 
             
@@ -134,6 +136,7 @@ const CoursGridCard = () => {
 
        
     </div>
+    </NavLink>
   )
 }
 

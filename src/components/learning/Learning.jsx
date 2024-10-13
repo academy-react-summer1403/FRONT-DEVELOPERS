@@ -7,102 +7,29 @@ import BackImg from "../../assets/landing/Rectangle 23.svg"
 import BackLearn from "../../assets/landing/BackLearn.png"
 import CoursGridCard from '../CoursGridCard';
 import { NavLink } from 'react-router-dom';
-
-
-
-
-
-const Data=[
-    {
-        id:1,
-        name:"Aria",
-        title:"FRONT DEVELOPERS",
-        // img:Img1,
-    },
-    {
-        id:2,
-        name:"Aria",
-        title:"FRONT DEVELOPERS",
-        // img:Img1,
-
-    },
-    {
-        id:3,
-        name:"Aria",
-        title:"FRONT DEVELOPERS",
-        // img:Img1,
-
-    },
-    {
-        id:4,
-        name:"Aria",
-        title:"FRONT DEVELOPERS",
-        // img:Img1,
-
-    },
-    {
-        id:5,
-        name:"Aria",
-        title:"FRONT DEVELOPERS",
-        // img:Img1,
-
-    },
-    {
-        id:6,
-        name:"Aria",
-        title:"FRONT DEVELOPERS",
-        // img:Img1,
-
-    },
-    {
-        id:7,
-        name:"Aria",
-        title:"FRONT DEVELOPERS",
-        // img:Img1,
-
-    },
-    {
-        id:8,
-        name:"Aria",
-        title:"FRONT DEVELOPERS",
-        // img:Img1,
-
-    },
-    {
-        id:9,
-        name:"Aria",
-        title:"FRONT DEVELOPERS",
-        // img:Img1,
-
-    },
-    {
-        id:10,
-        name:"Aria",
-        title:"FRONT DEVELOPERS",
-        // img:Img1,
-
-    },
-    {
-        id:11,
-        name:"Aria",
-        title:"FRONT DEVELOPERS",
-        // img:Img1,
-
-    },
-    {
-        id:12,
-        name:"Aria",
-        title:"FRONT DEVELOPERS",
-        // img:Img1,
-
-    },
-]
+import { useCourseLanding } from '../../core/services/query/queries';
+import {  useSelector } from "react-redux";
 
 
 
 const Learning = () => {
 
-    
+
+
+    const query = useSelector((state) => state.searchLanding.data);
+  console.log(query);
+  
+
+  const getCourseCard = useCourseLanding(query)
+  console.log(getCourseCard.data?.courseFilterDtos)
+
+
+
+
+
+
+
+
     const settings = {
         dots: true,
         infinite: true,
@@ -165,7 +92,7 @@ const Learning = () => {
         <div className='mt-10  max-sm:pl-[3%] max-lg:pr-0 '>
             <Slider  {...settings}>
                 
-            {Data.map((item)=>{
+            {getCourseCard.data?.courseFilterDtos.map((item)=>{
               return(  
 
 
