@@ -6,9 +6,10 @@ import Back from "../../assets/landing/authBack.png";
 import Background from "../../assets/landing/backgroundV.png";
 import more from "../../assets/landing/moreCourse.png";
 import * as yup from "yup";
-// import { getLogin, getRegister } from '../../core/services/authApi';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { login } from '../../core/services/authApi';
+import http from "../../core/services/interceptor";
+import { useDispatch } from 'react-redux';
+import { handleToken } from '../../core/redux/slices/QueryState/TokenSlice';
 
 
 
@@ -26,7 +27,10 @@ console.log(phoneOrGmail)
 console.log(password)
 
 
-  const onSubmit = (e)=>{
+const dispatch = useDispatch()
+
+
+  const onSubmit =async (e)=>{
     e.preventDefault();
     const user = {
       
@@ -36,14 +40,20 @@ console.log(password)
     };
     console.log(user)
 
-  const res = login(user)
-    console.log(res)
 
-    const token = res.token;
+    const data = await http.post("/Sign/Login" , user)
+    console.log(data)
 
-    localStorage.setItem("token" , token);
+    const token = data.token
+    console.log(token)
 
-    navigate("/courses");
+
+    localStorage.setItem("token" , token); 
+
+    dispatch(handleToken(token))
+    
+
+    navigate("/");
 
   }
 

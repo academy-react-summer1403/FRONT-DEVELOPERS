@@ -17,7 +17,7 @@ import { SliderRight } from "../../utility/animation";
 import { useDispatch, useSelector } from "react-redux";
 // import { QuerySlice } from "../../core/redux/slices/QueryState/QueryRedux";
 import { useState } from "react";
-import { QuerySlice } from "../../core/redux/slices/QueryState/QueryRedux";
+
 
 const CoursPage = () => {
 
@@ -32,7 +32,7 @@ const CoursPage = () => {
 
 
   
-  const query = useSelector((state) => state.QueryState.data);
+  const query = useSelector((state) => state.QuerySlice.data);
   console.log(query);
 
   

@@ -1,11 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { QuerySlice, searchSlice, TokenSlice } from "./slices/QueryState/QueryRedux";
+import QuerySlice from "./slices/QueryState/QueryRedux" 
+import TokenSlice from "./slices/QueryState/TokenSlice" 
+import searchSlice from "./slices/QueryState/SearchSlice" 
+
 
 export const store = configureStore({
   reducer: {
-    QueryState: QuerySlice.reducer,
-    user: TokenSlice.reducer, 
-    searchLanding: searchSlice.reducer,
+    QuerySlice : QuerySlice,
+     TokenSlice : TokenSlice, 
+     SearchSlice : searchSlice,
   },
 
   

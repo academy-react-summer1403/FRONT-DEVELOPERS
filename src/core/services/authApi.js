@@ -26,12 +26,12 @@ import http from "./interceptor";
   };
 
 
-  export const login  = async (user) => {
-    const data = await http.post("/Sign/Login" , user)
+  // export const login  = async (user) => {
+  //   const data = await http.post("/Sign/Login" , user)
      
-    console.log(data);
-    return data;
-  };
+  //   console.log(data);
+  //   return data;
+  // };
 
 
   

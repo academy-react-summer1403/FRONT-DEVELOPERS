@@ -1,4 +1,5 @@
 import axios from "axios";
+import { removeItem } from "../Storage/Storage.Services";
 // import { getItem } from "../common/Storage.Services";
 
 const baseURl = import.meta.env.VITE_BASE_URL
@@ -13,10 +14,20 @@ const onSucces = (response) =>{
 
 const onError = (err) =>{
     console.log(err)
+
+
+    // if (err.response.status == 401){
+    //     removeItem("token");
+    //     window.location.pathname = "/auth/v1"
+    // }
+
+
    
-    if(err.response.status >= 400 && err.response.status < 500){
-        console.log(err.response.status)
-    }
+    //  if(err.response.status >= 400 && err.response.status < 500){
+    //     alert(err.response.status)
+    //     //    removeItem("token");
+    //     // window.location.pathname = "/auth/v1"
+    // }
 
     return Promise.reject(err)
 }
@@ -25,10 +36,10 @@ instance.interceptors.response.use(onSucces,onError);
 
 // instance.interceptors.request.use((opt)=>{
 
-//     const token = getItem("token") ? getItem("token") : "" ;
+//     const token = getItem("token") ;
 
 
-//     opt.headers.Authorization = "Bearer " + token;
+//   if (token) opt.headers.Authorization = "Bearer " + token;
 //     return opt;
 
 // })
