@@ -27,7 +27,7 @@ const CoursGridCard = ({title  , cost , teacherName , currentRegistrants , cours
 
             {/* card body  */}
             <div className='relative top-[-10px]' >
-                <h3 className=' text-[#444444] text-right text-[19px] max-md:text-[16px] font-Yekan font-bold mr-1 dark:text-white'>{title}</h3>
+                <h3 className=' text-[#444444] text-right text-[19px] line-clamp-1   max-md:text-[16px] font-Yekan font-bold mr-1 dark:text-white'>{title}</h3>
 
               <div className='  mt-6 mr-1'>
                 <div className='  h-[17px] flex justify-between'>

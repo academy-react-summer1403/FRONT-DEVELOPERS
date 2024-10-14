@@ -16,7 +16,7 @@ const Landing = () => {
 
   return (
 
-    <div className=' overflow-hidden'>
+    <div className=' overflow-hidden  bg-white dark:bg-gray-900 dark:text-white duration-200 '>
  
     <div>
 
