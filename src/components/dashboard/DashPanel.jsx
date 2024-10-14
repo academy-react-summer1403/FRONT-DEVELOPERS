@@ -100,15 +100,16 @@ const DashPanel = () => {
 
   return (
     <div style={{boxShadow:"0px 0px 7px 0px rgba(0,0,0,0.3)"}}
-        className='flex flex-row rounded-xl 
+        className='relative flex flex-row rounded-xl 
         max-sm:flex-col-reverse
         '
     >
         {/* content  */}
-        <div className={`p-6 w-full rounded-l-xl bg-white dark:bg-gray-700 min-w-[458px]
+        <div className={`relative p-6 rounded-l-xl bg-white dark:bg-gray-700 min-w-[458px]
         max-sm:p-2  
-        max-lg:p-2
-       
+        max-lg:p-2 max-lg:${resposive ? "w-80 " : "w-full" } 
+        max-2xl:w-full
+        2xl:w-full     
         `}>
             <NavLink to={"/"}>
                 <img src={home}/>
@@ -117,12 +118,14 @@ const DashPanel = () => {
         </div>
 
         {/* menu  */}
-        <div className={`relative bg-primary font-red-500 rounded-r-xl py-6 w-[35%]
-        max-lg:${resposive ? " " : "w-[10%]" } 
+        <div className={`relative bg-primary font-red-500 rounded-r-xl py-6 
+        max-2xl:w-[400px]
+        2xl:w-[400px]
+        max-lg:${resposive ? "w-[350px] " : "w-[10%]" } 
         max-sm:w-full max-sm:rounded-t-xl max-sm:rounded-br-none max-sm:${resposive ? "h-[35%]" : "h-2"} 
         `} >
             {/* responsive icon  */}
-            <IoIosMenu onClick={()=>setResposive(HandeleResposive)} className={`hidden w-6 h-6 text-teal-900
+            <IoIosMenu onClick={()=>setResposive(HandeleResposive)} className={`hidden w-6 h-6 hover:cursor-pointer text-teal-900
              ${resposive ? "rotate-0" : "rotate-90"} transition duration-500 
                 max-lg:block 
                 max-sm:ml-[90%]
@@ -145,22 +148,20 @@ const DashPanel = () => {
             <ul className={`my-8 mr-8 
                 max-lg:mr-1 
                 max-md:mr-0 
-                max-sm:${resposive ? " " : "hidden"}
+                max-sm:${resposive ? "block " : "hidden"}
             `}>
                 {dashboard.map((items)=>(
                     <li key={items.id} onClick={()=>HandleDashContent(items.id)}
-                        className={`group flex flex-row-reverse font-semibold text-teal-900 my-2 py-3 p-4 
+                        className="group flex flex-row-reverse font-semibold text-teal-900 my-2 py-3 p-4 
                             gap-4 rounded-r-full hover:bg-white hover:border-l-4 hover:border-l-orange
-                            transition duration-300 cursor-pointer   
-                            max-lg:${resposive ?" ":"hover:border-none hover:bg-white hover:rounded-full"}
-                             
+                            transition duration-300 cursor-pointer                        
                             max-lg:gap-0
                             max-md:gap-0 max-md:text-sm
-                            `}
+                            "
                     >
                         <img src={items.icon} className={`hidden group-hover:block
                             max-lg:${resposive ? "hidden" : "block"}
-                          
+                            max-sm:hidden max-sm:group-hover:block                         
                          `}/>
                         <p className={`${resposive? "max-lg:block" : "max-lg:hidden" } `}> {items.title} </p>
                     </li>
