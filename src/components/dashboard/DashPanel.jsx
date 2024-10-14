@@ -28,7 +28,7 @@ import EditeProfileForm from './editeprofile/EditeProfileForm'
 
 
 const DashPanel = () => {
-    const [dashPage, setDashPage] = useState(<EditeProfileForm/>)
+    const [dashPage, setDashPage] = useState(<StdDashboard/>)
     const dashboard=[
         {
             id:1,

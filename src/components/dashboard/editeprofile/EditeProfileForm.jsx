@@ -179,6 +179,7 @@ const EditeProfileForm = () => {
                         className='px-4 pt-1 rounded-md bg-gray-50 leading-8 text-teal-800 w-[100%] h-16
                         placeholder-sm text-right placeholder-teal-800/30 font-medium focus:outline outline-primary outline-[1.5px]'/>
                     </label>
+                    
                     <div className=''>map</div>
                 </div>
             </Form>
