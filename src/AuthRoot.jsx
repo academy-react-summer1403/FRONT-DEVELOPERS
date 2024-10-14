@@ -5,7 +5,7 @@ import { Outlet } from "react-router-dom";
 
 const AuthRoot = () => {
   return (
-    <div className="bg-white dark:bg-gray-900 dark:text-white duration-200">
+    <div className=" dark:bg-gray-900 dark:text-white duration-200 ">
       <NavbarAuth />
 
       <Outlet />

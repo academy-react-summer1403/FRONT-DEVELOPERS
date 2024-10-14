@@ -89,11 +89,16 @@ const  originalRoutes = [
           element: <SignAuth />,
  
 
+<<<<<<< HEAD
         },
         {
           
           path: "/auth/2",
           element: <VarificationAuth />,
+=======
+    <div className=" overflow-hidden  bg-white dark:bg-gray-900 dark:text-white duration-200 ">
+    <Navbar/>
+>>>>>>> 6ad2458d3d033452cfe0dce1ebdea9fe213ff0c3
 
 
         },
