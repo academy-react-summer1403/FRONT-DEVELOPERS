@@ -10,7 +10,7 @@ const ProfileInformation = () => {
          email:"example@gmail.com",
          birth:"1380/12/21",
          gender:'',
-         aboutme:'مازندران-ساری-میدانخزر-جاده فرح اباد-خیابان دیمطوران-ساختمانهوتن-واحد12',
+         aboutme:'مازندران-ساری-میدانخزر-جاده فرح اباد-خیابان دیمطوران-ساختمانساختمانساختمانساختمانساختمانساختمانساختمانساختمانساختمانساختمانساختمانساختمانساختمانساختمانساختمانساختمانساختمانساختمانساختمانساختمانساختمان هوتن-واحد12',
          phon:'09394063674',
          tel:'',
          linkin:'',
@@ -79,7 +79,12 @@ const ProfileInformation = () => {
             </div>
 
             <div className='flex flex-row-reverse gap-2 text-right'>                 
-                <p data-tooltip-id="my-tooltip" data-tooltip-content={info.aboutme} className='flex flex-row-reverse'>
+                <p data-tooltip-id="my-tooltip"  data-tooltip-html={`
+                    <p> ${ info.aboutme.slice(0,40)} <br/> ${ info.aboutme.slice(40,80)} <br/>
+                    ${ info.aboutme.slice(80,120)} <br/> ${ info.aboutme.slice(120,160)} <br/>
+                    ${ info.aboutme.slice(160,200)} <br/> ${ info.aboutme.slice(200,240)} <br/> 
+                    ${ info.aboutme.slice(200,280)} <br/> ${ info.aboutme.slice(280,320)} <br/>
+                    ${ info.aboutme.slice(320,360)} <br/> ${ info.aboutme.slice(260,400)} <p/>`}  className='flex flex-row-reverse'>
                     <p className='text-orange dark:text-amber-400 text-right font-medium'>
                         
                         <span className='text-gray-400 dark:text-white  w-36'>  درباره من :</span>

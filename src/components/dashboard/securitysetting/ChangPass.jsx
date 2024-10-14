@@ -50,7 +50,7 @@ const ChangPassword = () => {
                 max-md:flex max-md:flex-col max-md:px-36
               '>
 
-                <div className='text-right text-xs grid-col-1 text-gray-400'>
+                <div className='text-right text-xs grid-col-1 text-gray-400 max-md:mx-auto'>
                   <label className='relative'>
                     <p className='py-2 px-4'>تکرار رمز عبور</p>  
                     {/* show/hide icon  */}
@@ -62,10 +62,10 @@ const ChangPassword = () => {
                     className='px-4 pt-1 rounded-md bg-gray-50 leading-8 text-teal-800 
                     placeholder-md placeholder-teal-800'/>
                   </label>
-                  {errors.confirmPassword && <p>{errors.confirmPassword}</p>}
+                  {errors.confirmPassword && <p className='text-red-300'>{errors.confirmPassword}</p>}
                 </div>
 
-                <div className='text-right text-xs grid-col-1 text-gray-400'>
+                <div className='text-right text-xs grid-col-1 text-gray-400 max-md:mx-auto'>
                   <label className='relative'>
                     <p className='py-2 px-4'>رمز عبور جدید</p>  
                     {/* show/hide icon  */}
@@ -77,10 +77,10 @@ const ChangPassword = () => {
                     className='px-4 pt-1 rounded-md bg-gray-50 leading-8 text-teal-800 
                     placeholder-md placeholder-teal-800'/>
                   </label>
-                  {errors.password && <p>{errors.password}</p>}                    
+                  {errors.password && <p className='text-red-300'>{errors.password}</p>}                    
                 </div>
 
-                <div className='text-right text-xs grid-col-1 text-gray-400'>
+                <div className='text-right text-xs grid-col-1 text-gray-400 max-md:mx-auto'>
                   <label className='relative'>
                     <p className='py-2 px-4'>رمز عبور فعلی  </p>
                     {/* show/hide icon  */}
@@ -93,7 +93,7 @@ const ChangPassword = () => {
                     placeholder-md placeholder-teal-800'/>
                     
                   </label>
-                  {errors.previousPassword && <p>{errors.previousPassword}</p>}   
+                  {errors.previousPassword && <p className='text-red-300'>{errors.previousPassword}</p>}   
                 </div>   
 
               </div>
