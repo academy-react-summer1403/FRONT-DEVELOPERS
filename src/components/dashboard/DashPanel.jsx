@@ -28,7 +28,7 @@ import EditeProfileForm from './editeprofile/EditeProfileForm'
 
 
 const DashPanel = () => {
-    const [dashPage, setDashPage] = useState(<StdDashboard/>)
+    const [dashPage, setDashPage] = useState(<EditeProfileForm/>)
     const dashboard=[
         {
             id:1,
@@ -105,11 +105,9 @@ const DashPanel = () => {
         '
     >
         {/* content  */}
-        <div className={`relative p-6 rounded-l-xl bg-white dark:bg-gray-700 min-w-[458px]
+        <div className={`relative p-6 rounded-xl bg-white dark:bg-gray-700 min-w-[458px] w-full
         max-sm:p-2  
-        max-lg:p-2 max-lg:${resposive ? "w-80 " : "w-full" } 
-        max-2xl:w-full
-        2xl:w-full     
+        max-lg:p-2 max-lg:${resposive ? " " : "w-full" }      
         `}>
             <NavLink to={"/"}>
                 <img src={home}/>
@@ -118,10 +116,10 @@ const DashPanel = () => {
         </div>
 
         {/* menu  */}
-        <div className={`relative bg-primary font-red-500 rounded-r-xl py-6 
-        max-2xl:w-[400px]
-        2xl:w-[400px]
-        max-lg:${resposive ? "w-[350px] " : "w-[10%]" } 
+        <div 
+        className={`right-0 bg-primary font-red-500 rounded-r-xl py-6 z-40
+        lg:w-[300px]
+        max-lg:${resposive ? "w-[300px] " : "w-[25px]" } 
         max-sm:w-full max-sm:rounded-t-xl max-sm:rounded-br-none max-sm:${resposive ? "h-[35%]" : "h-2"} 
         `} >
             {/* responsive icon  */}
@@ -133,7 +131,7 @@ const DashPanel = () => {
             `}/>
              {/* profile section: */}
             <div className={`border-b-[1.5px] border-gray-200/60 mx-4 py-6
-                max-sm:mx-0 max-sm:block max-sm:${resposive ? "border-b-[1.5px]" : "border-none"}
+                max-sm:mx-0 max-sm:block
                 max-lg:${resposive ? "block" : "hidden"}
             `}>
                 <img src={profile} className='w-[130px] h-[130px] rounded-full mx-auto
@@ -157,7 +155,7 @@ const DashPanel = () => {
                             transition duration-300 cursor-pointer                        
                             max-lg:gap-0
                             max-md:gap-0 max-md:text-sm
-                            "
+                        "
                     >
                         <img src={items.icon} className={`hidden group-hover:block
                             max-lg:${resposive ? "hidden" : "block"}
@@ -169,7 +167,7 @@ const DashPanel = () => {
             </ul>
 
             {/* logout section    */}
-            <NavLink to={"/"} className={`flex flex-row gap-2 text-teal-900 font-semibold my-8 mx-[23%]
+            <NavLink to={"/"} className={`flex flex-row gap-1 text-teal-900 text-sm font-semibold my-8 mx-[23%]
                  max-sm:${resposive ? " " : "hidden"} max-sm:mx-[35%] 
                  max-md:mx-[5%] max-md:gap-0
                  max-lg:mx-[10%] max-md:gap-0

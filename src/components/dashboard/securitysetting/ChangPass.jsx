@@ -50,7 +50,7 @@ const ChangPassword = () => {
                 max-md:flex max-md:flex-col max-md:px-36
               '>
 
-                <div className='text-right text-xs grid-col-1 text-gray-400'>
+                <div className='text-right text-xs grid-col-1 text-gray-400 max-md:mx-auto'>
                   <label className='relative'>
                     <p className='py-2 px-4'>تکرار رمز عبور</p>  
                     {/* show/hide icon  */}
@@ -65,7 +65,7 @@ const ChangPassword = () => {
                   {errors.confirmPassword && <p className='text-red-300'>{errors.confirmPassword}</p>}
                 </div>
 
-                <div className='text-right text-xs grid-col-1 text-gray-400'>
+                <div className='text-right text-xs grid-col-1 text-gray-400 max-md:mx-auto'>
                   <label className='relative'>
                     <p className='py-2 px-4'>رمز عبور جدید</p>  
                     {/* show/hide icon  */}
@@ -80,7 +80,7 @@ const ChangPassword = () => {
                   {errors.password && <p className='text-red-300'>{errors.password}</p>}                    
                 </div>
 
-                <div className='text-right text-xs grid-col-1 text-gray-400'>
+                <div className='text-right text-xs grid-col-1 text-gray-400 max-md:mx-auto'>
                   <label className='relative'>
                     <p className='py-2 px-4'>رمز عبور فعلی  </p>
                     {/* show/hide icon  */}
