@@ -200,7 +200,7 @@ const CoursPage = () => {
       {/* body of CoursPage */}
       <div
         className="relative mt-44  grid grid-cols-4 gap-4
-            max-md:flex flex-col-reverse max-md:m-2
+            max-md:flex max-md:m-2
             max-sm:flex flex-col-reverse max-sm:m-2
            
         "

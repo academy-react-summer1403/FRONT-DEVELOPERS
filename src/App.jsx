@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom"
 import Navbar from "./components/Navbar"
 import Footer from "./components/Footer"
+import DarkMode from "./components/DarkMode"
 
 
 
@@ -18,6 +19,10 @@ function App() {
 
       <Outlet/>
     
+    
+           <DarkMode className="bg-red-900" />   
+    
+
     <Footer/>
     </div>
 
