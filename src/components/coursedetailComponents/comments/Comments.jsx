@@ -1,7 +1,8 @@
 import React, {  useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useCommentCourse, useReplyCourse } from "../../../core/services/query/CommentQuery";
-import { postAddComment } from "../../../core/services/apiComment";
+// import { postAddComment } from "../../../core/services/apiComment";
+import http from "../../../core/services/interceptor"
 
 
 
@@ -11,34 +12,43 @@ const Comments = ({width,height , courseId }) => {
   const [showMore, setShowMore] = useState(true);
 
 
-  const [Title , setTitle] = useState("")
-  const [Describe , setDescribe] = useState("")
-
-  console.log(Title)
-  console.log(Describe)
 
 
-  const onSubmit = (e)=>{
+
+
+  const onSubmit =async (e)=>{
     e.preventDefault();
-    const comment = {
-      CourseId : courseId,
-      Describe,
-      Title,
-      
-    };
-    console.log(comment)
 
-  const res = postAddComment(comment)
-    console.log(res)
 
+
+    const formData = new FormData(e.target);
+    formData.append("CourseId", courseId);
+    formData.append("Title", Title);
+    formData.append("Describe", Describe);
+
+    
+    const token = localStorage.getItem("token")
+    console.log(token)
+    
+  const res = await http.post("/Course/AddCommentCourse" , formData , {
+    headers:{
+      Authorization:"Bearer " + token
+    }
+  })
+
+  console.log(res)
+  
+  return res
   }
 
 
   const [reply , setReply] = useState();
   console.log(reply)
 
+    const token = localStorage.getItem("token")
+    console.log(token)
 
-  const GetComment = useCommentCourse(courseId);
+  const GetComment = useCommentCourse(courseId , token);
   console.log(GetComment.data?.id);   /*  dont accept (GetComment.data?.id) */
 
   useEffect(()=>{
@@ -46,10 +56,12 @@ const Comments = ({width,height , courseId }) => {
   })
 
 
-  const replyCourse = useReplyCourse(courseId , reply);
+  const replyCourse = useReplyCourse(courseId , reply , token);
   console.log(replyCourse)
 
 
+
+  
   
 
   return (
@@ -98,11 +110,14 @@ const Comments = ({width,height , courseId }) => {
             
             >
               <div className="bg-red-500 w-[300px] h-[30px] mb-20">
+              {/* <input type="text" placeholder="Reply" className="w-[100%] h-[100%] border border-red-300 outline-none"
+                  id="CourseId"  name="CourseId" value={courseId}
+                /> */}
                 <input type="text" placeholder="Reply" className="w-[100%] h-[100%] border border-red-300 outline-none"
-                  onChange={(e)=>setDescribe(e.target.value)}
+                  id="Title" name="Describe" 
                 />
                  <input type="text" placeholder="Reply" className="w-[100%] h-[100%] border border-red-300 outline-none"
-                  onChange={(e)=>setTitle(e.target.value)}
+                  id="Describe" name="Title" 
                 />
                 </div>
                 <button type="submit" className="bg-blue-100 w-[60px] h-[20px] mb-10">click</button>

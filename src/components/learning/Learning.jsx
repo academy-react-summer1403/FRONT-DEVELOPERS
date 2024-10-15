@@ -16,7 +16,7 @@ const Learning = () => {
 
 
 
-    const query = useSelector((state) => state.searchLanding.data);
+    const query = useSelector((state) => state.SearchSlice.data);
   console.log(query);
   
 

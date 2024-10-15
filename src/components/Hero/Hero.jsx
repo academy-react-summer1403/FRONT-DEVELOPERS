@@ -7,8 +7,8 @@ import SearchImg from "../../assets/landing/Search.svg";
 import BackImg from "../../assets/landing/Rectangle 8.svg";
 
 import { useDispatch, useSelector } from "react-redux";
-import { searchSlice } from '../../core/redux/slices/QueryState/QueryRedux';
 import { useLandingReport } from '../../core/services/query/queries';
+import { search } from '../../core/redux/slices/QueryState/SearchSlice';
 
 
 
@@ -19,7 +19,7 @@ const Hero = () => {
 const reportLanding =  useLandingReport()
 console.log(reportLanding)
 
-  const query = useSelector((state) => state.searchLanding.data);
+  const query = useSelector((state) => state.SearchSlice.data);
   console.log(query);
 
   const dispatch = useDispatch();
@@ -167,7 +167,7 @@ console.log(reportLanding)
                 <img src={SearchImg} alt="" className='px-1.5 py-1.5'/>
                 </div>  
                 <input
-            onChange={(e) => dispatch(searchSlice.actions.search(e.target.value))}
+            onChange={(e) => dispatch(search(e.target.value))}
                 
                 style={{boxShadow:" 0px 1px 3px 0px #00000033"}} placeholder='... دنبال چی میگردی ؟' type="text" className='w-full h-full  rounded-[35px]  text-right font-normal
                 font-Yekan text-[#AAAAAA] text-[16px] pr-5 outline-none' 

@@ -1,11 +1,11 @@
 import React from 'react'
-import { QuerySlice } from '../../core/redux/slices/QueryState/QueryRedux'
 import { useDispatch, useSelector } from 'react-redux';
 import { useLevelCourses } from '../../core/services/query/queries';
+import { Add } from '../../core/redux/slices/QueryState/QueryRedux';
 
 const LevelFilter = () => {
 
-    const query = useSelector((state) => state.QueryState.data);
+    const query = useSelector((state) => state.QuerySlice.data);
     console.log(query);
   
     const dispatch = useDispatch();
@@ -23,7 +23,7 @@ const LevelFilter = () => {
         type="checkbox"
         name="checkbox"
         className="ml-2 cursor-pointer z-[800]"
-        onClick={() => dispatch(QuerySlice.actions.Add(1))}
+        onClick={() => dispatch(Add(1))}
       />
       </div>
       <div className="flex flex-row justify-center -ml-[3px]">
@@ -32,7 +32,7 @@ const LevelFilter = () => {
         type="checkbox"
         name="checkbox"
         className="ml-2 cursor-pointer z-[800]"
-        onClick={() => dispatch(QuerySlice.actions.Add(2))}
+        onClick={() => dispatch(Add(2))}
       />
       </div>
         <div className=" flex flex-row justify-center mr-[4px]">
@@ -41,7 +41,7 @@ const LevelFilter = () => {
         type="checkbox"
         name="checkbox"
         className="ml-2 cursor-pointer z-[800]"
-        onClick={() => dispatch(QuerySlice.actions.Add(3))}
+        onClick={() => dispatch(Add(3))}
       /> 
         </div>
    

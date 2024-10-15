@@ -26,7 +26,7 @@ export const NavbarMenu =[
   {
       id:3,
       title:"اساتید",
-      link:"#",
+      link:"/Dashboard",
   },
   {
       id:4,

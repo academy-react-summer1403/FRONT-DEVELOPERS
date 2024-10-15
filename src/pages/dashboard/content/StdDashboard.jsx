@@ -1,7 +1,6 @@
-import React from 'react'
+import { useState } from 'react'
 import { IoPersonOutline } from 'react-icons/io5'
 import { IoIosArrowBack } from 'react-icons/io'
-
 
 // images :
 import reserve from '../../../assets/dashboard/Group 87.svg'
@@ -11,6 +10,8 @@ import cours from '../../../assets/dashboard/Rectangle 111.svg'
 
 
 const StdDashboard = () => {
+  
+
   return (
     <div className='px-8 py-2 max-lg:px-4 min-w-[400px]
       max-lg:px-1
@@ -48,7 +49,9 @@ const StdDashboard = () => {
         max-lg:mx-auto 
         '>
           <div className=' w-24 h-24 border-[6px] border-secondary rounded-full mt-4
-           shadow-sm text-teal-900 dark:text-white font-semibold text-center leading-[80px]'>60%</div>
+           shadow-sm text-teal-900 dark:text-white font-semibold text-center leading-[80px]'>
+              100% 
+          </div>
           <p className='w-56 text-center text-gray-400 mt-8 '>
             برای شرکت در دوره ها باید حداحقل 80% پروفایل خود را کامل کنید
           </p>
