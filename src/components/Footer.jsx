@@ -35,7 +35,7 @@ import { NavLink } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <div className='relative '>
+    <div className='relative'>
         <div className='h-[40px] w-full bg-green absolute bottom-0 mx-auto z-50 text-sm text-white leading-10'>
             <div className='flex flex-row-reverse  justify-center mx-auto gap-1
                 max-xl:
@@ -50,7 +50,7 @@ const Footer = () => {
         
             <img src={FooterLogo} alt=""  className='absolute bottom-0 w-full h-[75%]  mx-auto max-md:hidden'/>
 
-            <div className=' grid grid-cols-3 justify-center items-center w-full h-[400px] 
+            <div className='container mx-0 px-0 grid grid-cols-3 justify-center items-center w-full h-[400px] 
                 max-md:flex max-md:flex-col-reverse  max-md:top-[0px] absolute top-[100px]
             '>
 
