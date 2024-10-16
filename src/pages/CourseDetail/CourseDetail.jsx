@@ -11,6 +11,7 @@ import RelatedCourses from "../../components/coursedetailComponents/RelatedCours
 
 import {   useCourseId } from "../../core/services/query/queries";
 import { useParams } from "react-router-dom";
+import DarkMode from "../../components/DarkMode";
 
 const CourseDetial = () => {
 
@@ -102,6 +103,8 @@ const CourseDetial = () => {
           
           <h4 className=" mark mt-5 max-xl:text-[20px] dark:text-slate-300  ">نظرات</h4><div className="max-lg:w-full max-xl:w-full]  max-sm:w-full max-md:w-[500px]">
           <Comments width={"w-[809px]"} height={"h-852px"} courseId={courseId}/></div>
+
+       
           
        </div>
      

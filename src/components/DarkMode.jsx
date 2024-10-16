@@ -1,8 +1,8 @@
 
 
 import React, { useEffect, useState } from 'react'
-import { MdOutlineDarkMode } from "react-icons/md";
-import { MdDarkMode } from "react-icons/md";
+import  light from "../assets/darkmode/icons8-moon-80(1).png"
+import night from "../assets/darkmode/icons8-sun-64(1).png"
 
 const DarkMode = () => {
 
@@ -28,22 +28,20 @@ const DarkMode = () => {
   
 
   return (
-    <div className=' border border-red-700 w-10 h-10  fixed bottom-8'>
-    <div>
-        <MdOutlineDarkMode 
-        onClick={()=>setTheme(theme === "light" ? "dark" : "light")}
-        className={`w-12 cursor-pointer drop-shadow-
-        [1px_1px_1px_rgba(0,0,0,0.1)] transition-all duration-200 hidden dark:flex
-         absolute right-0 z-10   
-         ${theme === "dark" ? "opacity-0" : "opacity-100"}    `}    />  
+    <div onClick={()=>setTheme(theme === "light" ? "dark" : "light")}
+    className='cursor-pointer  ml-[90%] max-lg:ml-[70%] dark:bg-orange max-md:ml-[60%] max-sm:ml-[40%] rounded-full  flex justify-center items-center z-50  w-[55px] h-[55px]  border bg-[#01CEC9]  fixed bottom-8'>
+    <div >
+        <img src={night}
+        
+        className={` w-[40px] h-[40px] transition-all duration-200   
+         ${theme === "dark" ? "flex" : "hidden"}    `}    />  
  
     </div>
-    <div>
-    <MdDarkMode 
-    onClick={()=>setTheme(theme === "light" ? "dark" : "light")}
-        className="w-12 cursor-pointer drop-shadow-
-        [1px_1px_1px_rgba(0,0,0,0.1)] transition-all duration-200 block dark:hidden
-        "    />
+    <div >
+    <img src={light}
+  
+        className={`w-[40px] h-[40px]  transition-all duration-200  
+        ${theme === "dark" ? "hidden" : "flex"} `} />
     </div>
     </div>
   )

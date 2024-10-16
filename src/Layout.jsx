@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import { Outlet } from 'react-router-dom'
+import DarkMode from './components/DarkMode'
 
 const Layout = () => {
   return (
@@ -10,6 +11,7 @@ const Layout = () => {
         <Navbar/>
           <Outlet/>
           
+          <DarkMode/>
         <Footer/>
       
     </div>

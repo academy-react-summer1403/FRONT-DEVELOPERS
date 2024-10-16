@@ -15,6 +15,7 @@ import VarificationVorod from "./components/mainAuth/VarificationVorod"
 import Layout from "./Layout"
 import { useSelector } from "react-redux"
 import Detail from "./Detail"
+import DarkMode from "./components/DarkMode"
 
 
 
@@ -54,6 +55,7 @@ const  originalRoutes = [
       // index: true,
       path: "/courses-detail/:courseId",
       element: <CourseDetial />,
+      
       // isAuth:false
 
     },
@@ -62,6 +64,7 @@ const  originalRoutes = [
       // index: true,
       path: "/article-detail/:id",
       element: <ArticleDetail />,
+     
       // isAuth:false
 
     },
@@ -136,7 +139,10 @@ const  originalRoutes = [
   const router = createBrowserRouter(currentRoutes)
 
 
-  return  <RouterProvider router={router}/>
+  return <RouterProvider  router={router}/>
+  
+  
+  
 
 }
 

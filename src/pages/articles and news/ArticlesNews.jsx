@@ -42,7 +42,7 @@ const ArticlesNews = () => {
   const categories = ["جدید ترین", "محبوب ترین"];
 
   return (
-    <div className="container">
+    <div className="  container">
       <img
         src={BackImg}
         alt=""
@@ -68,18 +68,14 @@ const ArticlesNews = () => {
       >
         {/* hero vector */}
         <div
-          className=" w-full md:w-3/12
-            max-lg:h-[400px]
-            max-md:h-[400px]"
+          className="  w-[500px]    max-lg:hidden
+            relative"
         >
           <img
             src={Herobg}
             alt=""
-            className="absolute w-[390px] top-[160px]
-                max-sm:left-[3%]
-                max-md:w-[400px]  max-md:h-[400px] max-md:left-[20%]
-                max-lg:left-[26%]
-                max-xl:w-[350px]  left-[115px] top-[200px]  "
+            className="absolute w-[390px] 
+                 left-[115px] top-[-30px]    "
           />
 
           <motion.img
@@ -88,11 +84,8 @@ const ArticlesNews = () => {
             transition={{ type: "spring", stiffness: 100, delay: 0.2 }}
             src={Herovector}
             alt=""
-            className=" absolute w-[435px] h-[435px]   left-[80px] top-[112px]  z-40 
-                max-sm:left-[-3%] max-sm:top-[110px] 
-                max-md:w-[450px] max-md:h-[450px] max-md:left-[100px] max-md:top-[140px]
-                max-lg:left-[19%]
-                max-xl:w-[440px] max-xl:h-[440px] "
+            className=" absolute w-[440px] max-xl:w-[350px] max-xl:h-[340px] max-xl:top-[-50px] h-[400px]   left-[100px] top-[-80px]  z-40 
+              "
           />
 
           <motion.img
@@ -101,11 +94,8 @@ const ArticlesNews = () => {
             transition={{ type: "spring", stiffness: 100, delay: 0.2 }}
             src={Heroring}
             alt=""
-            className="absolute z-30 w-[470px] left-[75px] top-[280px]
-                max-sm:left-[3%]
-                max-md:w-[400px]  max-md:left-[20%]
-                max-lg:left-[20%]
-                max-xl:w-[470px]  "
+            className="absolute z-30 w-[900px] left-[100px] top-[80px]
+             "
           />
         </div>
 
@@ -162,8 +152,8 @@ const ArticlesNews = () => {
       <div
         className="my-28  grid grid-cols-4 gap-4
             max-sm:flex flex-col-reverse
-            max-md:flex flex-col-reverse  
-            max-lg:flex flex-col-reverse       
+            max-md:flex 
+            max-lg:flex  
         "
       >
         {/*right: offer section  */}
