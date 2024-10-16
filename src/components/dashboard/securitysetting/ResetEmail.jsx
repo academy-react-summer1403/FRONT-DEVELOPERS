@@ -23,14 +23,15 @@ const ResetEmail = () => {
       {({ errors }) => (
         <Form>        
             {/* Body  */} 
-            <div className='text-right text-xs flex mx-auto text-gray-400 my-8'>
-              <label className='mx-auto'>
+            <div className=' pb-4 text-right text-xs flex mx-auto text-gray-400 my-8'>
+              <label className='relative mx-auto'>
               <p className='py-2 px-4 text-xs text-gray-400'>ایمیل جدید</p>
                 <Field name="email" type="email" placeholder="example@gmail.com" style={{boxShadow:" 0px 1px 3px 0px #00000033 inset"}}
                 className='px-4 pt-1 rounded-md bg-gray-50 leading-8 text-teal-800 w-64
                  placeholder-gray-300'/>
+              {errors.email && <p className='text-red-300 absolute grid right-0 top-[69px]'>{errors.email}</p>}
+
               </label>
-              {errors.email && <p>{errors.email}</p>}
             </div>         
         </Form>
       )}  

@@ -135,7 +135,7 @@ const CoursPage = () => {
             transition={{ type: "spring", stiffness: 100, delay: 0.2 }}
             src={Heroring}
             alt=""
-            className="absolute z-30 left-34 top-60 w-[470px] left-[68px] top-[320px]
+            className="absolute z-30 left-34 top-60 w-[470px] left-[68px] 
                 max-sm:left-[3%]
                 max-md:w-[400px]  max-md:left-[20%]
                 max-lg:left-[20%]
@@ -200,7 +200,7 @@ const CoursPage = () => {
       {/* body of CoursPage */}
       <div
         className="relative mt-44  grid grid-cols-4 gap-4
-            max-md:flex flex-col-reverse max-md:m-2
+            max-md:flex max-md:m-2
             max-sm:flex flex-col-reverse max-sm:m-2
            
         "
@@ -212,7 +212,7 @@ const CoursPage = () => {
             {/* right: buttons */}
             <div className="w-[150px] h-[50px] ">
               <button
-                className="relative shadow-md border border-gray-100 mr-2 p-3 hover:bg-gray-200 
+                className="relative  border border-gray-100 mr-2 p-3 hover:bg-gray-200 
                          transition duration-300 shadow-sm shadow-gray-400 outline-none indent-1
                          rounded rounded-tl-2xl top-0  w-[50px]"
                 onClick={() => setView(<CoursGridCard />)}
@@ -222,7 +222,7 @@ const CoursPage = () => {
               </button>
 
               <button
-                className="relative shadow-md  border border-gray-100 p-2 hover:bg-gray-200 
+                className="relative border border-gray-100 p-2 hover:bg-gray-200 
                         transition duration-300 shadow-sm shadow-gray-400 outline-none indent-1 
                         rounded rounded-tr-2xl top-1 w-[50px] h-[50px]"
                 onClick={() => setView(<CoursListCard />)}

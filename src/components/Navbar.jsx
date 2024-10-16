@@ -70,12 +70,6 @@ const Navbar = () => {
 
       </div>
 
-          {/* darkmode switch */}
-          <div className='  relative'>
-      
-        <div className='mt-[34px] max-lg:mt-[35px]'>
-            <DarkMode/>
-        </div></div>
   </div>
     
     

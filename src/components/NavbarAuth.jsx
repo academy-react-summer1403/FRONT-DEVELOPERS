@@ -24,9 +24,7 @@ const NavbarAuth = () => {
      
   </div> 
 
-  <div className='mt-[0px] max-lg:mt-[35px]'>
-            <DarkMode/>
-        </div>
+ 
 
 
  

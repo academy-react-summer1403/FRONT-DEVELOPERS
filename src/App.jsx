@@ -1,3 +1,4 @@
+
 import { createBrowserRouter,  RouterProvider } from "react-router-dom"
 import Landing from "./pages/landing/Landing"
 import CoursPage from "./pages/cousrses/CoursPage"
@@ -14,6 +15,7 @@ import VarificationVorod from "./components/mainAuth/VarificationVorod"
 import Layout from "./Layout"
 import { useSelector } from "react-redux"
 import Detail from "./Detail"
+
 
 
 
