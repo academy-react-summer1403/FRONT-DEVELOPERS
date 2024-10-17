@@ -35,18 +35,10 @@ import { NavLink } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <div className='relative'>
-        <div className='h-[40px] w-full bg-green absolute bottom-0 mx-auto z-50 text-sm text-white leading-10'>
-            <div className='flex flex-row-reverse  justify-center mx-auto gap-1
-                max-xl:
-            '>
-           کلیه حقوق این وبسایت مطعلق به آموزشگاه فلان میباشد
+    <div className='relative xl:px-0 xl:container w-full'>
+        
 
-            <FaRegCopyright className='mt-2'  />
-            </div>
-        </div>
-
-        <div className='relative flex justify-center items-center h-[500px]  max-md:bg-[#01CEC926] '>       
+        <div className='relative w-full flex justify-center items-center h-[500px]  max-md:bg-[#01CEC926] '>       
         
             <img src={FooterLogo} alt=""  className='absolute bottom-0 w-full h-[75%]  mx-auto max-md:hidden'/>
 
@@ -124,9 +116,19 @@ const Footer = () => {
 
             </div>
 
-          </div>  
+          </div> 
+
+          <div className='h-[40px] flex justify-center items-center w-full bg-green  bottom-0 mx-auto z-50 text-sm text-white leading-10'>
+            <div className='flex flex-row-reverse  justify-center mx-auto gap-1
+                max-xl:
+            '>
+           کلیه حقوق این وبسایت مطعلق به آموزشگاه فلان میباشد
+
+            <FaRegCopyright className='mt-2'  />
+            </div>
+        </div> 
           
-        </div>  
+    </div>  
   )
 }
 

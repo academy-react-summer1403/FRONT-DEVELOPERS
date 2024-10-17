@@ -18,7 +18,7 @@ const BestTeachers = () => {
     
 
   return (
-    <div className='flex-1 h-[402px]  '>
+    <div className='flex-1 h-[402px]  xl:px-0 xl:container w-full'>
 
         <div className='    mx-auto   h-[402px] relative  max-xl:flex justify-center'>
             <img src={BGImg} alt=""  className=' w-full  h-full mx-auto'/>

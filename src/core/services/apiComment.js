@@ -21,6 +21,17 @@ export const getCommentCourse = async (courseId , token) => {
     return data;
   };
 
+  export const postLike = async (params ,token)=>{
+    const response =await http.post("/Course/AddCourseCommentLike", params ,  {
+      headers:{
+        Authorization:"Bearer " + token
+      }
+    } )
+    console.log(response)
+    return response;
+  }
+
+
 
 
 
