@@ -29,7 +29,7 @@ const DarkMode = () => {
 
   return (
     <div onClick={()=>setTheme(theme === "light" ? "dark" : "light")}
-    className='cursor-pointer  ml-[90%] max-lg:ml-[70%] dark:bg-orange max-md:ml-[60%] max-sm:ml-[40%] rounded-full  flex justify-center items-center z-50  w-[55px] h-[55px]  border bg-[#01CEC9]  fixed bottom-8'>
+    className='cursor-pointer  ml-[90%] max-lg:ml-[70%] dark:bg-orange max-md:ml-[60%] max-sm:ml-[40%] rounded-full  flex justify-center items-center z-[9999] w-[55px] h-[55px]  border bg-[#01CEC9]  fixed bottom-8'>
     <div >
         <img src={night}
         
