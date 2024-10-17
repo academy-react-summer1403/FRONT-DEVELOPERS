@@ -46,7 +46,7 @@ const Navbar = () => {
 
 
   return (
-    <motion.div  className='z-[200]'
+    <motion.div  className='z-[200] max-md:px-3'
     initial={{opacity:0}}
     animate={{opacity:1}}
     transition={{duration:0.5 , delay:0.5}}
@@ -91,17 +91,18 @@ const Navbar = () => {
             ))
         }
     </ul>
- </div>{/* mobile sidebar section  */}
-  <img src={menu} className='w-[40px] h-[40px] lg:hidden  absolute left-[62%] top-[60px] max-md:left-[58%]' onClick={()=>setIsOpen(!isOpen)}/>
- <ResponsiveMenu isOpen={isOpen}/>
- {/* Logo section  */}
-
-   <div className=' w-[135px] h-[50px] mt-10 max-lg:mt-8'>
-   <img src={Logo} alt="" className='rounded-md'/>
-    
-   
  </div>
+ 
+ {/* mobile sidebar section  */}
+    <div className=' flex flex-row-reverse gap-2'>
+        <img src={menu} className='w-[40px] h-[40px] lg:hidden mt-8  max-md:' onClick={()=>setIsOpen(!isOpen)}/>
+        <ResponsiveMenu isOpen={isOpen}/>
+            {/* Logo section  */}
 
+        <div className=' w-[135px] h-[50px] mt-10 max-lg:mt-8'>
+        <img src={Logo} alt="" className='rounded-md'/>
+        </div>
+    </div>
  
 </div>
 </div>

@@ -1,6 +1,7 @@
 
 import React from 'react'
 import { motion } from 'framer-motion'
+import { ImageErrore } from '../../ImageErrore'
 const RelatedCourses = ({title,image}) => {
 
   
@@ -38,7 +39,7 @@ const RelatedCourses = ({title,image}) => {
                   initial={{  x:300,opacity:0,y:0}}
                   animate={{ x:0,y:0,opacity:1}}
                   transition={{type:"tween",duration:1,stiffness:100, delay:0.2}}
-                  style={{boxShadow:" 0px 1px 2px 0 rgba(0, 0, 0, 0.25)"}} className='w-[126px] max-sm:w-[70px] h-[84px] max-lg:w-[100px] max-lg:h-[64px] rounded-[10px]' src={image} alt="" />
+                  style={{boxShadow:" 0px 1px 2px 0 rgba(0, 0, 0, 0.25)"}} className='w-[126px] max-sm:w-[70px] h-[84px] max-lg:w-[100px] max-lg:h-[64px] rounded-[10px]' src={image}  onError={ImageErrore}/>
                   
                   </motion.div><motion.p
                     initial={{  x:0,opacity:0,y:200}}

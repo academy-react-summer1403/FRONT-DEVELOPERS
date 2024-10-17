@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import image from "../../assets/detail/dimage.png";
+import image from "../../assets/detail/prof.jpg";
+import imgerrore from "../../assets/detail/imgerrore.png";
 import { motion } from 'framer-motion';
 import CourseCard from "../../components/coursedetailComponents/coursecard/CourseCard";
 import Detail from "../../components/coursedetailComponents/detail/Detail";
@@ -11,6 +12,7 @@ import RelatedCourses from "../../components/coursedetailComponents/RelatedCours
 
 import {   useCourseId } from "../../core/services/query/queries";
 import { useParams } from "react-router-dom";
+import { ImageErrore } from "../../components/ImageErrore";
 
 
 const CourseDetial = () => {
@@ -41,12 +43,6 @@ const CourseDetial = () => {
 
     
     <div className=" container  relative ">
-      <img
-        className=" bottom-0 max-md:top-96  absolute opacity-[40%] scale-150  rotate-90"
-        src="https://s3-alpha-sig.figma.com/img/19be/48f2/2796a9e90ec1b19857e151fc13e21059?Expires=1728259200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=mZW-g30z8Y9kCtc4Q1Y82wXJ5M3YX1ja6v-gYlyazEUHmGj5fgx4YewqoPzoMl4V4J~Y2sETrcyxsiSfnJArb~OKXnzzQcBQwRsRnlSZI5eAqC9mPjX~jPtEjEaaNYlHuPhaUQ671CFaG9FP8BAUgrxGbtub-sQCi8oLtVfkXsjsO4-KqNeUdQpM9MfXLhXrbdziI4zuOcpcn74-w8NTLCgEbqS66Vs7LO4-uoZQC0Kfv6we2O7hov7fqXpvrD8dLTZNQ22GCZ5C9iP6fYmkkQ6sgbL5HZBGy4Ocxh3cxeAgyhp6R56KMjTb~fHkpUTzkxI2T4Z-fBM4z~wSy~mrcw__"
-        alt=""
-      />
-
 
       <div className="flex max-md:container  mt-[35px] justify-between">
         {/* image section */}
@@ -56,7 +52,9 @@ const CourseDetial = () => {
             transition={{type:"spring",stiffness:40, delay:0.2}}
         
         style={{boxShadow:"box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25)"}} className="max-xl:w-[550px] max-md:hidden max-lg:h-[300px] h-[395px] max-xl:h-[320px] w-[624px] max-2xl:mr-10">
-          <img className=" h-full w-full  rounded-[15px]" src={CourseDetail.data?.imageAddress} alt="" />
+          <img className=" h-full w-full  rounded-[15px]" src={CourseDetail.data?.imageAddress }
+            onError={ImageErrore}
+            />
         </motion.div>
         {/* course detail card */}
 
@@ -77,35 +75,33 @@ const CourseDetial = () => {
 
           <div style={{boxShadow:" 0px 1px 2px 0 rgba(0, 0, 0, 0.25)"}} className="bg-white max-sm:w-full max-md:justify-center     dark:bg-slate-700 flex max-md:h-[300px] max-lg:w-[300px] max-md:w-[500px]  flex-wrap max-2xl:w-[380px]  max-xl:w-[350px] mt-[35px]  rounded-[15px] w-[412px] h-[601px]  p-[23px]">
 
-<div style={{boxShadow:" 0px 1px 2px 0 rgba(0, 0, 0, 0.25)"}} className=' bg-[#E8E8E8] rounded-t-[10px]  max-md:w-[500px] w-[378px] max-sm:w-full  h-[50px] pr-[25px] justify-end flex items-center
- text-right text-[#555555] font-Yekan font-normal text-[20px] mb-[8px] dark:text-slate-100 dark:bg-slate-600'>دوره های مرتبط
-    </div>
+            <div style={{boxShadow:" 0px 1px 2px 0 rgba(0, 0, 0, 0.25)"}} className=' bg-[#E8E8E8] rounded-t-[10px]  max-md:w-[500px] w-[378px] max-sm:w-full  h-[50px] pr-[25px] justify-end flex items-center
+            text-right text-[#555555] font-Yekan font-normal text-[20px] mb-[8px] dark:text-slate-100 dark:bg-slate-600'>دوره های مرتبط
+            </div>
 
 
 
-          {samecourses.map((data,index)=>( 
+            {samecourses.map((data,index)=>( 
 
-          <RelatedCourses  key={index} title={data.title} image={data.image} />))}
- </div>
+            <RelatedCourses  key={index} title={data.title} image={data.image} />))}
+          </div>
         </div>
 
          
 
         <div className="  max-xl:right-16 max-sm:w-full max-sm:left-0   max-lg:right-8 max-lg:top-[303px] max-2xl:right-20 absolute right-24 top-[430px]  w-[809px]   max-2xl:top-[398px] max-xl:top-[335px] max-md:top-[1370px] max-md:left-5 max-2xl:w-[700px] max-lg:w-[400px] max-xl:w-[520px] max-md:w-[500px] max-md:mx-auto">
           {/* Description section */}
-
           <Description/>
-          {/* headlines */}
 
-     
-
-
+          {/* headlines */}   
           <HeadLines/>
 
           {/* comments */}
           
           <h4 className=" mark mt-5 max-xl:text-[20px] dark:text-slate-300  ">نظرات</h4><div className="max-lg:w-full max-xl:w-full]  max-sm:w-full max-md:w-[500px]">
-          <Comments width={"w-[809px]"} height={"h-852px"} courseId={courseId}/></div>
+          {/* <Comments width={"w-[809px]"} height={"h-852px"} courseId={courseId}/> */}
+          
+          </div>
 
        
           

@@ -35,7 +35,7 @@ export const NavbarMenu =[ {
 
 const ResponsiveMenu = ({isOpen}) => {
   return (
-    <AnimatePresence mode='wait' className="   ">
+    <AnimatePresence mode='wait' className="">
         {
             isOpen && <motion.div 
                 initial={{opacity:0,x:200}}
@@ -46,17 +46,17 @@ const ResponsiveMenu = ({isOpen}) => {
                  lg:hidden "
             >
             
-                    <ul className=' bg-slate-100  w-[300px]  border max-sm:-right-28 absolute top-10 -right-32   rounded-[10px]
+                    <ul className='border border-red-500  bg-slate-100  w-[300px]  border max-sm:-right-28 absolute top-10 -right-32   rounded-[10px]
                     '>
-                    {
-            NavbarMenu.map((item)=>(
-                <Link to={item.link} className=' w-full  cursor-pointer ' >
-                
-                    
-                        <h3 className='flex justify-end pr-3 w-[300px] text-gray-800  hover:text-orange  border-b h-8'>{item.title}</h3>
-                </Link>
-            ))
-        }
+                        {
+                        NavbarMenu.map((item)=>(
+                            <Link to={item.link} className=' w-full  cursor-pointer ' >
+                            
+                                
+                                    <h3 className='flex justify-end pr-3 w-[300px] text-gray-800  hover:text-orange  border-b h-8'>{item.title}</h3>
+                            </Link>
+                        ))
+                         }
 
                     </ul>
                 
