@@ -8,6 +8,7 @@ import { FaRegCopyright } from "react-icons/fa6";
 import Email from "../assets/landing/email.png";
 import Brand from "../assets/landing/brand.png";
 import Logo from "../assets/landing/LOGO2.svg";
+import { NavLink } from 'react-router-dom';
 
 
 
@@ -32,7 +33,7 @@ import Logo from "../assets/landing/LOGO2.svg";
 
 const Footer = () => {
   return (
-    <div className='relative'>
+    <div className='relative '>
         <div className='h-[40px] w-full bg-green absolute bottom-0 mx-auto z-50 text-sm text-white leading-10'>
             <div className='flex flex-row-reverse  justify-center mx-auto gap-1
                 max-xl:

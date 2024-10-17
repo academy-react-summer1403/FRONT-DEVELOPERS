@@ -46,7 +46,7 @@ const Navbar = () => {
 
 
   return (
-    <motion.div 
+    <motion.div  className='z-[200]'
     initial={{opacity:0}}
     animate={{opacity:1}}
     transition={{duration:0.5 , delay:0.5}}
@@ -70,10 +70,7 @@ const Navbar = () => {
 
       </div>
 
-          {/* darkmode switch */}
-        <div className='mt-[34px] max-lg:mt-[35px]'>
-            <DarkMode/>
-        </div>
+       
   </div>
     
     
@@ -95,11 +92,11 @@ const Navbar = () => {
         }
     </ul>
  </div>{/* mobile sidebar section  */}
-  <img src={menu} className='w-[40px] h-[40px] lg:hidden  absolute left-[62%] top-[60px] max-md:left-[60%]' onClick={()=>setIsOpen(!isOpen)}/>
+  <img src={menu} className='w-[40px] h-[40px] lg:hidden  absolute left-[62%] top-[60px] max-md:left-[58%]' onClick={()=>setIsOpen(!isOpen)}/>
  <ResponsiveMenu isOpen={isOpen}/>
  {/* Logo section  */}
 
-   <div className=' w-[135px] h-[50px] mt-8'>
+   <div className=' w-[135px] h-[50px] mt-10 max-lg:mt-8'>
    <img src={Logo} alt="" className='rounded-md'/>
     
    

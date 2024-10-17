@@ -15,7 +15,7 @@ import VarificationVorod from "./components/mainAuth/VarificationVorod"
 import Layout from "./Layout"
 import { useSelector } from "react-redux"
 import Detail from "./Detail"
-import DarkMode from "./components/DarkMode"
+
 
 
 

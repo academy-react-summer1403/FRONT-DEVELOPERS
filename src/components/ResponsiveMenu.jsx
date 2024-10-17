@@ -46,15 +46,15 @@ const ResponsiveMenu = ({isOpen}) => {
                  lg:hidden "
             >
             
-                    <ul className=' bg-gray-200 border w-[300px] absolute top-10 -right-40   rounded-[10px]
+                    <ul className=' bg-slate-100  w-[300px]  border max-sm:-right-28 absolute top-10 -right-32   rounded-[10px]
                     '>
                     {
             NavbarMenu.map((item)=>(
-                <Link to={item.link} className=' w-full   cursor-pointer ' >
-                <a href={item.link}  className=' w-[100%]  h-10 flex items-center'  >
+                <Link to={item.link} className=' w-full  cursor-pointer ' >
+                
                     
-                        <h3 className='flex justify-end pr-3 w-[300px] border border-red-500 '>{item.title}</h3>
-                </a></Link>
+                        <h3 className='flex justify-end pr-3 w-[300px] text-gray-800  hover:text-orange  border-b h-8'>{item.title}</h3>
+                </Link>
             ))
         }
 

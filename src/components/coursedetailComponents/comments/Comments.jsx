@@ -60,16 +60,23 @@ const Comments = ({width,height , courseId }) => {
   console.log(replyCourse)
 
 
+  const [comentdiv,setCommentdiv]=useState(false)
+  const [dislike,setDislike]=useState(true)
+  const [like,setlike]=useState(true)
 
-  
-  
+
 
   return (
     <>
-      <div className="mt-[15px] ">
+      <div className="mt-[15px]  relative">
+    
+     
 
         {/* comments */}
-        <div className=" relative  w-full  ">
+        <div className="   w-full  ">
+
+
+    
           
           <div
             style={{ boxShadow: " 0px 1px 2px 0 rgba(0, 0, 0, 0.25)" }}
@@ -80,7 +87,7 @@ const Comments = ({width,height , courseId }) => {
             <div className=" w-full h-[37px] mb-[20.5px] ">
 
               {/* new comment button */}
-              <button className="  w-[185px] h-[37px] max-xl:w-[170px] max-xl:h-[37px] rounded-[7px] dark:bg-[#FF8A00] bg-[#00E2DC] flex items-center justify-center  gap-2 ">
+              <button onClick={()=>setCommentdiv(true)} className="  w-[185px] h-[37px] max-xl:w-[170px] max-xl:h-[37px] rounded-[7px] dark:bg-[#FF8A00] bg-[#00E2DC] flex items-center justify-center  gap-2 ">
                 <h3 className="font-normal font-Yekan text-[15px] text-[#005653] dark:text-white">
                   ارسال دیدگاه جدید
                 </h3>
@@ -105,23 +112,7 @@ const Comments = ({width,height , courseId }) => {
                 </svg>
               </button>
             </div>
-            <form 
-                  onSubmit={(values) => onSubmit(values)}
-            
-            >
-              <div className="bg-red-500 w-[300px] h-[30px] mb-20">
-              {/* <input type="text" placeholder="Reply" className="w-[100%] h-[100%] border border-red-300 outline-none"
-                  id="CourseId"  name="CourseId" value={courseId}
-                /> */}
-                <input type="text" placeholder="Reply" className="w-[100%] h-[100%] border border-red-300 outline-none"
-                  id="Title" name="Describe" 
-                />
-                 <input type="text" placeholder="Reply" className="w-[100%] h-[100%] border border-red-300 outline-none"
-                  id="Describe" name="Title" 
-                />
-                </div>
-                <button type="submit" className="bg-blue-100 w-[60px] h-[20px] mb-10">click</button>
-            </form>
+     
             
 
             {/* map commnets */}
@@ -159,13 +150,16 @@ const Comments = ({width,height , courseId }) => {
                       {/* like & dislike & reply svg */}
                       <div className="  flex  flex-row-reverse gap-3">
                         <h1 className=" like max-lg:text-[13px] max-md:text-[16px]">{data?.disslikeCount}</h1>
+
                         <svg
-                       
+                          onClick={()=>(setDislike(!dislike),setlike(like==false ? !like : like))}
+                    
                           width="20"
                           height="19"
-                            className=" max-lg:w-[15px] max-lg:h-[17px] bg-blue-400"
+                            className={` max-lg:w-[15px] max-lg:h-[17px]
+                              ${dislike ? "fill-none" : "fill-[#D47300]"} `}
                           viewBox="0 0 20 19"
-                          fill="none"
+                  
                           xmlns="http://www.w3.org/2000/svg"
                         >
                           <path
@@ -185,11 +179,14 @@ const Comments = ({width,height , courseId }) => {
                         </h1>
 
                         <svg
+                          onClick={()=>(setlike(!like),setDislike(dislike==false ? !dislike : dislike))}
+
                           width="20"
                           height="19"
-                            className= "max-lg:w-[15px] max-lg:h-[17px]  bg-red-500"
+                          className={` max-lg:w-[15px] max-lg:h-[17px]
+                            ${like ? "fill-none" : "fill-[#D47300]"} `}
                           viewBox="0 0 20 19"
-                          fill="none"
+                         
                           xmlns="http://www.w3.org/2000/svg"
                          
             
@@ -373,6 +370,32 @@ leading-[32px] font-normal font-Yekan text-[12px] flex items-center w-[120px] h-
             </button>
           </div>
         </div>
+
+ <div className={`${comentdiv ? "block" : "hidden"} border border-gray-300 shadow-md  bg-[#e2e2e2] w-[550px] h-[200px] rounded-3xl z-50 top-[35%] left-[36%] fixed`}>
+ <svg onClick={()=>setCommentdiv(false)} className=" border border-gray-800   mt-5 ml-[92%]" width="15" height="15" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1.72313 1.72267L10.562 10.5615M10.562 1.72267L1.72313 10.5615" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+         <form 
+                  onSubmit={(values) => onSubmit(values)}
+            
+            >
+              <div className=" w-[500px] m-auto mt-6 h-[50px] ">
+              {/* <input type="text" placeholder="Reply" className="w-[100%] h-[100%] border border-red-300 outline-none"
+                  id="CourseId"  name="CourseId" value={courseId}
+                /> */}
+                <input type="text" placeholder="new comment" className="w-[100%] h-[100%] border rounded-3xl px-3   outline-none"
+                  id="Title" name="Describe" 
+                />
+                 {/* <input type="text" placeholder="Reply" className="w-[100%] h-[100%] border border-red-300 outline-none"
+                  id="Describe" name="Title" 
+                /> */}
+                </div>
+                <button type="submit" className="bg-primary rounded-[30px] text-gray-900 ml-[67%] w-[150px] h-[35px] mt-7 ">افزودن نظر جدید</button>
+            </form>
+
+         </div>
+
       </div>
     </>
   );
