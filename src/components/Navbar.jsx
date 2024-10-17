@@ -56,7 +56,7 @@ const Navbar = () => {
                 <div className=' text-2xl flex items-center gap-2 font-bold'>
                    
                     <NavLink to={"/auth"} className='relative w-36 max-md:w-[150px]  max-sm:w-[150px] max-lg:w-[150px] max-xl:w-[200px]  h-10 bg-primary
-                        mt-8 rounded-3xl hover:shadow-lg hover:shadow-orange dark:bg-orange  dark:hover:shadow-lg dark:hover:shadow-orange
+                        mt-8 rounded-3xl hover:shadow-lg  dark:bg-orange  dark:hover:shadow-slate-700 dark:hover:shadow-md
                         transition-shadow'>
                         <img src={UserImg} alt="" className='w-7 h-7  absolute top-1.5 left-4'/>
                         <h1 className='text-sm  font-semibold text-white text-right leading-loose px-2 py-1 '>حساب کاربری</h1>
