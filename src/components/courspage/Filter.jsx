@@ -84,7 +84,7 @@ const Filter = () => {
       </div>
 
       <ul
-        className="relative bg-white
+        className="relative bg-white dark:bg-slate-500 rounded-md
             max-md:flex  
             max-sm:grid"
       >

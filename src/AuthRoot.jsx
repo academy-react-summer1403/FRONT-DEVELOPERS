@@ -2,6 +2,7 @@ import React from "react";
 import NavbarAuth from "./components/NavbarAuth";
 import FooterAuth from "./components/FooterAuth";
 import { Outlet } from "react-router-dom";
+import DarkMode from "./components/DarkMode";
 
 const AuthRoot = () => {
   return (
@@ -9,6 +10,7 @@ const AuthRoot = () => {
       <NavbarAuth />
 
       <Outlet />
+      <DarkMode/>
       <FooterAuth />
     </div>
   );

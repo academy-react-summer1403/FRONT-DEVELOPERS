@@ -59,6 +59,7 @@ const Comments = ({width,height , courseId }) => {
   console.log(replyCourse)
 
 
+<<<<<<< HEAD
   //handle for postlike
 const [like, setLike] = useState()
 console.log("like:" , like)
@@ -81,9 +82,25 @@ console.log( "CommentLike:",CommentLike)
   return (
     <>
       <div className="mt-[15px]">
+=======
+  const [comentdiv,setCommentdiv]=useState(false)
+  const [dislike,setDislike]=useState(true)
+  const [like,setlike]=useState(true)
+
+
+
+  return (
+    <>
+      <div className="mt-[15px]  relative">
+    
+     
+>>>>>>> 98f68dc521700a5368046589320dc798c5dd4a54
 
         {/* comments */}
-        <div className=" relative  w-full  ">
+        <div className="   w-full  ">
+
+
+    
           
           <div
             style={{ boxShadow: " 0px 1px 2px 0 rgba(0, 0, 0, 0.25)" }}
@@ -94,7 +111,7 @@ console.log( "CommentLike:",CommentLike)
             <div className=" w-full h-[37px] mb-[20.5px] ">
 
               {/* new comment button */}
-              <button className="  w-[185px] h-[37px] max-xl:w-[170px] max-xl:h-[37px] rounded-[7px] dark:bg-[#FF8A00] bg-[#00E2DC] flex items-center justify-center  gap-2 ">
+              <button onClick={()=>setCommentdiv(true)} className="  w-[185px] h-[37px] max-xl:w-[170px] max-xl:h-[37px] rounded-[7px] dark:bg-[#FF8A00] bg-[#00E2DC] flex items-center justify-center  gap-2 ">
                 <h3 className="font-normal font-Yekan text-[15px] text-[#005653] dark:text-white">
                   ارسال دیدگاه جدید
                 </h3>
@@ -119,23 +136,7 @@ console.log( "CommentLike:",CommentLike)
                 </svg>
               </button>
             </div>
-            <form 
-                  onSubmit={(values) => onSubmit(values)}
-            
-            >
-              <div className="bg-red-500 w-[300px] h-[30px] mb-20">
-              {/* <input type="text" placeholder="Reply" className="w-[100%] h-[100%] border border-red-300 outline-none"
-                  id="CourseId"  name="CourseId" value={courseId}
-                /> */}
-                <input type="text" placeholder="Reply" className="w-[100%] h-[100%] border border-red-300 outline-none"
-                  id="Title" name="Describe" 
-                />
-                 <input type="text" placeholder="Reply" className="w-[100%] h-[100%] border border-red-300 outline-none"
-                  id="Describe" name="Title" 
-                />
-                </div>
-                <button type="submit" className="bg-blue-100 w-[60px] h-[20px] mb-10">click</button>
-            </form>
+     
             
 
             {/* map commnets */}
@@ -174,13 +175,20 @@ console.log( "CommentLike:",CommentLike)
                       <div className="  flex  flex-row-reverse gap-3">
                         {/* unlike  */}
                         <h1 className=" like max-lg:text-[13px] max-md:text-[16px]">{data?.disslikeCount}</h1>
+
                         <svg
-                       
+                          onClick={()=>(setDislike(!dislike),setlike(like==false ? !like : like))}
+                    
                           width="20"
                           height="19"
+<<<<<<< HEAD
                             className=" max-lg:w-[15px] max-lg:h-[17px] "
+=======
+                            className={` max-lg:w-[15px] max-lg:h-[17px]
+                              ${dislike ? "fill-none" : "fill-[#D47300]"} `}
+>>>>>>> 98f68dc521700a5368046589320dc798c5dd4a54
                           viewBox="0 0 20 19"
-                          fill="none"
+                  
                           xmlns="http://www.w3.org/2000/svg"
                         >
                           <path
@@ -192,6 +200,7 @@ console.log( "CommentLike:",CommentLike)
                           />
                         </svg>
 
+<<<<<<< HEAD
                           {/* like  */}
                         <h1 className=" like max-lg:text-[13px] max-md:text-[16px]">                       
                         {data?.likeCount}
@@ -216,6 +225,36 @@ console.log( "CommentLike:",CommentLike)
                               </svg>
                           </button>                         
                                 
+=======
+                        <h1 className=" like max-lg:text-[13px] max-md:text-[16px]"
+                        
+                         
+                        > {data?.likeCount}
+
+                        </h1>
+
+                        <svg
+                          onClick={()=>(setlike(!like),setDislike(dislike==false ? !dislike : dislike))}
+
+                          width="20"
+                          height="19"
+                          className={` max-lg:w-[15px] max-lg:h-[17px]
+                            ${like ? "fill-none" : "fill-[#D47300]"} `}
+                          viewBox="0 0 20 19"
+                         
+                          xmlns="http://www.w3.org/2000/svg"
+                         
+            
+                        >
+                          <path
+                            d="M5.08025 8.39587C5.81909 8.39587 6.4855 7.98704 6.942 7.40587C7.65357 6.49802 8.54682 5.74871 9.56459 5.20587C10.2273 4.85387 10.8021 4.32954 11.0798 3.63379C11.2749 3.14635 11.3751 2.62615 11.375 2.10112V1.52087C11.375 1.33854 11.4474 1.16367 11.5764 1.03474C11.7053 0.905807 11.8802 0.833374 12.0625 0.833374C12.6095 0.833374 13.1341 1.05067 13.5209 1.43747C13.9077 1.82426 14.125 2.34887 14.125 2.89587C14.125 3.95187 13.8867 4.95196 13.4623 5.84571C13.2184 6.35721 13.5603 7.02087 14.1268 7.02087M14.1268 7.02087H16.9923C17.9328 7.02087 18.7753 7.65704 18.8752 8.59296C18.9164 8.97979 18.9375 9.37212 18.9375 9.77087C18.9413 12.2792 18.0841 14.7128 16.5093 16.6651C16.1536 17.107 15.6045 17.3334 15.038 17.3334H11.3567C10.9139 17.3334 10.473 17.2619 10.0523 17.1225L7.19775 16.1692C6.7771 16.0293 6.33665 15.9581 5.89334 15.9584H4.412M14.1268 7.02087H12.0625M4.412 15.9584C4.48809 16.1463 4.57059 16.3296 4.6595 16.5102C4.84009 16.8769 4.588 17.3334 4.18009 17.3334H3.34775C2.53284 17.3334 1.7775 16.8585 1.54009 16.0794C1.22259 15.0373 1.06164 13.9539 1.0625 12.8646C1.0625 11.441 1.33292 10.0816 1.82425 8.83312C2.10475 8.12362 2.81975 7.70837 3.58334 7.70837H4.54859C4.98125 7.70837 5.2315 8.21804 5.00692 8.58837C4.22399 9.87716 3.81106 11.3567 3.81342 12.8646C3.81342 13.9591 4.02609 15.0032 4.41292 15.9584H4.412Z"
+                            stroke="#D47300"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+>>>>>>> 98f68dc521700a5368046589320dc798c5dd4a54
 
                         {/* reply  */}
                         <svg
@@ -388,6 +427,32 @@ leading-[32px] font-normal font-Yekan text-[12px] flex items-center w-[120px] h-
             </button>
           </div>
         </div>
+
+ <div className={`${comentdiv ? "block" : "hidden"} border border-gray-300 shadow-md  bg-[#e2e2e2] w-[550px] h-[200px] rounded-3xl z-50 top-[35%] left-[36%] fixed`}>
+ <svg onClick={()=>setCommentdiv(false)} className=" border border-gray-800   mt-5 ml-[92%]" width="15" height="15" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1.72313 1.72267L10.562 10.5615M10.562 1.72267L1.72313 10.5615" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+         <form 
+                  onSubmit={(values) => onSubmit(values)}
+            
+            >
+              <div className=" w-[500px] m-auto mt-6 h-[50px] ">
+              {/* <input type="text" placeholder="Reply" className="w-[100%] h-[100%] border border-red-300 outline-none"
+                  id="CourseId"  name="CourseId" value={courseId}
+                /> */}
+                <input type="text" placeholder="new comment" className="w-[100%] h-[100%] border rounded-3xl px-3   outline-none"
+                  id="Title" name="Describe" 
+                />
+                 {/* <input type="text" placeholder="Reply" className="w-[100%] h-[100%] border border-red-300 outline-none"
+                  id="Describe" name="Title" 
+                /> */}
+                </div>
+                <button type="submit" className="bg-primary rounded-[30px] text-gray-900 ml-[67%] w-[150px] h-[35px] mt-7 ">افزودن نظر جدید</button>
+            </form>
+
+         </div>
+
       </div>
     </>
   );

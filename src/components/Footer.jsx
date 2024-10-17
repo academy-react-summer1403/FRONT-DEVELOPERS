@@ -8,8 +8,6 @@ import { FaRegCopyright } from "react-icons/fa6";
 import Email from "../assets/landing/email.png";
 import Brand from "../assets/landing/brand.png";
 import Logo from "../assets/landing/LOGO2.svg";
-import { motion } from 'framer-motion';
-import { SliderRight } from '../utility/animation';
 import { NavLink } from 'react-router-dom';
 
 

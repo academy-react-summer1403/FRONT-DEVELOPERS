@@ -40,7 +40,7 @@ const ArticleNewsCard = ({title,miniDescribe  , updateDate,currentView , id}) =>
                 </div>
 
                 <NavLink to={"/article-detail/" + id } className='flex justify-center pt-2 gap-1 text-xs font-medium 
-                text-orange border-t-[1px] absolute w-[250px] top-[180px]'> 
+                text-orange border-t-[1px] absolute w-[250px] max-xl:w-[170px] max-lg:w-[250px]   top-[180px]'> 
                     <img src={flash} className='m-1'/>مطالعه بیشتر
                     
                 </NavLink>

@@ -28,9 +28,9 @@ console.log(reportLanding)
 
 
     return (
-      <>
+      <div className='  z-10'>
         <div
-          className="container  flex items-center  flex-nowrap justify-between
+          className="container   flex items-center  flex-nowrap justify-between
       min-h-[650px] relative"
         >
           <img src={BackImg} alt=""  className='w-full z-10 h-full absolute opacity-80'/>
@@ -180,7 +180,7 @@ console.log(reportLanding)
           </div>
        
         </div>
-      </>
+      </div>
     );
   };
 

@@ -19,6 +19,7 @@ import Detail from "./Detail"
 
 
 
+
 function App() {
 
 
@@ -54,6 +55,7 @@ const  originalRoutes = [
       // index: true,
       path: "/courses-detail/:courseId",
       element: <CourseDetial />,
+      
       // isAuth:false
 
     },
@@ -62,6 +64,7 @@ const  originalRoutes = [
       // index: true,
       path: "/article-detail/:id",
       element: <ArticleDetail />,
+     
       // isAuth:false
 
     },
@@ -136,7 +139,10 @@ const  originalRoutes = [
   const router = createBrowserRouter(currentRoutes)
 
 
-  return  <RouterProvider router={router}/>
+  return <RouterProvider  router={router}/>
+  
+  
+  
 
 }
 

@@ -102,18 +102,16 @@ const CoursPage = () => {
       >
         {/* hero vector */}
         <div
-          className=" w-full md:w-3/12
+          className=" w-full
             max-lg:h-[400px]
-            max-md:h-[400px]"
+            max-md:h-[400px]
+             relative"
         >
           <img
             src={Herobg}
             alt=""
-            className="absolute w-[350px] 
-                max-sm:left-[3%]
-                max-md:w-[400px]  max-md:h-[400px] max-md:left-[20%]
-                max-lg:left-[26%]
-                max-xl:w-[350px]  left-[130px] top-[225px]  "
+            className="absolute w-[343px]  h-[350px] 
+               left-[130px] top-[-30px]  max-lg:top-20"
           />
 
           <motion.img
@@ -122,11 +120,8 @@ const CoursPage = () => {
             transition={{ type: "spring", stiffness: 100, delay: 0.2 }}
             src={Herovector}
             alt=""
-            className=" absolute w-[435px] h-[435px]   left-[100px] top-[167px]  z-40 
-                max-sm:left-[3%]
-                max-md:w-[450px] max-md:h-[450px] max-md:left-[120px] max-md:top-[140px]
-                max-lg:left-[23%]
-                max-xl:w-[440px] max-xl:h-[440px] "
+            className=" absolute w-[335px] h-[335px] max-lg:top-16  left-[150px] top-[-50px]  z-40 
+               "
           />
 
           <motion.img
@@ -135,11 +130,8 @@ const CoursPage = () => {
             transition={{ type: "spring", stiffness: 100, delay: 0.2 }}
             src={Heroring}
             alt=""
-            className="absolute z-30 left-34 top-60 w-[470px] left-[68px] 
-                max-sm:left-[3%]
-                max-md:w-[400px]  max-md:left-[20%]
-                max-lg:left-[20%]
-                max-xl:w-[470px]  "
+            className="absolute z-30 left-34 top-16 max-lg:top-40 w-[350px] left-[120px] 
+                 "
           />
         </div>
 
@@ -232,7 +224,7 @@ const CoursPage = () => {
               </button>
             </div>
             {/* left: menu  */}
-            <div className="group absolute right-0">
+            <div className="group absolute right-0 max-xl:right-14 ">
               <div
                 className="group flex p-2 bg-white dark:bg-gray-700 absolute z-50 left-[600px]
                         rounded rounded-t-2xl shadow-sm shadow-gray-400 outline-none indent-1 font-semibold 
@@ -281,7 +273,7 @@ const CoursPage = () => {
         </div>
 
         {/* filter section  */}
-        <div className="relative  col-span-1 ">
+        <div className="relative  col-span-1  max-xl:mt-20 max-lg:-right-60">
           <Filter />
         </div>
       </div>

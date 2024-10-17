@@ -12,6 +12,7 @@ import RelatedCourses from "../../components/coursedetailComponents/RelatedCours
 import {   useCourseId } from "../../core/services/query/queries";
 import { useParams } from "react-router-dom";
 
+
 const CourseDetial = () => {
 
 
@@ -22,6 +23,7 @@ const CourseDetial = () => {
   console.log({courseId})
   
 
+   
  
 
   const CourseDetail = useCourseId(courseId);
@@ -36,7 +38,9 @@ const CourseDetial = () => {
   return (
 
     
-    <div className=" container  relative">
+
+    
+    <div className=" container  relative ">
       <img
         className=" bottom-0 max-md:top-96  absolute opacity-[40%] scale-150  rotate-90"
         src="https://s3-alpha-sig.figma.com/img/19be/48f2/2796a9e90ec1b19857e151fc13e21059?Expires=1728259200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=mZW-g30z8Y9kCtc4Q1Y82wXJ5M3YX1ja6v-gYlyazEUHmGj5fgx4YewqoPzoMl4V4J~Y2sETrcyxsiSfnJArb~OKXnzzQcBQwRsRnlSZI5eAqC9mPjX~jPtEjEaaNYlHuPhaUQ671CFaG9FP8BAUgrxGbtub-sQCi8oLtVfkXsjsO4-KqNeUdQpM9MfXLhXrbdziI4zuOcpcn74-w8NTLCgEbqS66Vs7LO4-uoZQC0Kfv6we2O7hov7fqXpvrD8dLTZNQ22GCZ5C9iP6fYmkkQ6sgbL5HZBGy4Ocxh3cxeAgyhp6R56KMjTb~fHkpUTzkxI2T4Z-fBM4z~wSy~mrcw__"
@@ -102,6 +106,8 @@ const CourseDetial = () => {
           
           <h4 className=" mark mt-5 max-xl:text-[20px] dark:text-slate-300  ">نظرات</h4><div className="max-lg:w-full max-xl:w-full]  max-sm:w-full max-md:w-[500px]">
           <Comments width={"w-[809px]"} height={"h-852px"} courseId={courseId}/></div>
+
+       
           
        </div>
      
