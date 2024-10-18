@@ -14,9 +14,12 @@ export const getNewsId = async (id) => {
   return data;
 };
 
-export const getCourse = async ( page , params ) => {
+
+
+
+export const getCourse = async ( page , params ,view1) => {
   const data = await http.get(
-    `/Home/GetCoursesWithPagination?PageNumber=${page}&RowsOfPage=6` , {
+    `/Home/GetCoursesWithPagination?PageNumber=${page}&RowsOfPage=${view1}` , {
       params
     }
   );

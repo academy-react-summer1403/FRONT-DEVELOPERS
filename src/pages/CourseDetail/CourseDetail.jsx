@@ -21,6 +21,7 @@ const CourseDetial = () => {
   
 
   return (
+    <div className=" container border relative  mb-5  ">
     <div className=" container  relative  mb-5  ">
   
 
@@ -80,11 +81,12 @@ const CourseDetial = () => {
         <h4 className=" mark mt-5 max-xl:text-[20px] dark:text-slate-300  ">
           نظرات
         </h4>
-        <div className="max-lg:w-full max-xl:w-full] overflow-auto h-[880px]  max-sm:w-full max-md:w-[500px]">
+        <div className="  ">
         
           <Comment courseId={courseId}/>
         </div>
       </div>
+    </div>
     </div>
   );
 };

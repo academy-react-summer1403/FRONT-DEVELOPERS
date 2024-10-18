@@ -29,10 +29,10 @@ export function useArticleDetail(id) {
   return query;
 }
 
-export function useCourses(page , params ) {
+export function useCourses(page , params ,view1) {
   return useQuery({
-    queryKey: ["courses",  params , page  ],
-    queryFn: () => getCourse(  params , page),
+    queryKey: ["courses",  params , page,view1  ],
+    queryFn: () => getCourse(  params , page,view1),
   });
 }
 
