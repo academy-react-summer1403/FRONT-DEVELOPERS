@@ -30,6 +30,10 @@ const CoursPage = () => {
   const [page, setPage] = useState(1);
   console.log(page);
 
+  const [view, setView] = useState(false);
+  console.log(view);
+
+
 
   
   const query = useSelector((state) => state.QuerySlice.data);
@@ -207,7 +211,7 @@ const CoursPage = () => {
                 className="relative  border border-gray-100 mr-2 p-3 hover:bg-gray-200 
                          transition duration-300 shadow-sm shadow-gray-400 outline-none indent-1
                          rounded rounded-tl-2xl top-0  w-[50px]"
-                onClick={() => setView(<CoursGridCard />)}
+                onClick={() => setView(false)}
               >
                 {" "}
                 <img src={WindowView} className="w-full h-full" />
@@ -217,7 +221,7 @@ const CoursPage = () => {
                 className="relative border border-gray-100 p-2 hover:bg-gray-200 
                         transition duration-300 shadow-sm shadow-gray-400 outline-none indent-1 
                         rounded rounded-tr-2xl top-1 w-[50px] h-[50px]"
-                onClick={() => setView(<CoursListCard />)}
+                onClick={() => setView(true)}
               >
                 {" "}
                 <img src={ListView} className="w-8 h-8" />{" "}
@@ -261,9 +265,19 @@ const CoursPage = () => {
           </div>
 
           {/* cards  */}
+                  
+                    {view ? <>
           {CoursesData.data?.courseFilterDtos.map((item) => (
+
+          
+            <CoursListCard {...item} />
+          ))}</> : <>
+          {CoursesData.data?.courseFilterDtos.map((item) => (
+
+          
             <CoursGridCard {...item} />
-          ))}
+          ))}</>}
+          
 
           {/* paginantion  */}
 
