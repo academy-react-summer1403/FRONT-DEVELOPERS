@@ -1,17 +1,6 @@
 import { useState } from 'react'
-import { NavLink } from 'react-router-dom'
-
-// Dashboard pages:
-import StdDashboard from '../../pages/dashboard/content/StdDashboard'
-import StdInformation from '../../pages/dashboard/content/StdInformation'
-import StdSettings from '../../pages/dashboard/content/StdSettings'
-import StdCourses from '../../pages/dashboard/content/StdCourses'
-import ReservatCourses from '../../pages/dashboard/content/ReservatCourses'
-import StdPointOfView from '../../pages/dashboard/content/StdPointOfView'
-import StdFavorite from '../../pages/dashboard/content/StdFavorite'
-
+import { NavLink, Outlet } from 'react-router-dom'
 // images:
-import profile from '../../assets/dashboard/profile.png'
 import logout from '../../assets/dashboard/logout.svg'
 import home from '../../assets/dashboard/home.svg'
 import dash from '../../assets/dashboard/Frame(1).svg'
@@ -22,73 +11,73 @@ import view from '../../assets/dashboard/111.svg'
 import favorite from '../../assets/dashboard/Vector.svg'
 import setting from '../../assets/dashboard/Vector(1).svg'
 import { IoIosMenu } from 'react-icons/io'
-import EditeProfileForm from './editeprofile/EditeProfileForm'
+import DashNavbar from './DashNavbar'
+import { useUserProfile } from '../../core/services/query/DashboardQuery'
+
+
 
 
 
 
 const DashPanel = () => {
-    const [dashPage, setDashPage] = useState(<EditeProfileForm/>)
+
+
+  
+    const userProfile = useUserProfile()
+    console.log(userProfile)
+  
+
+
+
     const dashboard=[
         {
             id:1,
             icon:dash,
             title:"داشبورد",
-            page:<StdDashboard/>,
+            link:"/Dashboard",
             isOpen:false,
         },
         {
             id:2,
             icon:inform,
             title:"اطلاعات کاربری",
-            page:<StdInformation/>,
+            link:"/info",
             isOpen:false,
         },
         {
             id:3,
             icon:courses,
             title:"دوره های من",
-            page:<StdCourses/>,
+            link:"/stdCourses",
             isOpen:false,
         },{
             id:4,
             icon:resrvsC,
             title:"دوره های رزرو شده",
-            page:<ReservatCourses/>,
+            link:"/reservCourses",
             isOpen:false,
         },{
             id:5,
             icon:view,
             title:"دیدگاه های من",
-            page:<StdPointOfView/>,
+            link:"/stdPointOfView",
             isOpen:false,
         },{
             id:6,
             icon:favorite,
             title:"علاقه مندی ها",
-            page:<StdFavorite/>,
+            link:"/stdFavorite",
             isOpen:false,
         },{
             id:7,
             icon:setting,
             title:"تنظیمات امنیتی",
-            page:<StdSettings/>,
+            link:"/settings",
             isOpen:false,
         },
 
     ]
-    const HandleDashContent =(id )=>{
-        const ContentOpen =dashboard.map((data)=>{
-            if(data.id === id){
-                return {...data.page }
-            }else{
-              return ""
-            }
-            
-        });
-        
-        setDashPage(ContentOpen)
-    }
+
 
 
     const [resposive, setResposive] = useState(false)
@@ -99,20 +88,24 @@ const DashPanel = () => {
    console.log(resposive)
 
   return (
-    <div style={{boxShadow:"0px 0px 7px 0px rgba(0,0,0,0.3)"}}
+<>
+    <DashNavbar/>
+
+    <div 
         className='relative flex flex-row rounded-xl 
-        max-sm:flex-col-reverse
+        max-sm:flex-col-reverse container mx-auto
         '
     >
         {/* content  */}
-        <div className={`relative p-6 rounded-xl bg-white dark:bg-gray-700 min-w-[458px] w-full
+        <div style={{boxShadow:"0px 0px 7px 0px rgba(0,0,0,0.3)"}} 
+        className={`relative p-6 rounded-xl bg-white dark:bg-gray-700 min-w-[458px] w-full
         max-sm:p-2  
-        max-lg:p-2 max-lg:${resposive ? " " : "w-full" }      
+        max-lg:p-2 max-lg:${resposive ? " " : "w-full" } 
         `}>
-            <NavLink to={"/"}>
+            <NavLink to={"/Dashboard"}>
                 <img src={home}/>
             </NavLink>
-            {dashPage}
+            <Outlet/>
         </div>
 
         {/* menu  */}
@@ -134,12 +127,12 @@ const DashPanel = () => {
                 max-sm:mx-0 max-sm:block
                 max-lg:${resposive ? "block" : "hidden"}
             `}>
-                <img src={profile} className='w-[130px] h-[130px] rounded-full mx-auto
+                <img src={userProfile.data?.currentPictureAddress} className='w-[130px] h-[130px] rounded-full mx-auto
                 max-md:w-[100px] max-md:h-[100px]  max-lg:w-24  max-lg:h-24
                 '/>
                 <p className='mt-4 text-center text-teal-900 font-bold
                      max-lg:text-sm 
-                '>فلانیه فلانی خوش آمدید</p>
+                '>{userProfile.data?.fName}{userProfile.data?.lName} خوش آمدید</p>
             </div>
 
             {/* menuBar */}
@@ -149,25 +142,30 @@ const DashPanel = () => {
                 max-sm:${resposive ? "block " : "hidden"}
             `}>
                 {dashboard.map((items)=>(
-                    <li key={items.id} onClick={()=>HandleDashContent(items.id)}
+                    <li key={items.id} 
                         className="group flex flex-row-reverse font-semibold text-teal-900 my-2 py-3 p-4 
                             gap-4 rounded-r-full hover:bg-white hover:border-l-4 hover:border-l-orange
                             transition duration-300 cursor-pointer                        
                             max-lg:gap-0
-                            max-md:gap-0 max-md:text-sm
+                            max-md:gap-0 max-md:text-sm 
                         "
                     >
-                        <img src={items.icon} className={`hidden group-hover:block
+                        <a href={items.link}>
+
+                             <img src={items.icon} className={`hidden group-hover:block
                             max-lg:${resposive ? "hidden" : "block"}
                             max-sm:hidden max-sm:group-hover:block                         
                          `}/>
                         <p className={`${resposive? "max-lg:block" : "max-lg:hidden" } `}> {items.title} </p>
+
+                        </a>
+                      
                     </li>
                 ))}
             </ul>
 
             {/* logout section    */}
-            <NavLink to={"/"} className={`flex flex-row gap-1 text-teal-900 text-sm font-semibold my-8 mx-[23%]
+            <NavLink to={"/Dashboard"} className={`flex flex-row gap-1 text-teal-900 text-sm font-semibold my-8 mx-[23%]
                  max-sm:${resposive ? " " : "hidden"} max-sm:mx-[35%] 
                  max-md:mx-[5%] max-md:gap-0
                  max-lg:mx-[10%] max-md:gap-0
@@ -180,6 +178,7 @@ const DashPanel = () => {
         </div>
 
     </div>
+    </>
   )
 }
 

@@ -1,15 +1,15 @@
 import { useState } from 'react'
 import { IoPersonOutline } from 'react-icons/io5'
 import { IoIosArrowBack } from 'react-icons/io'
-
-// images :
 import reserve from '../../../assets/dashboard/Group 87.svg'
 import buy from '../../../assets/dashboard/Group 86.svg'
 import alert from '../../../assets/dashboard/Frame.svg'
 import cours from '../../../assets/dashboard/Rectangle 111.svg'
 
 
+
 const StdDashboard = () => {
+
   
 
   return (

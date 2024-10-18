@@ -1,9 +1,9 @@
 import React from "react";
 import image from "../../assets/detail/article.jpg";
-import RelatedCourses from "../../components/coursedetailComponents/RelatedCourses/RelatedCourses";
-import { samecourses, suggestion } from "../CourseDetail/CourseDetail";
+// import RelatedCourses from "../../components/coursedetailComponents/RelatedCourses/RelatedCourses";
+
 import ArticleDescription from "../../components/articledetail/articleDescription/ArticleDescription";
-import Comments from "../../components/coursedetailComponents/comments/Comments";
+// import Comments from "../../components/coursedetailComponents/comments/Comments";
 import { motion } from "framer-motion";
 import { useArticleDetail } from "../../core/services/query/queries";
 import { useParams } from "react-router-dom";
@@ -29,9 +29,6 @@ const ArticleDetail = () => {
         alt=""
       />
     
-
-
-
   {/*  2 */}
     
 
@@ -74,7 +71,7 @@ const ArticleDetail = () => {
             دوره های مرتبط
           </div>
 
-          {samecourses.map((data, index) => (
+          {/* {samecourses.map((data, index) => (
             <RelatedCourses
          
              
@@ -84,7 +81,7 @@ const ArticleDetail = () => {
               title={data.title}
               image={data.image}
             />
-          ))}
+          ))} */}
         </div>
 
         {/* suggestion section */}
@@ -101,14 +98,14 @@ const ArticleDetail = () => {
             مطالب پیشنهادی
           </div>
 
-          {suggestion.map((data, index) => (
+          {/* {suggestion.map((data, index) => (
             <RelatedCourses
              
               key={index}
               title={data.title}
               image={data.image}
             />
-          ))}
+          ))} */}
         </div>
       </div>
 
@@ -252,12 +249,6 @@ const ArticleDetail = () => {
     </div>
 
   
-   
-      
-
-      
-    
-
     </div>
   );
 };

@@ -14,6 +14,15 @@ import VarificationVorod from "./components/mainAuth/VarificationVorod"
 import Layout from "./Layout"
 import { useSelector } from "react-redux"
 import Detail from "./Detail"
+import DashPanel from "./components/dashboard/DashPanel"
+import StdInformation from "./pages/dashboard/content/StdInformation"
+import StdDashboard from "./pages/dashboard/content/StdDashboard"
+import EditeProfileForm from "./components/dashboard/editeprofile/EditeProfileForm"
+import StdCourses from "./pages/dashboard/content/StdCourses"
+import ReservatCourses from "./pages/dashboard/content/ReservatCourses"
+import StdPointOfView from "./pages/dashboard/content/StdPointOfView"
+import StdSettings from "./pages/dashboard/content/StdSettings"
+import StdFavorite from "./pages/dashboard/content/StdFavorite"
 
 
 
@@ -69,12 +78,47 @@ const  originalRoutes = [
 
 
   {
-    // index: true,
+   
+    path: "/",
+    element: <DashPanel />,
+    children:[
+  {
     path: "/Dashboard",
-    element: <Dashboard />,
-    // isAuth:false
+    element: <StdDashboard />,
+  },
+  {
+    path: "/info",
+    element: <StdInformation />,
+  },
+  {
+    path: "/Edit",
+    element: <EditeProfileForm />,
+  },
+  {
+    path: "/stdCourses",
+    element: <StdCourses />,
+  },
+  {
+    path: "/reservCourses",
+    element: <ReservatCourses />,
+  },
+  {
+    path: "/stdPointOfView",
+    element: <StdPointOfView />,
+  },
+  {
+    path: "/stdFavorite",
+    element: <StdFavorite />,
+  },
+  {
+    path: "/settings",
+    element: <StdSettings />,
+  },
+  
+    ]
     
   },
+
 
 
 
@@ -123,11 +167,7 @@ const  originalRoutes = [
 
  const user = useSelector((state) => state.TokenSlice)
 
- console.log("user" , user)
-
-
-  const token = user?.token 
-  console.log(token)
+  const token = user?.token   
 
   const currentRoutes = originalRoutes;
 

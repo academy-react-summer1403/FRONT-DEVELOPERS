@@ -12,7 +12,7 @@ const DashNavbar = () => {
     transition={{duration:0.5 , delay:0.5}}
     >
         <div className='flex justify-between items-center pt-2 pb-6 
-        max-sm:px-2 max-sm:flex-col-reverse 
+        max-sm:px-2 max-sm:flex-col-reverse  container
         '>
             {/* ACCOUNT section  */}
             <div className='text-2xl flex items-center gap-2 font-bold'>

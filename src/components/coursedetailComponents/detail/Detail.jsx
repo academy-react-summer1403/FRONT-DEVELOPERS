@@ -5,16 +5,11 @@ import { useParams } from 'react-router-dom';
 import { useCourseId, useCourses } from '../../../core/services/query/queries';
 
 
-const Detail = () => {
+const Detail = ({courseId}) => {
 
-  const {courseId} = useParams();
-  
-  
-
- 
 
   const CourseDetail = useCourseId(courseId);
-
+  console.log(CourseDetail)
  
   const coursedetals = [
     {

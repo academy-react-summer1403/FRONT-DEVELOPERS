@@ -1,40 +1,103 @@
 import React from 'react'
-import * as yup from "yup";
-import { Field, Form, Formik } from 'formik';
-
+// import * as yup from "yup";
+// import { input, Form, Formik } from 'formik';
 import { CiCircleRemove } from "react-icons/ci";
-
 import editeprof from '../../../assets/dashboard/edite2.svg'
 import save from '../../../assets/dashboard/save.svg'
+import { useNavigate } from 'react-router-dom';
+import { postUserImg, postUserMainImg, putUserInfo } from '../../../core/services/DashApi';
+import { useSelector } from 'react-redux';
+
+
 
 
 const EditeProfileForm = () => {
 
-    const validation = yup.object().shape({
-        aboutme:yup.string()
-        .max(400, 'توضیحات باید کمتر از 400 کارکتر باشد'),
+  
+    const navigate = useNavigate()
 
-        name:yup.string()
-        .required('فیلد اجباری'),
-
-        lastname:yup.string()
-        .required('فیلد اجباری'),
+  
+    const onSubmit =async (e)=>{
+        e.preventDefault();
     
-        nid: yup.string()
-        .matches(/[0-9]/, { message:'Password requires a number'})
-        .required('فیلد اجباری'),
-
-        birthdate:yup.string(),
-        phonenumber:yup.string(),
-        email: yup.string()
-        .email('ایمل باید دارای پسوند @gmail.com باشد'),
-        telegram:yup.string(),
-        linkedin:   yup.string(),
     
-      });
+ 
+
+    
+        const formData = new FormData(e.target);
+        formData.append("LName", LName);
+        formData.append("FName", FName);
+        formData.append("UserAbout", UserAbout);
+        formData.append("LinkdinProfile", LinkdinProfile);
+        formData.append("TelegramLink", TelegramLink);
+        formData.append("ReceiveMessageEvent", true);
+        formData.append("HomeAdderess", HomeAdderess);
+        formData.append("NationalCode", NationalCode);
+        formData.append("Gender",true );
+        formData.append("BirthDay", BirthDay);
+        formData.append("Latitude", "13");
+        formData.append("Longitude", "12");
+
+
+
+        const EditInfo  = putUserInfo(  formData)
+        console.log(EditInfo)
+       
+
+
+          const user = useSelector((state) => state.UserSlice.data);
+        console.log(user);     
+
+
+        const formFile = new FormData();
+        formFile.append("formFile", formFile);
+
+
+        const userImg = postUserImg( formFile)
+        console.log(userImg);    
+
+     const formId = new FormData();
+        formId.append("ImageId" , user)
+
+
+        const userMainImg = postUserMainImg( formId)
+        console.log(userMainImg)
+
+
+    
+
+            navigate("/info")
+      }
+
+
+
+
+    // const validation = yup.object().shape({
+    //     aboutme:yup.string()
+    //     .max(400, 'توضیحات باید کمتر از 400 کارکتر باشد'),
+
+    //     name:yup.string()
+    //     .required('فیلد اجباری'),
+
+    //     lastname:yup.string()
+    //     .required('فیلد اجباری'),
+    
+    //     nid: yup.string()
+    //     .matches(/[0-9]/, { message:'Password requires a number'})
+    //     .required('فیلد اجباری'),
+
+    //     birthdate:yup.string(),
+    //     phonenumber:yup.string(),
+    //     email: yup.string()
+    //     .email('ایمل باید دارای پسوند @gmail.com باشد'),
+    //     telegram:yup.string(),
+    //     linkedin:   yup.string(),
+    
+    //   });
 
   return (
-    <div className='py-10 px-8 max-md:px-1 ' >
+    
+    <div className='py-10 px-8 max-md:px-1 mt-[5px]' >
         {/* title  */}
         <div className='relative gap-28 grid grid-cols-2 mb-12'>
             <div className='border border-gray-100 grid-col-1 w-[85%]'></div>        
@@ -47,29 +110,27 @@ const EditeProfileForm = () => {
         </div>   
 
         {/* edite form  */}
-        <Formik
-         initialValues={{
-            uploadimage:'',
-            aboutme: '',
-            name:'',
-            lastname:'',
-            nid:'',
-            gender:'',
-            birthdate:'',
-            phonenumber:'',
-            email:'',
-            telegram:'',
-            linkedin:'',
+        <form
+        //  initialValues={{
+        //     uploadimage:'',
+        //     aboutme: '',
+        //     name:'',
+        //     lastname:'',
+        //     nid:'',
+        //     gender:'',
+        //     birthdate:'',
+        //     phonenumber:'',
+        //     email:'',
+        //     telegram:'',
+        //     linkedin:'',
 
-        }}
-        validationSchema={validation}
-        onSubmit={(values) => {
-          console.log("values",values);
-          console.log("valid:",validation)
-        }}
+        // }}
+        // validationSchema={validation}
+        onSubmit={(values) => onSubmit(values)}
+        
         >
-        {({ errors }) => (
-            <Form>
+        
+            <div>
                 <div className='flex grid-cols-3
                 max-xl:flex max-xl:flex-col-reverse  border-b pb-4 px-2 
                 '>
@@ -79,7 +140,7 @@ const EditeProfileForm = () => {
                         <div className='rounded-full'>
                             <label className='relative rounded-full  text-right text-sm grid-col-1 text-gray-400'>
                                 <p className='py-2 px-4'>img</p>  
-                                <Field type="file"  name="uploadimage"
+                                <input type="file" name="formFile" id="formFile"
                                 style={{boxShadow:" 0px 1px 3px 0px #00000033 inset"}}
                                 className='rounded-md bg-gray-50 text-teal-800 rounded-full mx-10 w-40 h-40
                                 text-right font-medium focus:outline outline-primary outline-[1.5px]'/>
@@ -89,12 +150,12 @@ const EditeProfileForm = () => {
                         <div className='w-full'>
                             <label className='relative  text-right text-sm grid-col-1 text-gray-400'>
                                 <p className='py-2 px-4'>درباره من</p>  
-                                <Field type="text"  name="aboutme"
+                                <input type="text"   id="UserAbout" name="UserAbout" 
                                 style={{boxShadow:" 0px 1px 3px 0px #00000033 inset"}}
                                 className='rounded-md bg-gray-50 text-teal-800 h-[130px] w-full
                                 text-right font-medium focus:outline outline-primary outline-[1.5px]'/>
                             </label>
-                            {errors.aboutme && <p className='text-red-300 text-xs'>{errors.aboutme}</p>}
+                             <p className='text-red-300 text-xs'></p>
                         </div>
                     </div>
                     {/* form  */}
@@ -102,22 +163,22 @@ const EditeProfileForm = () => {
                         <li className=' flex flex-row-reverse gap-4'>                            
                             <label className='relative text-right text-sm text-gray-400'>
                                 <p className='py-2 px-4'>نام</p>  
-                                <Field type="text"  name="name"  placeholder="این فیلد اجباری است"
+                                <input type="text"   id="FName" name="FName"   placeholder="این فیلد اجباری است"
                                 style={{boxShadow:" 0px 1px 3px 0px #00000033 inset"}}
                                 className='px-4 pt-1 rounded-md bg-gray-50 leading-8 text-teal-800 
                                 placeholder-sm text-right placeholder-teal-800/30 font-medium focus:outline outline-primary outline-[1.5px]'/>
-                                {errors.name && <p className='text-red-300 text-xs text-left'>{errors.name}</p>}
+                                 <p className='text-red-300 text-xs text-left'></p>
 
                             </label>
 
                             <label className='relative text-right text-sm text-gray-400'>
                                 <p className='py-2 px-4'>نام خانوادگی</p>  
-                                <Field type="text"  name="lastname"   placeholder="این فیلد اجباری است"
+                                <input type="text"   id="LName" name="LName"    placeholder="این فیلد اجباری است"
                                 style={{boxShadow:" 0px 1px 3px 0px #00000033 inset"}}
                                 className='px-4 pt-1 rounded-md bg-gray-50 leading-8 text-teal-800 
                                 placeholder-md text-right placeholder-teal-800/30 font-medium 
                                 focus:outline outline-primary outline-[1.5px]'/>
-                                {errors.lastname && <p className='text-red-300 text-xs text-left'>{errors.lastname}</p>} 
+                                 <p className='text-red-300 text-xs text-left'></p>
                             </label>
                             
                         </li>
@@ -125,25 +186,25 @@ const EditeProfileForm = () => {
                         <li className=' flex flex-row-reverse gap-4'>                            
                             <label className='relative text-right text-sm text-gray-400'>
                                 <p className='py-2 px-4'>کد ملی</p>  
-                                <Field type="text"  name="nid"  placeholder="این فیلد اجباری است"
+                                <input type="text"   id="NationalCode" name="NationalCode"   placeholder="این فیلد اجباری است"
                                 style={{boxShadow:" 0px 1px 3px 0px #00000033 inset"}}
                                 className='px-4 pt-1 rounded-md bg-gray-50 leading-8 text-teal-800 
                                 placeholder-sm text-right placeholder-teal-800/30 font-medium focus:outline outline-primary outline-[1.5px]'/>
-                                {errors.nid && <p className='text-red-300 text-xs text-left'>{errors.nid}</p>}
+                                 <p className='text-red-300 text-xs text-left'></p>
                             
                             </label>
 
                             <label className='relative text-right text-sm text-gray-400'>
                                 <p className='py-2 px-4'>جنسیت</p>  
-                                <Field type="text"  name="gender"  component="select"
+                                <input type="text"   id="Gender" name="Gender"   component="select"
                                 style={{boxShadow:" 0px 1px 3px 0px #00000033 inset"}}
                                 className='px-4 py-2 w-[232px] rounded-md bg-gray-50 leading-8 text-teal-800 
                                 placeholder-md text-right placeholder-teal-800/30 font-medium focus:outline
-                                 outline-primary outline-[1.5px]'>
+                                 outline-primary outline-[1.5px]'/>
                                        <option className='hover:bg-secondary hover:text-white' value="زن">زن</option>
 
                                         <option value="مرد">مرد</option>
-                                 </Field>
+                                 
                             </label>
                             
                         </li>
@@ -151,55 +212,55 @@ const EditeProfileForm = () => {
                         <li className=' flex flex-row-reverse gap-4'>                            
                             <label className='relative text-right text-sm text-gray-400'>
                                 <p className='py-2 px-4'>تاریخ تولد</p>  
-                                <Field type="date"  name="birthdate"
+                                <input type="date"   id="BirthDay" name="BirthDay" 
                                 style={{boxShadow:" 0px 1px 3px 0px #00000033 inset"}}
                                 className='px-4 pt-1 rounded-md bg-gray-50 leading-8 text-teal-800 w-[232px]
                                 placeholder-sm text-right placeholder-teal-800/30 font-medium focus:outline outline-primary outline-[1.5px]'/>
                             </label>
-                            {errors.birthdate && <p className='text-red-300'>{errors.birthdate}</p>}
+                             <p className='text-red-300'></p>
 
                             <label className='relative text-right text-sm text-gray-400'>
                                 <p className='py-2 px-4'>تلفن همراه</p>  
-                                <Field type="text"  name="phonenumber"   placeholder="این فیلد اجباری است"
+                                <input type="text"   placeholder="این فیلد اجباری است"
                                 style={{boxShadow:" 0px 1px 3px 0px #00000033 inset"}}
                                 className='px-4 pt-1 rounded-md bg-gray-50 leading-8 text-teal-800 
                                 placeholder-md text-right placeholder-teal-800/30 font-medium focus:outline outline-primary outline-[1.5px]'/>
                             </label>
-                            {errors.phonenumber && <p className='text-red-300'>{errors.phonenumber}</p>}
+                             <p className='text-red-300'></p>
                             
                         </li>
 
                         <li className=' flex flex-row-reverse gap-4'>                            
                             <label className='relative text-right text-sm text-gray-400'>
                                 <p className='py-2 px-4'>ایمیل</p>  
-                                <Field type="email"  name="email" placeholder="example@gmail.con"
+                                <input type="email"     placeholder="example@gmail.con"
                                 style={{boxShadow:" 0px 1px 3px 0px #00000033 inset"}}
                                 className='px-4 pt-1 rounded-md bg-gray-50 leading-8 text-teal-800 
                                 placeholder-sm placeholder-teal-800/30 font-medium focus:outline outline-primary outline-[1.5px]'/>
-                                {errors.email && <p className='text-red-300 text-xs text-left'>{errors.email}</p>}
+                                <p className='text-red-300 text-xs text-left'></p>
                            
                             </label>
 
                             <label className='relative text-right text-sm text-gray-400'>
                                 <p className='py-2 px-4'>تلگرام</p>  
-                                <Field type="text"  name="telegram"   placeholder="@telegram"
+                                <input type="text"   id="TelegramLink" name="TelegramLink"   placeholder="@telegram"
                                 style={{boxShadow:" 0px 1px 3px 0px #00000033 inset"}}
                                 className='px-4 pt-1 rounded-md bg-gray-50 leading-8 text-teal-800 
                                 placeholder-md  placeholder-teal-800/30 font-medium focus:outline outline-primary outline-[1.5px]'/>
                             </label>
-                            {errors.telegram && <p className='text-red-300'>{errors.telegram}</p>}
+                             <p className='text-red-300'></p>
                             
                         </li>
 
                         <li className='flex flex-row-reverse '>
                             <label className='relative text-right text-sm w-full text-gray-400'>
                                 <p className='py-2 px-4'>لینکدین</p>  
-                                <Field type="text"  name="linkedin"   placeholder="https://www.linkedin.com/"
+                                <input type="text"   id="LinkdinProfile" name="LinkdinProfile"    placeholder="https://www.linkedin.com/"
                                 style={{boxShadow:" 0px 1px 3px 0px #00000033 inset"}}
                                 className='px-4 pt-1 rounded-md bg-gray-50 leading-8 text-teal-800 w-full 
                                 placeholder-md  placeholder-teal-800/30 font-medium focus:outline outline-primary outline-[1.5px]'/>
                             </label>
-                            {errors.linkedin && <p className='text-red-300'>{errors.linkedin}</p>}
+                            <p className='text-red-300'></p>
                         </li>
 
                     </ul>
@@ -214,7 +275,7 @@ const EditeProfileForm = () => {
                     max-lg:w-full
                     '>
                         <p className='py-2 px-4'>آدرس</p>  
-                        <Field type="text"  name="adress"  placeholder="آدرس"
+                        <input type="text"  id="HomeAdderess" name="HomeAdderess"   placeholder="آدرس"
                         style={{boxShadow:" 0px 1px 3px 0px #00000033 inset"}}
                         className='px-4 pt-1 rounded-md bg-gray-50 leading-8 text-teal-800 w-[100%] h-16
                         placeholder-sm text-right placeholder-teal-800/30 font-medium focus:outline outline-primary outline-[1.5px]'/>
@@ -237,10 +298,11 @@ const EditeProfileForm = () => {
                         ذخیره تغییرات
                     </button> 
                 </div>
-            </Form>
-        )}    
-        </Formik>
+            </div>
+        
+        </form>
     </div>
+    
   )
 }
 

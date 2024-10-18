@@ -1,43 +1,50 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import 'react-tooltip/dist/react-tooltip.css'
 import { Tooltip } from 'react-tooltip'
+import { useUserProfile } from '../../../core/services/query/DashboardQuery'
+import { useDispatch, useSelector } from 'react-redux'
+import { userImg } from '../../../core/redux/slices/QueryState/UserSlice'
 
 
 const ProfileInformation = () => {
-    const info ={
-        fullname:"fatemeh Bakhshian",
-         nid:'',
-         email:"example@gmail.com",
-         birth:"1380/12/21",
-         gender:'',
-         aboutme:'مازندران-ساری-میدانخزر-جاده فرح اباد-خیابان دیمطوران-ساختمانساختمانساختمانساختمانساختمانساختمانساختمانساختمانساختمانساختمانساختمانساختمانساختمانساختمانساختمانساختمانساختمانساختمانساختمانساختمانساختمان هوتن-واحد12',
-         phon:'09394063674',
-         tel:'',
-         linkin:'',
-         address:"مازندران-ساری-میدانخزر-جاده فرح اباد-خیابان دیمطوران-ساختمانهوتن-واحد15",
-         geoX:'',
-         geoY:'',
-        
-        }
+
+
+
+  const token = localStorage.getItem("token")
+  console.log(token)
+
+  const userProfile = useUserProfile(token)
+  console.log(userProfile)
+
+   const ImageId = userProfile.data?.userImage
+   console.log(ImageId)
+
+   const user = useSelector((state) => state.UserSlice.data);
+   console.log(user);
+ 
+   const dispatch = useDispatch();
+
+        dispatch(userImg(ImageId))
+
 
   return (
     <div className='grid grid-cols-2 mt-4 justify-items-center text-[15px]'>
             {/* left:  */}
         <div className='grid grid-col-1 pr-8 gap-6 '>
             <div className='flex flex-row-reverse gap-2 text-right'> 
-                <p className='text-orange dark:text-amber-400 font-medium '>{!info.phon ? "--" : info.phon}<span className='text-gray-400  dark:text-white'> :شماره ی همراه </span></p>
+                <p className='text-orange dark:text-amber-400 font-medium '>{userProfile.data?.phoneNumber}<span className='text-gray-400  dark:text-white'> :شماره ی همراه </span></p>
             </div>
 
             <div className='flex flex-row-reverse gap-2 text-right'>                 
-                <p className='text-orange dark:text-amber-400 font-medium '>{!info.tel ? "--" : info.tel}<span className='text-gray-400 dark:text-white'> :تلگرام</span></p>
+                <p className='text-orange dark:text-amber-400 font-medium '>{userProfile.data?.telegramLink}<span className='text-gray-400 dark:text-white'> :تلگرام</span></p>
             </div>
 
             <div className='flex flex-row-reverse gap-2 text-right'>                
-                <p className='text-orange dark:text-amber-400 font-medium '>{!info.linkin ? "--" : info.linkin}<span className='text-gray-400 dark:text-white'>: لینکدین</span></p>
+                <p className='text-orange dark:text-amber-400 font-medium '>{userProfile.data?.linkdinProfile}<span className='text-gray-400 dark:text-white'>: لینکدین</span></p>
             </div>
 
             <div className='flex flex-row-reverse text-right'>                
-                <p className='text-orange dark:text-amber-400 font-medium w-[80%]'><span className='text-gray-400 dark:text-white w-42'> آدرس :</span> {!info.address ? "--" : info.address}</p>
+                <p className='text-orange dark:text-amber-400 font-medium w-[80%]'>{userProfile.data?.homeAdderess}<span className='text-gray-400 dark:text-white w-42'>: آدرس</span> </p>
             </div>
 
             <div className='grid grid-cols-2 gap-4'> 
@@ -45,11 +52,11 @@ const ProfileInformation = () => {
                 <div className='w-32 h-32 grid-col-1 border rounded-full'>map</div>
                 <div className='grid grid-col-1 gap-6'>
                     <div className='flex flex-row-reverse gap-2 text-right'>                         
-                        <p className='text-orange dark:text-amber-400 font-medium '>{!info.geoY ? "--" : info.geoY} <span className='text-gray-400 dark:text-white'> : طول جغرافیایی </span></p>
+                        <p className='text-orange dark:text-amber-400 font-medium '>{userProfile.data?.longitude} <span className='text-gray-400 dark:text-white'> : طول جغرافیایی </span></p>
                     </div>
 
                     <div className='flex flex-row-reverse gap-2 text-right'>                                       
-                        <p className=' text-orange dark:text-amber-400 text-right font-medium h-32 overflow-hidden'>{!info.geoX ? "--" : info.geoX}<span className='text-gray-400 dark:text-white'> : عرض جغرافیایی</span></p>
+                        <p className=' text-orange dark:text-amber-400 text-right font-medium h-32 overflow-hidden'>{userProfile.data?.latitude}<span className='text-gray-400 dark:text-white'> : عرض جغرافیایی</span></p>
                                     
                     </div>
                 </div>
@@ -59,37 +66,33 @@ const ProfileInformation = () => {
             {/* right:  */}
         <div className='grid grid-col-1 gap-8 pl-2 border-l border-gray-200'>
             <div className='flex flex-row-reverse gap-2 text-right'>                 
-                <p className='text-orange dark:text-amber-400 font-medium '>{!info.fullname ? "--" : info.fullname} <span className='text-gray-400 dark:text-white'> : نام و نام خانوادگی </span></p>
+                <p className='text-orange dark:text-amber-400 font-medium '>{userProfile.data?.fName}{userProfile.data?.lName}<span className='text-gray-400 dark:text-white'> : نام و نام خانوادگی </span></p>
             </div>
 
             <div className='flex flex-row-reverse gap-2 text-right'>                 
-                <p className='text-orange dark:text-amber-400 font-medium '>{!info.nid ? "--" : info.nid}<span className='text-gray-400 dark:text-white'> : کد ملی</span></p>
+                <p className='text-orange dark:text-amber-400 font-medium '>{userProfile.data?.nationalCode}<span className='text-gray-400 dark:text-white'> : کد ملی</span></p>
             </div>
 
             <div className='flex flex-row-reverse gap-2 text-right'>                 
-                <p className='text-orange dark:text-amber-400 font-medium '>{!info.email ? "--" : info.email}<span className='text-gray-400 dark:text-white'> : ایمیل</span></p>
+                <p className='text-orange dark:text-amber-400 font-medium '>{userProfile.data?.email}<span className='text-gray-400 dark:text-white'> : ایمیل</span></p>
             </div>
 
             <div className='flex flex-row-reverse gap-2 text-right'>                 
-                <p className='text-orange dark:text-amber-400 font-medium '>{!info.birth ? "--" : info.birth}<span className='text-gray-400 dark:text-white'> : تاریخ تولد </span></p>
+                <p className='text-orange dark:text-amber-400 font-medium '>{userProfile.data?.birthDay}<span className='text-gray-400 dark:text-white'> : تاریخ تولد </span></p>
             </div>
 
             <div className='flex flex-row-reverse gap-2 text-right'>                
-                <p className='text-orange dark:text-amber-400 font-medium '>{!info.gender ? "--" : info.gender} <span className='text-gray-400 dark:text-white'> : جنسیت </span></p>
+                <p className='text-orange dark:text-amber-400 font-medium '>{userProfile.data?.gender} <span className='text-gray-400 dark:text-white'> : جنسیت </span></p>
             </div>
 
             <div className='flex flex-row-reverse gap-2 text-right'>                 
-                <p data-tooltip-id="my-tooltip"  data-tooltip-html={`
-                    <p> ${ info.aboutme.slice(0,40)} <br/> ${ info.aboutme.slice(40,80)} <br/>
-                    ${ info.aboutme.slice(80,120)} <br/> ${ info.aboutme.slice(120,160)} <br/>
-                    ${ info.aboutme.slice(160,200)} <br/> ${ info.aboutme.slice(200,240)} <br/> 
-                    ${ info.aboutme.slice(200,280)} <br/> ${ info.aboutme.slice(280,320)} <br/>
-                    ${ info.aboutme.slice(320,360)} <br/> ${ info.aboutme.slice(260,400)} <p/>`}  className='flex flex-row-reverse'>
+                <p data-tooltip-id="my-tooltip"    className='flex flex-row-reverse'>
                     <p className='text-orange dark:text-amber-400 text-right font-medium'>
                         
-                        <span className='text-gray-400 dark:text-white  w-36'>  درباره من :</span>
-                        {!info.aboutme ? "--" : info.aboutme.slice(0,50) } 
+                        <span className='text-gray-400 dark:text-white  w-36'>  : درباره من </span>
+                         
                     </p>
+                    {userProfile.data?.userAbout}
                 </p><Tooltip id="my-tooltip" />
                 
             </div>
