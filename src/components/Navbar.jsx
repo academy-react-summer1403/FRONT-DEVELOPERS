@@ -10,6 +10,7 @@ import { Link, NavLink } from 'react-router-dom';
 
 
 
+
 export const NavbarMenu =[
   {
       id:1,
@@ -63,10 +64,10 @@ const Navbar = () => {
                     </NavLink> 
 
                     <div className='flex justify-center flex-row gap-4 ml-4 max-lg:gap-1 max-lg:ml-0'>                    
-                        <div className='relative'>
-                        <img src={ShopImg} alt="" className='mt-8  max-xl:w-[45px] max-lg:w-[30px]'/>
+                        <NavLink to={"/basket"} className='relative '>
+                        <img src={ShopImg} alt="" className='mt-8  max-xl:w-[45px] max-lg:w-[40px]'/>
                         <div className='w-[16px] h-[16px] flex  items-center font-Yekan justify-center bg-orange rounded-full absolute px-[1px] max-lg:bottom-0 bottom-0 right-[-2px] text-[12px] font-normal text-white leading-3'>0</div>
-                        </div>
+                        </NavLink>
                         <img src={FavImg} alt=""  className='mt-8 max-xl:mt-[35px] max-xl:w-[30px]  max-lg:w-[30px] max-2xl:mt-[35px] max-2xl:w-[40px]'/>
                     </div>                   
                     

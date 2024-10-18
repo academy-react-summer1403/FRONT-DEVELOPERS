@@ -25,7 +25,7 @@ const StdDashboard = () => {
         <div className='flex flex-row-reverse gap-6'>
 
           <div style={{boxShadow:"0px 1px 1px 1px rgba(0,0,0,0.1)"}}
-              className='relative flex w-[180px] bg-gray-100 text-right px-6 py-2 rounded-lg mt-12'>
+              className='relative flex w-[180px] bg-gray-100 dark:bg-[#6e6d6d]  text-right px-6 py-2 rounded-lg mt-12'>
                 <img src={buy} className='absolute bottom-10'/>
                 <div className='ml-8'>
                   <p className='text-xl text-primary font-semibold'>دوره4 </p>
@@ -35,7 +35,7 @@ const StdDashboard = () => {
             </div>
 
             <div style={{boxShadow:"0px 1px 1px 1px rgba(0,0,0,0.1)"}}
-              className='relative flex w-[180px] bg-gray-100 text-right px-6 py-2 rounded-lg mt-12'
+              className='relative flex w-[180px] bg-gray-100 dark:bg-[#6e6d6d] text-right px-6 py-2 rounded-lg mt-12'
             >
               <img src={reserve} className='absolute bottom-10'/>
                 <div className='ml-14'>
@@ -59,7 +59,7 @@ const StdDashboard = () => {
       </div>
 
       <div style={{boxShadow:"0px 1px 1px 1px rgba(0,0,0,0.1)"}}
-        className='relative m-2 my-12 bg-cyan-50/40 dark:bg-cyan-50 rounded-xl px-10 py-2
+        className='relative m-2 my-12 bg-cyan-50/40  dark:bg-[#a1a1a1] rounded-xl px-10 py-2
         max-lg:px-4
         max-sm:mx-0 max-sm:px-1
         '
@@ -106,7 +106,7 @@ const StdDashboard = () => {
 
           <div>
             <div style={{boxShadow:"0px 1px 1px 1px rgba(0,0,0,0.1)"}}
-              className='relative bg-gray-100 rounded-md p-2 my-4 flex gap-6'
+              className='relative bg-gray-100 dark:bg-[#6e6d6d] rounded-md p-2 my-4 flex gap-6'
             >
               <img src={cours}/>
               <div className='absolute right-0 px-2'>
@@ -117,7 +117,7 @@ const StdDashboard = () => {
               </div>
             </div>
             <div style={{boxShadow:"0px 1px 1px 1px rgba(0,0,0,0.1)"}}
-              className='relative bg-gray-100 rounded-md p-2  flex gap-6'
+              className='relative bg-gray-100 dark:bg-[#6e6d6d] rounded-md p-2  flex gap-6'
             >
               <img src={cours}/>
               <div className='absolute right-0 px-2'>
@@ -138,7 +138,7 @@ const StdDashboard = () => {
 
           <div>
             <div style={{boxShadow:"0px 1px 1px 1px rgba(0,0,0,0.1)"}}
-              className='relative bg-gray-100 rounded-md p-2 my-4 flex gap-6'
+              className='relative bg-gray-100 dark:bg-[#6e6d6d] rounded-md p-2 my-4 flex gap-6'
             >
               <img src={cours}/>
               <div className='absolute right-0 px-2'>
@@ -150,7 +150,7 @@ const StdDashboard = () => {
               </div>
             </div>
             <div style={{boxShadow:"0px 1px 1px 1px rgba(0,0,0,0.1)"}}
-              className='relative bg-gray-100 rounded-md p-2 my-2 flex gap-6'
+              className='relative bg-gray-100 dark:bg-[#6e6d6d] rounded-md p-2 my-2 flex gap-6'
             >
               <img src={cours}/>
               <div className='absolute right-0 px-2'>

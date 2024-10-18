@@ -1,12 +1,13 @@
 import React from "react";
 import image from "../../assets/detail/article.jpg";
-// import RelatedCourses from "../../components/coursedetailComponents/RelatedCourses/RelatedCourses";
+import RelatedCourses from "../../components/coursedetailComponents/RelatedCourses/RelatedCourses";
 
 import ArticleDescription from "../../components/articledetail/articleDescription/ArticleDescription";
 import Comments from "../../components/coursedetailComponents/comments/Comments";
 import { motion } from "framer-motion";
 import { useArticleDetail } from "../../core/services/query/queries";
 import { useParams } from "react-router-dom";
+import { samecourses, suggestion } from "../CourseDetail/CourseDetail";
 
 
 const ArticleDetail = () => {
@@ -21,7 +22,7 @@ const ArticleDetail = () => {
 
   return (
     <div
-      className="  relative  container  " >
+      className="  relative  container mb-5" >
     
 <img
         className="bottom-[15%] absolute opacity-[15%] scale-150  -translate-x-72 rotate-90 "
@@ -32,7 +33,7 @@ const ArticleDetail = () => {
   {/*  2 */}
     
 
-      <div className="flex mt-[35px]  max-2xl:left-0 max-md:w-full  max-2xl:absolute max-md:h-[650px] w-[479px] max-xl:w-[400px] max-lg:w-[300px]  max-lg:h-[1300px]   h-[1450px]  flex-wrap  justify-between">
+      <div className="flex max-2xl:ml-[0%] max-md:mx-auto   max-xl:ml-[-7%] max-lg:ml-[-13%] mt-[35px] max-md:w-full   max-md:h-[650px] w-[479px] max-xl:w-[400px] max-lg:w-[300px]  max-lg:h-[1300px]   h-[1450px]  flex-wrap  justify-between">
         {/* image section */}
         <motion.div
         
@@ -71,7 +72,7 @@ const ArticleDetail = () => {
             دوره های مرتبط
           </div>
 
-          {/* {samecourses.map((data, index) => (
+          {samecourses.map((data, index) => (
             <RelatedCourses
          
              
@@ -81,14 +82,14 @@ const ArticleDetail = () => {
               title={data.title}
               image={data.image}
             />
-          ))} */}
+          ))}
         </div>
 
         {/* suggestion section */}
 
         <div
           style={{ boxShadow: " 0px 1px 2px 0 rgba(0, 0, 0, 0.25)" }}
-          className="bg-white dark:bg-slate-700 max-xl:w-[420px] max-lg:w-[300px] max-md:w-full flex max-md:h-72  flex-wrap  mt-[35px] max-md:justify-center max-md:gap-2  rounded-[15px] w-[479px] h-[470px]  p-[23px]"
+          className="bg-white dark:bg-slate-700 max-xl:w-[400px] max-lg:w-[300px] max-md:w-full flex max-md:h-72  flex-wrap  mt-[35px] max-md:justify-center max-md:gap-2  rounded-[15px] w-[479px] h-[470px]  p-[23px]"
         >
           <div
             style={{ boxShadow: " 0px 1px 2px 0 rgba(0, 0, 0, 0.25)" }}
@@ -98,14 +99,14 @@ const ArticleDetail = () => {
             مطالب پیشنهادی
           </div>
 
-          {/* {suggestion.map((data, index) => (
+          {suggestion.map((data, index) => (
             <RelatedCourses
              
               key={index}
               title={data.title}
               image={data.image}
             />
-          ))} */}
+          ))}
         </div>
       </div>
 
@@ -116,7 +117,8 @@ const ArticleDetail = () => {
 
 
 {/*  1 */}
-    <div className="w-[754px] max-xl:w-[600px] top-[0px] max-2xl:top-[35px]  right-24 max-2xl:right-0  max-lg:w-[450px] max-md:top-[800px] max-md:w-full  max-md:right-0 absolute">
+    <div className="w-[754px] max-xl:w-[600px] ml-[42%] mt-[-113.3%] max-2xl:mt-[-116%] max-2xl:ml-[40%] max-xl:mt-[-161.8%]  max-lg:mt-[-213.8%]   max-lg:ml-[38%] 
+    max-md:mt-[10%]  max-md:mx-auto max-lg:w-[450px] max-md:w-full ">
 
            <motion.div
 

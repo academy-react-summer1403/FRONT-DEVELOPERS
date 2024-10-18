@@ -98,7 +98,7 @@ const DashPanel = () => {
     >
         {/* content  */}
         <div style={{boxShadow:"0px 0px 7px 0px rgba(0,0,0,0.3)"}} 
-        className={`relative p-6 rounded-xl bg-white dark:bg-gray-700 min-w-[458px] w-full
+        className={`relative p-6 rounded-xl bg-white dark:bg-[#201f1fb6] min-w-[458px] w-full
         max-sm:p-2  
         max-lg:p-2 max-lg:${resposive ? " " : "w-full" } 
         `}>

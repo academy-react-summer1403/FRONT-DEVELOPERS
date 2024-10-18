@@ -20,7 +20,7 @@ const RelatedCourses = ({title,image}) => {
                 
                   style={{boxShadow:" 0px 1px 1px 0 rgba(0, 0, 0, 0.25)"}}
                   
-                  className={` h-[112px] max-lg:h-[90px]  cursor-pointer   max-sm:w-[46%] max-md:justify-center      max-md:w-[48%] max-md:ml-1  dark:bg-slate-800  bg-[#F8F8F8] rounded-[10px] flex   justify-end p-[15px] w-full`}
+                  className={` h-[112px] max-lg:h-[90px]   cursor-pointer   max-sm:w-[46%] max-md:justify-center      max-md:w-[48%] max-md:ml-1  dark:bg-slate-800  bg-[#F8F8F8] rounded-[10px] flex   justify-end p-[15px] w-full`}
                 >
                   <div>
                     <motion.h3

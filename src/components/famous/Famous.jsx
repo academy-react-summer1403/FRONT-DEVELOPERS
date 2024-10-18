@@ -11,7 +11,7 @@ const Famous = () => {
   return (
     
     
-    <div className='flex-1 h-[500px]  mt-12 relative  xl:px-0 xl:container w-full'>
+    <div className='flex-1 h-[500px]  mt-12 relative   w-full'>
 
         
       
