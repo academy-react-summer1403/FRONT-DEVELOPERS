@@ -34,7 +34,7 @@ const CourseDetial = () => {
           className="max-xl:w-[550px]  max-md:hidden max-lg:h-[300px] h-[395px] max-xl:h-[320px] w-[624px] max-2xl:mr-10"
         >
          <img className=" h-full w-full  rounded-[15px]" src={CourseDetail.data?.imageAddress }
-            onError={ImageErrore}
+            onError={ImageErrore} alt=''
             />
 
         </motion.div>
@@ -80,7 +80,7 @@ const CourseDetial = () => {
         <h4 className=" mark mt-5 max-xl:text-[20px] dark:text-slate-300  ">
           نظرات
         </h4>
-        <div className="max-lg:w-full max-xl:w-full] overflow-auto h-[880px]  max-sm:w-full max-md:w-[500px]">
+        <div className="  ">
         
           <Comment courseId={courseId}/>
         </div>

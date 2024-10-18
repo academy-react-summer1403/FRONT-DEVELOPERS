@@ -22,7 +22,7 @@ const ArticleDetail = () => {
 
   return (
     <div
-      className="  relative  container mb-5" >
+      className="  relative  container mb-5 " >
     
 <img
         className="bottom-[15%] absolute opacity-[15%] scale-150  -translate-x-72 rotate-90 "
@@ -246,7 +246,7 @@ const ArticleDetail = () => {
 
          <div className="">
           <h4 className="mark mt-5 max-lg:mt-1 max-xl:text-[23px]  dark:text-slate-300   ">نظرات</h4>
-          <Comments width={"w-[754px] "} height={"h-[808px] "} />
+          <Comments/>
         </div>
     </div>
 

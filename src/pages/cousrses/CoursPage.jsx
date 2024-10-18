@@ -16,7 +16,7 @@ import { useCourses } from "../../core/services/query/queries";
 import { SliderRight } from "../../utility/animation";
 import { useDispatch, useSelector } from "react-redux";
 // import { QuerySlice } from "../../core/redux/slices/QueryState/QueryRedux";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
 const CoursPage = () => {
@@ -31,6 +31,10 @@ const CoursPage = () => {
   console.log(page);
 
   const [view, setView] = useState(false);
+  console.log(view);
+
+ 
+  const [view1, setView1] = useState(6);
   console.log(view);
 
 
@@ -53,14 +57,14 @@ const CoursPage = () => {
   console.log(dispatch);
 
 
-  const CoursesData = useCourses(params ,page );
+  const CoursesData = useCourses(params ,page ,view1);
   console.log(CoursesData);
 
   const lastPage = () => {
-    setPage((old) => Math.max(old - 1, 0));
+    setPage((old) => Math.max(old - 1, 1));
   };
   const nextPage = () => {
-    setPage((old) => Math.min(old + 1, 2));
+    setPage((old) => Math.min(old + 1, 28));
   };
 
   const categories = [
@@ -195,40 +199,40 @@ const CoursPage = () => {
 
       {/* body of CoursPage */}
       <div
-        className="relative mt-44  grid grid-cols-4 gap-4
+        className="relative mt-44   grid grid-cols-4 gap-4
             max-md:flex max-md:m-2
             max-sm:flex flex-col-reverse max-sm:m-2
            
         "
       >
         {/* cards section  */}
-        <div className="relative  col-span-3   grid grid-cols-3 h-[1100px]">
+        <div className="relative   col-span-3   grid grid-cols-3  h-[1100px]">
           {/* top part for view */}
-          <div className="absolute flex flex-row">
+          <div className="absolute flex  flex-row">
             {/* right: buttons */}
-            <div className="w-[150px] h-[50px] ">
+            <div className="w-[150px]  z-50  h-[50px] ">
               <button
-                className="relative  border border-gray-100 mr-2 p-3 hover:bg-gray-200 
+                className="relative z-50  mr-2 p-3 hover:bg-gray-200 
                          transition duration-300 shadow-sm shadow-gray-400 outline-none indent-1
                          rounded rounded-tl-2xl top-0  w-[50px]"
-                onClick={() => setView(false)}
+                onClick={() => (setView(false),setView1(6))}
               >
                 {" "}
                 <img src={WindowView} className="w-full h-full" />
               </button>
 
               <button
-                className="relative border border-gray-100 p-2 hover:bg-gray-200 
+                className="relative  p-2 hover:bg-gray-200 
                         transition duration-300 shadow-sm shadow-gray-400 outline-none indent-1 
                         rounded rounded-tr-2xl top-1 w-[50px] h-[50px]"
-                onClick={() => setView(true)}
+                onClick={() => (setView(true),setView1(3))}
               >
                 {" "}
                 <img src={ListView} className="w-8 h-8" />{" "}
               </button>
             </div>
             {/* left: menu  */}
-            <div className="group absolute right-0 max-xl:right-14 ">
+            <div className="group  absolute right-0 max-xl:right-14 ">
               <div
                 className="group flex p-2 bg-white dark:bg-gray-700 absolute z-50 left-[600px]
                         rounded rounded-t-2xl shadow-sm shadow-gray-400 outline-none indent-1 font-semibold 
@@ -242,7 +246,7 @@ const CoursPage = () => {
                 <BiMenuAltRight className="w-7 h-7 mt-1 text-teal-900 dark:text-teal-600 ml-6" />
               </div>
               <div
-                className="absolute top-[45px] left-[600px] z-[9999] hidden group-hover:block  h-[150px]
+                className="absolute top-[45px]  left-[600px] z-[9999] hidden group-hover:block  h-[150px]
                             w-[200px] rounded-md bg-white shadow-md dark:bg-gray-900 p-2 dark:text-white"
               >
                 <ul className="space-y-2">
@@ -265,7 +269,10 @@ const CoursPage = () => {
           </div>
 
           {/* cards  */}
-                  
+
+                    <div className={` grid   w-full z-10 absolute
+                      ${view ? "grid-cols-1 mt-10":"grid-cols-3"}`}>
+                
                     {view ? <>
           {CoursesData.data?.courseFilterDtos.map((item) => (
 
@@ -277,11 +284,11 @@ const CoursPage = () => {
           
             <CoursGridCard {...item} />
           ))}</>}
-          
-
+       
+</div>
           {/* paginantion  */}
 
-          <div className="w-[1000px]  h-[100px] flex justify-center mt-[10px]">
+          <div className="w-full  absolute top-[90%]  h-[100px] flex justify-center mt-[10px]">
             <Pagination nextPage={nextPage} lastPage={lastPage} />
           </div>
         </div>

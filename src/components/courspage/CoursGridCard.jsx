@@ -18,8 +18,8 @@ import { motion } from 'framer-motion'
 const CoursGridCard = ({title , levelName , cost , teacherName , likeCount , courseId}) => {
   return (
     // container 
-    <NavLink to={"/courses-detail/" + courseId}>
-    <div className=' grid grid-cols-3 gap-4 mt-[100px] p-2 w-[300px] h-[340px] 
+  
+    <NavLink to={"/courses-detail/" + courseId} className=' grid grid-cols-3 gap-4 mt-[100px]  w-[280px] h-[340px] 
     max-sm:grid-cols-1
     max-md:grid-cols-2 
     max-lg:grid-cols-3 
@@ -85,8 +85,8 @@ const CoursGridCard = ({title , levelName , cost , teacherName , likeCount , cou
 
         </motion.div>
       
-    </div>
     </NavLink>
+
   )
 }
 
