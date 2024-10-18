@@ -80,7 +80,7 @@ const CourseDetial = () => {
         <h4 className=" mark mt-5 max-xl:text-[20px] dark:text-slate-300  ">
           نظرات
         </h4>
-        <div className="  ">
+        <div className=" ">
         
           <Comment courseId={courseId}/>
         </div>

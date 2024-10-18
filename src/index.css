@@ -32,7 +32,7 @@ body{
     }
 
     .profile{
-        @apply flex items-center justify-center  ml-2 border rounded-full h-[50px] w-[50px]
+        @apply flex items-center justify-center  ml-2 border rounded-full p-1 h-[50px] w-[50px]
     }
 
     .comment{

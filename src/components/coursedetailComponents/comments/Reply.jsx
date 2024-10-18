@@ -27,13 +27,13 @@ const Reply = ({id , courseId}) => {
 
 
   return (
-    <div className="mt-[15px] ">
+    <div className="mt-[15px] border-red-800 border ">
         <form onSubmit={(values) => onSubmit(values)} className='flex'>
-                <input type="text" id='Title' name='Title' className="w-[100px] h-[20px] border border-red-500"/>
+                {/* <input type="text" id='Title' name='Title' className="w-[100px] h-[20px] border border-red-500"/>
                 <input type="text" id='Describe' name='Describe' className='w-[100px] h-[20px] border border-red-500'/>
             <button type='submit' className='bg-red-300'>
                 add reply
-            </button>
+            </button> */}
             </form>
 
     {
@@ -41,7 +41,7 @@ const Reply = ({id , courseId}) => {
 
      <div className=" relative  w-full bg-red-500">
         <div className='bg-slate-600 w-full h-full flex flex-col'>
-                <h1 className='border border-red-400 w-full h-[30%]'></h1>
+                <h1 className='border border-red-400 w-full h-[30%]'>{item?.title}</h1>
                 <h1 className='border border-red-400 w-full h-[30%]'></h1>
                 <h1 className='border border-red-400 w-full h-[30%]'></h1>
 
