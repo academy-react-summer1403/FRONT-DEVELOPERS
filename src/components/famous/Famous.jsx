@@ -11,24 +11,26 @@ const Famous = () => {
   return (
     
     
-    <div className='flex-1 h-[500px]  mt-12 relative '>
+    <div className='flex-1 h-[500px]  mt-12 relative  xl:px-0 xl:container w-full'>
 
         
       
-        <h1 className='  head1'> محبوب ترین دسته بندی ها 
+        <h1 className='  head1 max-sm:text-center'> محبوب ترین دسته بندی ها 
           <div className='head2'></div> </h1>
           <h3 className='head3'>گستره وسیعی از محبوب ترین دوره ها</h3>
           
     
 
 
-        <div className='flex    h-[495px] '>
+        <div className='flex h-[495px]'>
         <img src={BGImg} alt=""  className=' w-full  h-full mx-auto'/>
         
-        <div className='flex justify-center  items-center w-full gap-[90px] max-xl:gap-20 max-lg:gap-14 max-md:gap-10 max-sm:gap-7 absolute top-[50%] '>
+        <div className='flex justify-center  items-center w-full gap-[90px] max-xl:gap-20 max-lg:gap-14 max-md:gap-10 absolute top-[50%] 
+          max-sm:grid max-sm:grid-cols-2 max-sm:justify-items-center max-sm:top-[40%] max-sm:gap-7
+        '>
             
                 <div style={{boxShadow:" 3px 3px 8px 0px #00000080 inset"}} 
-                className='  famous '>
+                className='  famous'>
                 <h1 className='famoustext '>امنیت شبکه</h1>
                   <img src={SecurityImg} alt="" className='famousimg'/></div>
 

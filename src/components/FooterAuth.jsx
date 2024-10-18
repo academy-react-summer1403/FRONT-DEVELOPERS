@@ -3,6 +3,7 @@ import Telegram from "../assets/landing/telegram.png";
 import instagram from "../assets/landing/instagram.png";
 import youtube from "../assets/landing/youtube.png";
 import linkdin from "../assets/landing/linkdin.png";
+import DarkMode from './DarkMode';
 
 
 const FooterAuth = () => {
@@ -16,7 +17,9 @@ const FooterAuth = () => {
                 <div className='w-[8%] h-[50%] bg-green rounded-full dark:bg-orange'><img src={youtube} alt="" className='ml-[4px] mt-[3px]'/></div>
                 <div className='w-[8%] h-[50%] bg-green rounded-full dark:bg-orange'><img src={linkdin} alt="" className='ml-[4px] mt-[3px]'/></div>
 
-        </div>
+              
+
+        </div>  
     </div>
   )
 }

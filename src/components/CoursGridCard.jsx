@@ -8,9 +8,11 @@ import { NavLink } from 'react-router-dom'
 const CoursGridCard = ({title  , cost , teacherName , currentRegistrants , courseId}) => {
   return (
     <NavLink to={"/courses-detail/" + courseId}>
-    <div className=' mt-[80px] max-2xl:-ml-7  mb-5  max-sm:-ml-8'
+    <div className='mt-[80px] max-2xl:-ml-6 mb-5 max-sm:-ml-8 grid justify-items-center'
     >
-        <div className='relative rounded-[15px] w-[265px] max-xl:w-[200px] max-sm:w-[190px]  max-md:h-[320px]    max-md:w-[155px] max-sm:h-[310px] h-[305px]  max-xl:flex flex-wrap justify-center  bg-white px-4 dark:bg-gray-700/70'
+        <div className='relative rounded-[15px] w-[265px] max-xl:w-[230px] max-sm:w-[240px] max-sm:ml-2 max-md:h-[320px]  
+        max-md:w-[255px] max-sm:h-[310px] h-[305px] dark:hover:bg-gray-600  max-xl:flex flex-wrap justify-center hover:bg-slate-50 
+        bg-white px-4 dark:bg-gray-700/70'
             style={{boxShadow: "0px 1px 2px 0px #00000040"}
             }
         >  

@@ -89,19 +89,19 @@ const VarificationVorod = () => {
           <NavLink to={"/auth/v1"}><img src={more} alt="" /></NavLink>
         </div>
 
-        <img
-          src={Background}
-          alt=""
-          className="w-full h-full opacity-80 dark:opacity-50 "
-        />
-        <div>
+        
+        <div className="w-full h-full border border-[#fff0] relative"><img
+            src={Background}
+            alt=""
+            className="w-full h-full opacity-80 dark:opacity-50 absolute top-0 left-0  "
+          />
           <motion.div
             initial={{ opacity: 0, x: 200 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ type: "spring", stiffness: 100, delay: 0.2 }}
             //   src={HeroAImg}
             alt=""
-            className="w-[350px] h-[360px] absolute left-[225px] top-[80px]"
+            className="w-[350px] h-[360px]   mx-auto mt-[10%] max-md:mt-[15%] "
           >
 
 

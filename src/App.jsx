@@ -1,3 +1,4 @@
+
 import { createBrowserRouter,  RouterProvider } from "react-router-dom"
 import Landing from "./pages/landing/Landing"
 import CoursPage from "./pages/cousrses/CoursPage"
@@ -23,6 +24,8 @@ import ReservatCourses from "./pages/dashboard/content/ReservatCourses"
 import StdPointOfView from "./pages/dashboard/content/StdPointOfView"
 import StdSettings from "./pages/dashboard/content/StdSettings"
 import StdFavorite from "./pages/dashboard/content/StdFavorite"
+
+
 
 
 
@@ -61,6 +64,7 @@ const  originalRoutes = [
       // index: true,
       path: "/courses-detail/:courseId",
       element: <CourseDetial />,
+      
       // isAuth:false
 
     },
@@ -69,6 +73,7 @@ const  originalRoutes = [
       // index: true,
       path: "/article-detail/:id",
       element: <ArticleDetail />,
+     
       // isAuth:false
 
     },
@@ -174,7 +179,10 @@ const  originalRoutes = [
   const router = createBrowserRouter(currentRoutes)
 
 
-  return  <RouterProvider router={router}/>
+  return <RouterProvider  router={router}/>
+  
+  
+  
 
 }
 

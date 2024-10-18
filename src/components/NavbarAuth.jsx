@@ -1,7 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import UserImg from "../assets/landing/user.png";
-import DarkMode from './DarkMode';
+
 
 
 const NavbarAuth = () => {
@@ -24,9 +24,7 @@ const NavbarAuth = () => {
      
   </div> 
 
-  <div className='mt-[0px] max-lg:mt-[35px]'>
-            <DarkMode/>
-        </div>
+ 
 
 
  
