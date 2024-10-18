@@ -2,8 +2,11 @@ import React from 'react'
 import ReservateHeader from '../../../components/dashboard/coursereserve/ReservateHeader'
 import ReserveMap from '../../../components/dashboard/coursereserve/ReserveMap'
 
+
+
 const ReservatCourses = () => {
-  
+
+
   return (
     <div className='px-1 py-2 min-w-[400px]'>
       {/* search & fillter:  */}

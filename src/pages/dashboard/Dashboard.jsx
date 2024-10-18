@@ -1,7 +1,7 @@
 import { Fragment } from 'react'
-import DashNavbar from '../../components/dashboard/DashNavbar'
 import DashPanel from '../../components/dashboard/DashPanel'
 import DarkMode from '../../components/DarkMode'
+
 
 const Dashboard = () => {
   return (
@@ -10,7 +10,7 @@ const Dashboard = () => {
         max-md:px-8
         max-sm:px-2
         '>
-            <DashNavbar/>
+           
             <DashPanel/>
             <DarkMode/>
         </div>

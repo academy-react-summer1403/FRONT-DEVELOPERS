@@ -2,9 +2,12 @@ import React from 'react'
 import ListMap from '../../../components/dashboard/stdcourse/ListMap'
 import ListHeader from '../../../components/dashboard/stdcourse/ListHeader'
 
-const StdCourses = () => {
-  
 
+const StdCourses = () => {
+
+
+ 
+  
   return (
     <div className='px-1 py-2 max-lg:px-4 min-w-[400px]
     

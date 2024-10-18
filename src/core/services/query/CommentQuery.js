@@ -3,20 +3,20 @@ import { getCommentCourse, getReplyCourse } from "../apiComment";
 
 
 
-export function useCommentCourse(courseId , token) {
+export function useCommentCourse(courseId ) {
     const query = useQuery({
-      queryKey: ["commentCourse", courseId , token],
-      queryFn: () => getCommentCourse(courseId , token),
+      queryKey: ["commentCourse", courseId ],
+      queryFn: () => getCommentCourse(courseId ),
     });
   
     return query;
   }
 
 
-  export function useReplyCourse(courseId , reply , token) {
+  export function useReplyCourse(courseId , commentId ) {
     const query = useQuery({
-      queryKey: ["replyCourse", courseId , reply , token],
-      queryFn: () => getReplyCourse(courseId , reply , token),
+      queryKey: ["replyCourse", courseId , commentId ],
+      queryFn: () => getReplyCourse(courseId , commentId ),
     });
   
     return query;

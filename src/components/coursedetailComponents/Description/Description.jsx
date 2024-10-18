@@ -1,19 +1,18 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion';
 import { useCourseId } from '../../../core/services/query/queries';
-import { useParams } from 'react-router-dom';
 
-const Description = () => {
+
+const Description = ({courseId}) => {
 
   const [showMore, setShowMore] = useState(true);
-  const {courseId} = useParams();
-  console.log({courseId})
+
   
 
  
 
   const CourseDetail = useCourseId(courseId);
-  console.log(CourseDetail.data?.title);
+  console.log(CourseDetail.data);
 
 
   return (

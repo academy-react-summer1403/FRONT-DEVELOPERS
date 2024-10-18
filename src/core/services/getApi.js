@@ -27,7 +27,6 @@ export const getCourse = async ( page , params ) => {
 export const getCourseId = async (courseId) => {
   const data = await http.get(`/Home/GetCourseDetails?CourseId=${courseId}`);
   console.log(data);
-  console.log(courseId);
   return data;
 };
 
@@ -64,3 +63,5 @@ export const getLandingReport = async () => {
   console.log(data);
   return data;
 };
+
+
