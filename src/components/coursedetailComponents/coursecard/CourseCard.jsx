@@ -20,15 +20,15 @@ const CourseCard = ({courseId}) => {
   console.log(CourseDetail.data);
 
 
-  // const [reserv , setReserv] = useState()
-  // console.log(reserv)
+  const [reserv , setReserv] = useState()
+  console.log(reserv)
 
-  // const params = {
-  //   courseId : reserv
-  // }
+  const params = {
+    courseId : reserv
+  }
 
-  // const  reservComment = postReserv(params)
-  // console.log(reservComment) 
+  const  reservComment = postReserv(params)
+  console.log(reservComment) 
  
 
   return (

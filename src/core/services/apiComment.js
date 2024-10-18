@@ -25,15 +25,19 @@ export const getCommentCourse =  (courseId ) => {
 
 
 
-  export const likeComment = async ( likeParams ) => {
-    const data = await http.post("/Course/AddCourseCommentLike" , likeParams )
+  export const likeComment = async ( likeparams ) => {
+    const data = await http.post("/Course/AddCourseCommentLike" , null , {
+      params:likeparams
+    } )
 
     console.log(data);
     return data;
   };
 
-  export const dislikeComment = async ( dislikeParams ) => {
-    const data = await http.post("/Course/AddCourseCommentDissLike" , dislikeParams )
+  export const dislikeComment = async ( likeparams ) => {
+    const data = await http.post("/Course/AddCourseCommentDissLike" , null , {
+      params:likeparams
+    } )
 
     console.log(data);
     return data;

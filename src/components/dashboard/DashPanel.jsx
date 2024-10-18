@@ -165,7 +165,7 @@ const DashPanel = () => {
             </ul>
 
             {/* logout section    */}
-            <NavLink to={"/Dashboard"} className={`flex flex-row gap-1 text-teal-900 text-sm font-semibold my-8 mx-[23%]
+            <NavLink to={"/"} className={`flex flex-row gap-1 text-teal-900 text-sm font-semibold my-8 mx-[23%]
                  max-sm:${resposive ? " " : "hidden"} max-sm:mx-[35%] 
                  max-md:mx-[5%] max-md:gap-0
                  max-lg:mx-[10%] max-md:gap-0

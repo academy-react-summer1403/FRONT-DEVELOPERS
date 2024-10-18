@@ -3,7 +3,7 @@ import image from "../../assets/detail/article.jpg";
 // import RelatedCourses from "../../components/coursedetailComponents/RelatedCourses/RelatedCourses";
 
 import ArticleDescription from "../../components/articledetail/articleDescription/ArticleDescription";
-// import Comments from "../../components/coursedetailComponents/comments/Comments";
+import Comments from "../../components/coursedetailComponents/comments/Comments";
 import { motion } from "framer-motion";
 import { useArticleDetail } from "../../core/services/query/queries";
 import { useParams } from "react-router-dom";

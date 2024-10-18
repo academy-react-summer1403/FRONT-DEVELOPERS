@@ -72,28 +72,7 @@ const EditeProfileForm = () => {
 
 
 
-    // const validation = yup.object().shape({
-    //     aboutme:yup.string()
-    //     .max(400, 'توضیحات باید کمتر از 400 کارکتر باشد'),
 
-    //     name:yup.string()
-    //     .required('فیلد اجباری'),
-
-    //     lastname:yup.string()
-    //     .required('فیلد اجباری'),
-    
-    //     nid: yup.string()
-    //     .matches(/[0-9]/, { message:'Password requires a number'})
-    //     .required('فیلد اجباری'),
-
-    //     birthdate:yup.string(),
-    //     phonenumber:yup.string(),
-    //     email: yup.string()
-    //     .email('ایمل باید دارای پسوند @gmail.com باشد'),
-    //     telegram:yup.string(),
-    //     linkedin:   yup.string(),
-    
-    //   });
 
   return (
     
@@ -111,21 +90,7 @@ const EditeProfileForm = () => {
 
         {/* edite form  */}
         <form
-        //  initialValues={{
-        //     uploadimage:'',
-        //     aboutme: '',
-        //     name:'',
-        //     lastname:'',
-        //     nid:'',
-        //     gender:'',
-        //     birthdate:'',
-        //     phonenumber:'',
-        //     email:'',
-        //     telegram:'',
-        //     linkedin:'',
 
-        // }}
-        // validationSchema={validation}
         onSubmit={(values) => onSubmit(values)}
         
         >

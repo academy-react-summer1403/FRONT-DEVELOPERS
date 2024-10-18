@@ -9,19 +9,13 @@ import { userImg } from '../../../core/redux/slices/QueryState/UserSlice'
 const ProfileInformation = () => {
 
 
-
-  const token = localStorage.getItem("token")
-  console.log(token)
-
-  const userProfile = useUserProfile(token)
+  const userProfile = useUserProfile()
   console.log(userProfile)
 
    const ImageId = userProfile.data?.userImage
    console.log(ImageId)
 
-   const user = useSelector((state) => state.UserSlice.data);
-   console.log(user);
- 
+
    const dispatch = useDispatch();
 
         dispatch(userImg(ImageId))

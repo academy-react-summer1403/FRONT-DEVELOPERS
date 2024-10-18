@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Reply from './Reply'
 import { useCommentCourse } from '../../../core/services/query/CommentQuery';
-import {  deleteComment,  dislikeComment,  likeComment,  postComment } from '../../../core/services/apiComment';
+import {  deleteComment,    dislikeComment,    likeComment,  postComment } from '../../../core/services/apiComment';
 
 const Comment = ({courseId}) => {
 
@@ -59,20 +59,20 @@ const Comment = ({courseId}) => {
 
     
 
-  // const [like , setLike] = useState()
-  // console.log(like)
+  const [like , setLike] = useState()
+  console.log(like)
 
-  // const likeParams = {
+  const likeparams = {
+    CourseCommandId : like
+  }
+  
 
-  //   CourseCommandId : like
-  // }
-
-  // const likeComments = likeComment(likeParams)
-  // console.log(likeComments)
+  const likeComments = likeComment(likeparams)
+  console.log(likeComments)
 
 
-  // const dislikeComments = dislikeComment(likeParams)
-  // console.log(dislikeComments)
+  const dislikeComments = dislikeComment(likeparams)
+  console.log(dislikeComments)
 
     
 
