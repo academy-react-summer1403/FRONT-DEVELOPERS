@@ -6,7 +6,7 @@ import DarkMode from '../../components/DarkMode'
 const Dashboard = () => {
   return (
     <Fragment >
-        <div className='bg-gray-50 dark:bg-gray-900 py-4 pb-10 px-10 min-w-[400px]
+        <div className='bg-red-500 dark:bg-gray-900 py-4 pb-10 px-10 min-w-[400px]
         max-md:px-8
         max-sm:px-2
         '>

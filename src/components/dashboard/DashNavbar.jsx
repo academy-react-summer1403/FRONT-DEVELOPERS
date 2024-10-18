@@ -3,6 +3,8 @@ import ShopImg from "../../assets/landing/Shopping Bag.svg";
 import UserImg from "../../assets/landing/user.png";
 import { MdDarkMode } from 'react-icons/md';
 
+import logo from '../../assets/landing/logo1.svg'
+
 
 const DashNavbar = () => {
   return (
@@ -12,10 +14,10 @@ const DashNavbar = () => {
     transition={{duration:0.5 , delay:0.5}}
     >
         <div className='flex justify-between items-center pt-2 pb-6 
-        max-sm:px-2 max-sm:flex-col-reverse  container
+        max-sm:px-2 max-sm:flex-col-reverse  lg:container
         '>
             {/* ACCOUNT section  */}
-            <div className='text-2xl flex items-center gap-2 font-bold'>
+            <div className='text-2xl flex items-center gap-2 font-bold '>
                 <div className='group relative w-14 hover:w-auto h-14 bg-primary mt-8 
                 transition-all duration-700 rounded-full cursor-pointer'>
                     <img src={UserImg} alt="" className='w-7 h-7  absolute top-3 left-3.5'/>
@@ -38,8 +40,8 @@ const DashNavbar = () => {
             </div>
         
             {/* Logo section  */}
-            <div className='space-x-6'>
-            <div className=' bg-gray-600 px-16 py-6 mt-8'></div>             
+            <div className='space-x-6 mt-8'>
+            <img src={logo} className='w-[190px]'/>           
             </div>
         </div>
 

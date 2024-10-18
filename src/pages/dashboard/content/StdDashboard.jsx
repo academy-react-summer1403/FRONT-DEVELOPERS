@@ -13,19 +13,19 @@ const StdDashboard = () => {
   
 
   return (
-    <div className='px-8 py-2 max-lg:px-4 min-w-[400px]
+    <div className='px-8 py-2 max-lg:px-4
       max-lg:px-1
       max-sm:px-1
     '>
 
-      <div className='relative my-12 flex flex-row-reverse gap-6 px-2
+      <div className='relative my-12 flex flex-row-reverse gap-6 px-2 
          max-xl:flex-col-reverse   max-xl:items-center  max-xl:gap-12
       '>
 
-        <div className='flex flex-row-reverse gap-6'>
+        <div className='flex flex-row-reverse gap-6 max-sm:gap-1'>
 
           <div style={{boxShadow:"0px 1px 1px 1px rgba(0,0,0,0.1)"}}
-              className='relative flex w-[180px] bg-gray-100 dark:bg-[#6e6d6d]  text-right px-6 py-2 rounded-lg mt-12'>
+              className='relative flex w-[180px] bg-gray-100 dark:bg-gray-400/40   text-right px-6 py-2 rounded-lg mt-12'>
                 <img src={buy} className='absolute bottom-10'/>
                 <div className='ml-8'>
                   <p className='text-xl text-primary font-semibold'>دوره4 </p>
@@ -35,7 +35,7 @@ const StdDashboard = () => {
             </div>
 
             <div style={{boxShadow:"0px 1px 1px 1px rgba(0,0,0,0.1)"}}
-              className='relative flex w-[180px] bg-gray-100 dark:bg-[#6e6d6d] text-right px-6 py-2 rounded-lg mt-12'
+              className='relative flex w-[180px] bg-gray-100 dark:bg-gray-400/40  text-right px-6 py-2 rounded-lg mt-12'
             >
               <img src={reserve} className='absolute bottom-10'/>
                 <div className='ml-14'>
@@ -45,7 +45,7 @@ const StdDashboard = () => {
             </div>  
         </div>              
         
-        <div className='flex gap-2 pl-8
+        <div className='flex gap-2 pl-0 xl:absolute xl:left-2
         max-lg:mx-auto 
         '>
           <div className=' w-24 h-24 border-[6px] border-secondary rounded-full mt-4
@@ -59,34 +59,34 @@ const StdDashboard = () => {
       </div>
 
       <div style={{boxShadow:"0px 1px 1px 1px rgba(0,0,0,0.1)"}}
-        className='relative m-2 my-12 bg-cyan-50/40  dark:bg-[#a1a1a1] rounded-xl px-10 py-2
+        className='relative m-2 my-12 bg-cyan-50/40  dark:bg-gray-600/70 rounded-xl px-10 py-2
         max-lg:px-4
         max-sm:mx-0 max-sm:px-1
         '
       >
         <img src={alert} className='absolute bottom-40'/>
-        <h3 className='text-right py-2 text-md text-gray-500 font-semibold'>جدید ترین اخبار و مقالات</h3>
+        <h3 className='text-right py-2 text-md text-gray-500 dark:text-gray-200 font-semibold'>جدید ترین اخبار و مقالات</h3>
 
         <div className=''>
 
           <div className='relative flex flex-row-reverse py-1 border-dashed border-b-[1.5px] border-gray-400 gap-4'>
-            <div className='text-right flex py-2 gap-2 '> 
-              <p className='text-sm font-medium text-red-600'>جدید</p>
-              <p className='text-sm text-gray-600'> .منتشر شد{ "Next.js"} دوره آموزش جامع از پایه تا پیشرفته </p>              
+            <div className='text-right flex py-2 gap-2 max-sm:gap-0 '> 
+              <p className='text-sm font-medium text-red-600 dark:text-red-800'>جدید</p>
+              <p className='text-sm text-gray-600  dark:text-gray-400'> .منتشر شد{ "Next.js"} دوره آموزش جامع از پایه تا پیشرفته </p>              
             </div>     
             <p className='absolute left-0 py-3 text-xs text-gray-400'>1402/11/30</p>      
           </div>
 
           <div className='relative flex flex-row-reverse py-1 border-dashed border-b-[1.5px] border-gray-400 gap-4'>
             <div className='text-right flex py-2 gap-2 '> 
-              <p className='text-sm text-gray-600'> .تخفیف  ویژه دوره ریکت را از دست ندهید</p>              
+              <p className='text-sm text-gray-600 dark:text-gray-400'> .تخفیف  ویژه دوره ریکت را از دست ندهید</p>              
             </div>     
             <p className='absolute left-0 py-3 mr-6 text-xs text-gray-400'>1402/11/25</p>      
           </div>
 
           <div className='relative flex flex-row-reverse py-1 gap-4'>
             <div className='text-right flex py-2 gap-2 '> 
-              <p className='text-sm text-gray-600'> .به روز شد{ "tailwinds"} دوره آموزش  </p>              
+              <p className='text-sm text-gray-600 dark:text-gray-400'> .به روز شد{ "tailwinds"} دوره آموزش  </p>              
             </div>     
             <p className='absolute left-0 py-3 text-xs text-gray-400'>1402/11/23</p>      
           </div>
@@ -106,7 +106,7 @@ const StdDashboard = () => {
 
           <div>
             <div style={{boxShadow:"0px 1px 1px 1px rgba(0,0,0,0.1)"}}
-              className='relative bg-gray-100 dark:bg-[#6e6d6d] rounded-md p-2 my-4 flex gap-6'
+              className='relative bg-gray-100 dark:bg-gray-400/40  rounded-md p-2 my-4 flex gap-6'
             >
               <img src={cours}/>
               <div className='absolute right-0 px-2'>
@@ -116,8 +116,9 @@ const StdDashboard = () => {
                 </div>
               </div>
             </div>
+
             <div style={{boxShadow:"0px 1px 1px 1px rgba(0,0,0,0.1)"}}
-              className='relative bg-gray-100 dark:bg-[#6e6d6d] rounded-md p-2  flex gap-6'
+              className='relative bg-gray-100 dark:bg-gray-400/40 rounded-md p-2  flex gap-6'
             >
               <img src={cours}/>
               <div className='absolute right-0 px-2'>
@@ -138,26 +139,27 @@ const StdDashboard = () => {
 
           <div>
             <div style={{boxShadow:"0px 1px 1px 1px rgba(0,0,0,0.1)"}}
-              className='relative bg-gray-100 dark:bg-[#6e6d6d] rounded-md p-2 my-4 flex gap-6'
+              className='relative bg-gray-100 dark:bg-gray-400/40  rounded-md p-2 my-4 flex gap-6'
             >
               <img src={cours}/>
               <div className='absolute right-0 px-2'>
                 <h1 className='absolute right-2 text-teal-900 text-sm'>آموزش جامع ریکت جی اس</h1>
                 <div className='flex flex-row-reverse mt-10'>
                   <p className='flex text-[10px] text-primary gap-1'>مهدی اصغری <IoPersonOutline className='mt-1 text-[11px]' /></p>
-                  <p className='mr-14 text-[10px] text-secondary'>چهارشنبه ها .17:30</p>
+                  <p className='mr-14 text-[10px] text-secondary dark:text-amber-400 '>چهارشنبه ها .17:30</p>
                 </div>
               </div>
             </div>
+
             <div style={{boxShadow:"0px 1px 1px 1px rgba(0,0,0,0.1)"}}
-              className='relative bg-gray-100 dark:bg-[#6e6d6d] rounded-md p-2 my-2 flex gap-6'
+              className='relative bg-gray-100 dark:bg-gray-400/40  rounded-md p-2 my-2 flex gap-6'
             >
               <img src={cours}/>
               <div className='absolute right-0 px-2'>
                 <h1 className='absolute right-2 text-teal-900 text-sm'>آموزش جامع ریکت جی اس</h1>
                 <div className='flex flex-row-reverse mt-10'>
                   <p className='flex text-[10px] text-primary gap-1'>مهدی اصغری <IoPersonOutline className='mt-1 text-[11px]' /></p>
-                  <p className='mr-14 text-[10px] text-secondary'>چهارشنبه ها .17:30</p>
+                  <p className='mr-14 text-[10px] text-secondary  dark:text-amber-400'>چهارشنبه ها .17:30</p>
                 </div>
               </div>
             </div>
