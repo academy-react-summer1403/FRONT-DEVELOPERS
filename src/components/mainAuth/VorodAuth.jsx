@@ -71,11 +71,11 @@ const dispatch = useDispatch()
   });
 
   return (
-    <div className="container h-[530px] relative">
+    <div className="container h-full relative ">
     <img
       src={Back}
       alt=""
-      className="absolute rotate-180 left-[300px] -top-[40px] w-[1000px] opacity-30"
+      className="fixed rotate-180 left-[300px] top-[30px] w-[1000px] opacity-30"
     />
 
     {/* hero image  */}

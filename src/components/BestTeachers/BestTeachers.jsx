@@ -26,32 +26,18 @@ const BestTeachers = () => {
         <div className='flex  justify-between items-center w-full   absolute top-10'>
               <div className='w-[1500px]  max-xl:flex justify-between max-xl:w-[full] gap-96  h-[400px]  mx-auto relative'>      
                 
-            {/* Tinder card  */}
-
-        
+            {/* Tinder card  */}             
+            <div className=' w-[400px] h-[400px] max-sm:h-[250px] max-sm:w-[250px] max-sm:left-5 max-xl:left-[100px] max-md:-left-2  max-2xl:left-[200px]  max-lg:left-[80px] absolute left-[250px] bottom-[50px] '>
+              <SwipeCards/>
+            </div>                     
                
-                        <div className=' w-[400px] h-[400px] max-sm:h-[250px] max-sm:w-[250px] max-sm:left-5 max-xl:left-[100px] max-md:-left-2  max-2xl:left-[200px]  max-lg:left-[80px] absolute left-[250px] bottom-[50px] '>
-
-                  
-                        <SwipeCards/>
-
-                        </div>
-                      
-             
-
-
-         
-   
-
-
             {/* text section  */}
           <div
             className="max-xl:right-10  max-md:right-3    absolute right-48 top-20
             "
-          >
-        
+          >        
 
-          <div className='    flex flex-row-reverse items-center gap-2 max-sm:gap-1 mb-3'>
+          <div className='flex flex-row-reverse max-sm:flex-col max-sm:items-end items-center gap-2 max-sm:gap-1 mb-3'>
             <motion.h1
              variants={SliderRight(0.4)}
              initial="hidden"
@@ -66,7 +52,10 @@ const BestTeachers = () => {
             variants={SliderRight(0.4)}
             initial="hidden"
             animate="visible"
-            className=' text-[#006865] font-Yekan font-normal text-[25px] max-lg:text-[18px] max-sm:text-[16px]'>!!رو همینجا پیدا می کنید</motion.h1></div>
+            className=' text-[#006865] font-Yekan font-normal text-[25px] max-lg:text-[18px] max-sm:text-[16px]'>
+              !!رو همینجا پیدا می کنید
+            </motion.h1>
+          </div>
 
             <motion.p
                variants={SliderRight(0.6)}

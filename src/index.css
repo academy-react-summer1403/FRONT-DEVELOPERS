@@ -118,7 +118,7 @@ body{
   }
 
   .famous{
-   @apply w-[185px] h-[185px] max-sm:w-[100px] max-sm:h-[100px]  max-xl:h-[160px] max-xl:w-[160px] max-lg:h-[120px] max-lg:w-[120px] rotate-45 rounded-[23px] bg-white dark:bg-[#e9e8e8]  cursor-pointer relative hover:bg-gradient-to-tl hover:from-[#D47300] hover:to-[#FFC700]
+   @apply w-[185px] h-[185px] max-sm:w-[110px] max-sm:h-[110px]  max-xl:h-[160px] max-xl:w-[160px] max-lg:h-[120px] max-lg:w-[120px] rotate-45 rounded-[23px] bg-white dark:bg-[#e9e8e8]  cursor-pointer relative hover:bg-gradient-to-tl hover:from-[#D47300] hover:to-[#FFC700]
   }
 
   .famoustext{

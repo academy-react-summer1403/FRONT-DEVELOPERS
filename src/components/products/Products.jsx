@@ -13,7 +13,7 @@ import BP4Img from "../../assets/landing/BProduct4.png";
 const Products = () => {
   return (
     <div>
-      <div className="container relative mt-20 ">
+      <div className="container relative mt-20">
         <img
           src={BackProducts}
           alt=""
@@ -35,11 +35,12 @@ const Products = () => {
         "
         >
           <div
-            className="  group
-    rounded-2xl 
-     relative  duration-hight 
-     w-[210px] h-[170px] mb-[50px] max-lg:left-48
-                        "
+            className="  group 
+              rounded-2xl 
+              relative  duration-hight 
+              w-[210px] h-[170px] mb-[50px] max-lg:left-48 max-sm:left-[210px]
+              
+            "
           >
             <svg
               width="210"
@@ -99,7 +100,7 @@ const Products = () => {
 
               <button
                 style={{ boxShadow: "0px 4px 4px 0px #00000040 inset" }}
-                className=" bg-[#E48900] dark:bg-[#4b3515]    proimg
+                className=" bg-[#E48900] dark:bg-[#4b3515] mx-[-1px] mt-[1px] proimg
 "
               >
                 <img src={ChatImg} alt="" className="mx-auto" />
@@ -109,10 +110,10 @@ const Products = () => {
 
           <div
             className="
-                             group
-    rounded-2xl 
-     relative  duration-hight 
-     w-[210px] h-[170px] mt-[300px]  max-lg:-left-5  max-lg:top-20
+              group
+              rounded-2xl 
+              relative  duration-hight 
+              w-[210px] h-[170px] mt-[300px]  max-lg:-left-5 max-sm:-left-0 max-lg:top-20
                         "
           >
             <svg
@@ -209,10 +210,10 @@ const Products = () => {
 
           <div
             className="
-                            group
-    rounded-2xl 
-     relative  duration-hight 
-     w-[210px] h-[170px]  max-lg:-right-10  max-lg:-top-6
+            group
+            rounded-2xl 
+            relative  duration-hight 
+            w-[210px] h-[170px]  max-lg:-right-10 max-sm:-right-3  max-lg:-top-6
                         "
           >
             <svg
@@ -309,9 +310,9 @@ const Products = () => {
 
           <div
             className=" group
-    rounded-2xl 
-     relative  duration-hight 
-     w-[210px] h-[170px] mt-[300px]  max-lg:-left-[170px]    max-lg:top-20
+              rounded-2xl 
+              relative  duration-hight 
+              w-[210px] h-[170px] mt-[300px]  max-lg:-left-[170px] max-sm:-left-[200px] max-lg:top-20
                         "
           >
             <svg
