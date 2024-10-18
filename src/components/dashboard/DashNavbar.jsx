@@ -33,8 +33,7 @@ const DashNavbar = () => {
                     </div>   
                 </div>
 
-                {/* darkmode button  */}
-                <MdDarkMode className='mt-8 w-7 h-7'/>
+             
                 
             </div>
         
