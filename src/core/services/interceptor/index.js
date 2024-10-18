@@ -25,8 +25,8 @@ const onError = (err) => {
 
   //  if(err.response.status >= 400 && err.response.status < 500){
   //     alert(err.response.status)
-  //     //    removeItem("token");
-  //     // window.location.pathname = "/auth/v1"
+  //        removeItem("token");
+  //     window.location.pathname = "/auth/v1"
   // }
 
   return Promise.reject(err);

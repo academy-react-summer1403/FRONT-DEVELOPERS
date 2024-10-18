@@ -7,21 +7,6 @@ import HeadLines from "../../components/coursedetailComponents/Headlines/HeadLin
 import { useCourseId } from "../../core/services/query/queries";
 import { useParams } from "react-router-dom";
 import Comment from "../../components/coursedetailComponents/comments/Comment";
-<<<<<<< HEAD
-import { ImageErrore } from "../../components/ImageErrore";
-
-
-
-const CourseDetial = () => {
-
-
-
-  const {courseId } = useParams();
-
-  console.log({courseId})
-  
-
-=======
 import RelatedCourses from "../../components/coursedetailComponents/RelatedCourses/RelatedCourses";
 import { ImageErrore } from "../../components/ImageErrore";
 
@@ -29,7 +14,6 @@ const CourseDetial = () => {
   const { courseId } = useParams();
 
   console.log({ courseId });
->>>>>>> f0d4dfe6f3247a471ed8aa96ccad793a6b032697
 
   const CourseDetail = useCourseId(courseId);
   console.log(CourseDetail.data);
@@ -37,23 +21,6 @@ const CourseDetial = () => {
   
 
   return (
-<<<<<<< HEAD
-
-
-
-    
-    <div className=" container  relative ">
-
-      <div className="flex max-md:container  mt-[35px] justify-between">
-        {/* image section */}
-        <motion.div 
-            initial={{  x:-500,opacity:0,y:-200}}
-            animate={{ x:0,y:0,opacity:1}}
-            transition={{type:"spring",stiffness:40, delay:0.2}}
-        
-        style={{boxShadow:"box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25)"}} className="max-xl:w-[550px] max-md:hidden max-lg:h-[300px] h-[395px] max-xl:h-[320px] w-[624px] max-2xl:mr-10">
-          <img className=" h-full w-full  rounded-[15px]" src={CourseDetail.data?.imageAddress }
-=======
     <div className=" container  relative  mb-5  ">
   
 
@@ -67,7 +34,6 @@ const CourseDetial = () => {
           className="max-xl:w-[550px]  max-md:hidden max-lg:h-[300px] h-[395px] max-xl:h-[320px] w-[624px] max-2xl:mr-10"
         >
          <img className=" h-full w-full  rounded-[15px]" src={CourseDetail.data?.imageAddress }
->>>>>>> f0d4dfe6f3247a471ed8aa96ccad793a6b032697
             onError={ImageErrore}
             />
 
@@ -97,21 +63,13 @@ const CourseDetial = () => {
           <RelatedCourses  key={index} title={data.title} image={data.image} />))}
  </div>
 
-<<<<<<< HEAD
-        </div>
-=======
        
   
->>>>>>> f0d4dfe6f3247a471ed8aa96ccad793a6b032697
       </div>
 
       <div className=" ml-[37%] mt-[-129.5%] max-2xl:ml-[44%] max-2xl:mt-[-133%] max-xl:mt-[-185%] max-lg:mt-[-273%] max-lg:ml-[53%] max-md:mt-[240%] max-sm:mt-[190%] max-sm:w-full w-[809px]  max-2xl:w-[700px] max-lg:w-[350px] max-xl:w-[520px] max-md:w-[500px] max-md:mx-auto">
         {/* Description section */}
 
-<<<<<<< HEAD
-
-=======
->>>>>>> f0d4dfe6f3247a471ed8aa96ccad793a6b032697
         <Description  courseId = {courseId}/>
         {/* headlines */}
 
@@ -127,13 +85,6 @@ const CourseDetial = () => {
           <Comment courseId={courseId}/>
         </div>
       </div>
-<<<<<<< HEAD
-
-   
-       
-     
-=======
->>>>>>> f0d4dfe6f3247a471ed8aa96ccad793a6b032697
     </div>
   );
 };

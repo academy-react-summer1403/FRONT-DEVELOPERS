@@ -2,7 +2,7 @@ import http from "./interceptor";
 
 export const getNews = async (params , page ) => {
   const data = await http.get(`/News?PageNumber=${page}&RowsOfPage=6` , {
-    params
+    params:params
   });
   console.log(data);
   return data;
@@ -17,7 +17,7 @@ export const getNewsId = async (id) => {
 export const getCourse = async ( page , params ) => {
   const data = await http.get(
     `/Home/GetCoursesWithPagination?PageNumber=${page}&RowsOfPage=6` , {
-      params
+        params:params
     }
   );
   console.log(data);
