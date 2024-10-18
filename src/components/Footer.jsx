@@ -33,7 +33,7 @@ import { NavLink } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <div className='relative xl:px-0 xl:container w-full'>
+    <div className='relative  w-full'>
         
 
         <div className='relative w-full flex justify-center items-center h-[500px]  max-md:bg-[#01CEC926] '>       
@@ -45,7 +45,7 @@ const Footer = () => {
             '>
 
                 {/* left section  */}
-                <div className='grid-col-1 mt-40 max-md:mt-0 px-4 grid grid-cols-3 
+                <div className='grid-col-1 mt-40  px-4 grid grid-cols-3 
                     max-md:h-[100px]  max-md:px-0 max-md:mt-0 max-md:mb-8
                 '>
                     <div className='grid-col-1 h-[20%]  grid justify-items-end 
@@ -78,7 +78,7 @@ const Footer = () => {
                     <div className='w-full h-[40%] flex justify-center'>
                         <img src={Logo} alt="" className='w-[190px] pb-2 mt-10 max-md:mt-0'/>
                     </div>
-                    <div className='w-full h-8 w-[60%] max-lg:w-[80%] max-sm:w-full leading-8 rounded-full mx-auto flex justify-center bg-green text-white '>
+                    <div className=' h-8 w-[60%] max-lg:w-[80%] max-sm:w-full leading-8 rounded-full mx-auto flex justify-center bg-green text-white '>
                         info@pazhooheshgah.ir
                     </div>
                     <div className='w-full pt-4 flex flex-row justify-center items-center gap-2 mb-2 '>

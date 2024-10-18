@@ -15,6 +15,7 @@ import VarificationVorod from "./components/mainAuth/VarificationVorod"
 import Layout from "./Layout"
 import { useSelector } from "react-redux"
 import Detail from "./Detail"
+import NavbarBasket from "./components/Basket/NavbarBasket"
 
 
 
@@ -46,31 +47,36 @@ const  originalRoutes = [
         element: <ArticlesNews />,
 
       },
+      {
+        // index: true,
+        path: "/courses-detail/:courseId",
+        element: <CourseDetial />,
+        
+        // isAuth:false
+  
+      },
+   
+      {
+        // index: true,
+        path: "/article-detail/:id",
+        element: <ArticleDetail />,
+       
+        // isAuth:false
+  
+      },  
+      
+      {
+        // index: true,
+        path: "/basket",
+        element: <NavbarBasket />,
+       
+        // isAuth:false
+  
+      },
+  
 
     ]},
 
-    {path:"/" , element:<Detail/> ,children:[
-
-    {
-      // index: true,
-      path: "/courses-detail/:courseId",
-      element: <CourseDetial />,
-      
-      // isAuth:false
-
-    },
- 
-    {
-      // index: true,
-      path: "/article-detail/:id",
-      element: <ArticleDetail />,
-     
-      // isAuth:false
-
-    },
-
-
-  ]},
 
 
   {
