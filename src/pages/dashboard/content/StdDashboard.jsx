@@ -146,7 +146,7 @@ const StdDashboard = () => {
                 <h1 className='absolute right-2 text-teal-900 text-sm'>آموزش جامع ریکت جی اس</h1>
                 <div className='flex flex-row-reverse mt-10'>
                   <p className='flex text-[10px] text-primary gap-1'>مهدی اصغری <IoPersonOutline className='mt-1 text-[11px]' /></p>
-                  <p className='mr-14 text-[10px] text-secondary dark:text-amber-400 '>چهارشنبه ها .17:30</p>
+                  <p className='mr-14 max-sm:mr-2 text-[10px] text-secondary dark:text-amber-400 '>چهارشنبه ها .17:30</p>
                 </div>
               </div>
             </div>
@@ -159,7 +159,7 @@ const StdDashboard = () => {
                 <h1 className='absolute right-2 text-teal-900 text-sm'>آموزش جامع ریکت جی اس</h1>
                 <div className='flex flex-row-reverse mt-10'>
                   <p className='flex text-[10px] text-primary gap-1'>مهدی اصغری <IoPersonOutline className='mt-1 text-[11px]' /></p>
-                  <p className='mr-14 text-[10px] text-secondary  dark:text-amber-400'>چهارشنبه ها .17:30</p>
+                  <p className='mr-14 max-sm:mr-2 text-[10px] text-secondary  dark:text-amber-400'>چهارشنبه ها .17:30</p>
                 </div>
               </div>
             </div>

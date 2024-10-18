@@ -135,12 +135,13 @@ const DashPanel = () => {
                     max-sm:mx-0 max-sm:block
                     max-lg:${resposive ? "block" : "hidden"}
                 `}>
-                    <img src={userProfile.data?.currentPictureAddress} onerror={ImageErrore} className='w-[130px] h-[130px] rounded-full mx-auto
+                    <img src={userProfile.data?.currentPictureAddress}  onError={ImageErrore} className='w-[130px] h-[130px] rounded-full mx-auto
                     max-md:w-[100px] max-md:h-[100px]  max-lg:w-24  max-lg:h-24
                     '/>
                     <p className='mt-4 text-center text-teal-900 font-bold
                         max-lg:text-sm 
-                    '>{userProfile.data?.fName}{userProfile.data?.lName} خوش آمدید</p>
+                    '>{userProfile.data?.fName}{userProfile.data?.lName} خوش آمدید
+                    </p>
                 </div>
 
                 {/* menuBar */}
