@@ -7,6 +7,8 @@ import Comments from "../../components/coursedetailComponents/comments/Comments"
 import { motion } from "framer-motion";
 import { useArticleDetail } from "../../core/services/query/queries";
 import { useParams } from "react-router-dom";
+import Comment from "../../components/coursedetailComponents/comments/Comment";
+import { samecourses, suggestion } from "../CourseDetail/CourseDetail";
 // import { samecourses, suggestion } from "../CourseDetail/CourseDetail";
 
 
@@ -72,7 +74,7 @@ const ArticleDetail = () => {
             دوره های مرتبط
           </div>
 
-          {/* {samecourses.map((data, index) => (
+          {samecourses.map((data, index) => (
             <RelatedCourses
          
              
@@ -82,7 +84,7 @@ const ArticleDetail = () => {
               title={data.title}
               image={data.image}
             />
-          ))} */}
+          ))}
         </div>
 
         {/* suggestion section */}
@@ -99,14 +101,14 @@ const ArticleDetail = () => {
             مطالب پیشنهادی
           </div>
 
-          {/* {suggestion.map((data, index) => (
+          {suggestion.map((data, index) => (
             <RelatedCourses
              
               key={index}
               title={data.title}
               image={data.image}
             />
-          ))} */}
+          ))}
         </div>
       </div>
 
@@ -246,7 +248,7 @@ const ArticleDetail = () => {
 
          <div className="">
           <h4 className="mark mt-5 max-lg:mt-1 max-xl:text-[23px]  dark:text-slate-300   ">نظرات</h4>
-          <Comments/>
+          <Comment/>
         </div>
     </div>
 

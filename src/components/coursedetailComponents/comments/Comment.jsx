@@ -80,7 +80,7 @@ const Comment = ({courseId}) => {
 
   return (
     <div  style={{ boxShadow: " 0px 1px 2px 0 rgba(0, 0, 0, 0.25)" }}
-     className={`mt-[15px] bg-white dark:bg-slate-700 rounded-[15px] p-[20.5px] overflow-hidden relative ${showMore ? "h-[770px] mb-40"  : "h-[]" }`} >
+     className={`mt-[15px] bg-white dark:bg-slate-700 rounded-[15px] p-[20.5px] overflow-hidden relative ${showMore ? "h-[770px] mb-40"  : "h-[] min-h-[770px]" }`} >
 
     <div className=" relative  w-full  ">
       <div>
