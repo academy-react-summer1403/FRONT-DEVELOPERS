@@ -76,7 +76,7 @@ console.log(verifyCode)
     <img
       src={Back}
       alt=""
-      className="absolute rotate-180 left-[300px] -top-[40px] w-[1000px] opacity-30"
+      className="fixed rotate-180 left-[300px] top-[10px] w-[1000px] opacity-30"
     />
 
     {/* hero image  */}
