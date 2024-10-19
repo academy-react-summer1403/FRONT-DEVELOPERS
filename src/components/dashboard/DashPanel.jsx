@@ -120,7 +120,7 @@ const DashPanel = () => {
             <div 
             className={`right-0 bg-primary font-red-500 rounded-r-xl py-6 z-40
             lg:w-[400px] 
-            max-lg:${resposive ? "w-[400px] " : "w-[25px] " } 
+            max-lg:${resposive ? "w-[300px] " : "w-[25px] " } 
             max-sm:w-full max-sm:rounded-t-xl max-sm:rounded-br-none max-sm:${resposive ? "h-[35%]" : "h-2"} 
             `} >
                 {/* responsive icon  */}
