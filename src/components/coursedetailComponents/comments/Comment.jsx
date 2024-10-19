@@ -80,7 +80,7 @@ const Comment = ({courseId}) => {
 
   return (
     <div  style={{ boxShadow: " 0px 1px 2px 0 rgba(0, 0, 0, 0.25)" }}
-     className={`mt-[15px] bg-white dark:bg-slate-700 rounded-[15px] p-[20.5px] overflow-hidden relative ${showMore ? "h-[770px] mb-40"  : "h-[]" }`} >
+     className={`mt-[15px] bg-white dark:bg-slate-700 rounded-[15px] p-[20.5px] overflow-hidden relative ${showMore ? "h-[770px] mb-40"  : "h-[] min-h-[770px]" }`} >
 
     <div className=" relative  w-full  ">
       <div>
@@ -119,7 +119,8 @@ const Comment = ({courseId}) => {
 
         {
             GetComment.data?.map((item)=>(
-            <div className="h-[315px] bg-[#F9F9F9] rounded-[7px] w-full  flex flex-col  p-[20.5px] mt-[30px]">
+            <div className={`bg-[#F9F9F9] rounded-[7px] w-full  flex flex-col  p-[20.5px] mt-[30px]
+            ${showMore ? "h-[315px] overflow-hidden": "min-h-[315px]"}`}>
                 
                 <div className='w-full h-full   flex flex-col'>
 
@@ -180,11 +181,11 @@ const Comment = ({courseId}) => {
          
                 <p className='w-full  min-h-[40px]  text-right py-2 px-5 comment text-[15px] '>{item?.describe}</p>
 
-                <div className='w-full h-[20px] flex justify-start'>
+                <div className='w-full  flex justify-start'>
                
                
            
-                <Reply courseId={courseId}  id={item?.id}/>     </div>  
+                <Reply courseId={courseId}  id={item?.id} showMore={showMore}/>     </div>  
                 </div>
 
            
