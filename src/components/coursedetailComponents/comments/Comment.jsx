@@ -119,7 +119,8 @@ const Comment = ({courseId}) => {
 
         {
             GetComment.data?.map((item)=>(
-            <div className="h-[315px] bg-[#F9F9F9] rounded-[7px] w-full  flex flex-col  p-[20.5px] mt-[30px]">
+            <div className={`bg-[#F9F9F9] rounded-[7px] w-full  flex flex-col  p-[20.5px] mt-[30px]
+            ${showMore ? "h-[315px] overflow-hidden": "min-h-[315px]"}`}>
                 
                 <div className='w-full h-full   flex flex-col'>
 
@@ -180,11 +181,11 @@ const Comment = ({courseId}) => {
          
                 <p className='w-full  min-h-[40px]  text-right py-2 px-5 comment text-[15px] '>{item?.describe}</p>
 
-                <div className='w-full h-[20px] flex justify-start'>
+                <div className='w-full  flex justify-start'>
                
                
            
-                <Reply courseId={courseId}  id={item?.id}/>     </div>  
+                <Reply courseId={courseId}  id={item?.id} showMore={showMore}/>     </div>  
                 </div>
 
            

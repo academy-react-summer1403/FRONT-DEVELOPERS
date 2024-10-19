@@ -7,8 +7,8 @@ export const getCommentCourse =  (courseId ) => {
   };
 
 
-  export const getReplyCourse = async (courseId , reply ) => {
-    const data = await http.get(`/Course/GetCourseReplyCommnets/${courseId}/${reply}`);
+  export const getReplyCourse = async (id , courseId ) => {
+    const data = await http.get(`/Course/GetCourseReplyCommnets/${courseId}/${id}`);
     console.log(data);
     return data;
   };
