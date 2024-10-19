@@ -72,7 +72,7 @@ const Filter = () => {
   };
 
   return (
-    <div className="shadow-sm shadow-gray-300 outline-none rounded-xl p-4 ">
+    <div className="shadow-sm shadow-gray-300 bg-white dark:bg-slate-500 outline-none rounded-xl p-4 ">
       <div
         className="flex p-3 relative 
             rounded-sm rounded-t-lg shadow-sm shadow-gray-400 
@@ -84,9 +84,9 @@ const Filter = () => {
       </div>
 
       <ul
-        className="relative bg-white dark:bg-slate-500 rounded-md
+        className="relative rounded-b-md
             max-md:flex  
-            max-sm:grid"
+            max-sm:grid max-sm:rounded-b-md"
       >
         <AccarFilter filter={filter} toggleAccordeion={toggleAccordeion} />
 

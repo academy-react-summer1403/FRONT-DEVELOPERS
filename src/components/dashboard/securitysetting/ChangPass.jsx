@@ -47,7 +47,9 @@ const ChangPassword = () => {
         <Form>             
               {/* Body  */}
               <div className='grid grid-cols-3 gap-1 justify-items-center my-8
-                max-md:flex max-md:flex-col max-md:px-36
+                max-xl:grid-cols-1
+                 max-lg:grid max-lg:grid-cols-3
+                max-md:grid-cols-1
               '>
 
                 <div className='text-right text-xs grid-col-1 text-gray-400 max-md:mx-auto'>

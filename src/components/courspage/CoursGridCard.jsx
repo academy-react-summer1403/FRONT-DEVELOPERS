@@ -19,11 +19,9 @@ const CoursGridCard = ({title , levelName , cost , teacherName , likeCount , cou
   return (
     // container 
   
-    <NavLink to={"/courses-detail/" + courseId} className=' grid grid-cols-3 gap-4 mt-[100px]  w-[280px] h-[340px] 
-    max-sm:grid-cols-1
-    max-md:grid-cols-2 
-    max-lg:grid-cols-3 
-    ml-[20px]
+    <NavLink to={"/courses-detail/" + courseId} className=' grid grid-col-1 gap-4 mt-[50px]  
+    
+    ml-[20px] max-md:ml-0
     '>
         {/* map part of card:  */}
         <motion.div 
@@ -33,8 +31,8 @@ const CoursGridCard = ({title , levelName , cost , teacherName , likeCount , cou
         >
             <div 
                 
-            className='group relative rounded-xl max-md:m-4 px-4 mb-8 bg-white
-            dark:bg-gray-600/70 dark:hover:bg-secondary transition duration-500 w-[270px]'
+            className='group relative rounded-xl max-md:m-4 px-4 bg-white 
+            dark:bg-gray-600/70 dark:hover:bg-secondary transition duration-500 '
                 style={{boxShadow: "0px 1px 2px 0px rgba(0, 0, 0, 0.25)"}
                 }
             >   

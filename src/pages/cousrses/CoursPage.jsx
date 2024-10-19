@@ -5,6 +5,7 @@ import CoursListCard from "../../components/courspage/CoursListCard";
 import { IoIosArrowDown } from "react-icons/io";
 import { BiMenuAltRight } from "react-icons/bi";
 import { motion } from "framer-motion";
+
 import Search from "../../assets/landing/Search.svg";
 import Herobg from "../../assets/courses/49.svg";
 import Herovector from "../../assets/courses/12.svg";
@@ -12,6 +13,7 @@ import Heroring from "../../assets/courses/Ellipse 4.svg";
 import BackImg from "../../assets/courses/background.svg";
 import WindowView from "../../assets/courses/Vector.svg";
 import ListView from "../../assets/courses/Frame.svg";
+
 import { useCourses } from "../../core/services/query/queries";
 import { SliderRight } from "../../utility/animation";
 import { useDispatch, useSelector } from "react-redux";
@@ -84,7 +86,7 @@ const CoursPage = () => {
   ];
 
   return (
-    <div className="container  z-10">
+    <div className="xl:container px-2 z-10">
       <img
         src={BackImg}
         alt=""
@@ -100,7 +102,7 @@ const CoursPage = () => {
         animate={{ opacity: 1 }}
         transition={{ type: "spring", stiffness: 100, delay: 0.2 }}
         style={{ backgroundColor: "rgba(235, 249, 249, 0.51)" }}
-        className="flex flex-row  rounded-lg my-10 px-4 shadow-md 
+        className="flex flex-row  rounded-lg my-10 px-4 mx-12 shadow-md
         dark:bg-gray-700/70
         max-md:flex-col max-md:m-4
         max-sm:flex-col max-sm:m-4
@@ -110,7 +112,7 @@ const CoursPage = () => {
       >
         {/* hero vector */}
         <div
-          className=" w-full
+          className=" w-[90%] 
             max-lg:h-[400px]
             max-md:h-[400px]
              relative"
@@ -118,8 +120,12 @@ const CoursPage = () => {
           <img
             src={Herobg}
             alt=""
-            className="absolute w-[343px]  h-[350px] 
-               left-[130px] top-[-30px]  max-lg:top-20"
+            className="absolute w-[350px]  h-[450px] left-[40px] top-[5px]
+              max-lg:top-12 max-lg:left-[55px]
+              max-md:left-[15px]
+              max-xl:left-[5px]
+
+            "
           />
 
           <motion.img
@@ -128,7 +134,10 @@ const CoursPage = () => {
             transition={{ type: "spring", stiffness: 100, delay: 0.2 }}
             src={Herovector}
             alt=""
-            className=" absolute w-[335px] h-[335px] max-lg:top-16  left-[150px] top-[-50px]  z-40 
+            className=" absolute w-[430px] h-[430px] left-[10px] top-[-25px]  z-40  
+            max-lg:top-4 max-md:left-[35px] 
+            max-md:left-[25px]
+            max-xl:left-[10px]
                "
           />
 
@@ -138,7 +147,9 @@ const CoursPage = () => {
             transition={{ type: "spring", stiffness: 100, delay: 0.2 }}
             src={Heroring}
             alt=""
-            className="absolute z-30 left-34 top-16 max-lg:top-40 w-[350px] left-[120px] 
+            className="absolute z-30 left-[-30px] top-32 w-[500px] 
+            max-lg:top-40  max-lg:left-0
+            max-md:left-[0px]  max-md:top-44 
                  "
           />
         </div>
@@ -165,7 +176,7 @@ const CoursPage = () => {
             variants={SliderRight(1.0)}
             initial="hidden"
             animate="visible"
-            className="flex flex-row  w-3/4 
+            className="flex flex-row  w-full 
             max-sm:w-full max-sm:mr-2
             max-md:w-full
             max-lg:w-full
@@ -181,7 +192,7 @@ const CoursPage = () => {
 
               
               
-              
+              placeholder={"...چی میخوای یاد بگیری؟"}
               id="search"
               name="search"
               type="text"
@@ -199,18 +210,18 @@ const CoursPage = () => {
 
       {/* body of CoursPage */}
       <div
-        className="relative mt-44   grid grid-cols-4 gap-4
+        className="relative mt-44 grid grid-cols-4 gap-2
             max-md:flex max-md:m-2
-            max-sm:flex flex-col-reverse max-sm:m-2
+            max-sm:flex flex-col-reverse max-sm:m-0
            
         "
       >
         {/* cards section  */}
-        <div className="relative   col-span-3   grid grid-cols-3  h-[1100px]">
+        <div className="relative col-span-3">
           {/* top part for view */}
-          <div className="absolute flex  flex-row">
+          <div className="relative flex mx-4 max-md:mx-0 flex-row ">
             {/* right: buttons */}
-            <div className="w-[150px]  z-50  h-[50px] ">
+            <div className=" relative z-50">
               <button
                 className="relative z-50  mr-2 p-3 hover:bg-gray-200 
                          transition duration-300 shadow-sm shadow-gray-400 outline-none indent-1
@@ -222,7 +233,7 @@ const CoursPage = () => {
               </button>
 
               <button
-                className="relative  p-2 hover:bg-gray-200 
+                className="absolute top-[0.25px] p-2 hover:bg-gray-200 
                         transition duration-300 shadow-sm shadow-gray-400 outline-none indent-1 
                         rounded rounded-tr-2xl top-1 w-[50px] h-[50px]"
                 onClick={() => (setView(true),setView1(3))}
@@ -232,9 +243,9 @@ const CoursPage = () => {
               </button>
             </div>
             {/* left: menu  */}
-            <div className="group  absolute right-0 max-xl:right-14 ">
+            <div className="group absolute right-0 ">
               <div
-                className="group flex p-2 bg-white dark:bg-gray-700 absolute z-50 left-[600px]
+                className="group flex p-2 bg-white dark:bg-gray-700  z-50 
                         rounded rounded-t-2xl shadow-sm shadow-gray-400 outline-none indent-1 font-semibold 
                         text-gray-900 dark:text-white hover:bg-gray-50 cursor-pointer text-lg w-[200px] whitespace-nowrap"
               >
@@ -245,8 +256,9 @@ const CoursPage = () => {
                 جدید ترین
                 <BiMenuAltRight className="w-7 h-7 mt-1 text-teal-900 dark:text-teal-600 ml-6" />
               </div>
+
               <div
-                className="absolute top-[45px]  left-[600px] z-[9999] hidden group-hover:block  h-[150px]
+                className="absolute z-[9999] hidden group-hover:block  h-[150px]
                             w-[200px] rounded-md bg-white shadow-md dark:bg-gray-900 p-2 dark:text-white"
               >
                 <ul className="space-y-2">
@@ -270,8 +282,8 @@ const CoursPage = () => {
 
           {/* cards  */}
 
-                    <div className={` grid   w-full z-10 absolute
-                      ${view ? "grid-cols-1 mt-10":"grid-cols-3"}`}>
+            <div className={` grid   w-full z-10
+                      ${view ? "grid-cols-1 mt-2":"grid-cols-3 max-lg:grid-cols-2 max-sm:justify-items-center max-sm:grid-cols-1 pt-0"}`}>
                 
                     {view ? <>
           {CoursesData.data?.courseFilterDtos.map((item) => (
@@ -285,16 +297,17 @@ const CoursPage = () => {
             <CoursGridCard {...item} />
           ))}</>}
        
-</div>
+            </div>
+
           {/* paginantion  */}
 
-          <div className="w-full  absolute top-[90%]  h-[100px] flex justify-center mt-[10px]">
+          <div className="w-full grid grid-col-1 justfy-items-center mt-2">
             <Pagination nextPage={nextPage} lastPage={lastPage} />
           </div>
         </div>
 
         {/* filter section  */}
-        <div className="relative  col-span-1  max-xl:mt-20 max-lg:-right-60">
+        <div className="relative  col-span-1   max-xl:mt-20 ">
           <Filter />
         </div>
       </div>

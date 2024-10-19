@@ -11,6 +11,7 @@ import resrvsC from '../../assets/dashboard/Group(1).svg'
 import view from '../../assets/dashboard/111.svg'
 import favorite from '../../assets/dashboard/Vector.svg'
 import setting from '../../assets/dashboard/Vector(1).svg'
+import imgalt from '../../assets/detail/imgerrore.png'
 
 import { IoIosMenu } from 'react-icons/io'
 import DashNavbar from './DashNavbar'
@@ -30,7 +31,6 @@ const DashPanel = () => {
     const userProfile = useUserProfile()
     console.log(userProfile)
   
-
 
 
     const dashboard=[
@@ -82,7 +82,7 @@ const DashPanel = () => {
 
     ]
 
-
+    
 
     const [resposive, setResposive] = useState(false)
     const HandeleResposive=()=>{
@@ -135,7 +135,7 @@ const DashPanel = () => {
                     max-sm:mx-0 max-sm:block
                     max-lg:${resposive ? "block" : "hidden"}
                 `}>
-                    <img src={userProfile.data?.currentPictureAddress}  onError={ImageErrore} className='w-[130px] h-[130px] rounded-full mx-auto
+                    <img src={userProfile.data?.currentPictureAddress} onError={ImageErrore} className='w-[130px] h-[130px] rounded-full mx-auto
                     max-md:w-[100px] max-md:h-[100px]  max-lg:w-24  max-lg:h-24
                     '/>
                     <p className='mt-4 text-center text-teal-900 font-bold
@@ -151,7 +151,7 @@ const DashPanel = () => {
                     max-sm:${resposive ? "block " : "hidden"}
                 `}>
                     {dashboard.map((items)=>(
-                        <li key={items.id} 
+                        <li key={items.id} onClick={()=>setThem(items.id)}
                             className={`group flex flex-row-reverse font-semibold text-teal-900 my-2 py-3 px-4
                                 gap-4 rounded-r-full hover:bg-white hover:border-l-4 hover:border-l-orange
                                 transition-all duration-300 cursor-pointer                        
@@ -159,14 +159,14 @@ const DashPanel = () => {
                                 max-md:gap-0 max-md:text-sm 
                                 max-lg:${resposive? " " : " max-lg:hover:border-l-0 max-lg:rounded-full" }
                                 
-                                
+                               
                             `}
                         >
-                            <a href={items.link} className=' flex flex-row-reverse gap-1 w-full'> 
+                            <a href={items.link} className=' flex flex-row-reverse gap-1 max-sm:gap-4 w-full'> 
 
                                 <img src={items.icon} className={`hidden group-hover:block w-6 h-6
                                 max-lg:${resposive ? "hidden" : "block"} 
-                                max-sm:hidden max-sm:group-hover:block                         
+                                max-sm:hidden max-sm:group-hover:block max-lg:w-4 max-lg:h-4                         
                             `}/>
                             <p className={`${resposive? "max-lg:block" : "max-lg:hidden" } `}> {items.title} </p>
 
