@@ -136,7 +136,7 @@ const ArticlesNews = () => {
               id="search"
               name="search"
               type="text"
-              //   placeholder={placeholder}
+              placeholder={"...چی میخوای یاد بدونی؟"}
               className="mx-2 backdrop-blur-sm my-6  w-full outline-none
                h-[65px] rounded-full text-right pr-8 pb-2 dark:bg-gray-700/70  
               "
@@ -161,7 +161,7 @@ const ArticlesNews = () => {
         <OfferSection />
 
         {/*left: news section  */}
-        <div className="relative col-span-3">
+        <div className="relative col-span-3 ">
           {/* top part */}
           <div
             className="relative flex flex-row-reverse

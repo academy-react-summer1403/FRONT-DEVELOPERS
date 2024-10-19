@@ -29,7 +29,7 @@ const ArticleNewsCard = ({title,miniDescribe  , updateDate,currentView , id}) =>
                 </p>
 
                 <div className='absolute w-[270px] bg-red-400 top-[130px] flex flex-row-reverse my-4'>
-                    <div className='flex flex-row gap-1 text-xs text-gray-500 dark:text-gray-400 dark:group-hover:text-gray-200 absolute right-0'>
+                    <div className='flex flex-row gap-1 text-xs text-gray-500 dark:text-gray-400 dark:group-hover:text-gray-200 absolute right-4'>
                         {currentView}بازدید
                         <img src={seenIcon} />
                     </div>
@@ -40,7 +40,7 @@ const ArticleNewsCard = ({title,miniDescribe  , updateDate,currentView , id}) =>
                 </div>
 
                 <NavLink to={"/article-detail/" + id } className='flex justify-center pt-2 gap-1 text-xs font-medium 
-                text-orange border-t-[1px] absolute w-[250px] max-xl:w-[170px] max-lg:w-[250px]   top-[180px]'> 
+                text-orange border-t-[1px] absolute w-[250px] max-xl:w-[170px] max-lg:w-[250px] max-md:w-[200px] max-sm:w-[250px] top-[180px]'> 
                     <img src={flash} className='m-1'/>مطالعه بیشتر
                     
                 </NavLink>
