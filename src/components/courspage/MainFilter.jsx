@@ -19,7 +19,7 @@ const MainFilter = () => {
   return (
     <>
       
-        <div className="z-40 relative flex flex-col ml-[120px] gap-2  w-[200px]">
+        <div className="z-40 relative flex flex-col  gap-2  ">
           <div className="flex flex-row justify-center">
              <label to="checkbox">{category.data?.[0].techName}</label>
           <input

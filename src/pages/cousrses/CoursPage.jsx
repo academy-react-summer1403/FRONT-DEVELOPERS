@@ -301,7 +301,7 @@ const CoursPage = () => {
 
           {/* paginantion  */}
 
-          <div className="w-full grid grid-col-1 justfy-items-center mt-2">
+          <div className="w-full grid grid-col-1 justfy-items-center mt-2 max-sm:mb-20">
             <Pagination nextPage={nextPage} lastPage={lastPage} />
           </div>
         </div>

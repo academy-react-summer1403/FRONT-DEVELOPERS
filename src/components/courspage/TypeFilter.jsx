@@ -20,7 +20,7 @@ const TypeFilter = () => {
   return (
     <>
       
-        <div className="z-40 relative flex flex-col ml-[60px] gap-2  w-[200px]">
+        <div className="z-40 relative flex flex-col gap-2  ">
           <div className="flex flex-row justify-center ml-[105px]">
              <label to="checkbox" >{type.data?.[0].typeName}</label>
           <input
