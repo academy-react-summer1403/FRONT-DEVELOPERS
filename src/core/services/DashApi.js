@@ -34,12 +34,12 @@ export const getUserProfile = async () => {
 
 
   
-  export const deleteUserImg = async (  deleteData) => {
-    const data = await http.delete("/SharePanel/DeleteProfileImage" , deleteData  )
+  // export const deleteUserImg = async (  deleteData) => {
+  //   const data = await http.delete("/SharePanel/DeleteProfileImage" , deleteData  )
 
-    console.log(data);
-    return data;
-  };
+  //   console.log(data);
+  //   return data;
+  // };
 
 
 

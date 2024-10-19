@@ -7,7 +7,7 @@ import Comments from "../../components/coursedetailComponents/comments/Comments"
 import { motion } from "framer-motion";
 import { useArticleDetail } from "../../core/services/query/queries";
 import { useParams } from "react-router-dom";
-import { samecourses, suggestion } from "../CourseDetail/CourseDetail";
+// import { samecourses, suggestion } from "../CourseDetail/CourseDetail";
 
 
 const ArticleDetail = () => {
@@ -72,7 +72,7 @@ const ArticleDetail = () => {
             دوره های مرتبط
           </div>
 
-          {samecourses.map((data, index) => (
+          {/* {samecourses.map((data, index) => (
             <RelatedCourses
          
              
@@ -82,7 +82,7 @@ const ArticleDetail = () => {
               title={data.title}
               image={data.image}
             />
-          ))}
+          ))} */}
         </div>
 
         {/* suggestion section */}
@@ -99,14 +99,14 @@ const ArticleDetail = () => {
             مطالب پیشنهادی
           </div>
 
-          {suggestion.map((data, index) => (
+          {/* {suggestion.map((data, index) => (
             <RelatedCourses
              
               key={index}
               title={data.title}
               image={data.image}
             />
-          ))}
+          ))} */}
         </div>
       </div>
 

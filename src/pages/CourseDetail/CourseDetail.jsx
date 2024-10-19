@@ -21,7 +21,7 @@ const CourseDetial = () => {
   
 
   return (
-    <div className=" container border relative  mb-5  ">
+    <div className=" container  relative  mb-5  ">
   
 
       <div className="flex max-md:container  mt-[35px] justify-between">
