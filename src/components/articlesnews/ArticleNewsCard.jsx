@@ -17,7 +17,7 @@ const ArticleNewsCard = ({title,miniDescribe  , updateDate,currentView , id}) =>
         animate={{opacity:1 ,y:0}}
         transition={{type:"spring" , stiffness:100 , delay:0.3}}
     >
-        <div className='group  dark:bg-gray-600/70 dark:hover:bg-secondary transition duration-500 relative grid-col-1 rounded-t-full shadow px-6
+        <div className='group bg-white/80 dark:bg-gray-600/90 dark:hover:bg-secondary transition duration-500 relative grid-col-1 rounded-t-full shadow px-6
             max-sm:w-[70%] max-sm:mx-auto  max-sm:px-2 h-[400px]  mt-[30px]     
         '>
             <img src={newsImage} className='mx-auto  max-sm:w-[70%]'/>
