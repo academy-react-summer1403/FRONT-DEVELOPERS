@@ -5,7 +5,7 @@ import ShopImg from "../assets/landing/Shopping Bag.svg";
 import UserImg from "../assets/landing/user.png";
 import Logo from "../assets/landing/logo1.svg";
 import DarkMode from './DarkMode';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 
 
@@ -80,12 +80,13 @@ const Navbar = () => {
                         {
                             NavbarMenu.map((item)=>(
                                 <li key={item.id}>
-                                    <Link to={item.link}
-                                        className='inline-block justify-center text-[#555555]
+                                    <NavLink to={item.link}
+                                        className={({isActive})=>`${isActive ? "lg:text-orange max-lg:text-orange" :" "}
+                                        inline-block justify-center text-[#555555]
                                         text-[17px]  font-medium max-xl:text-base max-xl:text-right whitespace-nowrap  py-1 px-2 xl:px-3
                                         hover:text-secondary  transition-all duration-300 max-lg:text-sm max-lg:text-white max-lg:mt-0
-                                        mt-8 dark:text-white  dark:hover:text-orange'
-                                    >{item.title}</Link>
+                                        mt-8 dark:text-white  dark:hover:text-orange`}
+                                    >{item.title}</NavLink>
                                 </li>
                             ))
                         }

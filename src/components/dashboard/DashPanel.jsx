@@ -151,18 +151,20 @@ const DashPanel = () => {
                     max-sm:${resposive ? "block " : "hidden"}
                 `}>
                     {dashboard.map((items)=>(
-                        <li key={items.id} onClick={()=>setThem(items.id)}
-                            className={`group flex flex-row-reverse font-semibold text-teal-900 my-2 py-3 px-4
+                        <NavLink to={items.link}  key={items.id}
+                        className={({isActive})=>`${isActive ? "bg-white border-l-4 border-l-orange" :" "}
+                                group flex flex-row-reverse font-semibold text-teal-900 my-2 py-3 px-4
                                 gap-4 rounded-r-full hover:bg-white hover:border-l-4 hover:border-l-orange
                                 transition-all duration-300 cursor-pointer                        
                                 max-lg:gap-0 
                                 max-md:gap-0 max-md:text-sm 
-                                max-lg:${resposive? " " : " max-lg:hover:border-l-0 max-lg:rounded-full" }
-                                
-                               
-                            `}
+                                max-lg:${resposive? " " : " max-lg:hover:border-l-0 max-lg:hover:rounded-full" }
+                        
+                        `}
+                           
                         >
-                            <a href={items.link} className=' flex flex-row-reverse gap-1 max-sm:gap-4 w-full'> 
+                            <NavLink to={items.link} 
+                            className=" flex flex-row-reverse gap-1 max-sm:gap-4 w-full"> 
 
                                 <img src={items.icon} className={`hidden group-hover:block w-6 h-6
                                 max-lg:${resposive ? "hidden" : "block"} 
@@ -170,9 +172,9 @@ const DashPanel = () => {
                             `}/>
                             <p className={`${resposive? "max-lg:block" : "max-lg:hidden" } `}> {items.title} </p>
 
-                            </a>
+                            </NavLink>
                         
-                        </li>
+                        </NavLink>
                     ))}
                 </ul>
 
