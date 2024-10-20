@@ -84,9 +84,9 @@ const Filter = () => {
       </div>
 
       <ul
-        className="relative rounded-b-md
-            max-md:flex  
-            max-sm:grid max-sm:rounded-b-md"
+        className="relative rounded-b-md 
+            max-md:grid max-md:grid-cols-3 
+            max-sm:grid-cols-1 max-sm:justify-items-center max-sm:rounded-b-md"
       >
         <AccarFilter filter={filter} toggleAccordeion={toggleAccordeion} />
 
