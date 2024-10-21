@@ -6,6 +6,7 @@ import buy from '../../../assets/dashboard/Group 86.svg'
 import alert from '../../../assets/dashboard/Frame.svg'
 import cours from '../../../assets/dashboard/Rectangle 111.svg'
 import { useMyCourses } from '../../../core/services/query/DashboardQuery'
+import DonutBarChart from './DonutBarChart'
 
 
 
@@ -54,14 +55,17 @@ const StdDashboard = () => {
             </div>  
         </div>              
         
-        <div className='flex gap-2 pl-0 xl:absolute xl:left-2
+        <div className='flex gap-2 pl-0 xl:absolute xl:left-2 relative
         max-lg:mx-auto 
         '>
-          <div className=' w-24 h-24 border-[6px] border-secondary rounded-full mt-4
+
+        <DonutBarChart/>
+
+          {/* <div className=' w-24 h-24 border-[6px] border-secondary rounded-full mt-4
            shadow-sm text-teal-900 dark:text-white font-semibold text-center leading-[80px]'>
               100% 
-          </div>
-          <p className='w-56 text-center text-gray-400 mt-8 '>
+          </div> */}
+          <p className='w-[150px] font-sm text-[12px] absolute left-[230px] text-center text-gray-400 mt-8 '>
             برای شرکت در دوره ها باید حداحقل 80% پروفایل خود را کامل کنید
           </p>
         </div>
