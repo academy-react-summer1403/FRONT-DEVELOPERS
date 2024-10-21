@@ -9,6 +9,7 @@ import { useParams } from "react-router-dom";
 import Comment from "../../components/coursedetailComponents/comments/Comment";
 import RelatedCourses from "../../components/coursedetailComponents/RelatedCourses/RelatedCourses";
 import { ImageErrore } from "../../components/ImageErrore";
+import { useCommentCourse } from "../../core/services/query/CommentQuery";
 
 const CourseDetial = () => {
   const { courseId } = useParams();
@@ -82,7 +83,7 @@ const CourseDetial = () => {
         </h4>
         <div className="  ">
         
-          <Comment courseId={courseId}/>
+          <Comment Id={courseId} useComment={useCommentCourse} />
         </div>
       </div>
     </div>

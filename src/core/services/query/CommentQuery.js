@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { getCommentCourse, getReplyCourse } from "../apiComment";
+import { getCommentCourse, getCommentNews, getReplyCourse, getReplyNews } from "../apiComment";
 
 
 
@@ -23,4 +23,21 @@ export function useCommentCourse(courseId ) {
   }
 
 
- 
+   export function useCommentNews(NewsId ) {
+    const query = useQuery({
+      queryKey: ["commentNews", NewsId ],
+      queryFn: () => getCommentNews(NewsId),
+    });
+  
+    return query;
+  }
+
+
+  export function useReplyNews(Id) {
+    const query = useQuery({
+      queryKey: ["replyCourse",Id],
+      queryFn: () => getReplyNews(Id ),
+    });
+  
+    return query;
+  }
