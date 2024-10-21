@@ -1,0 +1,32 @@
+import React from 'react'
+
+const Commentdiv = ({comentdiv,setCommentdiv,holder}) => {
+  return (
+    
+    <div className={`${comentdiv ? "block" : "hidden"} border border-gray-300 shadow-md  bg-[#e2e2e2] w-[550px] h-[200px] rounded-3xl z-50 top-[35%] left-[36%] fixed`}>
+    <svg onClick={()=>setCommentdiv(false)} className=" border border-gray-800   mt-5 ml-[92%]" width="15" height="15" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+   <path d="M1.72313 1.72267L10.562 10.5615M10.562 1.72267L1.72313 10.5615" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+   </svg>
+   
+            <form 
+                     onSubmit={(values) => onSubmit(values)}
+               
+               >
+                 <div className=" w-[500px] m-auto mt-6 h-[50px] ">
+                 {/* <input type="text" className='w-[300px] h-[30px] border border-black' id='Title' name='Title'/>*/}
+                   <input type="text" placeholder={holder} className="w-[100%] h-[100%] border rounded-3xl px-3   outline-none" id='Describe' name='Describe'/>
+                   </div>
+                   <button type="submit" className="bg-primary dark:bg-[#FF8A00] font-Yekan text-[#005653] dark:text-white rounded-[30px] ml-[67%] w-[150px] h-[35px] mt-7 ">افزودن نظر جدید</button>
+               </form>
+   
+   
+   
+   
+   
+   
+   
+            </div>
+  )
+}
+
+export default Commentdiv

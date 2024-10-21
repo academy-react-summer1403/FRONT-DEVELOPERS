@@ -9,6 +9,7 @@ import { useArticleDetail } from "../../core/services/query/queries";
 import { useParams } from "react-router-dom";
 import Comment from "../../components/coursedetailComponents/comments/Comment";
 import { samecourses, suggestion } from "../CourseDetail/CourseDetail";
+import { useCommentNews } from "../../core/services/query/CommentQuery";
 // import { samecourses, suggestion } from "../CourseDetail/CourseDetail";
 
 
@@ -248,7 +249,7 @@ const ArticleDetail = () => {
 
          <div className="">
           <h4 className="mark mt-5 max-lg:mt-1 max-xl:text-[23px]  dark:text-slate-300   ">نظرات</h4>
-          <Comment/>
+          <Comment Id={id} useComment={useCommentNews}/>
         </div>
     </div>
 
