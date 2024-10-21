@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { useArticleDetail } from "../../../core/services/query/queries";
 import { useParams } from "react-router-dom";
+import { disslikeArticle, likeArticle } from "../../../core/services/getApi";
+import { toast } from "react-toastify";
 
 const ArticleDescription = () => {
 
@@ -9,9 +11,26 @@ const ArticleDescription = () => {
 
   
   const articleDetail = useArticleDetail(id);
-  console.log(articleDetail?.data);
+  // console.log(articleDetail?.data.detailsNewsDto.id);
+
+  const [like , setLike] = useState()
+  console.log(like)
+
+  const [disslike , setDissLike] = useState()
+  console.log(disslike)
 
 
+  
+
+  const likeArticle1 = likeArticle(like,toast)
+  console.log(likeArticle1)
+
+  const disslikeArticle1 = disslikeArticle(disslike,toast)
+  console.log(disslikeArticle1)
+
+
+  const [dislike1,setDislike1]=useState(true)
+  const [like1,setlike1]=useState(true)
 
 
   const [showMore, setShowMore] = useState(true);
@@ -99,10 +118,12 @@ leading-[32px] font-normal font-Yekan text-[20px] max-xl:text-[18px] flex items-
       >
         <div className=" flex items-center gap-5">
           <div className="  share max-xl:text-[14px] flex items-center gap-2">
-            <svg
+            <svg 
+             onClick={()=>(setlike1(!like1),setDislike1(dislike1==false ? !dislike1 : dislike1),setLike(id,toast))} 
               width="20"
               height="19"
-                className="max-xl:h-[15px] max-xl:w-[16px] stroke-[#AAAAAA] dark:stroke-orange"
+                className={`max-xl:h-[15px] max-xl:w-[16px] stroke-[#AAAAAA] dark:stroke-orange
+                  ${like1 ? "fill-none" : "fill-[#AAAAAA] dark:fill-orange"}`}
               viewBox="0 0 20 19"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -117,10 +138,10 @@ leading-[32px] font-normal font-Yekan text-[20px] max-xl:text-[18px] flex items-
             </svg>
            {articleDetail.data?.detailsNewsDto.currentLikeCount} 
             <svg
-              className="max-xl:h-[15px] max-xl:w-[16px] stroke-[#AAAAAA] dark:stroke-orange"
+              className={`max-xl:h-[15px] max-xl:w-[16px] stroke-[#AAAAAA] dark:stroke-orange ${dislike1 ? "fill-none" : "fill-[#AAAAAA] dark:fill-orange"} `}
               width="20"
               height="19"
-              
+              onClick={()=>(setDislike1(!dislike1),setlike1(like1==false ? !like1 : like1),setDissLike(id,toast))}
               viewBox="0 0 20 19"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"

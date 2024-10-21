@@ -85,6 +85,23 @@ export const getUserProfile = async () => {
 
 
 
+
+  export const postFavoriteNews = async (  params, toast) => {
+    const data = await http.post(`/News/AddFavoriteNews`,null,{
+      params:params
+    },
+      toast.success("عملیات  با موفقیت انجام شد" ,{
+        theme:"colored"}
+    ))
+  
+    console.log(data);
+    return data;
+  };
+
+
+
+
+
   // export const getCommentPanel = async ( ) => {
   //   const data = await http.post("/CourseReserve/ReserveAdd" )
   

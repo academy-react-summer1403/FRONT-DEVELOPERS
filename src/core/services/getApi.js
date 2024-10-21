@@ -1,4 +1,7 @@
+import { toast } from "react-toastify";
 import http from "./interceptor";
+import 'react-toastify/dist/ReactToastify.css';
+
 
 export const getNews = async (params , page ) => {
   const data = await http.get(`/News?PageNumber=${page}&RowsOfPage=6` , {
@@ -68,3 +71,26 @@ export const getLandingReport = async () => {
 };
 
 
+
+export const likeArticle = async ( like ) => {
+  const data = await http.post(`/News/NewsLike/${like}`,
+    toast.success("good",{
+      theme:"colored"
+    })
+  )
+
+  console.log(data);
+  return data;
+};
+
+
+export const disslikeArticle = async ( disslike ) => {
+  const data = await http.post(`/News/NewsDissLike/${disslike}`,
+    toast.success("good",{
+      theme:"colored"
+    })
+  )
+
+  console.log(data);
+  return data;
+};
