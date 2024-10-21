@@ -31,8 +31,7 @@ const CourseCard = ({courseId}) => {
 
   const  reservComment = postReserv(params , toast)
   console.log(reservComment) 
- 
-  
+  const [save,setSave]=useState(false)
 
   return (
     <>
@@ -42,7 +41,7 @@ const CourseCard = ({courseId}) => {
             animate={{ x:0,y:0,opacity:1}}
             transition={{type:"spring",stiffness:40, delay:0.2}} style={{boxShadow:" 0px 1px 2px 0 rgba(0, 0, 0, 0.25)"}} className="max-xl:w-[500px]  max-sm:mx-auto max-xl:h-[320px] max-lg:h-[300px]  w-[598px] p-[36px] dark:dark:bg-slate-700 bg-[#FFFFFF]  rounded-[15px]  h-[395px]">
           <div className=" flex justify-between  relative"> 
-            <svg onClick={()=>(setFavorite(courseId , toast),setSave(!save))}
+            <svg onClick={()=>(setFavorite(courseId),setSave(!save))}
               width="27"
               className={`h-[20px] stroke-[#00B4AF] dark:stroke-orange fill-primary
                 ${save ? "fill-white dark:fill-slate-700" : "  fill-primary dark:fill-orange"}` }
