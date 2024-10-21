@@ -10,6 +10,9 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import http from "../../core/services/interceptor";
 import { useDispatch } from 'react-redux';
 import { handleToken } from '../../core/redux/slices/QueryState/TokenSlice';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import axios from 'axios';
 
 
 
@@ -27,7 +30,7 @@ console.log(phoneOrGmail)
 console.log(password)
 
 
-const dispatch = useDispatch()
+// const dispatch = useDispatch()
 
 
   const onSubmit =async (e)=>{
@@ -41,23 +44,36 @@ const dispatch = useDispatch()
     console.log(user)
 
 
-    const data = await http.post("/Sign/Login" , user)
-    console.log(data)
-
-    const token = data.token
-    console.log(token)
-
-
-    localStorage.setItem("token" , token); 
-
-    dispatch(handleToken(token))
+      const data = await http.post("/Sign/Login" , user)
     
+    console.log(data.success)
 
-    navigate("/");
+  if(data.success == true){
 
+      toast.success("ورود با موفقیت انجام شد" , {
+theme:"colored"
+})
+navigate("/")
+  }else{
+    toast.error("اطلاعات ورودی نادرست است" , {
+      theme:"colored"
+      })
   }
 
 
+    
+
+  }
+
+ 
+    
+
+  
+
+ 
+
+
+  
 
 
 
@@ -179,7 +195,8 @@ const dispatch = useDispatch()
                     className="text-red-500 w-[50px] text-[10px] font-semibold absolute whitespace-nowrap left-[50px] top-[93px]"
                   /> */}
              
-                  <button
+                  <button 
+
                     type="submit"
                     className="w-[90px] h-[30px] rounded-2xl bg-orange absolute top-[130px] right-[105px] text-white text-[10px] font-semibold"
                   >

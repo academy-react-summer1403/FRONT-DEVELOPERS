@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { NavLink, Outlet } from 'react-router-dom'
+import { Link, NavLink, Outlet } from 'react-router-dom'
 
 // images:
 import logout from '../../assets/dashboard/logout.svg'
@@ -162,7 +162,7 @@ const DashPanel = () => {
                                
                             `}
                         >
-                            <a href={items.link} className=' flex flex-row-reverse gap-1 max-sm:gap-4 w-full'> 
+                            <Link to={items.link} className=' flex flex-row-reverse gap-1 max-sm:gap-4 w-full'> 
 
                                 <img src={items.icon} className={`hidden group-hover:block w-6 h-6
                                 max-lg:${resposive ? "hidden" : "block"} 
@@ -170,7 +170,7 @@ const DashPanel = () => {
                             `}/>
                             <p className={`${resposive? "max-lg:block" : "max-lg:hidden" } `}> {items.title} </p>
 
-                            </a>
+                            </Link>
                         
                         </li>
                     ))}

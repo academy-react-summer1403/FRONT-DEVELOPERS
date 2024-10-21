@@ -1,14 +1,14 @@
 import React from 'react'
 import { IoEyeOutline } from 'react-icons/io5'
 import { NavLink } from 'react-router-dom'
-// import { useMyCourses } from '../../../core/services/query/DashboardQuery';
+import { useMyCourses } from '../../../core/services/query/DashboardQuery';
 
 const ListMap = () => {
 
 
 
-  // const getMyCourses = useMyCourses();
-  // console.log(getMyCourses.data?.listOfMyCourses)
+  const getMyCourses = useMyCourses();
+  console.log(getMyCourses.data?.listOfMyCourses)
   
   
 

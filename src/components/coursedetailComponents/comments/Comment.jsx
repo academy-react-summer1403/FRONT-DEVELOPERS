@@ -33,6 +33,8 @@ const Comment = ({courseId}) => {
 
       const addComment = postComment(formData)
       console.log(addComment)
+
+      
     };
 
 

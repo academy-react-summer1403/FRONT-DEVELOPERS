@@ -11,6 +11,7 @@ import "react-verification-input-aria/lib/style.css";
 import { NavLink, useNavigate } from 'react-router-dom';
 import {   postCode } from '../../core/services/authApi';
 import OTPInput from 'react-otp-input';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -38,10 +39,12 @@ console.log(verifyCode)
   const res = postCode(code)
     console.log(res)
 
+
+    
+
     navigate("/auth/3");
 
   }
-
 
 
 
@@ -183,7 +186,7 @@ console.log(verifyCode)
                  
                  </input> */}
                  
-                  <button
+                  <button 
                     type="submit"
                     className="w-[90px] h-[30px] rounded-2xl bg-orange absolute top-[100px] right-[105px] text-white text-[10px] font-semibold"
                   >
