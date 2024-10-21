@@ -68,7 +68,7 @@ const Navbar = () => {
     
                 {/* ACCOUNT section  */}
                 <div className=' text-2xl flex items-center gap-2 font-bold'>
-                    <div className='group relative w-36 max-md:w-[150px]  max-sm:w-[150px]
+                    <div className='group relative w-36 max-md:w-[150px]  max-sm:w-[150px] z-[9999]
                             max-lg:w-[150px] max-xl:w-[200px] h-12 bg-primary
                             mt-6 rounded-3xl hover:shadow-lg  dark:bg-orange 
                             dark:hover:shadow-slate-700 dark:hover:shadow-md z-50
@@ -79,10 +79,10 @@ const Navbar = () => {
                         </NavLink> 
                         {/* chooseAccont  */}
                         <div
-                            className="absolute z-[999] hidden group-hover:block w-44 mt-[4px]
+                            className="absolute group-hover:absolute z-[5000] hidden group-hover:block w-44 mt-[4px]
                              rounded-md bg-white shadow-md dark:bg-gray-600 p-2 dark:text-white"
                         >
-                            <ul className=" z-[9999]">
+                            <ul className="relative z-[9999]">
                             {Acconts.map((item, index) => (
                                 <li key={index} className={`group flex flex-row
                                     hover:text-black dark:text-white duration-200 p-2
@@ -90,10 +90,10 @@ const Navbar = () => {
                                     cursor-pointer 
                                     ${item.isloged ? "bg-primary dark:bg-secondary" :""}
                                 `}>
-                                    <CgProfile className='w-8 h-8'/>
+                                    <CgProfile className={`w-5 h-5  ${item.isloged ? "w-9 h-9" :""}` }/>
                                     <div
-                                        className="block px-4 text-gray-900 dark:text-white text-sm                                        
-                                    "
+                                        className={`block px-4 text-gray-900 dark:text-white text-sm  ${item.isloged ? "leading-10": "" }                                    
+                                    `}
                                     >
                                         {item.userName}
                                     </div>
@@ -124,7 +124,7 @@ const Navbar = () => {
                             NavbarMenu.map((item)=>(
                                 <li key={item.id}>
                                     <NavLink to={item.link}
-                                        className={({isActive})=>`${isActive ? "lg:text-orange max-lg:text-orange dark:text-orange" :" "}
+                                        className={({isActive})=>`${isActive ? "lg:text-orange max-lg:text-orange dark:text-orange/80" :" "}
                                         inline-block justify-center text-[#555555]
                                         text-[17px]  font-medium max-xl:text-base max-xl:text-right whitespace-nowrap  py-1 px-2 xl:px-3
                                         hover:text-secondary  transition-all duration-300 max-lg:text-sm max-lg:text-white max-lg:mt-0

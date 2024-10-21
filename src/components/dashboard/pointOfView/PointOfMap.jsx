@@ -2,6 +2,7 @@ import React from 'react'
 import { IoEyeOutline } from 'react-icons/io5'
 import { TbTrash } from 'react-icons/tb'
 import { NavLink } from 'react-router-dom'
+import { ImageErrore } from '../../ImageErrore'
 
 const PointOfMap = () => {
 
@@ -34,7 +35,8 @@ const PointOfMap = () => {
             <li className='col-1'>
                 <img
                 // src={}
-                alt=""
+                alt=" "
+                onError={ImageErrore}
                 className='rounded-full border w-12 h-12 col-1 shadow-md my-1'
                 ></img>
             </li>
