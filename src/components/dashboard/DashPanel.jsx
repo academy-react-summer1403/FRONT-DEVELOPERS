@@ -163,12 +163,8 @@ const DashPanel = () => {
                         `}
                            
                         >
-<<<<<<< HEAD
-                            <Link to={items.link} className=' flex flex-row-reverse gap-1 max-sm:gap-4 w-full'> 
-=======
                             <NavLink to={items.link} 
                             className=" flex flex-row-reverse gap-1 max-sm:gap-4 w-full"> 
->>>>>>> f397956aaf59ac8753fcb07c057c78befbd76b21
 
                                 <img src={items.icon} className={`hidden group-hover:block w-6 h-6
                                 max-lg:${resposive ? "hidden" : "block"} 
@@ -176,11 +172,7 @@ const DashPanel = () => {
                             `}/>
                             <p className={`${resposive? "max-lg:block" : "max-lg:hidden" } `}> {items.title} </p>
 
-<<<<<<< HEAD
-                            </Link>
-=======
                             </NavLink>
->>>>>>> f397956aaf59ac8753fcb07c057c78befbd76b21
                         
                         </NavLink>
                     ))}
