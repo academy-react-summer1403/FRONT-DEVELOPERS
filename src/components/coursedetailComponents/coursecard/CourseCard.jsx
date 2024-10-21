@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import { motion } from 'framer-motion';
 import { useCourseId } from '../../../core/services/query/queries';
 import { postFavoriteCourse, postReserv } from '../../../core/services/DashApi';
-
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const CourseCard = ({courseId}) => {
 
@@ -13,9 +14,10 @@ const CourseCard = ({courseId}) => {
     courseId : favorite
   }
 
-  const addFavoriteCourse = postFavoriteCourse(addFavorite)
+  const addFavoriteCourse = postFavoriteCourse(addFavorite , toast)
   console.log(addFavoriteCourse)
 
+ 
   const CourseDetail = useCourseId(courseId);
   console.log(CourseDetail.data);
 
@@ -27,11 +29,10 @@ const CourseCard = ({courseId}) => {
     courseId : reserv
   }
 
-  const [save,setSave]=useState(false)
-
-  const  reservComment = postReserv(params)
+  const  reservComment = postReserv(params , toast)
   console.log(reservComment) 
  
+  
 
   return (
     <>
@@ -41,7 +42,7 @@ const CourseCard = ({courseId}) => {
             animate={{ x:0,y:0,opacity:1}}
             transition={{type:"spring",stiffness:40, delay:0.2}} style={{boxShadow:" 0px 1px 2px 0 rgba(0, 0, 0, 0.25)"}} className="max-xl:w-[500px]  max-sm:mx-auto max-xl:h-[320px] max-lg:h-[300px]  w-[598px] p-[36px] dark:dark:bg-slate-700 bg-[#FFFFFF]  rounded-[15px]  h-[395px]">
           <div className=" flex justify-between  relative"> 
-            <svg onClick={()=>(setFavorite(courseId),setSave(!save))}
+            <svg onClick={()=>(setFavorite(courseId , toast),setSave(!save))}
               width="27"
               className={`h-[20px] stroke-[#00B4AF] dark:stroke-orange fill-primary
                 ${save ? "fill-white dark:fill-slate-700" : "  fill-primary dark:fill-orange"}` }
@@ -134,7 +135,7 @@ const CourseCard = ({courseId}) => {
                 
           <button
           
-            onClick={()=>setReserv(courseId)}
+            onClick={()=>setReserv(courseId , toast)}
           className="bg-[#FF8A00] max-lg:text-[16px]   max-md:mx-auto  max-xl:w-[280px] max-xl:h-[40px] max-lg:ml-[0] max-xl:ml-[10%] ml-[18%] max-xl:mt-[15px] mt-[25px] flex gap-3 items-center justify-center  w-[347px] h-[55px] text-white rounded-[9px] font-bold max-xl:text-[19px] text-[22px]  ">
             !شرکت در دوره
             <svg

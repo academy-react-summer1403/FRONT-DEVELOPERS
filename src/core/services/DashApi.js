@@ -1,5 +1,6 @@
+import { toast } from "react-toastify";
 import http from "./interceptor";
-
+import 'react-toastify/dist/ReactToastify.css';
 
 export const getUserProfile = async () => {
     const data = await http.get("/SharePanel/GetProfileInfo" )
@@ -44,12 +45,12 @@ export const getUserProfile = async () => {
 
 
   
-  // export const getMyCourses = async () => {
-  //   const data = await http.get("/SharePanel/GetMyCourses" )
+  export const getMyCourses = async () => {
+    const data = await http.get("/SharePanel/GetMyCourses" )
   
-  //   console.log(data);
-  //   return data;
-  // };
+    console.log(data);
+    return data;
+  };
 
   export const reservCourse = async () => {
     const data = await http.get("/SharePanel/GetMyCoursesReserve" )
@@ -60,15 +61,23 @@ export const getUserProfile = async () => {
   
   
   
-  export const postReserv = async ( params) => {
-    const data = await http.post("/CourseReserve/ReserveAdd" , params )
+  export const postReserv = async ( params ,toast) => {
+    const data = await http.post("/CourseReserve/ReserveAdd" , params ,
+      toast.success("عملیات  با موفقیت انجام شد" ,{
+        theme:"colored"
+      })
+    )
   
     console.log(data);
     return data;
   };
 
-  export const postFavoriteCourse = async ( addFavorite) => {
-    const data = await http.post("/Course/AddCourseFavorite" , addFavorite )
+  export const postFavoriteCourse = async ( addFavorite , toast) => {
+    const data = await http.post("/Course/AddCourseFavorite" , addFavorite ,
+
+    toast.success("عملیات  با موفقیت انجام شد" ,{
+      theme:"colored"
+    }))
   
     console.log(data);
     return data;
@@ -91,4 +100,16 @@ export const getUserProfile = async () => {
     return data;
   };
 
+  export const passwordDash = async (pass ) => {
+    const data = await http.post("/SharePanel/ChangePassword", pass )
   
+    console.log(data);
+    return data;
+  };
+
+  export const deleteCourseFavorite = async ( formData) => {
+    const data = await http.delete("/Course/DeleteCourseFavorite" , formData)
+  
+    console.log(data);
+    return data;
+  };

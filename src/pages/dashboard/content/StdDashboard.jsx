@@ -5,10 +5,19 @@ import reserve from '../../../assets/dashboard/Group 87.svg'
 import buy from '../../../assets/dashboard/Group 86.svg'
 import alert from '../../../assets/dashboard/Frame.svg'
 import cours from '../../../assets/dashboard/Rectangle 111.svg'
+import { useMyCourses } from '../../../core/services/query/DashboardQuery'
 
 
 
 const StdDashboard = () => {
+
+
+  const getMyCourses = useMyCourses();
+  console.log(getMyCourses?.data)
+
+
+  
+  
 
   
 

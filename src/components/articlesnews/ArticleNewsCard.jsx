@@ -10,6 +10,16 @@ import flash from '../../assets/articles and news/Frame(2).svg'
 
 
 const ArticleNewsCard = ({title,miniDescribe  , updateDate,currentView , id}) => {
+    const date = new Date(updateDate)
+    const formattedDate = date.toLocaleDateString("fa-GB", {
+    day: "numeric",
+    month: "numeric",
+    year: "numeric"
+    })
+
+console.log(formattedDate)
+
+
   return (
     <NavLink>
     <motion.div
@@ -34,7 +44,7 @@ const ArticleNewsCard = ({title,miniDescribe  , updateDate,currentView , id}) =>
                         <img src={seenIcon} />
                     </div>
                     <div className='absolute left-0 flex flex-row-reverse gap-1 text-[10px] text-gray-500 dark:text-gray-400 dark:group-hover:text-gray-200'>
-                        {updateDate}
+                        {formattedDate}
                         <img src={calenderIcon}/>
                     </div>
                 </div>

@@ -6,6 +6,7 @@ import Img4 from "../../assets/landing/items4.png";
 import Img5 from "../../assets/landing/items5.png";
 import Img6 from "../../assets/landing/items6.png";
 import { IoIosArrowBack } from "react-icons/io";
+import { NavLink } from 'react-router-dom';
 
 
 const News = () => {
@@ -110,8 +111,9 @@ const News = () => {
         <div className='flex items-center gap-2    mx-auto mt-5 '>
           <svg width="7" height="11" viewBox="0 0 7 11" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M5.84375 10.1875L1.15625 5.5L5.84375 0.8125" stroke="#AAAAAA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-
-          <h3 className=' text-right font-normal font-Yekan text-[18px] text-[#AAAAAA]'> مشاهده بیشتر</h3>
+            <NavLink to={"/article-news"}>
+              <h3 className=' text-right font-normal font-Yekan text-[18px] text-[#AAAAAA]'> مشاهده بیشتر</h3>
+            </NavLink>
      
 
        

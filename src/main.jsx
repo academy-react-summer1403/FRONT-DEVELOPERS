@@ -6,7 +6,8 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { Provider } from "react-redux";
 import { store } from "./core/redux/store.js";
 import App from "./App.jsx";
-
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from "react-toastify";
 
 
 
@@ -21,6 +22,7 @@ createRoot(document.getElementById("root")).render(
      <QueryClientProvider client={queryClient}>
       <Provider store={store}>
           <App/>
+          <ToastContainer />
       </Provider>
     <ReactQueryDevtools/>
     </QueryClientProvider>
