@@ -102,7 +102,8 @@ const Learning = () => {
         
 
       <div className=' m-auto relative   '>
-        <NavLink to={""}>  <h3 className=' text-[#AAAAAA] absolute left-8 top-3 font-Yekan font-normal text-[20px]  flex items-center gap-2'>
+        <NavLink to={"/courses"} className='relative'>
+          <h3 className='z-[999] w-32 text-[#AAAAAA] absolute left-8 top-3 font-Yekan font-normal text-[20px]  flex items-center gap-2'>
           <svg width="7" height="11" viewBox="0 0 7 11" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M5.84375 10.1875L1.15625 5.5L5.84375 0.8125" stroke="#AAAAAA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>

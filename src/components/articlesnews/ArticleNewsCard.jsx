@@ -10,6 +10,16 @@ import flash from '../../assets/articles and news/Frame(2).svg'
 
 
 const ArticleNewsCard = ({title,miniDescribe  , updateDate,currentView , id}) => {
+    const date = new Date(updateDate)
+    const formattedDate = date.toLocaleDateString("fa-GB", {
+    day: "numeric",
+    month: "numeric",
+    year: "numeric"
+    })
+
+console.log(formattedDate)
+
+
   return (
     <NavLink>
     <motion.div
@@ -17,7 +27,7 @@ const ArticleNewsCard = ({title,miniDescribe  , updateDate,currentView , id}) =>
         animate={{opacity:1 ,y:0}}
         transition={{type:"spring" , stiffness:100 , delay:0.3}}
     >
-        <div className='group  dark:bg-gray-600/70 dark:hover:bg-secondary transition duration-500 relative grid-col-1 rounded-t-full shadow px-6
+        <div className='group bg-white/80 dark:bg-gray-600/90 dark:hover:bg-secondary transition duration-500 relative grid-col-1 rounded-t-full shadow px-6
             max-sm:w-[70%] max-sm:mx-auto  max-sm:px-2 h-[400px]  mt-[30px]     
         '>
             <img src={newsImage} className='mx-auto  max-sm:w-[70%]'/>
@@ -34,7 +44,7 @@ const ArticleNewsCard = ({title,miniDescribe  , updateDate,currentView , id}) =>
                         <img src={seenIcon} />
                     </div>
                     <div className='absolute left-0 flex flex-row-reverse gap-1 text-[10px] text-gray-500 dark:text-gray-400 dark:group-hover:text-gray-200'>
-                        {updateDate}
+                        {formattedDate}
                         <img src={calenderIcon}/>
                     </div>
                 </div>

@@ -19,8 +19,8 @@ const MainFilter = () => {
   return (
     <>
       
-        <div className="z-40 relative flex flex-col  gap-2  ">
-          <div className="flex flex-row justify-center">
+        <div className="z-40 relative flex flex-col gap-2">
+          <div className="flex flex-row justify-end">
              <label to="checkbox">{category.data?.[0].techName}</label>
           <input
             type="checkbox"
@@ -29,7 +29,7 @@ const MainFilter = () => {
             onClick={() => dispatch(Add(1))}
           />
           </div>
-          <div className="flex flex-row justify-center -mr-[16px]">
+          <div className="flex flex-row justify-end ">
              <label to="checkbox">{category.data?.[1].techName}</label>
           <input
             type="checkbox"
@@ -38,7 +38,7 @@ const MainFilter = () => {
             onClick={() => dispatch(Add(2))}
           />
           </div>
-            <div className=" flex flex-row justify-center -mr-[14px]">
+            <div className=" flex flex-row justify-end ">
                <label to="checkbox">{category.data?.[2].techName}</label>
           <input
             type="checkbox"
@@ -47,7 +47,7 @@ const MainFilter = () => {
             onClick={() => dispatch(Add(3))}
           /> 
             </div>
-          <div className="flex flex-row justify-center">
+          <div className="flex flex-row justify-end">
           <label to="checkbox">{category.data?.[3].techName}</label>
           <input
             type="checkbox"

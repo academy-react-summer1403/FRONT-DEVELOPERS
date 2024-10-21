@@ -5,11 +5,9 @@ import ShopImg from "../assets/landing/Shopping Bag.svg";
 import UserImg from "../assets/landing/user.png";
 import Logo from "../assets/landing/logo1.svg";
 import DarkMode from './DarkMode';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
-
-
-
+import { CgProfile } from "react-icons/cg";
 
 export const NavbarMenu =[
   {
@@ -41,6 +39,21 @@ export const NavbarMenu =[
 
 const Navbar = () => {
 
+     const Acconts =[
+        {
+            userName:"FatemehStd",
+            isloged:true,
+        },
+        {
+            userName:"saraStd",
+            isloged:false,
+        } ,
+        {
+            userName:"ariaStd",
+            isloged:false,
+        }
+    ]
+
   return (
     <motion.div  className='z-[200] max-md:px-3 '
     initial={{opacity:0}}
@@ -49,29 +62,59 @@ const Navbar = () => {
 >
 
     <div>
-        <div className='container flex justify-between items-center py-6 dark:bg-gray-900  duration-200
-            max-lg:py-1 max-lg:mb-10
+        <div className='container flex justify-between items-center py-6 dark:bg-gray-900 duration-200
+            max-lg:py-1 max-lg:mb-10 
         '>
     
                 {/* ACCOUNT section  */}
                 <div className=' text-2xl flex items-center gap-2 font-bold'>
-                   
-                    <NavLink to={"/auth"} className='relative w-36 max-md:w-[150px]  max-sm:w-[150px] max-lg:w-[150px] max-xl:w-[200px]  h-10 bg-primary
-                        mt-8 rounded-3xl hover:shadow-lg  dark:bg-orange  dark:hover:shadow-slate-700 dark:hover:shadow-md
-                        transition-shadow'>
-                        <img src={UserImg} alt="" className='w-7 h-7  absolute top-1.5 left-4'/>
-                        <h1 className='text-sm  font-semibold text-white text-right leading-loose px-2 py-1 '>حساب کاربری</h1>
-                    </NavLink> 
-
+                    <div className='group relative w-36 max-md:w-[150px]  max-sm:w-[150px]
+                            max-lg:w-[150px] max-xl:w-[200px] h-12 bg-primary
+                            mt-6 rounded-3xl hover:shadow-lg  dark:bg-orange 
+                            dark:hover:shadow-slate-700 dark:hover:shadow-md z-50
+                            transition-shadow'>
+                        <NavLink to={"/auth"} >
+                            <img src={UserImg} alt="" className='w-7 h-7  absolute top-1.5 left-4'/>
+                            <h1 className='text-sm  font-semibold text-white text-right leading-9 mr-3 py-1 '>حساب کاربری</h1>
+                        </NavLink> 
+                        {/* chooseAccont  */}
+                        <div
+                            className="absolute z-[999] hidden group-hover:block w-44 mt-[4px]
+                             rounded-md bg-white shadow-md dark:bg-gray-600 p-2 dark:text-white"
+                        >
+                            <ul className=" z-[9999]">
+                            {Acconts.map((item, index) => (
+                                <li key={index} className={`group flex flex-row
+                                    hover:text-black dark:text-white duration-200 p-2
+                                    w-full hover:bg-primary/60 dark:hover:bg-secondary rounded-md text-right
+                                    cursor-pointer 
+                                    ${item.isloged ? "bg-primary dark:bg-secondary" :""}
+                                `}>
+                                    <CgProfile className='w-8 h-8'/>
+                                    <div
+                                        className="block px-4 text-gray-900 dark:text-white text-sm                                        
+                                    "
+                                    >
+                                        {item.userName}
+                                    </div>
+                                </li>
+                            ))}
+                            </ul>
+                        </div>
+                
+                    </div>
+                    {/* shop&favorit  */}
                     <div className='flex justify-center flex-row gap-4 ml-4 max-lg:gap-1 max-lg:ml-0'>                    
                         <NavLink to={"/basket"} className='relative '>
-                        <img src={ShopImg} alt="" className='mt-8  max-xl:w-[45px] max-lg:w-[40px]'/>
-                        <div className='w-[16px] h-[16px] flex  items-center font-Yekan justify-center bg-orange rounded-full absolute px-[1px] max-lg:bottom-0 bottom-0 right-[-2px] text-[12px] font-normal text-white leading-3'>0</div>
+                            <img src={ShopImg} alt="" className='mt-8  max-xl:w-[45px] max-lg:w-[40px]'/>
+                            <div className='w-[16px] h-[16px] flex  items-center font-Yekan justify-center bg-orange rounded-full absolute px-[1px] max-lg:bottom-0 bottom-0 right-[-2px] text-[12px] font-normal text-white leading-3'>0</div>
                         </NavLink>
-                        <img src={FavImg} alt=""  className='mt-8 max-xl:mt-[35px] max-xl:w-[30px]  max-lg:w-[30px] max-2xl:mt-[35px] max-2xl:w-[40px]'/>
+                        <NavLink to={"/stdFavorite"}>
+                            <img src={FavImg} alt=""  className='mt-8 max-xl:mt-[35px] max-xl:w-[30px]  max-lg:w-[30px] max-2xl:mt-[35px] max-2xl:w-[40px]'/>
+                        </NavLink>
                     </div>                   
                     
-                </div>
+               </div>
 
                 {/* menu section  */}
                 <div className=' max-lg:absolute max-lg:bg-primary max-lg:h-8 max-lg:z[3000] 
@@ -80,12 +123,13 @@ const Navbar = () => {
                         {
                             NavbarMenu.map((item)=>(
                                 <li key={item.id}>
-                                    <Link to={item.link}
-                                        className='inline-block justify-center text-[#555555]
+                                    <NavLink to={item.link}
+                                        className={({isActive})=>`${isActive ? "lg:text-orange max-lg:text-orange dark:text-orange" :" "}
+                                        inline-block justify-center text-[#555555]
                                         text-[17px]  font-medium max-xl:text-base max-xl:text-right whitespace-nowrap  py-1 px-2 xl:px-3
                                         hover:text-secondary  transition-all duration-300 max-lg:text-sm max-lg:text-white max-lg:mt-0
-                                        mt-8 dark:text-white  dark:hover:text-orange'
-                                    >{item.title}</Link>
+                                        mt-8 dark:text-white  dark:hover:text-orange`}
+                                    >{item.title}</NavLink>
                                 </li>
                             ))
                         }

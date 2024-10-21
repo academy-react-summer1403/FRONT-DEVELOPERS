@@ -21,7 +21,7 @@ const TypeFilter = () => {
     <>
       
         <div className="z-40 relative flex flex-col gap-2  ">
-          <div className="flex flex-row justify-center ml-[105px]">
+          <div className="flex flex-row justify-end ">
              <label to="checkbox" >{type.data?.[0].typeName}</label>
           <input
             type="checkbox"
@@ -30,7 +30,7 @@ const TypeFilter = () => {
             onClick={() => dispatch(Add(1))}
           />
           </div>
-          <div className="flex flex-row justify-center ml-[125px]">
+          <div className="flex flex-row justify-end ">
              <label to="checkbox">{type.data?.[1].typeName}</label>
           <input
             type="checkbox"
@@ -39,7 +39,7 @@ const TypeFilter = () => {
             onClick={() => dispatch(Add(2))}
           />
           </div>
-            <div className=" flex flex-row justify-center ml-[70px]">
+            <div className=" flex flex-row justify-end ">
                <label className='whitespace-nowrap' to="checkbox">{type.data?.[2].typeName}</label>
           <input
             type="checkbox"
