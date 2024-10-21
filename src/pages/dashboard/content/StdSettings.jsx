@@ -40,7 +40,7 @@ const StdSettings = () => {
       </div>
  
       {/* accardeion  */}
-      <Accordion className='grid grid-cols-1 mx-auto border'>
+      <Accordion className='grid grid-cols-1 mx-auto '>
 
          {/* password */}
 

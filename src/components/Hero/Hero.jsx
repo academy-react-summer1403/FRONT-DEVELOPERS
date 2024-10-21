@@ -28,7 +28,7 @@ console.log(reportLanding)
 
 
     return (
-      <div className='  z-10'>
+      <div className='  z-[-9999]'>
         <div
           className="container   flex items-center  flex-nowrap justify-between
       min-h-[650px] relative"
@@ -42,9 +42,10 @@ console.log(reportLanding)
 
         
         
-            <div style={{boxShadow:"-2px 0px 5px 0px #00000026"}} className='w-[180px] max-xl:w-[150px] max-lg:w-[130px] max-lg:ml-[-40px] max-md:hidden  max-lg:h-[95px] max-xl:top-[-30px] absolute top-[-20px] left-[-20px] h-[105px] ml-5 bg-white rounded-[10px]  z-40 
+            <div style={{boxShadow:"-2px 0px 5px 0px #00000026"}} className='w-[180px] max-xl:w-[150px] max-lg:w-[130px] max-lg:ml-[-40px]
+             max-md:hidden  max-lg:h-[95px] max-xl:top-[-30px] absolute top-[-20px] left-[-20px] h-[105px] ml-5 bg-white rounded-[10px]  z-40 
                dark:bg-gray-700/70  dark:hover:bg-gray-700/100  dark:hover:transition-colors'>
-              <div style={{boxShadow: "0px 0px 5px 0px #00000059"}} className='flex items-center justify-center  max-lg:w-[48px] max-lg:h-[48px] bg-[#FFB803] rounded-full max-xl:ml-[40px] ml-[60px] mt-[-30px] w-[68px] h-[68px] '>
+              <div style={{boxShadow: "0px 0px 5px 0px #00000059"}} className='flex items-center justify-center z-0 max-lg:w-[48px] max-lg:h-[48px] bg-[#FFB803] rounded-full max-xl:ml-[40px] ml-[60px] mt-[-30px] w-[68px] h-[68px] '>
                 <img className='  w-[45px] h-[45px] max-lg:w-[35px] max-lg:h-[35px]' src="https://s3-alpha-sig.figma.com/img/964f/1424/c9d17b05e8bbb686022aab84b0a67d3f?Expires=1729468800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=f0uhG151j7P91t9POto~TDdcx0K~1s-Ox6HA3kT2TJK7YarMAykNDpjDnnXd3gomWn9LyitL8mxgp0NVlZk9cbACowFE8qLwHFPf4wCCXWlXLsvdfqjyApVohI9zt6jHUuUXUyVYWSc2NavwyJqio8pqFhXcrl44flKUPzqU0pPquzgn5b-1aBp3k7AKudhuWpLCw9t6Aonnrz6oZcMJpkIwAo2uSOJGXR0W72t9NRUOYU3yVvB35cTqMweSvAfdW4XwUYrwSVYkAMB8HmAxAY84J1EdhoDxQigqGEResrvDl48KblV3Dv8M0Zm4vE4Dk0kDlA~Hd7YtHiziiCw7gA__" alt="" />
               </div>
               <h1 className=' mx-auto max-xl:text-[20px] max-xl:w-[140px] h-[40px] w-[170px] mt-3 text-center text-[25px] font-normal font-Yekan text-[#434343] text-gray-800/90  dark:text-white'>+{reportLanding.data?.studentCount}دانشجو</h1>
