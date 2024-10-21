@@ -53,7 +53,7 @@ const CoursGridCard = ({title , levelName , cost , teacherName , likeCount , cou
                         <div className='flex text-gray-400 dark:text-gray-400 dark:group-hover:text-gray-200 text-sm'>
                             <img src={hat} className='mr-1 relative top-[2px] w-[17px] h-[17px]'/>{likeCount}
                         </div>
-                        <div className='flex flex-row-reverse text-sm text-gray-500 dark:text-gray-400 dark:group-hover:text-gray-200'>
+                        <div className='flex flex-row-reverse text-xs leading-6 text-gray-500 dark:text-gray-400 dark:group-hover:text-gray-200'>
                             <img src={teacher} className='ml-1 relative top-1 w-[18px] h-[18px]'/> {teacherName}
                         </div>
                         <div className='flex flex-rows'> 
