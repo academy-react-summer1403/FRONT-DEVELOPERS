@@ -86,7 +86,7 @@ const CoursPage = () => {
   ];
 
   return (
-    <div className="xl:container px-2 z-10">
+    <div className="xl:container px-2 z-[100]">
       <img
         src={BackImg}
         alt=""
@@ -102,7 +102,7 @@ const CoursPage = () => {
         animate={{ opacity: 1 }}
         transition={{ type: "spring", stiffness: 100, delay: 0.2 }}
         style={{ backgroundColor: "rgba(235, 249, 249, 0.51)" }}
-        className="flex flex-row  rounded-lg my-10 px-4 mx-12 shadow-md
+        className="flex flex-row  rounded-lg my-10 px-4 mx-12 shadow-md 
         dark:bg-gray-700/70
         max-md:flex-col max-md:m-4
         max-sm:flex-col max-sm:m-4
@@ -134,7 +134,7 @@ const CoursPage = () => {
             transition={{ type: "spring", stiffness: 100, delay: 0.2 }}
             src={Herovector}
             alt=""
-            className=" absolute w-[430px] h-[430px] left-[10px] top-[-25px]  z-40  
+            className=" absolute w-[430px] h-[430px] left-[10px] top-[-25px]  z-20  
             max-lg:top-4 max-md:left-[35px] 
             max-md:left-[25px]
             max-xl:left-[10px]
@@ -282,7 +282,7 @@ const CoursPage = () => {
 
           {/* cards  */}
 
-            <div className={` grid h-[1000px]  w-full z-10
+            <div className={`grid w-full z-10
                       ${view ? "grid-cols-1 mt-2":"grid-cols-3 max-lg:grid-cols-2 max-sm:justify-items-center max-sm:grid-cols-1 pt-0"}`}>
                 
                     {view ? <>
