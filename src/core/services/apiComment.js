@@ -7,11 +7,28 @@ export const getCommentCourse =  (courseId ) => {
   };
 
 
+  export const getCommentNews =  (NewsId ) => {
+    const data =  http.get(`/News/GetNewsComments?NewsId=${NewsId}` );
+    return data;
+  };
+
   export const getReplyCourse = async (id , courseId ) => {
     const data = await http.get(`/Course/GetCourseReplyCommnets/${courseId}/${id}`);
     console.log(data);
     return data;
   };
+  
+
+
+  export const getReplyNews = async (Id ) => {
+    const data = await http.get(`/News/GetRepliesComments?Id=${Id}`);
+    console.log(data);
+    return data;
+  };
+
+
+
+  
 
   export const postLike = async (params ,token)=>{
     const response =await http.post("/Course/AddCourseCommentLike", params ,  {
