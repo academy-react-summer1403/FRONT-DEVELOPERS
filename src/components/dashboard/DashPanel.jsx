@@ -163,12 +163,8 @@ const DashPanel = () => {
                         `}
                            
                         >
-<<<<<<< HEAD
-                            <Link to={items.link} className=' flex flex-row-reverse gap-1 max-sm:gap-4 w-full'> 
-=======
                             <NavLink to={items.link} 
                             className=" flex flex-row-reverse gap-1 max-sm:gap-4 w-full"> 
->>>>>>> f397956aaf59ac8753fcb07c057c78befbd76b21
 
                                 <img src={items.icon} className={`hidden group-hover:block w-6 h-6
                                 max-lg:${resposive ? "hidden" : "block"} 
@@ -176,11 +172,7 @@ const DashPanel = () => {
                             `}/>
                             <p className={`${resposive? "max-lg:block" : "max-lg:hidden" } `}> {items.title} </p>
 
-<<<<<<< HEAD
-                            </Link>
-=======
                             </NavLink>
->>>>>>> f397956aaf59ac8753fcb07c057c78befbd76b21
                         
                         </NavLink>
                     ))}
@@ -190,7 +182,7 @@ const DashPanel = () => {
                 <NavLink to={"/"} className={`flex flex-row gap-1 text-teal-900 text-sm font-semibold my-8 mx-[23%]
                     max-sm:${resposive ? " " : "hidden"} max-sm:mx-[35%] 
                     max-md:mx-[5%] max-md:gap-0
-                    max-lg:mx-[10%] max-md:gap-0
+                    max-lg:mx-[10%] 
                     `}>                         
                     <div className={`max-lg:${resposive ? "block" : "hidden"} 
                     max-sm:${resposive ? "block" : "hidden"} 
