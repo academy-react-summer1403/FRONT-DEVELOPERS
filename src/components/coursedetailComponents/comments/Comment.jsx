@@ -260,7 +260,7 @@ leading-[32px] font-normal font-Yekan text-[12px] flex items-center w-[120px] h-
             </button>
 
 
-            <Commentdiv comentdiv={comentdiv} setCommentdiv={setCommentdiv} holder="new comment"/>
+            <Commentdiv Id={Id} comentdiv={comentdiv} setCommentdiv={setCommentdiv} holder="new comment"/>
 
 
 

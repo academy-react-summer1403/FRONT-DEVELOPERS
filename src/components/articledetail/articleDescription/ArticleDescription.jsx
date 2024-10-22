@@ -4,6 +4,7 @@ import { useArticleDetail } from "../../../core/services/query/queries";
 import { useParams } from "react-router-dom";
 import { disslikeArticle, likeArticle } from "../../../core/services/getApi";
 import { toast } from "react-toastify";
+import { postRateNews } from "../../../core/services/DashApi";
 
 const ArticleDescription = () => {
 
@@ -18,6 +19,23 @@ const ArticleDescription = () => {
 
   const [disslike , setDissLike] = useState()
   console.log(disslike)
+
+
+  
+  const [NewsId , setNewsId] = useState()
+  console.log(NewsId)
+
+  const [rate , setRate] = useState()
+  console.log(rate)
+
+  const params = {
+    NewsId: NewsId ,
+    RateNumber:rate
+
+  }
+
+  const   postRateNew= postRateNews(params , toast)
+  console.log(postRateNew) 
 
 
   

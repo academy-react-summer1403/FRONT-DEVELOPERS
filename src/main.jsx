@@ -8,6 +8,7 @@ import { store } from "./core/redux/store.js";
 import App from "./App.jsx";
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from "react-toastify";
+import i18n from "./components/Translate/i18n.js";
 
 
 
@@ -28,3 +29,8 @@ createRoot(document.getElementById("root")).render(
     </QueryClientProvider>
   </StrictMode>
 );
+
+
+
+import React from 'react';
+import { useTranslation } from 'react-i18next';

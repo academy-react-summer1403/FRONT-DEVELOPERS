@@ -100,6 +100,21 @@ export const getUserProfile = async () => {
 
 
 
+  
+  export const postRateNews = async (  params, toast) => {
+    const data = await http.post(`/News/NewsRate`,null,{
+      params:params
+    },
+      toast.success("عملیات  با موفقیت انجام شد" ,{
+        theme:"colored"}
+    ))
+  
+    console.log(data);
+    return data;
+  };
+
+
+
 
 
   // export const getCommentPanel = async ( ) => {
