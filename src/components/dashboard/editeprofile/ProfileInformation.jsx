@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react'
 import 'react-tooltip/dist/react-tooltip.css'
 import { Tooltip } from 'react-tooltip'
 import { useUserProfile } from '../../../core/services/query/DashboardQuery'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { userImg } from '../../../core/redux/slices/QueryState/UserSlice'
 import Map from '../../../pages/dashboard/content/Map'
 
 
 const ProfileInformation = () => {
 
+    
 
   const userProfile = useUserProfile()
   console.log(userProfile)

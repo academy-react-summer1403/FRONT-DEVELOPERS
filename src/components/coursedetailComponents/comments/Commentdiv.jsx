@@ -18,10 +18,6 @@ const Commentdiv = ({comentdiv,setCommentdiv,holder,Id}) => {
 
    };
 
-<<<<<<< HEAD
-const Commentdiv = ({comentdiv,setCommentdiv,holder }) => {
-=======
->>>>>>> d622bce3adf31c06318d5bf635453ca34a4c5073
   return (
     
     <div className={`${comentdiv ? "block" : "hidden"} border border-gray-300  dark:bg-slate-600 bg-[#e2e2e2ee] w-[550px] h-[200px] rounded-3xl z-50 top-[35%] left-[32%] fixed `}>

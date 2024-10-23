@@ -7,16 +7,7 @@ import SearchImg from "../../assets/landing/Search.svg";
 import BackImg from "../../assets/landing/Rectangle 8.svg";
 import {  useCourseLandingSearchBar, useLandingReport } from '../../core/services/query/queries';
 import { NavLink } from 'react-router-dom';
-
-
-<<<<<<< HEAD
-
-=======
-import { useDispatch, useSelector } from "react-redux";
-import { useLandingReport } from '../../core/services/query/queries';
-import { search } from '../../core/redux/slices/QueryState/SearchSlice';
 import { useTranslation } from 'react-i18next';
->>>>>>> d622bce3adf31c06318d5bf635453ca34a4c5073
 
 
 const Hero = () => {
