@@ -130,3 +130,31 @@ export const getUserProfile = async () => {
     console.log(data);
     return data;
   };
+
+
+  export const getCourseDash = async ( params) => {
+    const data = await http.get("/Home/GetCoursesWithPagination" , {
+      params:params
+    })
+  
+    console.log(data);
+    return data;
+  };
+
+
+  export const getCourseDash2 = async ( params2) => {
+    const data = await http.get("/Home/GetCoursesWithPagination" , {
+      params:params2
+    })
+  
+    console.log(data);
+    return data;
+  };
+
+
+  export const GetProfileInfo = async ( ) => {
+    const data = await http.get("/SharePanel/GetProfileInfo")
+  
+    console.log(data);
+    return data;
+  };

@@ -46,7 +46,7 @@ console.log(password)
 
       const data = await http.post("/Sign/Login" , user)
     
-    console.log(data.success)
+    console.log(data)
 
   if(data.success == true){
 

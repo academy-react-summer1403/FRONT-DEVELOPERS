@@ -4,6 +4,7 @@ import { Tooltip } from 'react-tooltip'
 import { useUserProfile } from '../../../core/services/query/DashboardQuery'
 import { useDispatch, useSelector } from 'react-redux'
 import { userImg } from '../../../core/redux/slices/QueryState/UserSlice'
+import Map from '../../../pages/dashboard/content/Map'
 
 
 const ProfileInformation = () => {
@@ -43,7 +44,10 @@ const ProfileInformation = () => {
 
             <div className='grid grid-cols-2 gap-4'> 
                 {/* map img  */}
-                <div className='w-32 h-32 grid-col-1 border rounded-full'>map</div>
+                {/* <div className='w-32 h-32 grid-col-1 border rounded-full'>map</div> */}
+
+                    <Map/>
+
                 <div className='grid grid-col-1 gap-6'>
                     <div className='flex flex-row-reverse gap-2 text-right'>                         
                         <p className='text-orange dark:text-amber-400 font-medium '>{userProfile.data?.longitude} <span className='text-gray-400 dark:text-white'> : طول جغرافیایی </span></p>

@@ -187,7 +187,7 @@ const CoursPage = () => {
             </div>
 
             <input
-            // onChange={(e) => dispatch(QuerySlice.actions.search(e.target.value))}
+        
             onChange={(e) => setSearch(e.target.value)}
 
               

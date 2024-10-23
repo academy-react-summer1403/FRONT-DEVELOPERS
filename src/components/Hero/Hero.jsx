@@ -5,10 +5,10 @@ import HeroBImg from "../../assets/landing/Ellipse 4.svg";
 import { SliderRight } from '../../utility/animation';
 import SearchImg from "../../assets/landing/Search.svg";
 import BackImg from "../../assets/landing/Rectangle 8.svg";
+import {  useCourseLandingSearchBar, useLandingReport } from '../../core/services/query/queries';
+import { NavLink } from 'react-router-dom';
 
-import { useDispatch, useSelector } from "react-redux";
-import { useLandingReport } from '../../core/services/query/queries';
-import { search } from '../../core/redux/slices/QueryState/SearchSlice';
+
 
 
 
@@ -19,12 +19,16 @@ const Hero = () => {
 const reportLanding =  useLandingReport()
 console.log(reportLanding)
 
-  const query = useSelector((state) => state.SearchSlice.data);
-  console.log(query);
 
-  const dispatch = useDispatch();
+  const [search , setSearch] = useState("")
+  console.log(search)
+    
+  const params = {
+    Query : search
+  }
 
-
+  const  CourseSearchBar =  useCourseLandingSearchBar(params)
+  console.log(CourseSearchBar) 
 
 
     return (
@@ -162,22 +166,31 @@ console.log(reportLanding)
              variants={SliderRight(1.0)}
              initial="hidden"
              animate="visible"
-              className="flex  bg-white max-md:z-50 rounded-[35px] max-lg:mt-[-80px] max-xl:w-[315px] max-md:w-[220px] max-lg:w-[240px] h-[65px] w-[415px] z-[5000]"
+              className="flex relative bg-white max-md:z-50 rounded-[35px] max-lg:mt-[-80px] max-xl:w-[315px] max-md:w-[220px] max-lg:w-[240px] h-[65px] w-[415px] z-[5000]"
             >
               <div className='w-[48px] h-[49px] rounded-full bg-[#D47300] absolute left-[10px] top-[8px] flex items-center justify-center'>
                 <img src={SearchImg} alt="" className='px-1.5 py-1.5'/>
                 </div>  
                 <input
-            onChange={(e) => dispatch(search(e.target.value))}
+            onChange={(e) => setSearch(e.target.value)}
                 
                 style={{boxShadow:" 0px 1px 3px 0px #00000033"}} placeholder='... دنبال چی میگردی ؟' type="text" className='w-full h-full  rounded-[35px]  text-right font-normal
                 font-Yekan text-[#AAAAAA] text-[16px] pr-5 outline-none' 
                  
                 />
-              
-              
-             
+            
             </motion.div>
+              <div className=' w-[400px] top-[430px] z-[5000] bg-white absolute flex flex-col shadow-lg rounded-lg mt-4  overflow-y-scroll px-3 scrollbar scrollbar-thumb-slate-400 scrollbar-track-slate-600'>
+                {
+                   CourseSearchBar.data?.courseFilterDtos.map((data)=>(
+                    <div>
+                      <NavLink to={"/courses-detail/" + data?.courseId}>
+                         <p className='text-black text-right text-lg mt-1 cursor-pointer z-[5000] hover:bg-red-400'>{data?.title}</p>
+                      </NavLink>
+                    </div>
+                  ))
+                }
+              </div>
           </div>
        
         </div>

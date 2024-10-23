@@ -39,12 +39,9 @@ const SamplePrevArrow =(props) => {
 
 const Learning = () => {
 
-    const query = useSelector((state) => state.SearchSlice.data);
-  console.log(query);
-  
 
-  const getCourseCard = useCourseLanding(query)
-  console.log(getCourseCard.data?.courseFilterDtos)
+  const getCourseCard = useCourseLanding()
+  console.log(getCourseCard.data)
 
     const settings = {
       

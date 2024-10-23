@@ -3,6 +3,7 @@ import Reply from './Reply'
 import {  deleteComment,    dislikeComment,    likeComment,  postComment } from '../../../core/services/apiComment';
 import Commentdiv from './commentdiv';
 
+
 const Comment = ({Id,useComment}) => {
 
 
@@ -68,7 +69,7 @@ const Comment = ({Id,useComment}) => {
     CourseCommandId : like
   }
   
-
+  
   const likeComments = likeComment(likeparams)
   console.log(likeComments)
 
@@ -93,7 +94,7 @@ const Comment = ({Id,useComment}) => {
       <div>
         <div className=" w-full h-[37px]  ">
          
-
+  
           <button  onClick={()=>setCommentdiv(true)} className="  w-[185px] h-[37px] max-xl:w-[170px] max-xl:h-[37px] rounded-[7px] dark:bg-[#FF8A00] bg-[#00E2DC] flex items-center justify-center  gap-2 ">
           <h3 className="font-normal font-Yekan text-[15px] text-[#005653] dark:text-white">
                   ارسال دیدگاه جدید
@@ -117,7 +118,7 @@ const Comment = ({Id,useComment}) => {
                   />
                 </svg>
           </button>
-          
+
         </div>
 
         {

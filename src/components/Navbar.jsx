@@ -13,7 +13,7 @@ export const NavbarMenu =[
   {
       id:1,
       title:"تماس با ما",
-      link:"#",
+      link:"/",
   },
   {
       id:2,

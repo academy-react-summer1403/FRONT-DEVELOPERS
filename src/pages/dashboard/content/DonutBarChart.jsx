@@ -1,11 +1,22 @@
 import React from 'react'
 import {  motion } from 'framer-motion'
 import { PieChart, Pie, Sector, Cell, ResponsiveContainer } from 'recharts';
+import { useProfileInfo } from '../../../core/services/query/DashboardQuery';
 
 
 
 
-const data = [
+
+
+
+const DonutBarChart = () => {
+
+
+  const getProfInfo = useProfileInfo()
+  console.log(getProfInfo)
+  
+  
+  const data = [
     {name:"Electronics" , value:8500},
     {name:"Clothing" , value:3200},
 
@@ -15,7 +26,8 @@ const data = [
 const COLORS = ["orange" , "white" ]
 
 
-const DonutBarChart = () => {
+
+
   return (
     <motion.div className=' bg-opacity-50 backdrop-blur-md  rounded-xl p-6  w-[250px] h-[220px] -mt-[60px]'
         initial={{opacity:0,y:20}}
