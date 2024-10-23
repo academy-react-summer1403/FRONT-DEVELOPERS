@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import { motion } from 'framer-motion'
 
@@ -8,6 +8,8 @@ import angular from '../../assets/articles and news/Ellipse 39(2).svg'
 import figma2 from '../../assets/articles and news/Ellipse 39(1).svg'
 import geernarrow from '../../assets/articles and news/Frame(5).svg'
 
+import AOS from "aos";
+import 'aos/dist/aos.css';
 
 const Favorite = () => {
     const favorite=[
@@ -15,9 +17,12 @@ const Favorite = () => {
         {image:angular,subject:"دوره جامع انگورلار"},
         {image:figma2,subject:"دوره جامع فیگما"},
         {image:react2,subject:"دوره جامع ریکت"}
-
-       
     ]
+
+    useEffect(() => {
+        AOS.init();
+      }, [])
+    
     return (
       
                
@@ -34,11 +39,9 @@ const Favorite = () => {
                 </div>        
                         {favorite.map((item,key)=>(
                             <div key={key} className='relative flex flex-row my-4'>
-                                <img src={item.image} className='z-[9999]'/>
-                                <motion.div 
-                                    initial={{opacity:0 ,x:-200}}
-                                    animate={{opacity:1 ,x:0}}
-                                    transition={{type:"spring" , stiffness:100 , delay:1.1}}
+                                <img data-aos="flip-right" data-aos-duration="700" src={item.image} className='z-[9999]'/>
+                                <div 
+                                    data-aos="fade-right" data-aos-duration="800" 
                                 className='absolute bg-gray-100 dark:bg-gray-500/70 w-[82%] right-0 my-2 
                                 p-4 text-right shadow rounded-lg
                                 max-sm:w-[95%]
@@ -49,7 +52,7 @@ const Favorite = () => {
                                     <NavLink to={"#"} className='text-[10px] text-teal-500 flex flex-row-reverse '>
                                         مشاهده مطالب <img src={geernarrow} />
                                     </NavLink>
-                                </motion.div>
+                                </div>
                             </div>
                         ))}
                         

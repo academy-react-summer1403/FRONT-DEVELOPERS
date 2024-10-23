@@ -75,7 +75,7 @@ const Card = ({ id, url, setCards, cards }) => {
   return (
 
     <motion.img
-
+     
       src={url}
 
       alt="Placeholder alt"

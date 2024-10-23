@@ -4,6 +4,10 @@ import HeroAImg from "../../assets/landing/hero section pic.svg";
 import HeroBImg from "../../assets/landing/Ellipse 4.svg";
 import { SliderRight } from '../../utility/animation';
 import SearchImg from "../../assets/landing/Search.svg";
+import teacher from "../../assets/landing/teacher.png";
+import hat from "../../assets/landing/Flying Mortarboard.svg";
+import Student from "../../assets/landing/student.png";
+import Circled from "../../assets/landing/Circled Play.svg";
 import BackImg from "../../assets/landing/Rectangle 8.svg";
 
 import { useDispatch, useSelector } from "react-redux";
@@ -45,8 +49,8 @@ console.log(reportLanding)
             <div style={{boxShadow:"-2px 0px 5px 0px #00000026"}} className='w-[180px] max-xl:w-[150px] max-lg:w-[130px] max-lg:ml-[-40px]
              max-md:hidden  max-lg:h-[95px] max-xl:top-[-30px] absolute top-[-20px] left-[-20px] h-[105px] ml-5 bg-white rounded-[10px]  z-40 
                dark:bg-gray-700/70  dark:hover:bg-gray-700/100  dark:hover:transition-colors'>
-              <div style={{boxShadow: "0px 0px 5px 0px #00000059"}} className='flex items-center justify-center z-0 max-lg:w-[48px] max-lg:h-[48px] bg-[#FFB803] rounded-full max-xl:ml-[40px] ml-[60px] mt-[-30px] w-[68px] h-[68px] '>
-                <img className='  w-[45px] h-[45px] max-lg:w-[35px] max-lg:h-[35px]' src="https://s3-alpha-sig.figma.com/img/964f/1424/c9d17b05e8bbb686022aab84b0a67d3f?Expires=1729468800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=f0uhG151j7P91t9POto~TDdcx0K~1s-Ox6HA3kT2TJK7YarMAykNDpjDnnXd3gomWn9LyitL8mxgp0NVlZk9cbACowFE8qLwHFPf4wCCXWlXLsvdfqjyApVohI9zt6jHUuUXUyVYWSc2NavwyJqio8pqFhXcrl44flKUPzqU0pPquzgn5b-1aBp3k7AKudhuWpLCw9t6Aonnrz6oZcMJpkIwAo2uSOJGXR0W72t9NRUOYU3yVvB35cTqMweSvAfdW4XwUYrwSVYkAMB8HmAxAY84J1EdhoDxQigqGEResrvDl48KblV3Dv8M0Zm4vE4Dk0kDlA~Hd7YtHiziiCw7gA__" alt="" />
+              <div style={{boxShadow: "0px 0px 5px 0px #00000059"}} className='flex items-center justify-center z-0 max-lg:w-[48px] max-lg:h-[48px] bg-yellow rounded-full max-xl:ml-[40px] ml-[60px] mt-[-30px] w-[68px] h-[68px] '>
+                <img className='  w-[45px] h-[45px] max-lg:w-[35px] max-lg:h-[35px]' src={teacher} alt="" />
               </div>
               <h1 className=' mx-auto max-xl:text-[20px] max-xl:w-[140px] h-[40px] w-[170px] mt-3 text-center text-[25px] font-normal font-Yekan text-[#434343] text-gray-800/90  dark:text-white'>+{reportLanding.data?.studentCount}دانشجو</h1>
             </div>
@@ -59,7 +63,7 @@ console.log(reportLanding)
               transition={{type:"spring" , stiffness:100 , delay:0.2}}
   
               className="w-[447px]  h-[447px] relative max-md:w-[800px] max-sm:ml-10  max-lg:w-[380px] max-lg:left-0 max-xl:left-10
-               rounded-[30px] bg-gradient-to-br from-[#01CEC933] to-[#CB6D001A]  z-20 max-xl:w-[350px] "
+               rounded-[30px] bg-gradient-to-br from-primary/20 to-secondary/10  z-20 max-xl:w-[350px] "
             >
 
 
@@ -71,7 +75,7 @@ console.log(reportLanding)
   
               src={HeroAImg}
               alt=""
-              className="w-[367px] h-[407px] max-xl:h-[350px] absolute left-[20px] top-[50px]
+              className="w-[367px] h-[407px] max-xl:h-[350px] absolute left-[40px] top-[35px] z-40
                " 
             />
           </div>
@@ -80,22 +84,33 @@ console.log(reportLanding)
               '>
 
 
-                <img src="https://s3-alpha-sig.figma.com/img/b232/c869/d848a989ad64492f82a29bd516c975f6?Expires=1729468800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=nlLOC20yZVZF-p4uXGNMEu9sTOW8k4kIqFIyd3qq0mR8S25PtFFj-GBsZyDdWI~~vXG7sSnfQ5Kl1xjyg~rLXPJ20UeJhLKXaoqTsJ7YMlYkq3lqeoSvBDzVSrxzGjb0PMavRAzT29-c0NCJa1bwJgsY92FUUTF6ysPOEhs2LRXstXGn6XNTQFM7a9gEWCpiZqFdjDj25VpKoPz9RycfJXy0r4CqBGGetNYoXYPKErjN7ZvfNvorOUkzEgSQ2FSNeaWUj9td4IhJeS0VwG0jgcqohqbdkcBzMTMQfsh0msiAfKzhpRUATanJ8Gy5Ns~7xeWLiZ3oOJn8eoMZM-AvHQ__" alt=""  className='absolute max-lg:hidden top-[-40px] right-[10px] w-[90px]  h-[90px] rotate-[330deg] '/>
+                <img src={hat} alt=""  className='absolute max-lg:hidden top-[-40px] right-[10px] w-[90px]  h-[90px] rotate-[330deg] '/>
 
 
 
-                <div className='w-[50px] flex items-center justify-center h-[50px] max-lg:hidden rounded-full bg-[#01CEC9] rotate-12 mx-auto mr-9 mt-9 '>
-                  <img className='w-[37px] h-[37px]  transform rotate-180' src="https://s3-alpha-sig.figma.com/img/78ed/3f44/092bdd8cd4edd77bf81feba41276ca6f?Expires=1729468800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=YH2rn3p8TYF1uuwfDnfXZT9Gbm4vn26bq2eHQHW8DJe5uDe393m-8kd3uOqC0jtejzf8hCH9Q4MwC0w7gelBVMJaMSF-4DkJGfs-x3YZ2vIj8VD6wsC7D4rpwbRptVfxY2VRz0EBx4VdfUvpUlmSgD3efDF~NV2lp9mivtWEpW5HoE8XeXGS7fYi9S7gWC3jVFGjpR7QBrF0VRsNjPys2cSdh4qzYt09pPHwh1j1wckAUqtkaREfO3YcJwCYuWDO-i0pbwN86O~Vg-yOAr8OL4eL2VQkxBm1s6unzb128pgz9RnlgRO6MphQwHf6J2eQrP9eefwGhLF3nrMa3STD-w__" alt="" />
+                <div className='w-[50px] flex items-center justify-center h-[50px] max-lg:hidden rounded-full bg-primary rotate-12 mx-auto mr-9 mt-9 '>
+                  <img className='w-[40px] h-[40px]  mb-2 transform rotate-180' src={Circled} alt="" />
                   
                 </div>
                
               </div>
 
 
+            <svg className='absolute top-[185px] -left-8' width="529" height="198" viewBox="0 0 529 198" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="264.267" cy="98.6967" rx="266.466" ry="80.799" transform="rotate(11.5924 264.267 98.6967)"  stroke="url(#paint0_linear_102_5135)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1 10"/>
+                <defs>
+                <linearGradient id="paint0_linear_102_5135" x1="-2.19913" y1="98.6967" x2="530.734" y2="98.6967" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#00B6B2"/>
+                <stop offset="0.3" stop-color="#00B6B2" stop-opacity="0"/>
+                <stop offset="0.695" stop-color="#00B6B1" stop-opacity="0"/>
+                <stop offset="1" stop-color="#00B5B1"/>
+                </linearGradient>
+                </defs>
+            </svg>
 
     
 
-            <motion.img
+            {/* <motion.img
               initial={{opacity:0 , x:200}}
               animate={{opacity:1 , x:0}}
               transition={{type:"spring" , stiffness:100 , delay:0.2}}
@@ -105,7 +120,7 @@ console.log(reportLanding)
          
               alt=""
               className="w-[600px]  h-[160px] max-xl:left-[-10px] max-xl:top-[200px] absolute top-[180px] left-[-30px]  rotate-[11deg]"
-            />
+            /> */}
 
 
 
@@ -119,8 +134,8 @@ console.log(reportLanding)
 
      <div style={{boxShadow:"-2px 0px 5px 0px #00000026"}} className='w-[180px]  dark:hover:bg-gray-700/100 dark:hover:transition-colors max-lg:-right-12 max-lg:-bottom-16 dark:bg-gray-700/70 max-lg:w-[130px] max-md:hidden  max-lg:h-[95px]  max-xl:w-[150px] max-xl:bottom-[-80px] max-xl:right-[-100px]  absolute bottom-[-90px] right-[-50px] h-[105px] ml-5 bg-white rounded-[10px]  z-40  
               '>
-              <div style={{boxShadow: "0px 0px 5px 0px #00000059"}} className='flex  max-lg:w-[48px] max-lg:h-[48px] items-center justify-center max-xl:ml-[40px]   bg-[#E48900] rounded-full ml-[60px] mt-[-30px] w-[68px] h-[68px] '>
-                <img className='  w-[45px] h-[45px]  max-lg:w-[35px] max-lg:h-[35px]' src="https://s3-alpha-sig.figma.com/img/4023/9fba/94fd981a002097b15ac8447a32011119?Expires=1729468800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=WGIAvGcGoUeBrR1j90KPqb-L6OyIj0N7LuazF6YCrogopaKn~g339clcY~JkS8AJHsjsfaZV0Vm1HtmNV4T~uyD~6N6MBiOASQpT40PGipNpqYaF-y79T79FQe~yehiD7j6k0Xr8eu0-vDxlWtDuqaf110lOB-jR8XPcN2v5Tzxcg2wZooZGG0R-2d~lAEBmuu~3heABblQKMAn4Xa7KTgCHIoiunDMOPzM7sphevLqPse04fQr-Epew2jaJc09ACXfHMFIQB1orCFTnPYLmoTT9lItwcrplZxpxAMLU4RpHQN8vfj5xMxhWeLJLX3pxtX2hRWPK0PIpNuzFiAZTtw__" alt="" />
+              <div style={{boxShadow: "0px 0px 5px 0px #00000059"}} className='flex  max-lg:w-[48px] max-lg:h-[48px] items-center justify-center max-xl:ml-[40px]   bg-orange rounded-full ml-[60px] mt-[-30px] w-[68px] h-[68px] '>
+                <img className='  w-[45px] h-[45px]  max-lg:w-[35px] max-lg:h-[35px]' src={Student} alt="" />
               </div>
               <h1 className=' mx-auto h-[40px] w-[170px] mt-3 text-center text-[25px] max-xl:text-[20px] max-xl:w-[140px]  font-normal font-Yekan text-[#434343] text-gray-800/90  dark:text-white'>+{reportLanding.data?.teacherCount} مدرس</h1>
             </div>
@@ -143,7 +158,7 @@ console.log(reportLanding)
 
               className="  flex max-xl:text-[50px] dark:text-white   max-lg:text-[45px]  max-md:text-[50px]  font-Yekan font-normal justify-end text-right text-[60px] text-[#000000]"
             >
-               <h1 className="text-[#01CEC9] max-lg:text-[45px] max-md:text-[50px]  text-right font-Yekan font-normal max-xl:text-[50px]  text-[60px]">آموزشگاه</h1>عنوان 
+               <h1 className="text-primary max-lg:text-[45px] max-md:text-[50px]  text-right font-Yekan font-normal max-xl:text-[50px]  text-[60px]">آموزشگاه</h1>عنوان 
 
                
             </motion.h1>
@@ -162,16 +177,16 @@ console.log(reportLanding)
              variants={SliderRight(1.0)}
              initial="hidden"
              animate="visible"
-              className="flex  bg-white max-md:z-50 rounded-[35px] max-lg:mt-[-80px] max-xl:w-[315px] max-md:w-[220px] max-lg:w-[240px] h-[65px] w-[415px] z-[5000]"
+              className="flex bg-white dark:bg-gray-600  max-md:z-50 rounded-[35px] max-lg:mt-[-80px] max-xl:w-[315px] max-md:w-[220px] max-lg:w-[240px] h-[65px] w-[415px] z-[5000]"
             >
-              <div className='w-[48px] h-[49px] rounded-full bg-[#D47300] absolute left-[10px] top-[8px] flex items-center justify-center'>
+              <div className='w-[48px] h-[49px] rounded-full bg-orange absolute left-[10px] top-[8px] flex items-center justify-center'>
                 <img src={SearchImg} alt="" className='px-1.5 py-1.5'/>
                 </div>  
                 <input
             onChange={(e) => dispatch(search(e.target.value))}
                 
                 style={{boxShadow:" 0px 1px 3px 0px #00000033"}} placeholder='... دنبال چی میگردی ؟' type="text" className='w-full h-full  rounded-[35px]  text-right font-normal
-                font-Yekan text-[#AAAAAA] text-[16px] pr-5 outline-none' 
+                font-Yekan text-[#AAAAAA] text-[16px] pr-5 outline-none dark:bg-gray-600 ' 
                  
                 />
               

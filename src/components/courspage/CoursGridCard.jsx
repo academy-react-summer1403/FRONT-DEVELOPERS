@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 // images: 
 import fima from '../../assets/courses/figma.svg'
@@ -12,10 +12,18 @@ import buy from '../../assets/landing/Rounded.svg'
 import { NavLink } from 'react-router-dom'
 import { motion } from 'framer-motion'
 
+import AOS from "aos";
+import 'aos/dist/aos.css';
 
 
 
 const CoursGridCard = ({title , levelName , cost , teacherName , likeCount , courseId}) => {
+
+    useEffect(() => {
+        AOS.init();
+      }, [])
+    
+
   return (
     // container 
   
@@ -25,12 +33,12 @@ const CoursGridCard = ({title , levelName , cost , teacherName , likeCount , cou
     '>
         {/* map part of card:  */}
         <motion.div 
-            initial={{opacity:0 ,y:-200}}
+            initial={{opacity:0 ,y:200}}
             animate={{opacity:1 , y:0}}
             transition={{type:"spring" , stiffness:50 , delay:0.2}}
         >
             <div 
-                
+                data-aos="fade-up" data-aos-duration="800"
             className='group relative rounded-xl max-md:m-4 px-4 bg-white 
             dark:bg-gray-600/70 dark:hover:bg-secondary transition duration-500 '
                 style={{boxShadow: "0px 1px 2px 0px rgba(0, 0, 0, 0.25)"}

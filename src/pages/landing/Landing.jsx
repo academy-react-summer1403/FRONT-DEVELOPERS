@@ -13,7 +13,6 @@ import Hero from '../../components/Hero/Hero'
 
 const Landing = () => {
 
-
   return (
 
     <div className=' overflow-hidden  bg-white dark:bg-gray-900 dark:text-white duration-200 '>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import { motion } from 'framer-motion'
 
@@ -8,6 +8,8 @@ import seenIcon from '../../assets/articles and news/Frame(1).svg'
 import calenderIcon from '../../assets/articles and news/Frame.svg'
 import flash from '../../assets/articles and news/Frame(2).svg'
 
+import AOS from "aos";
+import 'aos/dist/aos.css';
 
 const ArticleNewsCard = ({title,miniDescribe  , updateDate,currentView , id}) => {
     const date = new Date(updateDate)
@@ -19,6 +21,10 @@ const ArticleNewsCard = ({title,miniDescribe  , updateDate,currentView , id}) =>
 
 console.log(formattedDate)
 
+useEffect(() => {
+    AOS.init();
+  }, [])
+
 
   return (
     <NavLink>
@@ -27,7 +33,7 @@ console.log(formattedDate)
         animate={{opacity:1 ,y:0}}
         transition={{type:"spring" , stiffness:100 , delay:0.3}}
     >
-        <div className='group bg-white/80 dark:bg-gray-600/90 dark:hover:bg-secondary transition duration-500 relative grid-col-1 rounded-t-full shadow px-6
+        <div data-aos="fade-up" data-aos-duration="800" className='group bg-white/80 dark:bg-gray-600/90 dark:hover:bg-secondary transition duration-500 relative grid-col-1 rounded-t-full shadow px-6
             max-sm:w-[70%] max-sm:mx-auto  max-sm:px-2 h-[400px]  mt-[30px]     
         '>
             <img src={newsImage} className='mx-auto  max-sm:w-[70%]'/>

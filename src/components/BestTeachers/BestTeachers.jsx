@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import BGImg from "../../assets/landing/BG Half.png";
 import { motion} from 'framer-motion';
 import { SliderRight } from '../../utility/animation';
@@ -7,7 +7,8 @@ import { SliderRight } from '../../utility/animation';
 import SwipeCards from './Swiper';
 
 
-
+import AOS from "aos";
+import 'aos/dist/aos.css';
 
 
 
@@ -15,6 +16,11 @@ import SwipeCards from './Swiper';
 const BestTeachers = () => {
 
    
+  useEffect(() => {
+    AOS.init(
+      
+    );
+  }, [])
     
 
   return (
@@ -32,7 +38,7 @@ const BestTeachers = () => {
             </div>                     
                
             {/* text section  */}
-          <div
+          <div data-aos="fade-right" data-aos-offset="200"  data-aos-duration="600"
             className="max-xl:right-10  max-md:right-3    absolute right-48 top-20
             "
           >        
@@ -52,7 +58,7 @@ const BestTeachers = () => {
             variants={SliderRight(0.4)}
             initial="hidden"
             animate="visible"
-            className=' text-[#006865] font-Yekan font-normal text-[25px] max-lg:text-[18px] max-sm:text-[16px]'>
+            className=' text-green font-Yekan font-normal text-[25px] max-lg:text-[18px] max-sm:text-[16px]'>
               !!رو همینجا پیدا می کنید
             </motion.h1>
           </div>

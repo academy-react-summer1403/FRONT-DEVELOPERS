@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Img1 from "../../assets/landing/items1.png";
 import Img2 from "../../assets/landing/items2.png";
 import Img3 from "../../assets/landing/items3.png";
@@ -9,7 +9,16 @@ import { IoIosArrowBack } from "react-icons/io";
 import { NavLink } from 'react-router-dom';
 
 
+import AOS from "aos";
+import 'aos/dist/aos.css';
+
 const News = () => {
+
+  useEffect(() => {
+    AOS.init();
+  }, [])
+
+
   return (
     <div className='max-md:px-5 max-sm:px-1 flex items-center flex-col mt-[170px] h-[700px] max-md:h-[870px]'>
 
@@ -21,7 +30,7 @@ const News = () => {
     {/* body section  */}
         <div className='flex h-[474px] max-md:h-[870px] w-[1068px] max-md:w-full  justify-between max-xl:justify-center mt-10 max-sm:gap-2'>
 
-          <div  className=' w-[522px] max-sm:w-[200px] max-xl:w-[500px] max-md:w-full relative h-full flex justify-between max-xl:justify-center flex-wrap gap-5 max-sm:gap-1 max-xl:gap-3'>
+          <div data-aos="fade-right" data-aos-duration="900" className=' w-[522px] max-sm:w-[200px] max-xl:w-[500px] max-md:w-full relative h-full flex justify-between max-xl:justify-center flex-wrap gap-5 max-sm:gap-1 max-xl:gap-3'>
             <div
               style={{boxShadow: "0px 2px 5px 0px #00000040",
                 background:"url(https://s3-alpha-sig.figma.com/img/9c30/dd1c/f8af56fc7574b0826c5cc94ef1f6daf9?Expires=1729468800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=LlbfBrFUFbneiKq9-kkSkr-~pORhXoGRa3tVnfl5nfurLlir-qKH91LGJ4f8zfoImp8p~EbD1AkBLiXXu4-7Jl25bbYQlFdr~P46WuBEILli6x0o7gbmDDk12xmKTJIDxBM8h3KJAwZ~tUvd9RJNA8Y23X7JFbnKVVG0NMMG1qAEibybzoFS5NjbJDMzWIWnfWUbe~qlW4FM47QMn3bA9XxjxbwUh5aSUWOLL5dgNhAuNfWXwfRn0~XjMmRA7TqU64Fp2oodnjGfmporR9Cm06Mz-9xxDo8hHaabtt65g7JtAzY4~GU~Pyk7Gxcz0AmbfbQEfkArsECluIqxOohu-A__)",
@@ -64,7 +73,7 @@ const News = () => {
             
           </div>
 
-          <div className='w-[522px] max-sm:w-[200px] max-xl:w-[500px]  relative max-xl:gap-3 max-xl:justify-center h-full flex justify-between flex-wrap gap-5 max-sm:gap-1'>
+          <div data-aos="fade-left" data-aos-duration="900" className='w-[522px] max-sm:w-[200px] max-xl:w-[500px]  relative max-xl:gap-3 max-xl:justify-center h-full flex justify-between flex-wrap gap-5 max-sm:gap-1'>
 
             <div
               style={{boxShadow: "0px 2px 5px 0px #00000040",background:"url(https://s3-alpha-sig.figma.com/img/5e73/b991/2271dcd8eb60c42cda58f1642e6503a8?Expires=1729468800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=WLajWHkUC53mchNyiA4D-NY5WtGmI5OXR4Q8XjgUFuUL7TlFTpD1OkGXTY4toAQq9ZH06m6Vs~8e7IiQWRWla6VXA6HGbP~GHmJivXsQE-O0jHRqIiB4fTGyQFsxwPANqD1t9Mfjwf1WWgGJy6zsjE0f00w0EdRlNhHg2S9SbZubD7qobU6I8o36iBGYkV2ExZuhE7crByk1kxhkUFuciaciOUKmO~n2ddAkLEEaWITJB3FMkBT3XvCTejcsk2Ak1xTg-biUghKVuFl5SIbGDbHKjP9zwkWTpfj2yPfInm6NPQV-qmWsG5MSx1GbN7XHmrEWLnWYu8Eo8hdfl2kx6A__)",

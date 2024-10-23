@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import { motion } from 'framer-motion'
 
@@ -8,6 +8,9 @@ import manager from '../../assets/articles and news/Ellipse 39(5).svg'
 import figma from '../../assets/articles and news/Ellipse 39(6).svg'
 import geernarrow from '../../assets/articles and news/Frame(5).svg'
 
+import AOS from "aos";
+import 'aos/dist/aos.css';
+
 
 const Offers = () => {
     const Offer =[
@@ -15,6 +18,11 @@ const Offers = () => {
         {image:manager,subject:"چگونه مدیر یک پروژه باشیم؟"},
         {image:speed,subject:"سرعت تکنولوژی در قرن 21"},
 ]
+
+useEffect(() => {
+    AOS.init();
+  }, [])
+
     return (
        
             
@@ -31,11 +39,9 @@ const Offers = () => {
                 </div>        
                         {Offer.map((item,key)=>(
                             <div key={key} className='relative flex flex-row my-4 '>
-                                <img src={item.image} className='z-[9999] '/>
-                                <motion.div 
-                                    initial={{opacity:0 ,x:-200}}
-                                    animate={{opacity:1 ,x:0}}
-                                    transition={{type:"spring" , stiffness:100 , delay:0.7}}
+                                <img data-aos="flip-right" data-aos-duration="700" src={item.image} className='z-[9999] '/>
+                                <div 
+                                   data-aos="fade-right" data-aos-duration="800" 
                                 className='absolute bg-gray-100 dark:bg-gray-500/70 w-[82%] right-0 mt-4 p-3 text-right shadow rounded-lg
                                     max-sm:w-[95%]
                                     max-md:w-[92%] 
@@ -45,7 +51,7 @@ const Offers = () => {
                                     <NavLink to={"#"} className='text-[10px] text-teal-500 flex flex-row-reverse '>
                                         مشاهده مطالب <img src={geernarrow} />
                                     </NavLink>
-                                </motion.div>
+                                </div>
                             </div>
                         ))}
                         

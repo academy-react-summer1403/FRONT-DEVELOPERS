@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 
 
@@ -11,15 +11,23 @@ import teacher from '../../assets/courses/Frame(1).svg'
 import level from '../../assets/courses/Frame(2).svg'
 import buy from '../../assets/landing/Rounded.svg'
 
+import AOS from "aos";
+import 'aos/dist/aos.css';
 
 
 const CoursListCard = ({title , levelName , cost , teacherName , likeCount , courseId,describe}) => {
+
+    useEffect(() => {
+        AOS.init();
+      }, [])
+    
+
   return (
     // container 
     <div className=' w-[90%] mx-auto grid grid-cols-1 h-[280px]  mt-8 p-2 '>
         {/* map part of card:  */}
         <NavLink  to={"/courses-detail/" + courseId}>
-        <div className='group h-full relative flex flex-row-reverse rounded-xl p-3 w-full
+        <div data-aos="fade-up" data-aos-duration="800" className='group h-full relative flex flex-row-reverse rounded-xl p-3 w-full
          gap-[2%] max-md:gap-[9%] max-lg:gap-[10%] bg-white  hover:bg-[#f8f6f6e1] dark:bg-gray-600/70 dark:hover:bg-secondary shadow-lg transition duration-300'
            
         >   

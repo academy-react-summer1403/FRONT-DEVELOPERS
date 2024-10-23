@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from "react";
 import Slider from 'react-slick'
 import BackP1Img from "../../assets/landing/BackPudcast.png";
 import BackPImg from "../../assets/landing/BackP.png";
@@ -9,9 +9,8 @@ import Img2 from "../../assets/landing/Ekhtiari.png";
 import { Clock, Eye, Heart } from 'lucide-react';
 
 
-
-
-
+import AOS from "aos";
+import 'aos/dist/aos.css';
 
 const ImageList = [
     {
@@ -74,7 +73,9 @@ const Pudcasts = () => {
 
     }
 
-
+    useEffect(() => {
+        AOS.init();
+      }, [])
 
   return (
     <div className='container     relative min-h-[550px] 
@@ -92,7 +93,7 @@ const Pudcasts = () => {
 
   
     {/* hero section */}
-    <div className='max-lg:w-[650px] w-[1000px] h-[500px]  mt-[10px]  relative max-sm:w-[550px] '>
+    <div data-aos="fade-up" data-aos-duration="900" className='max-lg:w-[650px] w-[1000px] h-[500px]  mt-[10px]  relative max-sm:w-[550px] '>
 
         <img src={Img2} alt="" className='absolute top-[-20px] left-[-10px] max-md:w-[20%] max-lg:w-[20%] max-sm:top-4 max-sm:left-16'/>
 
