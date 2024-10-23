@@ -8,6 +8,7 @@ export default {
   darkMode:"class",
 
   darkMode:"class",
+  
 
 
   theme: {
@@ -39,5 +40,7 @@ export default {
       Yekan:['Yekan','sans-serif']
     }
   },
-  plugins: [],
+  plugins: [
+    // require('tailwindcss/rtl')
+  ],
 }

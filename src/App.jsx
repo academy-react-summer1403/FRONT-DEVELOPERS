@@ -177,7 +177,10 @@ const  originalRoutes = [
 
  const user = useSelector((state) => state.TokenSlice)
 
-  const token = user?.token   
+ console.log("user" , user)
+  
+  const token = user?.token
+  console.log(token)   
 
   const currentRoutes = originalRoutes;
 

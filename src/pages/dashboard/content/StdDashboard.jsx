@@ -4,8 +4,10 @@ import { IoIosArrowBack } from 'react-icons/io'
 import reserve from '../../../assets/dashboard/Group 87.svg'
 import buy from '../../../assets/dashboard/Group 86.svg'
 import alert from '../../../assets/dashboard/Frame.svg'
-import cours from '../../../assets/dashboard/Rectangle 111.svg'
-import { useMyCourses } from '../../../core/services/query/DashboardQuery'
+
+import { useCourseDash, useCourseDash2, useMyCourses} from '../../../core/services/query/DashboardQuery'
+import DonutBarChart from './DonutBarChart'
+
 
 
 
@@ -15,11 +17,23 @@ const StdDashboard = () => {
   const getMyCourses = useMyCourses();
   console.log(getMyCourses?.data)
 
+  const params = {
+    RowsOfPage : 2,
+    PageNumber : 1
+  }
 
+  const getCourseDash =  useCourseDash(params)
+  console.log(getCourseDash.data?.courseFilterDtos)
   
+  const params2 = {
+    RowsOfPage : 2,
+    PageNumber : 3
+  }
+
+  const getCourseDash2 =  useCourseDash2(params2)
+  console.log(getCourseDash2.data?.courseFilterDtos)
   
 
-  
 
   return (
     <div className='px-8 py-2 max-lg:px-4
@@ -54,14 +68,14 @@ const StdDashboard = () => {
             </div>  
         </div>              
         
-        <div className='flex gap-2 pl-0 xl:absolute xl:left-2
+        <div className='flex gap-2 pl-0 xl:absolute xl:left-2 relative
         max-lg:mx-auto 
         '>
-          <div className=' w-24 h-24 border-[6px] border-secondary rounded-full mt-4
-           shadow-sm text-teal-900 dark:text-white font-semibold text-center leading-[80px]'>
-              100% 
-          </div>
-          <p className='w-56 text-center text-gray-400 mt-8 '>
+
+        <DonutBarChart/>
+
+   
+          <p className='w-[150px] font-sm text-[12px] absolute left-[230px] text-center text-gray-400 mt-8 '>
             برای شرکت در دوره ها باید حداحقل 80% پروفایل خود را کامل کنید
           </p>
         </div>
@@ -114,29 +128,27 @@ const StdDashboard = () => {
           <h3 className='text-right py-4 text-md text-gray-500 dark:text-gray-300 font-semibold'>:دوره های پیشنهادی</h3>
 
           <div>
-            <div style={{boxShadow:"0px 1px 1px 1px rgba(0,0,0,0.1)"}}
+            {getCourseDash.data?.courseFilterDtos.map((data)=>(
+
+              <div style={{boxShadow:"0px 1px 1px 1px rgba(0,0,0,0.1)"}}
               className='relative bg-gray-100 dark:bg-gray-400/40  rounded-md p-2 my-4 flex gap-6'
             >
-              <img src={cours}/>
+              <img className='w-[88px] h-[60px] rounded-[6px]' src={data?.tumbImageAddress}/>
               <div className='absolute right-0 px-2'>
-                <h1 className='right-2 text-teal-900 text-sm'>آموزش جامع ریکت جی اس</h1>
+                <h1 className='right-2 text-teal-900 text-sm'>{data?.title}</h1>
                 <div className='flex flex-row-reverse mt-4'>
                   <p className='flex text-[11px] text-primary gap-1'><IoIosArrowBack className='mt-1'/>مشاهده دوره </p>
                 </div>
               </div>
             </div>
 
-            <div style={{boxShadow:"0px 1px 1px 1px rgba(0,0,0,0.1)"}}
-              className='relative bg-gray-100 dark:bg-gray-400/40 rounded-md p-2  flex gap-6'
-            >
-              <img src={cours}/>
-              <div className='absolute right-0 px-2'>
-                <h1 className='right-2 text-teal-900 text-sm'>آموزش جامع ریکت جی اس</h1>
-                <div className='flex flex-row-reverse mt-4'>
-                  <p className='flex text-[11px] text-primary gap-1'><IoIosArrowBack className='mt-1'/>مشاهده دوره </p>
-                </div>
-              </div>
-            </div>
+            ))
+           
+
+            }
+
+           
+
           </div>
 
           <div className='flex text-gray-400 text-[10px] pl-[35%] my-4 gap-2'><IoIosArrowBack className='mt-1'/>مشاهده همه </div>
@@ -147,31 +159,25 @@ const StdDashboard = () => {
           <h3 className='text-right py-4 text-md text-gray-500 dark:text-gray-300 font-semibold'>:دوره های در حال برگزاری</h3>
 
           <div>
-            <div style={{boxShadow:"0px 1px 1px 1px rgba(0,0,0,0.1)"}}
+            {getCourseDash2.data?.courseFilterDtos.map((data)=>(
+
+                <div style={{boxShadow:"0px 1px 1px 1px rgba(0,0,0,0.1)"}}
               className='relative bg-gray-100 dark:bg-gray-400/40  rounded-md p-2 my-4 flex gap-6'
             >
-              <img src={cours}/>
+               <img className='w-[88px] h-[60px] rounded-[6px]' src={data?.tumbImageAddress} />
               <div className='absolute right-0 px-2'>
-                <h1 className='absolute right-2 text-teal-900 text-sm'>آموزش جامع ریکت جی اس</h1>
+                <h1 className='absolute right-2 text-teal-900 text-sm'>{data?.title}</h1>
                 <div className='flex flex-row-reverse mt-10'>
-                  <p className='flex text-[10px] text-primary gap-1'>مهدی اصغری <IoPersonOutline className='mt-1 text-[11px]' /></p>
-                  <p className='mr-14 max-sm:mr-2 text-[10px] text-secondary dark:text-amber-400 '>چهارشنبه ها .17:30</p>
+                  <p className='flex text-[10px] text-primary gap-1'>{data?.teacherName}<IoPersonOutline className='mt-1 text-[11px]' /></p>
+                  <p className='mr-14 max-sm:mr-2 text-[10px] text-secondary dark:text-amber-400 '>{data?.lastUpdate}</p>
                 </div>
               </div>
             </div>
 
-            <div style={{boxShadow:"0px 1px 1px 1px rgba(0,0,0,0.1)"}}
-              className='relative bg-gray-100 dark:bg-gray-400/40  rounded-md p-2 my-2 flex gap-6'
-            >
-              <img src={cours}/>
-              <div className='absolute right-0 px-2'>
-                <h1 className='absolute right-2 text-teal-900 text-sm'>آموزش جامع ریکت جی اس</h1>
-                <div className='flex flex-row-reverse mt-10'>
-                  <p className='flex text-[10px] text-primary gap-1'>مهدی اصغری <IoPersonOutline className='mt-1 text-[11px]' /></p>
-                  <p className='mr-14 max-sm:mr-2 text-[10px] text-secondary  dark:text-amber-400'>چهارشنبه ها .17:30</p>
-                </div>
-              </div>
-            </div>
+             ))
+
+            }
+
           </div>
 
           <div className='flex text-gray-400 text-[10px] pl-[40%] my-4 gap-2'><IoIosArrowBack className='mt-1'/>مشاهده همه </div>

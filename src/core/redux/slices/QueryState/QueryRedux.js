@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
  const QuerySlice = createSlice({
     initialState:{
-        data:{}   /* fill with query ??? */
+        data:{}
     },
     name:"query",
     reducers:{

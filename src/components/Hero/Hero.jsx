@@ -9,26 +9,29 @@ import hat from "../../assets/landing/Flying Mortarboard.svg";
 import Student from "../../assets/landing/student.png";
 import Circled from "../../assets/landing/Circled Play.svg";
 import BackImg from "../../assets/landing/Rectangle 8.svg";
-
-import { useDispatch, useSelector } from "react-redux";
-import { useLandingReport } from '../../core/services/query/queries';
-import { search } from '../../core/redux/slices/QueryState/SearchSlice';
-
+import {  useCourseLandingSearchBar, useLandingReport } from '../../core/services/query/queries';
+import { NavLink } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 
 const Hero = () => {
 
+  const { t } = useTranslation();
 
 
 const reportLanding =  useLandingReport()
 console.log(reportLanding)
 
-  const query = useSelector((state) => state.SearchSlice.data);
-  console.log(query);
 
-  const dispatch = useDispatch();
+  const [search , setSearch] = useState("")
+  console.log(search)
+    
+  const params = {
+    Query : search
+  }
 
-
+  const  CourseSearchBar =  useCourseLandingSearchBar(params)
+  console.log(CourseSearchBar) 
 
 
     return (
@@ -183,16 +186,25 @@ console.log(reportLanding)
                 <img src={SearchImg} alt="" className='px-1.5 py-1.5'/>
                 </div>  
                 <input
-            onChange={(e) => dispatch(search(e.target.value))}
+            onChange={(e) => setSearch(e.target.value)}
                 
                 style={{boxShadow:" 0px 1px 3px 0px #00000033"}} placeholder='... دنبال چی میگردی ؟' type="text" className='w-full h-full  rounded-[35px]  text-right font-normal
                 font-Yekan text-[#AAAAAA] text-[16px] pr-5 outline-none dark:bg-gray-600 ' 
                  
                 />
-              
-              
-             
+            
             </motion.div>
+              <div className=' w-[400px] top-[430px] z-[5000] bg-white absolute flex flex-col shadow-lg rounded-lg mt-4  overflow-y-scroll px-3 scrollbar scrollbar-thumb-slate-400 scrollbar-track-slate-600'>
+                {
+                   CourseSearchBar.data?.courseFilterDtos.map((data)=>(
+                    <div>
+                      <NavLink to={"/courses-detail/" + data?.courseId}>
+                         <p className='text-black text-right text-lg mt-1 cursor-pointer z-[5000] hover:bg-red-400'>{data?.title}</p>
+                      </NavLink>
+                    </div>
+                  ))
+                }
+              </div>
           </div>
        
         </div>

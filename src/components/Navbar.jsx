@@ -8,12 +8,13 @@ import DarkMode from './DarkMode';
 import { NavLink } from 'react-router-dom';
 
 import { CgProfile } from "react-icons/cg";
+import Lg from './Translate/TranslateButton';
 
 export const NavbarMenu =[
   {
       id:1,
       title:"تماس با ما",
-      link:"#",
+      link:"/",
   },
   {
       id:2,
@@ -106,12 +107,13 @@ const Navbar = () => {
                     {/* shop&favorit  */}
                     <div className='flex justify-center flex-row gap-4 ml-4 max-lg:gap-1 max-lg:ml-0'>                    
                         <NavLink to={"/basket"} className='relative '>
-                            <img src={ShopImg} alt="" className='mt-8  max-xl:w-[45px] max-lg:w-[40px]'/>
+                            <img src={ShopImg} alt="" className='mt-8 '/>
                             <div className='w-[16px] h-[16px] flex  items-center font-Yekan justify-center bg-orange rounded-full absolute px-[1px] max-lg:bottom-0 bottom-0 right-[-2px] text-[12px] font-normal text-white leading-3'>0</div>
                         </NavLink>
                         <NavLink to={"/stdFavorite"}>
-                            <img src={FavImg} alt=""  className='mt-8 max-xl:mt-[35px] max-xl:w-[30px]  max-lg:w-[30px] max-2xl:mt-[35px] max-2xl:w-[40px]'/>
+                            <img src={FavImg} alt=""  className='mt-8 '/>
                         </NavLink>
+                        <Lg/>
                     </div>                   
                     
                </div>

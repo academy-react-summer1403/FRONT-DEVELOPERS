@@ -43,8 +43,8 @@ const CourseCard = ({courseId}) => {
           <div className=" flex justify-between  relative"> 
             <svg onClick={()=>(setFavorite(courseId),setSave(!save))}
               width="27"
-              className={`h-[20px] stroke-[#00B4AF] dark:stroke-orange fill-primary
-                ${save ? "fill-white dark:fill-slate-700" : "  fill-primary dark:fill-orange"}` }
+              className={`h-[20px] stroke-[#00B4AF] dark:stroke-orange 
+                ${save ? " fill-primary  dark:fill-orange" : " "}` }
               height="27"
               viewBox="0 0 27 27"
               fill="none"

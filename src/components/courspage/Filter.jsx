@@ -14,7 +14,7 @@ const Filter = () => {
       id: 1,
       name: "تکنولوژی",
 
-      isOpen: false,
+      isOpen: true,
     },
   ]);
 
@@ -22,7 +22,7 @@ const Filter = () => {
     {
       id: 1,
       name: "وضعیت",
-      isOpen: false,
+      isOpen: true,
     },
   ]);
 
@@ -31,7 +31,7 @@ const Filter = () => {
     {
       id: 1,
       name: "سطح",
-      isOpen: false,
+      isOpen: true,
     },
   ]);
 

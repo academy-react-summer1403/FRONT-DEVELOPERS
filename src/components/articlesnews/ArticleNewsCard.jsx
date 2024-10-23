@@ -27,7 +27,7 @@ useEffect(() => {
 
 
   return (
-    <NavLink>
+    <NavLink to={"/article-detail/" + id } >
     <motion.div
         initial={{opacity:0 ,y:-200}}
         animate={{opacity:1 ,y:0}}
@@ -55,11 +55,11 @@ useEffect(() => {
                     </div>
                 </div>
 
-                <NavLink to={"/article-detail/" + id } className='flex justify-center pt-2 gap-1 text-xs font-medium 
+                <div className='flex justify-center pt-2 gap-1 text-xs font-medium 
                 text-orange border-t-[1px] absolute w-[250px] max-xl:w-[170px] max-lg:w-[250px] max-md:w-[200px] max-sm:w-[250px] top-[180px]'> 
                     <img src={flash} className='m-1'/>مطالعه بیشتر
                     
-                </NavLink>
+                </div>
             </div>   
 
         </div>

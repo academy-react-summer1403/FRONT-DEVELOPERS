@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import image from "../../assets/detail/article.jpg";
 import RelatedCourses from "../../components/coursedetailComponents/RelatedCourses/RelatedCourses";
 
@@ -10,6 +10,8 @@ import { useParams } from "react-router-dom";
 import Comment from "../../components/coursedetailComponents/comments/Comment";
 import { samecourses, suggestion } from "../CourseDetail/CourseDetail";
 import { useCommentNews } from "../../core/services/query/CommentQuery";
+import { postFavoriteNews } from "../../core/services/DashApi";
+import { toast } from "react-toastify";
 // import { samecourses, suggestion } from "../CourseDetail/CourseDetail";
 
 
@@ -19,8 +21,19 @@ const ArticleDetail = () => {
 
   
   const articleDetail = useArticleDetail(id);
-  console.log(articleDetail.data?.detailsNewsDto.title);
+  // console.log(articleDetail.data?.detailsNewsDto.title);
 
+  const [save,setSave]=useState(false)
+
+  const [NewsId , setNewsId] = useState()
+  console.log(NewsId)
+
+  const params = {
+    NewsId: id 
+  }
+
+  const  addFavoriteNew = postFavoriteNews(params , toast)
+  console.log(addFavoriteNew) 
 
 
   return (
@@ -227,7 +240,10 @@ const ArticleDetail = () => {
 
             <svg
               width="18"
-              className=" max-2xl:w-[16px] h-[18px]  max-xl:h-[16px] max-xl:w-[14px] dark:stroke-secondary stroke-[#00B4AF] "
+             onClick={()=>(setSave(!save),setNewsId(id))}
+             
+              className={`  dark:stroke-secondary  max-2xl:w-[16px] h-[18px]  max-xl:h-[16px] max-xl:w-[14px] stroke-[#00B4AF]
+                ${save ? "  fill-[#00B4AF] dark:fill-secondary" :" " }` }
               height="20"
               viewBox="0 0 18 20"
               fill="none"
