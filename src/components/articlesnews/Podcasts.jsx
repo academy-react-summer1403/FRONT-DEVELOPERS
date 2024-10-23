@@ -32,7 +32,7 @@ const Podcasts = () => {
            max-sm:mx-4 '
         >
                 <div className='text-center '>
-                    <h3 className='text-lg font-medium text-teal-900 dark:text-white mb-2'>پادکست ها"</h3>
+                    <h3 className='text-lg font-medium text-darkgreen dark:text-white mb-2'>پادکست ها"</h3>
                     <p className='text-sm text-gray-400 dark:text-gray-300'>با مااز بهترین ها بشنوید</p>
                 </div>        
                         {podcast.map((item,key)=>(
@@ -45,7 +45,7 @@ const Podcasts = () => {
                                     max-md:w-[92%] 
                                     max-lg:w-[92%] 
                                 '>
-                                    <p className='text-[11px] font-medium text-teal-800 dark:text-white mb-3'>{item.subject}</p>
+                                    <p className='text-[11px] font-medium text-darkgreen/80 dark:text-white mb-3'>{item.subject}</p>
                                     <div  className='text-[10px] text-gray-400 flex flex-row px-[30%] max-lg:px-[80%] max-sm:px-[70%]  gap-5 '>
                                         <p className='flex flex-row-reverse gap-1 '> 
                                             124<img src={view}/>

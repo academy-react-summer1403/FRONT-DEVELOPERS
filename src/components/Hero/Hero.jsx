@@ -159,9 +159,9 @@ console.log(reportLanding)
              animate="visible"
       
 
-              className="  flex max-xl:text-[50px] dark:text-white   max-lg:text-[45px]  max-md:text-[50px]  font-Yekan font-normal justify-end text-right text-[60px] text-[#000000]"
+              className="[text-shadow:_0_3px_4px_rgb(0_0_0_/_30%)]  flex max-xl:text-[50px] dark:text-white   max-lg:text-[45px]  max-md:text-[50px]  font-Yekan font-normal justify-end text-right text-[60px] text-[#000000]"
             >
-               <h1 className="text-primary max-lg:text-[45px] max-md:text-[50px]  text-right font-Yekan font-normal max-xl:text-[50px]  text-[60px]">آموزشگاه</h1>عنوان 
+               <h1 className="text-primary max-lg:text-[45px] max-md:text-[50px]  text-right font-Yekan font-normal max-xl:text-[50px]  text-[60px]  [text-shadow:_0_3px_4px_rgb(0_0_0_/_30%)]">آموزشگاه</h1>عنوان 
 
                
             </motion.h1>

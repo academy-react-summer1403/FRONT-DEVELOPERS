@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useReplyCourse } from '../../../core/services/query/CommentQuery'
 import { replyComment } from '../../../core/services/apiComment'
 import Commentdiv from './commentdiv'
+import DateApi from '../../DateApi'
 
 const Reply = ({id , useId,showMore,setCommentdiv1,comentdiv1}) => {
 
@@ -73,7 +74,7 @@ const Reply = ({id , useId,showMore,setCommentdiv1,comentdiv1}) => {
                 {" "}
                 {item?.author}
               </h3>
-              <h4 className=" datecomment ">{item?.insertDate}</h4>
+              <h4 className=" datecomment "> <DateApi dateapi={item?.insertDate}/></h4>
             </div>
 
        

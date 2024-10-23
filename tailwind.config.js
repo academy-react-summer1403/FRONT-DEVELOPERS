@@ -21,6 +21,7 @@ export default {
         green:'rgb(var(--color-green))',
         light:'rgb(var(--color-light))',
         yellow:'rgb(var(--color-yellow))',
+        darkgreen:'rgb(var(--color-darkgreen))',
       },
       container:{
         center:true,

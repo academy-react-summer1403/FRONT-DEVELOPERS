@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Reply from './Reply'
 import {  deleteComment,    dislikeComment,    likeComment,  postComment } from '../../../core/services/apiComment';
 import Commentdiv from './commentdiv';
+import DateApi from '../../DateApi';
 
 
 const Comment = ({Id,useComment}) => {
@@ -167,7 +168,7 @@ const Comment = ({Id,useComment}) => {
                             {" "}
                             {item?.author}
                           </h3>
-                          <h4 className=" datecomment ">{item?.insertDate}</h4>
+                          <h4 className=" datecomment "> <DateApi dateapi={item?.insertDate}/></h4>
                         </div>
 
                    

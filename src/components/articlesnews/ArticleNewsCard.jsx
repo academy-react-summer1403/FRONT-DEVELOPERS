@@ -4,9 +4,9 @@ import { motion } from 'framer-motion'
 
 // image:
 import newsImage from '../../assets/articles and news/Rectangle 95.svg'
-import seenIcon from '../../assets/articles and news/Frame(1).svg'
-import calenderIcon from '../../assets/articles and news/Frame.svg'
 import flash from '../../assets/articles and news/Frame(2).svg'
+import { IoEyeOutline } from "react-icons/io5";
+import { CiCalendar } from "react-icons/ci";
 
 import AOS from "aos";
 import 'aos/dist/aos.css';
@@ -41,11 +41,11 @@ useEffect(() => {
                 <div className='absolute w-[270px] bg-red-400 top-[130px] flex flex-row-reverse my-4'>
                     <div className='flex flex-row gap-1 text-xs text-gray-500 dark:text-gray-400 dark:group-hover:text-gray-200 absolute right-4'>
                         {currentView}بازدید
-                        <img src={seenIcon} />
+                        <IoEyeOutline className='text-primary w-4 h-4 mt-[2px]'/>
                     </div>
                     <div className='absolute left-0 flex flex-row-reverse gap-1 text-[10px] text-gray-500 dark:text-gray-400 dark:group-hover:text-gray-200'>
                         <DateApi dateapi={updateDate}/>
-                        <img src={calenderIcon}/>
+                        <CiCalendar className='text-primary w-4 h-4 '/>
                     </div>
                 </div>
 

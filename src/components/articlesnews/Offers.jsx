@@ -6,10 +6,10 @@ import { motion } from 'framer-motion'
 import speed from '../../assets/articles and news/Ellipse 39(4).svg'
 import manager from '../../assets/articles and news/Ellipse 39(5).svg'
 import figma from '../../assets/articles and news/Ellipse 39(6).svg'
-import geernarrow from '../../assets/articles and news/Frame(5).svg'
 
 import AOS from "aos";
 import 'aos/dist/aos.css';
+import { IoIosArrowBack } from 'react-icons/io'
 
 
 const Offers = () => {
@@ -34,7 +34,7 @@ useEffect(() => {
               transition={{type:"spring" , stiffness:100 , delay:0.2}}
             >
                 <div className='text-center'>
-                    <h3 className='text-lg font-medium text-teal-900 dark:text-white mb-2'>مطالب پیشنهادی</h3>
+                    <h3 className='text-lg font-medium text-darkgreen dark:text-white mb-2'>مطالب پیشنهادی</h3>
                     <p className='text-sm text-gray-400 dark:text-gray-300'>این مطالب هم میتونه براتون جالب باشه</p>
                 </div>        
                         {Offer.map((item,key)=>(
@@ -47,9 +47,9 @@ useEffect(() => {
                                     max-md:w-[92%] 
                                     max-lg:w-[92%] 
                                 '>
-                                    <p className='text-[11px] font-medium text-teal-800 dark:text-white mb-3'>{item.subject}</p>
-                                    <NavLink to={"#"} className='text-[10px] text-teal-500 flex flex-row-reverse '>
-                                        مشاهده مطالب <img src={geernarrow} />
+                                    <p className='text-[11px] font-medium text-darkgreen/80 dark:text-white mb-3'>{item.subject}</p>
+                                    <NavLink to={"#"} className='text-[10px] text-green/80 flex flex-row-reverse '>
+                                        مشاهده مطالب <IoIosArrowBack className='mt-[3px]'/>
                                     </NavLink>
                                 </div>
                             </div>
