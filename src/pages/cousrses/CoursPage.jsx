@@ -281,7 +281,7 @@ const CoursPage = () => {
 
           {/* cards  */}
 
-            <div className={` grid h-[1000px]  w-full z-10
+            <div className={` grid w-full z-10
                       ${view ? "grid-cols-1 mt-2":"grid-cols-3 max-lg:grid-cols-2 max-sm:justify-items-center max-sm:grid-cols-1 pt-0"}`}>
                 
                     {view ? <>
