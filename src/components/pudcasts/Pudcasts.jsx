@@ -1,13 +1,14 @@
 import React, { useEffect } from "react";
 import Slider from 'react-slick'
 import BackP1Img from "../../assets/landing/BackPudcast.png";
-import BackPImg from "../../assets/landing/BackP.png";
+import BackPImg from "../../assets/landing/BG3.svg";
 
 import Img1 from "../../assets/landing/reactPudcast.png";
 import Img2 from "../../assets/landing/Ekhtiari.png";
 
 import { useNewsPudcast } from '../../core/services/query/queries';
 import AOS from "aos";
+import DateApi from "../DateApi";
 
 
 
@@ -58,20 +59,21 @@ const Pudcasts = () => {
     <div data-aos="fade-up" data-aos-duration="900" className='max-lg:w-[650px] w-[1000px] h-[500px]  mt-[10px]  relative max-sm:w-[550px] '>
 
         <img src={Img2} alt="" className='absolute top-[-20px] left-[-10px] max-md:w-[20%] max-lg:w-[20%] max-sm:top-4 max-sm:left-16'/>
+        
+        {/* <img src={BackPImg} alt="" className='max-md:mt-[20px] max-sm:w-[450px] max-sm:mx-auto  max-sm:mt-[20px]'/> */}
 
-        <img src={BackPImg} alt="" className='max-md:mt-[20px] max-sm:w-[450px] max-sm:mx-auto  max-sm:mt-[20px]'/>
-
+        <div className='shadow-lg bg-gradient-to-r from-orange/30 to-primary/30 w-[750px] h-[300px] rounded-2xl rounded-tl-[200px] mt-14 ml-20 max-md:mt-[20px] max-lg:w-[450px] max-sm:mx-auto  max-sm:mt-[20px]'></div>
         <img src={Img1} alt="" className='absolute w-[200px] h-[200px] top-[90px] right-[100px] z-50 max-lg:top-[50px] max-lg:right-[0px]
         max-md:w-[150px] max-sm:w-[100px] max-md:h-[150px] max-sm:h-[100px] max-md:right-[10px] max-md:top-24 max-sm:right-20 max-sm:top-0'/>
         
-        <Slider {...settings} className='  absolute w-[700px] h-[250px] py-10  -top-80 max-sm:left-[60px] max-sm:w-[380px] max-sm:h-[190px] max-sm:top-[-205px]  max-md:left-[40px] overflow-hidden left-16  max-md:h-[220px] max-md:w-[460px]  max-md:top-[-255px] max-lg:top-[-250px] max-lg:left-[40px] max-lg:w-[450px] max-lg:h-[210px]       -black rounded-tl-[200px] '>
+        <Slider {...settings} className='  absolute w-[700px] h-[250px] py-10  -top-[280px] left-20 max-sm:left-[60px] max-sm:w-[380px] max-sm:h-[190px] max-sm:top-[-205px]  max-md:left-[40px] overflow-hidden left-16  max-md:h-[220px] max-md:w-[460px]  max-md:top-[-255px] max-lg:top-[-250px] max-lg:left-[40px] max-lg:w-[450px] max-lg:h-[210px]       -black rounded-tl-[200px] '>
             {PudcastApi.data?.news.map((data)=>(
 
                 <div className='     -ml-14'>
 
                    <div className='     flex flex-wrap justify-end'>
                         <h3 className=' text-[#AAAAAA] text-[12px] font-Yekan font-semibold   max-lg:mr-[-80px] max-md:-mr-[300px] max-sm:-mt-1 max-sm:mr-[-90px]  mr-[70px]'>
-                            {data?.updateDate}
+                             <DateApi dateapi={data?.updateDate}/>
                             </h3>
                         <h1 className='   max-md:-mr-6 text-[26px] text-[#006865]  max-sm:text-[16px] max-sm:-mr-4 max-sm:mt-[9px] font-bold font-Yekan max-lg:text-[22px] max-lg:mr-[-45px]  text-right mt-5'>
                             {data?.title}
@@ -86,8 +88,8 @@ const Pudcasts = () => {
                             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M7 3V7H10M13 7C13 7.78793 12.8448 8.56815 12.5433 9.2961C12.2417 10.0241 11.7998 10.6855 11.2426 11.2426C10.6855 11.7998 10.0241 12.2417 9.2961 12.5433C8.56815 12.8448 7.78793 13 7 13C6.21207 13 5.43185 12.8448 4.7039 12.5433C3.97595 12.2417 3.31451 11.7998 2.75736 11.2426C2.20021 10.6855 1.75825 10.0241 1.45672 9.2961C1.15519 8.56815 1 7.78793 1 7C1 5.4087 1.63214 3.88258 2.75736 2.75736C3.88258 1.63214 5.4087 1 7 1C8.5913 1 10.1174 1.63214 11.2426 2.75736C12.3679 3.88258 13 5.4087 13 7Z" stroke="#AAAAAA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
-                            {data?.updateDate}
-                        </div>
+                            <DateApi dateapi={data?.updateDate}/>
+                            </div>
 
                         <div className=' flex items-center gap-1'>
                             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -101,8 +101,7 @@ const CoursPage = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ type: "spring", stiffness: 100, delay: 0.2 }}
-        style={{ backgroundColor: "rgba(235, 249, 249, 0.51)" }}
-        className="flex flex-row  rounded-lg my-10 px-4 mx-12 shadow-md
+        className="flex flex-row  rounded-lg my-10 px-4 mx-12 shadow-md bg-primary/5
         dark:bg-gray-700/70
         max-md:flex-col max-md:m-4
         max-sm:flex-col max-sm:m-4

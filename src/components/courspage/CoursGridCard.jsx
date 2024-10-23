@@ -7,7 +7,7 @@ import star from '../../assets/courses/star2.svg'
 import hat from '../../assets/landing/academic hat.svg'
 import teacher from '../../assets/courses/Frame(1).svg'
 import level from '../../assets/courses/Frame(2).svg'
-import buy from '../../assets/landing/Rounded.svg'
+import { MdOutlineAddShoppingCart } from "react-icons/md";
 
 import { NavLink } from 'react-router-dom'
 import { motion } from 'framer-motion'
@@ -79,7 +79,7 @@ const CoursGridCard = ({title , levelName , cost , teacherName , likeCount , cou
                     
                     <div className='flex flex-row-reverse py-2 border-t-[1.5px]' >
                         
-                        <img src={buy} className='w-6 h-6'/>
+                        <MdOutlineAddShoppingCart className='w-8 h-8 text-green'/>
                         <div className='absolute left-0 flex flex-row text-green text-lg'>
                             <p className='text-[10px] mr-2 relative top-1'>تومان</p>
                             {cost}

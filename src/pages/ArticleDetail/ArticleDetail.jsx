@@ -12,6 +12,7 @@ import { samecourses, suggestion } from "../CourseDetail/CourseDetail";
 import { useCommentNews } from "../../core/services/query/CommentQuery";
 import { postFavoriteNews } from "../../core/services/DashApi";
 import { toast } from "react-toastify";
+import DateApi from "../../components/DateApi";
 // import { samecourses, suggestion } from "../CourseDetail/CourseDetail";
 
 
@@ -212,8 +213,7 @@ const ArticleDetail = () => {
                   stroke-linejoin="round"
                 />
               </svg>
-              {articleDetail.data?.detailsNewsDto.updateDate} 
-              
+              <DateApi dateapi={articleDetail.data?.detailsNewsDto.updateDate} />
             </h3>
 
             <h3 className=" max-2xl:text-[15px] text max-xl:text-[13px] flex gap-3   max-lg:text-[12px] max-lg:w-28 max-lg:gap-1">

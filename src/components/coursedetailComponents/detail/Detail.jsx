@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import profile from "../../../assets/detail/prof.jpg"
 import { useParams } from 'react-router-dom';
 import { useCourseId, useCourses } from '../../../core/services/query/queries';
+import DateApi from '../../DateApi';
 
 
 const Detail = ({courseId}) => {
@@ -110,7 +111,7 @@ const Detail = ({courseId}) => {
     {
       id: 5,
       title: "تاریخ شروع دوره",
-      subtitle: `${CourseDetail.data?.startTime}`,
+      subtitle: ( <DateApi dateapi={CourseDetail.data?.startTime}/>),
       icon: (
         <svg
           width="28"
@@ -135,7 +136,7 @@ const Detail = ({courseId}) => {
     {
       id: 6,
       title: "تاریخ پایان دوره",
-      subtitle: `${CourseDetail.data?.endTime}`,
+      subtitle: ( <DateApi dateapi={CourseDetail.data?.endTime}/>),
       icon: (
         <svg
           width="28"
