@@ -16,15 +16,15 @@ const ArticleDescription = () => {
   // console.log(articleDetail?.data.detailsNewsDto.id);
 
   const [like , setLike] = useState()
-  console.log(like)
+  // console.log(like)
 
   const [disslike , setDissLike] = useState()
-  console.log(disslike)
+  // console.log(disslike)
 
 
   
   const [NewsId , setNewsId] = useState()
-  console.log(NewsId)
+  // console.log(NewsId)
 
   const [rate , setRate] = useState()
   console.log(rate)

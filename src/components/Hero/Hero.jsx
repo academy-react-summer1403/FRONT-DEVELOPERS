@@ -55,7 +55,7 @@ console.log(reportLanding)
               <div style={{boxShadow: "0px 0px 5px 0px #00000059"}} className='flex items-center justify-center z-0 max-lg:w-[48px] max-lg:h-[48px] bg-yellow rounded-full max-xl:ml-[40px] ml-[60px] mt-[-30px] w-[68px] h-[68px] '>
                 <img className='  w-[45px] h-[45px] max-lg:w-[35px] max-lg:h-[35px]' src={teacher} alt="" />
               </div>
-              <h1 className=' mx-auto max-xl:text-[20px] max-xl:w-[140px] h-[40px] w-[170px] mt-3 text-center text-[25px] font-normal font-Yekan text-[#434343] text-gray-800/90  dark:text-white'>+{reportLanding.data?.studentCount}دانشجو</h1>
+              <h1 className=' mx-auto max-xl:text-[20px] max-xl:w-[140px] h-[40px] w-[170px] mt-3 text-center text-[25px] font-normal font-Yekan text-[#434343] text-gray-800/90  dark:text-white'>+{reportLanding.data?.studentCount}{t('student')}</h1>
             </div>
        
 
@@ -140,7 +140,7 @@ console.log(reportLanding)
               <div style={{boxShadow: "0px 0px 5px 0px #00000059"}} className='flex  max-lg:w-[48px] max-lg:h-[48px] items-center justify-center max-xl:ml-[40px]   bg-orange rounded-full ml-[60px] mt-[-30px] w-[68px] h-[68px] '>
                 <img className='  w-[45px] h-[45px]  max-lg:w-[35px] max-lg:h-[35px]' src={Student} alt="" />
               </div>
-              <h1 className=' mx-auto h-[40px] w-[170px] mt-3 text-center text-[25px] max-xl:text-[20px] max-xl:w-[140px]  font-normal font-Yekan text-[#434343] text-gray-800/90  dark:text-white'>+{reportLanding.data?.teacherCount} مدرس</h1>
+              <h1 className=' mx-auto h-[40px] w-[170px] mt-3 text-center text-[25px] max-xl:text-[20px] max-xl:w-[140px]  font-normal font-Yekan text-[#434343] text-gray-800/90  dark:text-white'>+{reportLanding.data?.teacherCount} {t("teacher")}</h1>
             </div>
 
 
@@ -161,7 +161,7 @@ console.log(reportLanding)
 
               className="[text-shadow:_0_3px_4px_rgb(0_0_0_/_30%)]  flex max-xl:text-[50px] dark:text-white   max-lg:text-[45px]  max-md:text-[50px]  font-Yekan font-normal justify-end text-right text-[60px] text-[#000000]"
             >
-               <h1 className="text-primary max-lg:text-[45px] max-md:text-[50px]  text-right font-Yekan font-normal max-xl:text-[50px]  text-[60px]  [text-shadow:_0_3px_4px_rgb(0_0_0_/_30%)]">آموزشگاه</h1>عنوان 
+               <h1 className="text-primary max-lg:text-[45px] max-md:text-[50px]  text-right font-Yekan font-normal max-xl:text-[50px]  text-[60px]  [text-shadow:_0_3px_4px_rgb(0_0_0_/_30%)]">{t("academy")}</h1>{t("title")} 
 
                
             </motion.h1>
@@ -171,8 +171,7 @@ console.log(reportLanding)
                animate="visible"
                className='text-right font-Yekan font-normal max-lg:hidden text-[#555555] dark:text-[#c9c6c655] text-[20px] max-xl:text-[18px]  leading-[35px] dark:text-white'
             >
-             مرجع اموزش زنده و تعاملی برنامه نویسی حوزه وب 
-             با دسترسی به بیش از هفت هزار ویدیوی اموزشی به زبان فارسی
+            {t('herotext')}
             </motion.p>
             </div>
             {/* button section  */}
@@ -188,7 +187,7 @@ console.log(reportLanding)
                 <input
             onChange={(e) => setSearch(e.target.value)}
                 
-                style={{boxShadow:" 0px 1px 3px 0px #00000033"}} placeholder='... دنبال چی میگردی ؟' type="text" className='w-full h-full  rounded-[35px]  text-right font-normal
+                style={{boxShadow:" 0px 1px 3px 0px #00000033"}} placeholder={t("search1")} type="text" className='w-full h-full  rounded-[35px]  text-right font-normal
                 font-Yekan text-[#AAAAAA] text-[16px] pr-5 outline-none dark:bg-gray-600 ' 
                  
                 />
