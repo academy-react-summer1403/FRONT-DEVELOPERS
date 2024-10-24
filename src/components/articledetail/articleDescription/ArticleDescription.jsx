@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import { disslikeArticle, likeArticle } from "../../../core/services/getApi";
 import { toast } from "react-toastify";
 import { postRateNews } from "../../../core/services/DashApi";
+import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 
 const ArticleDescription = () => {
 
@@ -85,43 +86,13 @@ const ArticleDescription = () => {
 
         <button
           onClick={() => setShowMore(!showMore)}
-          className="border-[#01CEC9] border-[1px] dark:border-[#E48900]   dark:text-[#fdb359] text-[#006865] hover:scale-105 ease-in-out duration-150  
+          className="border-primary border-[1px] dark:border-[#E48900]   dark:text-[#fdb359] text-darkgreen/90 hover:scale-105 ease-in-out duration-150  
 leading-[32px] font-normal font-Yekan text-[20px] max-xl:text-[18px] flex items-center w-[174px] max-xl:w-[150px] max-xl:h-[40px] h-[45px] rounded-[45px] mx-auto justify-center gap-2 mt-3  "
         >
           {showMore ? (
-            <svg
-              width="14"
-              height="8"
-              className="dark:stroke-orange stroke-[#005B58] max-xl:w-[13px] max-xl:h-[7px]"
-              viewBox="0 0 14 8"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M13.25 0.875L7 7.125L0.75 0.875"
-                
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
+            <IoIosArrowDown />
           ) : (
-            <svg
-              width="14"
-              height="8"
-              className="dark:stroke-orange stroke-[#005B58] rotate-180"
-              viewBox="0 0 14 8"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M13.25 0.875L7 7.125L0.75 0.875"
-              
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
+            <IoIosArrowUp />
           )}
           مطالعه بیشتر
         </button>
