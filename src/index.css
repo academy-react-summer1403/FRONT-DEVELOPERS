@@ -6,6 +6,33 @@
 @tailwind components;
 @tailwind utilities;
 
+.root{
+  
+    --color-primary: 1 206 211;
+    --color-secondary: 228 137 0;
+    --color-purple: 162 89 255;
+    --color-orange: 212 115 0;
+    --color-green: 0 141 138;
+    --color-light: 203 109 0;
+    --color-yellow: 255 190 3;
+    --color-darkgreen: 13 66 64;
+    
+
+}
+
+@layer base {
+  .dark {
+    --color-primary: 1 206 211;
+    --color-secondary: 228 137 0;
+    --color-purple: 162 89 255;
+    --color-orange: 212 115 0;
+    --color-green: 0 141 138;
+    --color-light: 203 109 0;
+    --color-yellow: 255 190 3;
+    --color-darkgreen: 13 66 64;
+    
+  } 
+}
 
 @layer base {
   .maintheme {
