@@ -3,7 +3,6 @@ import { Link, NavLink, Outlet } from 'react-router-dom'
 
 // images:
 import logout from '../../assets/dashboard/logout.svg'
-import home from '../../assets/dashboard/home.svg'
 import dash from '../../assets/dashboard/Frame(1).svg'
 import inform from '../../assets/dashboard/Frame(4).svg'
 import courses from '../../assets/dashboard/book-02-solid-rounded 1.svg'
@@ -92,12 +91,12 @@ const DashPanel = () => {
    console.log(resposive)
 
   return (
-    <div className='bg-gray-50 dark:bg-gray-900 py-4 px-5 pb-10 
+    <div className='bg-gray-50 dark:bg-gray-900 py-4 px-5 pb-10
         max-lg:px-12 
         max-md:px-8
         max-sm:px-4
         '>
-        <DashNavbar/>
+       
         <DarkMode/>
         <div 
             className='relative flex flex-row rounded-xl 
@@ -110,9 +109,7 @@ const DashPanel = () => {
             max-sm:p-2 max-sm:rounded-b-xl max-sm:rounded-tl-none  
             max-lg:p-2 max-lg:${resposive ? " " : "w-full" } 
             `}>
-                <NavLink to={"/"}>
-                    <img src={home}/>
-                </NavLink>
+               <DashNavbar />
                 <Outlet/>
             </div>
 
