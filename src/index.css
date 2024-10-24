@@ -53,7 +53,7 @@ body{
 
 @layer components{
     .mark{
-        @apply  right-0 -top-10 text-right h-[32px]  text-[#005351] font-Yekan font-bold leading-[25px] text-[25px]
+        @apply  right-0 -top-10 text-right h-[32px]  text-darkgreen/90 font-Yekan font-bold leading-[25px] text-[25px]
     }
 
     .like{
