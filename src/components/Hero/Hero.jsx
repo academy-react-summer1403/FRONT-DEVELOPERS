@@ -49,7 +49,7 @@ console.log(reportLanding)
               <div style={{boxShadow: "0px 0px 5px 0px #00000059"}} className='flex items-center justify-center z-0 max-lg:w-[48px] max-lg:h-[48px] bg-[#FFB803] rounded-full max-xl:ml-[40px] ml-[60px] mt-[-30px] w-[68px] h-[68px] '>
                 <img className='  w-[45px] h-[45px] max-lg:w-[35px] max-lg:h-[35px]' src="https://s3-alpha-sig.figma.com/img/964f/1424/c9d17b05e8bbb686022aab84b0a67d3f?Expires=1730678400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=c-RFfMDMK2zDKM2Yh40XdwgD~UOLnvgPhLREFQi7HIhix~KXTj9LiTAD0rv7uPu8MuAVX-kXL65DPakpcX9zG3ModJJxROjvinHz1DnEPFFAZgI5kAlLejbKWZYveo-z21uEJ2fJ8x09M-7DLW65vAmZzO5LB9SPMPLNGYBhUV1b1xtJRpU-fcmWsaON848Rr0~WQ~xYkR1cCohShK3dKh21hrhlmIYrIg5A0qoo0Y-karZPwebW7mhylDzG62Q1g6X94iNhEgURKstqbVtJgBZXhja7ltoGJMHslpJrgEpFmGjYFJfrIypwVrWIxRt5dSKc9-hZcwpruYjf6p9PAg__" alt="" />
               </div>
-              <h1 className=' mx-auto max-xl:text-[20px] max-xl:w-[140px] h-[40px] w-[170px] mt-3 text-center text-[25px] font-normal font-Yekan text-[#434343] text-gray-800/90  dark:text-white'>+{reportLanding.data?.studentCount}دانشجو</h1>
+              <h1 className=' mx-auto max-xl:text-[20px] max-xl:w-[140px] h-[40px] w-[170px] mt-3 text-center text-[25px] font-normal font-Yekan text-[#434343] text-gray-800/90  dark:text-white'>+{reportLanding.data?.studentCount}{t('student')}</h1>
             </div>
        
 
@@ -144,7 +144,7 @@ console.log(reportLanding)
 
               className="  flex max-xl:text-[50px] dark:text-white   max-lg:text-[45px]  max-md:text-[50px]  font-Yekan font-normal justify-end text-right text-[60px] text-[#000000]"
             >
-               <h1 className="text-[#01CEC9] max-lg:text-[45px] max-md:text-[50px]  text-right font-Yekan font-normal max-xl:text-[50px]  text-[60px]">{t('title')}</h1>عنوان 
+               <h1 className="text-[#01CEC9] max-lg:text-[45px] max-md:text-[50px]  text-right font-Yekan font-normal max-xl:text-[50px]  text-[60px]">{t('academy')}</h1>{t('title')}
 
                
             </motion.h1>
@@ -154,8 +154,7 @@ console.log(reportLanding)
                animate="visible"
                className='text-right font-Yekan font-normal max-lg:hidden text-[#555555] dark:text-[#c9c6c655] text-[20px] max-xl:text-[18px]  leading-[35px] dark:text-white'
             >
-             مرجع اموزش زنده و تعاملی برنامه نویسی حوزه وب 
-             با دسترسی به بیش از هفت هزار ویدیوی اموزشی به زبان فارسی
+            {t('herotext')}
             </motion.p>
             </div>
             {/* button section  */}
@@ -171,7 +170,12 @@ console.log(reportLanding)
                 <input
             onChange={(e) => dispatch(search(e.target.value))}
                 
-                style={{boxShadow:" 0px 1px 3px 0px #00000033"}} placeholder='... دنبال چی میگردی ؟' type="text" className='w-full h-full  rounded-[35px]  text-right font-normal
+                style={{boxShadow:" 0px 1px 3px 0px #00000033"}} placeholder={t('search1'
+
+
+
+                  
+                )} type="text" className='w-full h-full  rounded-[35px]  text-right font-normal
                 font-Yekan text-[#AAAAAA] text-[16px] pr-5 outline-none' 
                  
                 />

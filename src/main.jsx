@@ -32,5 +32,3 @@ createRoot(document.getElementById("root")).render(
 
 
 
-import React from 'react';
-import { useTranslation } from 'react-i18next';
