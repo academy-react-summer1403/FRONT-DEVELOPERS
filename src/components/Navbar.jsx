@@ -20,10 +20,8 @@ const Navbar = () => {
  const NavbarMenu =[
   {
       id:1,
-      title:"تماس با ما",
-      link:"/",
-    //   title:`${t('call')}`,
-    //   link:"#",
+      title:`${t('call')}`,
+      link:"#",
   },
   {
       id:2,
