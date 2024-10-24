@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 
 
@@ -9,17 +9,25 @@ import star from '../../assets/courses/star2.svg'
 import hat from '../../assets/landing/academic hat.svg'
 import teacher from '../../assets/courses/Frame(1).svg'
 import level from '../../assets/courses/Frame(2).svg'
-import buy from '../../assets/landing/Rounded.svg'
+import { MdOutlineAddShoppingCart } from "react-icons/md";
 
+import AOS from "aos";
+import 'aos/dist/aos.css';
 
 
 const CoursListCard = ({title , levelName , cost , teacherName , likeCount , courseId,describe}) => {
+
+    useEffect(() => {
+        AOS.init();
+      }, [])
+    
+
   return (
     // container 
     <div className=' w-[90%] mx-auto grid grid-cols-1 h-[280px]  mt-8 p-2 '>
         {/* map part of card:  */}
         <NavLink  to={"/courses-detail/" + courseId}>
-        <div className='group h-full relative flex flex-row-reverse rounded-xl p-3 w-full
+        <div data-aos="fade-up" data-aos-duration="800" className='group h-full relative flex flex-row-reverse rounded-xl p-3 w-full
          gap-[2%] max-md:gap-[9%] max-lg:gap-[10%] bg-white  hover:bg-[#f8f6f6e1] dark:bg-gray-600/70 dark:hover:bg-secondary shadow-lg transition duration-300'
            
         >   
@@ -67,8 +75,7 @@ const CoursListCard = ({title , levelName , cost , teacherName , likeCount , cou
                
                 
                 <div className='flex flex-row-reverse py-2 items-center  px-2 border-t-[1.5px]' >
-                    
-                    <img src={buy} className='w-6 h-6'/>
+                    <MdOutlineAddShoppingCart className='w-8 h-8 text-green'/>
                     <div className='absolute left-8 flex flex-row text-green text-lg'>
                         <p className='text-[10px] mr-2 relative top-1'>تومان</p>
                        {cost}

@@ -30,7 +30,7 @@ console.log(phoneOrGmail)
 console.log(password)
 
 
-// const dispatch = useDispatch()
+const dispatch = useDispatch()
 
 
   const onSubmit =async (e)=>{
@@ -45,8 +45,23 @@ console.log(password)
 
 
       const data = await http.post("/Sign/Login" , user)
+        console.log(data)
+
+      const token = data.token
+      console.log(token)
+  
+      
+  
+      localStorage.setItem("token" , token); 
+
+
+          dispatch(handleToken(token))
     
-    console.log(data.success)
+  
+  
+
+
+
 
   if(data.success == true){
 
@@ -60,10 +75,10 @@ navigate("/")
       })
   }
 
-
+}
     
 
-  }
+  
 
  
     

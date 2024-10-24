@@ -5,9 +5,11 @@ import {
   getCourse,
   getCourseId,
   getCourseLanding,
+  getCourseLandingSearchBar,
   getLandingReport,
   getNews,
   getNewsId,
+  getNewsPudcast,
   LevelCourses,
   TypeCourses,
 } from "../getApi";
@@ -17,6 +19,13 @@ export function useNewsData(params , page ) {
   return useQuery({
     queryKey: ["news", params,page ],
     queryFn: () => getNews( params, page  ),
+  });
+}
+
+export function useNewsPudcast( ) {
+  return useQuery({
+    queryKey: ["newsPudcast"],
+    queryFn: () => getNewsPudcast(),
   });
 }
 
@@ -66,16 +75,23 @@ export function useLevelCourses() {
   });
 }
 
-export function useCourseLanding(query){
+export function useCourseLanding(){
   return useQuery({
-    queryKey:["landingCourse" , query],
-    queryFn:()=>getCourseLanding(query)
+    queryKey:["landingCourse" , ],
+    queryFn:()=>getCourseLanding()
+  })
+}
+
+export function useCourseLandingSearchBar(params){
+  return useQuery({
+    queryKey:["landingCourseSearchBar" , params],
+    queryFn:()=>getCourseLandingSearchBar(params)
   })
 }
 
 export function useLandingReport(){
   return useQuery({
-    queryKey:["landingCourse" ],
+    queryKey:["landingCourse2" ],
     queryFn:()=>getLandingReport()
   })
 }

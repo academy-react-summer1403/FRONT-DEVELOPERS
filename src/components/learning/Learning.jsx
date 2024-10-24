@@ -39,12 +39,9 @@ const SamplePrevArrow =(props) => {
 
 const Learning = () => {
 
-    const query = useSelector((state) => state.SearchSlice.data);
-  console.log(query);
-  
 
-  const getCourseCard = useCourseLanding(query)
-  console.log(getCourseCard.data?.courseFilterDtos)
+  const getCourseCard = useCourseLanding()
+  console.log(getCourseCard.data)
 
     const settings = {
       
@@ -110,8 +107,27 @@ const Learning = () => {
             همه دوره ها
           </h3>
         </NavLink>
-        <img src={BackImg} alt="" className='w-[324px] max-xl:hidden h-[420px] right-4 top-3  absolute '/>
+        {/* <img src={BackImg} alt="" className='w-[324px] max-xl:hidden h-[420px] right-4 top-3  absolute '/> */}
    
+        <svg className='w-[324px] max-xl:hidden h-[420px] right-4 top-3  absolute ' width="324" height="420" viewBox="0 0 324 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g filter="url(#filter0_b_102_5167)">
+        <path d="M0 30C0 13.4315 13.4315 0 30 0H294C310.569 0 324 13.4315 324 30V105V210V315V390C324 406.569 310.569 420 294 420H30C13.4315 420 0 406.569 0 390V345C0 328.431 13.5776 314.811 29.5512 310.412C59.9499 302.038 102.886 278.385 102.886 211.567C102.886 144.019 59.0062 119.247 28.5591 110.189C13.0194 105.566 0 92.1129 0 75.9V30Z" fill="url(#paint0_linear_102_5167)" fill-opacity="0.2"/>
+        </g>
+        <defs>
+        <filter id="filter0_b_102_5167" x="-3" y="-3" width="330" height="426" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+        <feGaussianBlur in="BackgroundImageFix" stdDeviation="1.5"/>
+        <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_102_5167"/>
+        <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_102_5167" result="shape"/>
+        </filter>
+        <linearGradient id="paint0_linear_102_5167" x1="313.385" y1="7.83582" x2="-35.7437" y2="366.695" gradientUnits="userSpaceOnUse">
+        <stop offset="0.305" stop-color="#01CEC9"/>
+        <stop offset="1" stop-color="#CB6D00" stop-opacity="0.5"/>
+        </linearGradient>
+        </defs>
+        </svg>
+
+
         <div className='mt-10  max-sm:pl-[3%] max-lg:pr-0'>
             <Slider  {...settings} className='mx-4 '>
                 

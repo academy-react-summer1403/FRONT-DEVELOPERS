@@ -11,6 +11,12 @@ export const getNews = async (params , page ) => {
   return data;
 };
 
+export const getNewsPudcast = async ( ) => {
+  const data = await http.get(`/News`)
+  console.log(data);
+  return data;
+};
+
 export const getNewsId = async (id) => {
   const data = await http.get(`/News/${id}`);
   console.log(data);
@@ -56,12 +62,20 @@ export const LevelCourses = async () => {
 
 
 
-export const getCourseLanding = async (query) => {
-  const data = await http.get(`/Home/GetCoursesWithPagination?PageNumber=3&RowsOfPage=12&Query=${query}`);
+export const getCourseLanding = async () => {
+  const data = await http.get(`/Home/GetCoursesWithPagination?PageNumber=3&RowsOfPage=12`);
   console.log(data);
   return data;
 };
 
+
+export const getCourseLandingSearchBar = async (params) => {
+  const data = await http.get(`/Home/GetCoursesWithPagination` ,{
+    params:params
+  });
+  console.log(data);
+  return data;
+};
 
 
 export const getLandingReport = async () => {
