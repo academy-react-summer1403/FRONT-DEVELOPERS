@@ -43,7 +43,7 @@ const CourseCard = ({courseId}) => {
           <div className=" flex justify-between  relative"> 
             <svg onClick={()=>(setFavorite(courseId),setSave(!save))}
               width="27"
-              className={`h-[20px] stroke-[#00B4AF] dark:stroke-orange 
+              className={`h-[20px] stroke-primary dark:stroke-orange 
                 ${save ? " fill-primary  dark:fill-orange" : " "}` }
               height="27"
               viewBox="0 0 27 27"
@@ -75,7 +75,7 @@ const CourseCard = ({courseId}) => {
               <svg
                 width="24"
                 height="25"
-                className='dark:stroke-orange stroke-[#006865] max-xl:w-[20px] max-lg:w-[18px]'
+                className='dark:stroke-orange stroke-darkgreen/80 max-xl:w-[20px] max-lg:w-[18px]'
 
                 viewBox="0 0 24 25"
                 fill="none"
@@ -90,7 +90,7 @@ const CourseCard = ({courseId}) => {
                 />
               </svg>
 
-              <h3 className=" font-normal max-xl:text-[18px] max-lg:text-[14px] text-right text-[22px] dark:text-blue-200 leading-6 text-[#005B58]">
+              <h3 className=" font-normal max-xl:text-[18px] max-lg:text-[14px] text-right text-[22px] dark:text-blue-200 leading-6 text-darkgreen/80">
                 {CourseDetail.data?.teacherName}
               </h3>
             </div>
@@ -99,7 +99,7 @@ const CourseCard = ({courseId}) => {
               <svg
                 width="26"
                 height="23"
-                className='max-xl:w-[20px] max-lg:w-[18px]  stroke-[#005B58] dark:stroke-orange '
+                className='max-xl:w-[20px] max-lg:w-[18px]  stroke-darkgreen/80 dark:stroke-orange '
                 
                 viewBox="0 0 26 23"
                 fill="none"
@@ -121,10 +121,10 @@ const CourseCard = ({courseId}) => {
                 /> 
               </svg>
 
-              <h4 className="max-xl:text-[14px] dark:text-blue-200  font-normal text-[16px] max-lg:text-[14px]  leading-[22.7px] font-Yekan text-[#006865]">
+              <h4 className="max-xl:text-[14px] dark:text-blue-200  font-normal text-[16px] max-lg:text-[14px]  leading-[22.7px] font-Yekan  text-darkgreen/80">
                 تومان
               </h4>
-              <h2 className=" max-lg:text-[18px]  dark:text-blue-200  max-xl:text-[27px]  leading-[42.55px]  font-normal font-Yekan text-[30px]  text-[#005B58]">
+              <h2 className=" max-lg:text-[18px]  dark:text-blue-200  max-xl:text-[27px]  leading-[42.55px]  font-normal font-Yekan text-[30px]  text-darkgreen/80">
                 {CourseDetail.data?.cost}
               </h2>
             </div>
@@ -135,7 +135,7 @@ const CourseCard = ({courseId}) => {
           <button
           
             onClick={()=>setReserv(courseId , toast)}
-          className="bg-[#FF8A00] max-lg:text-[16px]   max-md:mx-auto  max-xl:w-[280px] max-xl:h-[40px] max-lg:ml-[0] max-xl:ml-[10%] ml-[18%] max-xl:mt-[15px] mt-[25px] flex gap-3 items-center justify-center  w-[347px] h-[55px] text-white rounded-[9px] font-bold max-xl:text-[19px] text-[22px]  ">
+          className="bg-secondary/90 max-lg:text-[16px]   max-md:mx-auto  max-xl:w-[280px] max-xl:h-[40px] max-lg:ml-[0] max-xl:ml-[10%] ml-[18%] max-xl:mt-[15px] mt-[25px] flex gap-3 items-center justify-center  w-[347px] h-[55px] text-white rounded-[9px] font-bold max-xl:text-[19px] text-[22px]  ">
             !شرکت در دوره
             <svg
             

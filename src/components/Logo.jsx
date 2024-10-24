@@ -2,7 +2,7 @@ import React from 'react'
 
 const Logo = () => {
   return (
-    <div className='w-[135px] h-[50px]'>
+    <div>
         <svg id="LOGO" xmlns="http://www.w3.org/2000/svg" width="272.01" height="79" viewBox="0 0 272.01 79">
   <g id="Component_14_1" data-name="Component 14 – 1" transform="translate(79.01)">
     <text id="FRONT" transform="translate(96 52)" fill="#01cec9" font-size="20" font-family="ArialRoundedMTBold, Arial Rounded MT" letter-spacing="0.001em"><tspan x="-96.36" y="0">FRONT</tspan></text>
