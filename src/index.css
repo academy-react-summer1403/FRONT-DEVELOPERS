@@ -6,17 +6,82 @@
 @tailwind components;
 @tailwind utilities;
 
+.root{
+  
+    --color-primary: 1 206 211;
+    --color-secondary: 228 137 0;
+    --color-purple: 162 89 255;
+    --color-orange: 212 115 0;
+    --color-green: 0 141 138;
+    --color-light: 203 109 0;
+    --color-yellow: 255 190 3;
+    --color-darkgreen: 13 66 64;
+    
+
+}
+
+@layer base {
+  .dark {
+    --color-primary: 1 206 211;
+    --color-secondary: 228 137 0;
+    --color-purple: 162 89 255;
+    --color-orange: 212 115 0;
+    --color-green: 0 141 138;
+    --color-light: 203 109 0;
+    --color-yellow: 255 190 3;
+    --color-darkgreen: 13 66 64;
+    
+  } 
+}
+
+@layer base {
+  .maintheme {
+    --color-primary: 1 206 211;
+    --color-secondary: 228 137 0;
+    --color-purple: 162 89 255;
+    --color-orange: 212 115 0;
+    --color-green: 0 141 138;
+    --color-light: 203 109 0;
+    --color-yellow: 255 190 3;
+    --color-darkgreen: 13 66 64;
+    
+  } 
+}
+@layer base {
+  .secondTheme{
+    --color-primary: 207 170 254;
+    --color-secondary: 250 113 68;
+    --color-purple: 162 89 255;
+    --color-orange: 243 61 2;
+    --color-green: 84 27 156;
+    --color-light: 211 54 3;
+    --color-yellow: 255 184 3;
+    --color-darkgreen: 54 25 90;
+
+  }
+}
+@layer base {
+  .thirdTheme{
+    --color-primary: 52 105 255;
+    --color-secondary: 255 213 0;
+    --color-purple: 33 0 199;
+    --color-orange:  255 213 0;
+    --color-green: 33 0 199;
+    --color-light:  255 213 0;
+    --color-yellow: 224 217 126;
+    --color-darkgreen: 20 0 123;
+  }
+}
+
+
 
 body{
     font-family: "Rubik", sans-serif;;
 }
 
-
-
-
 @layer components{
     .mark{
-        @apply  right-0 -top-10 text-right h-[32px]  text-[#005351] font-Yekan font-bold leading-[25px] text-[25px]
+        @apply  right-0 -top-10 text-right h-[32px]  text-darkgreen/90 font-Yekan font-bold leading-[25px] text-[25px]
     }
 
     .like{
@@ -87,17 +152,12 @@ body{
     display: inline-block;
     margin: 0 3px;
     padding: 0;
+     
   }
   
-  .button__bar li button {
-    border: none;
-    background: #01CEC9;
-    color: transparent;
-    cursor: pointer;
-    display: block;
-    height: 15px;
-    width: 15px;
-    border-radius: 7.5px;
+  .button__bar li button {   
+
+    @apply bg-primary hover:bg-secondary w-[15px] h-[15px] block rounded-full cursor-pointer text-[rgba(0,0,0,0)]
  
   }
   
@@ -110,7 +170,8 @@ body{
     background: #D47300;
     outline: 0;
   }
-  
+
+
   .slick-slide img {
     border: 5px solid #fff;
     display: block;
@@ -118,7 +179,7 @@ body{
   }
 
   .famous{
-   @apply w-[185px] h-[185px] max-sm:w-[110px] max-sm:h-[110px]  max-xl:h-[160px] max-xl:w-[160px] max-lg:h-[120px] max-lg:w-[120px] rotate-45 rounded-[23px] bg-white dark:bg-[#e9e8e8]  cursor-pointer relative hover:bg-gradient-to-tl hover:from-[#D47300] hover:to-[#FFC700]
+   @apply w-[185px] h-[185px] max-sm:w-[110px] max-sm:h-[110px]  max-xl:h-[160px] max-xl:w-[160px] max-lg:h-[120px] max-lg:w-[120px] rotate-45 rounded-[23px] bg-white dark:bg-[#e9e8e8]  cursor-pointer relative hover:bg-gradient-to-tl hover:from-orange hover:to-yellow
   }
 
   .famoustext{
@@ -147,7 +208,7 @@ body{
     }
 
     .head2{
-      @apply  w-[13px] h-[13px] rounded-full bg-[#01CEC9]
+      @apply  w-[13px] h-[13px] rounded-full bg-primary
     }
 
     .head3{

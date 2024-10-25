@@ -1,7 +1,12 @@
-<svg id="LOGO" xmlns="http://www.w3.org/2000/svg" width="272.01" height="79" viewBox="0 0 272.01 79">
+import React from 'react'
+
+const Logo = () => {
+  return (
+    <div>
+        <svg id="LOGO" xmlns="http://www.w3.org/2000/svg" width="272.01" height="79" viewBox="0 0 272.01 79">
   <g id="Component_14_1" data-name="Component 14 – 1" transform="translate(79.01)">
-    <text id="FRONT"  transform="translate(96 52)" fill="#01cec9" font-size="55" font-family="ArialRoundedMTBold, Arial Rounded MT" letter-spacing="0.001em"><tspan x="-96.36" y="0">FRONT</tspan></text>
-    <text id="DEVELOLPERS" transform="translate(96 74)" fill="#01cec9" font-size="25" font-family="ArialRoundedMTBold, Arial Rounded MT" letter-spacing="0.001em"><tspan x="-93.655" y="0">DEVELOLPERS</tspan></text>
+    <text id="FRONT" transform="translate(96 52)" fill="#01cec9" font-size="20" font-family="ArialRoundedMTBold, Arial Rounded MT" letter-spacing="0.001em"><tspan x="-96.36" y="0">FRONT</tspan></text>
+    <text id="DEVELOLPERS" transform="translate(96 74)" fill="#01cec9" font-size="10" font-family="ArialRoundedMTBold, Arial Rounded MT" letter-spacing="0.001em"><tspan x="-93.655" y="-0">DEVELOLPERS</tspan></text>
   </g>
   <g id="Component_15_2" data-name="Component 15 – 2" transform="translate(0 8.838)">
     <g id="Path_25" data-name="Path 25" transform="translate(9.407 9.414)" fill="none">
@@ -18,3 +23,9 @@
     <text id="_" data-name="&lt;/&gt;" transform="translate(35.407 42.414)" fill="#01cec9" font-size="21" font-family="ArialRoundedMTBold, Arial Rounded MT" letter-spacing="0.001em"><tspan x="-15.212" y="0">&lt;/&gt;</tspan></text>
   </g>
 </svg>
+
+    </div>
+  )
+}
+
+export default Logo

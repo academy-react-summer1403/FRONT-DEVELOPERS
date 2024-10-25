@@ -25,8 +25,10 @@ createRoot(document.getElementById("root")).render(
           <App/>
           <ToastContainer />
       </Provider>
-    <ReactQueryDevtools/>
+    {/* <ReactQueryDevtools/> */}
     </QueryClientProvider>
   </StrictMode>
 );
+
+
 

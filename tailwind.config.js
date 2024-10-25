@@ -14,20 +14,21 @@ export default {
   theme: {
     extend: {
       colors:{
-        primary:"#01CEC9",
-        secondary:"#E48900",
-        purple:"#A259FF",
-        orange:"#D47300",
-        green:"#008D8A",
-        light:"#CB6D00",
-
+        primary: 'rgb(var(--color-primary))',
+        secondary: 'rgb(var(--color-secondary))',
+        purple:'rgb(var(--color-purple))',
+        orange:'rgb(var(--color-orange))',
+        green:'rgb(var(--color-green))',
+        light:'rgb(var(--color-light))',
+        yellow:'rgb(var(--color-yellow))',
+        darkgreen:'rgb(var(--color-darkgreen))',
       },
       container:{
         center:true,
         padding:{
           DEFUALT:"1rem",
           sm:"5rem",
-          lg:"4rem",
+          lg:"4rem", 
           xl:"1rem",
           "2xl":"8rem",
         }

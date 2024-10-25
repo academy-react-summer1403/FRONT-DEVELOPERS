@@ -57,9 +57,8 @@ const ArticlesNews = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ type: "spring", stiffness: 100, delay: 0.2 }}
-        style={{ backgroundColor: "rgba(235, 249, 249, 0.51)" }}
         className="flex flex-row rounded-tl-lg rounded-tr-[90px] rounded-br-lg rounded-bl-[80px] my-10 px-4 shadow
-        dark:bg-gray-700/70
+        dark:bg-gray-700/70 bg-primary/5
         max-md:flex-col 
         max-sm:flex-col
         max-lg:flex-col

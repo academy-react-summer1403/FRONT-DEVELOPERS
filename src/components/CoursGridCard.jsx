@@ -1,16 +1,23 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import fima from '../assets/landing/figma.png'
 import { NavLink } from 'react-router-dom'
+import { MdOutlineAddShoppingCart } from "react-icons/md";
 
 
-
+import AOS from "aos";
+import 'aos/dist/aos.css';
 
 const CoursGridCard = ({title  , cost , teacherName , currentRegistrants , courseId}) => {
+
+  useEffect(() => {
+    AOS.init();
+  }, [])
+
   return (
     <NavLink to={"/courses-detail/" + courseId}>
     <div className='mt-[80px] max-2xl:-ml-6 mb-5 max-sm:-ml-8 grid justify-items-center'
     >
-        <div className='relative rounded-[15px] w-[265px] max-xl:w-[230px] max-sm:w-[240px] max-sm:ml-2 max-md:h-[320px]  
+        <div data-aos="zoom-out-left"  data-aos-duration="900" className='relative rounded-[15px] w-[265px] max-xl:w-[230px] max-sm:w-[240px] max-sm:ml-2 max-md:h-[320px]  
         max-md:w-[255px] max-sm:h-[310px] h-[305px] dark:hover:bg-gray-600  max-xl:flex flex-wrap justify-center hover:bg-slate-50 
         bg-white px-4 dark:bg-gray-700/70'
             style={{boxShadow: "0px 1px 2px 0px #00000040"}
@@ -96,36 +103,16 @@ const CoursGridCard = ({title  , cost , teacherName , currentRegistrants , cours
 
 
             <div className=' h-full flex items-center gap-1'>
-            <h3 className=' text-[#006865] text-[12px] max-md:text-[10px] font-Yekan font-normal mt-2 dark:text-[#01CEC9] '>تومان</h3>
+            <h3 className=' text-green text-[12px] max-md:text-[10px] font-Yekan font-normal mt-2 dark:text-[#01CEC9] '>تومان</h3>
             
-            <h3 className='  text-[#006865] max-md:text-[20px] font-Yekan font-normal text-[23px] dark:text-[#01CEC9] '>
+            <h3 className='  text-green max-md:text-[20px] font-Yekan font-normal text-[23px] dark:text-[#01CEC9] '>
             {cost}
             </h3>
 
             
             </div>
-              <svg width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g filter="url(#filter0_i_90_194)">
-<g clip-path="url(#clip0_90_194)">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M12.0476 8.7619C12.65 8.7619 13.1429 8.26905 13.1429 7.66667V5.47619H15.3333C15.9357 5.47619 16.4286 4.98333 16.4286 4.38095C16.4286 3.77857 15.9357 3.28571 15.3333 3.28571H13.1429V1.09524C13.1429 0.492857 12.65 0 12.0476 0C11.4452 0 10.9524 0.492857 10.9524 1.09524V3.28571H8.7619C8.15952 3.28571 7.66667 3.77857 7.66667 4.38095C7.66667 4.98333 8.15952 5.47619 8.7619 5.47619H10.9524V7.66667C10.9524 8.26905 11.4452 8.7619 12.0476 8.7619ZM6.57143 18.619C5.36667 18.619 4.3919 19.6048 4.3919 20.8095C4.3919 22.0143 5.36667 23 6.57143 23C7.77619 23 8.7619 22.0143 8.7619 20.8095C8.7619 19.6048 7.77619 18.619 6.57143 18.619ZM17.5238 18.619C16.319 18.619 15.3443 19.6048 15.3443 20.8095C15.3443 22.0143 16.319 23 17.5238 23C18.7286 23 19.7143 22.0143 19.7143 20.8095C19.7143 19.6048 18.7286 18.619 17.5238 18.619ZM7.77619 13.1429H15.9357C16.7571 13.1429 17.48 12.6938 17.8524 12.0148L21.5543 5.30095C21.85 4.77524 21.6529 4.10714 21.1271 3.81143C20.6014 3.52667 19.9333 3.71286 19.6486 4.23857L15.9357 10.9524H8.24714L3.87714 1.71952C3.7019 1.33619 3.30762 1.09524 2.89143 1.09524H1.09524C0.492857 1.09524 0 1.5881 0 2.19048C0 2.79286 0.492857 3.28571 1.09524 3.28571H2.19048L6.13333 11.5986L4.65476 14.271C3.85524 15.7386 4.90667 17.5238 6.57143 17.5238H18.619C19.2214 17.5238 19.7143 17.031 19.7143 16.4286C19.7143 15.8262 19.2214 15.3333 18.619 15.3333H6.57143L7.77619 13.1429Z" fill="#01CEC9"/>
-</g>
-</g>
-<defs>
-<filter id="filter0_i_90_194" x="0" y="0" width="21.9048" height="24" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-<feOffset dy="1"/>
-<feGaussianBlur stdDeviation="2"/>
-<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
-<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
-<feBlend mode="normal" in2="shape" result="effect1_innerShadow_90_194"/>
-</filter>
-<clipPath id="clip0_90_194">
-<rect width="21.9048" height="23" fill="white"/>
-</clipPath>
-</defs>
-</svg>
+            <MdOutlineAddShoppingCart className='w-8 h-8 text-green'/>
+
               </div>
                 
                 

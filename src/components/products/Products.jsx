@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ChatImg from "../../assets/landing/Chat.png";
 import CerImg from "../../assets/landing/Certificate.png";
 import JobImg from "../../assets/landing/New Job.png";
@@ -10,7 +10,17 @@ import BP2Img from "../../assets/landing/BProduct2.png";
 import BP3Img from "../../assets/landing/BProduct3.png";
 import BP4Img from "../../assets/landing/BProduct4.png";
 
+
+import AOS from "aos";
+import 'aos/dist/aos.css';
+
 const Products = () => {
+
+  useEffect(() => {
+    AOS.init();
+  }, [])
+
+
   return (
     <div>
       <div className="container relative mt-20">
@@ -34,7 +44,7 @@ const Products = () => {
            
         "
         >
-          <div
+          <div data-aos="fade-down-left" data-aos-duration="900"
             className="  group 
               rounded-2xl 
               relative  duration-hight 
@@ -108,7 +118,7 @@ const Products = () => {
             </div>
           </div>
 
-          <div
+          <div data-aos="fade-down-left" data-aos-duration="900"
             className="
               group
               rounded-2xl 
@@ -208,7 +218,7 @@ const Products = () => {
             </div>
           </div>
 
-          <div
+          <div data-aos="fade-down-left" data-aos-duration="900"
             className="
             group
             rounded-2xl 
@@ -308,7 +318,7 @@ const Products = () => {
             </div>
           </div>
 
-          <div
+          <div data-aos="fade-down-left" data-aos-duration="900"
             className=" group
               rounded-2xl 
               relative  duration-hight 

@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import profile from "../../../assets/detail/prof.jpg"
 import { useParams } from 'react-router-dom';
 import { useCourseId, useCourses } from '../../../core/services/query/queries';
+import DateApi from '../../DateApi';
 
 
 const Detail = ({courseId}) => {
@@ -20,7 +21,7 @@ const Detail = ({courseId}) => {
         <svg
           width="28"
           height="28"
-          className='max-lg:h-[22px] max-lg:w-[22px] stroke-[#005653] dark:stroke-orange/80'
+          className='max-lg:h-[22px] max-lg:w-[22px] stroke-darkgreen dark:stroke-orange/80'
           viewBox="0 0 28 28"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -43,7 +44,7 @@ const Detail = ({courseId}) => {
         <svg
           width="28"
           height="28"
-          className='max-lg:h-[22px] max-lg:w-[22px] stroke-[#005653] dark:stroke-orange/80'
+          className='max-lg:h-[22px] max-lg:w-[22px] stroke-darkgreen dark:stroke-orange/80'
 
           viewBox="0 0 28 28"
           fill="none"
@@ -67,7 +68,7 @@ const Detail = ({courseId}) => {
         <svg
           width="28"
           height="28"
-          className='max-lg:h-[22px] max-lg:w-[22px] stroke-[#005653] dark:stroke-orange/80'
+          className='max-lg:h-[22px] max-lg:w-[22px] stroke-darkgreen dark:stroke-orange/80'
 
           viewBox="0 0 28 28"
           fill="none"
@@ -91,7 +92,7 @@ const Detail = ({courseId}) => {
         <svg
           width="28"
           height="28"
-          className='max-lg:h-[22px] max-lg:w-[22px] stroke-[#005653] dark:stroke-orange/80'
+          className='max-lg:h-[22px] max-lg:w-[22px] stroke-darkgreen dark:stroke-orange/80'
 
           viewBox="0 0 28 28"
           fill="none"
@@ -110,12 +111,12 @@ const Detail = ({courseId}) => {
     {
       id: 5,
       title: "تاریخ شروع دوره",
-      subtitle: `${CourseDetail.data?.startTime}`,
+      subtitle: ( <DateApi dateapi={CourseDetail.data?.startTime}/>),
       icon: (
         <svg
           width="28"
           height="28"
-          className='max-lg:h-[22px] max-lg:w-[22px]  stroke-[#005653] dark:stroke-orange/80'
+          className='max-lg:h-[22px] max-lg:w-[22px] stroke-darkgreen dark:stroke-orange/80'
 
           viewBox="0 0 28 28"
           fill="none"
@@ -135,12 +136,12 @@ const Detail = ({courseId}) => {
     {
       id: 6,
       title: "تاریخ پایان دوره",
-      subtitle: `${CourseDetail.data?.endTime}`,
+      subtitle: ( <DateApi dateapi={CourseDetail.data?.endTime}/>),
       icon: (
         <svg
           width="28"
           height="28"
-          className='max-lg:h-[22px] max-lg:w-[22px] stroke-[#005653] dark:stroke-orange/80'
+          className='max-lg:h-[22px] max-lg:w-[22px] stroke-darkgreen dark:stroke-orange/80'
 
           viewBox="0 0 28 28"
           fill="none"
@@ -198,7 +199,7 @@ const Detail = ({courseId}) => {
                 <svg
                   width="30"
                   height="30"
-                  className='dark:fill-orange fill-[#006865]'
+                  className='dark:fill-orange fill-green'
                   viewBox="0 0 30 30"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -229,7 +230,7 @@ const Detail = ({courseId}) => {
                   <h3 className=" font-Yekan font-normal text-[16px] text-[#000000] dark:text-slate-200  ">
                     87%
                   </h3>
-                  <h3 className="font-Yekan font-normal text-[16px] text-[#00504E] text-right  dark:text-slate-200 ">
+                  <h3 className="font-Yekan font-normal text-[16px] text-darkgreen text-right  dark:text-slate-200 ">
                     درصد تکمیل دوره
                   </h3>
                 </div>
@@ -239,7 +240,7 @@ const Detail = ({courseId}) => {
                   initial={{ width:0, x:0,opacity:0,y:0}}
                   animate={{width: "87%", x:0,y:0,opacity:1}}
                   transition={{type:"keyframe" ,stiffness:90,duration:3 , delay:0}}
-                    className="h-[8px] rounded-full bg-[#01CEC9]  max-sm:w-full  dark:bg-secondary"
+                    className="h-[8px] rounded-full bg-primary  max-sm:w-full  dark:bg-secondary"
                   
                   >
                     {" "}
@@ -268,7 +269,7 @@ const Detail = ({courseId}) => {
                     <h3 className=" max-lg:text-[13px] max-sm:text-[12px] max-sm:line-clamp-1  text-[#888888] dark:text-slate-200 font-Yekan font-normal text-[15px] leading-[24px] text-right">
                       {item.title}
                     </h3>
-                    <h2 className=" text-[#005351] dark:text-secondary max-sm:text-[13px] max-sm:font-semibold  max-sm:line-clamp-1 max-lg:text-[18px] font-Yekan font-normal text-[21px] leading-[24px] text-right ">
+                    <h2 className=" text-darkgreen dark:text-secondary max-sm:text-[13px] max-sm:font-semibold  max-sm:line-clamp-1 max-lg:text-[18px] font-Yekan font-normal text-[21px] leading-[24px] text-right ">
                       {item.subtitle}
                     </h2>
                   </div>
@@ -285,7 +286,7 @@ const Detail = ({courseId}) => {
                   src={profile}
                   alt=""
                 />
-                <button className=" text-[#6B3A00] max-sm:mx-auto max-sm:w-[100%] max-sm:text-[13px] max-xl:ml-[-15px] border-[2px] border-[#E48900] dark:text-secondary rounded-[25px] w-[177px] h-[40px] text-center font-Yekan text-[16px] font-normal mx-auto">
+                <button className=" text-[#6B3A00] max-sm:mx-auto max-sm:w-[100%] max-sm:text-[13px] max-xl:ml-[-15px] border-[2px] border-orange dark:text-secondary rounded-[25px] w-[177px] h-[40px] text-center font-Yekan text-[16px] font-normal mx-auto">
                   پروفایل مدرس دوره
                 </button>
               </div>

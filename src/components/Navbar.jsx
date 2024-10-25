@@ -9,36 +9,41 @@ import { NavLink } from 'react-router-dom';
 
 import { CgProfile } from "react-icons/cg";
 import Lg from './Translate/TranslateButton';
+import { useTranslation } from 'react-i18next';
 
-export const NavbarMenu =[
+
+
+const Navbar = () => {
+    
+ const { t } = useTranslation();
+
+ const NavbarMenu =[
   {
       id:1,
-      title:"تماس با ما",
-      link:"/",
+      title:`${t('call')}`,
+      link:"#",
   },
   {
       id:2,
-      title:"اخبار و مقالات",
+      title:`${t('news')}`,
       link:"/article-news",
   },
   {
       id:3,
-      title:"اساتید",
+      title:`${t('teacher')}`,
       link:"/Dashboard",
   },
   {
       id:4,
-      title:"دوره ها",
+      title:`${t('courses')}`,
       link:"/courses",
   },
   {
       id:5,
-      title:"صفحه نخست",
+      title:`${t('home')}`,
       link:"/",
   },
 ]
-
-const Navbar = () => {
 
      const Acconts =[
         {
@@ -76,7 +81,7 @@ const Navbar = () => {
                             transition-shadow'>
                         <NavLink to={"/auth"} >
                             <img src={UserImg} alt="" className='w-7 h-7  absolute top-1.5 left-4'/>
-                            <h1 className='text-sm  font-semibold text-white text-right leading-9 mr-3 py-1 '>حساب کاربری</h1>
+                            <h1 className='text-sm  font-semibold text-white text-right leading-9 mr-3 py-1 '>{t('person')}</h1>
                         </NavLink> 
                         {/* chooseAccont  */}
                         <div

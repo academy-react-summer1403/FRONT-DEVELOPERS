@@ -12,6 +12,7 @@ import { samecourses, suggestion } from "../CourseDetail/CourseDetail";
 import { useCommentNews } from "../../core/services/query/CommentQuery";
 import { postFavoriteNews } from "../../core/services/DashApi";
 import { toast } from "react-toastify";
+import DateApi from "../../components/DateApi";
 // import { samecourses, suggestion } from "../CourseDetail/CourseDetail";
 
 
@@ -57,8 +58,8 @@ const ArticleDetail = () => {
         animate={{ x:0,y:0,opacity:1}}
         transition={{type:"spring" ,duration:3 , delay:0}}
           style={{ boxShadow: "box-shadow: 0 1px 2px 0 #00000026" }}
-          className=" h-[328.15px] max-xl:h-[300.15px] max-lg:h-[250.15px] max-md:hidden w-full bg-gradient-to-bl
-     from-[#E4890026] dark:from-[#ce9e018a]  to-[#01CEC939] rounded-tl-[75px] rounded-[10px] "
+          className=" h-[328.15px] max-xl:h-[300.15px] max-lg:h-[250.15px] max-md:hidden w-full bg-gradient-to-bl from-secondary/10 to-primary/10
+           rounded-tl-[75px] rounded-[10px] "
         >
           <img
             style={{
@@ -82,7 +83,7 @@ const ArticleDetail = () => {
             style={{ boxShadow: " 0px 1px 2px 0 rgba(0, 0, 0, 0.25)" }}
             className=" bg-[#E8E8E8] rounded-t-[10px]  w-[448px]
          h-[50px] pr-[25px] justify-end flex items-center
-         text-right text-[#555555] font-Yekan
+         text-right text-darkgreen font-Yekan
          font-normal text-[20px] mb-[8px] max-lg:text-[18px] max-md:w-full dark:bg-slate-600 dark:text-slate-100"
           >
             دوره های مرتبط
@@ -110,7 +111,7 @@ const ArticleDetail = () => {
           <div
             style={{ boxShadow: " 0px 1px 2px 0 rgba(0, 0, 0, 0.25)" }}
             className=" bg-[#E8E8E8] rounded-t-[10px]  w-[448px] h-[50px] pr-[25px] justify-end flex items-center
- text-right text-[#555555] font-Yekan font-normal  text-[20px] mb-[8px] max-lg:text-[18px] max-md:w-full dark:bg-slate-600 dark:text-slate-100 "
+ text-right text-darkgreen font-Yekan font-normal  text-[20px] mb-[8px] max-lg:text-[18px] max-md:w-full dark:bg-slate-600 dark:text-slate-100 "
           >
             مطالب پیشنهادی
           </div>
@@ -145,12 +146,12 @@ const ArticleDetail = () => {
             boxShadow: "0px 1px 2px 0px #00000040",
             backdropFilter: " blur(7px)",
           }}
-          className=" h-[159px] max-xl:h-[131px] w-full    max-md:rounded-t-[75px] rounded-tr-[75px] rounded-[10px]  rounded-br-[5px]  bg-gradient-to-bl pt-[35px]  pl-[35px] pr-[30px] dark:from-[#ce9e018a]  from-[#01CEC939] to-[#E4890026] "
+          className=" h-[159px] max-xl:h-[131px] w-full    max-md:rounded-t-[75px] rounded-tr-[75px] rounded-[10px]  rounded-br-[5px]  bg-gradient-to-bl pt-[35px]  pl-[35px] pr-[30px] dark:from-[#ce9e018a]  from-primary/20 to-secondary/20 "
         >
           <div className=" flex items-center justify-end gap-2">
             <h1
-              className=" text-[25px] max-2xl:text-[19px] max-lg:text-[14px] max-lg:line-clamp-1 max-md:text-[18px] max-xl:text-[17px] font-bold font-Yekan flex dark:text-secondary  text-[#005351] text-justify  
-        "
+              className=" text-[25px] max-2xl:text-[19px] max-lg:text-[14px] max-lg:line-clamp-1 max-md:text-[18px] max-xl:text-[17px] font-bold font-Yekan flex dark:text-secondary  text-darkgreen text-justify  
+              "
             >
             {articleDetail.data?.detailsNewsDto.title}
             </h1>
@@ -159,7 +160,7 @@ const ArticleDetail = () => {
               width="11"
               height="10"
               viewBox="0 0 11 10"
-              className=" max-xl:w-[9px] max-xl:h-[8px] dark:fill-orange fill-[#01CEC9]"
+              className=" max-xl:w-[9px] max-xl:h-[8px] dark:fill-orange fill-primary"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -193,7 +194,8 @@ const ArticleDetail = () => {
                   stroke-linecap="round"
                   stroke-linejoin="round"
                 />
-              </svg> <h3 className="max-2xl:text-[15px] max-xl:text-[13px] max-lg:text-[12px] text mr-1"> بازدید</h3> {articleDetail.data?.detailsNewsDto.currentView} 
+              </svg> 
+              <h3 className="max-2xl:text-[15px] max-xl:text-[13px] max-lg:text-[12px] text mr-1"> بازدید</h3> {articleDetail.data?.detailsNewsDto.currentView} 
             </h3>
 
             <h3 className=" max-2xl:text-[15px] text max-xl:text-[13px] flex gap-3">
@@ -212,8 +214,7 @@ const ArticleDetail = () => {
                   stroke-linejoin="round"
                 />
               </svg>
-              {articleDetail.data?.detailsNewsDto.updateDate} 
-              
+              <DateApi dateapi={articleDetail.data?.detailsNewsDto.updateDate} />
             </h3>
 
             <h3 className=" max-2xl:text-[15px] text max-xl:text-[13px] flex gap-3   max-lg:text-[12px] max-lg:w-28 max-lg:gap-1">
@@ -242,8 +243,8 @@ const ArticleDetail = () => {
               width="18"
              onClick={()=>(setSave(!save),setNewsId(id))}
              
-              className={`  dark:stroke-secondary  max-2xl:w-[16px] h-[18px]  max-xl:h-[16px] max-xl:w-[14px] stroke-[#00B4AF]
-                ${save ? "  fill-[#00B4AF] dark:fill-secondary" :" " }` }
+              className={`  dark:stroke-secondary  max-2xl:w-[16px] h-[18px]  max-xl:h-[16px] max-xl:w-[14px] stroke-primary
+                ${save ? "  fill-primary dark:fill-secondary" :" " }` }
               height="20"
               viewBox="0 0 18 20"
               fill="none"
