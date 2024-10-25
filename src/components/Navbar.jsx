@@ -21,7 +21,7 @@ const Navbar = () => {
   {
       id:1,
       title:`${t('call')}`,
-      link:"#",
+      link:"/",
   },
   {
       id:2,
