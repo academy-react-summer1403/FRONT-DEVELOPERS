@@ -30,21 +30,21 @@ const ArticleDescription = () => {
   console.log(rate)
 
   const params = {
-    NewsId: NewsId ,
+    NewsId: id ,
     RateNumber:rate
-
+    
   }
 
-  const   postRateNew= postRateNews(params , toast)
+  const   postRateNew= postRateNews(params )
   console.log(postRateNew) 
 
 
   
 
-  const likeArticle1 = likeArticle(like,toast)
+  const likeArticle1 = likeArticle(like)
   console.log(likeArticle1)
 
-  const disslikeArticle1 = disslikeArticle(disslike,toast)
+  const disslikeArticle1 = disslikeArticle(disslike)
   console.log(disslikeArticle1)
 
 
@@ -108,7 +108,7 @@ leading-[32px] font-normal font-Yekan text-[20px] max-xl:text-[18px] flex items-
         <div className=" flex items-center gap-5">
           <div className="  share max-xl:text-[14px] flex items-center gap-2">
             <svg 
-             onClick={()=>(setlike1(!like1),setDislike1(dislike1==false ? !dislike1 : dislike1),setLike(id,toast))} 
+             onClick={()=>(setlike1(!like1),setDislike1(dislike1==false ? !dislike1 : dislike1),setLike(id))} 
               width="20"
               height="19"
                 className={`max-xl:h-[15px] max-xl:w-[16px] stroke-[#AAAAAA] dark:stroke-orange
@@ -130,7 +130,7 @@ leading-[32px] font-normal font-Yekan text-[20px] max-xl:text-[18px] flex items-
               className={`max-xl:h-[15px] max-xl:w-[16px] stroke-[#AAAAAA] dark:stroke-orange ${dislike1 ? "fill-none" : "fill-[#AAAAAA] dark:fill-orange"} `}
               width="20"
               height="19"
-              onClick={()=>(setDislike1(!dislike1),setlike1(like1==false ? !like1 : like1),setDissLike(id,toast))}
+              onClick={()=>(setDislike1(!dislike1),setlike1(like1==false ? !like1 : like1),setDissLike(id))}
               viewBox="0 0 20 19"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -171,7 +171,7 @@ leading-[32px] font-normal font-Yekan text-[20px] max-xl:text-[18px] flex items-
           </div>
         </div>
 
-        <div className="  flex items-center justify-between">
+        <div className="  flex items-center justify-between ">
           <svg
             width="116"
             height="23"
@@ -204,7 +204,7 @@ leading-[32px] font-normal font-Yekan text-[20px] max-xl:text-[18px] flex items-
               d="M79.3761 3.07753C79.8056 2.04496 81.2706 2.04496 81.7001 3.07753L83.6962 7.87703L88.8773 8.29313C89.9933 8.3823 90.4458 9.7744 89.5954 10.503L85.6482 13.8846L86.8534 18.9401C87.1132 20.0292 85.9291 20.8892 84.9742 20.3063L80.5381 17.5968L76.102 20.3063C75.147 20.8892 73.963 20.0282 74.2228 18.9401L75.4279 13.8846L71.4808 10.503C70.6304 9.7744 71.0829 8.3823 72.1989 8.29313L77.38 7.87703L79.3761 3.07753Z"
               fill="#FFC700"
             />
-            <path
+            <path onClick={()=>setRate(1)}
               d="M103.052 3.3547C103.092 3.25579 103.161 3.17117 103.25 3.11162C103.339 3.05206 103.443 3.02026 103.55 3.02026C103.657 3.02026 103.762 3.05206 103.85 3.11162C103.939 3.17117 104.008 3.25579 104.049 3.3547L106.086 8.25487C106.124 8.34656 106.187 8.42595 106.267 8.48431C106.348 8.54267 106.443 8.57773 106.541 8.58564L111.832 9.00941C112.31 9.04776 112.504 9.64506 112.14 9.95665L108.109 13.4101C108.034 13.4745 107.978 13.5584 107.947 13.6526C107.916 13.7468 107.912 13.8476 107.935 13.9441L109.167 19.107C109.191 19.2105 109.185 19.3191 109.148 19.419C109.111 19.5189 109.045 19.6056 108.959 19.6682C108.873 19.7308 108.77 19.7664 108.664 19.7706C108.557 19.7748 108.452 19.7474 108.361 19.6918L103.831 16.9258C103.747 16.8741 103.649 16.8468 103.55 16.8468C103.451 16.8468 103.354 16.8741 103.269 16.9258L98.7392 19.6928C98.6484 19.7484 98.5431 19.7758 98.4367 19.7716C98.3302 19.7674 98.2275 19.7318 98.1413 19.6692C98.0551 19.6066 97.9894 19.5199 97.9525 19.42C97.9156 19.3201 97.9091 19.2115 97.9338 19.1079L99.1658 13.9441C99.1887 13.8476 99.1845 13.7468 99.1537 13.6525C99.1229 13.5583 99.0667 13.4744 98.9913 13.4101L94.9608 9.95665C94.8796 9.88746 94.8208 9.79574 94.7918 9.69311C94.7628 9.59047 94.7649 9.48154 94.7979 9.38011C94.8308 9.27867 94.8931 9.1893 94.9769 9.12331C95.0607 9.05732 95.1622 9.01768 95.2685 9.00941L100.559 8.58564C100.658 8.57773 100.753 8.54267 100.833 8.48431C100.913 8.42595 100.976 8.34656 101.014 8.25487L103.052 3.3547Z"
               stroke="#FFC700"
               stroke-width="1.4"

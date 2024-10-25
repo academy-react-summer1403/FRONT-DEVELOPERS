@@ -91,9 +91,9 @@ export const getLandingReport = async () => {
 
 export const likeArticle = async ( like ) => {
   const data = await http.post(`/News/NewsLike/${like}`,
-    toast.success("good",{
-      theme:"colored"
-    })
+    // toast.success("good",{
+    //   theme:"colored"
+    // })
   )
 
   console.log(data);
@@ -103,9 +103,9 @@ export const likeArticle = async ( like ) => {
 
 export const disslikeArticle = async ( disslike ) => {
   const data = await http.post(`/News/NewsDissLike/${disslike}`,
-    toast.success("good",{
-      theme:"colored"
-    })
+    // toast.success("good",{
+    //   theme:"colored"
+    // })
   )
 
   console.log(data);

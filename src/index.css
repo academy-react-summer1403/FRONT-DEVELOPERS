@@ -49,7 +49,7 @@
 }
 @layer base {
   .secondTheme{
-    --color-primary: 162 89 255;
+    --color-primary: 207 170 254;
     --color-secondary: 250 113 68;
     --color-purple: 162 89 255;
     --color-orange: 243 61 2;
@@ -62,13 +62,14 @@
 }
 @layer base {
   .thirdTheme{
-    --color-primary: 1 206 201;
-    --color-secondary: 228 137 0;
-    --color-purple: 162 89 255;
-    --color-orange: 212 115 0;
-    --color-green: 0 141 138;
-    --color-light: 203 109 0;
-    --color-yellow: 255 184 3;
+    --color-primary: 52 105 255;
+    --color-secondary: 255 213 0;
+    --color-purple: 33 0 199;
+    --color-orange:  255 213 0;
+    --color-green: 33 0 199;
+    --color-light:  255 213 0;
+    --color-yellow: 224 217 126;
+    --color-darkgreen: 20 0 123;
   }
 }
 

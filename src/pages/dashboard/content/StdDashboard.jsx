@@ -36,7 +36,7 @@ const StdDashboard = () => {
 
 
   return (
-    <div className='px-8 py-2 max-lg:px-4
+    <div className='px-8 py-2 max-lg:px-4 
       max-lg:px-1
       max-sm:px-1
     '>
