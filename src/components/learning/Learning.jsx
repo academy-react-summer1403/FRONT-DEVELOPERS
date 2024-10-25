@@ -9,6 +9,7 @@ import CoursGridCard from '../CoursGridCard';
 import { NavLink } from 'react-router-dom';
 import { useCourseLanding } from '../../core/services/query/queries';
 import {  useSelector } from "react-redux";
+import { useTranslation } from 'react-i18next';
 
 
 const SampleNextArrow = (props)=> {
@@ -38,6 +39,9 @@ const SamplePrevArrow =(props) => {
 
 
 const Learning = () => {
+
+  const { t } = useTranslation();
+  
 
 
   const getCourseCard = useCourseLanding()
@@ -91,10 +95,10 @@ const Learning = () => {
       <img src={BackLearn} alt="" className='absolute w-full  scale-90 h-[70%] right-[0px] bottom-0 opacity-[30%]'/>
     
 
-        <h1 className=' mt-40 head1 '> دوره های آموزشی 
+        <h1 className=' mt-40 head1 '> {t("learning")}
           <div className='head2'></div>
         </h1>
-         <h3 className=' head3'>به روز ترین دوره هایی که میتونید پیدا کنید</h3>
+         <h3 className=' head3'>{t("learning1")}</h3>
 
         
 
@@ -104,7 +108,7 @@ const Learning = () => {
           <svg width="7" height="11" viewBox="0 0 7 11" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M5.84375 10.1875L1.15625 5.5L5.84375 0.8125" stroke="#AAAAAA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-            همه دوره ها
+          {t("allcourse")}
           </h3>
         </NavLink>
         {/* <img src={BackImg} alt="" className='w-[324px] max-xl:hidden h-[420px] right-4 top-3  absolute '/> */}

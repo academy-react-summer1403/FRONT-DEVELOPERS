@@ -1,15 +1,17 @@
 import React, { useState } from 'react'
-import { useReplyCourse } from '../../../core/services/query/CommentQuery'
+import { useReplyCourse, useReplyNews } from '../../../core/services/query/CommentQuery'
 import { replyComment } from '../../../core/services/apiComment'
 import Commentdiv from './commentdiv'
 import DateApi from '../../DateApi'
 
-const Reply = ({id , useId,showMore,setCommentdiv1,comentdiv1}) => {
+const ReplyArticle = ({id ,showMore,setCommentdiv1,comentdiv1}) => {
 
 
     console.log(id)
 
-   const Reply = useReplyCourse(id , useId)
+
+    
+   const Reply = useReplyNews(id)
    console.log(Reply?.data)
 
 
@@ -105,7 +107,7 @@ const Reply = ({id , useId,showMore,setCommentdiv1,comentdiv1}) => {
   )
 }
 
-export default Reply
+export default ReplyArticle
   {/* <form onSubmit={(values) => onSubmit(values)} className='flex'> */}
                 {/* <input type="text" id='Title' name='Title' className="w-[100px] h-[20px] border border-red-500"/>
                 <input type="text" id='Describe' name='Describe' className='w-[100px] h-[20px] border border-red-500'/>

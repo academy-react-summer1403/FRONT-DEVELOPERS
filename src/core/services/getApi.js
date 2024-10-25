@@ -26,11 +26,14 @@ export const getNewsId = async (id) => {
 
 
 
-export const getCourse = async ( page , params ,view1) => {
+export const getCourse = async ( page , view1 , search) => {
+  console.log(search,'search from api')
+  const params = {PageNumber:page,RowsOfPage:view1}
+  if (search && search.length>0){
+    params.Query = search
+  }
   const data = await http.get(
-    `/Home/GetCoursesWithPagination?PageNumber=${page}&RowsOfPage=${view1}` , {
-      params
-    }
+    `/Home/GetCoursesWithPagination`,{params} 
   );
   console.log(data);
   return data;

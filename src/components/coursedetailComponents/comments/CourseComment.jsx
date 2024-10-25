@@ -1,12 +1,14 @@
-import React, { useState } from 'react'
-import Reply from './Reply'
-import {  deleteComment,    dislikeComment,    likeComment,  postComment } from '../../../core/services/apiComment';
+import React, { useEffect, useState } from 'react'
+import Reply from './ReplyCourse'
+import {      dislikeComment,    likeComment,  postComment } from '../../../core/services/apiComment';
 import Commentdiv from './commentdiv';
 import DateApi from '../../DateApi';
 import { IoIosArrowDown } from 'react-icons/io';
+import { useCommentCourse } from '../../../core/services/query/CommentQuery';
+import ReplyCourse from './ReplyCourse';
 
 
-const Comment = ({Id,useComment}) => {
+const CourseComment = ({courseId}) => {
 
 
   // const [delet , setDelet] = useState()
@@ -21,8 +23,15 @@ const Comment = ({Id,useComment}) => {
 
 
 
-    const GetComment = useComment(Id);
-    console.log(GetComment.data)
+  
+
+
+    const GetCommentCourse = useCommentCourse(courseId);
+    console.log(GetCommentCourse)
+
+
+
+
 
 
      const onSubmit = async (e) => {
@@ -39,30 +48,7 @@ const Comment = ({Id,useComment}) => {
 
       
     };
-
-
-  //   const [reject , setReject] = useState()
-  //   console.log(reject)
   
-  //   const params = {
-  //     CommentCourseId : reject
-  //   }
-
-  //   const rejectComments = rejectComment(params)
-  //   console.log(rejectComments)
-
-
-  //  const [accept , setAccept] = useState()
-  //  console.log(accept)
-
-  //   const send = {
-  //     CommentCourseId : accept
-  //   }
-
-  //   const acceptComments = AcceptComment(send)
-  //   console.log(acceptComments)
-
-    
 
   const [like , setLike] = useState()
   console.log(like)
@@ -124,7 +110,7 @@ const Comment = ({Id,useComment}) => {
         </div>
 
         {
-            GetComment.data?.map((item)=>(
+            GetCommentCourse.data?.map((item)=>(
             <div className={`bg-[#F9F9F9]  dark:bg-slate-800 rounded-[7px] w-full  flex flex-col  p-[20.5px] mt-[30px]
             ${showMore ? "h-[315px] overflow-hidden": "min-h-[315px]"}`}>
                 
@@ -193,7 +179,7 @@ const Comment = ({Id,useComment}) => {
                
                
            
-                <Reply useId={Id}  id={item?.id} showMore={showMore} comentdiv1={comentdiv1} setCommentdiv1={setCommentdiv1}/>     </div>  
+                <ReplyCourse useId={courseId}  id={item?.id} showMore={showMore} comentdiv1={comentdiv1} setCommentdiv1={setCommentdiv1}/>     </div>  
                 </div>
 
            
@@ -234,7 +220,7 @@ leading-[32px] font-normal font-Yekan text-[12px] flex items-center w-[120px] h-
             </button>
 
 
-            <Commentdiv Id={Id} comentdiv={comentdiv} setCommentdiv={setCommentdiv} holder="new comment"/>
+            <Commentdiv courseId={courseId} comentdiv={comentdiv} setCommentdiv={setCommentdiv} holder="new comment"/>
 
 
 
@@ -243,7 +229,7 @@ leading-[32px] font-normal font-Yekan text-[12px] flex items-center w-[120px] h-
   )
 }
 
-export default Comment
+export default CourseComment
 
 
 

@@ -9,11 +9,15 @@ import SwipeCards from './Swiper';
 
 import AOS from "aos";
 import 'aos/dist/aos.css';
+import { useTranslation } from 'react-i18next';
 
 
 
 
 const BestTeachers = () => {
+
+  const { t } = useTranslation();
+
 
    
   useEffect(() => {
@@ -28,7 +32,7 @@ const BestTeachers = () => {
 
         <div className='    mx-auto   h-[402px] relative  max-xl:flex justify-center'>
             {/* <img src={BGImg} alt=""  className=' w-full  h-full mx-auto'/> */}
-            <svg className=' w-full  h-full mx-auto w-full' height="402" viewBox="0 0 1440 402" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg className=' w-full  h-full mx-auto ' height="402" viewBox="0 0 1440 402" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g filter="url(#filter0_b_109_539)">
             <path d="M-521 0L97.75 22.4909L407.125 33.7364L561.812 39.3591L639.156 42.1705C639.156 42.1705 696 22.4909 716.5 22.4909C737 22.4909 794.406 42.1705 794.406 42.1705L872.312 39.3591L1028.12 33.7364L1339.75 22.4909L1963 0V402L1339.75 379.306L1028.12 367.96L872.312 362.286L794.406 359.45C794.406 359.45 731.5 357.384 715 357.384C698.5 357.384 639.156 359.45 639.156 359.45L561.812 362.286L407.125 367.96L97.75 379.306L-521 402V0Z" className='fill-primary' fill-opacity="0.3"/>
             </g>
@@ -63,7 +67,7 @@ const BestTeachers = () => {
              animate="visible"
               className=" text-[#000000] max-lg:text-[20px] max-sm:text-[18px] text-right font-Yekan font-bold text-[40px] "
             >
-              برترین اساتید  
+            {t("BestTeachers")}
         
             </motion.h1>
 
@@ -72,7 +76,7 @@ const BestTeachers = () => {
             initial="hidden"
             animate="visible"
             className=' text-green font-Yekan font-normal text-[25px] max-lg:text-[18px] max-sm:text-[16px]'>
-              !!رو همینجا پیدا می کنید
+              {t("findteacher")}
             </motion.h1>
           </div>
 

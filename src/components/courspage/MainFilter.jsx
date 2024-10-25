@@ -5,7 +5,7 @@ import { useCategoryCourses } from "../../core/services/query/queries";
 import { Add } from "../../core/redux/slices/QueryState/QueryRedux";
 
 const MainFilter = () => {
-  const query = useSelector((state) => state.QuerySlice.data);
+  const query = useSelector((state) => state.QuerySlice.search);
   console.log(query);
 
   const dispatch = useDispatch();

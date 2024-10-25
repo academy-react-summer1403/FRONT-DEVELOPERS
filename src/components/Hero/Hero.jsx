@@ -12,6 +12,9 @@ import BackImg from "../../assets/landing/Rectangle 8.svg";
 import {  useCourseLandingSearchBar, useLandingReport } from '../../core/services/query/queries';
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { image } from 'framer-motion/client';
+import { ImageErrore } from '../ImageErrore';
+import { SlArrowLeft } from "react-icons/sl";
 
 
 const Hero = () => {
@@ -191,19 +194,27 @@ console.log(reportLanding)
                 font-Yekan text-[#AAAAAA] text-[16px] pr-5 outline-none dark:bg-gray-600 ' 
                  
                 />
-            
-            </motion.div>
-              <div className=' w-[400px] top-[430px] z-[5000] bg-white absolute flex flex-col shadow-lg rounded-lg mt-4  overflow-y-scroll px-3 scrollbar scrollbar-thumb-slate-400 scrollbar-track-slate-600'>
+
+<div className=' w-[400px] top-[55px] max-h-[350px] z-[5000] left-3 bg-white absolute flex flex-col shadow-lg rounded-lg mt-4  overflow-scroll px-2 scrollbar scrollbar-thumb-slate-400 scrollbar-track-slate-600'>
                 {
                    CourseSearchBar.data?.courseFilterDtos.map((data)=>(
-                    <div>
-                      <NavLink to={"/courses-detail/" + data?.courseId}>
-                         <p className='text-black text-right text-lg mt-1 cursor-pointer z-[5000] hover:bg-red-400'>{data?.title}</p>
-                      </NavLink>
-                    </div>
+                    
+                      <NavLink to={"/courses-detail/" + data?.courseId} >
+                      <div className=' h-[80px] w-full items-center p-2 flex  relative justify-end gap-3 hover:bg-slate-100'>
+                      <SlArrowLeft className='text-[8px] text-orange  absolute left-[3px]  bottom-[30px]' />
+                        <p className=' text-[10px] text-orange  absolute left-3 bottom-7'>مشاهده دوره</p> 
+                        
+                         <p className='text-black text-right text-sm mt-1 cursor-pointer z-[5000]  '>{data?.title}</p>  
+                         <img className='w-[90px] h-[75px] rounded-lg border ' src={data?.tumbImageAddress} onError={ImageErrore} alt="" />
+                      </div>
+                      <hr /></NavLink>
+                    
                   ))
                 }
               </div>
+            
+            </motion.div>
+             
           </div>
        
         </div>

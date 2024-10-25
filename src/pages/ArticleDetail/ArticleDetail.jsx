@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import image from "../../assets/detail/article.jpg";
 import RelatedCourses from "../../components/coursedetailComponents/RelatedCourses/RelatedCourses";
-
 import ArticleDescription from "../../components/articledetail/articleDescription/ArticleDescription";
-import Comments from "../../components/coursedetailComponents/comments/Comments";
 import { motion } from "framer-motion";
 import { useArticleDetail } from "../../core/services/query/queries";
 import { useParams } from "react-router-dom";
-import Comment from "../../components/coursedetailComponents/comments/Comment";
+import NewComment from "../../components/coursedetailComponents/comments/NewComment";
 import { samecourses, suggestion } from "../CourseDetail/CourseDetail";
 import { useCommentNews } from "../../core/services/query/CommentQuery";
 import { postFavoriteNews } from "../../core/services/DashApi";
@@ -266,7 +264,7 @@ const ArticleDetail = () => {
 
          <div className="">
           <h4 className="mark mt-5 max-lg:mt-1 max-xl:text-[23px]  dark:text-slate-300   ">نظرات</h4>
-          <Comment Id={id} useComment={useCommentNews}/>
+          <NewComment newsId={id}/>
         </div>
     </div>
 

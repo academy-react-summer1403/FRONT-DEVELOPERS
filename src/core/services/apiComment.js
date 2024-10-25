@@ -74,7 +74,7 @@ export const getCommentCourse =  (courseId ) => {
     return data;
   };
 
-  export const deleteComment = async ( params ) => {
+  export const deleteCommentCourse = async ( params ) => {
     const data = await http.delete("/Course/DeleteCourseComment" , params  )
 
     console.log(data);
@@ -82,7 +82,12 @@ export const getCommentCourse =  (courseId ) => {
   };
 
 
-  
+  export const postCommentNews = async ( formData ) => {
+    const data = await http.post("/Course/AddCommentCourse" ,formData  )
+
+    console.log(data);
+    return data;
+  };
 
 
   // export const rejectComment = async ( params ) => {
