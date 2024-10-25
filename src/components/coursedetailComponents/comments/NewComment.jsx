@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from 'react'
-import Reply from './Reply'
-import {  deleteComment, dislikeComment, likeComment,  postComment } from '../../../core/services/apiComment';
+import Reply from './ReplyCourse'
+import {      dislikeComment,    likeComment,  postComment } from '../../../core/services/apiComment';
 import Commentdiv from './commentdiv';
 import DateApi from '../../DateApi';
 import { IoIosArrowDown } from 'react-icons/io';
+import { useCommentNews} from '../../../core/services/query/CommentQuery';
+import ReplyArticle from './ReplyArticle';
 
 
-import AOS from "aos";
-import 'aos/dist/aos.css';
-
-const Comment = ({Id,useComment}) => {
+const NewComment = ({newsId}) => {
 
 
   // const [delet , setDelet] = useState()
@@ -24,8 +23,14 @@ const Comment = ({Id,useComment}) => {
 
 
 
-    const GetComment = useComment(Id);
-    console.log(GetComment.data)
+  
+
+
+    const GetCommentNews = useCommentNews(newsId);
+    console.log(GetCommentNews)
+
+
+
 
 
      const onSubmit = async (e) => {
@@ -42,30 +47,7 @@ const Comment = ({Id,useComment}) => {
 
       
     };
-
-
-  //   const [reject , setReject] = useState()
-  //   console.log(reject)
   
-  //   const params = {
-  //     CommentCourseId : reject
-  //   }
-
-  //   const rejectComments = rejectComment(params)
-  //   console.log(rejectComments)
-
-
-  //  const [accept , setAccept] = useState()
-  //  console.log(accept)
-
-  //   const send = {
-  //     CommentCourseId : accept
-  //   }
-
-  //   const acceptComments = AcceptComment(send)
-  //   console.log(acceptComments)
-
-    
 
   const [like , setLike] = useState()
   console.log(like)
@@ -90,9 +72,6 @@ const Comment = ({Id,useComment}) => {
 
   const [showMore, setShowMore] = useState(true);
     
-  useEffect(() => {
-    AOS.init();
-  }, [])
 
   return (
     <div  style={{ boxShadow: " 0px 1px 2px 0 rgba(0, 0, 0, 0.25)" }}
@@ -130,9 +109,8 @@ const Comment = ({Id,useComment}) => {
         </div>
 
         {
-            GetComment.data?.map((item)=>(
-            <div data-aos="zoom-in-down"
-             className={`bg-[#F9F9F9]  dark:bg-slate-800 rounded-[7px] w-full  flex flex-col  p-[20.5px] mt-[30px]
+            GetCommentNews.data?.map((item)=>(
+            <div className={`bg-[#F9F9F9]  dark:bg-slate-800 rounded-[7px] w-full  flex flex-col  p-[20.5px] mt-[30px]
             ${showMore ? "h-[315px] overflow-hidden": "min-h-[315px]"}`}>
                 
                 <div className='w-full h-full   flex flex-col'>
@@ -200,7 +178,7 @@ const Comment = ({Id,useComment}) => {
                
                
            
-                <Reply useId={Id}  id={item?.id} showMore={showMore} comentdiv1={comentdiv1} setCommentdiv1={setCommentdiv1}/>     </div>  
+                <ReplyArticle useId={newsId}  id={item?.id} parentId={item?.parentId} showMore={showMore} comentdiv1={comentdiv1} setCommentdiv1={setCommentdiv1}/>     </div>  
                 </div>
 
            
@@ -241,7 +219,7 @@ leading-[32px] font-normal font-Yekan text-[12px] flex items-center w-[120px] h-
             </button>
 
 
-            <Commentdiv Id={Id} comentdiv={comentdiv} setCommentdiv={setCommentdiv} holder="new comment"/>
+            <Commentdiv Id={newsId} comentdiv={comentdiv} setCommentdiv={setCommentdiv} holder="new comment"/>
 
 
 
@@ -250,7 +228,7 @@ leading-[32px] font-normal font-Yekan text-[12px] flex items-center w-[120px] h-
   )
 }
 
-export default Comment
+export default NewComment
 
 
 

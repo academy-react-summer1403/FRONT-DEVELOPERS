@@ -13,8 +13,11 @@ import BP4Img from "../../assets/landing/BProduct4.png";
 
 import AOS from "aos";
 import 'aos/dist/aos.css';
+import { useTranslation } from "react-i18next";
 
 const Products = () => {
+  const { t } = useTranslation();
+
 
   useEffect(() => {
     AOS.init();
@@ -32,12 +35,12 @@ const Products = () => {
 
         {/* header section  */}
         <h1 className=" head1">
-          خدمات ما
+          {t("service")} 
           <div className="head2"></div>{" "}
         </h1>
         <h3 className="head3">
-          مجموعه ای از تمام آنچه شما نیاز دارید
-        </h3>
+
+{t("textservice")}        </h3>
         {/* body section  */}
         <div
           className="flex gap-20 max-xl:gap-10 items-center justify-center max-lg:gap-0 

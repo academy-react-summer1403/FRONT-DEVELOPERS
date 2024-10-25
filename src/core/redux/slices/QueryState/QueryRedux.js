@@ -3,19 +3,23 @@ import { createSlice } from "@reduxjs/toolkit";
 
  const QuerySlice = createSlice({
     initialState:{
-        data:{}
+        
+        search:{}
+
     },
     name:"query",
     reducers:{
 
-        search:(state , action)=>{
-            state.data = action.payload
-        },
+        // search:(state , action)=>{
+        //     state.search = action.payload
+        // },
     
         Add:(state , action) =>{
-            state.data = action.payload
+            state.search = action.payload
         },
-
+        // onSearchChange :(state,action)=>{
+        //     state.search = action.payload
+        // }
       
     },
 

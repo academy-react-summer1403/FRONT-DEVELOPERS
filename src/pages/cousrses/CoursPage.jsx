@@ -21,13 +21,12 @@ import { useDispatch, useSelector } from "react-redux";
 import {  useState } from "react";
 
 
+
 const CoursPage = () => {
 
   const [sort, setSort] = useState();
   console.log(sort);
 
-  const [search , setSearch] = useState({});
-  console.log(search)
 
   const [page, setPage] = useState(1);
   console.log(page);
@@ -40,15 +39,14 @@ const CoursPage = () => {
   console.log(view);
 
 
-
   
-  const query = useSelector((state) => state.QuerySlice.data);
+  const query = useSelector((state) => state.QuerySlice.search);
   console.log(query);
 
   
 
   const params = {
-     Query : search,
+     
      courseLevelId : query,
      SortingCol : sort,
      CourseTypeId : query
@@ -59,8 +57,16 @@ const CoursPage = () => {
   console.log(dispatch);
 
 
-  const CoursesData = useCourses(params ,page ,view1);
+  const [search , setSearch] = useState({});
+  console.log(search)
+
+
+
+
+  const CoursesData = useCourses( page ,view1 , search);
   console.log(CoursesData);
+
+  
 
   const lastPage = () => {
     setPage((old) => Math.max(old - 1, 1));
@@ -187,7 +193,9 @@ const CoursPage = () => {
 
             <input
         
-            onChange={(e) => setSearch(e.target.value)}
+
+      
+            onChange={(e) =>setSearch( e.target.value )}
 
               
               
@@ -284,7 +292,7 @@ const CoursPage = () => {
             <div className={` grid w-full z-10
                       ${view ? "grid-cols-1 mt-2":"grid-cols-3 max-lg:grid-cols-2 max-sm:justify-items-center max-sm:grid-cols-1 pt-0"}`}>
                 
-                    {view ? <>
+                 {view ? <>
           {CoursesData.data?.courseFilterDtos.map((item) => (
 
           

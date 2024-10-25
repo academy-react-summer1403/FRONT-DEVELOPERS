@@ -51,6 +51,8 @@ i18n
             footer1:"All rights of this website belong to the academy",
             footer2:"The educational complex started its activity in 2013 and today it has become the largest programming colony in the north of the country.",
             footer3:"Sari, Khazar Square, Farah Abad Road, next to Dunya Arzoo Complex",
+            teach1:"! Let's get to know Mazandaran province better",
+            teach2:"The most prominent professors of the largest programming collection"
             
 
 
@@ -87,6 +89,8 @@ i18n
             allcourse:"همه دوره ها",
             BestTeachers:"برترین اساتید",
             findteacher:"!!رو همینجا پیدا می کنید",
+            teach1:"برجسته ترین اساتید بزرگترین مجموعه برنامه نویسی",
+            teach2:" ! استان مازندران رو بهتر بشناسیم ",
             service:"خدمات ما",
             textservice:"مجموعه ای از تمام آنچه شما نیاز دارید",
             Counseling:"مشاوره",

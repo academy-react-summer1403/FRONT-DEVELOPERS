@@ -6,7 +6,7 @@ import Description from "../../components/coursedetailComponents/Description/Des
 import HeadLines from "../../components/coursedetailComponents/Headlines/HeadLines";
 import { useCourseId } from "../../core/services/query/queries";
 import { useParams } from "react-router-dom";
-import Comment from "../../components/coursedetailComponents/comments/Comment";
+import CourseComment from "../../components/coursedetailComponents/comments/CourseComment";
 import RelatedCourses from "../../components/coursedetailComponents/RelatedCourses/RelatedCourses";
 import { ImageErrore } from "../../components/ImageErrore";
 import { useCommentCourse } from "../../core/services/query/CommentQuery";
@@ -83,7 +83,7 @@ const CourseDetial = () => {
         </h4>
         <div className="  ">
         
-          <Comment Id={courseId} useComment={useCommentCourse} />
+          <CourseComment courseId={courseId} useComment={useCommentCourse} />
         </div>
       </div>
     </div>

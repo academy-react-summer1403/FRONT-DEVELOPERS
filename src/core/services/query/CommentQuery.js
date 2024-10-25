@@ -15,8 +15,8 @@ export function useCommentCourse(courseId ) {
 
   export function useReplyCourse(id , courseId) {
     const query = useQuery({
-      queryKey: ["replyCourse", id , courseId],
-      queryFn: () => getReplyCourse(id , courseId ),
+      queryKey: ["replyCourse", id , courseId ],
+      queryFn: () => getReplyCourse(id , courseId  ),
     });
   
     return query;
@@ -33,10 +33,10 @@ export function useCommentCourse(courseId ) {
   }
 
 
-  export function useReplyNews(Id) {
+  export function useReplyNews(Id , parentId) {
     const query = useQuery({
-      queryKey: ["replyCourse",Id],
-      queryFn: () => getReplyNews(Id ),
+      queryKey: ["replyCourse",Id , parentId],
+      queryFn: () => getReplyNews(Id , parentId),
     });
   
     return query;

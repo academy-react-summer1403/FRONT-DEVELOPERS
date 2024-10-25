@@ -7,7 +7,7 @@ import { Add } from '../../core/redux/slices/QueryState/QueryRedux';
 const TypeFilter = () => {
 
 
-  const query = useSelector((state) => state.QuerySlice.data);
+  const query = useSelector((state) => state.QuerySlice.search);
   console.log(query);
 
   const dispatch = useDispatch();
