@@ -35,11 +35,11 @@ const Footer = () => {
     <div className='relative  w-full'>
         
 
-        <div className='relative w-full flex justify-center items-center h-[500px]  max-md:bg-[#01CEC926] '>       
+        <div className='relative w-full flex justify-center items-center h-[500px] max-[1015px]:bg-primary/20 '>       
         
             {/* <img src={FooterLogo} alt=""  className='absolute bottom-0 w-full h-[75%]  mx-auto max-md:hidden'/> */}
 
-            <svg className='absolute bottom-0 w-full h-[75%]  mx-auto max-md:hidden' width="1440" height="364" viewBox="0 0 1440 364" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg className='absolute bottom-0 w-full h-[75%] max-l:h-[65%]  mx-auto max-[1015px]:hidden' width="1440" height="364" viewBox="0 0 1440 364" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g filter="url(#filter0_b_109_620)">
             <path d="M-512 0L106.75 27.75L416.125 41.625L570.812 48.5625L648.156 52.0312C648.156 52.0312 705 27.75 725.5 27.75C746 27.75 803.406 52.0312 803.406 52.0312L881.312 48.5625L1037.12 41.625L1348.75 27.75L1972 0V496L1348.75 468L1037.12 454L881.312 447L803.406 443.5C803.406 443.5 742 468 725.5 468C709 468 648.156 443.5 648.156 443.5L570.812 447L416.125 454L106.75 468L-512 496V0Z" className='fill-primary' fill-opacity="0.15"/>
             </g>

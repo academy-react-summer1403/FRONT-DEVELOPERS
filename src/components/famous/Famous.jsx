@@ -32,9 +32,9 @@ const Famous = () => {
     
 
 
-        <div  className='flex h-[495px]'>
+        <div  className='flex h-[495px] max-sm:bg-primary/20 max-sm:h-[395px] max-sm:my-12 '>
 
-        <svg className=' w-full' height="496" viewBox="0 0 1439 496" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg className=' w-full max-sm:hidden' height="496" viewBox="0 0 1439 496" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g filter="url(#filter0_b_109_478)">
         <path d="M-516.5 0L102.25 27.75L411.625 41.625L566.312 48.5625L643.656 52.0312C643.656 52.0312 700.5 27.75 721 27.75C741.5 27.75 798.906 52.0312 798.906 52.0312L876.812 48.5625L1032.62 41.625L1344.25 27.75L1967.5 0V496L1344.25 468L1032.62 454L876.812 447L798.906 443.5C798.906 443.5 737.5 468 721 468C704.5 468 643.656 443.5 643.656 443.5L566.312 447L411.625 454L102.25 468L-516.5 496V0Z" className=' w-full  h-full mx-auto fill-primary' fill-opacity="0.3"/>
         </g>

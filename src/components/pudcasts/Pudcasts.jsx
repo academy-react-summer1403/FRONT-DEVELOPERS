@@ -32,7 +32,8 @@ const Pudcasts = () => {
         cssEase:"ease-in-out",
         pauseOnHover:false,
         pauseOnFocus:true,
-        dotsClass: "button__bar",
+        dotsClass: "button__bar buttompudcast ",
+  
 
     }
 
@@ -41,7 +42,7 @@ const Pudcasts = () => {
       }, [])
 
   return (
-    <div className='container     relative min-h-[550px] 
+    <div className='relative min-h-[550px]  
       flex justify-center flex-col
     items-center   mt-8 
 '>
@@ -56,29 +57,35 @@ const Pudcasts = () => {
 
   
     {/* hero section */}
-    <div data-aos="fade-up" data-aos-duration="900" className='max-lg:w-[650px] w-[1000px] h-[500px]  mt-[10px]  relative max-sm:w-[550px] '>
+    <div data-aos="fade-up" data-aos-duration="900" className='xl:container w-full h-[500px]  mt-[10px]  relative  '>
 
-        <img src={Img2} alt="" className='absolute top-[-20px] left-[-10px] max-md:w-[20%] max-lg:w-[20%] max-sm:top-4 max-sm:left-16'/>
-        
-        {/* <img src={BackPImg} alt="" className='max-md:mt-[20px] max-sm:w-[450px] max-sm:mx-auto  max-sm:mt-[20px]'/> */}
+            <img src={Img2} alt="" className='absolute  left-[20%] max-md:hidden max-lg:w-[17%] max-sm:top-4 max-sm:left-16'/>
 
-        <div className='shadow-lg bg-gradient-to-r from-orange/30 to-primary/30 w-[750px] h-[300px] rounded-2xl rounded-tl-[200px] mt-14 ml-20 max-md:mt-[20px] max-lg:w-[450px] max-sm:mx-auto  max-sm:mt-[20px]'></div>
-        <img src={Img1} alt="" className='absolute w-[200px] h-[200px] top-[90px] right-[100px] z-50 max-lg:top-[50px] max-lg:right-[0px]
-        max-md:w-[150px] max-sm:w-[100px] max-md:h-[150px] max-sm:h-[100px] max-md:right-[10px] max-md:top-24 max-sm:right-20 max-sm:top-0'/>
+            <img src={Img1} alt="" className='absolute w-[200px] h-[200px] top-[100px] right-[19%] z-50
+            max-2xl:right-[14%] max-xl:right-[10%]
+            max-lg:top-[80px] max-lg:right-[5%] max-lg:w-[180px] max-lg:h-[200px]
+            max-md:w-[148px] max-md:right-[0px] max-md:top-14 max-md:h-[148px]
+            max-sm:w-[100px] max-sm:h-[100px] max-sm:right-5 max-sm:-top-5'/>
+              
         
-        <Slider {...settings} className='  absolute w-[700px] h-[250px] py-10  -top-[280px] left-20 max-sm:left-[60px] max-sm:w-[380px] max-sm:h-[190px] max-sm:top-[-205px]  max-md:left-[40px] overflow-hidden left-16  max-md:h-[220px] max-md:w-[460px]  max-md:top-[-255px] max-lg:top-[-250px] max-lg:left-[40px] max-lg:w-[450px] max-lg:h-[210px]       -black rounded-tl-[200px] '>
+        <Slider {...settings} className=' flex relative shadow-lg bg-gradient-to-r from-orange/30 to-primary/30 w-[750px] h-[300px]
+         rounded-2xl rounded-tl-[200px] mt-14 mx-auto py-10 overflow-hidden pr-10
+         max-md:w-[550px] max-md:h-[220px] max-md:mt-[20px] max-md:rounded-2xl max-xl:pr-[12%] max-lg:pr-24
+         max-sm:h-[210px] max-sm:pb-20   
+         max-lg:w-[650px] max-lg:h-[250px] max-xl:pr-32'>
+           
             {PudcastApi.data?.news.map((data)=>(
 
                 <div className='     -ml-14'>
 
-                   <div className='     flex flex-wrap justify-end'>
-                        <h3 className=' text-[#AAAAAA] text-[12px] font-Yekan font-semibold   max-lg:mr-[-80px] max-md:-mr-[300px] max-sm:-mt-1 max-sm:mr-[-90px]  mr-[70px]'>
+                   <div className='flex flex-col items-end justify-end'>
+                        <h3 className=' text-[#AAAAAA] text-[12px] font-Yekan font-semibold   max-lg:mr-[80px] max-md:mr-[250px] max-sm:-mt-1 max-sm:mr-[90px]  mr-[370px]'>
                              <DateApi dateapi={data?.updateDate}/>
                             </h3>
-                        <h1 className='   max-md:-mr-6 text-[26px] text-[#006865]  max-sm:text-[16px] max-sm:-mr-4 max-sm:mt-[9px] font-bold font-Yekan max-lg:text-[22px] max-lg:mr-[-45px]  text-right mt-5'>
+                        <h1 className='max-md:-mr-6 text-[26px] text-[#006865]  max-sm:text-[16px] max-sm:-mr-4 max-sm:mt-[9px] font-bold font-Yekan max-lg:text-[22px] max-lg:mr-[-45px]  text-right mt-5'>
                             {data?.title}
                         </h1>
-                        <p className=" max-sm:ml-[60px] text-[#828F8E] max-md:-mr-5 text-[15px] leading-[21px] font-Yekan font-semibold text-right mt-3 w-96 max-lg:mr-[-45px] max-lg:text-[14px] max-lg:w-80   ml-14">
+                        <p className="max-sm:ml-[60px] text-[#828F8E] max-md:-mr-5 text-[15px] leading-[21px] font-Yekan font-semibold text-right mt-3 w-96 max-lg:mr-[-45px] max-lg:text-[14px] max-lg:w-80   ml-14">
                             {data?.miniDescribe}
                         </p>
                     </div> 

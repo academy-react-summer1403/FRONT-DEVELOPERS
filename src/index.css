@@ -139,11 +139,17 @@ body{
     vertical-align: middle;
     margin:40px auto;
     padding: 0;
-    background: rgba(255, 255, 255, 0.3);
+    background:none;
     border-radius: 40px;
     width: 100px;
     text-align: center;
-   
+  }
+  .buttompudcast{
+    position:absolute;
+    width:10px;
+    display:flex;
+    bottom:0px;
+    left:40px
   }
   
   .button__bar li {
@@ -157,7 +163,7 @@ body{
   
   .button__bar li button {   
 
-    @apply bg-primary hover:bg-secondary w-[15px] h-[15px] block rounded-full cursor-pointer text-[rgba(0,0,0,0)]
+    @apply bg-primary hover:bg-secondary  w-[15px] h-[15px] block rounded-full cursor-pointer text-[rgba(0,0,0,0)]
  
   }
   
@@ -168,6 +174,8 @@ body{
   .button__bar li button:hover,
   .button__bar li button:focus {
     background: #D47300;
+    height:28px;
+    margin:0 0 5px 0 ;
     outline: 0;
   }
 

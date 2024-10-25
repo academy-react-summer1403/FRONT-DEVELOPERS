@@ -35,24 +35,24 @@ console.log(reportLanding)
 
 
     return (
-      <div className='  z-[-9999]'>
+      
         <div
-          className="container   flex items-center  flex-nowrap justify-between
-      min-h-[650px] relative"
+          className="container flex items-center flex-nowrap  z-0 
+        min-h-[650px] "
         >
-          <img src={BackImg} alt=""  className='w-full z-10 h-full absolute opacity-80'/>
+          <img src={BackImg} alt=""  className='w-full h-full absolute left-0 opacity-80 z-[0]'/>
             
 
-   {/* hero image  */}
-   <div className="flex w-[600px] h-[450px] justify-center max-xl:w-[400px] z-50 items-center  relative -mr-16">
+            {/* hero image  */}
+            <div className="flex w-[600px] h-[450px] justify-center max-xl:w-[400px] items-center relative -mr-16">
 
 
         
         
             <div style={{boxShadow:"-2px 0px 5px 0px #00000026"}} className='w-[180px] max-xl:w-[150px] max-lg:w-[130px] max-lg:ml-[-40px]
-             max-md:hidden  max-lg:h-[95px] max-xl:top-[-30px] absolute top-[-20px] left-[-20px] h-[105px] ml-5 bg-white rounded-[10px]  z-40 
+             max-md:hidden  max-lg:h-[95px] max-xl:top-[-30px] absolute top-[-20px] left-[-20px] h-[105px] ml-5 bg-white rounded-[10px] z-[1] 
                dark:bg-gray-700/70  dark:hover:bg-gray-700/100  dark:hover:transition-colors'>
-              <div style={{boxShadow: "0px 0px 5px 0px #00000059"}} className='flex items-center justify-center z-0 max-lg:w-[48px] max-lg:h-[48px] bg-yellow rounded-full max-xl:ml-[40px] ml-[60px] mt-[-30px] w-[68px] h-[68px] '>
+              <div style={{boxShadow: "0px 0px 5px 0px #00000059"}} className='flex items-center justify-center  max-lg:w-[48px] max-lg:h-[48px] bg-yellow rounded-full max-xl:ml-[40px] ml-[60px] mt-[-30px] w-[68px] h-[68px] '>
                 <img className='  w-[45px] h-[45px] max-lg:w-[35px] max-lg:h-[35px]' src={teacher} alt="" />
               </div>
               <h1 className=' mx-auto max-xl:text-[20px] max-xl:w-[140px] h-[40px] w-[170px] mt-3 text-center text-[25px] font-normal font-Yekan text-[#434343] text-gray-800/90  dark:text-white'>+{reportLanding.data?.studentCount}{t('student')}</h1>
@@ -66,7 +66,7 @@ console.log(reportLanding)
               transition={{type:"spring" , stiffness:100 , delay:0.2}}
   
               className="w-[447px]  h-[447px] relative max-md:w-[800px] max-sm:ml-10  max-lg:w-[380px] max-lg:left-0 max-xl:left-10
-               rounded-[30px] bg-gradient-to-br from-primary/20 to-secondary/10  z-20 max-xl:w-[350px] "
+               rounded-[30px] bg-gradient-to-br from-primary/20 to-secondary/10  max-xl:w-[350px] "
             >
 
 
@@ -207,7 +207,7 @@ console.log(reportLanding)
           </div>
        
         </div>
-      </div>
+      
     );
   };
 

@@ -1,10 +1,13 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Reply from './Reply'
-import {  deleteComment,    dislikeComment,    likeComment,  postComment } from '../../../core/services/apiComment';
+import {  deleteComment, dislikeComment, likeComment,  postComment } from '../../../core/services/apiComment';
 import Commentdiv from './commentdiv';
 import DateApi from '../../DateApi';
 import { IoIosArrowDown } from 'react-icons/io';
 
+
+import AOS from "aos";
+import 'aos/dist/aos.css';
 
 const Comment = ({Id,useComment}) => {
 
@@ -87,6 +90,9 @@ const Comment = ({Id,useComment}) => {
 
   const [showMore, setShowMore] = useState(true);
     
+  useEffect(() => {
+    AOS.init();
+  }, [])
 
   return (
     <div  style={{ boxShadow: " 0px 1px 2px 0 rgba(0, 0, 0, 0.25)" }}
@@ -125,7 +131,8 @@ const Comment = ({Id,useComment}) => {
 
         {
             GetComment.data?.map((item)=>(
-            <div className={`bg-[#F9F9F9]  dark:bg-slate-800 rounded-[7px] w-full  flex flex-col  p-[20.5px] mt-[30px]
+            <div data-aos="zoom-in-down"
+             className={`bg-[#F9F9F9]  dark:bg-slate-800 rounded-[7px] w-full  flex flex-col  p-[20.5px] mt-[30px]
             ${showMore ? "h-[315px] overflow-hidden": "min-h-[315px]"}`}>
                 
                 <div className='w-full h-full   flex flex-col'>

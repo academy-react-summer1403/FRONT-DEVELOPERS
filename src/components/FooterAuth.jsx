@@ -8,7 +8,7 @@ import DarkMode from './DarkMode';
 
 const FooterAuth = () => {
   return (
-    <div className='container h-[80px]  flex items-center '>
+    <div className='container h-[70px]  flex items-center '>
         <div className='flex justify-start flex-row gap-3 items-center  w-[400px] h-[60px]'>
                 <div className='w-[55%] h-[52%] bg-green rounded-2xl text-white text-center leading-[30px] dark:bg-orange'>info@pazhooheshgah.ir</div>
 
