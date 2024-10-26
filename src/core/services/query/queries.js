@@ -10,6 +10,7 @@ import {
   getNews,
   getNewsId,
   getNewsPudcast,
+  getTopCourse,
   LevelCourses,
   TypeCourses,
 } from "../getApi";
@@ -38,10 +39,17 @@ export function useArticleDetail(id) {
   return query;
 }
 
-export function useCourses(page ,view1 , search) {
+export function useCourses(  search , params) {
   return useQuery({
-    queryKey: ["courses",   page,view1 , search ],
-    queryFn: () => getCourse(  page,view1 , search),
+    queryKey: ["courses",    search , params],
+    queryFn: () => getCourse(   search , params),
+  });
+}
+
+export function useTopCourses() {
+  return useQuery({
+    queryKey: ["courses"],
+    queryFn: () => getTopCourse(),
   });
 }
 

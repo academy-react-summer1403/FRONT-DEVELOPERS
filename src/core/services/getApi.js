@@ -26,14 +26,16 @@ export const getNewsId = async (id) => {
 
 
 
-export const getCourse = async ( page , view1 , search) => {
+export const getCourse = async (  search , params) => {
   console.log(search,'search from api')
-  const params = {PageNumber:page,RowsOfPage:view1}
+
   if (search && search.length>0){
     params.Query = search
-  }
+  }  
   const data = await http.get(
-    `/Home/GetCoursesWithPagination`,{params} 
+    `/Home/GetCoursesWithPagination`,{
+      params:params
+    } 
   );
   console.log(data);
   return data;
@@ -44,6 +46,15 @@ export const getCourseId = async (courseId) => {
   console.log(data);
   return data;
 };
+
+
+export const getTopCourse = async ()=>{
+  const data = await http.get(`/Home/GetCoursesTop?Count=5`)
+  console.log(data)
+  return data;
+}
+
+
 
 export const categoryCourses = async () => {
   const data = await http.get("/Home/GetTechnologies");

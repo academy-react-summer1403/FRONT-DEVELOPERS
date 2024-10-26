@@ -5,7 +5,6 @@ import CoursListCard from "../../components/courspage/CoursListCard";
 import { IoIosArrowDown } from "react-icons/io";
 import { BiMenuAltRight } from "react-icons/bi";
 import { motion } from "framer-motion";
-
 import Search from "../../assets/landing/Search.svg";
 import Herobg from "../../assets/courses/49.svg";
 import Herovector from "../../assets/courses/12.svg";
@@ -13,12 +12,10 @@ import Heroring from "../../assets/courses/Ellipse 4.svg";
 import BackImg from "../../assets/courses/background.svg";
 import WindowView from "../../assets/courses/Vector.svg";
 import ListView from "../../assets/courses/Frame.svg";
-
-import { useCourses } from "../../core/services/query/queries";
+import { useCourses, useTopCourses } from "../../core/services/query/queries";
 import { SliderRight } from "../../utility/animation";
 import { useDispatch, useSelector } from "react-redux";
-// import { QuerySlice } from "../../core/redux/slices/QueryState/QueryRedux";
-import { useEffect, useState } from "react";
+import {  useState } from "react";      
 
 
 
@@ -38,34 +35,37 @@ const CoursPage = () => {
   const [view1, setView1] = useState(6);
   console.log(view);
 
+  const [search , setSearch] = useState({});
+  console.log(search)
 
   
   const query = useSelector((state) => state.QuerySlice.search);
   console.log(query);
 
-  
+
+
+  const dispatch = useDispatch();
+  console.log(dispatch);
+
+
+
 
   const params = {
-     
+    RowsOfPage:view1,
+    PageNumber:page,  
      courseLevelId : query,
      SortingCol : sort,
      CourseTypeId : query
     
   }
 
-  const dispatch = useDispatch();
-  console.log(dispatch);
 
-
-  const [search , setSearch] = useState({});
-  console.log(search)
-
-
-
-
-  const CoursesData = useCourses( page ,view1 , search);
+  const CoursesData = useCourses( search , params);
   console.log(CoursesData);
 
+
+  const getCourseTop=useTopCourses()
+  console.log(getCourseTop.data)
   
 
   const lastPage = () => {
@@ -175,7 +175,7 @@ const CoursPage = () => {
           <p className="mr-4 mt-6 text-xl text-gray-400 dark:text-gray-200">
             به روز ترین دوره هایی که میتونید پیدا کنید
           </p>
-          {/* search box  */}
+          {/* search box  */} 
           {/* <SearchBar placeholder={"...چی میخوای یاد بگیری؟"}/> */}
           <motion.div
             variants={SliderRight(1.0)}

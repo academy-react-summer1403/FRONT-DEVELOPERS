@@ -4,9 +4,7 @@ import FavImg from "../assets/landing/Favorite.svg";
 import ShopImg from "../assets/landing/Shopping Bag.svg";
 import UserImg from "../assets/landing/user.png";
 import Logo from "../assets/landing/logo1.svg";
-import DarkMode from './DarkMode';
 import { NavLink } from 'react-router-dom';
-
 import { CgProfile } from "react-icons/cg";
 import Lg from './Translate/TranslateButton';
 import { useTranslation } from 'react-i18next';
