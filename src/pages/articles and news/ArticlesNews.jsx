@@ -42,12 +42,12 @@ const ArticlesNews = () => {
   const categories = ["جدید ترین", "محبوب ترین"];
 
   return (
-    <div className="  container">
+    <div className="  container max-sm:px-12">
       <img
         src={BackImg}
         alt=""
         className="absolute w-[690px] left-[290px] 
-           max-md:left-0
+           max-lg:left-0
             max-sm:left-0
            z-0"
       />
@@ -167,7 +167,7 @@ const ArticlesNews = () => {
                  max-sm:flex-col 
                 "
           >
-            <div className="text-2xl font-semibold text-teal-900 dark:text-white p-2 text-center">
+            <div className="text-2xl font-semibold text-darkgreen dark:text-white p-2 text-center">
               جدید ترین اخبار و مقالات
             </div>
             {/* menu  */}
@@ -178,11 +178,11 @@ const ArticlesNews = () => {
                         text-gray-900 hover:bg-gray-50 cursor-pointer text-lg"
               >
                 <IoIosArrowDown
-                  className="relative mt-2 h-5 w-5 flex-none text-teal-900 dark:text-teal-600
+                  className="relative mt-2 h-5 w-5 flex-none text-darkgreen dark:text-darkgreen/60
                                      rotate-180 group-hover:rotate-0 duration-300"
                 />
                 جدید ترین
-                <BiMenuAltRight className="w-7 h-7 mt-1 text-teal-900 dark:text-teal-600" />
+                <BiMenuAltRight className="w-7 h-7 mt-1 text-darkgreen dark:text-darkgreen/60" />
               </div>
               <div
                 className="absolute z-[9999] hidden  group-hover:block  max-sm:top-10
@@ -195,7 +195,7 @@ const ArticlesNews = () => {
                         onClick={() => setSort("lastUpdate")}
                         className="inline-block px-4 font-semibold text-gray-500
                                         hover:text-black dark:hover:text-white duration-200 p-2
-                                         w-full hover:bg-teal-100 rounded-md text-right
+                                         w-full hover:bg-green/40 rounded-md text-right
                                         group-data-[selected]:font-semibold cursor-pointer
                                         "
                       >

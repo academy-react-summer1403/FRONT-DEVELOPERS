@@ -2,6 +2,7 @@ import React from 'react'
 import { IoEyeOutline } from 'react-icons/io5'
 import { NavLink } from 'react-router-dom'
 import { useMyCourses } from '../../../core/services/query/DashboardQuery';
+import { ImageErrore } from '../../ImageErrore';
 
 const ListMap = () => {
 
@@ -17,7 +18,7 @@ const ListMap = () => {
           {getMyCourses.data?.listOfMyCourses.map((item) => (
               <ul  style={{boxShadow:" 0px 1px 1px 0px rgba(0,0,0,0.1)"}}
               className={`relative grid grid-cols-6 my-2 rounded-md text-[11px] text-center 
-                text-gray-600 font-medium justify-items-center 
+                text-gray-600 font-medium justify-items-center dark:text-white
               ${  2 ===0 ? "bg-gray-100/60 dark:bg-gray-50" : "bg-cyan-50/60 dark:bg-cyan-100/70"}                                          
               `}>
                 <NavLink className='col-1'>
@@ -32,6 +33,7 @@ const ListMap = () => {
                 <li className='col-1'>
                   <img
                     // src={item.image}
+                    onError={ImageErrore}
                     alt=""
                     className='rounded-full border w-12 h-12 col-1 shadow-md my-1'
                   ></img>

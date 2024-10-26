@@ -1,6 +1,10 @@
 import { div, style } from "framer-motion/client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+
+import AOS from "aos";
+import 'aos/dist/aos.css';
+
 const HeadLines = () => {
   const [accordions, setAccordion] = useState([
     {
@@ -104,10 +108,14 @@ const HeadLines = () => {
     setAccordion(updatedAccordions);
   };
 
+  useEffect(() => {
+    AOS.init();
+  }, [])
+
   return (
     <>
       {/* headlines section*/}
-      <div className=" relative w-full   border-[rgba(0,0,0,0)]">
+      <div className=" relative w-full border-[rgba(0,0,0,0)]">
         <div className=" w-full mt-[15px]  relative">
           <h4 className=" mark max-xl:text-[20px] dark:text-slate-300 ">سرفصل ها</h4>
 
@@ -119,6 +127,7 @@ const HeadLines = () => {
           className=" flex   mt-[15px] gap-[10px] flex-wrap">
             {accordions.map((data, index) => (
               <div key={index}
+                data-aos="zoom-in-left"
                 style={{ boxShadow: " 0px 1px 3px 0 rgba(0, 0, 0, 0.25)" }}
                 className={`  flex cursor-pointer items-center flex-wrap   rounded-t-[10px]  rounded-b-[10px]  w-[809px] ${
                   data.isOpen ? "bg-[#00E2DC] dark:bg-slate-300" : "dark:bg-slate-700 bg-[#FFFFFF] h-[51px]"

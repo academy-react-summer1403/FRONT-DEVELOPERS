@@ -15,7 +15,8 @@ import ListView from "../../assets/courses/Frame.svg";
 import { useCourses, useTopCourses } from "../../core/services/query/queries";
 import { SliderRight } from "../../utility/animation";
 import { useDispatch, useSelector } from "react-redux";
-import {  useState } from "react";      
+// import { QuerySlice } from "../../core/redux/slices/QueryState/QueryRedux";
+import {  useState } from "react";
 
 
 
@@ -92,12 +93,12 @@ const CoursPage = () => {
   ];
 
   return (
-    <div className="xl:container px-2 z-10">
+    <div className="xl:container px-2 z-10 ">
       <img
         src={BackImg}
         alt=""
         className="absolute w-[690px] left-[300px] 
-           max-md:left-0
+           max-lg:left-0
             max-sm:left-0
           opacity-80 z-0"
       />

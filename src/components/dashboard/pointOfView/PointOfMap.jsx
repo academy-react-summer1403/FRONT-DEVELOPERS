@@ -14,7 +14,7 @@ const PointOfMap = () => {
     {/* {item.map((item) => ( */}
         <ul  style={{boxShadow:" 0px 1px 1px 0px rgba(0,0,0,0.1)"}}
         className="relative grid grid-cols-6 my-2 rounded-md text-[10px] text-center 
-          text-gray-600 font-medium justify-items-center "
+          text-gray-600 dark:text-white font-medium justify-items-center "
         >
            <li className='col-1 my-2 flex gap-2'>
             <NavLink>

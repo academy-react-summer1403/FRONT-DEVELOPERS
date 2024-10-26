@@ -46,7 +46,7 @@ const Podcasts = () => {
                                     max-lg:w-[92%] 
                                 '>
                                     <p className='text-[11px] font-medium text-darkgreen/80 dark:text-white mb-3'>{item.subject}</p>
-                                    <div  className='text-[10px] text-gray-400 flex flex-row px-[30%] max-lg:px-[80%] max-sm:px-[70%]  gap-5 '>
+                                    <div  className='text-[10px] text-gray-400 flex flex-row px-[25%] max-lg:px-[20%] max-sm:px-[10%]  gap-5 '>
                                         <p className='flex flex-row-reverse gap-1 '> 
                                             124<img src={view}/>
                                         </p> 

@@ -3,11 +3,17 @@ import { motion } from 'framer-motion'
 import FavImg from "../assets/landing/Favorite.svg";
 import ShopImg from "../assets/landing/Shopping Bag.svg";
 import UserImg from "../assets/landing/user.png";
+<<<<<<< HEAD
 import Logo from "../assets/landing/logo1.svg";
+=======
+// import Logo from "../assets/landing/logo1.svg";
+import DarkMode from './DarkMode';
+>>>>>>> 7fb86b7d35c7cb7eb9b840ceabdd8fc97ebe2730
 import { NavLink } from 'react-router-dom';
 import { CgProfile } from "react-icons/cg";
 import Lg from './Translate/TranslateButton';
 import { useTranslation } from 'react-i18next';
+import Logo from './Logo';
 
 
 
@@ -67,12 +73,12 @@ const Navbar = () => {
 
     <div>
         <div className='container flex justify-between items-center py-6 dark:bg-gray-900 duration-200
-            max-lg:py-1 max-lg:mb-10 
+            max-lg:py-1 max-lg:mb-10  max-xl:px-0
         '>
     
                 {/* ACCOUNT section  */}
-                <div className=' text-2xl flex items-center gap-2 font-bold'>
-                    <div className='group relative w-36 max-md:w-[150px]  max-sm:w-[150px] z-[9999]
+                <div className=' z-[99999] text-2xl flex items-center gap-2 font-bold'>
+                    <div className='group relative w-36 max-md:w-[150px]  max-sm:w-[150px] z-[9999] 
                             max-lg:w-[150px] max-xl:w-[200px] h-12 bg-primary
                             mt-6 rounded-3xl hover:shadow-lg  dark:bg-orange 
                             dark:hover:shadow-slate-700 dark:hover:shadow-md z-50
@@ -83,10 +89,10 @@ const Navbar = () => {
                         </NavLink> 
                         {/* chooseAccont  */}
                         <div
-                            className="absolute group-hover:absolute z-[5000] hidden group-hover:block w-44 mt-[4px]
-                             rounded-md bg-white shadow-md dark:bg-gray-600 p-2 dark:text-white"
+                            className="  z-[99999] hidden group-hover:block w-80 mt-[4px]
+                             rounded-md bg-white shadow-md dark:bg-gray-600 p-2 dark:text-white flex"
                         >
-                            <ul className="relative z-[9999]">
+                            <ul className="relative flex  z-[9999]">
                             {Acconts.map((item, index) => (
                                 <li key={index} className={`group flex flex-row
                                     hover:text-black dark:text-white duration-200 p-2
@@ -94,9 +100,9 @@ const Navbar = () => {
                                     cursor-pointer 
                                     ${item.isloged ? "bg-primary dark:bg-secondary" :""}
                                 `}>
-                                    <CgProfile className={`w-5 h-5  ${item.isloged ? "w-9 h-9" :""}` }/>
+                                    <CgProfile className={`w-5 h-5  ${item.isloged ? "w-6 h-6" :""}` }/>
                                     <div
-                                        className={`block px-4 text-gray-900 dark:text-white text-sm  ${item.isloged ? "leading-10": "" }                                    
+                                        className={`block px-4 text-gray-900 dark:text-white text-sm  ${item.isloged ? "leading-6": "" }                                    
                                     `}
                                     >
                                         {item.userName}
@@ -142,8 +148,9 @@ const Navbar = () => {
                 </div>
 
             {/* Logo section  */}
-            <div className=' w-[135px] h-[50px] mt-10 max-lg:mt-8' >
-                <img src={Logo} alt="" className='rounded-md'/>
+            <div className=' w-[285px] h-[50px]' >
+                {/* <img src={Logo} alt="" className='rounded-md'/> */}
+                <Logo />
             </div>
             
             

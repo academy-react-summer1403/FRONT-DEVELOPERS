@@ -7,6 +7,8 @@ import { IoIosArrowDown } from 'react-icons/io';
 import { useCommentNews} from '../../../core/services/query/CommentQuery';
 import ReplyArticle from './ReplyArticle';
 
+import AOS from "aos";
+import 'aos/dist/aos.css';
 
 const NewComment = ({newsId}) => {
 
@@ -72,6 +74,9 @@ const NewComment = ({newsId}) => {
 
   const [showMore, setShowMore] = useState(true);
     
+  useEffect(() => {
+    AOS.init();
+  }, [])
 
   return (
     <div  style={{ boxShadow: " 0px 1px 2px 0 rgba(0, 0, 0, 0.25)" }}
@@ -110,7 +115,8 @@ const NewComment = ({newsId}) => {
 
         {
             GetCommentNews.data?.map((item)=>(
-            <div className={`bg-[#F9F9F9]  dark:bg-slate-800 rounded-[7px] w-full  flex flex-col  p-[20.5px] mt-[30px]
+            <div data-aos="zoom-in-down"
+             className={`bg-[#F9F9F9]  dark:bg-slate-800 rounded-[7px] w-full  flex flex-col  p-[20.5px] mt-[30px]
             ${showMore ? "h-[315px] overflow-hidden": "min-h-[315px]"}`}>
                 
                 <div className='w-full h-full   flex flex-col'>

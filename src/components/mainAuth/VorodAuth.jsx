@@ -102,7 +102,7 @@ navigate("/")
   });
 
   return (
-    <div className="container h-full relative ">
+    <div className="container relative">
     <img
       src={Back}
       alt=""
@@ -110,7 +110,7 @@ navigate("/")
     />
 
     {/* hero image  */}
-    <div className="flex justify-center items-center relative ">
+    <div className="flex justify-center items-center relative">
       <motion.div
         initial={{ opacity: 0, x: 200 }}
         animate={{ opacity: 1, x: 0 }}
