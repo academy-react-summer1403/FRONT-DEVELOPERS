@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import Reply from './Reply'
-import {  deleteComment, dislikeComment, likeComment,  postComment } from '../../../core/services/apiComment';
+import {   dislikeComment, likeComment,  postComment } from '../../../core/services/apiComment';
 import Commentdiv from './commentdiv';
 import DateApi from '../../DateApi';
 import { IoIosArrowDown } from 'react-icons/io';

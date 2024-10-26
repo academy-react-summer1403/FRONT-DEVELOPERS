@@ -151,7 +151,15 @@ body{
     bottom:0px;
     left:40px
   }
-  
+
+  .buttompudcast li button:focus {
+    background: #D47300;
+    height:28px;
+    margin:0 0 5px 0 ;
+    outline: 0;
+  }
+
+
   .button__bar li {
     list-style: none;
     cursor: pointer;
@@ -174,11 +182,8 @@ body{
   .button__bar li button:hover,
   .button__bar li button:focus {
     background: #D47300;
-    height:28px;
-    margin:0 0 5px 0 ;
     outline: 0;
   }
-
 
   .slick-slide img {
     border: 5px solid #fff;
