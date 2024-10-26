@@ -3,7 +3,7 @@ import ReservateHeader from '../../../components/dashboard/coursereserve/Reserva
 import ReserveMap from '../../../components/dashboard/coursereserve/ReserveMap'
 
 import { motion } from 'framer-motion'
-import { SliderRight } from '../../../utility/animation'
+import { SliderLeft, SliderRight } from '../../../utility/animation'
 import Search from "../../../assets/landing/Search.svg";
 import { IoIosArrowDown } from 'react-icons/io'
 import { BiMenuAltRight } from 'react-icons/bi'
@@ -19,7 +19,11 @@ const ReservatCourses = () => {
        {/* search & fillter:  */}
        <div className='border-b grid grid-cols-4 justify-items-end pb-8 my-4 gap-8' >
         {/* fillter  */}           
-           <div className="relative group max-sm:grid max-sm:justify-items-center  col-span-1 justify-self-end w-full">
+           <motion.div
+            variants={SliderRight(1.0)}
+            initial="hidden"
+            animate="visible"
+           className="relative group max-sm:grid max-sm:justify-items-center  col-span-1 justify-self-end w-full">
               <div
                 className="group flex px-5 py-2 gap-4 dark:bg-gray-700/70
                         rounded-full shadow-sm shadow-gray-300 outline-none indent-0 dark:text-white
@@ -53,13 +57,13 @@ const ReservatCourses = () => {
                   ))}
                 </ul>
               </div>
-            </div>
+            </motion.div>
         
           {/* search  */}
         <div className='col-span-3 grid justify-items-end w-full'>
          
             <motion.div
-              variants={SliderRight(1.0)}
+              variants={SliderLeft(1.0)}
               initial="hidden"
               animate="visible"
               className="flex flex-row  w-4/5 

@@ -3,13 +3,14 @@ import { motion } from 'framer-motion'
 import FavImg from "../assets/landing/Favorite.svg";
 import ShopImg from "../assets/landing/Shopping Bag.svg";
 import UserImg from "../assets/landing/user.png";
-import Logo from "../assets/landing/logo1.svg";
+// import Logo from "../assets/landing/logo1.svg";
 import DarkMode from './DarkMode';
 import { NavLink } from 'react-router-dom';
 
 import { CgProfile } from "react-icons/cg";
 import Lg from './Translate/TranslateButton';
 import { useTranslation } from 'react-i18next';
+import Logo from './Logo';
 
 
 
@@ -69,7 +70,7 @@ const Navbar = () => {
 
     <div>
         <div className='container flex justify-between items-center py-6 dark:bg-gray-900 duration-200
-            max-lg:py-1 max-lg:mb-10 
+            max-lg:py-1 max-lg:mb-10  max-xl:px-0
         '>
     
                 {/* ACCOUNT section  */}
@@ -144,8 +145,9 @@ const Navbar = () => {
                 </div>
 
             {/* Logo section  */}
-            <div className=' w-[135px] h-[50px] mt-10 max-lg:mt-8' >
-                <img src={Logo} alt="" className='rounded-md'/>
+            <div className=' w-[285px] h-[50px]' >
+                {/* <img src={Logo} alt="" className='rounded-md'/> */}
+                <Logo />
             </div>
             
             

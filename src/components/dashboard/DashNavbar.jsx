@@ -3,6 +3,7 @@ import UserImg from "../../assets/landing/user.png";
 import { HiHome } from "react-icons/hi2";
 import logo from '../../assets/landing/logo1.svg'
 import { NavLink } from 'react-router-dom';
+import Logo from '../Logo';
 
 
 const DashNavbar = () => {
@@ -24,13 +25,14 @@ const DashNavbar = () => {
                      text-white text-right pr-4 pl-16 leading-[50px]'>حساب کاربری</h1>
                 </div>               
                 <NavLink to={"/"}>
-                    <HiHome className='text-primary'/>
+                    <HiHome className='text-green'/>
                 </NavLink> 
             </div>
         
             {/* Logo section  */}
             <div className='space-x-6'>
-            <img src={logo} className='w-[190px]'/>           
+            <Logo/>
+            {/* <img src={logo} className='w-[190px]'/>            */}
             </div>
         </div>
 

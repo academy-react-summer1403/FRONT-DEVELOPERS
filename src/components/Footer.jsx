@@ -8,6 +8,7 @@ import Email from "../assets/landing/email.png";
 import Brand from "../assets/landing/brand.png";
 import Logo from "../assets/landing/LOGO2.svg";
 import { NavLink } from 'react-router-dom';
+import FooterLogo from './FooterLogo';
 
 
 
@@ -37,11 +38,9 @@ const Footer = () => {
 
         <div className='relative w-full flex justify-center items-center h-[500px] max-[1015px]:bg-primary/20 '>       
         
-            {/* <img src={FooterLogo} alt=""  className='absolute bottom-0 w-full h-[75%]  mx-auto max-md:hidden'/> */}
-
             <svg className='absolute bottom-0 w-full h-[75%] max-l:h-[65%]  mx-auto max-[1015px]:hidden' width="1440" height="364" viewBox="0 0 1440 364" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g filter="url(#filter0_b_109_620)">
-            <path d="M-512 0L106.75 27.75L416.125 41.625L570.812 48.5625L648.156 52.0312C648.156 52.0312 705 27.75 725.5 27.75C746 27.75 803.406 52.0312 803.406 52.0312L881.312 48.5625L1037.12 41.625L1348.75 27.75L1972 0V496L1348.75 468L1037.12 454L881.312 447L803.406 443.5C803.406 443.5 742 468 725.5 468C709 468 648.156 443.5 648.156 443.5L570.812 447L416.125 454L106.75 468L-512 496V0Z" className='fill-primary' fill-opacity="0.15"/>
+            <path d="M-512 0L106.75 27.75L416.125 41.625L570.812 48.5625L648.156 52.0312C648.156 52.0312 705 27.75 725.5 27.75C746 27.75 803.406 52.0312 803.406 52.0312L881.312 48.5625L1037.12 41.625L1348.75 27.75L1972 0V496L1348.75 468L1037.12 454L881.312 447L803.406 443.5C803.406 443.5 742 468 725.5 468C709 468 648.156 443.5 648.156 443.5L570.812 447L416.125 454L106.75 468L-512 496V0Z" className='fill-primary/20 dark:fill-primary' fill-opacity="1"/>
             </g>
             <defs>
             <filter id="filter0_b_109_620" x="-518" y="-6" width="2496" height="508" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
@@ -69,19 +68,19 @@ const Footer = () => {
                         <img src={Brand} alt=""/>
                     </div>
                    
-                    <ul className='grid-col-1 h-[20%] flex flex-col  max-lg:text-xs max-md:mr-[10px] font-sans text-right text-sm '>
-                        <NavLink to={'/'} className='w-full  text-green/40 cursor-pointer hover:text-orange  transition-colors relative pr-4 group'><div className='absolute right-0 top-2 w-1.5 h-1.5 bg-green/70 group-hover:bg-orange rounded-full'></div>اساتید برتر</NavLink>
-                        <NavLink to={'/'} className='w-full  text-green/40 cursor-pointer hover:text-orange  transition-colors relative pr-4 group'><div className='absolute right-0 top-2 w-1.5 h-1.5 bg-green/70 group-hover:bg-orange rounded-full'></div>دسته بندی ها</NavLink>
-                        <NavLink to={'/'} className='w-full  text-green/40 cursor-pointer hover:text-orange  transition-colors relative pr-4 group'><div className='absolute right-0 top-2 w-1.5 h-1.5 bg-green/70 group-hover:bg-orange rounded-full'></div>خدمات</NavLink>
-                        <NavLink to={'/auth/3'} className='w-full  text-green/40 cursor-pointer hover:text-orange  transition-colors relative pr-4 group'><div className='absolute right-0 top-2 w-1.5 h-1.5 bg-green/70 group-hover:bg-orange rounded-full'></div>ورود به حساب </NavLink>
+                    <ul className='grid-col-1 h-[20%] flex flex-col text-green/70  max-lg:text-xs max-md:mr-[10px] font-sans text-right text-sm '>
+                        <NavLink to={'/'} className='w-full  cursor-pointer hover:text-orange  transition-colors relative pr-4 group'><div className='absolute right-0 top-2 w-1.5 h-1.5 bg-green/80 group-hover:bg-orange rounded-full'></div>اساتید برتر</NavLink>
+                        <NavLink to={'/'} className='w-full  cursor-pointer hover:text-orange  transition-colors relative pr-4 group'><div className='absolute right-0 top-2 w-1.5 h-1.5 bg-green/80 group-hover:bg-orange rounded-full'></div>دسته بندی ها</NavLink>
+                        <NavLink to={'/'} className='w-full  cursor-pointer hover:text-orange  transition-colors relative pr-4 group'><div className='absolute right-0 top-2 w-1.5 h-1.5 bg-green/80 group-hover:bg-orange rounded-full'></div>خدمات</NavLink>
+                        <NavLink to={'/auth/3'} className='w-full  cursor-pointer hover:text-orange  transition-colors relative pr-4 group'><div className='absolute right-0 top-2 w-1.5 h-1.5 bg-green/80 group-hover:bg-orange rounded-full'></div>ورود به حساب </NavLink>
 
                     </ul>
 
                     <ul className='grid-col-1 h-[20%] flex flex-col  max-lg:text-xs max-md:mr-[10px]  text-right text-sm '>
-                    <NavLink to={'/courses'} className='w-full  text-green/40 cursor-pointer hover:text-orange  transition-colors relative pr-4 group'><div className='absolute right-0 top-2 w-1.5 h-1.5 bg-green/70 group-hover:bg-orange rounded-full'></div>دوره ها</NavLink>
-                    <NavLink to={'/article-news'} className='w-full  text-green/40 cursor-pointer hover:text-orange  transition-colors relative pr-4 group'><div className='absolute right-0 top-2 w-1.5 h-1.5 bg-green/70 group-hover:bg-orange rounded-full'></div>اخبار و مقالات</NavLink>
-                    <NavLink to={'/'} className='w-full  text-green/40 cursor-pointer hover:text-orange  transition-colors relative pr-4 group'><div className='absolute right-0 top-2 w-1.5 h-1.5 bg-green/70 group-hover:bg-orange rounded-full'></div>پادکست ها</NavLink>
-                    <NavLink to={'/'} className='w-full  text-green/40 cursor-pointer hover:text-orange  transition-colors relative pr-4 group'><div className='absolute right-0 top-2 w-1.5 h-1.5 bg-green/70 group-hover:bg-orange rounded-full'></div>تماس با ما</NavLink>
+                    <NavLink to={'/courses'} className='w-full  text-green/70 cursor-pointer hover:text-orange  transition-colors relative pr-4 group'><div className='absolute right-0 top-2 w-1.5 h-1.5 bg-green/80 group-hover:bg-orange rounded-full'></div>دوره ها</NavLink>
+                    <NavLink to={'/article-news'} className='w-full  text-green/70 cursor-pointer hover:text-orange  transition-colors relative pr-4 group'><div className='absolute right-0 top-2 w-1.5 h-1.5 bg-green/80 group-hover:bg-orange rounded-full'></div>اخبار و مقالات</NavLink>
+                    <NavLink to={'/'} className='w-full  text-green/70 cursor-pointer hover:text-orange  transition-colors relative pr-4 group'><div className='absolute right-0 top-2 w-1.5 h-1.5 bg-green/80 group-hover:bg-orange rounded-full'></div>پادکست ها</NavLink>
+                    <NavLink to={'/'} className='w-full  text-green/70 cursor-pointer hover:text-orange  transition-colors relative pr-4 group'><div className='absolute right-0 top-2 w-1.5 h-1.5 bg-green/80 group-hover:bg-orange rounded-full'></div>تماس با ما</NavLink>
 
                     </ul>
 
@@ -90,7 +89,8 @@ const Footer = () => {
                 {/* middle  */}
                 <div className='grid-col-1 max-md:w-1/2 flex flex-col justify-center h-full pl-2 max-md:pl-0 max-md:mb-8'>
                     <div className='w-full h-[40%] flex justify-center'>
-                        <img src={Logo} alt="" className='w-[190px] pb-2 mt-10 max-md:mt-0'/>
+                        <FooterLogo />
+                        {/* <img src={Logo} alt="" className='w-[190px] pb-2 mt-10 max-md:mt-0'/> */}
                     </div>
                     <div className=' h-8 w-[60%] max-lg:w-[80%] max-sm:w-full leading-8 rounded-full mx-auto flex justify-center bg-green text-white '>
                         info@pazhooheshgah.ir

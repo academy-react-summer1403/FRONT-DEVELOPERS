@@ -107,7 +107,7 @@ const DashPanel = () => {
 
   return (
     <div className='bg-gray-50 dark:bg-gray-900 py-4 px-5 h-screen
-        max-lg:px-12 
+        max-lg:px-12   max-xl:h-full     
         max-md:px-8
         max-sm:px-4
         '>
