@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import CourseCard from "../../components/coursedetailComponents/coursecard/CourseCard";
 import Detail from "../../components/coursedetailComponents/detail/Detail";

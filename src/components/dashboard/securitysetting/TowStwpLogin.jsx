@@ -21,9 +21,9 @@ const TowStwpLogin = () => {
                     <button type='submit' className='flex mx-auto my-6 px-3 pb-6'>
                         <label className='relayive flex flex-row gap-2'>
                             <Field type="checkbox" name="toggle" style={{boxShadow:" 0px 1px 3px 0px #00000033 inset"}}
-                                className="appearance-none w-5 h-5 mt-1 rounded-md bg-gray-50 checked:bg-teal-800 dark:checked:bg-teal-500 transition duration-300 "/>
+                                className="appearance-none w-5 h-5 mt-1 rounded-md bg-gray-50 checked:bg-darkgreen dark:checked:bg-teal-500 transition duration-300 "/>
                                 <BsCheck  className='absolute mx-0.25 mt-1 text-white text-xl '/>
-                            <p className='text-teal-800 text-sm dark:text-teal-300'>مایل به ورود دومرحله ای هستم</p>
+                            <p className='text-darkgreen text-sm'>مایل به ورود دومرحله ای هستم</p>
                         </label>
                     </button>
             </Form>

@@ -116,7 +116,7 @@ const CourseComment = ({courseId}) => {
         </div>
 
         {
-            GetComment.data?.map((item)=>(
+            GetCommentCourse.data?.map((item)=>(
             <div data-aos="zoom-in-down"
              className={`bg-[#F9F9F9]  dark:bg-slate-800 rounded-[7px] w-full  flex flex-col  p-[20.5px] mt-[30px]
             ${showMore ? "h-[315px] overflow-hidden": "min-h-[315px]"}`}>

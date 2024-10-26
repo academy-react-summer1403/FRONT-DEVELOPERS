@@ -18,7 +18,7 @@ const ReserveMap = () => {
     {Reserv.data?.map((item) => (
         <ul  style={{boxShadow:" 0px 1px 1px 0px rgba(0,0,0,0.1)"}}
         className={`relative grid grid-cols-7 my-2 rounded-md text-[10px] text-center 
-          text-gray-600 font-medium justify-items-center
+          text-gray-600 dark:text-gray-100 font-medium justify-items-center
 
         `}>
            <li className='col-1 my-2 flex gap-2'>
@@ -35,7 +35,7 @@ const ReserveMap = () => {
             </NavLink>
             </li> 
   
-            <li className='col-1 my-5 text-black'></li>
+            <li className='col-1 my-5 text-black dark:text-white'></li>
             <li className='col-1 my-5'></li>
             <li className='col-1 my-5'>{item?.reserverDate}</li>
             <li className='col-1 my-5'>{item?.studentName}</li>

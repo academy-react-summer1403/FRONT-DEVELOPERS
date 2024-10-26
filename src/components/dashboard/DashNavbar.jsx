@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion'
 import UserImg from "../../assets/landing/user.png";
-import home from '../../assets/dashboard/home.svg'
-
+import { HiHome } from "react-icons/hi2";
 import logo from '../../assets/landing/logo1.svg'
 import { NavLink } from 'react-router-dom';
 
@@ -25,7 +24,7 @@ const DashNavbar = () => {
                      text-white text-right pr-4 pl-16 leading-[50px]'>حساب کاربری</h1>
                 </div>               
                 <NavLink to={"/"}>
-                    <img src={home}/>
+                    <HiHome className='text-primary'/>
                 </NavLink> 
             </div>
         

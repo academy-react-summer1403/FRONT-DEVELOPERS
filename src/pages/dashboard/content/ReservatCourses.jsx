@@ -23,14 +23,14 @@ const ReservatCourses = () => {
               <div
                 className="group flex px-5 py-2 gap-4 dark:bg-gray-700/70
                         rounded-full shadow-sm shadow-gray-300 outline-none indent-0 dark:text-white
-                        text-gray-900 hover:bg-gray-50 cursor-pointer text-md"
+                        text-darkgreen hover:bg-gray-50 cursor-pointer text-md"
               >
                 <IoIosArrowDown
-                  className="relative mt-1 h-5 w-5 flex-none text-teal-900 dark:text-teal-600
+                  className="relative mt-1 h-5 w-5 flex-none text-darkgreen dark:text-green
                                      rotate-180 group-hover:rotate-0 duration-300"
                 />
                 جدید ترین
-                <BiMenuAltRight className="w-7 h-7 mt-1 text-teal-900 dark:text-teal-600 " />
+                <BiMenuAltRight className="w-7 h-7 mt-1 text-darkgreen dark:text-green" />
               </div>
               <div
                 className="absolute z-[9999] hidden  group-hover:block  max-sm:top-10

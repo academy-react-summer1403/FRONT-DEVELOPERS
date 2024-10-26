@@ -52,7 +52,7 @@ const DarkMode = () => {
         z-[9999] w-[55px] h-[55px] bg-green fixed bottom-8 right-12 hover:w-80 transition-all duration-700
             '>
     <div >
-        <img src={`${theme === "dark" ? light : theme === "maintheme" ? first : second}`}
+        <img src={`${theme === "dark" ? light : theme === "maintheme" ? first : theme === "secondTheme" ? second : third}`}
         
         className= "absolute top-2 right-2 w-[40px] h-[40px] transition-all duration-200  "/>  
        

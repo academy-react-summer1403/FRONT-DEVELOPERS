@@ -78,14 +78,14 @@ const ChangPassword = () => {
                     <p className='py-2 px-4'>رمز عبور جدید</p>  
                     {/* show/hide icon  */}
                     <i onClick={() => setShowHideNewPassword(!showHideNewPassword)} className='absolute right-6 top-[55px]'>                      
-                         {showHideNewPassword?<IoEyeOutline className='text-teal-700'/>: <FaRegEyeSlash className='text-teal-700'/> }                      
+                         {showHideNewPassword?<IoEyeOutline className='text-green'/>: <FaRegEyeSlash className='text-green'/> }                      
                     </i>
                     <input 
                      onChange={(e)=>setNewPassword(e.target.value)}
                     type={showHideNewPassword ? 'text' : 'password'} name="password" placeholder="*****" 
                     style={{boxShadow:" 0px 1px 3px 0px #00000033 inset"}}
                     className='px-4 pt-1 rounded-md bg-gray-50 leading-8 text-teal-800 
-                    placeholder-md placeholder-teal-800'/>
+                    placeholder-md placeholder-green'/>
                   </label>
                                    
                 </div>
@@ -95,14 +95,14 @@ const ChangPassword = () => {
                     <p className='py-2 px-4'>رمز عبور فعلی  </p>
                     {/* show/hide icon  */}
                     <i onClick={() => setShowHidePrevPassword(!showHidePrevPassword)} className='absolute right-6 top-[55px]'>                      
-                         {showHidePrevPassword?<IoEyeOutline className='text-teal-700'/>: <FaRegEyeSlash className='text-teal-700'/> }                      
+                         {showHidePrevPassword?<IoEyeOutline className='text-green'/>: <FaRegEyeSlash className='text-green'/> }                      
                     </i>
                     <input
                         onChange={(e)=>setOldPassword(e.target.value)}
                     type={showHidePrevPassword ? 'text' : 'password'} name="previousPassword" placeholder="*****" 
                     style={{boxShadow:" 0px 1px 3px 0px #00000033 inset"}}
-                    className='px-4 pt-1 rounded-md bg-gray-50 leading-8 text-teal-800 
-                    placeholder-md placeholder-teal-800'/>
+                    className='px-4 pt-1 rounded-md bg-gray-50 leading-8 text-green 
+                    placeholder-md placeholder-green'/>
                     
                   </label>
                  
@@ -110,7 +110,7 @@ const ChangPassword = () => {
 
               </div>
 
-              <button type="submit" className='flex flex-row gap-2 mx-auto text-sm text-teal-800 rounded-full
+              <button type="submit" className='flex flex-row gap-2 mx-auto text-sm text-green rounded-full
                bg-primary px-3 py-1 
               '>
                 <img src={save}/>
