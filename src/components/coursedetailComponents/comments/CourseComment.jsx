@@ -25,10 +25,6 @@ const CourseComment = ({courseId}) => {
   //     console.log(deleteComments) 
 
 
-
-  
-
-
     const GetCommentCourse = useCommentCourse(courseId);
     console.log(GetCommentCourse)
 

@@ -72,13 +72,8 @@ export const getUserProfile = async () => {
     return data;
   };
 
-  export const postFavoriteCourse = async ( addFavorite , toast) => {
-    const data = await http.post("/Course/AddCourseFavorite" , addFavorite ,
-
-    toast.success("عملیات  با موفقیت انجام شد" ,{
-      theme:"colored"
-    }))
-  
+  export const postFavoriteCourse = async ( addFavorite ) => {
+    const data = await http.post("/Course/AddCourseFavorite" , addFavorite )
     console.log(data);
     return data;
   };

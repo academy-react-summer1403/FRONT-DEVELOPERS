@@ -3,12 +3,8 @@ import { motion } from 'framer-motion'
 import FavImg from "../assets/landing/Favorite.svg";
 import ShopImg from "../assets/landing/Shopping Bag.svg";
 import UserImg from "../assets/landing/user.png";
-<<<<<<< HEAD
-import Logo from "../assets/landing/logo1.svg";
-=======
 // import Logo from "../assets/landing/logo1.svg";
 import DarkMode from './DarkMode';
->>>>>>> 7fb86b7d35c7cb7eb9b840ceabdd8fc97ebe2730
 import { NavLink } from 'react-router-dom';
 import { CgProfile } from "react-icons/cg";
 import Lg from './Translate/TranslateButton';

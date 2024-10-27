@@ -24,10 +24,6 @@ const NewComment = ({newsId}) => {
   //     console.log(deleteComments) 
 
 
-
-  
-
-
     const GetCommentNews = useCommentNews(newsId);
     console.log(GetCommentNews)
 
