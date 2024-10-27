@@ -33,10 +33,10 @@ import FooterLogo from './FooterLogo';
 
 const Footer = () => {
   return (
-    <div className='relative  w-full'>
+    <div className='relative mt-10 w-full'>
         
 
-        <div className='relative w-full flex justify-center items-center h-[500px] max-[1015px]:bg-primary/20 '>       
+        <div className='relative  w-full flex justify-center items-center h-[500px] max-[1015px]:bg-primary/20 '>       
         
             <svg className='absolute bottom-0 w-full h-[75%] max-l:h-[65%]  mx-auto max-[1015px]:hidden' width="1440" height="364" viewBox="0 0 1440 364" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g filter="url(#filter0_b_109_620)">
@@ -128,9 +128,9 @@ const Footer = () => {
 
             </div>
 
-          </div> 
+        </div> 
 
-          <div className='h-[40px] flex justify-center items-center w-full bg-green  bottom-0 mx-auto z-50 text-sm text-white leading-10'>
+        <div className='h-[40px] flex justify-center items-center w-full bg-green absolute bottom-0 mx-auto z-50 text-sm text-white leading-10'>
             <div className='flex flex-row-reverse  justify-center mx-auto gap-1
                 max-xl:
             '>

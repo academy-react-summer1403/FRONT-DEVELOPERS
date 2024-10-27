@@ -57,7 +57,7 @@ const ArticlesNews = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ type: "spring", stiffness: 100, delay: 0.2 }}
-        className="flex flex-row rounded-tl-lg rounded-tr-[90px] rounded-br-lg rounded-bl-[80px] my-10 px-4 shadow
+        className="flex flex-row rounded-tl-lg rounded-tr-[90px] rounded-br-lg rounded-bl-[80px] my-14 px-4 shadow
         dark:bg-gray-700/70 bg-primary/5
         max-md:flex-col 
         max-sm:flex-col
@@ -67,14 +67,14 @@ const ArticlesNews = () => {
       >
         {/* hero vector */}
         <div
-          className="  w-[500px]    max-lg:hidden
+          className="  w-[700px] max-xl:w-[600px]  max-lg:hidden
             relative"
         >
           <img
             src={Herobg}
             alt=""
-            className="absolute w-[390px] 
-                 left-[115px] top-[-30px]    "
+            className="absolute w-[400px] 
+                     "
           />
 
           <motion.img
@@ -83,7 +83,7 @@ const ArticlesNews = () => {
             transition={{ type: "spring", stiffness: 100, delay: 0.2 }}
             src={Herovector}
             alt=""
-            className=" absolute w-[440px] max-xl:w-[350px] max-xl:h-[340px] max-xl:top-[-50px] h-[400px]   left-[100px] top-[-80px]  z-40 
+            className=" absolute w-[480px] max-xl:w-[400px] max-xl:h-[340px] max-xl:-left-4 max-xl:top-[-20px] h-[420px] top-[-50px] -left-9  z-40 
               "
           />
 
@@ -93,7 +93,7 @@ const ArticlesNews = () => {
             transition={{ type: "spring", stiffness: 100, delay: 0.2 }}
             src={Heroring}
             alt=""
-            className="absolute z-30 w-[900px] left-[100px] top-[80px]
+            className="absolute z-30 w-[1100px] -left-5 max-xl:-left-2 top-[120px]
              "
           />
         </div>
@@ -106,12 +106,12 @@ const ArticlesNews = () => {
             "
         >
           <div className="flex flex-row-reverse mt-4 pt-5 ">
-            <div className="relative w-3 h-3 bg-primary rounded-full top-4 ml-2"></div>
-            <h2 className="text-3xl font-bold dark:text-gray-700">
+            <div className="head2 relative top-4 ml-2"></div>
+            <h2 className="text-3xl font-bold dark:text-white">
               اخبار و مقالات
             </h2>
           </div>
-          <p className="mr-5 mt-3 text-lg text-gray-400 dark:text-gray-600">
+          <p className="mr-5 mt-3 text-lg text-gray-400 dark:text-gray-400">
             با ما خودت رو به روز کن
           </p>
           {/* search box  */}
@@ -149,7 +149,7 @@ const ArticlesNews = () => {
 
       {/* body  */}
       <div
-        className="my-28  grid grid-cols-4 gap-4
+        className="my-28  grid grid-cols-4 gap-4 
             max-sm:flex flex-col-reverse
             max-md:flex 
             max-lg:flex  
@@ -210,7 +210,7 @@ const ArticlesNews = () => {
 
           {/* carde  */}
           <div
-            className="grid grid-cols-3 my-8 gap-4
+            className="grid grid-cols-3 my-8 gap-4  
                     max-sm:grid-cols-1
                     max-md:grid-cols-2 
                     max-lg:grid-cols-2
@@ -220,9 +220,14 @@ const ArticlesNews = () => {
             {newsDataQuery.data?.news.map((item) => (
               <ArticleNewsCard {...item} />
             ))}
+
+           
           </div>
 
-          <Pagination nextPage={nextPage} lastPage={lastPage} />
+           <div className="w-full mt-10 grid grid-col-3 justfy-items-center">
+              <Pagination nextPage={nextPage} lastPage={lastPage} />
+            </div>
+          
         </div>
       </div>
     </div>

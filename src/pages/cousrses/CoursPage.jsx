@@ -93,13 +93,13 @@ const CoursPage = () => {
   ];
 
   return (
-    <div className="xl:container px-2 z-10 ">
+    <div className="xl:container px-2 z-10 h-full">
       <img
         src={BackImg}
         alt=""
         className="absolute w-[690px] left-[300px] 
-           max-lg:left-0
-            max-sm:left-0
+          max-lg:left-0
+          max-sm:left-0
           opacity-80 z-0"
       />
 
@@ -218,14 +218,14 @@ const CoursPage = () => {
 
       {/* body of CoursPage */}
       <div
-        className="relative mt-44 grid grid-cols-4 gap-2
-            max-md:flex  max-md:mb-20
-            max-sm:flex flex-col-reverse
+        className="relative mt-44 grid grid-cols-4 gap-2        
+          max-md:flex  max-md:mb-20 max-md:flex-col-reverse
+          max-sm:flex   
            
         "
       >
         {/* cards section  */}
-        <div className="relative col-span-3 ">
+        <div className="relative col-span-3">
           {/* top part for view */}
           <div className="relative flex mx-4 max-md:mx-0 flex-row ">
             {/* right: buttons */}
@@ -290,7 +290,7 @@ const CoursPage = () => {
 
           {/* cards  */}
 
-            <div className={` grid w-full z-10
+            <div className={` grid w-full z-10 mb-20
                       ${view ? "grid-cols-1 mt-2":"grid-cols-3 max-lg:grid-cols-2 max-sm:justify-items-center max-sm:grid-cols-1 pt-0"}`}>
                 
                  {view ? <>
@@ -309,13 +309,13 @@ const CoursPage = () => {
 
           {/* paginantion  */}
 
-          <div className="w-full grid grid-col-1 justfy-items-center mt-2 max-sm:mb-20">
+          <div className="w-full absolute bottom-0 grid grid-col-1 justfy-items-center mt-10">
             <Pagination nextPage={nextPage} lastPage={lastPage} />
           </div>
         </div>
 
         {/* filter section  */}
-        <div className="relative  col-span-1   max-xl:mt-20 ">
+        <div className="relative  col-span-1 md:h-[1000px] max-md:h-full max-xl:mt-20 ">
           <Filter />
         </div>
       </div>

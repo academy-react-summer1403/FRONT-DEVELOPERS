@@ -6,8 +6,8 @@ const Pagination = ({nextPage , lastPage}) => {
  
     
     return (
-        <div className='relative bottom-0 mx-auto flex flex-row justify-center mt-[50px]
-            max-md:left-12 
+        <div className='relative mx-auto flex flex-row justify-center
+            
         '>
             <button onClick={lastPage} 
             className='shadow-sm shadow-gray-400 outline-none indent-1 cursor-pointer transition duration-500
