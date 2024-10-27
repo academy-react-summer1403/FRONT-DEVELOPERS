@@ -12,6 +12,8 @@ import { ImageErrore } from "../../components/ImageErrore";
 import { useCommentCourse } from "../../core/services/query/CommentQuery";
 import { useTranslation } from "react-i18next";
 
+
+
 const CourseDetial = () => {
   const { courseId } = useParams();
   const {t}=useTranslation()
@@ -21,10 +23,8 @@ const CourseDetial = () => {
   const CourseDetail = useCourseId(courseId);
   console.log(CourseDetail.data);
 
-  
-
   return (
-    <div className=" container  relative  mb-5  ">
+    <div className=" container  relative  pb-12  ">
   
 
       <div className="flex max-md:container  mt-[35px] justify-between">
@@ -64,7 +64,7 @@ const CourseDetial = () => {
           {samecourses.map((data,index)=>( 
 
           <RelatedCourses  key={index} title={data.title} image={data.image} />))}
- </div>
+        </div>
 
        
   

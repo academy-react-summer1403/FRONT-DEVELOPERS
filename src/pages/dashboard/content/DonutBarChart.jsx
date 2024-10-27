@@ -29,7 +29,7 @@ const COLORS = ["orange" , "white" ]
 
 
   return (
-    <motion.div className=' bg-opacity-50 backdrop-blur-md  rounded-xl p-6  w-[250px] h-[220px] -mt-[60px]'
+    <motion.div className=' bg-opacity-50 backdrop-blur-md  rounded-xl p-6  w-[220px] h-[220px] -mt-[60px] '
         initial={{opacity:0,y:20}}
         animate={{opacity:1,y:0}}
         transition={{delay:0.3}}
@@ -40,14 +40,14 @@ const COLORS = ["orange" , "white" ]
         width={"100%"}
         height={"100%"}
         >
-            <h1 className='absolute top-[70px] left-[80px] text-gray-500 dark:text-white'>salam </h1>
+            <h1 className='absolute top-[70px] left-[65px] text-gray-500 dark:text-white'>salam </h1>
       <PieChart >
         <Pie  
           
           data={data}
           cx={"50%"}
           cy={"50%"}
-          innerRadius={60}
+          innerRadius={70}
           outerRadius={80}
           fill="#8884d8"
           paddingAngle={1}

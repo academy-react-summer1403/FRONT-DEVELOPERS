@@ -28,7 +28,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 
 
-export const {search , Add} = QuerySlice.actions;
+export const {search ,  Add} = QuerySlice.actions;
 export default QuerySlice.reducer
 
 

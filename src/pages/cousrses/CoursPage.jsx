@@ -5,7 +5,6 @@ import CoursListCard from "../../components/courspage/CoursListCard";
 import { IoIosArrowDown } from "react-icons/io";
 import { BiMenuAltRight } from "react-icons/bi";
 import { motion } from "framer-motion";
-
 import Search from "../../assets/landing/Search.svg";
 import Herobg from "../../assets/courses/49.svg";
 import Herovector from "../../assets/courses/12.svg";
@@ -13,8 +12,7 @@ import Heroring from "../../assets/courses/Ellipse 4.svg";
 import BackImg from "../../assets/courses/background.svg";
 import WindowView from "../../assets/courses/Vector.svg";
 import ListView from "../../assets/courses/Frame.svg";
-
-import { useCourses } from "../../core/services/query/queries";
+import { useCourses, useTopCourses } from "../../core/services/query/queries";
 import { SliderRight } from "../../utility/animation";
 import { useDispatch, useSelector } from "react-redux";
 // import { QuerySlice } from "../../core/redux/slices/QueryState/QueryRedux";
@@ -41,34 +39,37 @@ const CoursPage = () => {
   const [view1, setView1] = useState(6);
   console.log(view);
 
+  const [search , setSearch] = useState({});
+  console.log(search)
 
   
   const query = useSelector((state) => state.QuerySlice.search);
   console.log(query);
 
-  
+
+
+  const dispatch = useDispatch();
+  console.log(dispatch);
+
+
+
 
   const params = {
-     
+    RowsOfPage:view1,
+    PageNumber:page,  
      courseLevelId : query,
      SortingCol : sort,
      CourseTypeId : query
     
   }
 
-  const dispatch = useDispatch();
-  console.log(dispatch);
 
-
-  const [search , setSearch] = useState({});
-  console.log(search)
-
-
-
-
-  const CoursesData = useCourses( page ,view1 , search);
+  const CoursesData = useCourses( search , params);
   console.log(CoursesData);
 
+
+  const getCourseTop=useTopCourses()
+  console.log(getCourseTop.data)
   
 
   const lastPage = () => {
@@ -95,13 +96,13 @@ const CoursPage = () => {
   ];
 
   return (
-    <div className="xl:container px-2 z-10">
+    <div className="xl:container px-2 z-10 h-full">
       <img
         src={BackImg}
         alt=""
         className="absolute w-[690px] left-[300px] 
-           max-md:left-0
-            max-sm:left-0
+          max-lg:left-0
+          max-sm:left-0
           opacity-80 z-0"
       />
 
@@ -179,7 +180,7 @@ const CoursPage = () => {
           <p className="mr-4 mt-6 text-xl text-gray-400 dark:text-gray-200">
             {t("UpToDateCourses")}
           </p>
-          {/* search box  */}
+          {/* search box  */} 
           {/* <SearchBar placeholder={"...چی میخوای یاد بگیری؟"}/> */}
           <motion.div
             variants={SliderRight(1.0)}
@@ -221,14 +222,14 @@ const CoursPage = () => {
 
       {/* body of CoursPage */}
       <div
-        className="relative mt-44 grid grid-cols-4 gap-2
-            max-md:flex  max-md:mb-20
-            max-sm:flex flex-col-reverse
+        className="relative mt-44 grid grid-cols-4 gap-2        
+          max-md:flex  max-md:mb-20 max-md:flex-col-reverse
+          max-sm:flex   
            
         "
       >
         {/* cards section  */}
-        <div className="relative col-span-3 ">
+        <div className="relative col-span-3">
           {/* top part for view */}
           <div className="relative flex mx-4 max-md:mx-0 flex-row ">
             {/* right: buttons */}
@@ -293,7 +294,7 @@ const CoursPage = () => {
 
           {/* cards  */}
 
-            <div className={` grid w-full z-10
+            <div className={` grid w-full z-10 mb-20
                       ${view ? "grid-cols-1 mt-2":"grid-cols-3 max-lg:grid-cols-2 max-sm:justify-items-center max-sm:grid-cols-1 pt-0"}`}>
                 
                  {view ? <>
@@ -312,13 +313,13 @@ const CoursPage = () => {
 
           {/* paginantion  */}
 
-          <div className="w-full grid grid-col-1 justfy-items-center mt-2 max-sm:mb-20">
+          <div className="w-full absolute bottom-0 grid grid-col-1 justfy-items-center mt-10">
             <Pagination nextPage={nextPage} lastPage={lastPage} />
           </div>
         </div>
 
         {/* filter section  */}
-        <div className="relative  col-span-1   max-xl:mt-20 ">
+        <div className="relative  col-span-1 md:h-[1000px] max-md:h-full max-xl:mt-20 ">
           <Filter />
         </div>
       </div>

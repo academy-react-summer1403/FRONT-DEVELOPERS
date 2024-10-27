@@ -4,9 +4,9 @@ import { motion } from 'framer-motion'
 
 // image:
 import newsImage from '../../assets/articles and news/Rectangle 95.svg'
-import flash from '../../assets/articles and news/Frame(2).svg'
 import { IoEyeOutline } from "react-icons/io5";
 import { CiCalendar } from "react-icons/ci";
+import { IoIosArrowBack } from "react-icons/io";
 
 import AOS from "aos";
 import 'aos/dist/aos.css';
@@ -37,12 +37,12 @@ useEffect(() => {
             <img src={newsImage} className='mx-auto  max-sm:w-[70%]'/>
 
             <div className='py-4  h-[200px] relative'>
-                <h3 className='text-lg font-medium text-teal-900 dark:text-white text-right line-clamp-2 '>{title}</h3>
+                <h3 className='text-lg font-medium text-darkgreen dark:text-white text-right line-clamp-2 '>{title}</h3>
 
                 <p className='text-xs text-gray-400 dark:text-gray-300 text-right my-4 line-clamp-2 h-[50px] '>{miniDescribe}
                 </p>
 
-                <div className='absolute w-[270px] bg-red-400 top-[130px] flex flex-row-reverse my-4'>
+                <div className='absolute w-full bg-red-400 top-[130px] flex flex-row-reverse my-4'>
                     <div className='flex flex-row gap-1 text-xs text-gray-500 dark:text-gray-400 dark:group-hover:text-gray-200 absolute right-4'>
                         {currentView}بازدید
                         <IoEyeOutline className='text-primary w-4 h-4 mt-[2px]'/>
@@ -53,9 +53,9 @@ useEffect(() => {
                     </div>
                 </div>
 
-                <div className='flex justify-center pt-2 gap-1 text-xs font-medium 
-                text-orange border-t-[1px] absolute w-[250px] max-xl:w-[170px] max-lg:w-[250px] max-md:w-[200px] max-sm:w-[250px] top-[180px]'> 
-                    <img src={flash} className='m-1'/> {t("readmore")}
+                <div className='flex justify-center pt-2 gap-1 text-xs font-medium w-full
+                text-orange border-t-[1px] absolute top-[170px]'> 
+                    <IoIosArrowBack  className=' w-4 h-4 mt-[1px]'/>{t("readmore")}
                     
                 </div>
             </div>   

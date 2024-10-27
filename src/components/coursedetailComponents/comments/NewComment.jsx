@@ -8,6 +8,8 @@ import { useCommentNews} from '../../../core/services/query/CommentQuery';
 import ReplyArticle from './ReplyArticle';
 import { useTranslation } from 'react-i18next';
 
+import AOS from "aos";
+import 'aos/dist/aos.css';
 
 const NewComment = ({newsId}) => {
 
@@ -73,6 +75,9 @@ const {t}=useTranslation()
 
   const [showMore, setShowMore] = useState(true);
     
+  useEffect(() => {
+    AOS.init();
+  }, [])
 
   return (
     <div  style={{ boxShadow: " 0px 1px 2px 0 rgba(0, 0, 0, 0.25)" }}
@@ -111,7 +116,8 @@ const {t}=useTranslation()
 
         {
             GetCommentNews.data?.map((item)=>(
-            <div className={`bg-[#F9F9F9]  dark:bg-slate-800 rounded-[7px] w-full  flex flex-col  p-[20.5px] mt-[30px]
+            <div data-aos="zoom-in-down"
+             className={`bg-[#F9F9F9]  dark:bg-slate-800 rounded-[7px] w-full  flex flex-col  p-[20.5px] mt-[30px]
             ${showMore ? "h-[315px] overflow-hidden": "min-h-[315px]"}`}>
                 
                 <div className='w-full h-full   flex flex-col'>

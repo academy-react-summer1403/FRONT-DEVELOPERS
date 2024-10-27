@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { motion } from 'framer-motion';
 import profile from "../../../assets/detail/prof.jpg"
 import { useParams } from 'react-router-dom';
@@ -6,8 +6,14 @@ import { useCourseId, useCourses } from '../../../core/services/query/queries';
 import DateApi from '../../DateApi';
 import { useTranslation } from 'react-i18next';
 
+import AOS from "aos";
+import 'aos/dist/aos.css';
 
 const Detail = ({courseId}) => {
+
+  useEffect(() => {
+    AOS.init();
+  }, [])
 
 
   const CourseDetail = useCourseId(courseId);
@@ -173,7 +179,7 @@ const Detail = ({courseId}) => {
             transition={{type:"spring" , stiffness:70,duration:100 , delay:0}}
              className=" w-[366px]   h-[71px] max-xl:w-full  max-2xl:justify-start max-2xl:gap-4  max-xl:justify-between flex justify-between">
               {/* consent section */}
-              <div style={{boxShadow:" 0px 1px 2px 0 rgba(0, 0, 0, 0.25)"}} className="w-[174px] max-2xl:w-[45%] h-[71px]  flex justify-center items-center gap-5 dark:bg-slate-800  bg-[#F7F7F7] rounded-[10px]">
+              <div  data-aos="zoom-in-right" style={{boxShadow:" 0px 1px 2px 0 rgba(0, 0, 0, 0.25)"}} className="w-[174px] max-2xl:w-[45%] h-[71px]  flex justify-center items-center gap-5 dark:bg-slate-800  bg-[#F7F7F7] rounded-[10px]">
                 <svg
                   width="35"
                   height="35"
@@ -197,7 +203,7 @@ const Detail = ({courseId}) => {
 
               {/* students number section */}
 
-              <div style={{boxShadow:" 0px 1px 2px 0 rgba(0, 0, 0, 0.25)"}} className="w-[174px] max-2xl:w-[45%]  h-[71px] flex justify-center items-center gap-5  dark:bg-slate-800 bg-[#F7F7F7] rounded-[10px] ">
+              <div  data-aos="zoom-in-right" style={{boxShadow:" 0px 1px 2px 0 rgba(0, 0, 0, 0.25)"}} className="w-[174px] max-2xl:w-[45%]  h-[71px] flex justify-center items-center gap-5  dark:bg-slate-800 bg-[#F7F7F7] rounded-[10px] ">
                 <svg
                   width="30"
                   height="30"
@@ -227,7 +233,7 @@ const Detail = ({courseId}) => {
             <div className=" w-[367px] h-[860px] mt-[23px] max-sm:w-full  flex flex-wrap gap-[20px] max-md:w-[500px]">
               {/* class members percentage */}
 
-              <div className=" w-full max-2xl:w-[95%]   max-xl:w-[88%] max-sm:w-full  max-lg:w-[75%] max-md:w-[93%] h-[44px]  ">
+              <div  data-aos="zoom-in-right" className=" w-full max-2xl:w-[95%]   max-xl:w-[88%] max-sm:w-full  max-lg:w-[75%] max-md:w-[93%] h-[44px]  ">
                 <div className="flex max-sm:w-full  justify-between ">
                   <h3 className=" font-Yekan font-normal text-[16px] text-[#000000] dark:text-slate-200  ">
                     87%
@@ -258,16 +264,14 @@ const Detail = ({courseId}) => {
                 
               className='flex flex-wrap w-full gap-5  max-sm:justify-center  max-md:justify-start'>
               {coursedetals.map((item, index) => (
-                <motion.div
-                initial={{ x:0,height:"0px",opacity:0,y:0}}
-              animate={{ x:0,y:0,opacity:1,height:"70px"}}
-              transition={{type:"spring" , stiffness:70,duration:3 , delay:0}}
-              
+                <div
+                
+                data-aos="zoom-in-right"
                   key={index}
                   style={{boxShadow:" 0px 1px 2px 0 rgba(0, 0, 0, 0.25)"}}
                   className=" w-full max-2xl:w-[95%] h-[70px]  dark:bg-slate-800 bg-[#F7F7F7] max-sm:w-[45%]      max-md:w-[45%] max-md:mt-[-250px] max-lg:w-[75%] rounded-[10px] max-xl:w-[88%] flex gap-4 items-center justify-end p-[25px] "
                 >
-                  <div>
+                  <div >
                     <h3 className=" max-lg:text-[13px] max-sm:text-[12px] max-sm:line-clamp-1  text-[#888888] dark:text-slate-200 font-Yekan font-normal text-[15px] leading-[24px] text-right">
                       {item.title}
                     </h3>
@@ -276,13 +280,13 @@ const Detail = ({courseId}) => {
                     </h2>
                   </div>
                   {item.icon}
-                </motion.div>
+                </div>
               ))}</motion.div>
 
               <hr className="border-[1.5px] border-[#F6F6F6] w-full max-2xl:w-[95%] max-xl:w-[88%] max-lg:w-[75%] max-md:hidden" />
 
               {/* teachers profile */}
-              <div className="max-sm:mx-auto  w-[177px] h-[200px] max-lg:mr-[130px] max-md:mt-[-260px] max-md:mr-[160px]  mx-auto max-xl:pr-[30px]">
+              <div  data-aos="zoom-in-right" className="max-sm:mx-auto  w-[177px] h-[200px] max-lg:mr-[130px] max-md:mt-[-260px] max-md:mr-[160px]  mx-auto max-xl:pr-[30px]">
                 <img
                   className=" rounded-full    h-[135px] w-[135px] shadow-lg mx-auto mb-5"
                   src={profile}

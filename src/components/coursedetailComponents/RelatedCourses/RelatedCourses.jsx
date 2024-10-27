@@ -1,14 +1,22 @@
-import React from 'react'
+import React, { Fragment, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { ImageErrore } from '../../ImageErrore'
 import { IoIosArrowBack } from "react-icons/io";
 import { useTranslation } from 'react-i18next';
 
 
+import AOS from "aos";
+import 'aos/dist/aos.css';
+
+
+
 const RelatedCourses = ({title,image}) => {
 
   const {t}=useTranslation()
 
+  useEffect(() => {
+    AOS.init();
+  }, [])
 
 
   return (
@@ -16,19 +24,22 @@ const RelatedCourses = ({title,image}) => {
 
 
 
-          <>
+        <div data-aos="fade-right">
             <motion.div 
               initial={{  x:-300,opacity:0,y:-300}}
               animate={{ x:0,y:0,opacity:1}}
               transition={{type:"tween",duration:1,stiffness:100, delay:0.2}}
 
+             
 
                   style={{boxShadow:" 0px 1px 1px 0 rgba(0, 0, 0, 0.25)"}}
 
                   className={` h-[112px] max-lg:h-[90px]  cursor-pointer   max-sm:w-[46%] max-md:justify-center      max-md:w-[48%] max-md:ml-1  dark:bg-slate-800  bg-[#F8F8F8] rounded-[10px] flex   justify-end p-[15px] w-full`}
                
                 >
-                  <div>
+                  <div
+                     
+                  >
                     <motion.h3
                     initial={{  x:-300,opacity:0,y:-300}}
                     animate={{ x:0,y:0,opacity:1}}
@@ -47,7 +58,8 @@ const RelatedCourses = ({title,image}) => {
                   transition={{type:"tween",duration:1,stiffness:100, delay:0.2}}
                   style={{boxShadow:" 0px 1px 2px 0 rgba(0, 0, 0, 0.25)"}} className='w-[126px] max-sm:w-[70px] h-[84px] max-lg:w-[100px] max-lg:h-[64px] rounded-[10px]' src={image}  onError={ImageErrore}/>
 
-                  </motion.div><motion.p
+                  </motion.div>
+                  <motion.p
                     initial={{  x:0,opacity:0,y:200}}
                     animate={{ x:0,y:0,opacity:1}}
                     transition={{type:"tween",duration:1,stiffness:100, delay:0.2}}
@@ -60,7 +72,7 @@ const RelatedCourses = ({title,image}) => {
 
 
 
-        </>
+        </div>
 
 
 

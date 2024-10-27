@@ -24,7 +24,7 @@ const CoursListCard = ({title , levelName , cost , teacherName , likeCount , cou
 
   return (
     // container 
-    <div className=' w-[90%] mx-auto grid grid-cols-1 h-[280px]  mt-8 p-2 '>
+    <div className=' w-[90%] mx-auto grid grid-cols-1 p-2 '>
         {/* map part of card:  */}
         <NavLink  to={"/courses-detail/" + courseId}>
         <div data-aos="fade-up" data-aos-duration="800" className='group h-full relative flex flex-row-reverse rounded-xl p-3 w-full

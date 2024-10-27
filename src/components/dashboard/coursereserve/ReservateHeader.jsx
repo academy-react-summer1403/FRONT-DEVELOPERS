@@ -6,8 +6,8 @@ const ReservateHeader = () => {
        ]
        return (
          <div>
-           <ul className="grid grid-cols-7 border-b-2 border-teal-700 dark:border-teal-500
-           font-semibold text-[12px] text-teal-900 dark:text-white justify-items-center pb-2
+           <ul className="grid grid-cols-7 border-b-2 border-darkgreen/80 dark:border-green
+           font-semibold text-[12px] text-darkgreen dark:text-white justify-items-center pb-2
            ">
             <li className='col-1'></li>
              {header.map((title ,index)=>(

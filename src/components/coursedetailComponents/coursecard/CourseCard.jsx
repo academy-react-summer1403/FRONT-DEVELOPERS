@@ -14,7 +14,7 @@ const CourseCard = ({courseId}) => {
     courseId : favorite
   }
 
-  const addFavoriteCourse = postFavoriteCourse(addFavorite , toast)
+  const addFavoriteCourse = postFavoriteCourse(addFavorite)
   console.log(addFavoriteCourse)
 
  
@@ -29,7 +29,7 @@ const CourseCard = ({courseId}) => {
     courseId : reserv
   }
 
-  const  reservComment = postReserv(params , toast)
+  const  reservComment = postReserv(params)
   console.log(reservComment) 
   const [save,setSave]=useState(false)
 

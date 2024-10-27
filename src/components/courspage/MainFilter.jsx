@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { useCategoryCourses } from "../../core/services/query/queries";
@@ -9,6 +9,13 @@ const MainFilter = () => {
   console.log(query);
 
   const dispatch = useDispatch();
+  const [filter,setFilter]=useState(true)
+  const [filter2,setFilter2]=useState(true)
+  const [filter3,setFilter3]=useState(true)
+  const [filter4,setFilter4]=useState(true)
+
+ 
+
 
   const category = useCategoryCourses();
   console.log(category.data?.[0].techName);
@@ -26,7 +33,10 @@ const MainFilter = () => {
             type="checkbox"
             name="checkbox"
             className="ml-2 cursor-pointer z-[800]"
-            onClick={() => dispatch(Add(1))}
+            onClick={
+             filter ? () => dispatch((Add(1)),setFilter(false)):
+             () => dispatch((Add("")),setFilter(true))
+            }
           />
           </div>
           <div className="flex flex-row justify-end ">
@@ -35,7 +45,10 @@ const MainFilter = () => {
             type="checkbox"
             name="checkbox"
             className="ml-2 cursor-pointer z-[800]"
-            onClick={() => dispatch(Add(2))}
+            onClick={
+              filter2 ? () => dispatch((Add(2)),setFilter2(false)):
+              () => dispatch((Add("")),setFilter2(true))
+             }
           />
           </div>
             <div className=" flex flex-row justify-end ">
@@ -44,7 +57,10 @@ const MainFilter = () => {
             type="checkbox"
             name="checkbox"
             className="ml-2 cursor-pointer z-[800]"
-            onClick={() => dispatch(Add(3))}
+            onClick={
+              filter3 ? () => dispatch((Add(3)),setFilter3(false)):
+              () => dispatch((Add("")),setFilter3(true))
+             }
           /> 
             </div>
           <div className="flex flex-row justify-end">
@@ -53,7 +69,10 @@ const MainFilter = () => {
             type="checkbox"
             name="checkbox"
             className="ml-3 cursor-pointer z-[800]"
-            onClick={() => dispatch(Add(4))}
+            onClick={
+              filter4 ? () => dispatch((Add(4)),setFilter4(false)):
+              () => dispatch((Add("")),setFilter4(true))
+             }
           />
 
           </div>

@@ -6,7 +6,7 @@ import DarkMode from "./components/DarkMode";
 
 const AuthRoot = () => {
   return (
-    <div className=" dark:bg-gray-900 dark:text-white duration-200 ">
+    <div className=" dark:bg-gray-900 dark:text-white duration-200 h-screen">
       <NavbarAuth />
 
       <Outlet />
