@@ -35,7 +35,7 @@ const LevelFilter = () => {
         onClick={() => dispatch(Add(2))}
       />
       </div>
-        <div className=" flex flex-row justify-end mr-[4px]">
+        <div className=" flex flex-row justify-end">
            <label to="checkbox">پیشرفته</label>
       <input
         type="checkbox"

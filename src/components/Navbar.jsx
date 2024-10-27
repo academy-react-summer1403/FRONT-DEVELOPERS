@@ -3,12 +3,6 @@ import { motion } from 'framer-motion'
 import FavImg from "../assets/landing/Favorite.svg";
 import ShopImg from "../assets/landing/Shopping Bag.svg";
 import UserImg from "../assets/landing/user.png";
-<<<<<<< HEAD
-import Logo from "../assets/landing/logo1.svg";
-=======
-// import Logo from "../assets/landing/logo1.svg";
-import DarkMode from './DarkMode';
->>>>>>> 7fb86b7d35c7cb7eb9b840ceabdd8fc97ebe2730
 import { NavLink } from 'react-router-dom';
 import { CgProfile } from "react-icons/cg";
 import Lg from './Translate/TranslateButton';
@@ -49,21 +43,6 @@ const Navbar = () => {
   },
 ]
 
-     const Acconts =[
-        {
-            userName:"FatemehStd",
-            isloged:true,
-        },
-        {
-            userName:"saraStd",
-            isloged:false,
-        } ,
-        {
-            userName:"ariaStd",
-            isloged:false,
-        }
-    ]
-
   return (
     <motion.div  className='z-[200] max-md:px-3 '
     initial={{opacity:0}}
@@ -87,30 +66,7 @@ const Navbar = () => {
                             <img src={UserImg} alt="" className='w-7 h-7  absolute top-1.5 left-4'/>
                             <h1 className='text-sm  font-semibold text-white text-right leading-9 mr-3 py-1 '>{t('person')}</h1>
                         </NavLink> 
-                        {/* chooseAccont  */}
-                        <div
-                            className="  z-[99999] hidden group-hover:block w-80 mt-[4px]
-                             rounded-md bg-white shadow-md dark:bg-gray-600 p-2 dark:text-white flex"
-                        >
-                            <ul className="relative flex  z-[9999]">
-                            {Acconts.map((item, index) => (
-                                <li key={index} className={`group flex flex-row
-                                    hover:text-black dark:text-white duration-200 p-2
-                                    w-full hover:bg-primary/60 dark:hover:bg-secondary rounded-md text-right
-                                    cursor-pointer 
-                                    ${item.isloged ? "bg-primary dark:bg-secondary" :""}
-                                `}>
-                                    <CgProfile className={`w-5 h-5  ${item.isloged ? "w-6 h-6" :""}` }/>
-                                    <div
-                                        className={`block px-4 text-gray-900 dark:text-white text-sm  ${item.isloged ? "leading-6": "" }                                    
-                                    `}
-                                    >
-                                        {item.userName}
-                                    </div>
-                                </li>
-                            ))}
-                            </ul>
-                        </div>
+                        
                 
                     </div>
                     {/* shop&favorit  */}
@@ -118,9 +74,6 @@ const Navbar = () => {
                         <NavLink to={"/basket"} className='relative '>
                             <img src={ShopImg} alt="" className='mt-8 '/>
                             <div className='w-[16px] h-[16px] flex  items-center font-Yekan justify-center bg-orange rounded-full absolute px-[1px] max-lg:bottom-0 bottom-0 right-[-2px] text-[12px] font-normal text-white leading-3'>0</div>
-                        </NavLink>
-                        <NavLink to={"/stdFavorite"}>
-                            <img src={FavImg} alt=""  className='mt-8 '/>
                         </NavLink>
                         <Lg/>
                     </div>                   

@@ -51,39 +51,40 @@ const DarkMode = () => {
     className='group cursor-pointer ml-[90%] dark:bg-orange rounded-full flex items-center fixed
         z-[9999] w-[55px] h-[55px] bg-green fixed bottom-8 right-12 hover:w-80 transition-all duration-700
             '>
-    <div >
-        <img src={`${theme === "dark" ? light : theme === "maintheme" ? first : theme === "secondTheme" ? second : third}`}
+        <div >
+            <img src={`${theme === "dark" ? light : theme === "maintheme" ? first : theme === "secondTheme" ? second : third}`}
+            
+            className= "absolute top-2 right-2 w-[40px] h-[40px] transition-all duration-200  "/>  
         
-        className= "absolute top-2 right-2 w-[40px] h-[40px] transition-all duration-200  "/>  
-       
- 
-    </div>
-    <div className='flex gap-3 ml-5'>
-        <div className='' onClick={()=>setTheme(`${theme === 'dark'? "maintheme" : "dark"}`)} >
-        <img src={light} 
-            className="w-[40px] h-[40px]  transition-all duration-200  group-hover:block" 
-            
-        />
-        </div>
-        <div className='' onClick={()=>setTheme("maintheme")} >
-        <img src={first} 
-            className="w-[40px] h-[40px]  transition-all duration-200  group-hover:block" 
-            
-        />
-        </div>
-        <div className='' onClick={()=>setTheme("secondTheme")} >
-        <img src={second} 
-            className="w-[40px] h-[40px]  transition-all duration-200  group-hover:block" 
-            
-        />
-        </div>
-        <div className='' onClick={()=>setTheme("thirdTheme")} >
-        <img src={third} 
-            className="w-[40px] h-[40px]  transition-all duration-200  group-hover:block"             
-        />
-        </div>
-    </div>
     
+        </div>
+
+        <div className='flex gap-3 ml-5'>
+            <div className='' onClick={()=>setTheme(`${theme === 'dark'? "maintheme" : "dark"}`)} >
+            <img src={light} 
+                className="w-[40px] h-[40px]  transition-all duration-200  group-hover:block" 
+                
+            />
+            </div>
+            <div className='' onClick={()=>setTheme("maintheme")} >
+            <img src={first} 
+                className="w-[40px] h-[40px]  transition-all duration-200  group-hover:block" 
+                
+            />
+            </div>
+            <div className='' onClick={()=>setTheme("secondTheme")} >
+            <img src={second} 
+                className="w-[40px] h-[40px]  transition-all duration-200  group-hover:block" 
+                
+            />
+            </div>
+            <div className='' onClick={()=>setTheme("thirdTheme")} >
+            <img src={third} 
+                className="w-[40px] h-[40px]  transition-all duration-200  group-hover:block"             
+            />
+            </div>
+        </div>
+        
     </div>
   )
 }
