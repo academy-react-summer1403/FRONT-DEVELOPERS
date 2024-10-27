@@ -1,7 +1,10 @@
 import { div, style } from "framer-motion/client";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 const HeadLines = () => {
+
+  const {t}=useTranslation()
   const [accordions, setAccordion] = useState([
     {
       key: 1,
@@ -109,7 +112,7 @@ const HeadLines = () => {
       {/* headlines section*/}
       <div className=" relative w-full   border-[rgba(0,0,0,0)]">
         <div className=" w-full mt-[15px]  relative">
-          <h4 className=" mark max-xl:text-[20px] dark:text-slate-300 ">سرفصل ها</h4>
+          <h4 className=" mark max-xl:text-[20px] dark:text-slate-300 "> {t("HeadLines")}</h4>
 
           <motion.div
            initial={{ x:0,opacity:0,y:300}}

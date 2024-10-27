@@ -19,7 +19,8 @@ import { SlArrowLeft } from "react-icons/sl";
 
 const Hero = () => {
 
-  const { t } = useTranslation();
+  const { t,i18n } = useTranslation();
+  const isEnglish = i18n.language === "en";
 
 
 const reportLanding =  useLandingReport()
@@ -162,9 +163,9 @@ console.log(reportLanding)
              animate="visible"
       
 
-              className="[text-shadow:_0_3px_4px_rgb(0_0_0_/_30%)]  flex max-xl:text-[50px] dark:text-white   max-lg:text-[45px]  max-md:text-[50px]  font-Yekan font-normal justify-end text-right text-[60px] text-[#000000]"
+              className={`[text-shadow:_0_3px_4px_rgb(0_0_0_/_30%)]  flex max-xl:text-[50px] dark:text-white   max-lg:text-[45px]  max-md:text-[50px]  font-Yekan font-normal justify-end text-[60px] text-[#000000] ${isEnglish ? 'text-left ' : 'text-right '}`}
             >
-               <h1 className="text-primary max-lg:text-[45px] max-md:text-[50px]  text-right font-Yekan font-normal max-xl:text-[50px]  text-[60px]  [text-shadow:_0_3px_4px_rgb(0_0_0_/_30%)]">{t("academy")}</h1>{t("title")} 
+               <h1 className={`text-primary max-lg:text-[45px] max-md:text-[50px]   font-Yekan font-normal max-xl:text-[50px]  text-[60px]  [text-shadow:_0_3px_4px_rgb(0_0_0_/_30%)] ${isEnglish ? 'text-left' : 'text-right '}`}>{t("academy")}</h1>{t("title")} 
 
                
             </motion.h1>
@@ -172,7 +173,7 @@ console.log(reportLanding)
                variants={SliderRight(0.6)}
                initial="hidden"
                animate="visible"
-               className='text-right font-Yekan font-normal max-lg:hidden text-[#555555] dark:text-[#c9c6c655] text-[20px] max-xl:text-[18px]  leading-[35px] dark:text-white'
+               className={`font-Yekan font-normal max-lg:hidden text-[#555555] dark:text-[#c9c6c655]  max-xl:text-[18px] text-[20px] leading-[35px] dark:text-white text-right`}
             >
             {t('herotext')}
             </motion.p>

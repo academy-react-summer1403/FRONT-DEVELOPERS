@@ -8,6 +8,7 @@ import Email from "../assets/landing/email.png";
 import Brand from "../assets/landing/brand.png";
 import Logo from "../assets/landing/LOGO2.svg";
 import { NavLink } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 
 
@@ -31,6 +32,8 @@ import { NavLink } from 'react-router-dom';
     ]
 
 const Footer = () => {
+
+    const {t}=useTranslation()
   return (
     <div className='relative  w-full'>
         
@@ -70,18 +73,18 @@ const Footer = () => {
                     </div>
                    
                     <ul className='grid-col-1 h-[20%] flex flex-col  max-lg:text-xs max-md:mr-[10px] font-sans text-right text-sm '>
-                        <NavLink to={'/'} className='w-full  text-green/40 cursor-pointer hover:text-orange  transition-colors relative pr-4 group'><div className='absolute right-0 top-2 w-1.5 h-1.5 bg-green/70 group-hover:bg-orange rounded-full'></div>اساتید برتر</NavLink>
-                        <NavLink to={'/'} className='w-full  text-green/40 cursor-pointer hover:text-orange  transition-colors relative pr-4 group'><div className='absolute right-0 top-2 w-1.5 h-1.5 bg-green/70 group-hover:bg-orange rounded-full'></div>دسته بندی ها</NavLink>
-                        <NavLink to={'/'} className='w-full  text-green/40 cursor-pointer hover:text-orange  transition-colors relative pr-4 group'><div className='absolute right-0 top-2 w-1.5 h-1.5 bg-green/70 group-hover:bg-orange rounded-full'></div>خدمات</NavLink>
-                        <NavLink to={'/auth/3'} className='w-full  text-green/40 cursor-pointer hover:text-orange  transition-colors relative pr-4 group'><div className='absolute right-0 top-2 w-1.5 h-1.5 bg-green/70 group-hover:bg-orange rounded-full'></div>ورود به حساب </NavLink>
+                        <NavLink to={'/'} className='w-full  text-green/40 cursor-pointer hover:text-orange  transition-colors relative pr-4 group'><div className='absolute right-0 top-2 w-1.5 h-1.5 bg-green/70 group-hover:bg-orange rounded-full'></div> {t("BestTeachers")}</NavLink>
+                        <NavLink to={'/'} className='w-full  text-green/40 cursor-pointer hover:text-orange  transition-colors relative pr-4 group'><div className='absolute right-0 top-2 w-1.5 h-1.5 bg-green/70 group-hover:bg-orange rounded-full'></div>{t("catfooter")} </NavLink>
+                        <NavLink to={'/'} className='w-full  text-green/40 cursor-pointer hover:text-orange  transition-colors relative pr-4 group'><div className='absolute right-0 top-2 w-1.5 h-1.5 bg-green/70 group-hover:bg-orange rounded-full'></div>{t("service")}</NavLink>
+                        <NavLink to={'/auth/3'} className='w-full  text-green/40 cursor-pointer hover:text-orange  transition-colors relative pr-4 group'><div className='absolute right-0 top-2 w-1.5 h-1.5 bg-green/70 group-hover:bg-orange rounded-full'></div> {t("vorod")}  </NavLink>
 
                     </ul>
 
                     <ul className='grid-col-1 h-[20%] flex flex-col  max-lg:text-xs max-md:mr-[10px]  text-right text-sm '>
-                    <NavLink to={'/courses'} className='w-full  text-green/40 cursor-pointer hover:text-orange  transition-colors relative pr-4 group'><div className='absolute right-0 top-2 w-1.5 h-1.5 bg-green/70 group-hover:bg-orange rounded-full'></div>دوره ها</NavLink>
-                    <NavLink to={'/article-news'} className='w-full  text-green/40 cursor-pointer hover:text-orange  transition-colors relative pr-4 group'><div className='absolute right-0 top-2 w-1.5 h-1.5 bg-green/70 group-hover:bg-orange rounded-full'></div>اخبار و مقالات</NavLink>
-                    <NavLink to={'/'} className='w-full  text-green/40 cursor-pointer hover:text-orange  transition-colors relative pr-4 group'><div className='absolute right-0 top-2 w-1.5 h-1.5 bg-green/70 group-hover:bg-orange rounded-full'></div>پادکست ها</NavLink>
-                    <NavLink to={'/'} className='w-full  text-green/40 cursor-pointer hover:text-orange  transition-colors relative pr-4 group'><div className='absolute right-0 top-2 w-1.5 h-1.5 bg-green/70 group-hover:bg-orange rounded-full'></div>تماس با ما</NavLink>
+                    <NavLink to={'/courses'} className='w-full  text-green/40 cursor-pointer hover:text-orange  transition-colors relative pr-4 group'><div className='absolute right-0 top-2 w-1.5 h-1.5 bg-green/70 group-hover:bg-orange rounded-full'></div> {t("courses")}</NavLink>
+                    <NavLink to={'/article-news'} className='w-full  text-green/40 cursor-pointer hover:text-orange  transition-colors relative pr-4 group'><div className='absolute right-0 top-2 w-1.5 h-1.5 bg-green/70 group-hover:bg-orange rounded-full'></div>{t("news")}</NavLink>
+                    <NavLink to={'/'} className='w-full  text-green/40 cursor-pointer hover:text-orange  transition-colors relative pr-4 group'><div className='absolute right-0 top-2 w-1.5 h-1.5 bg-green/70 group-hover:bg-orange rounded-full'></div> {t("Podcasts")}</NavLink>
+                    <NavLink to={'/'} className='w-full  text-green/40 cursor-pointer hover:text-orange  transition-colors relative pr-4 group'><div className='absolute right-0 top-2 w-1.5 h-1.5 bg-green/70 group-hover:bg-orange rounded-full'></div> {t("call")} </NavLink>
 
                     </ul>
 
@@ -109,16 +112,14 @@ const Footer = () => {
                     <div className=' mt-[100px] text-green text-xs text-right font-medium
                     max-lg:mr-2 
                     max-md:w-full max-md:text-right '>
-                       مجموعه آموزشی فلان فعالیت خود را از سال 1390 آغاز کرده است و
-                      امروز به بزرگترین کلونی برنامه نویسی شمال کشور تبدیل شده است
-                       
+                     {t("footer2")}
                     </div>
                     <div className='text-green text-sm text-right font-semibold w-[70%] relative 
                     max-xl:w-[85%]
                     max-lg:mr-2 
                     max-md:w-full max-md:text-right'>
                        
-                        ساری، میدان خزر ، جاده فرح آباد ، جنب مجتمع دنیای آرزو
+                      {t("footer3")}
                        <p className='absolute font-normal left-8 max-md:right-0 top-6 max-lg:top-14 max-md:top-10 max-lg:text-md'> 011-43332000</p>
                     </div>
 
@@ -134,8 +135,7 @@ const Footer = () => {
             <div className='flex flex-row-reverse  justify-center mx-auto gap-1
                 max-xl:
             '>
-           کلیه حقوق این وبسایت مطعلق به آموزشگاه فلان میباشد
-
+        {t("footer1")}
             <FaRegCopyright className='mt-2'  />
             </div>
         </div> 

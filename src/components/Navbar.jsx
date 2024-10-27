@@ -15,7 +15,8 @@ import { useTranslation } from 'react-i18next';
 
 const Navbar = () => {
     
- const { t } = useTranslation();
+ const { t,i18n  } = useTranslation();
+ const isEnglish = i18n.language === "en";
 
  const NavbarMenu =[
   {
@@ -81,7 +82,7 @@ const Navbar = () => {
                             transition-shadow'>
                         <NavLink to={"/auth"} >
                             <img src={UserImg} alt="" className='w-7 h-7  absolute top-1.5 left-4'/>
-                            <h1 className='text-sm  font-semibold text-white text-right leading-9 mr-3 py-1 '>{t('person')}</h1>
+                            <h1 className={` font-semibold text-white leading-9 mr-3 py-1 ${isEnglish ? 'text-base text-center' : 'text-sm  text-right '}`}>{t('person')}</h1>
                         </NavLink> 
                         {/* chooseAccont  */}
                         <div
@@ -126,7 +127,7 @@ const Navbar = () => {
                 {/* menu section  */}
                 <div className=' max-lg:absolute max-lg:bg-primary max-lg:h-8 max-lg:z[3000] 
                  max-lg:top-[90px] max-lg:w-[100%] max-lg:left-0 max-lg:grid max-lg:justify-items-center'>
-                    <ul className='flex items-center gap-4 max-lg:gap-1 pr-10 max-lg:pr-0 mx-auto'>
+                    <ul className={`flex items-center gap-4 max-lg:gap-1 pr-10 max-lg:pr-0 mx-auto ${isEnglish ? 'flex-row-reverse' : 'flex-row'}`}>
                         {
                             NavbarMenu.map((item)=>(
                                 <li key={item.id}>

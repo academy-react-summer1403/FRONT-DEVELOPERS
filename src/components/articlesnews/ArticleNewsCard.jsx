@@ -11,8 +11,12 @@ import { CiCalendar } from "react-icons/ci";
 import AOS from "aos";
 import 'aos/dist/aos.css';
 import DateApi from '../DateApi'
+import { useTranslation } from 'react-i18next'
 
 const ArticleNewsCard = ({title,miniDescribe  , updateDate,currentView , id}) => {
+
+
+    const {t}=useTranslation()
 
 
 useEffect(() => {
@@ -51,7 +55,7 @@ useEffect(() => {
 
                 <div className='flex justify-center pt-2 gap-1 text-xs font-medium 
                 text-orange border-t-[1px] absolute w-[250px] max-xl:w-[170px] max-lg:w-[250px] max-md:w-[200px] max-sm:w-[250px] top-[180px]'> 
-                    <img src={flash} className='m-1'/>مطالعه بیشتر
+                    <img src={flash} className='m-1'/> {t("readmore")}
                     
                 </div>
             </div>   

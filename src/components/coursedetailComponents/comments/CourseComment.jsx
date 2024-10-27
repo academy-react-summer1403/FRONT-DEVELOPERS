@@ -6,6 +6,7 @@ import DateApi from '../../DateApi';
 import { IoIosArrowDown } from 'react-icons/io';
 import { useCommentCourse } from '../../../core/services/query/CommentQuery';
 import ReplyCourse from './ReplyCourse';
+import { useTranslation } from 'react-i18next';
 
 
 const CourseComment = ({courseId}) => {
@@ -25,7 +26,7 @@ const CourseComment = ({courseId}) => {
 
   
 
-
+    const {t}=useTranslation()
     const GetCommentCourse = useCommentCourse(courseId);
     console.log(GetCommentCourse)
 
@@ -85,7 +86,8 @@ const CourseComment = ({courseId}) => {
   
           <button  onClick={()=>setCommentdiv(true)} className="  w-[185px] h-[37px] max-xl:w-[170px] max-xl:h-[37px] rounded-[7px] dark:bg-orange bg-primary flex items-center justify-center  gap-2 ">
           <h3 className="font-normal font-Yekan text-[15px] text-darkgreen/90 dark:text-white">
-                  ارسال دیدگاه جدید
+          {t("newcomment")}
+                
                 </h3>
 
                 <svg
@@ -216,7 +218,7 @@ leading-[32px] font-normal font-Yekan text-[12px] flex items-center w-[120px] h-
               ) : (
                 <IoIosArrowDown className='rotate-180' />
               )}
-              مشاهده بیشتر
+          {t("showmore")}
             </button>
 
 

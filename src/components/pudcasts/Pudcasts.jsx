@@ -9,10 +9,14 @@ import Img2 from "../../assets/landing/Ekhtiari.png";
 import { useNewsPudcast } from '../../core/services/query/queries';
 import AOS from "aos";
 import DateApi from "../DateApi";
+import { t } from "i18next";
+import { useTranslation } from "react-i18next";
 
 
 
 const Pudcasts = () => {
+
+    const {t}=useTranslation()
 
 
 
@@ -49,9 +53,9 @@ const Pudcasts = () => {
 
     {/* text section  */}
 
-    <h1 className=' head1'> پادکست ها
+    <h1 className=' head1'> {t("Podcasts")}
           <div className='head2'></div> </h1>
-          <h3 className='head3'>مجموعه ای از تمام آنچه شما نیاز دارید</h3>
+          <h3 className='head3'> {t("Podcasttext")} </h3>
           
 
   

@@ -10,9 +10,12 @@ import figma from '../../assets/articles and news/Ellipse 39(6).svg'
 import AOS from "aos";
 import 'aos/dist/aos.css';
 import { IoIosArrowBack } from 'react-icons/io'
+import { useTranslation } from 'react-i18next'
 
 
 const Offers = () => {
+
+    const {t}=useTranslation()
     const Offer =[
         {image:figma,subject:"چرا فیگما؟"},
         {image:manager,subject:"چگونه مدیر یک پروژه باشیم؟"},
@@ -34,8 +37,8 @@ useEffect(() => {
               transition={{type:"spring" , stiffness:100 , delay:0.2}}
             >
                 <div className='text-center'>
-                    <h3 className='text-lg font-medium text-darkgreen dark:text-white mb-2'>مطالب پیشنهادی</h3>
-                    <p className='text-sm text-gray-400 dark:text-gray-300'>این مطالب هم میتونه براتون جالب باشه</p>
+                    <h3 className='text-lg font-medium text-darkgreen dark:text-white mb-2'>{t("suggested_articles")}</h3>
+                    <p className='text-sm text-gray-400 dark:text-gray-300'>{t("interesting_articles")}</p>
                 </div>        
                         {Offer.map((item,key)=>(
                             <div key={key} className='relative flex flex-row my-4 '>
@@ -49,7 +52,7 @@ useEffect(() => {
                                 '>
                                     <p className='text-[11px] font-medium text-darkgreen/80 dark:text-white mb-3'>{item.subject}</p>
                                     <NavLink to={"#"} className='text-[10px] text-green/80 flex flex-row-reverse '>
-                                        مشاهده مطالب <IoIosArrowBack className='mt-[3px]'/>
+                                    {t("view_articles")}<IoIosArrowBack className='mt-[3px]'/>
                                     </NavLink>
                                 </div>
                             </div>

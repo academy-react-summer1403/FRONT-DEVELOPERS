@@ -1,4 +1,9 @@
-import React from 'react'
+
+import React, { useState } from "react";
+import DatePicker from "react-multi-date-picker";
+import persian from "react-date-object/calendars/persian";
+import persian_fa from "react-date-object/locales/persian_fa";
+
 // import * as yup from "yup";
 // import { input, Form, Formik } from 'formik';
 import { CiCircleRemove } from "react-icons/ci";
@@ -7,6 +12,7 @@ import save from '../../../assets/dashboard/save.svg'
 import { useNavigate } from 'react-router-dom';
 import { postUserImg, postUserMainImg, putUserInfo } from '../../../core/services/DashApi';
 import { useSelector } from 'react-redux';
+import { useUserProfile } from "../../../core/services/query/DashboardQuery";
 
 
 
@@ -15,7 +21,9 @@ const EditeProfileForm = () => {
 
   
     const navigate = useNavigate()
-
+    const [date, setDate] = useState();
+    const userProfile = useUserProfile()
+    console.log(userProfile)
   
     const onSubmit =async (e)=>{
         e.preventDefault();
@@ -34,7 +42,7 @@ const EditeProfileForm = () => {
         formData.append("HomeAdderess", HomeAdderess);
         formData.append("NationalCode", NationalCode);
         formData.append("Gender",true );
-        formData.append("BirthDay", BirthDay);
+        formData.append("BirthDay", date ? date.toString() : "");
         formData.append("Latitude", "13");
         formData.append("Longitude", "12");
 
@@ -175,18 +183,27 @@ const EditeProfileForm = () => {
                         </li>
 
                         <li className=' flex flex-row-reverse gap-4'>                            
-                            <label className='relative text-right text-sm text-gray-400'>
-                                <p className='py-2 px-4'>تاریخ تولد</p>  
-                                <input type="date"   id="BirthDay" name="BirthDay" 
-                                style={{boxShadow:" 0px 1px 3px 0px #00000033 inset"}}
-                                className='px-4 pt-1 rounded-md bg-gray-50 dark:bg-[#747272] leading-8 text-teal-800 w-[232px]
-                                placeholder-sm text-right placeholder-teal-800/30 font-medium focus:outline outline-primary outline-[1.5px]'/>
-                            </label>
+                        <label className='relative text-right text-sm text-gray-400'>
+                            <p className='py-2 px-4'>تاریخ تولد</p>
+                            <DatePicker
+                                value={date}
+                                onChange={setDate}
+                                calendar={persian}
+                                locale={persian_fa}
+                                calendarPosition="bottom-center"
+                                className="w-full"
+                                style={{
+                                    boxShadow: "0px 1px 3px 0px #00000033 inset",
+                                    padding: "8px 12px",
+                                    borderRadius: "8px",
+                                }}
+                            />
+                        </label>
                              <p className='text-red-300'></p>
 
                             <label className='relative text-right text-sm text-gray-400'>
                                 <p className='py-2 px-4'>تلفن همراه</p>  
-                                <input type="text"   placeholder="این فیلد اجباری است"
+                                <input type="text"    placeholder="این فیلد اجباری است"
                                 style={{boxShadow:" 0px 1px 3px 0px #00000033 inset"}}
                                 className='px-4 pt-1 rounded-md bg-gray-50 dark:bg-[#747272] leading-8 text-teal-800 
                                 placeholder-md text-right placeholder-teal-800/30 font-medium focus:outline outline-primary outline-[1.5px]'/>

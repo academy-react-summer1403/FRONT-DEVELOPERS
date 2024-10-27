@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion';
 import { useCourseId } from '../../../core/services/query/queries';
+import { useTranslation } from 'react-i18next';
 
 
 const Description = ({courseId}) => {
 
   const [showMore, setShowMore] = useState(true);
+  const {t}=useTranslation()
 
   
 
@@ -23,7 +25,7 @@ const Description = ({courseId}) => {
      <div className="  max-sm:w-full  mb-[15px]">
 
       <div className=' relative '>
-            <h4 className=" mark max-xl:text-[20px] max-md:mt-5 dark:text-slate-300 ">توضیحات</h4>
+            <h4 className=" mark max-xl:text-[20px] max-md:mt-5 dark:text-slate-300 ">{t("describe")}</h4>
             <motion.div style={{boxShadow:" 0px 1px 2px 0 rgba(0, 0, 0, 0.25)"}} className="bg-white  dark:bg-slate-700 max-sm:w-full    mt-[15px] rounded-[15px] w-full  p-[36px]    ">
               <div className="overflow-hidden relative ">
                 <motion.p 
@@ -54,7 +56,7 @@ leading-[32px] font-normal font-Yekan text-[20px] flex items-center w-[174px] h-
 </svg>
 
                 )}
-                مطالعه بیشتر
+                 {t("readmore")}
               </button>
             </motion.div>
           </div></div>

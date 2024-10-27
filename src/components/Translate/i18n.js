@@ -52,11 +52,63 @@ i18n
             footer2:"The educational complex started its activity in 2013 and today it has become the largest programming colony in the north of the country.",
             footer3:"Sari, Khazar Square, Farah Abad Road, next to Dunya Arzoo Complex",
             teach1:"! Let's get to know Mazandaran province better",
-            teach2:"The most prominent professors of the largest programming collection"
-            
+            teach2:"The most prominent professors of the largest programming collection",
+            read:"read",
+            catfooter:"category",
 
+            // course page
+            Courses: "Courses",
+    Newest: "Newest",
+    Cheapest: "Cheapest",
+    MostPopular: "Most Popular",
+    WhatDoYouWantToLearn: "What do you want to learn?",
+    EducationalCourses: "Educational Courses",
+    UpToDateCourses: "The most up-to-date courses you can find",
+    filters: "Filters",
+          technology: "Technology",
+          status: "Status",
+          level: "Level",
+          // article
+          
+          newest: "Newest",
+          popular: "Most Popular",
+          articles_and_news: "Articles & News",
+          stay_updated: "Stay updated with us",
+            search_placeholder: "What do you want to learn?",
+            latest_articles: "Latest Articles",
+            podcasts: "Podcasts",
+  listen_best: "Listen to the best with us",
+ suggested_articles:"Suggested Articles",
+  interesting_articles: "These articles might also interest you",
+  
+  view_articles: "View Articles",
+  favorite_courses: "Favorite Courses",
+  best_things_to_learn: "Best Things You Can Learn",
+  readmore:"Read more",
+   related_courses: "related courses",
+  comments: "comments",
+  seecourse:"see course",
+  share:"share",
+  newcomment:"Add a new comment",
+  rate:"rate",
+  personrate:"person",
+  describe:"describe",
+  HeadLines:'headlines',
+  categories: "Categories",
+    requirements: "Requirements",
+    trainingType: "Training Type",
+    courseStatus: "Course Status",
+    startDate: "Course Start Date",
+    endDate: "Course End Date",
+    rating: "Satisfaction",
+    tudentsNumber: "Number of Students"
+  
 
+ 
 
+          
+
+          
 
 
 
@@ -96,9 +148,7 @@ i18n
             Counseling:"مشاوره",
             Counselingtext:"متن ساختگی صنعت طراحی و چاپ برای استفاده طراحان گرافیک است.",
             certificate:"مدرک معتبر",
-            certificatetext:"متن ساختگی صنعت طراحی و چاپ برای استفاده طراحان گرافیک است.",
             jobs:"فرصت های شغلی",
-            jobtext:'متن ساختگی صنعت طراحی و چاپ برای استفاده طراحان گرافیک است',
             news2:"خـــودت رو با خـــبر کن! ",
             Podcasts:"پادکست ها",
             Podcasttext:"مجموعه ای از تمام آنچه شما نیاز دارید",
@@ -111,8 +161,58 @@ i18n
             new5:"جذب مشتری با تبلیغات دهان به دهان",
             footer1:"کلیه حقوق این وبسایت مطعلق به آموزشگاه فلان میباشد",
             footer2:"مجموعه آموزشی فلان فعالیت خود را از سال 1390 آغاز کرده است و امروز به بزرگترین کلونی برنامه نویسی شمال کشور تبدیل شده است",
-            footer3:"ساری، میدان خزر ، جاده فرح آباد ، جنب مجتمع دنیای آرزو"
+            footer3:"ساری، میدان خزر ، جاده فرح آباد ، جنب مجتمع دنیای آرزو",
+            read:"مطالعه مطلب",
+            catfooter:"دسته بندی ها",
 
+            // course
+
+            Courses: "دوره های آموزشی",
+    Newest: "جدید ترین",
+    Cheapest: "ارزان ترین",
+    MostPopular: "محبوب ترین",
+    WhatDoYouWantToLearn: "چی میخوای یاد بگیری؟",
+    EducationalCourses: "دوره های آموزشی",
+    UpToDateCourses: "به روز ترین دوره هایی که میتونید پیدا کنید",
+    filters: "فیلتر ها",
+    technology: "تکنولوژی",
+    status: "وضعیت",
+    level: "سطح",
+
+    // article
+   newest: "جدید ترین",
+    popular: "محبوب ترین",
+    articles_and_news: "اخبار و مقالات",
+    stay_updated: "با ما خودت رو به روز کن",
+    search_placeholder: "...چی میخوای یاد بدونی؟",
+    latest_articles: "جدید ترین اخبار و مقالات",
+    podcasts: "پادکست ها",
+  listen_best: "با ما از بهترین ها بشنوید",
+suggested_articles: "مطالب پیشنهادی",
+  interesting_articles: "این مطالب هم میتونه براتون جالب باشه",
+  view_articles: "مشاهده مطالب",
+  favorite_courses: "محبوب ترین دوره ها",
+  best_things_to_learn: "بهترین چیز هایی که میتونید یاد بگیرید",
+  readmore:"مطالعه بیشتر",
+  related_courses: "دوره های مرتبط",
+  comments: "نظرات",
+  seecourse:"مشاهده دوره",
+  share:"اشتراک گزاری",
+  newcomment:" ارسال دیدگاه جدید",
+  rate:"امتیاز",
+  personrate:"نفر",
+  describe:"توضیحات",
+  HeadLines:"سرفصل ها",
+  categories: "دسته بندی",
+   requirements: "پیش نیاز ها",
+    trainingType: "نوع آموزش",
+    courseStatus: "وضعیت دوره",
+    startDate: "تاریخ شروع دوره",
+    endDate: "تاریخ پایان دوره",
+    rating: "رضایت",
+    studentsNumber: "تعداد دانشجویان"
+ 
+  
 
 
 
