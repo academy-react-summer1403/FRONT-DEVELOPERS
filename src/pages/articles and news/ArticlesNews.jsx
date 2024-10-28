@@ -14,6 +14,7 @@ import { useState } from "react";
 import { SliderRight } from "../../utility/animation";
 import Pagination from "../../components/Pagination";
 import { useTranslation } from "react-i18next";
+import NotFound from "../../components/notFound/NotFound";
 
 const ArticlesNews = () => {
   const { t } = useTranslation();
@@ -193,7 +194,7 @@ const ArticlesNews = () => {
                     
                 "
           >
-            {newsDataQuery.data?.news.map((item) => (
+            {newsDataQuery.data?.news.length == 0  ? <NotFound/> : newsDataQuery.data?.news.map((item) => (
               <ArticleNewsCard {...item} />
             ))}
 

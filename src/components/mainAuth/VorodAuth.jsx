@@ -114,7 +114,7 @@ navigate("/")
         initial={{ opacity: 0, x: 200 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ type: "spring", stiffness: 100, delay: 0.2 }}
-        className="w-[800px]  h-[500px] mt-[10px]
+        className="w-[800px]  h-[500px] mt-[10px] relative
      rounded-2xl 
       "
       >
@@ -150,7 +150,7 @@ navigate("/")
             transition={{ type: "spring", stiffness: 100, delay: 0.2 }}
             //   src={HeroAImg}
             alt=""
-            className="w-[350px] h-[360px]   mx-auto mt-[10%] max-md:mt-[15%] "
+            className="w-[350px] h-[360px]   mx-auto mt-[10%] max-md:mt-[15%] relative"
           >
 
 
