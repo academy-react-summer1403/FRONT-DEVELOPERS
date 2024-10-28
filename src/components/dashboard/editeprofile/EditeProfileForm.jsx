@@ -266,6 +266,7 @@ const EditeProfileForm = () => {
                     
                     <div className=''>map</div>
                 </div>
+                
                 <div className='flex gap-4 mt-8 '>
                     <button type="" className='flex flex-row gap-2 text-sm rounded-full
                         bg-gray-100 dark:bg-[#747272] hover:bg-red-100 hover:text-red-500 text-gray-300 px-5 py-1 

@@ -18,12 +18,12 @@ const DashNavbar = () => {
         '>
             {/* ACCOUNT section  */}
             <div className='text-2xl flex items-center gap-2 font-bold '>
-                <div className='group flex relative w-14 hover:w-40 h-14 bg-primary 
+                <NavLink  to={"/auth"} className='group flex relative w-14 hover:w-40 h-14 bg-primary 
                 transition-all duration-500 rounded-full cursor-pointer'>
                     <img src={UserImg} alt="" className='w-7 h-7 transition-all mt-3 ml-3.5'/>
                     <div className='hidden absolute w-36 group-hover:block text-sm font-semibold transition delay-[1000ms] duration-700
                      text-white text-right pr-4 ml-4 leading-[50px]'>حساب کاربری</div>
-                </div>               
+                </NavLink>               
                 <NavLink to={"/"}>
                     <HiHome className='text-green'/>
                 </NavLink> 

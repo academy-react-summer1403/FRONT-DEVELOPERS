@@ -14,13 +14,7 @@ const NotFound = () => {
     //   };
   return (
     
-    <div className='border border-red-500 w-1/2 flex mx-auto my-12'>
-        {/* <Lottie animationData={animationData}/>
-        <Lottie 
-	    options={defaultOptions}
-        height={400}
-        width={400}
-      /> */}
+    <div className='border border-red-500 w-96 flex mx-auto my-12 text-2xl text-secondary '>
       not found
     </div>
   )
