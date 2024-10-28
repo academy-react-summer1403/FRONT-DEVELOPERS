@@ -9,7 +9,7 @@ import hat from "../../assets/landing/Flying Mortarboard.svg";
 import Student from "../../assets/landing/student.png";
 import Circled from "../../assets/landing/Circled Play.svg";
 import BackImg from "../../assets/landing/Rectangle 8.svg";
-import {  useCourseLandingSearchBar, useLandingReport } from '../../core/services/query/queries';
+import {  useCourseLandingSearchBar, useLandingReport, useNewsLandingSearchBar } from '../../core/services/query/queries';
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { image } from 'framer-motion/client';
@@ -36,6 +36,9 @@ console.log(reportLanding)
 
   const  CourseSearchBar =  useCourseLandingSearchBar(params)
   console.log(CourseSearchBar) 
+
+  const  NewsSearchBar =  useNewsLandingSearchBar(params)
+  console.log(NewsSearchBar) 
 
 
     return (
