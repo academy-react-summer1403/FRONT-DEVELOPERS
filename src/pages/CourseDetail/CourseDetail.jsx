@@ -24,9 +24,9 @@ const CourseDetial = () => {
   console.log(CourseDetail.data);
 
   return (
-    <div className=" container  relative  pb-12  ">
+    <div className=" container max-lg:pt-2 max-lg:px-0 relative  pb-12  ">
   
-
+      {/* top  */}
       <div className="flex max-md:container  mt-[35px] justify-between">
         {/* image section */}
         <motion.div
@@ -34,7 +34,7 @@ const CourseDetial = () => {
           animate={{ x: 0, y: 0, opacity: 1 }}
           transition={{ type: "spring", stiffness: 40, delay: 0.2 }}
           style={{ boxShadow: "box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25)" }}
-          className="max-xl:w-[550px]  max-md:hidden max-lg:h-[300px] h-[395px] max-xl:h-[320px] w-[624px] max-2xl:mr-10"
+          className="max-xl:w-[550px]  max-md:hidden max-lg:h-[340px] h-[395px] max-xl:h-[320px] w-[624px] max-2xl:mr-10"
         >
          <img className=" h-full w-full  rounded-[15px]" src={CourseDetail.data?.imageAddress }
             onError={ImageErrore} alt=''
@@ -45,49 +45,57 @@ const CourseDetial = () => {
 
         <CourseCard courseId = {courseId}/>
       </div>
+         
 
-      <div className=" mt-8 w-[412px] max-md:left-16 max-md:absolute    max-sm:w-full max-sm:container max-sm:left-0   max-2xl:w-[380px] max-lg:w-[300px] max-xl:w-[350px] ">
-        {/* detail section */}
-        <Detail courseId={courseId}/>
+      <div className="flex flex-row gap-10 justify-center max-md:flex max-md:flex-col pt-2 ">
 
-        {/* RelatedCourses section */}
+        {/* left  */}
+        <div className="mt-8 w-[412px] max-md:w-full max-sm:container max-sm:left-0 max-md:grid max-md:justify-items-center  max-2xl:w-[380px] max-lg:w-[300px] max-xl:w-[350px] ">
+          {/* detail section */}
+          <Detail courseId={courseId}/>
 
-     
-        <div style={{boxShadow:" 0px 1px 2px 0 rgba(0, 0, 0, 0.25)"}} className="bg-white max-sm:w-full max-md:justify-center     dark:bg-slate-700 flex max-md:h-[300px] max-lg:w-[300px] max-md:w-[500px]  flex-wrap max-2xl:w-[380px]  max-xl:w-[350px] mt-[35px]  rounded-[15px] w-[412px] h-[601px]  p-[23px]">
+          {/* RelatedCourses section */}
 
-          <div style={{boxShadow:" 0px 1px 2px 0 rgba(0, 0, 0, 0.25)"}} className=' bg-[#E8E8E8] rounded-t-[10px]  max-md:w-[500px] w-[378px] max-sm:w-full  h-[50px] pr-[25px] justify-end flex items-center
-          text-right text-[#555555] font-Yekan font-normal text-[20px] mb-[8px] dark:text-slate-100 dark:bg-slate-600'>{t("related_courses")}
-              </div>
+      
+          <div style={{boxShadow:" 0px 1px 2px 0 rgba(0, 0, 0, 0.25)"}} className="bg-white max-sm:w-full max-md:justify-center dark:bg-slate-700 flex  max-lg:w-[300px] max-md:w-[500px]  flex-wrap max-2xl:w-[380px]  max-xl:w-[350px] mt-[35px]  rounded-[15px] w-[412px] h-[601px]  p-[23px]">
+
+            <div style={{boxShadow:" 0px 1px 2px 0 rgba(0, 0, 0, 0.25)"}} className=' bg-[#E8E8E8] rounded-t-[10px]  max-md:w-[500px] w-[378px] max-sm:w-full  h-[50px] pr-[25px] justify-end flex items-center
+            text-right text-[#555555] font-Yekan font-normal text-[20px] mb-[8px] dark:text-slate-100 dark:bg-slate-600'>{t("related_courses")}
+                </div>
 
 
 
-          {samecourses.map((data,index)=>( 
+            {samecourses.map((data,index)=>( 
 
-          <RelatedCourses  key={index} title={data.title} image={data.image} />))}
-        </div>
+            <RelatedCourses  key={index} title={data.title} image={data.image} />))}
+          </div>
 
-       
-  
-      </div>
-
-      <div className=" ml-[37%] mt-[-129.5%] max-2xl:ml-[44%] max-2xl:mt-[-133%] max-xl:mt-[-185%] max-lg:mt-[-273%] max-lg:ml-[53%] max-md:mt-[240%] max-sm:mt-[190%] max-sm:w-full w-[809px]  max-2xl:w-[700px] max-lg:w-[350px] max-xl:w-[520px] max-md:w-[500px] max-md:mx-auto">
-        {/* Description section */}
-
-        <Description  courseId = {courseId}/>
-        {/* headlines */}
-
-        <HeadLines />
-
-        {/* comments */}
-
-        <h4 className=" mark mt-5 max-xl:text-[20px] dark:text-slate-300  ">
-        {t("comments")}
-        </h4>
-        <div className="  ">
         
-          <CourseComment courseId={courseId} useComment={useCommentCourse} />
+    
         </div>
+        
+        {/* right  */}
+        <div className="max-sm:w-full w-[809px]  max-2xl:w-[700px] max-lg:w-[350px] max-xl:w-[520px] max-md:w-[500px] max-md:mx-auto">
+          {/* Description section */}
+
+          <Description  courseId = {courseId}/>
+          {/* headlines */}
+
+          <HeadLines />
+
+          {/* comments */}
+
+          <h4 className=" mark mt-5 max-xl:text-[20px] dark:text-slate-300  ">
+          {t("comments")}
+          </h4>
+          <div className="  ">
+          
+            <CourseComment courseId={courseId} useComment={useCommentCourse} />
+          </div>
+        </div>
+
       </div>
+
     </div>
   );
 };
