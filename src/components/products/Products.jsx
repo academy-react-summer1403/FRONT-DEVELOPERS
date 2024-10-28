@@ -102,14 +102,15 @@ const Products = () => {
               {/* star rating  */}
 
               <h1 className="productstitle text-[#CC7A00] dark:text-[#4b3515] mt-[-140px] ">
-                مشاوره
+               {t("Counseling")}
+                
               </h1>
               <p
                 className=" faketext group-hover:text-[#CC7A00] dark:group-hover:text-[#4b3515]
                                 "
               >
-                متن ساختگی صنعت طراحی و چاپ برای استفاده طراحان گرافیک است.
-              </p>
+               {t("Counselingtext")}
+               </p>
 
               <button
                 style={{ boxShadow: "0px 4px 4px 0px #00000040 inset" }}
@@ -201,14 +202,14 @@ const Products = () => {
               {/* star rating  */}
 
               <h1 className="productstitle text-[#AE9C00] dark:text-[#504a15]  mt-[-235px]">
-                مدرک معتبر
+                {t('certificate')} 
               </h1>
               <p
                 className="faketext group-hover:text-[#AE9C00] dark:group-hover:text-[#504a15]
                                 "
               >
-                متن ساختگی صنعت طراحی و چاپ برای استفاده طراحان گرافیک است.
-              </p>
+               {t("Counselingtext")}
+               </p>
 
               <button
                 style={{ boxShadow: "0px 4px 4px 0px #00000040 inset" }}
@@ -301,13 +302,15 @@ const Products = () => {
               {/* star rating  */}
 
               <h1 className="productstitle text-[#047DC1]  dark:text-[#214d66]  mt-[-240px] leading-6">
-                فرصت های شغلی
-              </h1>
+  {t("jobs")}              </h1>
               <p
                 className="faketext group-hover:text-[#047DC1] dark:group-hover:text-[#214d66]
                                 "
               >
-                متن ساختگی صنعت طراحی و چاپ برای استفاده طراحان گرافیک است.
+
+               {t("Counselingtext")}
+
+
               </p>
 
               <button
@@ -400,13 +403,13 @@ const Products = () => {
               {/* star rating  */}
 
               <h1 className="productstitle text-[#008A86] dark:text-[#123d3c] mt-[-240px]">
-                مشاوره
+               {t("Counseling")}
               </h1>
               <p
                 className="faketext group-hover:text-[#008A86] dark:group-hover:text-[#123d3c]
                                 "
               >
-                متن ساختگی صنعت طراحی و چاپ برای استفاده طراحان گرافیک است.
+               {t("Counselingtext")}
               </p>
 
               <button

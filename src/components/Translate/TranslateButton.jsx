@@ -8,7 +8,7 @@ const Lg = () => {
 
 
   const toggleLanguage = () => {
-    const newLanguage = i18n.language === 'en' ? 'fa' : 'en';
+     const newLanguage = i18n.language === 'en' ? 'fa' : 'en';
     i18n.changeLanguage(newLanguage);
     console.log("bro")
   };

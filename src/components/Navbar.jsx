@@ -16,7 +16,8 @@ import { useSelector } from 'react-redux';
 
 const Navbar = () => {
     
- const { t } = useTranslation();
+ const { t,i18n  } = useTranslation();
+ const isEnglish = i18n.language === "en";
 
  const NavbarMenu =[
   {
@@ -69,7 +70,7 @@ const Navbar = () => {
                             mt-6 rounded-3xl hover:shadow-lg  dark:bg-orange 
                             dark:hover:shadow-slate-700 dark:hover:shadow-md z-50
                             transition-shadow'>
-                        <NavLink to={"/auth"} >
+                        <NavLink to={"/auth"} >  
                             <img src={userImageProfile ? userImageProfile.data?.currentPictureAddress : UserImg} alt="" className='w-[40px] h-[40px] rounded-full absolute top-[4px] left-2  border-[2px]   '/>
                             <h1 className='text-sm  font-semibold text-white text-right leading-9 mr-3 py-1 '>{t(userImageProfile.data?.fName)} {t(userImageProfile.data?.lName)}</h1>
                         </NavLink> 
@@ -90,7 +91,7 @@ const Navbar = () => {
                 {/* menu section  */}
                 <div className=' max-lg:absolute max-lg:bg-primary max-lg:h-8 max-lg:z[3000] 
                  max-lg:top-[90px] max-lg:w-[100%] max-lg:left-0 max-lg:grid max-lg:justify-items-center'>
-                    <ul className='flex items-center gap-4 max-lg:gap-1 pr-10 max-lg:pr-0 mx-auto'>
+                    <ul className={`flex items-center gap-4 max-lg:gap-1 pr-10 max-lg:pr-0 mx-auto ${isEnglish ? 'flex-row-reverse' : 'flex-row'}`}>
                         {
                             NavbarMenu.map((item)=>(
                                 <li key={item.id}>

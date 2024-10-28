@@ -13,24 +13,22 @@ import { useNewsData } from "../../core/services/query/queries";
 import { useState } from "react";
 import { SliderRight } from "../../utility/animation";
 import Pagination from "../../components/Pagination";
+import { useTranslation } from "react-i18next";
 
 const ArticlesNews = () => {
+  const { t } = useTranslation();
   const [sort, setSort] = useState();
-  console.log(sort);
-
   const [page, setPage] = useState(1);
-  console.log(page);
-
   const [query, setQuery] = useState("");
+  const [rows, setRows] = useState(6);
+
 
   const params = {
-    SortingCol:sort,
-    Query:query
-  }
+    SortingCol: sort,
+    Query: query,
+  };
 
-
-  const newsDataQuery = useNewsData(params, page );
-  console.log(newsDataQuery);
+  const newsDataQuery = useNewsData(params, page,rows);
 
   const lastPage = () => {
     setPage((old) => Math.max(old - 1, 0));
@@ -39,7 +37,7 @@ const ArticlesNews = () => {
     setPage((old) => Math.min(old + 1, 2));
   };
 
-  const categories = ["جدید ترین", "محبوب ترین"];
+  const categories = [t("newest"), t("popular")];
 
   return (
     <div className="  container max-sm:px-12">
@@ -99,35 +97,25 @@ const ArticlesNews = () => {
         </div>
 
         {/* text part */}
-        <div
-          className="grid justify-items-end w-full my-4 mr-6 h-90 relative
-            max-sm:w-full max-sm:mx-auto
-            max-md:w-full max-md:mx-auto
-            "
-        >
+        <div className="grid justify-items-end w-full my-4 mr-6 h-90 relative max-sm:w-full max-sm:mx-auto max-md:w-full max-md:mx-auto">
           <div className="flex flex-row-reverse mt-4 pt-5 ">
             <div className="head2 relative top-4 ml-2"></div>
             <h2 className="text-3xl font-bold dark:text-white">
-              اخبار و مقالات
+            {t("articles_and_news")}
             </h2>
           </div>
           <p className="mr-5 mt-3 text-lg text-gray-400 dark:text-gray-400">
-            با ما خودت رو به روز کن
+          {t("stay_updated")}
           </p>
           {/* search box  */}
-          {/* <SearchBar  placeholder={"...چی میخوای یاد بدونی؟"}/> */}
           <motion.div
             variants={SliderRight(1.0)}
             initial="hidden"
             animate="visible"
-            className="flex flex-row  w-3/4 
-            max-sm:w-full max-sm:mr-2
-            max-md:w-full
-            max-lg:w-full
-            max-xl:w-3/4"
+            className="flex flex-row w-3/4 max-sm:w-full max-sm:mr-2 max-md:w-full max-lg:w-full max-xl:w-3/4"
           >
-            <div className="relative top-[32px] left-[65px] bg-orange rounded-full  w-14 h-[50px] z-40 ">
-              <img src={Search} className="w-[25px] h-[29px] mt-[11px] ml-3 " />
+            <div className="relative top-[32px] left-[65px] bg-orange rounded-full w-14 h-[50px] z-40">
+              <img src={Search} className="w-[25px] h-[29px] mt-[11px] ml-3" />
             </div>
 
             <input
@@ -135,13 +123,9 @@ const ArticlesNews = () => {
               id="search"
               name="search"
               type="text"
-              placeholder={"...چی میخوای یاد بدونی؟"}
-              className="mx-2 backdrop-blur-sm my-6  w-full outline-none
-               h-[65px] rounded-full text-right pr-8 pb-2 dark:bg-gray-700/70  
-              "
-              style={{ boxShadow: " 0px 0.1px 1px 1px rgba(0, 0, 0, 0.1)" }}
-
-              // onChange={HandleChange}
+              placeholder={t("search_placeholder")}
+              className="mx-2 backdrop-blur-sm my-6 w-full outline-none h-[65px] rounded-full text-right pr-8 pb-2 dark:bg-gray-700/70"
+              style={{ boxShadow: "0px 0.1px 1px 1px rgba(0, 0, 0, 0.1)" }}
             />
           </motion.div>
         </div>
@@ -156,7 +140,6 @@ const ArticlesNews = () => {
         "
       >
         {/*right: offer section  */}
-
         <OfferSection />
 
         {/*left: news section  */}
@@ -168,26 +151,19 @@ const ArticlesNews = () => {
                 "
           >
             <div className="text-2xl font-semibold text-darkgreen dark:text-white p-2 text-center">
-              جدید ترین اخبار و مقالات
+            {t("latest_articles")}
             </div>
             {/* menu  */}
             <div className="relative group max-sm:grid max-sm:justify-items-center">
-              <div
-                className="group flex px-5 py-2 mr-4 gap-6 dark:bg-gray-700/70
-                        rounded-full shadow-sm shadow-gray-300 outline-none indent-0 dark:text-white
-                        text-gray-900 hover:bg-gray-50 cursor-pointer text-lg"
-              >
+              <div className="group flex px-5 py-2 mr-4 gap-6 dark:bg-gray-700/70 rounded-full shadow-sm shadow-gray-300 outline-none indent-0 dark:text-white text-gray-900 hover:bg-gray-50 cursor-pointer text-lg">
                 <IoIosArrowDown
                   className="relative mt-2 h-5 w-5 flex-none text-darkgreen dark:text-darkgreen/60
                                      rotate-180 group-hover:rotate-0 duration-300"
                 />
-                جدید ترین
+                 {t("newest")}
                 <BiMenuAltRight className="w-7 h-7 mt-1 text-darkgreen dark:text-darkgreen/60" />
               </div>
-              <div
-                className="absolute z-[9999] hidden  group-hover:block  max-sm:top-10
-                            w-[200px] rounded-md bg-white shadow-md dark:bg-gray-900 p-2 dark:text-white"
-              >
+              <div className="absolute z-[9999] hidden group-hover:block max-sm:top-10 w-[200px] rounded-md bg-white shadow-md dark:bg-gray-900 p-2 dark:text-white">
                 <ul className="space-y-2">
                   {categories.map((item, index) => (
                     <li key={index} className="group">

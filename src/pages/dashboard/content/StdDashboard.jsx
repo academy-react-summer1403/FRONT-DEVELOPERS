@@ -6,6 +6,7 @@ import alert from '../../../assets/dashboard/Frame.svg'
 import { useCourseDash, useCourseDash2, useMyCourses, useReserv} from '../../../core/services/query/DashboardQuery'
 import DonutBarChart from './DonutBarChart'
 import DateApi from '../../../components/DateApi'
+import { NavLink } from 'react-router-dom'
 
 
 
@@ -140,7 +141,7 @@ const StdDashboard = () => {
           <div>
             {getCourseDash.data?.courseFilterDtos.map((data)=>(
 
-              <div style={{boxShadow:"0px 1px 1px 1px rgba(0,0,0,0.1)"}}
+              <NavLink to={"/courses-detail/" + data.courseId} style={{boxShadow:"0px 1px 1px 1px rgba(0,0,0,0.1)"}}
               className='relative bg-gray-50 dark:bg-gray-400/40  rounded-md p-2 my-4 flex gap-6'
             >
               <img className='w-[88px] h-[60px] rounded-[6px]' src={data?.tumbImageAddress}/>
@@ -150,7 +151,7 @@ const StdDashboard = () => {
                   <p className='flex text-[11px] text-primary gap-1'><IoIosArrowBack className='mt-1'/>مشاهده دوره </p>
                 </div>
               </div>
-            </div>
+            </NavLink>
 
             ))
            
@@ -171,7 +172,7 @@ const StdDashboard = () => {
           <div>
             {getCourseDash2.data?.courseFilterDtos.map((data)=>(
 
-                <div style={{boxShadow:"0px 1px 1px 1px rgba(0,0,0,0.1)"}}
+                <NavLink to={"/courses-detail/" + data.courseId} style={{boxShadow:"0px 1px 1px 1px rgba(0,0,0,0.1)"}}
               className='relative bg-gray-50 dark:bg-gray-400/40  rounded-md p-2 my-4 flex gap-6'
             >
                <img className='w-[88px] h-[60px] rounded-[6px]' src={data?.tumbImageAddress} />
@@ -182,7 +183,7 @@ const StdDashboard = () => {
                   <p className='mr-14 max-sm:mr-2 text-[10px] text-orange dark:text-amber-400 '><DateApi dateapi={data?.lastUpdate}/></p>
                 </div>
               </div>
-            </div>
+            </NavLink>
 
              ))
 

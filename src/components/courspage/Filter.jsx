@@ -7,12 +7,16 @@ import AccarFilter from "./AccarFilter";
 import TypeFilter from "./TypeAccar";
 import TypeAccar from "./TypeAccar";
 import LevelAccar from "./LevelAccar";
+import { useTranslation } from "react-i18next";
 
 const Filter = () => {
+
+ const { t } = useTranslation();
+
   const [filter, setFilter] = useState([
     {
       id: 1,
-      name: "تکنولوژی",
+      name: `${t("technology")}`,
 
       isOpen: true,
     },
@@ -21,7 +25,7 @@ const Filter = () => {
   const [type, setType] = useState([
     {
       id: 1,
-      name: "وضعیت",
+      name: `${t("status")}`,
       isOpen: true,
     },
   ]);
@@ -30,7 +34,7 @@ const Filter = () => {
   const [level, setLevel] = useState([
     {
       id: 1,
-      name: "سطح",
+      name:`${t("level")}`,
       isOpen: true,
     },
   ]);
@@ -79,7 +83,7 @@ const Filter = () => {
             text-gray-900 bg-neutral-200 dark:bg-gray-700/70 dark:text-white"
       >
         <img src={trash} className="h-6 w-6 mr-8 flex-none " />
-        <p className="absolute right-10 ">فیلتر ها</p>
+        <p className="absolute right-10 ">{t("filters")}</p>
         <img src={fillter} className="absolute right-2 top-4" />
       </div>
 

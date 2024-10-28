@@ -10,11 +10,13 @@ import CourseComment from "../../components/coursedetailComponents/comments/Cour
 import RelatedCourses from "../../components/coursedetailComponents/RelatedCourses/RelatedCourses";
 import { ImageErrore } from "../../components/ImageErrore";
 import { useCommentCourse } from "../../core/services/query/CommentQuery";
+import { useTranslation } from "react-i18next";
 
 
 
 const CourseDetial = () => {
   const { courseId } = useParams();
+  const {t}=useTranslation()
 
   console.log({ courseId });
 
@@ -54,7 +56,7 @@ const CourseDetial = () => {
         <div style={{boxShadow:" 0px 1px 2px 0 rgba(0, 0, 0, 0.25)"}} className="bg-white max-sm:w-full max-md:justify-center     dark:bg-slate-700 flex max-md:h-[300px] max-lg:w-[300px] max-md:w-[500px]  flex-wrap max-2xl:w-[380px]  max-xl:w-[350px] mt-[35px]  rounded-[15px] w-[412px] h-[601px]  p-[23px]">
 
           <div style={{boxShadow:" 0px 1px 2px 0 rgba(0, 0, 0, 0.25)"}} className=' bg-[#E8E8E8] rounded-t-[10px]  max-md:w-[500px] w-[378px] max-sm:w-full  h-[50px] pr-[25px] justify-end flex items-center
-          text-right text-[#555555] font-Yekan font-normal text-[20px] mb-[8px] dark:text-slate-100 dark:bg-slate-600'>دوره های مرتبط
+          text-right text-[#555555] font-Yekan font-normal text-[20px] mb-[8px] dark:text-slate-100 dark:bg-slate-600'>{t("related_courses")}
               </div>
 
 
@@ -79,7 +81,7 @@ const CourseDetial = () => {
         {/* comments */}
 
         <h4 className=" mark mt-5 max-xl:text-[20px] dark:text-slate-300  ">
-          نظرات
+        {t("comments")}
         </h4>
         <div className="  ">
         

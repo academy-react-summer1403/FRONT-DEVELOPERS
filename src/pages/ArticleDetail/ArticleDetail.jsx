@@ -11,10 +11,13 @@ import { useCommentNews } from "../../core/services/query/CommentQuery";
 import { postFavoriteNews } from "../../core/services/DashApi";
 import { toast } from "react-toastify";
 import DateApi from "../../components/DateApi";
+import { useTranslation } from "react-i18next";
 // import { samecourses, suggestion } from "../CourseDetail/CourseDetail";
 
 
 const ArticleDetail = () => {
+
+  const {t}=useTranslation()
 
   const { id } = useParams();
 
@@ -84,7 +87,7 @@ const ArticleDetail = () => {
          text-right text-darkgreen font-Yekan
          font-normal text-[20px] mb-[8px] max-lg:text-[18px] max-md:w-full dark:bg-slate-600 dark:text-slate-100"
           >
-            دوره های مرتبط
+           {t("related_courses")}
           </div>
 
           {samecourses.map((data, index) => (
@@ -111,7 +114,7 @@ const ArticleDetail = () => {
             className=" bg-[#E8E8E8] rounded-t-[10px]  w-[448px] h-[50px] pr-[25px] justify-end flex items-center
  text-right text-darkgreen font-Yekan font-normal  text-[20px] mb-[8px] max-lg:text-[18px] max-md:w-full dark:bg-slate-600 dark:text-slate-100 "
           >
-            مطالب پیشنهادی
+           {t("suggested_articles")}
           </div>
 
           {suggestion.map((data, index) => (
@@ -263,7 +266,7 @@ const ArticleDetail = () => {
  {/* comment section */}
 
          <div className="">
-          <h4 className="mark mt-5 max-lg:mt-1 max-xl:text-[23px]  dark:text-slate-300   ">نظرات</h4>
+          <h4 className="mark mt-5 max-lg:mt-1 max-xl:text-[23px]  dark:text-slate-300   ">{t("comments")}</h4>
           <NewComment newsId={id}/>
         </div>
     </div>

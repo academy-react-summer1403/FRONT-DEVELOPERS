@@ -86,7 +86,7 @@ const BestTeachers = () => {
                animate="visible"
                className='text-center max-sm:text-[16px] max-sm:w-[200px] text-[#777777] text-[20px] font-normal font-Yekan max-lg:text-[18px] max-lg:w-[280px] max-lg:text-right max-lg:ml-[100px] '
             >
-          برجسته ترین اساتید بزرگترین مجموعه برنامه نویسی<p className=''> ! استان مازندران رو بهتر بشناسیم </p>
+           {t("teach1")}  <p className=''> {t("teach2")}</p>
             </motion.p>
             </div>
             </div>

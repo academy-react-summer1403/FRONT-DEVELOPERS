@@ -6,10 +6,12 @@ import { disslikeArticle, likeArticle } from "../../../core/services/getApi";
 import { toast } from "react-toastify";
 import { postRateNews } from "../../../core/services/DashApi";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
+import { useTranslation } from "react-i18next";
 
 const ArticleDescription = () => {
 
   const { id } = useParams();
+  const {t}=useTranslation()
 
   
   const articleDetail = useArticleDetail(id);
@@ -94,7 +96,7 @@ leading-[32px] font-normal font-Yekan text-[20px] max-xl:text-[18px] flex items-
           ) : (
             <IoIosArrowUp />
           )}
-          مطالعه بیشتر
+         {t("readmore")}
         </button>
       </div>
 
@@ -150,7 +152,7 @@ leading-[32px] font-normal font-Yekan text-[20px] max-xl:text-[18px] flex items-
           </div>
 
           <div className="  flex items-center gap-2">
-            <h3 className="share max-sm:text-[12px] max-xl:text-[14px]">اشتراک گزاری</h3>
+            <h3 className="share max-sm:text-[12px] max-xl:text-[14px]">{t("share")} </h3>
             <svg
               width="19"
               height="19"
@@ -214,7 +216,7 @@ leading-[32px] font-normal font-Yekan text-[20px] max-xl:text-[18px] flex items-
           </svg>
 
           <h1 className=" share max-xl:text-[14px]  max-sm:text-[12px] ">
-            امتیاز {articleDetail.data?.detailsNewsDto.currentRate} نفر
+           {t("rate")}{articleDetail.data?.detailsNewsDto.currentRate} {t("personrate")}
           </h1>
         </div>
       </motion.div>

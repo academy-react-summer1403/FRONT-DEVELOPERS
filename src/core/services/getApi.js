@@ -3,8 +3,8 @@ import http from "./interceptor";
 import 'react-toastify/dist/ReactToastify.css';
 
 
-export const getNews = async (params , page ) => {
-  const data = await http.get(`/News?PageNumber=${page}&RowsOfPage=6` , {
+export const getNews = async (params , page,rows  ) => {
+  const data = await http.get(`/News?PageNumber=${page}&RowsOfPage=${rows }` , {
     params:params
   });
   console.log(data);

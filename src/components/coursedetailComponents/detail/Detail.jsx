@@ -4,6 +4,7 @@ import profile from "../../../assets/detail/prof.jpg"
 import { useParams } from 'react-router-dom';
 import { useCourseId, useCourses } from '../../../core/services/query/queries';
 import DateApi from '../../DateApi';
+import { useTranslation } from 'react-i18next';
 
 import AOS from "aos";
 import 'aos/dist/aos.css';
@@ -17,11 +18,12 @@ const Detail = ({courseId}) => {
 
   const CourseDetail = useCourseId(courseId);
   console.log(CourseDetail)
+  const {t}=useTranslation()
  
   const coursedetals = [
     {
       id: 1,
-      title: "دسته بندی",
+      title:`${t("categories")}`,
       subtitle: `${CourseDetail.data?.techs}`,
       icon: (
         <svg
@@ -44,7 +46,7 @@ const Detail = ({courseId}) => {
     },
     {
       id: 2,
-      title: "پیش نیاز ها",
+      title: t("requirements"),
       subtitle: "HTML , CSS , JS",
       icon: (
         <svg
@@ -68,7 +70,7 @@ const Detail = ({courseId}) => {
     },
     {
       id: 3,
-      title: "نوع آموزش",
+      title: t("trainingType"),
       subtitle: "حضوری و غیرحضوری",
       icon: (
         <svg
@@ -92,7 +94,7 @@ const Detail = ({courseId}) => {
     },
     {
       id: 4,
-      title: "وضعیت دوره ",
+      title: t("courseStatus"),
       subtitle:`${CourseDetail.data?.courseStatusName}`,
       icon: (
         <svg
@@ -116,7 +118,7 @@ const Detail = ({courseId}) => {
     },
     {
       id: 5,
-      title: "تاریخ شروع دوره",
+      title: t("startDate"),
       subtitle: ( <DateApi dateapi={CourseDetail.data?.startTime}/>),
       icon: (
         <svg
@@ -141,7 +143,7 @@ const Detail = ({courseId}) => {
 
     {
       id: 6,
-      title: "تاریخ پایان دوره",
+      title:  t("endDate"),
       subtitle: ( <DateApi dateapi={CourseDetail.data?.endTime}/>),
       icon: (
         <svg

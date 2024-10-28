@@ -2,6 +2,7 @@ import React, { Fragment, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { ImageErrore } from '../../ImageErrore'
 import { IoIosArrowBack } from "react-icons/io";
+import { useTranslation } from 'react-i18next';
 
 
 import AOS from "aos";
@@ -10,6 +11,8 @@ import 'aos/dist/aos.css';
 
 
 const RelatedCourses = ({title,image}) => {
+
+  const {t}=useTranslation()
 
   useEffect(() => {
     AOS.init();
@@ -63,7 +66,7 @@ const RelatedCourses = ({title,image}) => {
                        className='dark:text-secondary  text-primary flex items-center  max-md:hidden   justify-between font-Yekan font-normal text-[12px] ml-[20px]  mt-[-40px]  text-right  w-[75px] h-[21px] '>
                         <IoIosArrowBack />
 
-                    مشاهده دوره</motion.p>
+                    {t("seecourse")}</motion.p>
 
 
 

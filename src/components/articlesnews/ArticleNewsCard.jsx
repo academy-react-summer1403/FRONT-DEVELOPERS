@@ -11,8 +11,12 @@ import { IoIosArrowBack } from "react-icons/io";
 import AOS from "aos";
 import 'aos/dist/aos.css';
 import DateApi from '../DateApi'
+import { useTranslation } from 'react-i18next'
 
 const ArticleNewsCard = ({title,miniDescribe  , updateDate,currentView , id}) => {
+
+
+    const {t}=useTranslation()
 
 
 useEffect(() => {
@@ -51,7 +55,7 @@ useEffect(() => {
 
                 <div className='flex justify-center pt-2 gap-1 text-xs font-medium w-full
                 text-orange border-t-[1px] absolute top-[170px]'> 
-                    <IoIosArrowBack  className=' w-4 h-4 mt-[1px]'/>مطالعه بیشتر
+                    <IoIosArrowBack  className=' w-4 h-4 mt-[1px]'/>{t("readmore")}
                     
                 </div>
             </div>   

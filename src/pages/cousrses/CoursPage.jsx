@@ -16,11 +16,14 @@ import { useCourses, useTopCourses } from "../../core/services/query/queries";
 import { SliderRight } from "../../utility/animation";
 import { useDispatch, useSelector } from "react-redux";
 // import { QuerySlice } from "../../core/redux/slices/QueryState/QueryRedux";
-import {  useState } from "react";
+import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 
 
 const CoursPage = () => {
+ const { t } = useTranslation();
+
 
   const [sort, setSort] = useState();
   console.log(sort);
@@ -78,15 +81,15 @@ const CoursPage = () => {
 
   const categories = [
     {
-      title:"ارزان ترین",
+      title:`${t('Cheapest')}`,
       col : "cost"
     },
     {
-      title:"جدید ترین",
+      title:`${t('Newest')}`,
       col : "lastUpdate"
     },
     {
-      title:"محبوب ترین",
+      title:`${t('MostPopular')}`,
       col : "likeCount"
     },
   
@@ -170,11 +173,12 @@ const CoursPage = () => {
           <div className="flex flex-row-reverse mt-4 pt-6">
             <div className="relative w-3 h-3 bg-primary rounded-full top-4 ml-2"></div>
             <h2 className="text-3xl font-bold dark:text-white">
-              دوره های آموزشی
+            {t("Courses")}
+
             </h2>
           </div>
           <p className="mr-4 mt-6 text-xl text-gray-400 dark:text-gray-200">
-            به روز ترین دوره هایی که میتونید پیدا کنید
+            {t("UpToDateCourses")}
           </p>
           {/* search box  */} 
           {/* <SearchBar placeholder={"...چی میخوای یاد بگیری؟"}/> */}
@@ -200,7 +204,7 @@ const CoursPage = () => {
 
               
               
-              placeholder={"...چی میخوای یاد بگیری؟"}
+              placeholder={t("WhatDoYouWantToLearn")}
               id="search"
               name="search"
               type="text"
@@ -261,7 +265,7 @@ const CoursPage = () => {
                   className="relative top-1 h-5 w-5 mr-8 flex-none rotate-180 group-hover:rotate-0 
                                 duration-300 text-teal-900 dark:text-teal-600"
                 />
-                جدید ترین
+                {t('Newest')}
                 <BiMenuAltRight className="w-7 h-7 mt-1 text-teal-900 dark:text-teal-600 ml-6" />
               </div>
 
