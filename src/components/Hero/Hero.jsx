@@ -183,7 +183,7 @@ console.log(reportLanding)
              variants={SliderRight(1.0)}
              initial="hidden"
              animate="visible"
-              className="flex bg-white dark:bg-gray-600  max-md:z-50 rounded-[35px] max-lg:mt-[-80px] max-xl:w-[315px] max-lg:w-full h-[65px] w-[415px] z-[5000]"
+              className="relative flex bg-white dark:bg-gray-600  max-md:z-50 rounded-[35px] max-lg:mt-[-80px] max-xl:w-[315px] max-lg:w-full h-[65px] w-[415px] z-[5000]"
             >
               <div className='w-[48px] h-[49px] rounded-full bg-orange absolute left-[10px] top-[8px] flex items-center justify-center'>
                 <img src={SearchImg} alt="" className='px-1.5 py-1.5'/>

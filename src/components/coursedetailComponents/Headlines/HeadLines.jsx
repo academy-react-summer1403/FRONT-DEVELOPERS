@@ -3,8 +3,8 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 
-import AOS from "aos";
-import 'aos/dist/aos.css';
+// import AOS from "aos";
+// import 'aos/dist/aos.css';
 
 const HeadLines = () => {
 
@@ -111,9 +111,9 @@ const HeadLines = () => {
     setAccordion(updatedAccordions);
   };
 
-  useEffect(() => {
-    AOS.init();
-  }, [])
+  // useEffect(() => {
+  //   AOS.init();
+  // }, [])
 
   return (
     <>
@@ -130,7 +130,6 @@ const HeadLines = () => {
           className=" flex   mt-[15px] gap-[10px] flex-wrap">
             {accordions.map((data, index) => (
               <div key={index}
-                data-aos="zoom-in-left"
                 style={{ boxShadow: " 0px 1px 3px 0 rgba(0, 0, 0, 0.25)" }}
                 className={`  flex cursor-pointer items-center flex-wrap   rounded-t-[10px]  rounded-b-[10px]  w-[809px] ${
                   data.isOpen ? "bg-[#00E2DC] dark:bg-slate-300" : "dark:bg-slate-700 bg-[#FFFFFF] h-[51px]"

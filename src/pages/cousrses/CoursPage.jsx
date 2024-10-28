@@ -18,6 +18,7 @@ import { useDispatch, useSelector } from "react-redux";
 // import { QuerySlice } from "../../core/redux/slices/QueryState/QueryRedux";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import NotFound from "../../components/notFound/NotFound";
 
 
 
@@ -52,8 +53,6 @@ const CoursPage = () => {
   console.log(dispatch);
 
 
-
-
   const params = {
     RowsOfPage:view1,
     PageNumber:page,  
@@ -65,7 +64,7 @@ const CoursPage = () => {
 
 
   const CoursesData = useCourses( search , params);
-  console.log(CoursesData);
+  console.log("CoursesData",CoursesData);
 
 
   const getCourseTop=useTopCourses()
@@ -295,19 +294,13 @@ const CoursPage = () => {
           {/* cards  */}
 
             <div className={` grid w-full z-10 mb-20
-                      ${view ? "grid-cols-1 mt-2":"grid-cols-3 max-lg:grid-cols-2 max-sm:justify-items-center max-sm:grid-cols-1 pt-0"}`}>
+                  ${view ? "grid-cols-1 mt-2":"grid-cols-3 max-lg:grid-cols-2 max-sm:justify-items-center max-sm:grid-cols-1 pt-0"}`}>
                 
-                 {view ? <>
-          {CoursesData.data?.courseFilterDtos.map((item) => (
-
-          
-            <CoursListCard {...item} />
-          ))}</> : <>
-          {CoursesData.data?.courseFilterDtos.map((item) => (
-
-          
-            <CoursGridCard {...item} />
-          ))}</>}
+              {view ? <>{CoursesData.data?.courseFilterDtos.length == 0  ? <NotFound/> : CoursesData.data?.courseFilterDtos.map((item) => (<CoursListCard {...item} /> ))}</> : <>                
+              
+                {CoursesData.data?.courseFilterDtos.length == 0  ?  <NotFound/> : CoursesData.data?.courseFilterDtos.map((item) => (<CoursGridCard {...item} /> ))}</>
+              }                 
+         
        
             </div>
 
