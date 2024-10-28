@@ -55,15 +55,15 @@ const Products = () => {
               
             "
           >
-            <svg
+              <svg
               width="210"
               height="170"
-              className=" fill-[#DDCAAD] dark:fill-[#f1f0ed]"
               viewBox="0 0 211 171"
+              className="fill-[#DDCAAD] dark:fill-[#dde7e7]"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <g filter="url(#filter0_b_109_528)">
+              <g filter="url(#filter0_bi_109_521)">
                 <path
                   d="M0 15.1985C0 6.91422 6.71573 0.198486 15 0.198486H51.0909C58.5121 0.198486 64.8315 5.70889 67.9544 12.4409C72.8742 23.0464 83.4832 36.6985 105.5 36.6985C127.796 36.6985 138.777 22.6981 143.906 12.0391C147.058 5.48827 153.295 0.198486 160.565 0.198486H196C204.284 0.198486 211 6.91422 211 15.1985V155.198C211 163.483 204.284 170.198 196 170.198H105.5H15C6.71573 170.198 0 163.483 0 155.198V15.1985Z"
                   fill=""
@@ -72,30 +72,55 @@ const Products = () => {
               </g>
               <defs>
                 <filter
-                  id="filter0_b_109_528"
-                  x="-5"
-                  y="-4.80151"
-                  width="221"
-                  height="180"
+                  id="filter0_bi_109_521"
+                  x="-4"
+                  y="-3.80151"
+                  width="219"
+                  height="178"
                   filterUnits="userSpaceOnUse"
                   color-interpolation-filters="sRGB"
                 >
                   <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                  <feGaussianBlur in="BackgroundImageFix" stdDeviation="2.5" />
+                  <feGaussianBlur in="BackgroundImageFix" stdDeviation="2" />
                   <feComposite
                     in2="SourceAlpha"
                     operator="in"
-                    result="effect1_backgroundBlur_109_528"
+                    result="effect1_backgroundBlur_109_521"
                   />
                   <feBlend
                     mode="normal"
                     in="SourceGraphic"
-                    in2="effect1_backgroundBlur_109_528"
+                    in2="effect1_backgroundBlur_109_521"
                     result="shape"
+                  />
+                  <feColorMatrix
+                    in="SourceAlpha"
+                    type="matrix"
+                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                    result="hardAlpha"
+                  />
+                  <feOffset dy="4" />
+                  <feGaussianBlur stdDeviation="2" />
+                  <feComposite
+                    in2="hardAlpha"
+                    operator="arithmetic"
+                    k2="-1"
+                    k3="1"
+                  />
+                  <feColorMatrix
+                    type="matrix"
+                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+                  />
+                  <feBlend
+                    mode="normal"
+                    in2="shape"
+                    result="effect2_innerShadow_109_521"
                   />
                 </filter>
               </defs>
             </svg>
+
+           
 
             {/* details section  */}
             <div className="p-4 text-center">
@@ -421,6 +446,7 @@ const Products = () => {
               </button>
             </div>
           </div>
+          
         </div>
       </div>
     </div>

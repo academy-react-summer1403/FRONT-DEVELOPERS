@@ -41,7 +41,7 @@ console.log(reportLanding)
     return (
       
         <div
-          className="container flex items-center gap-32  z-0 max-lg:flex-col
+          className="container flex items-center gap-32  z-0 max-lg:flex-col mt-2 max-lg:mt-20 max-md:mt-2
         min-h-[650px] "
         >
           <img src={BackImg} alt=""  className='w-full h-full absolute left-0 top-40 opacity-80 z-[0]'/>

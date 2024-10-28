@@ -196,7 +196,7 @@ body{
   }
 
   .famoustext{
-    @apply  w-[130px] max-xl:text-[22px] max-lg:text-[15px]  max-sm:text-[12px] text-center text-[25px]  text-[#006865] font-Yekan font-bold -rotate-45  absolute bottom-[50%] max-lg:bottom-[55%] max-lg:right-[0%]  right-[25%] 
+    @apply  w-[130px] max-xl:text-[22px] max-lg:text-[15px]  max-sm:text-[12px] text-center text-[25px]  text-green font-Yekan font-bold -rotate-45  absolute bottom-[50%] max-lg:bottom-[55%] max-lg:right-[0%]  right-[25%] 
   }
 
   .famousimg{
