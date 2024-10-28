@@ -213,9 +213,10 @@ const {t}=useTranslation()
 
             <button
               onClick={() => setShowMore(!showMore)}
-              
-              className="border-secondary/80  dark:border-[#E48900]  dark:text-[#fdb359]  absolute  bottom-7 left-[43%] border-[1px] text-secondary mt-[20.5px] hover:scale-105 ease-in-out duration-150 
-leading-[32px] font-normal font-Yekan text-[12px] flex items-center w-[120px] h-[35px] rounded-[25px] mx-auto justify-center gap-2 max-md:mt-[-50px]   "
+              className="border-secondary/80  dark:border-[#E48900]  dark:text-[#fdb359] border-[1px] absolute  bottom-7 left-[43%] 
+              text-secondary hover:scale-105 ease-in-out duration-150 
+              leading-[32px] font-normal font-Yekan text-[12px] flex items-center w-[120px] h-[35px] rounded-[25px] mx-auto justify-center gap-2 max-md:mt-[-50px]   "
+                           
             >
               {showMore ? (
                 <IoIosArrowDown />
