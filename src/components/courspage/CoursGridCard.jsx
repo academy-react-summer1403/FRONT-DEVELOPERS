@@ -27,7 +27,7 @@ const CoursGridCard = ({title , levelName , cost , teacherName , likeCount , cou
   return (
     // container 
   
-    <NavLink to={"/courses-detail/" + courseId} className='grid grid-col-1 h-[320px] mt-20
+    <NavLink to={"/courses-detail/" + courseId} className='grid grid-col-1 h-[320px] mt-20 max-sm:min-w-[310px] 
     mx-[10px] max-md:mx-0 
     '>
         {/* map part of card:  */}

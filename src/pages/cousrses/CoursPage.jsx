@@ -95,7 +95,7 @@ const CoursPage = () => {
   ];
 
   return (
-    <div className="xl:container px-2 z-10 h-full">
+    <div className="xl:container px-2 z-10 h-full ">
       <img
         src={BackImg}
         alt=""
@@ -112,16 +112,16 @@ const CoursPage = () => {
         transition={{ type: "spring", stiffness: 100, delay: 0.2 }}
         className="flex flex-row  rounded-lg my-10 px-4 mx-12 shadow-md bg-primary/5
         dark:bg-gray-700/70
-        max-md:flex-col max-md:m-4
-        max-sm:flex-col max-sm:m-4
-        max-lg:flex-col
+        max-md:flex-col max-md:mx-4
+        max-sm:flex-col max-sm:mx-4
+        max-lg:flex-col max-lg:mt-14
         max-xl:flex-row  
         "
       >
         {/* hero vector */}
         <div
           className=" w-[90%] 
-            max-lg:h-[400px]
+            max-lg:h-[400px] 
             max-md:h-[400px]
              relative"
         >
@@ -294,7 +294,7 @@ const CoursPage = () => {
           {/* cards  */}
 
             <div className={` grid w-full z-10 mb-20
-                  ${view ? "grid-cols-1 mt-2":"grid-cols-3 max-lg:grid-cols-2 max-sm:justify-items-center max-sm:grid-cols-1 pt-0"}`}>
+                  ${view ? "grid-cols-1 mt-2":"grid-cols-3 max-lg:grid-cols-2 max-sm:justify-items-center max-sm:grid-cols-1  pt-0"}`}>
                 
               {view ? <>{CoursesData.data?.courseFilterDtos.length == 0  ? <NotFound/> : CoursesData.data?.courseFilterDtos.map((item) => (<CoursListCard {...item} /> ))}</> : <>                
               

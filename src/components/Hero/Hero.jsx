@@ -38,7 +38,7 @@ console.log(reportLanding)
   const  CourseSearchBar =  useCourseLandingSearchBar(params)
   console.log(CourseSearchBar) 
 
-  const  NewsSearchBar =  useNewsLandingSearchBar(params)
+  const  NewsSearchBar =  useNewsLandingSearchBar( params)
   console.log( NewsSearchBar) 
 
   const [chooseSearch, setChooseSearch] = useState()
@@ -203,31 +203,40 @@ console.log(reportLanding)
                 {/* select course or news  */}
                 <div className='hidden group-hover:block absolute top-16 w-full grid shadow-md bg-white dark:bg-gray-500 rounded-lg p-4 gap-3 text-darkgreen dark:text-white text-md'>
                     <button onClick={()=>setChooseSearch("cuorses")} 
-                    className={`'w-full text-right hover:bg-primary/30 dark:hover:bg-secondary p-3 rounded-lg' `}
+                    className={`${chooseSearch =="cuorses" ? "bg-secondary" : "bg-none"} w-full text-right hover:bg-primary/30 dark:hover:bg-secondary p-3 rounded-lg `}
                     > 
                     جست و جو در دوره ها
                     </button>
-                    <button  onClick={()=>setChooseSearch("news")} className='w-full text-right hover:bg-primary/30 dark:hover:bg-secondary p-3 rounded-lg'>  جست و جو در اخبار و مقالات</button>
+                    
+                    <button  onClick={()=>setChooseSearch("news")} 
+                    className={`${chooseSearch == "news" ? "bg-secondary" : "bg-none"} w-full text-right hover:bg-primary/30 dark:hover:bg-secondary p-3 rounded-lg `} 
+                    >
+                     جست و جو در اخبار و مقالات
+                    </button>
                 </div>
 
                 {/* result  */}
 
-              <div className='w-[400px] top-[55px] max-h-[350px] z-[5000] left-3 bg-white overflow-x-hidden
+              <div className='w-[400px] top-[55px] max-h-[350px] z-[5000] left-3 bg-white overflow-x-hidden border border-red-500
               absolute flex flex-col shadow-lg rounded-lg mt-4  overflow-scroll px-2 scrollbar scrollbar-thumb-slate-400 scrollbar-track-slate-600'>
 
-                { chooseSearch == "news"? 
-                     NewsSearchBar.data?.news.map((data)=>(
-                    <NavLink to={"/article-detail/" + data?.id} >
-                    <div className=' h-[80px] w-full items-center p-2 flex  relative justify-end gap-3 hover:bg-slate-100'>
-                    <SlArrowLeft className='text-[8px] text-orange  absolute left-[3px]  bottom-[30px]' />
-                      <p className=' text-[10px] text-orange  absolute left-3 bottom-7'>مشاهده خبر</p> 
-                      
-                       <p className='text-black text-right text-sm mt-1 cursor-pointer z-[5000]  '>{data?.title}</p>  
-                       <img className='w-[90px] h-[75px] rounded-lg border ' src={data?.currentImageAddressTumb} onError={ImageErrore} alt="" />
-                    </div>
-                    <hr /></NavLink>
+                { 
+                  chooseSearch == "news"? 
+                    NewsSearchBar.data?.news.map((data)=>(
+                        <div>
+                        <NavLink to={"/article-detail/" + data?.id}  className=' h-[80px] w-full items-center p-2 flex  relative justify-end gap-3 hover:bg-slate-100'>
+                        <SlArrowLeft className='text-[8px] text-orange  absolute left-[3px]  bottom-[30px]' />
+                          <p className=' text-[10px] text-orange  absolute left-3 bottom-7'>مشاهده خبر</p> 
+                          
+                          <p className='text-black text-right text-sm mt-1 cursor-pointer z-[5000]  '>{data?.title}</p>  
+                          <img className='w-[90px] h-[75px] rounded-lg border ' src={data?.currentImageAddressTumb} onError={ImageErrore} alt="" />
+                        </NavLink >
+                        <hr /></div>
+                   
+                    
                   
-                    )) :  CourseSearchBar.data?.courseFilterDtos.map((data)=>(
+                    
+                    )) :     CourseSearchBar.data?.courseFilterDtos.map((data)=>(
                     
                       <NavLink to={"/courses-detail/" + data?.courseId} >
                       <div className=' h-[80px] w-full items-center p-2 flex  relative justify-end gap-3 hover:bg-slate-100'>
@@ -238,8 +247,7 @@ console.log(reportLanding)
                          <img className='w-[90px] h-[75px] rounded-lg border ' src={data?.tumbImageAddress} onError={ImageErrore} alt="" />
                       </div>
                       <hr /></NavLink>
-                    
-                  )) 
+                     )) 
                   
                 }
 
