@@ -3,7 +3,7 @@ import { IoPersonOutline } from 'react-icons/io5'
 import { IoIosArrowBack } from 'react-icons/io'
 import alert from '../../../assets/dashboard/Frame.svg'
 
-import { useCourseDash, useCourseDash2, useMyCourses} from '../../../core/services/query/DashboardQuery'
+import { useCourseDash, useCourseDash2, useMyCourses, useReserv} from '../../../core/services/query/DashboardQuery'
 import DonutBarChart from './DonutBarChart'
 import DateApi from '../../../components/DateApi'
 
@@ -12,6 +12,9 @@ import DateApi from '../../../components/DateApi'
 
 const StdDashboard = () => {
 
+
+  const getReservInfo = useReserv()
+  console.log(getReservInfo.data?.length)
 
   const getMyCourses = useMyCourses();
   console.log(getMyCourses?.data)
@@ -69,7 +72,7 @@ const StdDashboard = () => {
               <path d="M15.0938 17.125H16.9995C17.7007 17.125 18.3126 17.5966 18.4941 18.2731L19.0207 20.249M19.0207 20.249C26.6804 20.0343 34.3327 20.8858 41.7578 22.779C40.6248 26.1532 39.2786 29.4313 37.7373 32.5938H22.3125M19.0207 20.249L22.3125 32.5938M22.3125 32.5938C21.2185 32.5938 20.1693 33.0283 19.3957 33.8019C18.6221 34.5755 18.1875 35.6247 18.1875 36.7188H39.8438M20.25 40.8438C20.25 41.1173 20.1414 41.3796 19.948 41.573C19.7546 41.7664 19.4923 41.875 19.2188 41.875C18.9452 41.875 18.6829 41.7664 18.4895 41.573C18.2961 41.3796 18.1875 41.1173 18.1875 40.8438C18.1875 40.5702 18.2961 40.3079 18.4895 40.1145C18.6829 39.9211 18.9452 39.8125 19.2188 39.8125C19.4923 39.8125 19.7546 39.9211 19.948 40.1145C20.1414 40.3079 20.25 40.5702 20.25 40.8438ZM37.7812 40.8438C37.7812 41.1173 37.6726 41.3796 37.4792 41.573C37.2858 41.7664 37.0235 41.875 36.75 41.875C36.4765 41.875 36.2142 41.7664 36.0208 41.573C35.8274 41.3796 35.7188 41.1173 35.7188 40.8438C35.7188 40.5702 35.8274 40.3079 36.0208 40.1145C36.2142 39.9211 36.4765 39.8125 36.75 39.8125C37.0235 39.8125 37.2858 39.9211 37.4792 40.1145C37.6726 40.3079 37.7812 40.5702 37.7812 40.8438Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
                 <div className='ml-14'>
-                  <p className='text-xl text-secondary font-semibold'>2دوره </p>
+                  <p className='text-xl text-secondary font-semibold'>{getReservInfo.data?.length}دوره </p>
                   <p className='text-lg text-gray-400'>رزرو کردید</p>
                 </div>           
             </div>  

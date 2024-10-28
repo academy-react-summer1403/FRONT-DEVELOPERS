@@ -13,17 +13,17 @@ const DonutBarChart = () => {
 
 
   const getProfInfo = useProfileInfo()
-  console.log(getProfInfo)
+  console.log(getProfInfo.data?.profileCompletionPercentage)
   
   
   const data = [
-    {name:"Electronics" , value:8500},
+    {name:"Electronics" , value:getProfInfo.data?.profileCompletionPercentage},
     {name:"Clothing" , value:3200},
 
 
 ]
 
-const COLORS = ["orange" , "white" ]
+const COLORS = ["white" , "orange" ]
 
 
 
@@ -40,7 +40,7 @@ const COLORS = ["orange" , "white" ]
         width={"100%"}
         height={"100%"}
         >
-            <h1 className='absolute top-[70px] left-[65px] text-gray-500 dark:text-white'>salam </h1>
+            <h1 className='absolute top-[70px] left-[65px] text-gray-500 text-[25px] dark:text-white'>{getProfInfo.data?.profileCompletionPercentage}% </h1>
       <PieChart >
         <Pie  
           

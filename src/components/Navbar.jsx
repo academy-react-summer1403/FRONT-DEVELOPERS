@@ -3,16 +3,14 @@ import { motion } from 'framer-motion'
 import FavImg from "../assets/landing/Favorite.svg";
 import ShopImg from "../assets/landing/Shopping Bag.svg";
 import UserImg from "../assets/landing/user.png";
-<<<<<<< HEAD
-// import Logo from "../assets/landing/logo1.svg";
-import DarkMode from './DarkMode';
-=======
->>>>>>> 7744bf688d8531eb97b337bb6458994f350dd84f
 import { NavLink } from 'react-router-dom';
 import { CgProfile } from "react-icons/cg";
 import Lg from './Translate/TranslateButton';
 import { useTranslation } from 'react-i18next';
 import Logo from './Logo';
+import { useUserProfile } from '../core/services/query/DashboardQuery';
+import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 
 
 
@@ -48,6 +46,10 @@ const Navbar = () => {
   },
 ]
 
+
+    const userImageProfile = useUserProfile()
+    console.log(userImageProfile.data)
+
   return (
     <motion.div  className='z-[200] max-md:px-3 '
     initial={{opacity:0}}
@@ -68,8 +70,8 @@ const Navbar = () => {
                             dark:hover:shadow-slate-700 dark:hover:shadow-md z-50
                             transition-shadow'>
                         <NavLink to={"/auth"} >
-                            <img src={UserImg} alt="" className='w-7 h-7  absolute top-1.5 left-4'/>
-                            <h1 className='text-sm  font-semibold text-white text-right leading-9 mr-3 py-1 '>{t('person')}</h1>
+                            <img src={userImageProfile ? userImageProfile.data?.currentPictureAddress : UserImg} alt="" className='w-[40px] h-[40px] rounded-full absolute top-[4px] left-2  border-[2px]   '/>
+                            <h1 className='text-sm  font-semibold text-white text-right leading-9 mr-3 py-1 '>{t(userImageProfile.data?.fName)} {t(userImageProfile.data?.lName)}</h1>
                         </NavLink> 
                         
                 

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Famous from '../../components/famous/Famous'
 import Learning from '../../components/learning/Learning'
 import BestTeachers from '../../components/BestTeachers/BestTeachers'
@@ -12,6 +12,7 @@ import Hero from '../../components/Hero/Hero'
 
 
 const Landing = () => {
+
 
   return (
 

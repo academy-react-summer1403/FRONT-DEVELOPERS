@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useLevelCourses } from '../../core/services/query/queries';
 import { Add } from '../../core/redux/slices/QueryState/QueryRedux';
@@ -9,6 +9,11 @@ const LevelFilter = () => {
     console.log(query);
   
     const dispatch = useDispatch();
+
+    const [filter,setFilter]=useState(true)
+    const [filter2,setFilter2]=useState(true)
+    const [filter3,setFilter3]=useState(true)
+
 
    const Levels = useLevelCourses()
     console.log(Levels)
@@ -23,7 +28,10 @@ const LevelFilter = () => {
         type="checkbox"
         name="checkbox"
         className="ml-2 cursor-pointer z-[800]"
-        onClick={() => dispatch(Add(1))}
+        onClick={
+          filter ? () => dispatch((Add(1)),setFilter(false)):
+          () => dispatch((Add("")),setFilter(true))
+         }
       />
       </div>
       <div className="flex flex-row justify-end -ml-[3px]">
@@ -32,7 +40,10 @@ const LevelFilter = () => {
         type="checkbox"
         name="checkbox"
         className="ml-2 cursor-pointer z-[800]"
-        onClick={() => dispatch(Add(2))}
+        onClick={
+          filter2 ? () => dispatch((Add(2)),setFilter(false)):
+          () => dispatch((Add("")),setFilter2(true))
+         }
       />
       </div>
         <div className=" flex flex-row justify-end">
@@ -41,7 +52,10 @@ const LevelFilter = () => {
         type="checkbox"
         name="checkbox"
         className="ml-2 cursor-pointer z-[800]"
-        onClick={() => dispatch(Add(3))}
+        onClick={
+          filter3 ? () => dispatch((Add(3)),setFilter(false)):
+          () => dispatch((Add("")),setFilter3(true))
+         }
       /> 
         </div>
    

@@ -3,6 +3,7 @@ import { IoEyeOutline } from 'react-icons/io5'
 import { TbTrash } from 'react-icons/tb'
 import { NavLink } from 'react-router-dom'
 import { useReserv } from '../../../core/services/query/DashboardQuery'
+import { ImageErrore } from '../../ImageErrore'
 
 const ReserveMap = () => {
 
@@ -39,12 +40,10 @@ const ReserveMap = () => {
             <li className='col-1 my-5'></li>
             <li className='col-1 my-5'>{item?.reserverDate}</li>
             <li className='col-1 my-5'>{item?.studentName}</li>
+            <li className='col-1 my-5'>{item?.courseName}</li>
+
             <li className='col-1'>
-                <p
-                
-                alt=""
-                className='rounded-full border w-12 h-12 col-1 shadow-md my-1 leading-[50px]'
-                >{item?.courseName}</p>
+                <img  alt="" className='rounded-full border w-12 h-12 col-1 shadow-md my-1 leading-[50px]'/>
             </li>
          
         </ul>

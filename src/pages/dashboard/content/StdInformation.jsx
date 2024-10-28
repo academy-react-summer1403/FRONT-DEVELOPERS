@@ -6,13 +6,17 @@ import { useUserProfile } from '../../../core/services/query/DashboardQuery'
 
 
 
+
 const StdInformation = () => {
+
 
 
 
   const userProfile = useUserProfile()
   console.log(userProfile.data?.currentPictureAddress)
 
+
+  
 
   return (
     <div style={{boxShadow:"0px 1px 1px 1px rgba(0,0,0,0.1)"}}
