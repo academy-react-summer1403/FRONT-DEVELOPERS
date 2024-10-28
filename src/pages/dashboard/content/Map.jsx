@@ -24,6 +24,8 @@ const Map = () => {
 
  ]
 
+//  const createCustom
+
 
   return (
  
@@ -34,7 +36,10 @@ const Map = () => {
             
         />
 
-        <MarkerClusterGroup>
+        <MarkerClusterGroup
+            chunkedLoading
+            // iconCreateFunction={}
+        >
 
              {markers.map((marker)=>(
             <Marker position={marker.geocode}>

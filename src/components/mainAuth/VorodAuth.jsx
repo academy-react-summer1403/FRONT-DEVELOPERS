@@ -57,7 +57,7 @@ const dispatch = useDispatch()
 
           dispatch(handleToken(token))
     
-  
+ 
   
 
 
@@ -78,7 +78,6 @@ navigate("/")
 }
     
 
-  
 
  
     

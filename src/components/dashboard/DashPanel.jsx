@@ -10,6 +10,9 @@ import DashNavbar from './DashNavbar'
 import { useUserProfile } from '../../core/services/query/DashboardQuery'
 import { ImageErrore } from '../ImageErrore'
 import DarkMode from '../DarkMode'
+import { removeItem } from '../../core/services/Storage/Storage.Services'
+import { useDispatch, useSelector } from 'react-redux'
+import { handleToken } from '../../core/redux/slices/QueryState/TokenSlice'
 
 
 
@@ -97,6 +100,27 @@ const DashPanel = () => {
     ]
 
     
+    const [remove , setRemove] = useState(false)
+
+    const dispatch = useDispatch()
+
+
+    const user = useSelector((state) => state.TokenSlice)
+
+    console.log("user" , user)
+     
+     const token = user?.token
+     console.log(token)   
+
+    const handleLogout = (token)=>{
+        localStorage.removeItem("token" , token);    
+        setRemove(false)
+    }
+
+    dispatch(handleToken(remove))
+  
+
+
 
     const [resposive, setResposive] = useState(false)
     const HandeleResposive=()=>{
@@ -191,13 +215,17 @@ const DashPanel = () => {
                 </ul>
 
                 {/* logout section    */}
-                <NavLink to={"/"} className={`flex flex-row gap-1 text-darkgreen text-sm font-semibold bottom-8 right-12 absolute
+                <NavLink
+                 onClick={handleLogout}
+                to={"/"} className={`flex flex-row gap-1 text-darkgreen text-sm font-semibold bottom-8 right-12 absolute
                     max-sm:${resposive ? " " : "hidden"}  
                     max-md:gap-0
                     max-lg:right-6
                     
                     `}>                         
-                    <div className={`max-lg:${resposive ? "block" : "hidden"} 
+                    <div 
+                       
+                    className={`max-lg:${resposive ? "block" : "hidden"} 
                     max-sm:${resposive ? "block" : "hidden"} 
                     `}>خروج از حساب</div>               
                     <img src={logout}/>

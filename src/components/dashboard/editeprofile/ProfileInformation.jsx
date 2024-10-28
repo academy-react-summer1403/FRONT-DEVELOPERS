@@ -7,6 +7,7 @@ import { userImg } from '../../../core/redux/slices/QueryState/UserSlice'
 import Map from '../../../pages/dashboard/content/Map'
 
 
+
 const ProfileInformation = () => {
 
     
@@ -28,7 +29,7 @@ const ProfileInformation = () => {
             {/* left:  */}
         <div className='grid grid-col-1 pr-8 gap-6 '>
             <div className='flex flex-row-reverse gap-2 text-right'> 
-                <p className='text-orange dark:text-amber-400 font-medium '> {userProfile.data?.phoneNumber ?  userProfile.data?.phoneNumber : "--"}        <span className='text-gray-400  dark:text-white'> :شماره ی همراه </span></p>
+                <p className='text-orange dark:text-amber-400 font-medium '>{userProfile.data?.phoneNumber ?  userProfile.data?.phoneNumber : "--"}<span className='text-gray-400  dark:text-white'> :شماره ی همراه </span></p>
             </div>
 
             <div className='flex flex-row-reverse gap-2 text-right'>                 

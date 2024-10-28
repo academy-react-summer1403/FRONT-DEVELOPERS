@@ -10,8 +10,8 @@ const TokenSlice = createSlice({
         handleToken : (state , action) =>{
             console.log(action)
             state.token = action.payload
-        }
-      
+        },
+
     },
 
 
