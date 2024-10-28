@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import 'react-tooltip/dist/react-tooltip.css'
 import { Tooltip } from 'react-tooltip'
 import { useUserProfile } from '../../../core/services/query/DashboardQuery'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { userImg } from '../../../core/redux/slices/QueryState/UserSlice'
 import Map from '../../../pages/dashboard/content/Map'
 
@@ -24,6 +24,9 @@ const ProfileInformation = () => {
         dispatch(userImg(ImageId))
 
 
+        const location = useSelector((state) => state.LocationSlice.location);
+        console.log(location);
+
   return (
     <div className='grid grid-cols-2 mt-4 justify-items-center text-[15px]'>
             {/* left:  */}
@@ -41,7 +44,7 @@ const ProfileInformation = () => {
             </div>
 
             <div className='flex flex-row-reverse text-right'>                
-                <p className='text-orange dark:text-amber-400 font-medium w-[80%]'>{userProfile.data?.homeAdderess ? userProfile.data?.homeAdderess : "--"}<span className='text-gray-400 dark:text-white w-42'>: آدرس</span> </p>
+                <p className='text-orange dark:text-amber-400 font-medium w-[90%]'> <span className='text-gray-400 dark:text-white w-42'> آدرس :</span> {location ? location : "--"} </p>
             </div>
 
             <div className='grid grid-cols-2 gap-4'> 

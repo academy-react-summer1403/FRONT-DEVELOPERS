@@ -18,7 +18,7 @@ const MainFilter = () => {
 
 
   const category = useCategoryCourses();
-  console.log(category.data?.[0].techName);
+  console.log(category.data?.[0].id);
 
   
 
@@ -34,7 +34,7 @@ const MainFilter = () => {
             name="checkbox"
             className="ml-2 cursor-pointer z-[800]"
             onClick={
-             filter ? () => dispatch((Add(1)),setFilter(false)):
+             filter ? () => dispatch((Add(category.data?.[0].id)),setFilter(false)):
              () => dispatch((Add("")),setFilter(true))
             }
           />
@@ -46,7 +46,7 @@ const MainFilter = () => {
             name="checkbox"
             className="ml-2 cursor-pointer z-[800]"
             onClick={
-              filter2 ? () => dispatch((Add(2)),setFilter2(false)):
+              filter2 ? () => dispatch((Add(category.data?.[1].id)),setFilter2(false)):
               () => dispatch((Add("")),setFilter2(true))
              }
           />
@@ -58,7 +58,7 @@ const MainFilter = () => {
             name="checkbox"
             className="ml-2 cursor-pointer z-[800]"
             onClick={
-              filter3 ? () => dispatch((Add(3)),setFilter3(false)):
+              filter3 ? () => dispatch((Add(category.data?.[2].id)),setFilter3(false)):
               () => dispatch((Add("")),setFilter3(true))
              }
           /> 
@@ -70,7 +70,7 @@ const MainFilter = () => {
             name="checkbox"
             className="ml-3 cursor-pointer z-[800]"
             onClick={
-              filter4 ? () => dispatch((Add(4)),setFilter4(false)):
+              filter4 ? () => dispatch((Add(category.data?.[3].id)),setFilter4(false)):
               () => dispatch((Add("")),setFilter4(true))
              }
           />
