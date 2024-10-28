@@ -196,7 +196,7 @@ console.log(reportLanding)
                  
                 />
 
-<div className=' w-[400px] top-[55px] max-h-[350px] z-[5000] left-3 bg-white absolute flex flex-col shadow-lg rounded-lg mt-4  overflow-scroll px-2 scrollbar scrollbar-thumb-slate-400 scrollbar-track-slate-600'>
+<div className=' w-[400px] top-[55px] max-h-[350px] z-[5000] left-3 bg-white overflow-x-hidden absolute flex flex-col shadow-lg rounded-lg mt-4  overflow-scroll px-2 scrollbar scrollbar-thumb-slate-400 scrollbar-track-slate-600'>
                 {
                    CourseSearchBar.data?.courseFilterDtos.map((data)=>(
                     
