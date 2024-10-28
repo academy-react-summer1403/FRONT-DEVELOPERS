@@ -3,7 +3,6 @@ import GameImg from "../../assets/landing/game.svg";
 import PCImg from "../../assets/landing/pc.svg";
 import SecurityImg from "../../assets/landing/security.svg";
 import BarImg from "../../assets/landing/bar.svg";
-import BGImg from "../../assets/landing/BG.svg";
 import AOS from "aos";
 import 'aos/dist/aos.css';
 import { useTranslation } from 'react-i18next';
@@ -33,7 +32,7 @@ const Famous = () => {
     
 
 
-        <div  className='flex h-[495px] max-sm:bg-primary/30 max-sm:h-[395px] max-sm:my-12 '>
+        <div  className='flex h-[495px] max-sm:bg-primary/20 max-sm:h-[395px] max-sm:my-12 '>
 
         <svg className=' w-full max-sm:hidden' height="496" viewBox="0 0 1439 496" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g filter="url(#filter0_b_109_478)">
@@ -73,7 +72,7 @@ const Famous = () => {
 
                 <div  style={{boxShadow:" 3px 3px 8px 0px #00000080 inset"}} 
                  className='famous'>
-                  <h1 className="famoustext">
+                  <h1 className="w-[130px]  max-xl:text-[24px] max-sm:text-[10px] max-sm:right-[2%] max-lg:text-[14px] max-lg:bottom-[50%] max-lg:right-[10%] text-center text-[25px] text-green font-Yekan font-bold -rotate-45  absolute bottom-[40%]  right-[25%]">
                   {t("web")}</h1>
                   <img src={PCImg} alt="" className='famousimg '/></div>
     
