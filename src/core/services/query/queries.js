@@ -16,10 +16,10 @@ import {
 } from "../getApi";
 
 
-export function useNewsData(params , page ) {
+export function useNewsData(params , page,rows ) {
   return useQuery({
-    queryKey: ["news", params,page ],
-    queryFn: () => getNews( params, page  ),
+    queryKey: ["news", params,page,rows  ],
+    queryFn: () => getNews( params, page ,rows  ),
   });
 }
 
