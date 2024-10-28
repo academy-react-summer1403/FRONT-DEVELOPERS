@@ -183,7 +183,7 @@ console.log(reportLanding)
              variants={SliderRight(1.0)}
              initial="hidden"
              animate="visible"
-              className="relative flex bg-white dark:bg-gray-600  max-md:z-50 rounded-[35px] max-lg:mt-[-80px] max-xl:w-[315px] max-lg:w-full h-[65px] w-[415px] z-[5000]"
+              className="relative group flex bg-white dark:bg-gray-600  max-md:z-50 rounded-[35px] max-lg:mt-[-80px] max-xl:w-[315px] max-lg:w-full h-[65px] w-[415px] z-[5000]"
             >
               <div className='w-[48px] h-[49px] rounded-full bg-orange absolute left-[10px] top-[8px] flex items-center justify-center'>
                 <img src={SearchImg} alt="" className='px-1.5 py-1.5'/>
@@ -195,8 +195,16 @@ console.log(reportLanding)
                 font-Yekan text-[#AAAAAA] text-[16px] pr-5 outline-none dark:bg-gray-600 ' 
                  
                 />
+                {/* select course or news  */}
+                <div className='absolute grid sadow-md rounded-md '>
+                    <button className=''> search in course</button>
+                    <button className=''> search in news</button>
+                </div>
 
-<div className=' w-[400px] top-[55px] max-h-[350px] z-[5000] left-3 bg-white overflow-x-hidden absolute flex flex-col shadow-lg rounded-lg mt-4  overflow-scroll px-2 scrollbar scrollbar-thumb-slate-400 scrollbar-track-slate-600'>
+                {/* result  */}
+
+              <div className=' w-[400px] top-[55px] max-h-[350px] z-[5000] left-3 bg-white overflow-x-hidden
+              absolute flex flex-col shadow-lg rounded-lg mt-4  overflow-scroll px-2 scrollbar scrollbar-thumb-slate-400 scrollbar-track-slate-600'>
                 {
                    CourseSearchBar.data?.courseFilterDtos.map((data)=>(
                     

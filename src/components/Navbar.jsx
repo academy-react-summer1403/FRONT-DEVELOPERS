@@ -96,11 +96,11 @@ const Navbar = () => {
                             NavbarMenu.map((item)=>(
                                 <li key={item.id}>
                                     <NavLink to={item.link}
-                                        className={({isActive})=>`${isActive ? "lg:text-orange max-lg:text-orange dark:text-orange" :" "}
+                                        className={({isActive})=>`${isActive ? "text-orange" :" dark:text-white"}
                                         inline-block justify-center text-[#555555]
                                         text-[17px]  font-medium max-xl:text-base max-xl:text-right whitespace-nowrap  py-1 px-2 xl:px-3
                                         hover:text-secondary  transition-all duration-300 max-sm:text-[10px] max-lg:text-sm  max-lg:text-white max-lg:mt-0
-                                        mt-8 dark:text-white  dark:hover:text-orange`}
+                                        mt-8   dark:hover:text-orange`}
                                     >{item.title}</NavLink>
                                 </li>
                             ))
