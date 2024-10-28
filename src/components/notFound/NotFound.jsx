@@ -5,7 +5,7 @@ const NotFound = () => {
     
   return (
     
-    <div className='w-96  absolute left-[30%] flex flex-col mx-auto my-12 text-2xl text-secondary '>
+    <div className='w-96  z-[99999] flex flex-col mx-auto my-12 text-2xl text-secondary '>
       {/* <svg xmlns="http://www.w3.org/2000/svg" width="258.581" height="282.435" viewBox="0 0 258.581 282.435">
         <g id="Component_20_1" data-name="Component 20 – 1">
           <path id="Path_50" data-name="Path 50" d="M0,0H170.747L203,27.483V268H21A21,21,0,0,1,0,247Z" transform="translate(0 7.153)" className='fill-primary/40'/>
