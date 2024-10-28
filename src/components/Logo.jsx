@@ -3,8 +3,8 @@ import React from 'react'
 
 const Logo = () => {
   return (
-    <div >
-        <svg id="LOGO" xmlns="http://www.w3.org/2000/svg" className='w-3/4  ml-8' height="79" viewBox="0 0 272.01 79">
+    <div className=' w-3/4 max-xl:w-full' >
+        <svg id="LOGO" xmlns="http://www.w3.org/2000/svg"  className=' max-xl:w-3/4 max-sm:w-full max-xl:ml-16 max-lg:ml-24 max-sm:ml-0' height="79" viewBox="0 0 272.01 79">
           <g id="Component_14_1" data-name="Component 14 – 1" transform="translate(79.01)">
             <text id="FRONT" transform="translate(96 52)" className='fill-green' font-size="45" font-family="ArialRoundedMTBold, Arial Rounded MT" letter-spacing="0.001em"><tspan x="-96.36" y="0">FRONT</tspan></text>
             <text id="DEVELOLPERS" transform="translate(96 74)" className='fill-green' font-size="20" font-family="ArialRoundedMTBold, Arial Rounded MT" letter-spacing="0.001em"><tspan x="-93.655" y="-0">DEVELOLPERS</tspan></text>

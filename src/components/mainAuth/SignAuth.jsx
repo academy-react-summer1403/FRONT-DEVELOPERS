@@ -54,12 +54,12 @@ console.log(phoneNumber)
       />
 
       {/* hero image  */}
-      <div className="flex justify-center items-center relative ">
+      <div className="flex justify-center items-center relative">
         <motion.div
           initial={{ opacity: 0, x: 200 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ type: "spring", stiffness: 100, delay: 0.2 }}
-          className="w-[800px]  h-[500px] mt-[10px]
+          className="w-[800px]  h-[500px] mt-[10px] relative
        rounded-2xl 
         "
         >
@@ -85,7 +85,8 @@ console.log(phoneNumber)
           </div>
 
           
-          <div className="w-full h-full border border-[#fff0] relative"><img
+          <div className="w-full h-full border border-[#fff0] relative ">
+            <img
             src={Background}
             alt=""
             className="w-full h-full opacity-80 dark:opacity-50 absolute top-0 left-0  "
@@ -96,7 +97,7 @@ console.log(phoneNumber)
               transition={{ type: "spring", stiffness: 100, delay: 0.2 }}
               //   src={HeroAImg}
               alt=""
-              className="w-[350px] h-[360px]  mx-auto mt-[10%] max-md:mt-[15%]   "
+              className="w-[350px] h-[360px]  mx-auto mt-[10%] max-md:mt-[15%] relative  "
             >
 
 
@@ -169,6 +170,7 @@ console.log(phoneNumber)
                 </p>
                 <img src={Squer} alt="" />
               </motion.div>
+
             </motion.div>
           </div>
         </motion.div>

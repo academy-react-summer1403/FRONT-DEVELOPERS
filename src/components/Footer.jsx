@@ -39,7 +39,7 @@ const Footer = () => {
     <div className='relative mt-10 w-full'>
         
 
-        <div className='relative  w-full flex justify-center items-center h-[500px] max-[1015px]:bg-primary/20 '>       
+        <div className='relative  w-full flex justify-center items-center max-md:h-[540px] h-[500px] max-[1015px]:bg-primary/20 '>       
         
             <svg className='absolute bottom-0 w-full h-[75%] max-l:h-[65%]  mx-auto max-[1015px]:hidden' width="1440" height="364" viewBox="0 0 1440 364" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g filter="url(#filter0_b_109_620)">
@@ -56,13 +56,14 @@ const Footer = () => {
             </svg>
 
 
-            <div className='container mx-0 px-0 grid grid-cols-3 justify-center items-center w-full h-[400px] 
-                max-md:flex max-md:flex-col-reverse  max-md:top-[0px] absolute top-[100px]
+            <div className='absolute xl:container mx-0 px-0 grid grid-cols-3 justify-center items-center w-full h-[400px] top-[100px]
+                max-md:flex max-md:flex-col-reverse  max-md:top-[10px] max-md:h-[440px]
+                max-[1015px]:top-[20px] 
             '>
 
                 {/* left section  */}
-                <div className='grid-col-1 mt-40  px-4 grid grid-cols-3 
-                    max-md:h-[100px]  max-md:px-0 max-md:mt-0 max-md:mb-8
+                <div className=' grid-col-1 mt-40  px-4 grid grid-cols-3 
+                    max-md:h-[100px]  max-md:px-0 max-md:mt-0 max-md:mb-1
                 '>
                     <div className='grid-col-1 h-[20%]  grid justify-items-end 
                     max-xl:ml-[40px] 
@@ -80,7 +81,7 @@ const Footer = () => {
                     </ul>
 
                     <ul className='grid-col-1 h-[20%] flex flex-col  max-lg:text-xs max-md:mr-[10px]  text-right text-sm '>
-                    <NavLink to={'/courses'} className='w-full  text-green/70 cursor-pointer hover:text-orange  transition-colors relative pr-4 group'><div className='absolute right-0 top-2 w-1.5 h-1.5 bg-green/80 group-hover:bg-orange rounded-full'> {t("courses")}</div></NavLink>
+                    <NavLink to={'/courses'} className='w-full  text-green/70 cursor-pointer hover:text-orange  transition-colors relative pr-4 group'><div className='absolute right-0 top-2 w-1.5 h-1.5 bg-green/80 group-hover:bg-orange rounded-full'></div>{t("courses")}</NavLink>
                     <NavLink to={'/article-news'} className='w-full  text-green/70 cursor-pointer hover:text-orange  transition-colors relative pr-4 group'><div className='absolute right-0 top-2 w-1.5 h-1.5 bg-green/80 group-hover:bg-orange rounded-full'></div>{t("news")} </NavLink>
                     <NavLink to={'/'} className='w-full  text-green/70 cursor-pointer hover:text-orange  transition-colors relative pr-4 group'><div className='absolute right-0 top-2 w-1.5 h-1.5 bg-green/80 group-hover:bg-orange rounded-full'></div> {t("Podcasts")}</NavLink>
                     <NavLink to={'/'} className='w-full  text-green/70 cursor-pointer hover:text-orange  transition-colors relative pr-4 group'><div className='absolute right-0 top-2 w-1.5 h-1.5 bg-green/80 group-hover:bg-orange rounded-full'></div> {t("call")} </NavLink>
@@ -90,12 +91,14 @@ const Footer = () => {
                 </div>
 
                 {/* middle  */}
-                <div className='grid-col-1 max-md:w-1/2 flex flex-col justify-center h-full pl-2 max-md:pl-0 max-md:mb-8'>
-                    <div className='w-full h-[40%] flex justify-center'>
+                <div className='grid-col-1 max-md:w-1/2 max-sm:w-full flex flex-col justify-center h-full pl-2 max-md:pl-0 max-md:mb-0'>
+                    <div className='w-full mt-4 max-md:mt-0 h-[40%] flex justify-center max-md:mb-8'>
                         <FooterLogo />
-                        {/* <img src={Logo} alt="" className='w-[190px] pb-2 mt-10 max-md:mt-0'/> */}
                     </div>
-                    <div className=' h-8 w-[60%] max-lg:w-[80%] max-sm:w-full leading-8 rounded-full mx-auto flex justify-center bg-green text-white '>
+                    <div className=' h-8 w-[60%] leading-8 rounded-full mx-auto flex justify-center bg-green text-white
+                     max-md:w-full 
+                     max-lg:w-[80%]
+                     '>
                         info@pazhooheshgah.ir
                     </div>
                     <div className='w-full pt-4 flex flex-row justify-center items-center gap-2 mb-2 '>
@@ -108,7 +111,7 @@ const Footer = () => {
                 </div>
 
                 {/* right section  */}
-                <div className='grid-col-1 h-full flex flex-col justify-center gap-3 items-end max-md:items-start px-8 max-md:mb-8'>
+                <div className=' grid-col-1 h-full max-md:h-20 flex flex-col justify-center gap-3 items-end max-md:items-start px-8 max-md:mb-8'>
                     <div className=' mt-[100px] text-green text-xs text-right font-medium
                     max-lg:mr-2 
                     max-md:w-full max-md:text-right '>
@@ -131,10 +134,9 @@ const Footer = () => {
 
         </div> 
 
-        <div className='h-[40px] flex justify-center items-center w-full bg-green absolute bottom-0 mx-auto z-50 text-sm text-white leading-10'>
-            <div className='flex flex-row-reverse  justify-center mx-auto gap-1
-                max-xl:
-            '>
+        <div className='h-[40px] flex justify-center items-center w-full bg-green absolute bottom-0 mx-auto z-50 text-sm max-sm:leading-0 text-white leading-10'>
+            <div className='flex flex-row-reverse  justify-center mx-auto gap-1  '>               
+          
         {t("footer1")}
             <FaRegCopyright className='mt-2'  />
             </div>

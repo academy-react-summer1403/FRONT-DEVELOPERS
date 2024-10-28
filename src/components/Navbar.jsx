@@ -23,7 +23,7 @@ const Navbar = () => {
   {
       id:1,
       title:`${t('call')}`,
-      link:"/",
+      link:"/call",
   },
   {
       id:2,
@@ -65,20 +65,20 @@ const Navbar = () => {
     
                 {/* ACCOUNT section  */}
                 <div className=' z-[99999] text-2xl flex items-center gap-2 font-bold'>
-                    <div className='group relative w-36 max-md:w-[150px]  max-sm:w-[150px] z-[9999] 
+                    <NavLink to={"/auth"}  className='group relative w-36 max-md:w-[150px]  max-sm:w-[150px] z-[9999] 
                             max-lg:w-[150px] max-xl:w-[200px] h-12 bg-primary
                             mt-6 rounded-3xl hover:shadow-lg  dark:bg-orange 
                             dark:hover:shadow-slate-700 dark:hover:shadow-md z-50
                             transition-shadow'>
-                        <NavLink to={"/auth"} >  
+                        <div >  
                             <img src={userImageProfile ? userImageProfile.data?.currentPictureAddress : UserImg} alt="" className='w-[40px] h-[40px] rounded-full absolute top-[4px] left-2  border-[2px]   '/>
                             <h1 className='text-sm  font-semibold text-white text-right leading-9 mr-3 py-1 '>{t(userImageProfile.data?.fName)} {t(userImageProfile.data?.lName)}</h1>
-                        </NavLink> 
+                        </div> 
                         
                 
-                    </div>
+                    </NavLink>
                     {/* shop&favorit  */}
-                    <div className='flex justify-center flex-row gap-4 ml-4 max-lg:gap-1 max-lg:ml-0'>                    
+                    <div className='flex justify-center flex-row gap-4 pr-9 mx-4 max-lg:gap-1 max-lg:ml-0 '>                    
                         <NavLink to={"/basket"} className='relative '>
                             <img src={ShopImg} alt="" className='mt-8 '/>
                             <div className='w-[16px] h-[16px] flex  items-center font-Yekan justify-center bg-orange rounded-full absolute px-[1px] max-lg:bottom-0 bottom-0 right-[-2px] text-[12px] font-normal text-white leading-3'>0</div>
@@ -91,15 +91,15 @@ const Navbar = () => {
                 {/* menu section  */}
                 <div className=' max-lg:absolute max-lg:bg-primary max-lg:h-8 max-lg:z[3000] 
                  max-lg:top-[90px] max-lg:w-[100%] max-lg:left-0 max-lg:grid max-lg:justify-items-center'>
-                    <ul className={`flex items-center gap-4 max-lg:gap-1 pr-10 max-lg:pr-0 mx-auto ${isEnglish ? 'flex-row-reverse' : 'flex-row'}`}>
+                    <ul className={`flex items-center gap-4 max-lg:gap-1 max-lg:pr-0 mx-auto ${isEnglish ? 'flex-row-reverse' : 'flex-row'}`}>
                         {
                             NavbarMenu.map((item)=>(
                                 <li key={item.id}>
                                     <NavLink to={item.link}
-                                        className={({isActive})=>`${isActive ? "lg:text-orange max-lg:text-orange dark:text-orange/80" :" "}
+                                        className={({isActive})=>`${isActive ? "lg:text-orange max-lg:text-orange dark:text-orange" :" "}
                                         inline-block justify-center text-[#555555]
                                         text-[17px]  font-medium max-xl:text-base max-xl:text-right whitespace-nowrap  py-1 px-2 xl:px-3
-                                        hover:text-secondary  transition-all duration-300 max-lg:text-sm max-lg:text-white max-lg:mt-0
+                                        hover:text-secondary  transition-all duration-300 max-sm:text-[10px] max-lg:text-sm  max-lg:text-white max-lg:mt-0
                                         mt-8 dark:text-white  dark:hover:text-orange`}
                                     >{item.title}</NavLink>
                                 </li>
@@ -109,7 +109,7 @@ const Navbar = () => {
                 </div>
 
             {/* Logo section  */}
-            <div className=' w-[285px] h-[50px]' >
+            <div className=' w-[285px]  mb-3 h-[50px] flex flex-row-reverse' >
                 {/* <img src={Logo} alt="" className='rounded-md'/> */}
                 <Logo />
             </div>

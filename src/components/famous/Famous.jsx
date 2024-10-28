@@ -1,9 +1,8 @@
 import {useEffect} from 'react'
-import GameImg from "../../assets/landing/game.png";
-import PCImg from "../../assets/landing/pc.png";
-import SecurityImg from "../../assets/landing/security.png";
-import BarImg from "../../assets/landing/bar.png";
-import BGImg from "../../assets/landing/BG.svg";
+import GameImg from "../../assets/landing/game.svg";
+import PCImg from "../../assets/landing/pc.svg";
+import SecurityImg from "../../assets/landing/security.svg";
+import BarImg from "../../assets/landing/bar.svg";
 import AOS from "aos";
 import 'aos/dist/aos.css';
 import { useTranslation } from 'react-i18next';
@@ -73,7 +72,7 @@ const Famous = () => {
 
                 <div  style={{boxShadow:" 3px 3px 8px 0px #00000080 inset"}} 
                  className='famous'>
-                  <h1 className="w-[130px]  max-xl:text-[24px] max-sm:text-[10px] max-sm:right-[2%] max-lg:text-[14px] max-lg:bottom-[50%] max-lg:right-[10%] text-center text-[25px] text-[#006865] font-Yekan font-bold -rotate-45  absolute bottom-[40%]  right-[25%]">
+                  <h1 className="w-[130px]  max-xl:text-[24px] max-sm:text-[10px] max-sm:right-[2%] max-lg:text-[14px] max-lg:bottom-[50%] max-lg:right-[10%] text-center text-[25px] text-green font-Yekan font-bold -rotate-45  absolute bottom-[40%]  right-[25%]">
                   {t("web")}</h1>
                   <img src={PCImg} alt="" className='famousimg '/></div>
     

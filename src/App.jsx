@@ -115,7 +115,7 @@ const  PrivateRoutes = [
   ]},
 {
  
-  path: "/Dashboard",
+  path: "/",
   element: <DashPanel />,
   
   children:[
