@@ -40,9 +40,9 @@ const ArticleDetail = () => {
 
   return (
     <div
-      className="  relative  container mb-5 " >
+      className="  relative max-lg:pt-2 max-md:flex max-md:flex-col-reverse  container mb-5 " >
     
-<img
+      <img
         className="bottom-[15%] absolute opacity-[15%] scale-150  -translate-x-72 rotate-90 "
         src="https://s3-alpha-sig.figma.com/img/19be/48f2/2796a9e90ec1b19857e151fc13e21059?Expires=1728259200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=mZW-g30z8Y9kCtc4Q1Y82wXJ5M3YX1ja6v-gYlyazEUHmGj5fgx4YewqoPzoMl4V4J~Y2sETrcyxsiSfnJArb~OKXnzzQcBQwRsRnlSZI5eAqC9mPjX~jPtEjEaaNYlHuPhaUQ671CFaG9FP8BAUgrxGbtub-sQCi8oLtVfkXsjsO4-KqNeUdQpM9MfXLhXrbdziI4zuOcpcn74-w8NTLCgEbqS66Vs7LO4-uoZQC0Kfv6we2O7hov7fqXpvrD8dLTZNQ22GCZ5C9iP6fYmkkQ6sgbL5HZBGy4Ocxh3cxeAgyhp6R56KMjTb~fHkpUTzkxI2T4Z-fBM4z~wSy~mrcw__"
         alt=""
@@ -51,7 +51,7 @@ const ArticleDetail = () => {
   {/*  2 */}
     
 
-      <div className="flex max-2xl:ml-[0%] max-md:mx-auto   max-xl:ml-[-7%] max-lg:ml-[-13%] mt-[35px] max-md:w-full   max-md:h-[650px] w-[479px] max-xl:w-[400px] max-lg:w-[300px]  max-lg:h-[1300px]   h-[1450px]  flex-wrap  justify-between">
+      <div className="flex max-2xl:ml-[0%] max-md:mx-auto max-xl:ml-[-7%] max-lg:ml-[-13%] mt-[35px] max-md:mt-0 max-md:w-full max-md:mb-12 max-md:h-[950px] w-[479px] max-xl:w-[400px] max-lg:w-[300px]  max-lg:h-[1300px]   h-[1450px]  flex-wrap  justify-between">
         {/* image section */}
         <motion.div
         
@@ -78,7 +78,8 @@ const ArticleDetail = () => {
 
         <div
           style={{ boxShadow: " 0px 1px 2px 0 rgba(0, 0, 0, 0.25)" }}
-          className="bg-white dark:bg-slate-700 max-xl:w-[400px] max-lg:h-[500px] max-md:w-full max-lg:w-[300px] flex flex-wrap max-md:h-72 max-md:justify-between max-md:gap-2  mt-[35px]  rounded-[15px] w-[479px] h-[601px]  p-[23px]"
+          className="bg-white dark:bg-slate-700 max-xl:w-[400px] max-md:w-full max-lg:w-[300px] flex flex-wrap
+           max-md:justify-between max-md:gap-2 mt-[35px] rounded-[15px] w-[479px]  p-[23px]"
         >
           <div
             style={{ boxShadow: " 0px 1px 2px 0 rgba(0, 0, 0, 0.25)" }}
@@ -107,11 +108,12 @@ const ArticleDetail = () => {
 
         <div
           style={{ boxShadow: " 0px 1px 2px 0 rgba(0, 0, 0, 0.25)" }}
-          className="bg-white dark:bg-slate-700 max-xl:w-[400px] max-lg:w-[300px] max-md:w-full flex max-md:h-72  flex-wrap  mt-[35px] max-md:justify-center max-md:gap-2  rounded-[15px] w-[479px] h-[470px]  p-[23px]"
+          className="bg-white dark:bg-slate-700 max-xl:w-[400px] max-lg:w-[300px] max-md:w-full flex flex-wrap 
+           mt-[35px] max-md:justify-center max-md:gap-2  rounded-[15px] w-[479px] p-[23px]"
         >
           <div
             style={{ boxShadow: " 0px 1px 2px 0 rgba(0, 0, 0, 0.25)" }}
-            className=" bg-[#E8E8E8] rounded-t-[10px]  w-[448px] h-[50px] pr-[25px] justify-end flex items-center
+            className="bg-[#E8E8E8] rounded-t-[10px]  w-[448px] h-[50px] pr-[25px] justify-end flex items-center
  text-right text-darkgreen font-Yekan font-normal  text-[20px] mb-[8px] max-lg:text-[18px] max-md:w-full dark:bg-slate-600 dark:text-slate-100 "
           >
            {t("suggested_articles")}
