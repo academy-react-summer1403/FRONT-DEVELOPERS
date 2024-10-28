@@ -16,7 +16,7 @@ const LevelFilter = () => {
 
 
    const Levels = useLevelCourses()
-    console.log(Levels)
+    console.log(Levels.data?.[0].id)
 
   return (
     <>
@@ -29,7 +29,7 @@ const LevelFilter = () => {
         name="checkbox"
         className="ml-2 cursor-pointer z-[800]"
         onClick={
-          filter ? () => dispatch((Add(1)),setFilter(false)):
+          filter ? () => dispatch((Add(Levels.data?.[0].id)),setFilter(false)):
           () => dispatch((Add("")),setFilter(true))
          }
       />
@@ -41,7 +41,7 @@ const LevelFilter = () => {
         name="checkbox"
         className="ml-2 cursor-pointer z-[800]"
         onClick={
-          filter2 ? () => dispatch((Add(2)),setFilter(false)):
+          filter2 ? () => dispatch((Add(Levels.data?.[1].id)),setFilter(false)):
           () => dispatch((Add("")),setFilter2(true))
          }
       />
@@ -53,7 +53,7 @@ const LevelFilter = () => {
         name="checkbox"
         className="ml-2 cursor-pointer z-[800]"
         onClick={
-          filter3 ? () => dispatch((Add(3)),setFilter(false)):
+          filter3 ? () => dispatch((Add(Levels.data?.[2].id)),setFilter(false)):
           () => dispatch((Add("")),setFilter3(true))
          }
       /> 

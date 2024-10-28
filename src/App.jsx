@@ -32,145 +32,156 @@ import StdFavorite from "./pages/dashboard/content/StdFavorite"
 function App() {
 
 
-const  originalRoutes = [
+const  PublicRoutes = [
     {path:"/" , element:<Layout/> ,children:[
 
    {
-      // index: true,
       path: "/",
       element: <Landing />,
-
     },
  
       {
-        // index: true,
         path: "/courses",
         element: <CoursPage />,
-
       },
-   
       {
-        // index: true,
         path: "/article-news",
         element: <ArticlesNews />,
-
       },
-      {
-        // index: true,
-        path: "/courses-detail/:courseId",
-        element: <CourseDetial />,
-        
-        // isAuth:false
-  
-      },
-   
-      {
-        // index: true,
-        path: "/article-detail/:id",
-        element: <ArticleDetail />,
-       
-        // isAuth:false
-  
-      },  
-      
-      {
-        // index: true,
-        path: "/basket",
-        element: <NavbarBasket />,
-       
-        // isAuth:false
-  
-      },
-  
 
     ]},
-
-
-
-  {
-   
-    path: "/",
-    element: <DashPanel />,
-    children:[
-  {
-    path: "/Dashboard",
-    element: <StdDashboard />,
-  },
-  {
-    path: "/info",
-    element: <StdInformation />,
-  },
-  {
-    path: "/Edit",
-    element: <EditeProfileForm />,
-  },
-  {
-    path: "/stdCourses",
-    element: <StdCourses />,
-  },
-  {
-    path: "/reservCourses",
-    element: <ReservatCourses />,
-  },
-  {
-    path: "/stdPointOfView",
-    element: <StdPointOfView />,
-  },
-  {
-    path: "/stdFavorite",
-    element: <StdFavorite />,
-  },
-  {
-    path: "/settings",
-    element: <StdSettings />,
-  },
-  
-    ]
-    
-  },
-
-
-
-
     {
       path: "/auth",
       element: <AuthRoot />,
-      // isAuth:false,
+      
       children: [
         {
-          // index:true,  
           path: "/auth",
           element: <SignAuth />,
- 
-
         },
         {
-          
           path: "/auth/2",
           element: <VarificationAuth />,
-
-
         },
         {
           path: "/auth/3",
           element: <LoginAuth />,
-
-
         },
         {
           path: "/auth/v1",
           element: <VorodAuth />,
-
-
         },
         {
           path: "/auth/v2",
           element: <VarificationVorod />,
-
-
         },
       ],
     },
+
+]
+
+
+
+
+const  PrivateRoutes = [
+  {path:"/" , element:<Layout/> ,children:[
+
+ {
+    path: "/",
+    element: <Landing />,
+  },
+
+    {
+      path: "/courses",
+      element: <CoursPage />,
+    },
+    {
+      path: "/article-news",
+      element: <ArticlesNews />,
+    },
+    {
+      path: "/courses-detail/:courseId",
+      element: <CourseDetial />,
+    },
+    {
+      path: "/article-detail/:id",
+      element: <ArticleDetail />,
+    },  
+    {
+      path: "/basket",
+      element: <NavbarBasket />,
+    },
+
+  ]},
+{
+ 
+  path: "/",
+  element: <DashPanel />,
+  
+  children:[
+{
+  path: "/Dashboard",
+  element: <StdDashboard />,
+},
+{
+  path: "/info",
+  element: <StdInformation />,
+},
+{
+  path: "/Edit",
+  element: <EditeProfileForm />,
+},
+{
+  path: "/stdCourses",
+  element: <StdCourses />,
+},
+{
+  path: "/reservCourses",
+  element: <ReservatCourses />,
+},
+{
+  path: "/stdPointOfView",
+  element: <StdPointOfView />,
+},
+{
+  path: "/stdFavorite",
+  element: <StdFavorite />,
+},
+{
+  path: "/settings",
+  element: <StdSettings />,
+},
+
+  ]
+  
+},
+  {
+    path: "/auth",
+    element: <AuthRoot />,
+  
+    children: [
+      {
+        path: "/auth",
+        element: <SignAuth />,
+      },
+      {
+        path: "/auth/2",
+        element: <VarificationAuth />,
+      },
+      {
+        path: "/auth/3",
+        element: <LoginAuth />,
+      },
+      {
+        path: "/auth/v1",
+        element: <VorodAuth />,
+      },
+      {
+        path: "/auth/v2",
+        element: <VarificationVorod />,
+      },
+    ],
+  },
 
 ]
 
@@ -179,10 +190,10 @@ const  originalRoutes = [
 
  console.log("user" , user)
   
-  const token = user?.token
+  const token = user?.token 
   console.log(token)   
 
-  const currentRoutes = originalRoutes;
+  const currentRoutes = token=="" ? PublicRoutes : PrivateRoutes
 
   const router = createBrowserRouter(currentRoutes)
 

@@ -18,7 +18,7 @@ const TypeFilter = () => {
 
 
     const type = useTypeCourses()
-    console.log(type)
+    console.log(type.data?.[0].id)
 
 
 
@@ -33,7 +33,7 @@ const TypeFilter = () => {
             name="checkbox"
             className="ml-2 cursor-pointer z-[800]"
             onClick={
-              filter ? () => dispatch((Add(1)),setFilter(false)):
+              filter ? () => dispatch((Add(type.data?.[0].id)),setFilter(false)):
               () => dispatch((Add("")),setFilter(true))
              }
           />
@@ -45,7 +45,7 @@ const TypeFilter = () => {
             name="checkbox"
             className="ml-2 cursor-pointer z-[800]"
             onClick={
-              filter2 ? () => dispatch((Add(2)),setFilter(false)):
+              filter2 ? () => dispatch((Add(type.data?.[1].id)),setFilter(false)):
               () => dispatch((Add("")),setFilter2(true))
              }
           />
@@ -57,7 +57,7 @@ const TypeFilter = () => {
             name="checkbox"
             className="ml-2 cursor-pointer z-[800]"
             onClick={
-              filter3 ? () => dispatch((Add(3)),setFilter(false)):
+              filter3 ? () => dispatch((Add(type.data?.[2].id)),setFilter(false)):
               () => dispatch((Add("")),setFilter3(true))
              }
           /> 
