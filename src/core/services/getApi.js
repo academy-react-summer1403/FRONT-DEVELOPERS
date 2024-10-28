@@ -91,6 +91,14 @@ export const getCourseLandingSearchBar = async (params) => {
   return data;
 };
 
+export const getNewsLandingSearchBar = async (params) => {
+  const data = await http.get(`/News` ,{
+    params:params
+  });
+  console.log(data);
+  return data;
+};
+
 
 export const getLandingReport = async () => {
   const data = await http.get("/Home/LandingReport");
