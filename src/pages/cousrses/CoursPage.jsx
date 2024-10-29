@@ -252,7 +252,7 @@ const CoursPage = () => {
               <button
                 className="absolute top-[0.25px] p-2 hover:bg-gray-200 
                         transition duration-300 shadow-sm shadow-gray-400 outline-none indent-1 
-                        rounded rounded-tr-2xl top-1 w-[50px] h-[50px]"
+                        rounded rounded-tr-2xl w-[50px] h-[50px]"
                 onClick={() => (setView(true),setView1(3))}
               >
                 {" "}
