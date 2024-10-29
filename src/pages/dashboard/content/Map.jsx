@@ -83,6 +83,7 @@ const Map = () => {
   const dispatch = useDispatch()
 
   dispatch(Location(address))
+ 
 
   const [query, setQuery] = useState('');
 
@@ -124,12 +125,12 @@ const Map = () => {
 
 
   return (
-    <section className='flex flex-col gap-4 bg-white w-[740px] h-[470px] z-[5000] border shadow-lg rounded-[10px]'>
+    <section className='flex flex-col gap-4 bg-white w-[600px] h-[470px] z-[5000] border shadow-lg rounded-[10px]'>
       <div className='flex items-center gap-4'>
         <input value={query} onChange={(e)=>setQuery(e.target.value)} type="text" className='border-2 rounded flex-1 py-2 outline-none text-right'/>
         <button onClick={handleSearchLocation} className='px-4 py-2 bg-green text-white'>جستجو ...</button>
       </div>
-      <section className='w-[740px] h-[400px]'>
+      <section className='w-[600px] h-[400px]'>
        <MapContainer center={userPosition} zoom={13} scrollWheelZoom={true}
        style={{
         height:"100%",
