@@ -193,7 +193,8 @@ const  PrivateRoutes = [
   const token = user?.token 
   console.log(token)   
 
-  const currentRoutes = PrivateRoutes
+
+  const currentRoutes = user.token==null ? PublicRoutes : PrivateRoutes
 
   const router = createBrowserRouter(currentRoutes)
 

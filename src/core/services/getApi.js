@@ -74,6 +74,12 @@ export const LevelCourses = async () => {
   return data;
 };
 
+export const TeacherCourses = async () => {
+  const data = await http.get("/Home/GetTeachers");
+  console.log(data);
+  return data;
+};
+
 
 
 export const getCourseLanding = async () => {
@@ -92,6 +98,7 @@ export const getCourseLandingSearchBar = async (params) => {
 };
 
 export const getNewsLandingSearchBar = async (params) => {
+
   const data = await http.get(`/News` ,{
     params:params
   });
@@ -109,11 +116,7 @@ export const getLandingReport = async () => {
 
 
 export const likeArticle = async ( like ) => {
-  const data = await http.post(`/News/NewsLike/${like}`,
-    // toast.success("good",{
-    //   theme:"colored"
-    // })
-  )
+  const data = await http.post(`/News/NewsLike/${like}` )
 
   console.log(data);
   return data;
@@ -121,11 +124,7 @@ export const likeArticle = async ( like ) => {
 
 
 export const disslikeArticle = async ( disslike ) => {
-  const data = await http.post(`/News/NewsDissLike/${disslike}`,
-    // toast.success("good",{
-    //   theme:"colored"
-    // })
-  )
+  const data = await http.post(`/News/NewsDissLike/${disslike}` )
 
   console.log(data);
   return data;

@@ -56,9 +56,12 @@ const CoursPage = () => {
   const params = {
     RowsOfPage:view1,
     PageNumber:page,  
+    // ListTech:query,
      courseLevelId : query,
      SortingCol : sort,
-     CourseTypeId : query
+     CourseTypeId : query,
+    //  TeacherId : query,
+     
     
   }
 
@@ -69,6 +72,9 @@ const CoursPage = () => {
 
   const getCourseTop=useTopCourses()
   console.log(getCourseTop.data)
+
+
+  
   
 
   const lastPage = () => {

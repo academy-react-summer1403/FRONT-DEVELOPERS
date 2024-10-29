@@ -5,13 +5,14 @@ import userSlice from "./slices/QueryState/UserSlice"
 import LocationSlice from "./slices/QueryState/LocationSlice"
 
 
+
 export const store = configureStore({
   reducer: {
     QuerySlice : QuerySlice,
      TokenSlice : TokenSlice, 
      UserSlice : userSlice,
      LocationSlice : LocationSlice,
-
+   
   },
 
   
