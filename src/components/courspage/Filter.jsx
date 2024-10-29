@@ -9,7 +9,6 @@ import TypeAccar from "./TypeAccar";
 import LevelAccar from "./LevelAccar";
 import { useTranslation } from "react-i18next";
 import TeacherAccar from "./TeacherAccar";
-import RangeAccar from "./RangeAccar";
 
 const Filter = () => {
 
@@ -49,13 +48,7 @@ const Filter = () => {
     },
   ]);
 
-  const [Range, setRange] = useState([
-    {
-      id: 1,
-      name:`${t("Range")}`,
-      isOpen: true,
-    },
-  ]);
+
 
   const toggleAccordeion = (accordionkey) => {
     const updateAccordions = filter.map((accrdion) => {
@@ -105,18 +98,6 @@ const Filter = () => {
     setTeacher(updateAccordions);
   };
 
-  const toggleAccordeionRange = (accordionkey) => {
-    const updateAccordions = Range.map((accrdion) => {
-      if (accrdion.id === accordionkey) {
-        return { ...accrdion, isOpen: !accrdion.isOpen };
-      } else {
-        return { ...accrdion };
-      }
-    });
-
-    setRange(updateAccordions);
-  };
-
   return (
     <div className="shadow-sm shadow-gray-300 bg-white dark:bg-slate-500 outline-none rounded-xl p-4 ">
       <div
@@ -142,7 +123,7 @@ const Filter = () => {
 
         <TeacherAccar teacher={teacher} toggleAccordeion={toggleAccordeionTeacher} />
 
-        {/* <RangeAccar Range={Range} toggleAccordeion={toggleAccordeionRange}/> */}
+      
         
 
       </ul>
