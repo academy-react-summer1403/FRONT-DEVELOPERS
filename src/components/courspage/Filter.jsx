@@ -164,9 +164,9 @@ const Filter = () => {
 
         <TeacherAccar teacher={teacher} toggleAccordeion={toggleAccordeionTeacher} />
 
-        {/* <RangeAccar Range={Range} toggleAccordeion={toggleAccordeionRange}/>
+         <RangeAccar Range={Range} toggleAccordeion={toggleAccordeionRange}/>
         
-        <RangeAccarTwo lessRangeA={lessRangeA} toggleAccordeion={toggleAccordeionLessRange}/> */}
+         <RangeAccarTwo lessRangeA={lessRangeA} toggleAccordeion={toggleAccordeionLessRange}/> 
 
       </ul>
     </div>

@@ -15,6 +15,7 @@ import { SliderRight } from "../../utility/animation";
 import Pagination from "../../components/Pagination";
 import { useTranslation } from "react-i18next";
 import NotFound from "../../components/notFound/NotFound";
+import FilterNews from "../../components/articlesnews/fillter/FilterNews";
 
 const ArticlesNews = () => {
   const { t } = useTranslation();
@@ -147,7 +148,7 @@ const ArticlesNews = () => {
         <div className="relative col-span-3 ">
           {/* top part */}
           <div
-            className="relative flex flex-row-reverse
+            className="relative flex flex-row-reverse gap-4
                  max-sm:flex-col 
                 "
           >
@@ -156,7 +157,8 @@ const ArticlesNews = () => {
             </div>
             {/* menu  */}
             <div className="relative group max-sm:grid max-sm:justify-items-center">
-              <div className="group flex px-5 py-2 mr-4 gap-6 dark:bg-gray-700/70 rounded-full shadow-sm shadow-gray-300 outline-none indent-0 dark:text-white text-gray-900 hover:bg-gray-50 cursor-pointer text-lg">
+              <div className="group flex px-5 py-2 mr-4 gap-6 dark:bg-gray-700/70 rounded-full shadow-sm shadow-gray-300 outline-none indent-0
+               dark:text-white text-gray-900 hover:bg-gray-50 cursor-pointer text-lg">
                 <IoIosArrowDown
                   className="relative mt-2 h-5 w-5 flex-none text-darkgreen dark:text-darkgreen/60
                                      rotate-180 group-hover:rotate-0 duration-300"
@@ -182,6 +184,12 @@ const ArticlesNews = () => {
                   ))}
                 </ul>
               </div>
+            </div>
+
+            {/* filter  */}
+            <div  className='relative max-sm:grid max-sm:justify-items-center'>
+          
+                  <FilterNews />
             </div>
           </div>
 

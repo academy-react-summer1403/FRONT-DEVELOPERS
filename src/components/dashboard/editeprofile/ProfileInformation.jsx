@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import 'react-tooltip/dist/react-tooltip.css'
 import { Tooltip } from 'react-tooltip'
 import { useUserProfile } from '../../../core/services/query/DashboardQuery'
 import { useDispatch, useSelector } from 'react-redux'
 import { userImg } from '../../../core/redux/slices/QueryState/UserSlice'
-import Map from '../../../pages/dashboard/content/Map'
+// import Map from '../../../pages/dashboard/content/Map'
 
 
 
@@ -44,16 +44,17 @@ const ProfileInformation = () => {
             </div>
 
             <div className='flex flex-row-reverse text-right'>                
-                <p className='text-orange dark:text-amber-400 font-medium w-[90%]'> <span className='text-gray-400 dark:text-white w-42'> آدرس :</span> {location ? location : "--"} </p>
+                <p className='text-orange dark:text-amber-400 font-medium w-[90%]'> <span className='text-gray-400 dark:text-white w-42'> آدرس :</span> {location} </p>
             </div>
 
             <div className='grid grid-cols-2 gap-4'> 
                 {/* map img  */}
-                {/* <div className='w-32 h-32 grid-col-1 border rounded-full'>map</div> */}
+            <div className='w-32 h-32 grid-col-1 border rounded-full'>
+                <img className='h-full w-full rounded-full' src="https://s3-alpha-sig.figma.com/img/c8b9/be0d/e8a21e635c32ae410e28f3cf5de1a8c6?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=mQSmEVIxNHdYxZFMqtNLDNXMrlh37oDozxN5lqs6rEd-DxHnVdAYKA7hAQuMxYb3kB8DPDwARJ4MTM3BIF5DbfxaW6dhVG0GQysBbfi1G-fdtaijMGya0uycA3pq-dGr6GQCqqdDfJW1lvOVK95Rt7CK-3pkhKJbRbT5JPi3FKyZwVE2S1FwKWFI6olEg7AU0rGCFtawsz85~iMU7KaSUgl2Jg8dACIXFQNg~kyfPPB-IJw-gDrVCyS9aeTEvZ2Q8CQItUbX8POtJlXggpXlRg7XxUjv1rgs5HyYZ6Jki6JFRRDBiiBQl97L2gMyVIFz-cWlIrJt6bL-AyR7xe9WNQ__" alt="" />
+                
+            </div>
 
-                    <Map/>
-
-                <div className='grid grid-col-1 gap-6'>
+                 <div className='grid grid-col-1 gap-6'>
                     <div className='flex flex-row-reverse gap-2 text-right'>                         
                         <p className='text-orange dark:text-amber-400 font-medium '>{userProfile.data?.longitude ? userProfile.data?.longitude : "--"} <span className='text-gray-400 dark:text-white'> : طول جغرافیایی </span></p>
                     </div>
@@ -67,7 +68,7 @@ const ProfileInformation = () => {
         </div>
 
             {/* right:  */}
-        <div className='grid grid-col-1 gap-8 pl-2 border-l border-gray-200'>
+         <div className='grid grid-col-1 gap-8 pl-2 border-l border-gray-200'>
             <div className='flex flex-row-reverse gap-2 text-right'>                 
                 <p className='text-orange dark:text-amber-400 font-medium '> <span className='text-gray-400 dark:text-white'>  نام و نام خانوادگی :</span> {userProfile.data?.fName ? userProfile.data?.fName : "--"}{userProfile.data?.lName ? userProfile.data?.lName : "--"}</p>
             </div>
@@ -78,9 +79,9 @@ const ProfileInformation = () => {
 
             <div className='flex flex-row-reverse gap-2 text-right'>                 
                 <p className='text-orange dark:text-amber-400 font-medium '>{userProfile.data?.email ? userProfile.data?.email :"--"}<span className='text-gray-400 dark:text-white'> : ایمیل</span></p>
-            </div>
+            </div> 
 
-            <div className='flex flex-row-reverse gap-2 text-right'>                 
+             <div className='flex flex-row-reverse gap-2 text-right'>                 
                 <p className='text-orange dark:text-amber-400 font-medium '>{userProfile.data?.birthDay ? userProfile.data?.birthDay :"--"}<span className='text-gray-400 dark:text-white'> : تاریخ تولد </span></p>
             </div>
 
@@ -98,8 +99,8 @@ const ProfileInformation = () => {
                     {userProfile.data?.userAbout ? userProfile.data?.userAbout.slice(0,11) :"--"}
                 </p><Tooltip id="my-tooltip" />
                 
-            </div>
-        </div>
+            </div> 
+        </div> 
 
     </div>
   )

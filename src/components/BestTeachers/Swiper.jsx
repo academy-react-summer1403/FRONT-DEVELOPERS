@@ -135,7 +135,7 @@ export default SwipeCards;
 const cardData = [
     {
         id:1,
-        url:AsgharImg4,
+        url:AsgharImg1,
         
     },
     {
@@ -145,12 +145,12 @@ const cardData = [
     },
     {
         id:3,
-        url:AsgharImg2,
+        url:AsgharImg1,
         
     },
     {
         id:4,
-        url:AsgharImg1,
+        url:AsgharImg2,
         
     },
 ]

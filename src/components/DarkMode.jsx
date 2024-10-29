@@ -48,7 +48,7 @@ const DarkMode = () => {
 
   return (
     <div 
-    className='group cursor-pointer ml-[90%] dark:bg-orange rounded-full flex items-center fixed
+    className='group cursor-pointer ml-[90%] dark:bg-orange rounded-full flex items-center
         z-[9999] w-[55px] h-[55px] bg-green fixed bottom-8 right-12 hover:w-80 transition-all duration-700
             '>
         <div >

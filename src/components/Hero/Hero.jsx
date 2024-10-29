@@ -16,7 +16,7 @@ import { image } from 'framer-motion/client';
 import { ImageErrore } from '../ImageErrore';
 import { SlArrowLeft } from "react-icons/sl";
 import NotFound from '../notFound/NotFound';
-
+import { CiSquareRemove } from "react-icons/ci";
 
 const Hero = () => {
 
@@ -28,21 +28,28 @@ const reportLanding =  useLandingReport()
 console.log(reportLanding)
 
 
-  const [search , setSearch] = useState("")
+  const [search , setSearch] = useState({})
   console.log(search)
     
   const params = {
-    Query : search
+    RowsOfPage:20,
+    PageNumber:1
+    
+  }
+  const params2 = {
+    RowsOfPage:20,
+    PageNumber:1,
+    
   }
 
-  const  CourseSearchBar =  useCourseLandingSearchBar(params)
-  console.log(CourseSearchBar) 
+  const  CourseSearchBar =  useCourseLandingSearchBar( params2 , search)
+  console.log("CourseSearchBar;;",CourseSearchBar) 
 
-  const  NewsSearchBar =  useNewsLandingSearchBar( params)
+  const  NewsSearchBar =  useNewsLandingSearchBar( params , search)
   console.log( NewsSearchBar) 
 
   const [chooseSearch, setChooseSearch] = useState()
-  console.log(chooseSearch)
+  console.log("chooseSearch::::" ,chooseSearch)
     return (
       
         <div
@@ -217,10 +224,13 @@ console.log(reportLanding)
 
                 {/* result  */}
 
-              <div className='w-[400px] top-[55px] max-h-[350px] z-[5000] left-3 bg-white overflow-x-hidden border border-red-500
-              absolute flex flex-col shadow-lg rounded-lg mt-4  overflow-scroll px-2 scrollbar scrollbar-thumb-slate-400 scrollbar-track-slate-600'>
+              <div className={`w-[400px] top-[55px] max-h-[350px] z-[5000] left-3 bg-white overflow-x-hidden  ${chooseSearch == undefined ? "pt-0": "pt-10"}
+              absolute flex flex-col shadow-lg rounded-lg mt-4  overflow-scroll px-2 scrollbar scrollbar-thumb-slate-400 scrollbar-track-slate-600`}>
+                <CiSquareRemove className={`w-9 h-9 text-darkgreen absolute top-0 ${chooseSearch == undefined ? "hidden": "block"}`} onClick={()=>setChooseSearch(undefined)} />
+                
 
                 { 
+                
                   chooseSearch == "news"? 
                     NewsSearchBar.data?.news.map((data)=>(
                         <div>
@@ -236,18 +246,18 @@ console.log(reportLanding)
                     
                   
                     
-                    )) :     CourseSearchBar.data?.courseFilterDtos.map((data)=>(
+                    )) :   chooseSearch == "cuorses"?    CourseSearchBar.data?.courseFilterDtos.map((data)=>(
                     
-                      <NavLink to={"/courses-detail/" + data?.courseId} >
-                      <div className=' h-[80px] w-full items-center p-2 flex  relative justify-end gap-3 hover:bg-slate-100'>
+                      <div  >
+                      <NavLink to={"/courses-detail/" + data?.courseId} className=' h-[80px] w-full items-center p-2 flex  relative justify-end gap-3 hover:bg-slate-100'>
                       <SlArrowLeft className='text-[8px] text-orange  absolute left-[3px]  bottom-[30px]' />
                         <p className=' text-[10px] text-orange  absolute left-3 bottom-7'>مشاهده دوره</p> 
                         
                          <p className='text-black text-right text-sm mt-1 cursor-pointer z-[5000]  '>{data?.title}</p>  
                          <img className='w-[90px] h-[75px] rounded-lg border ' src={data?.tumbImageAddress} onError={ImageErrore} alt="" />
-                      </div>
-                      <hr /></NavLink>
-                     )) 
+                      </NavLink >
+                      <hr /></div>
+                     )) :""
                   
                 }
 

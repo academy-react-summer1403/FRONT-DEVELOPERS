@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import arrow from "../../assets/courses/arrow.svg";
 import RangeFilter from './RangeFilter';
-import { addRange } from '../../core/redux/slices/QueryState/RangeSlice';
-import { useDispatch } from 'react-redux';
+
 
 
 
@@ -13,9 +12,7 @@ const RangeAccar = ({Range , toggleAccordeionRange}) => {
    console.log(value)
 
 
-   const dispatch = useDispatch()
 
-   dispatch(addRange(value))
 
   return (
     <div className='max-sm:w-full '>

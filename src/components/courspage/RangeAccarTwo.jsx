@@ -1,10 +1,7 @@
 import React, { useState } from 'react'
 import arrow from "../../assets/courses/arrow.svg";
-
-import { useDispatch } from 'react-redux';
-
 import RangeFilterTwo from './RangeFilter2';
-import { lessRange } from '../../core/redux/slices/QueryState/LessRangeSlice';
+
 
 
 
@@ -14,9 +11,6 @@ const RangeAccarTwo = ({lessRangeA , toggleAccordeionLessRange}) => {
    console.log(value)
 
 
-   const dispatch = useDispatch()
-
-   dispatch(lessRange(value))
 
   return (
     <div className='max-sm:w-full '>
