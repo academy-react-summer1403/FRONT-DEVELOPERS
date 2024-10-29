@@ -89,16 +89,21 @@ export const getCourseLanding = async () => {
 };
 
 
-export const getCourseLandingSearchBar = async (params) => {
+export const getCourseLandingSearchBar = async (search , params2) => {
+  if (search && search.length>0){
+    params2.Query = search
+  }
   const data = await http.get(`/Home/GetCoursesWithPagination` ,{
-    params:params
+    params:params2
   });
   console.log(data);
   return data;
 };
 
-export const getNewsLandingSearchBar = async (params) => {
-
+export const getNewsLandingSearchBar = async (params , search) => {
+  if (search && search.length>0){
+    params.Query = search
+  }
   const data = await http.get(`/News` ,{
     params:params
   });
