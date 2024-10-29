@@ -13,6 +13,7 @@ import {
   getNewsPudcast,
   getTopCourse,
   LevelCourses,
+  TeacherCourses,
   TypeCourses,
 } from "../getApi";
 
@@ -81,6 +82,13 @@ export function useLevelCourses() {
   return useQuery({
     queryKey: ["categoryL"],
     queryFn: () => LevelCourses(),
+  });
+}
+
+export function useTeacherCourses() {
+  return useQuery({
+    queryKey: ["Teacher"],
+    queryFn: () => TeacherCourses(),
   });
 }
 
