@@ -56,9 +56,12 @@ const CoursPage = () => {
   const params = {
     RowsOfPage:view1,
     PageNumber:page,  
+    // ListTech:query,
      courseLevelId : query,
      SortingCol : sort,
-     CourseTypeId : query
+     CourseTypeId : query,
+    //  TeacherId : query,
+     
     
   }
 
@@ -69,6 +72,9 @@ const CoursPage = () => {
 
   const getCourseTop=useTopCourses()
   console.log(getCourseTop.data)
+
+
+  
   
 
   const lastPage = () => {
@@ -95,7 +101,7 @@ const CoursPage = () => {
   ];
 
   return (
-    <div className="xl:container px-2 z-10 h-full">
+    <div className="xl:container px-2 z-10 h-full ">
       <img
         src={BackImg}
         alt=""
@@ -112,16 +118,16 @@ const CoursPage = () => {
         transition={{ type: "spring", stiffness: 100, delay: 0.2 }}
         className="flex flex-row  rounded-lg my-10 px-4 mx-12 shadow-md bg-primary/5
         dark:bg-gray-700/70
-        max-md:flex-col max-md:m-4
-        max-sm:flex-col max-sm:m-4
-        max-lg:flex-col
+        max-md:flex-col max-md:mx-4
+        max-sm:flex-col max-sm:mx-4
+        max-lg:flex-col max-lg:mt-14
         max-xl:flex-row  
         "
       >
         {/* hero vector */}
         <div
           className=" w-[90%] 
-            max-lg:h-[400px]
+            max-lg:h-[400px] 
             max-md:h-[400px]
              relative"
         >
@@ -246,7 +252,7 @@ const CoursPage = () => {
               <button
                 className="absolute top-[0.25px] p-2 hover:bg-gray-200 
                         transition duration-300 shadow-sm shadow-gray-400 outline-none indent-1 
-                        rounded rounded-tr-2xl top-1 w-[50px] h-[50px]"
+                        rounded rounded-tr-2xl w-[50px] h-[50px]"
                 onClick={() => (setView(true),setView1(3))}
               >
                 {" "}
@@ -294,7 +300,7 @@ const CoursPage = () => {
           {/* cards  */}
 
             <div className={` grid w-full z-10 mb-20
-                  ${view ? "grid-cols-1 mt-2":"grid-cols-3 max-lg:grid-cols-2 max-sm:justify-items-center max-sm:grid-cols-1 pt-0"}`}>
+                  ${view ? "grid-cols-1 mt-2":"grid-cols-3 max-lg:grid-cols-2 max-sm:justify-items-center max-sm:grid-cols-1  pt-0"}`}>
                 
               {view ? <>{CoursesData.data?.courseFilterDtos.length == 0  ? <NotFound/> : CoursesData.data?.courseFilterDtos.map((item) => (<CoursListCard {...item} /> ))}</> : <>                
               

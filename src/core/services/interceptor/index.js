@@ -11,6 +11,9 @@ const instance = axios.create({
   },
 });
 
+
+
+
 const onSucces = (response) => {
 
     return response.data; 
@@ -18,6 +21,8 @@ const onSucces = (response) => {
 
 const onError = (err) => {
   console.log(err);
+
+  
 
   return Promise.reject(err);
 };

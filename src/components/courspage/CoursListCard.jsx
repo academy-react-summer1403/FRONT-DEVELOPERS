@@ -24,7 +24,7 @@ const CoursListCard = ({title , levelName , cost , teacherName , likeCount , cou
 
   return (
     // container 
-    <div className=' w-[90%] mx-auto grid grid-cols-1 p-2 '>
+    <div className=' w-[90%] mx-auto grid grid-cols-1 p-2'>
         {/* map part of card:  */}
         <NavLink  to={"/courses-detail/" + courseId}>
         <div data-aos="fade-up" data-aos-duration="800" className='group h-full relative flex flex-row-reverse rounded-xl p-3 w-full
@@ -34,10 +34,10 @@ const CoursListCard = ({title , levelName , cost , teacherName , likeCount , cou
             {/* card image   */}
             <div 
                 style={{boxShadow:" 0px 1px 4px 0px rgba(0, 0, 0, 0.25)" }}
-                className='relative grid justify-items-center py-8 right-0 w-[60%] 
+                className='relative grid justify-items-center right-0 w-[60%] 
                 rounded-xl bg-gradient-to-tr from-purple to-secondary'
             >
-                <img src={fima} className='w-[75px] mt-[20%]'/>
+                <img src={fima} className='w-[75px] flex self-center'/>
             </div>
 
             

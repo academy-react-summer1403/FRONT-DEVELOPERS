@@ -9,9 +9,11 @@ import {
   getLandingReport,
   getNews,
   getNewsId,
+  getNewsLandingSearchBar,
   getNewsPudcast,
   getTopCourse,
   LevelCourses,
+  TeacherCourses,
   TypeCourses,
 } from "../getApi";
 
@@ -83,6 +85,13 @@ export function useLevelCourses() {
   });
 }
 
+export function useTeacherCourses() {
+  return useQuery({
+    queryKey: ["Teacher"],
+    queryFn: () => TeacherCourses(),
+  });
+}
+
 export function useCourseLanding(){
   return useQuery({
     queryKey:["landingCourse" , ],
@@ -94,6 +103,13 @@ export function useCourseLandingSearchBar(params){
   return useQuery({
     queryKey:["landingCourseSearchBar" , params],
     queryFn:()=>getCourseLandingSearchBar(params)
+  })
+}
+
+export function useNewsLandingSearchBar(params){
+  return useQuery({
+    queryKey:["landingNewsSearchBar" , params],
+    queryFn:()=>getNewsLandingSearchBar(params)
   })
 }
 

@@ -41,7 +41,7 @@ const ArticlesNews = () => {
   const categories = [t("newest"), t("popular")];
 
   return (
-    <div className="  container max-sm:px-12">
+    <div className="  lg:container max-lg:px-12 max-lg:px-2  ">
       <img
         src={BackImg}
         alt=""
@@ -187,10 +187,11 @@ const ArticlesNews = () => {
 
           {/* carde  */}
           <div
-            className="grid grid-cols-3 my-8 gap-4  
+            className="grid grid-cols-3 my-8 gap-4 
                     max-sm:grid-cols-1
                     max-md:grid-cols-2 
-                    max-lg:grid-cols-2
+                    max-xl:grid-cols-2
+                    min-h-40
                     
                 "
           >
