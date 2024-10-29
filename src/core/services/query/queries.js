@@ -41,10 +41,10 @@ export function useArticleDetail(id) {
   return query;
 }
 
-export function useCourses(  search , params) {
+export function useCourses(  search , params ) {
   return useQuery({
-    queryKey: ["courses",    search , params],
-    queryFn: () => getCourse(   search , params),
+    queryKey: ["courses",    search , params ],
+    queryFn: () => getCourse(   search , params ),
   });
 }
 

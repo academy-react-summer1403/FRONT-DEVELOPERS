@@ -240,6 +240,23 @@ body{
     }
 }
 
+.range-slider {
+  appearance: none;
+  width:100%;
+  height:1rem;
+  background-color: transparent;  
+}
 
+.range-slider2 {
+  appearance: none;
+  width:100%;
+  height:1rem;
+  background-color: transparent;  
+}
 
-
+.range-slider::-webkit-slider-thumb{
+  appearance: none;
+  width: 2rem;
+  height: 3rem;
+  cursor: pointer;
+}
