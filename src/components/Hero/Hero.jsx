@@ -25,11 +25,11 @@ const Hero = () => {
 
 
 const reportLanding =  useLandingReport()
-console.log(reportLanding)
 
 
-  const [search , setSearch] = useState({})
-  console.log(search)
+  const [search , setSearch] = useState('')
+
+  const [searchCourse , setSearchCourse] = useState('')
     
   const params = {
     RowsOfPage:20,
@@ -42,14 +42,11 @@ console.log(reportLanding)
     
   }
 
-  const  CourseSearchBar =  useCourseLandingSearchBar( params2 , search)
-  console.log("CourseSearchBar;;",CourseSearchBar) 
+  const  CourseSearchBar =  useCourseLandingSearchBar( params2 , searchCourse)
 
   const  NewsSearchBar =  useNewsLandingSearchBar( params , search)
-  console.log( NewsSearchBar) 
 
   const [chooseSearch, setChooseSearch] = useState()
-  console.log("chooseSearch::::" ,chooseSearch)
     return (
       
         <div
@@ -201,7 +198,7 @@ console.log(reportLanding)
                 <img src={SearchImg} alt="" className='px-1.5 py-1.5'/>
                 </div>  
                 <input
-            onChange={(e) => setSearch(e.target.value)}
+            onChange={(e) =>  {chooseSearch == "cuorses" ? setSearchCourse(e.target.value) : setSearch(e.target.value)} }
                 
                 style={{boxShadow:" 0px 1px 3px 0px #00000033"}} placeholder={t("search1")} type="text" className='w-full h-full  rounded-[35px]  text-right font-normal
                 font-Yekan text-[#AAAAAA] text-[16px] pr-5 outline-none dark:bg-gray-600 ' 
@@ -246,7 +243,7 @@ console.log(reportLanding)
                     
                   
                     
-                    )) :   chooseSearch == "cuorses"?    CourseSearchBar.data?.courseFilterDtos.map((data)=>(
+                    )) :   chooseSearch == "cuorses" ?    CourseSearchBar.data?.courseFilterDtos.map((data)=>(
                     
                       <div  >
                       <NavLink to={"/courses-detail/" + data?.courseId} className=' h-[80px] w-full items-center p-2 flex  relative justify-end gap-3 hover:bg-slate-100'>

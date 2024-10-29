@@ -99,10 +99,12 @@ export function useCourseLanding(){
   })
 }
 
-export function useCourseLandingSearchBar(params2 , search){
+export function useCourseLandingSearchBar(params2 , searchCourse){
   return useQuery({
-    queryKey:["CourseBar" , params2 , search],
-    queryFn:()=>getCourseLandingSearchBar(params2 , search)
+    queryKey:["CourseBar" , params2 , searchCourse],
+    queryFn:()=>{
+      return getCourseLandingSearchBar(params2 , searchCourse)
+    }
   })
 }
 
