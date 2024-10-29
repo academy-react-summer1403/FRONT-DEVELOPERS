@@ -48,6 +48,11 @@ const CoursPage = () => {
   console.log(query);
 
 
+  const Range = useSelector((state) => state.RangeSlice.Range);
+  console.log(Range);
+
+  const lessRange = useSelector((state) => state.lessRangeSlice.less);
+  console.log(lessRange);
 
   const dispatch = useDispatch();
   console.log(dispatch);
@@ -56,17 +61,18 @@ const CoursPage = () => {
   const params = {
     RowsOfPage:view1,
     PageNumber:page,  
-    // ListTech:query,
      courseLevelId : query,
      SortingCol : sort,
      CourseTypeId : query,
-    //  TeacherId : query,
-     
+
+  
     
   }
 
+  
 
-  const CoursesData = useCourses( search , params);
+
+  const CoursesData = useCourses( search , params );
   console.log("CoursesData",CoursesData);
 
 

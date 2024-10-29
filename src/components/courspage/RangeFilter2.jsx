@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const RangeFilter = ({min , max , value , bufferd , onChange}) => {
+const RangeFilterTwo = ({min , max , value , bufferd , onChange}) => {
 
   function mapToRange(value , min , max){
     value = Math.min(Math.max(value , min) , max)
@@ -51,10 +51,10 @@ const RangeFilter = ({min , max , value , bufferd , onChange}) => {
 
         <div style={{width:mapToRange(bufferd , min , max) + "%" }} className='absolute h-full bg-gray-300 rounded'></div>
 
-        <div style={{width:mapToRange(value , min , max) + "%" }} className='absolute h-full bg-orange rounded'></div>
+        <div style={{width:mapToRange(value , min , max) + "%" }} className='absolute h-full bg-primary rounded'></div>
       </div>
        );
   
 }
 
-export default RangeFilter
+export default RangeFilterTwo

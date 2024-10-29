@@ -1,13 +1,14 @@
 import React, { useState } from 'react'
 import arrow from "../../assets/courses/arrow.svg";
-import RangeFilter from './RangeFilter';
-import { addRange } from '../../core/redux/slices/QueryState/RangeSlice';
+
 import { useDispatch } from 'react-redux';
 
+import RangeFilterTwo from './RangeFilter2';
+import { lessRange } from '../../core/redux/slices/QueryState/LessRangeSlice';
 
 
 
-const RangeAccar = ({Range , toggleAccordeionRange}) => {
+const RangeAccarTwo = ({lessRangeA , toggleAccordeionLessRange}) => {
 
    const [value , setValue] = useState(0) 
    console.log(value)
@@ -15,11 +16,11 @@ const RangeAccar = ({Range , toggleAccordeionRange}) => {
 
    const dispatch = useDispatch()
 
-   dispatch(addRange(value))
+   dispatch(lessRange(value))
 
   return (
     <div className='max-sm:w-full '>
-            {Range.map((data ,index )=>(
+            {lessRangeA.map((data ,index )=>(
 
             <li key={index}         
             className={`relative group bg-gray-50 dark:bg-gray-700 p-2 my-4 text-right rounded-md shadow-sm  shadow-gray-300 
@@ -28,7 +29,7 @@ const RangeAccar = ({Range , toggleAccordeionRange}) => {
             >         
             
                     <div className='relative flex flex-row text-right border-b-[1.5px] py-2 cursor-pointer'
-                        onClick={()=>toggleAccordeionRange(data.id)}
+                        onClick={()=>toggleAccordeionLessRange(data.id)}
                     >
                         <img src={arrow}  className={`top-0 ${data.isOpen? "rotate-180":"rotate-0"} transition duration-500 `} />                 
                         <p  className="absolute right-0 top-0 font-medium 
@@ -40,8 +41,9 @@ const RangeAccar = ({Range , toggleAccordeionRange}) => {
 
                       <h1>{value}</h1>
                         
-                        <RangeFilter min={0} max={500} value={value} onChange={setValue} bufferd={30}/>
                     
+                        <RangeFilterTwo min={0} max={500} value={value} onChange={setValue} bufferd={30}/>  
+                       
 
                     </div>}                  
                     
@@ -52,4 +54,4 @@ const RangeAccar = ({Range , toggleAccordeionRange}) => {
   )
 }
 
-export default RangeAccar
+export default RangeAccarTwo
