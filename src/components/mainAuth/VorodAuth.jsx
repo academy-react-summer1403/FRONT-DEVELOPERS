@@ -214,7 +214,7 @@ navigate("/")
                     type="submit"
                     className="w-[90px] h-[30px] rounded-2xl bg-orange absolute top-[130px] right-[105px] text-white text-[10px] font-semibold"
                   >
-                    دریافت کد تایید
+                    ورود به حساب
                   </button>
           
 

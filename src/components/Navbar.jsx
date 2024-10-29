@@ -33,7 +33,7 @@ const Navbar = () => {
   {
       id:3,
       title:`${t('teacher')}`,
-      link:"/Dashboard",
+      link:"/teacher",
   },
   {
       id:4,
@@ -51,6 +51,18 @@ const Navbar = () => {
     const userImageProfile = useUserProfile()
     console.log(userImageProfile.data)
 
+    
+ const user = useSelector((state) => state.TokenSlice)
+
+ console.log("user" , user)
+  
+  const token = user?.token 
+  console.log(token)   
+
+
+//   const currentRoutes = user.token==null ? PublicRoutes : PrivateRoutes
+
+
   return (
     <motion.div  className='z-[200] max-md:px-3 '
     initial={{opacity:0}}
@@ -65,14 +77,17 @@ const Navbar = () => {
     
                 {/* ACCOUNT section  */}
                 <div className=' z-[99999] text-2xl flex items-center gap-2 font-bold'>
-                    <NavLink to={"/auth"}  className='group relative w-36 max-md:w-[150px]  max-sm:w-[150px] z-[9999] 
+                    <NavLink  to={user.token==null ? "/auth" : "/Dashboard" }  className='group relative w-36 max-md:w-[150px]  max-sm:w-[150px] z-[9999] 
                             max-lg:w-[150px] max-xl:w-[200px] h-12 bg-primary
                             mt-6 rounded-3xl hover:shadow-lg  dark:bg-orange 
                             dark:hover:shadow-slate-700 dark:hover:shadow-md z-50
                             transition-shadow'>
                         <div >  
                             <img src={userImageProfile ? userImageProfile.data?.currentPictureAddress : UserImg} alt="" className='w-[40px] h-[40px] rounded-full absolute top-[4px] left-2  border-[2px]   '/>
-                            <h1 className='text-sm  font-semibold text-white text-right leading-9 mr-3 py-1 '>{t(userImageProfile.data?.fName)} {t(userImageProfile.data?.lName)}</h1>
+                            
+                            {user.token==null ? <h1 className='text-sm  font-semibold text-white text-right leading-9 mr-3 py-1 '>{t("person")} </h1> :
+                                                        <h1 className='text-sm  font-semibold text-white text-right leading-9 mr-3 py-1 '>{t(userImageProfile.data?.fName)} {t(userImageProfile.data?.lName)}</h1>
+}
                         </div> 
                         
                 

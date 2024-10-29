@@ -61,11 +61,9 @@ export const getUserProfile = async () => {
   
   
   
-  export const postReserv = async ( params ,toast) => {
+  export const postReserv = async ( params ) => {
     const data = await http.post("/CourseReserve/ReserveAdd" , params ,
-      toast.success("عملیات  با موفقیت انجام شد" ,{
-        theme:"colored"
-      })
+    
     )
   
     console.log(data);
@@ -81,13 +79,11 @@ export const getUserProfile = async () => {
 
 
 
-  export const postFavoriteNews = async (  params, toast) => {
+  export const postFavoriteNews = async (  params) => {
     const data = await http.post(`/News/AddFavoriteNews`,null,{
       params:params
     },
-      toast.success("عملیات  با موفقیت انجام شد" ,{
-        theme:"colored"}
-    ))
+    )
   
     console.log(data);
     return data;

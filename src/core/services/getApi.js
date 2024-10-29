@@ -89,14 +89,14 @@ export const getCourseLanding = async () => {
 };
 
 
-export const getCourseLandingSearchBar = async (search , params2) => {
-  if (search && search.length>0){
-    params2.Query = search
+export const getCourseLandingSearchBar = async (  params2,searchCourse) => {
+  if (searchCourse && searchCourse.length>0){
+    params2.Query = searchCourse
   }
   const data = await http.get(`/Home/GetCoursesWithPagination` ,{
     params:params2
   });
-  console.log(data);
+
   return data;
 };
 
