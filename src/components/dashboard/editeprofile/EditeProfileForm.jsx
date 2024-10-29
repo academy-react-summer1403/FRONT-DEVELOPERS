@@ -13,6 +13,7 @@ import { useNavigate } from 'react-router-dom';
 import { postUserImg, postUserMainImg, putUserInfo } from '../../../core/services/DashApi';
 import { useSelector } from 'react-redux';
 import { useUserProfile } from "../../../core/services/query/DashboardQuery";
+import Map from "../../../pages/dashboard/content/Map";
 
 
 
@@ -25,14 +26,14 @@ const EditeProfileForm = () => {
     const [date, setDate] = useState();
     const userProfile = useUserProfile()
     console.log(userProfile)
-  
+   const location = useSelector((state) => state.LocationSlice.location);
+        console.log(location);
+
     const onSubmit =async (e)=>{
         e.preventDefault();
     
     
-        const location = useSelector((state) => state.LocationSlice.location);
-        console.log(location);
-
+       
     
         const formData = new FormData(e.target);
         formData.append("LName", LName);
@@ -110,14 +111,14 @@ const EditeProfileForm = () => {
                 max-xl:flex max-xl:flex-col-reverse  border-b pb-4 px-2 
                 '>
                     {/* profile image section  */}
-                    <div className='border grid-col-1 w-[100%]'>
+                    <div className=' grid-col-1 w-[100%]'>
                         {/* upload  */}
                         <div className='rounded-full'>
                             <label className='relative rounded-full  text-right text-sm grid-col-1 text-gray-400'>
                                 <p className='py-2 px-4'>img</p>  
                                 <input type="file" name="formFile" id="formFile"
                                 style={{boxShadow:" 0px 1px 3px 0px #00000033 inset"}}
-                                className='rounded-md bg-gray-50 dark:bg-[#747272] text-teal-800 rounded-full mx-10 w-40 h-40
+                                className='rounded-md bg-gray-50 dark:bg-[#747272] text-teal-800  mx-10 w-40 h-40
                                 text-right font-medium focus:outline outline-primary outline-[1.5px]'/>
                             </label>                
                         </div>
@@ -125,7 +126,7 @@ const EditeProfileForm = () => {
                         <div className='w-full'>
                             <label className='relative  text-right text-sm grid-col-1 text-gray-400'>
                                 <p className='py-2 px-4'>درباره من</p>  
-                                <input type="text"   id="UserAbout" name="UserAbout" 
+                                <input type="text" defaultValue={userProfile.data?.userAbout}   id="UserAbout" name="UserAbout" 
                                 style={{boxShadow:" 0px 1px 3px 0px #00000033 inset"}}
                                 className='rounded-md bg-gray-50 dark:bg-[#747272] text-teal-800 h-[130px] w-full
                                 text-right font-medium focus:outline outline-primary outline-[1.5px]'/>
@@ -138,7 +139,7 @@ const EditeProfileForm = () => {
                         <li className=' flex flex-row-reverse gap-4'>                            
                             <label className='relative text-right text-sm text-gray-400'>
                                 <p className='py-2 px-4'>نام</p>  
-                                <input type="text"   id="FName" name="FName"   placeholder="این فیلد اجباری است"
+                                <input type="text"   id="FName" name="FName" defaultValue={userProfile.data?.fName}  placeholder="این فیلد اجباری است"
                                 style={{boxShadow:" 0px 1px 3px 0px #00000033 inset"}}
                                 className='px-4 pt-1 rounded-md bg-gray-50 dark:bg-[#747272] leading-8 text-teal-800 
                                 placeholder-sm text-right placeholder-teal-800/30 font-medium focus:outline outline-primary outline-[1.5px]'/>
@@ -148,7 +149,7 @@ const EditeProfileForm = () => {
 
                             <label className='relative text-right text-sm text-gray-400'>
                                 <p className='py-2 px-4'>نام خانوادگی</p>  
-                                <input type="text"   id="LName" name="LName"    placeholder="این فیلد اجباری است"
+                                <input type="text"   id="LName" name="LName"  defaultValue={userProfile.data?.lName}    placeholder="این فیلد اجباری است"
                                 style={{boxShadow:" 0px 1px 3px 0px #00000033 inset"}}
                                 className='px-4 pt-1 rounded-md bg-gray-50 dark:bg-[#747272] leading-8 text-teal-800 
                                 placeholder-md text-right placeholder-teal-800/30 font-medium 
@@ -161,7 +162,7 @@ const EditeProfileForm = () => {
                         <li className=' flex flex-row-reverse gap-4'>                            
                             <label className='relative text-right text-sm text-gray-400'>
                                 <p className='py-2 px-4'>کد ملی</p>  
-                                <input type="text"   id="NationalCode" name="NationalCode"   placeholder="این فیلد اجباری است"
+                                <input type="text"   id="NationalCode" name="NationalCode"  defaultValue={userProfile.data?.nationalCode } placeholder="این فیلد اجباری است"
                                 style={{boxShadow:" 0px 1px 3px 0px #00000033 inset"}}
                                 className='px-4 pt-1 rounded-md bg-gray-50 dark:bg-[#747272] leading-8 text-teal-800 
                                 placeholder-sm text-right placeholder-teal-800/30 font-medium focus:outline outline-primary outline-[1.5px]'/>
@@ -171,7 +172,7 @@ const EditeProfileForm = () => {
 
                             <label className='relative text-right text-sm text-gray-400'>
                                 <p className='py-2 px-4'>جنسیت</p>  
-                                <input type="text"   id="Gender" name="Gender"   component="select"
+                                <input type="text"   id="Gender" name="Gender"  defaultValue={userProfile.data?.gender}  component="select"
                                 style={{boxShadow:" 0px 1px 3px 0px #00000033 inset"}}
                                 className='px-4 py-2 w-[232px] rounded-md bg-gray-50 dark:bg-[#747272] leading-8 text-teal-800 
                                 placeholder-md text-right placeholder-teal-800/30 font-medium focus:outline
@@ -205,7 +206,7 @@ const EditeProfileForm = () => {
 
                             <label className='relative text-right text-sm text-gray-400'>
                                 <p className='py-2 px-4'>تلفن همراه</p>  
-                                <input type="text"    placeholder="این فیلد اجباری است"
+                                <input type="text" defaultValue={userProfile.data?.phoneNumber} name=""  placeholder="این فیلد اجباری است"
                                 style={{boxShadow:" 0px 1px 3px 0px #00000033 inset"}}
                                 className='px-4 pt-1 rounded-md bg-gray-50 dark:bg-[#747272] leading-8 text-teal-800 
                                 placeholder-md text-right placeholder-teal-800/30 font-medium focus:outline outline-primary outline-[1.5px]'/>
@@ -217,7 +218,7 @@ const EditeProfileForm = () => {
                         <li className=' flex flex-row-reverse gap-4'>                            
                             <label className='relative text-right text-sm text-gray-400'>
                                 <p className='py-2 px-4'>ایمیل</p>  
-                                <input type="email"     placeholder="example@gmail.con"
+                                <input type="email"   defaultValue={userProfile.data?.email}     placeholder="example@gmail.con"
                                 style={{boxShadow:" 0px 1px 3px 0px #00000033 inset"}}
                                 className='px-4 pt-1 rounded-md bg-gray-50 dark:bg-[#747272] leading-8 text-teal-800 
                                 placeholder-sm placeholder-teal-800/30 font-medium focus:outline outline-primary outline-[1.5px]'/>
@@ -227,7 +228,7 @@ const EditeProfileForm = () => {
 
                             <label className='relative text-right text-sm text-gray-400'>
                                 <p className='py-2 px-4'>تلگرام</p>  
-                                <input type="text"   id="TelegramLink" name="TelegramLink"   placeholder="@telegram"
+                                <input type="text"   id="TelegramLink" name="TelegramLink"  defaultValue={userProfile.data?.telegramLink}   placeholder="@telegram"
                                 style={{boxShadow:" 0px 1px 3px 0px #00000033 inset"}}
                                 className='px-4 pt-1 rounded-md bg-gray-50 dark:bg-[#747272] leading-8 text-teal-800 
                                 placeholder-md  placeholder-teal-800/30 font-medium focus:outline outline-primary outline-[1.5px]'/>
@@ -239,7 +240,7 @@ const EditeProfileForm = () => {
                         <li className='flex flex-row-reverse '>
                             <label className='relative text-right text-sm w-full text-gray-400'>
                                 <p className='py-2 px-4'>لینکدین</p>  
-                                <input type="text"   id="LinkdinProfile" name="LinkdinProfile"    placeholder="https://www.linkedin.com/"
+                                <input type="text"   id="LinkdinProfile" name="LinkdinProfile" defaultValue={userProfile.data?.linkdinProfile}   placeholder="https://www.linkedin.com/"
                                 style={{boxShadow:" 0px 1px 3px 0px #00000033 inset"}}
                                 className='px-4 pt-1 rounded-md bg-gray-50 dark:bg-[#747272] leading-8 text-teal-800 w-full 
                                 placeholder-md  placeholder-teal-800/30 font-medium focus:outline outline-primary outline-[1.5px]'/>
@@ -259,13 +260,16 @@ const EditeProfileForm = () => {
                     max-lg:w-full
                     '>
                         <p className='py-2 px-4'>آدرس</p>  
-                        <input type="text"  id="HomeAdderess" name="HomeAdderess"   placeholder="آدرس"
+                        <input type="text"  id="HomeAdderess" name="HomeAdderess" defaultValue={location}   placeholder="آدرس"
                         style={{boxShadow:" 0px 1px 3px 0px #00000033 inset"}}
                         className='px-4 pt-1 rounded-md bg-gray-50 dark:bg-[#747272] leading-8 text-teal-800 w-[100%] h-16
                         placeholder-sm text-right placeholder-teal-800/30 font-medium focus:outline outline-primary outline-[1.5px]'/>
                     </label>
                     
-                    <div className=''>map</div>
+                    <div className=''>
+                    <Map/>
+
+                    </div>
                 </div>
                 
                 <div className='flex gap-4 mt-8 '>
