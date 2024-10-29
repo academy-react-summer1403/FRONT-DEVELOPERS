@@ -74,7 +74,9 @@ const EditeProfileForm = () => {
         const userMainImg = postUserMainImg( formId)
         console.log(userMainImg)
 
-
+        toast.success("good" , {
+            theme:"colored"
+        })
     
 
             navigate("/info")
