@@ -99,17 +99,17 @@ export function useCourseLanding(){
   })
 }
 
-export function useCourseLandingSearchBar(params){
+export function useCourseLandingSearchBar(params2 , search){
   return useQuery({
-    queryKey:["landingCourseSearchBar" , params],
-    queryFn:()=>getCourseLandingSearchBar(params)
+    queryKey:["CourseBar" , params2 , search],
+    queryFn:()=>getCourseLandingSearchBar(params2 , search)
   })
 }
 
-export function useNewsLandingSearchBar(params){
+export function useNewsLandingSearchBar(params , search){
   return useQuery({
-    queryKey:["landingNewsSearchBar" , params],
-    queryFn:()=>getNewsLandingSearchBar(params)
+    queryKey:["landingNewsSearchBar" , params , search],
+    queryFn:()=>getNewsLandingSearchBar(params , search)
   })
 }
 
