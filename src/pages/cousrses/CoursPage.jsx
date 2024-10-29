@@ -48,11 +48,6 @@ const CoursPage = () => {
   console.log(query);
 
 
-  const Range = useSelector((state) => state.RangeSlice.Range);
-  console.log(Range);
-
-  const lessRange = useSelector((state) => state.lessRangeSlice.less);
-  console.log(lessRange);
 
   const dispatch = useDispatch();
   console.log(dispatch);
