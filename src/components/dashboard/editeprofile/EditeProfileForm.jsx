@@ -9,7 +9,7 @@ import persian_fa from "react-date-object/locales/persian_fa";
 import { CiCircleRemove } from "react-icons/ci";
 import editeprof from '../../../assets/dashboard/edite2.svg'
 import save from '../../../assets/dashboard/save.svg'
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { postUserImg, postUserMainImg, putUserInfo } from '../../../core/services/DashApi';
 import { useSelector } from 'react-redux';
 import { useUserProfile } from "../../../core/services/query/DashboardQuery";
@@ -272,7 +272,7 @@ const EditeProfileForm = () => {
                     </div>
                 </div>
                 
-                <div className='flex gap-4 mt-8 '>
+                <NavLink to={"/info"} className='flex gap-4 mt-8 '>
                     <button type="" className='flex flex-row gap-2 text-sm rounded-full
                         bg-gray-100 dark:bg-[#747272] hover:bg-red-100 hover:text-red-500 text-gray-300 px-5 py-1 
                     '>
@@ -286,7 +286,7 @@ const EditeProfileForm = () => {
                         <img src={save}/>
                         ذخیره تغییرات
                     </button> 
-                </div>
+                </NavLink>
             </div>
         
         </form>
