@@ -187,10 +187,10 @@ const ArticlesNews = () => {
             </div>
 
             {/* filter  */}
-            <div  className='relative max-sm:grid max-sm:justify-items-center'>
+            {/* <div  className='relative max-sm:grid max-sm:justify-items-center'>
           
                   <FilterNews />
-            </div>
+            </div> */}
           </div>
 
           {/* carde  */}

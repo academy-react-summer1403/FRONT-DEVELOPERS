@@ -18,6 +18,8 @@ const CourseCard = ({courseId}) => {
   console.log(addFavoriteCourse)
 
  
+
+ 
   const CourseDetail = useCourseId(courseId);
   console.log(CourseDetail.data);
 
@@ -138,7 +140,7 @@ const CourseCard = ({courseId}) => {
                 
           <button
           
-            onClick={()=>setReserv(courseId , toast)}
+            onClick={()=>setReserv(courseId )}
           className="bg-secondary/90 max-lg:text-[16px]   max-md:mx-auto  max-xl:w-[280px] max-xl:h-[40px] max-lg:ml-[0] max-xl:ml-[10%] ml-[18%] max-xl:mt-[15px] mt-[25px] flex gap-3 items-center justify-center  w-[347px] h-[55px] text-white rounded-[9px] font-bold max-xl:text-[19px] text-[22px]  ">
             !شرکت در دوره
             <svg
