@@ -111,26 +111,26 @@ navigate("/")
     {/* hero image  */}
     <div className="flex justify-center items-center relative">
       <motion.div
-        initial={{ opacity: 0, x: 200 }}
+        initial={{ opacity: 1, x: 0 }}
         animate={{ opacity: 1, x: 0 }}
-        transition={{ type: "spring", stiffness: 100, delay: 0.2 }}
+        transition={{ type: "spring", stiffness: 100, delay: 0.6 }}
         className="w-[800px]  h-[500px] mt-[10px] relative
      rounded-2xl 
       "
       >
-        <h1
+        <NavLink to={"/auth"}
           className="absolute w-[100px] h-[50px]  text-center font-semibold text-green hover:text-orange dark:text-white 
       leading-[50px] top-[65px] -right-[90px]"
         >
           ثبت نام
-        </h1>
+        </NavLink>
 
-        <h1
+        <NavLink to={"/auth/v1"}
           className="absolute w-[100px] h-[50px]  text-center font-semibold text-green hover:text-orange dark:text-white 
       leading-[50px] top-[155px] -right-[90px]"
         >
           ورود
-        </h1>
+        </NavLink>
 
         <div
           className="absolute w-[90px] h-[50px] z-[5000] text-center font-semibold text-green hover:text-orange dark:text-white 
