@@ -12,6 +12,7 @@ import AOS from "aos";
 import 'aos/dist/aos.css';
 import DateApi from '../DateApi'
 import { useTranslation } from 'react-i18next'
+import { ImageErrore } from '../ImageErrore';
 
 const ArticleNewsCard = ({title,miniDescribe  , updateDate,currentView , id,currentImageAddressTumb}) => {
 

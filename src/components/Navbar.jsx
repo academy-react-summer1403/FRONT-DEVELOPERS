@@ -10,6 +10,7 @@ import { useTranslation } from 'react-i18next';
 import Logo from './Logo';
 import { useUserProfile } from '../core/services/query/DashboardQuery';
 import { useSelector } from 'react-redux';
+import ScrollNav from './ScrollNav';
 // import { useSelector } from 'react-redux';
 
 
@@ -68,8 +69,8 @@ const Navbar = () => {
     initial={{opacity:0}}
     animate={{opacity:1}}
     transition={{duration:0.5 , delay:0.5}}
->
-
+>   
+    <ScrollNav color="orange"/>
     <div>
         <div className='container flex justify-between items-center py-6 dark:bg-gray-900 duration-200
             max-lg:py-1 max-lg:mb-10  max-xl:px-0
