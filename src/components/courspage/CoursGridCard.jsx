@@ -8,13 +8,11 @@ import hat from '../../assets/landing/academic hat.svg'
 import teacher from '../../assets/courses/Frame(1).svg'
 import level from '../../assets/courses/Frame(2).svg'
 import { MdOutlineAddShoppingCart } from "react-icons/md";
-
 import { NavLink } from 'react-router-dom'
 import { motion } from 'framer-motion'
-
+import Tilt from 'react-parallax-tilt';
 import AOS from "aos";
 import 'aos/dist/aos.css';
-import { ImageErrore } from '../ImageErrore'
 
 
 
@@ -27,6 +25,7 @@ const CoursGridCard = ({title , levelName , cost , teacherName , likeCount , cou
 
   return (
     // container 
+    <Tilt>
   
     <NavLink to={"/courses-detail/" + courseId} className='grid grid-col-1 h-[320px] mt-20 max-sm:min-w-[310px] 
     mx-[10px] max-md:mx-0 
@@ -103,7 +102,7 @@ const CoursGridCard = ({title , levelName , cost , teacherName , likeCount , cou
         </motion.div>
       
     </NavLink>
-
+</Tilt>
   )
 }
 

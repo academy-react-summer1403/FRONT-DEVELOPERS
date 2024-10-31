@@ -42,7 +42,7 @@ const EditeProfileForm = () => {
         formData.append("LinkdinProfile", LinkdinProfile);
         formData.append("TelegramLink", TelegramLink);
         formData.append("ReceiveMessageEvent", true);
-        formData.append("HomeAdderess", location);
+        formData.append("HomeAdderess", HomeAdderess);
         formData.append("NationalCode", NationalCode);
         formData.append("Gender",true );
         formData.append("BirthDay", date ? date.toString() : "");

@@ -16,6 +16,8 @@ import { image } from 'framer-motion/client';
 import { ImageErrore } from '../ImageErrore';
 import { SlArrowLeft } from "react-icons/sl";
 import NotFound from '../notFound/NotFound';
+import Tilt from 'react-parallax-tilt';
+
 import { CiSquareRemove } from "react-icons/ci";
 
 const Hero = () => {
@@ -30,7 +32,8 @@ const reportLanding =  useLandingReport()
   const [search , setSearch] = useState('')
 
   const [searchCourse , setSearchCourse] = useState('')
-    
+  const [isInputFocused, setIsInputFocused] = useState(false);
+    console.log(isInputFocused)
   const params = {
     RowsOfPage:20,
     PageNumber:1
@@ -62,14 +65,14 @@ const reportLanding =  useLandingReport()
 
         
         
-            <div style={{boxShadow:"-2px 0px 5px 0px #00000026"}} className='w-[180px] max-xl:w-[150px] max-lg:w-[130px] max-lg:ml-[-40px]
+            <Tilt style={{boxShadow:"-2px 0px 5px 0px #00000026"}} className='w-[180px] max-xl:w-[150px] max-lg:w-[130px] max-lg:ml-[-40px]
              max-md:hidden  max-lg:h-[95px] max-xl:top-[-30px] absolute top-[-20px] left-[-20px] h-[105px] ml-5 bg-white rounded-[10px] z-[1] 
                dark:bg-gray-700/70  dark:hover:bg-gray-700/100  dark:hover:transition-colors'>
               <div style={{boxShadow: "0px 0px 5px 0px #00000059"}} className='flex items-center justify-center  max-lg:w-[48px] max-lg:h-[48px] bg-yellow rounded-full max-xl:ml-[40px] ml-[60px] mt-[-30px] w-[68px] h-[68px] '>
                 <img className='  w-[45px] h-[45px] max-lg:w-[35px] max-lg:h-[35px]' src={teacher} alt="" />
               </div>
               <h1 className=' mx-auto max-xl:text-[20px] max-xl:w-[140px] h-[40px] w-[170px] mt-3 text-center text-[25px] font-normal font-Yekan text-[#434343] text-gray-800/90  dark:text-white'>+{reportLanding.data?.studentCount}{t('student')}</h1>
-            </div>
+            </Tilt>
        
 
 
@@ -84,7 +87,7 @@ const reportLanding =  useLandingReport()
 
 
             <div>
-            <motion.img
+           <motion.img
               initial={{opacity:0 , x:200}}
               animate={{opacity:1 , x:0}}
               transition={{type:"spring" , stiffness:100 , delay:0.2}}
@@ -96,7 +99,7 @@ const reportLanding =  useLandingReport()
             />
           </div>
 
-          <div className='w-[100px] h-[100px] absolute top-[25%] right-[-60px]  max-lg:hidden transform rotate-45 rounded-[20px] z-50  dark:bg-[rgba(255,255,255,0)] bg-white 
+         <div className='w-[100px] h-[100px] absolute top-[25%] right-[-60px]  max-lg:hidden transform rotate-45 rounded-[20px] z-50  dark:bg-[rgba(255,255,255,0)] bg-white 
               '>
 
 
@@ -148,13 +151,13 @@ const reportLanding =  useLandingReport()
      </motion.div>
 
 
-     <div style={{boxShadow:"-2px 0px 5px 0px #00000026"}} className='w-[180px]  dark:hover:bg-gray-700/100 dark:hover:transition-colors max-lg:-right-12 max-lg:-bottom-16 dark:bg-gray-700/70 max-lg:w-[130px] max-md:hidden  max-lg:h-[95px]  max-xl:w-[150px] max-xl:bottom-[-80px] max-xl:right-[-100px]  absolute bottom-[-90px] right-[-50px] h-[105px] ml-5 bg-white rounded-[10px]  z-40  
+     <Tilt style={{boxShadow:"-2px 0px 5px 0px #00000026"}} className='w-[180px]  dark:hover:bg-gray-700/100 dark:hover:transition-colors max-lg:-right-12 max-lg:-bottom-16 dark:bg-gray-700/70 max-lg:w-[130px] max-md:hidden  max-lg:h-[95px]  max-xl:w-[150px] max-xl:bottom-[-80px] max-xl:right-[-100px]  absolute bottom-[-90px] right-[-50px] h-[105px] ml-5 bg-white rounded-[10px]  z-40  
               '>
               <div style={{boxShadow: "0px 0px 5px 0px #00000059"}} className='flex  max-lg:w-[48px] max-lg:h-[48px] items-center justify-center max-xl:ml-[40px]   bg-orange rounded-full ml-[60px] mt-[-30px] w-[68px] h-[68px] '>
                 <img className='  w-[45px] h-[45px]  max-lg:w-[35px] max-lg:h-[35px]' src={Student} alt="" />
               </div>
               <h1 className=' mx-auto h-[40px] w-[170px] mt-3 text-center text-[25px] max-xl:text-[20px] max-xl:w-[140px]  font-normal font-Yekan text-[#434343] text-gray-800/90  dark:text-white'>+{reportLanding.data?.teacherCount} {t("teacher")}</h1>
-            </div>
+            </Tilt>
 
 
     </div>
@@ -197,11 +200,14 @@ const reportLanding =  useLandingReport()
               <div className='w-[48px] h-[49px] rounded-full bg-orange absolute left-[10px] top-[8px] flex items-center justify-center'>
                 <img src={SearchImg} alt="" className='px-1.5 py-1.5'/>
                 </div>  
+
+               
                 <input
+                 onFocus={() => setIsInputFocused(true)}
             onChange={(e) =>  {chooseSearch == "cuorses" ? setSearchCourse(e.target.value) : setSearch(e.target.value)} }
                 
-                style={{boxShadow:" 0px 1px 3px 0px #00000033"}} placeholder={t("search1")} type="text" className='w-full h-full  rounded-[35px]  text-right font-normal
-                font-Yekan text-[#AAAAAA] text-[16px] pr-5 outline-none dark:bg-gray-600 ' 
+                style={{boxShadow:" 0px 1px 3px 0px #00000033"}} placeholder={t("search1")} type="text" className={`w-full h-full  rounded-[35px]  text-right font-normal
+                font-Yekan text-[#AAAAAA] text-[16px] pr-5 outline-none dark:bg-gray-600 ` }
                  
                 />
                 {/* select course or news  */}

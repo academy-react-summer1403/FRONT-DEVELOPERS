@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
+import Tilt from 'react-parallax-tilt';
 
 
 // images: 
@@ -24,7 +25,7 @@ const CoursListCard = ({title , levelName , cost , teacherName , likeCount ,cour
 
   return (
     // container 
-    <div className=' w-[90%] mx-auto grid grid-cols-1 p-2'>
+    <Tilt className=' w-[90%] mx-auto grid grid-cols-1 p-2'>
         {/* map part of card:  */}
         <NavLink  to={"/courses-detail/" + courseId}>
         <div data-aos="fade-up" data-aos-duration="800" className='group h-full relative flex flex-row-reverse rounded-xl p-3 w-full
@@ -95,7 +96,7 @@ const CoursListCard = ({title , levelName , cost , teacherName , likeCount ,cour
             </div>
         </div> 
         </NavLink>
-    </div>
+    </Tilt>
     
   )
 }

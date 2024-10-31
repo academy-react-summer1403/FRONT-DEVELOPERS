@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import fima from '../assets/landing/figma.png'
 import { NavLink } from 'react-router-dom'
 import { MdOutlineAddShoppingCart } from "react-icons/md";
+import Tilt from 'react-parallax-tilt';
 
 
 import AOS from "aos";
@@ -15,7 +16,7 @@ const CoursGridCard = ({title  , cost , teacherName , currentRegistrants ,tumbIm
 
   return (
     <NavLink to={"/courses-detail/" + courseId}>
-    <div className='mt-[80px] max-2xl:-ml-6 mb-5 max-sm:-ml-8 grid justify-items-center'
+    <Tilt className='mt-[80px] max-2xl:-ml-6 mb-5 max-sm:-ml-8 grid justify-items-center'
     >
         <div data-aos="zoom-out-left"  data-aos-duration="900" className='relative rounded-[15px] w-[265px] max-xl:w-[230px] max-sm:w-[240px] max-sm:ml-2 max-md:h-[320px]  
         max-md:w-[255px] max-sm:h-[310px] h-[305px] dark:hover:bg-gray-600  max-xl:flex flex-wrap justify-center hover:bg-slate-50 
@@ -132,7 +133,7 @@ const CoursGridCard = ({title  , cost , teacherName , currentRegistrants ,tumbIm
 
 
        
-    </div>
+    </Tilt>
     </NavLink>
   )
 }
