@@ -216,7 +216,7 @@ const CoursPage = () => {
               type="text"
               //   placeholder={placeholder}
               className="mx-2 backdrop-blur-sm my-6  w-full outline-none
-               h-[65px] rounded-full text-right pr-8 pb-2 dark:bg-gray-700/70  
+               h-[65px] rounded-full text-right pr-8 pb-2 dark:bg-gray-700/70   
               "
               style={{ boxShadow: " 0px 0.1px 1px 1px rgba(0, 0, 0, 0.1)" }}
 

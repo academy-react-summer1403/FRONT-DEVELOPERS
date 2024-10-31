@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import 'react-tooltip/dist/react-tooltip.css'
 import { Tooltip } from 'react-tooltip'
 import { useUserProfile } from '../../../core/services/query/DashboardQuery'
@@ -26,6 +26,7 @@ const ProfileInformation = () => {
 
         const location = useSelector((state) => state.LocationSlice.location);
         console.log(location);
+        const [b,setB]=useState(location)
 
   return (
     <div className='grid grid-cols-2 mt-4 justify-items-center text-[15px]'>
@@ -43,8 +44,12 @@ const ProfileInformation = () => {
                 <p className='text-orange dark:text-amber-400 font-medium '>{userProfile.data?.linkdinProfile ? userProfile.data?.linkdinProfile :"--" }<span className='text-gray-400 dark:text-white'>: لینکدین</span></p>
             </div>
 
-            <div className='flex flex-row-reverse text-right'>                
-                <p className='text-orange dark:text-amber-400 font-medium w-[90%]'> <span className='text-gray-400 dark:text-white w-42'> آدرس :</span> {location} </p>
+            <div className='flex flex-row-reverse text-right'>    
+              
+                <p className='text-orange dark:text-amber-400 font-medium w-[90%]'> <span className='text-gray-400 dark:text-white w-42'> آدرس :</span>{JSON.stringify(location)} </p>
+
+
+                   
             </div>
 
             <div className='grid grid-cols-2 gap-4'> 

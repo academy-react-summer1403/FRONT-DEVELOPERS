@@ -24,6 +24,8 @@ import ReservatCourses from "./pages/dashboard/content/ReservatCourses"
 import StdPointOfView from "./pages/dashboard/content/StdPointOfView"
 import StdSettings from "./pages/dashboard/content/StdSettings"
 import StdFavorite from "./pages/dashboard/content/StdFavorite"
+import NotFound from "./components/notFound/NotFound"
+import Notfound from "./publicNotFound/notfound"
 
 
 
@@ -45,8 +47,22 @@ const  PublicRoutes = [
         element: <CoursPage />,
       },
       {
+        path: "/courses-detail/:courseId",
+        element: <Notfound/>,
+       
+      },
+      {
         path: "/article-news",
         element: <ArticlesNews />,
+        
+      },
+      {
+        path: "/article-detail/:id",
+        element: <Notfound />,
+      },  
+      {
+        path: "/basket",
+        element: <Notfound />,
       },
 
     ]},
@@ -94,6 +110,7 @@ const  PrivateRoutes = [
     {
       path: "/courses",
       element: <CoursPage />,
+
     },
     {
       path: "/article-news",
@@ -102,6 +119,7 @@ const  PrivateRoutes = [
     {
       path: "/courses-detail/:courseId",
       element: <CourseDetial />,
+      ErrorBoundary :<NotFound/>
     },
     {
       path: "/article-detail/:id",
