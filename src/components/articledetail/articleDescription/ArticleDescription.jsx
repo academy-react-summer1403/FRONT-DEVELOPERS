@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 import { postRateNews } from "../../../core/services/DashApi";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { useTranslation } from "react-i18next";
+import { ImageErrore } from "../../ImageErrore";
 
 const ArticleDescription = () => {
 
@@ -79,7 +80,7 @@ const ArticleDescription = () => {
            
             <img
               className="w-[575px] h-[320px] max-lg:w-[500px] max-lg:h-[250px] max-xl:w-[535px] max-xl:h-[280px] rounded-[10px] mx-auto my-[20px]"
-              src={articleDetail.data?.detailsNewsDto.currentImageAddress}
+              src={articleDetail.data?.detailsNewsDto.currentImageAddress ? articleDetail.data?.detailsNewsDto.currentImageAddress  : ImageErrore} onError={ImageErrore}
               alt=""
             />
          

@@ -13,6 +13,8 @@ import { handleToken } from '../../core/redux/slices/QueryState/TokenSlice';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
+import { IoEyeOutline } from 'react-icons/io5';
+import { FaRegEyeSlash } from 'react-icons/fa6';
 
 
 
@@ -88,6 +90,7 @@ navigate("/")
 
 
   
+const [showHidePassword, setShowHidePassword] = useState(false);
 
 
 
@@ -111,26 +114,26 @@ navigate("/")
     {/* hero image  */}
     <div className="flex justify-center items-center relative">
       <motion.div
-        initial={{ opacity: 0, x: 200 }}
+        initial={{ opacity: 1, x: 0 }}
         animate={{ opacity: 1, x: 0 }}
-        transition={{ type: "spring", stiffness: 100, delay: 0.2 }}
+        transition={{ type: "spring", stiffness: 100, delay: 0.6 }}
         className="w-[800px]  h-[500px] mt-[10px] relative
      rounded-2xl 
       "
       >
-        <h1
+        <NavLink to={"/auth"}
           className="absolute w-[100px] h-[50px]  text-center font-semibold text-green hover:text-orange dark:text-white 
       leading-[50px] top-[65px] -right-[90px]"
         >
           ثبت نام
-        </h1>
+        </NavLink>
 
-        <h1
+        <NavLink to={"/auth/v1"}
           className="absolute w-[100px] h-[50px]  text-center font-semibold text-green hover:text-orange dark:text-white 
       leading-[50px] top-[155px] -right-[90px]"
         >
           ورود
-        </h1>
+        </NavLink>
 
         <div
           className="absolute w-[90px] h-[50px] z-[5000] text-center font-semibold text-green hover:text-orange dark:text-white 
@@ -174,7 +177,7 @@ navigate("/")
                 onSubmit={(values) => onSubmit(values)}
                 validationSchema={validation}
               >
-                <div className='flex flex-col gap-4'>
+                <div className='relative flex flex-col gap-4'>
                   <input
                      id="email"
                      name="email"
@@ -192,8 +195,11 @@ navigate("/")
                     className="text-red-500 w-[50px] text-[10px] font-semibold absolute whitespace-nowrap left-[50px] top-[35px]"
                   /> */}
 
+                  <i onClick={() => setShowHidePassword(!showHidePassword)} className='absolute right-16 bottom-[27px]'>                      
+                    {showHidePassword?<IoEyeOutline className='text-green'/>: <FaRegEyeSlash className='text-green'/> }                      
+                  </i>
                   <input
-                    type="password"
+                    type={showHidePassword ? 'text' : 'password'}
                     placeholder="رمز عبور"
                     name="password"
                     className="w-[200px] h-[40px] ml-[50px] outline-none shadow-inner shadow-gray-400 border border-gray-300 rounded-lg bg-gray-100

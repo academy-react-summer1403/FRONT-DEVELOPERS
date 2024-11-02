@@ -15,7 +15,6 @@ import { useTranslation } from 'react-i18next';
 import { image } from 'framer-motion/client';
 import { ImageErrore } from '../ImageErrore';
 import { SlArrowLeft } from "react-icons/sl";
-import NotFound from '../notFound/NotFound';
 import Tilt from 'react-parallax-tilt';
 
 import { CiSquareRemove } from "react-icons/ci";

@@ -55,7 +55,8 @@ const ProfileInformation = () => {
             <div className='grid grid-cols-2 gap-4'> 
                 {/* map img  */}
             <div className='w-32 h-32 grid-col-1 border rounded-full'>
-                <img className='h-full w-full rounded-full' src="https://s3-alpha-sig.figma.com/img/c8b9/be0d/e8a21e635c32ae410e28f3cf5de1a8c6?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=mQSmEVIxNHdYxZFMqtNLDNXMrlh37oDozxN5lqs6rEd-DxHnVdAYKA7hAQuMxYb3kB8DPDwARJ4MTM3BIF5DbfxaW6dhVG0GQysBbfi1G-fdtaijMGya0uycA3pq-dGr6GQCqqdDfJW1lvOVK95Rt7CK-3pkhKJbRbT5JPi3FKyZwVE2S1FwKWFI6olEg7AU0rGCFtawsz85~iMU7KaSUgl2Jg8dACIXFQNg~kyfPPB-IJw-gDrVCyS9aeTEvZ2Q8CQItUbX8POtJlXggpXlRg7XxUjv1rgs5HyYZ6Jki6JFRRDBiiBQl97L2gMyVIFz-cWlIrJt6bL-AyR7xe9WNQ__" alt="" />
+                <img className='h-full w-full rounded-full' 
+                src="https://s3-alpha-sig.figma.com/img/c8b9/be0d/e8a21e635c32ae410e28f3cf5de1a8c6?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=mQSmEVIxNHdYxZFMqtNLDNXMrlh37oDozxN5lqs6rEd-DxHnVdAYKA7hAQuMxYb3kB8DPDwARJ4MTM3BIF5DbfxaW6dhVG0GQysBbfi1G-fdtaijMGya0uycA3pq-dGr6GQCqqdDfJW1lvOVK95Rt7CK-3pkhKJbRbT5JPi3FKyZwVE2S1FwKWFI6olEg7AU0rGCFtawsz85~iMU7KaSUgl2Jg8dACIXFQNg~kyfPPB-IJw-gDrVCyS9aeTEvZ2Q8CQItUbX8POtJlXggpXlRg7XxUjv1rgs5HyYZ6Jki6JFRRDBiiBQl97L2gMyVIFz-cWlIrJt6bL-AyR7xe9WNQ__" alt="" />
                 
             </div>
 
