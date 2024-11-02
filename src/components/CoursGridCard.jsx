@@ -3,8 +3,6 @@ import fima from '../assets/landing/figma.png'
 import { NavLink } from 'react-router-dom'
 import { MdOutlineAddShoppingCart } from "react-icons/md";
 import Tilt from 'react-parallax-tilt';
-
-
 import AOS from "aos";
 import 'aos/dist/aos.css';
 
