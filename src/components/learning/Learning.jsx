@@ -111,8 +111,7 @@ const Learning = () => {
           {t("allcourse")}
           </h3>
         </NavLink>
-        {/* <img src={BackImg} alt="" className='w-[324px] max-xl:hidden h-[420px] right-4 top-3  absolute '/> */}
-   
+           {/* bg img  */}
         <svg className='w-[324px] max-xl:hidden h-[420px] right-4 top-3  absolute ' width="324" height="420" viewBox="0 0 324 420" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g filter="url(#filter0_b_102_5167)">
         <path d="M0 30C0 13.4315 13.4315 0 30 0H294C310.569 0 324 13.4315 324 30V105V210V315V390C324 406.569 310.569 420 294 420H30C13.4315 420 0 406.569 0 390V345C0 328.431 13.5776 314.811 29.5512 310.412C59.9499 302.038 102.886 278.385 102.886 211.567C102.886 144.019 59.0062 119.247 28.5591 110.189C13.0194 105.566 0 92.1129 0 75.9V30Z" fill="url(#paint0_linear_102_5167)" fill-opacity="0.2"/>
