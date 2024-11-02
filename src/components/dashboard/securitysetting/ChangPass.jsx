@@ -54,7 +54,7 @@ const ChangPassword = () => {
 
   const [showHidePrevPassword, setShowHidePrevPassword] = useState(false);
   const [showHideNewPassword, setShowHideNewPassword] = useState(false);
-  const [showHideRepitPassword, setShowHideRepitPassword] = useState(false);
+  // const [showHideRepitPassword, setShowHideRepitPassword] = useState(false);
   return (
    <>
       <form

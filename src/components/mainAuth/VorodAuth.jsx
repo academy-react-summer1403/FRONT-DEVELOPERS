@@ -13,6 +13,8 @@ import { handleToken } from '../../core/redux/slices/QueryState/TokenSlice';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
+import { IoEyeOutline } from 'react-icons/io5';
+import { FaRegEyeSlash } from 'react-icons/fa6';
 
 
 
@@ -88,6 +90,7 @@ navigate("/")
 
 
   
+const [showHidePassword, setShowHidePassword] = useState(false);
 
 
 
@@ -174,7 +177,7 @@ navigate("/")
                 onSubmit={(values) => onSubmit(values)}
                 validationSchema={validation}
               >
-                <div className='flex flex-col gap-4'>
+                <div className='relative flex flex-col gap-4'>
                   <input
                      id="email"
                      name="email"
@@ -192,8 +195,11 @@ navigate("/")
                     className="text-red-500 w-[50px] text-[10px] font-semibold absolute whitespace-nowrap left-[50px] top-[35px]"
                   /> */}
 
+                  <i onClick={() => setShowHidePassword(!showHidePassword)} className='absolute right-16 bottom-[27px]'>                      
+                    {showHidePassword?<IoEyeOutline className='text-green'/>: <FaRegEyeSlash className='text-green'/> }                      
+                  </i>
                   <input
-                    type="password"
+                    type={showHidePassword ? 'text' : 'password'}
                     placeholder="رمز عبور"
                     name="password"
                     className="w-[200px] h-[40px] ml-[50px] outline-none shadow-inner shadow-gray-400 border border-gray-300 rounded-lg bg-gray-100

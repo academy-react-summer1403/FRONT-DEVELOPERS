@@ -9,6 +9,8 @@ import more from "../../assets/landing/more course 2.png";
 import * as yup from "yup";
 import { NavLink, useNavigate } from 'react-router-dom';
 import { postRegister } from '../../core/services/authApi';
+import { IoEyeOutline } from 'react-icons/io5';
+import { FaRegEyeSlash } from 'react-icons/fa6';
 
 const LoginAuth = () => {
 
@@ -44,6 +46,7 @@ const LoginAuth = () => {
 
 
 
+  const [showHidePassword, setShowHidePassword] = useState(false);
 
 
 
@@ -140,7 +143,7 @@ const LoginAuth = () => {
                     onSubmit={(values) => onSubmit(values)}
                     validationSchema={validation}
                   >
-                    <div className='flex flex-col gap-4'>
+                    <div className='flex flex-col gap-4 relative'>
                       <input
                         type="text"
                         placeholder="شماره همراه"
@@ -174,8 +177,13 @@ const LoginAuth = () => {
                         className="text-red-500 w-[50px] text-[10px] font-semibold absolute whitespace-nowrap top-[90px] left-[50px] "
                       /> */}
 
-                      <input
-                        type="password"
+
+                        {/* show/hide icon  */}
+                      <i onClick={() => setShowHidePassword(!showHidePassword)} className='absolute right-16 bottom-[12px]'>                      
+                          {showHidePassword?<IoEyeOutline className='text-green'/>: <FaRegEyeSlash className='text-green'/> }                      
+                      </i>
+                      <input                      
+                        type={showHidePassword ? 'text' : 'password'}
                         placeholder=" رمز عبور"
                         name="confirmPassword"
                         className="w-[200px] h-[40px] ml-[50px] outline-none shadow-inner shadow-gray-400 border border-gray-300 rounded-lg bg-gray-100

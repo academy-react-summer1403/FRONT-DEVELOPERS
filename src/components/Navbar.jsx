@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import FavImg from "../assets/landing/Favorite.svg";
 import ShopImg from "../assets/landing/Shopping Bag.svg";
@@ -9,8 +9,12 @@ import Lg from './Translate/TranslateButton';
 import { useTranslation } from 'react-i18next';
 import Logo from './Logo';
 import { useUserProfile } from '../core/services/query/DashboardQuery';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import ScrollNav from './ScrollNav';
+import { IoIosLogOut } from 'react-icons/io';
+import { HiXCircle } from 'react-icons/hi2';
+import { handleToken } from '../core/redux/slices/QueryState/TokenSlice';
+import { Tooltip } from 'react-tooltip';
 // import { useSelector } from 'react-redux';
 
 
@@ -56,16 +60,25 @@ const Navbar = () => {
  const user = useSelector((state) => state.TokenSlice)
 
  console.log("user" , user)
-  
+   
   const token = user?.token 
   console.log(token)   
 
 
 //   const currentRoutes = user.token==null ? PublicRoutes : PrivateRoutes
 
+// logout modal 
+const [openModal, setOpenModal] = useState(false)
+
+const handleLogout = (token)=>{
+    localStorage.removeItem("token" , token);    
+    setRemove(false)
+    setOpenModal(false)
+}
+
 
   return (
-    <motion.div  className='z-[200] max-md:px-3 '
+    <motion.div  className='z-[200] max-md:px-3'
     initial={{opacity:0}}
     animate={{opacity:1}}
     transition={{duration:0.5 , delay:0.5}}
@@ -73,7 +86,7 @@ const Navbar = () => {
     <ScrollNav color="orange"/>
     <div>
         <div className='container flex justify-between items-center py-6 dark:bg-gray-900 duration-200
-            max-lg:py-1 max-lg:mb-10  max-xl:px-0
+            max-lg:py-1 max-lg:mb-10  max-xl:px-0  
         '>
     
                 {/* ACCOUNT section  */}
@@ -84,17 +97,35 @@ const Navbar = () => {
                             dark:hover:shadow-slate-700 dark:hover:shadow-md z-50
                             transition-shadow'>
                         <div >  
-                            <img src={userImageProfile ? userImageProfile.data?.currentPictureAddress : UserImg} alt="" className='w-[40px] h-[40px] rounded-full absolute top-[4px] left-2  border-[2px]   '/>
+                            <img src={userImageProfile ? userImageProfile.data?.currentPictureAddress : UserImg} alt="" className={`w-[40px] h-[40px] rounded-full absolute top-[4px] left-2  border-[2px] ${user.token==null ? "hidden" : "block"} `}/>
                             
                             {user.token==null ? <h1 className='text-sm  font-semibold text-white text-right leading-9 mr-3 py-1 '>{t("person")} </h1> :
-                                                        <h1 className='text-sm  font-semibold text-white text-right leading-9 mr-3 py-1 '>{t(userImageProfile.data?.fName)} {t(userImageProfile.data?.lName)}</h1>
+                            <h1 className='text-sm  font-semibold text-white text-right leading-9 mr-3 py-1 '>{t(userImageProfile.data?.fName)} {t(userImageProfile.data?.lName)}</h1>
 }
                         </div> 
                         
                 
                     </NavLink>
                     {/* shop&favorit  */}
-                    <div className='flex justify-center flex-row gap-4 pr-9 mx-4 max-lg:gap-1 max-lg:ml-0 '>                    
+                    <div className='flex justify-center flex-row gap-4 pr-9 mx-4 max-lg:gap-1 max-lg:ml-0 '>  
+                        {/* log out     */}
+                        <div>
+                            <IoIosLogOut className={`${user.token == null ? "hidden" : "block"} block mt-8 text-gray-400 text-3xl cursor-pointer`}
+                            onClick={()=>user.token == null ? "": setOpenModal(true) }/>               
+                            <div className={`${openModal ==false ? "hidden": "block"} fixed left-0 top-0 w-screen h-screen bg-neutral-500/80 z-[9999]
+                                 backdrop-blur-sm transition-all duration-700`}
+                            >
+                                <div className='bg-white rounded-lg shadow-lg grid gap-3 p-8 mx-auto w-1/3 mt-40'>
+                                    <HiXCircle onClick={()=>setOpenModal(false)} 
+                                        className=' right-4 top-4 w-5 h-5 cursor-pointer text-secondary opacity-100 justify-self-end '
+                                    />                                
+                                    <p className='dark:text-white text-[20px] text-center'> آیا میخواهید از حسابتان خارج شوید ؟  </p>
+                                    <NavLink to={"#"} onClick={handleLogout}  className='bg-secondary p-2 rounded-md text-sm w-20 hover:scale-110
+                                    transition duration-500 hover:shadow-md mx-auto text-center'>بله</NavLink>
+                                </div>
+                            </div>
+                        </div>
+
                         <NavLink to={"/basket"} className='relative '>
                             <img src={ShopImg} alt="" className='mt-8 '/>
                             <div className='w-[16px] h-[16px] flex  items-center font-Yekan justify-center bg-orange rounded-full absolute px-[1px] max-lg:bottom-0 bottom-0 right-[-2px] text-[12px] font-normal text-white leading-3'>0</div>
