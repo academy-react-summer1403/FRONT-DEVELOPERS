@@ -119,7 +119,7 @@ const handleLogout = (token)=>{
                                     <HiXCircle onClick={()=>setOpenModal(false)} 
                                         className=' right-4 top-4 w-5 h-5 cursor-pointer text-secondary opacity-100 justify-self-end '
                                     />                                
-                                    <p className='dark:text-white text-[20px] text-center'> آیا میخواهید از حسابتان خارج شوید ؟  </p>
+                                    <p className='dark:text-gray-950 text-[20px] text-center'> آیا میخواهید از حسابتان خارج شوید ؟  </p>
                                     <NavLink to={"#"} onClick={handleLogout}  className='bg-secondary p-2 rounded-md text-sm w-20 hover:scale-110
                                     transition duration-500 hover:shadow-md mx-auto text-center'>بله</NavLink>
                                 </div>
