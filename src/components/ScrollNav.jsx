@@ -3,11 +3,11 @@ import styled from "styled-components";
 
 const ProgressContainer = styled.div`
   width: 100%;
-  height: 8px;
+  height: 0px;
   background: #ccc;
 `;
 const ProgressBar = styled.div`
-  height: 8px;
+  height: 5px;
   background: ${(props) => props.color || "#ccc"};
   width: ${(props) => props.width || 0}%;
 `;

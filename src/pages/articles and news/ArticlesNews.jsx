@@ -8,7 +8,7 @@ import ArticleNewsCard from "../../components/articlesnews/ArticleNewsCard";
 import OfferSection from "../../components/articlesnews/OfferSection";
 import { BiMenuAltRight } from "react-icons/bi";
 import { IoIosArrowDown } from "react-icons/io";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useNewsData } from "../../core/services/query/queries";
 import { useState } from "react";
 import { SliderRight } from "../../utility/animation";
@@ -194,7 +194,8 @@ const ArticlesNews = () => {
           </div>
 
           {/* carde  */}
-          <div
+          <motion.div
+            layout
             className="grid grid-cols-3 my-8 gap-4 
                     max-sm:grid-cols-1
                     max-md:grid-cols-2 
@@ -203,12 +204,13 @@ const ArticlesNews = () => {
                     
                 "
           >
-            {newsDataQuery.data?.news.length == 0  ? <NotFound/> : newsDataQuery.data?.news.map((item) => (
-              <ArticleNewsCard {...item} />
-            ))}
+            <AnimatePresence>
+              {newsDataQuery.data?.news.length == 0  ? <NotFound/> : newsDataQuery.data?.news.map((item) => (
+                <ArticleNewsCard {...item} />
+              ))}
 
-           
-          </div>
+            </AnimatePresence>
+          </motion.div>
 
            <div className="w-full mt-10 grid grid-col-3 justfy-items-center">
               <Pagination nextPage={nextPage} lastPage={lastPage} />

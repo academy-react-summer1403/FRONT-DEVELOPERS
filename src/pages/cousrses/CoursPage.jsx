@@ -4,7 +4,7 @@ import CoursGridCard from "../../components/courspage/CoursGridCard";
 import CoursListCard from "../../components/courspage/CoursListCard";
 import { IoIosArrowDown } from "react-icons/io";
 import { BiMenuAltRight } from "react-icons/bi";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import Search from "../../assets/landing/Search.svg";
 import Herobg from "../../assets/courses/49.svg";
 import Herovector from "../../assets/courses/12.svg";
@@ -19,6 +19,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {  useState } from "react";
 import { useTranslation } from "react-i18next";
 import NotFound from "../../components/notFound/NotFound";
+
 
 
 
@@ -64,19 +65,13 @@ const CoursPage = () => {
     
   }
 
-  
-
-
   const CoursesData = useCourses( search , params );
   console.log("CoursesData",CoursesData);
 
 
   const getCourseTop=useTopCourses()
   console.log(getCourseTop.data)
-
-
-  
-  
+ 
 
   const lastPage = () => {
     setPage((old) => Math.max(old - 1, 1));
@@ -300,16 +295,17 @@ const CoursPage = () => {
 
           {/* cards  */}
 
-            <div className={` grid w-full z-10 mb-20
-                  ${view ? "grid-cols-1 mt-2":"grid-cols-3 max-lg:grid-cols-2 max-sm:justify-items-center max-sm:grid-cols-1  pt-0"}`}>
+            <motion.div layout
+             className={` grid w-full z-10 mb-20 
+                  ${view ? "grid-cols-1 mt-2":"grid-cols-3 max-lg:grid-cols-2 max-sm:justify-items-center max-sm:grid-cols-1  pt-0"}`}
+            >
                 
-              {view ? <>{CoursesData.data?.courseFilterDtos.length == 0  ? <NotFound/> : CoursesData.data?.courseFilterDtos.map((item) => (<CoursListCard {...item} /> ))}</> : <>                
-              
-                {CoursesData.data?.courseFilterDtos.length == 0  ?  <NotFound/> : CoursesData.data?.courseFilterDtos.map((item) => (<CoursGridCard {...item} /> ))}</>
-              }                 
+                  {view ? <AnimatePresence>{CoursesData.data?.courseFilterDtos.length == 0  ? <NotFound/> : CoursesData.data?.courseFilterDtos.map((item) => (<CoursListCard {...item} /> ))}</AnimatePresence> : <AnimatePresence>                
+                  
+                    {CoursesData.data?.courseFilterDtos.length == 0  ?  <NotFound/> : CoursesData.data?.courseFilterDtos.map((item) => (<CoursGridCard {...item} /> ))}</AnimatePresence>
+                  }                 
          
-       
-            </div>
+            </motion.div>
 
           {/* paginantion  */}
 
