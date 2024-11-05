@@ -5,7 +5,7 @@ import RangeFilterTwo from './RangeFilter2';
 
 
 
-const RangeAccarTwo = ({lessRangeA , toggleAccordeionLessRange}) => {
+const RangeAccarTwo = ({lessRangeA , toggleAccordeion}) => {
 
    const [value , setValue] = useState(0) 
    console.log(value)
@@ -23,7 +23,7 @@ const RangeAccarTwo = ({lessRangeA , toggleAccordeionLessRange}) => {
             >         
             
                     <div className='relative flex flex-row text-right border-b-[1.5px] py-2 cursor-pointer'
-                        onClick={()=>toggleAccordeionLessRange(data.id)}
+                        onClick={()=>toggleAccordeion(data.id)}
                     >
                         <img src={arrow}  className={`top-0 ${data.isOpen? "rotate-180":"rotate-0"} transition duration-500 `} />                 
                         <p  className="absolute right-0 top-0 font-medium 
