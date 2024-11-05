@@ -2,7 +2,7 @@ import React from 'react'
 import arrow from "../../assets/courses/arrow.svg";
 import TeacherFilter from './TeacherFilter';
 
-const TeacherAccar = ({teacher ,  toggleAccordeionTeacher}) => {
+const TeacherAccar = ({teacher ,  toggleAccordeion}) => {
 
 
   return (
@@ -16,7 +16,7 @@ const TeacherAccar = ({teacher ,  toggleAccordeionTeacher}) => {
             >         
             
                     <div className='relative flex flex-row text-right border-b-[1.5px] py-2 cursor-pointer'
-                        onClick={()=>toggleAccordeionTeacher(data.id)}
+                        onClick={()=>toggleAccordeion(data.id)}
                     >
                         <img src={arrow}  className={`top-0 ${data.isOpen? "rotate-180":"rotate-0"} transition duration-500 `} />                 
                         <p  className="absolute right-0 top-0 font-medium 

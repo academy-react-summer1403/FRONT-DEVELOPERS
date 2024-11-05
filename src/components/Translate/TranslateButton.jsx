@@ -1,20 +1,20 @@
 import React, { useState } from 'react'
 import i18n from './i18n';
-import { style } from 'framer-motion/client';
 import { GrLanguage } from "react-icons/gr";
+import { useDispatch } from 'react-redux';
+import { TranslateSlice } from '../../core/redux/slices/SpeechSlices/TranslateSlice';
 
 const Lg = () => {
 
 
 
-  const toggleLanguage = () => {
-     const newLanguage = i18n.language === 'en' ? 'fa' : 'en';
-    i18n.changeLanguage(newLanguage);
-    console.log("bro")
-  };
+  const dispatch =useDispatch()
+
+
+
     return (
       <div >
-      <button className="cursor-pointer   "onClick={toggleLanguage}>
+      <button className="cursor-pointer   "onClick={()=>dispatch(TranslateSlice.actions.toggleLanguage())}>
       <GrLanguage  className='mt-9 text-gray-400 dark:text-gray-300'/></button>
   
   
