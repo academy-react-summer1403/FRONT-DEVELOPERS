@@ -17,19 +17,6 @@ import OTPInput from 'react-otp-input';
 const VarificationVorod = () => {
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
   const style = {
     margin: "auto",
     display: "flex",
