@@ -15,6 +15,7 @@ import { IoIosLogOut } from 'react-icons/io';
 import { HiXCircle } from 'react-icons/hi2';
 import { handleToken } from '../core/redux/slices/QueryState/TokenSlice';
 import { Tooltip } from 'react-tooltip';
+import { userImg } from '../core/redux/slices/QueryState/UserSlice';
 // import { useSelector } from 'react-redux';
 
 
@@ -97,7 +98,7 @@ const handleLogout = (token)=>{
                             dark:hover:shadow-slate-700 dark:hover:shadow-md z-50
                             transition-shadow'>
                         <div >  
-                            <img src={userImageProfile ? userImageProfile.data?.currentPictureAddress : UserImg} alt="" className={`w-[40px] h-[40px] rounded-full absolute top-[4px] left-2  border-[2px] ${user.token==null ? "hidden" : "block"} `}/>
+                            <img src={userImageProfile ? userImageProfile.data?.currentPictureAddress : userImg} alt="" className={`w-[40px]  border-white h-[40px] rounded-full absolute top-[4px] left-2  border `}/>
                             
                             {user.token==null ? <h1 className='text-sm  font-semibold text-white text-right leading-9 mr-3 py-1 '>{t("person")} </h1> :
                             <h1 className='text-sm  font-semibold text-white text-right leading-9 mr-3 py-1 '>{t(userImageProfile.data?.fName)} {t(userImageProfile.data?.lName)}</h1>
@@ -112,7 +113,7 @@ const handleLogout = (token)=>{
                         <div>
                             <IoIosLogOut className={`${user.token == null ? "hidden" : "block"} block mt-8 text-gray-400 text-3xl cursor-pointer`}
                             onClick={()=>user.token == null ? "": setOpenModal(true) }/>               
-                            <div className={`${openModal ==false ? "hidden": "block"} fixed left-0 top-0 w-screen h-screen bg-neutral-500/80 z-[9999]
+                            <div className={`${openModal ==false ? "hidden": "block"} fixed left-0 top-0 w-screen h-screen bg-black/70 z-[9999]
                                  backdrop-blur-sm transition-all duration-700`}
                             >
                                 <div className='bg-white rounded-lg shadow-lg grid gap-3 p-8 mx-auto w-1/3 mt-40'>

@@ -18,6 +18,8 @@ import { SlArrowLeft } from "react-icons/sl";
 import Tilt from 'react-parallax-tilt';
 
 import { CiSquareRemove } from "react-icons/ci";
+import SpeechBot from '../speech/Speech';
+
 
 const Hero = () => {
 
@@ -196,29 +198,36 @@ const reportLanding =  useLandingReport()
              animate="visible"
               className="relative group flex bg-white dark:bg-gray-600  max-md:z-50 rounded-[35px] max-lg:mt-[-80px] max-xl:w-[315px] max-lg:w-full h-[65px] w-[415px] z-[5000]"
             >
-              <div className='w-[48px] h-[49px] rounded-full bg-orange absolute left-[10px] top-[8px] flex items-center justify-center'>
-                <img src={SearchImg} alt="" className='px-1.5 py-1.5'/>
-                </div>  
-
                
+
+               <div className= {` ${isInputFocused?  "fixed left-0   top-0 w-screen h-screen bg-black/70 z-[9999] backdrop-blur-sm transition-all duration-700"
+                                 : "w-full "} `}>
+                     <div className={` ${isInputFocused ? "  absolute top-[330px] left-[38%]" :"w-full h-full"}`}>
+                     <div className={`w-[48px] h-[49px]  rounded-full bg-orange  absolute left-[10px] top-[8px] flex items-center justify-center `}>
+                <img src={SearchImg} alt="" className='px-1.5 py-1.5 '/>
+                </div> 
                 <input
-                 onFocus={() => setIsInputFocused(true)}
+                
             onChange={(e) =>  {chooseSearch == "cuorses" ? setSearchCourse(e.target.value) : setSearch(e.target.value)} }
                 
-                style={{boxShadow:" 0px 1px 3px 0px #00000033"}} placeholder={t("search1")} type="text" className={`w-full h-full  rounded-[35px]  text-right font-normal
-                font-Yekan text-[#AAAAAA] text-[16px] pr-5 outline-none dark:bg-gray-600 ` }
+                style={{boxShadow:" 0px 1px 3px 0px #00000033"}} placeholder={t("search1")} type="text" className={`  rounded-[35px]  text-right font-normal
+                font-Yekan text-[#AAAAAA] text-[16px] pr-5 outline-none dark:bg-gray-600 ${isInputFocused ? " w-[415px] h-[65px]" : "w-full h-full"} ` }
                  
                 />
+
+           
                 {/* select course or news  */}
-                <div className='hidden group-hover:block absolute top-16 w-full grid shadow-md bg-white dark:bg-gray-500 rounded-lg p-4 gap-3 text-darkgreen dark:text-white text-md'>
-                    <button onClick={()=>setChooseSearch("cuorses")} 
-                    className={`${chooseSearch =="cuorses" ? "bg-secondary" : "bg-none"} w-full text-right hover:bg-primary/30 dark:hover:bg-secondary p-3 rounded-lg `}
+                <div className={` absolute top-16  hidden w-full   shadow-md bg-white dark:bg-gray-500 rounded-lg p-4 gap-3 text-darkgreen dark:text-white text-md
+                  ${isInputFocused ? "hidden  " : " group-hover:block"} `}>
+                    <button onClick={()=>(setChooseSearch("cuorses"),setIsInputFocused(true))} 
+                    className={`${chooseSearch =="cuorses" ? "bg-secondary" : "bg-none"}  ${isInputFocused ? "hidden  " : " group-hover:block"}  hidden  w-full text-right hover:bg-primary/30 dark:hover:bg-secondary p-3 rounded-lg `}
                     > 
                     جست و جو در دوره ها
                     </button>
                     
-                    <button  onClick={()=>setChooseSearch("news")} 
-                    className={`${chooseSearch == "news" ? "bg-secondary" : "bg-none"} w-full text-right hover:bg-primary/30 dark:hover:bg-secondary p-3 rounded-lg `} 
+                    <button  onClick={()=>(setChooseSearch("news"),setIsInputFocused(true))} 
+                    className={`${chooseSearch == "news" ? "bg-secondary" : "bg-none"}
+                      ${isInputFocused ? "hidden  " : " group-hover:block"}   ${isInputFocused ? "hidden  " : " group-hover:block"}  hidden w-full text-right hover:bg-primary/30 dark:hover:bg-secondary p-3 rounded-lg `} 
                     >
                      جست و جو در اخبار و مقالات
                     </button>
@@ -226,9 +235,10 @@ const reportLanding =  useLandingReport()
 
                 {/* result  */}
 
-              <div className={`w-[400px] top-[55px] max-h-[350px] z-[5000] left-3 bg-white overflow-x-hidden  ${chooseSearch == undefined ? "pt-0": "pt-10"}
+              <div className={`w-[415px] top-[55px] max-h-[300px] z-[5000] left-1 bg-white overflow-x-hidden  ${chooseSearch == undefined ? "pt-0": "pt-10"}
               absolute flex flex-col shadow-lg rounded-lg mt-4  overflow-scroll px-2 scrollbar scrollbar-thumb-slate-400 scrollbar-track-slate-600`}>
-                <CiSquareRemove className={`w-9 h-9 text-darkgreen absolute top-0 ${chooseSearch == undefined ? "hidden": "block"}`} onClick={()=>setChooseSearch(undefined)} />
+                <CiSquareRemove className={`w-9 h-9 text-darkgreen  absolute top-0 ${chooseSearch == undefined ? "hidden": "block"}`} onClick={()=>(setChooseSearch(undefined),
+                setIsInputFocused(false))} />
                 
 
                 { 
@@ -264,9 +274,18 @@ const reportLanding =  useLandingReport()
                 }
 
               </div>
+
+                     </div>
+              </div>
             
+
+              
             </motion.div>
-             
+
+      
+
+      
+     
           </div>
        
         </div>
