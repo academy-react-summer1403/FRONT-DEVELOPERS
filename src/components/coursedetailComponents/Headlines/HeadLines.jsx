@@ -2,6 +2,8 @@ import { div, style } from "framer-motion/client";
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 // import AOS from "aos";
 // import 'aos/dist/aos.css';
@@ -111,12 +113,16 @@ const HeadLines = () => {
     setAccordion(updatedAccordions);
   };
 
-  // useEffect(() => {
-  //   AOS.init();
-  // }, [])
+  const [loading, setLoading] = useState(true)
+  useEffect(() => {
+    setTimeout(()=>{
+      setLoading(false)
+    }, 2000)
+  }, [])
 
   return (
-    <>
+    <SkeletonTheme  baseColor="#cbd5e1" highlightColor="#f5f5f5" >
+
       {/* headlines section*/}
       <div className=" relative w-full border-[rgba(0,0,0,0)]">
         <div className=" w-full mt-[15px]  relative">
@@ -137,10 +143,10 @@ const HeadLines = () => {
               >
                 <div
                   onClick={() => toggleAccordion(data.key)}
-                  className="  my-auto w-full justify-between items-center   px-[35px] pb-3  pt-[10px]   flex"
+                  className="  my-auto w-full justify-between items-center   px-[35px] pb-3  pt-[10px]   grid grid-cols-2"
                 >
-                  <div className="    gap-3  flex">
-                    <div className=" flex items-center">
+                  <div className="grid grid-cols-2 w-20  ">
+                    <div className=" w-6  flex items-center">
                       {" "}
                       {data.isOpen ? (
                         <svg
@@ -179,24 +185,27 @@ const HeadLines = () => {
                         </svg>
                       )}
                     </div>
-
-                    <div
-                      className={` text-right  font-normal font-Yekan text-[17px] h-[32px] gap-1 items-center flex ${
-                        data.isOpen ? "text-[#005B58]  dark:text-slate-600" : "text-[#888888] dark:text-slate-200"
-                      } `}
-                    >
-                      ساعت<h3 className="max-lg:text-[13px]  ">{data.time}</h3>
-                      .جلسه<h3 className=" max-lg:text-[13px]   ">{data.setion}</h3>
-                    </div>
+                    {loading ? <Skeleton width={"100px"} /> : 
+                      <div
+                        className={` text-right justify-self-start font-normal font-Yekan text-[17px] h-[32px] gap-1 items-center flex ${
+                          data.isOpen ? "text-[#005B58]  dark:text-slate-600" : "text-[#888888] dark:text-slate-200"
+                        } `}
+                      >
+                        ساعت<h3 className="max-lg:text-[13px]  ">{data.time}</h3>
+                        .جلسه<h3 className=" max-lg:text-[13px]   ">{data.setion}</h3>
+                      </div>
+                    }
                   </div>
-
+                  
+                  {loading ? <Skeleton  /> : 
                   <h2
                     className={` text-[#555555] text-right  max-lg:text-[13px] max-lg:line-clamp-1 max-xl:text-[16px]  font-normal font-Yekan text-[20px] h-[32px] ${
                       data.isOpen ? "text-[#006865]" : "text-[#555555] dark:text-slate-300"
                     } `}
                   >
-                    {data.title}
+                    { data.title}
                   </h2>
+                    }
                 </div>
 
                 <div
@@ -242,7 +251,7 @@ const HeadLines = () => {
           </motion.div>
         </div>
       </div>
-    </>
+    </SkeletonTheme>
   );
 };
 

@@ -1,14 +1,17 @@
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
-const GridCardLoading = () => {
-
+const GridCardLoading = ({cards}) => {
 
  
   return (
-    <SkeletonTheme baseColor="#ebebeb" highlightColor="#000">
+    Array(cards).fill(0).map((_, i)=>(
+      <SkeletonTheme  baseColor="#cbd5e1" highlightColor="#f5f5f5" key={i}>
       <div 
+           style={{boxShadow: "0px 1px 2px 0px rgba(0, 0, 0, 0.25)"}
+          }
           className="relative p-4 rounded-[15px] w-[265px] dark:bg-gray-700 overflow-visible 
-          hover:bg-slate-50 mt-[80px] h-[305px] bg-slate-100 mb-5
+          hover:bg-slate-50 mt-[80px] h-[305px] bg-white mb-5
               max-xl:w-[230px] max-xl:flex flex-wrap justify-center
               max-md:w-[255px] max-md:h-[320px]    
               max-sm:w-[250px] max-sm:p-2 max-sm:h-[310px]             
@@ -16,31 +19,35 @@ const GridCardLoading = () => {
           "
       >
         {/* image skeleton  */}
-        <div className="
-          relative grid justify-items-center top-[-35px]
-                border-2        rounded-xl h-[170px]   w-[100%]
-        ">
-          <Skeleton baseColor="#ebebeb" customHighlightBackground="linear-gradient(90deg, var(#ebebeb) 40%, var(#000000) 50%,
-           var(#ffffff) 60%)"/>
+        <div>
+          <Skeleton className="rounded-[15px] w-full h-[170px] relative grid justify-items-center top-[-35px]" />
         </div>
 
         {/* body skeleton  */}
         <div >
-          <h3 className="grid grid-col-2">
-            <Skeleton className="w-full h-3 grid justify-self-end top-[-10px] rounded-lg border mb-2"/>
+          <h3>
+            <Skeleton className="w-full h-3 grid justify-self-end top-[-10px] rounded-lg"/>
           </h3>
-          <p className="grid grid-cols-2">
-            <Skeleton count={2} className="w-full h-2.5 grid grid-col-1 rounded-lg bg-slate-300 "/>
-          </p>
+
+          <div className="grid grid-cols-2 gap-8 mb-2">
+            <p className="grid grid-col-2">
+              <Skeleton count={2} className="w-full h-2.5 grid grid-col-1 rounded-lg "/>
+            </p>
+            <p className="grid grid-col-2">
+              <Skeleton count={2} className="w-full h-2.5 grid grid-col-1 rounded-lg "/>
+            </p>
+          </div>
           
           <div>
-            <Skeleton className="w-full rounded-lg bg-slate-300"/>  
+            <Skeleton className="w-full rounded-lg"/>  
           </div>
            
         </div>
       
       </div>
     </SkeletonTheme>
+    ))
+    
              
   );
 }

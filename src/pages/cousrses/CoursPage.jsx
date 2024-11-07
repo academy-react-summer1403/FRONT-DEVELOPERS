@@ -20,7 +20,6 @@ import {  useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import NotFound from "../../components/notFound/NotFound";
 import GridCardLoading from "../../components/skeleton/GridCardLoading";
-import ListCardLoading from "../../components/skeleton/ListCardLoading";
 
 
 
@@ -312,11 +311,15 @@ const CoursPage = () => {
                   ${view ? "grid-cols-1 mt-2":"grid-cols-3 max-lg:grid-cols-2 max-sm:justify-items-center max-sm:grid-cols-1  pt-0"}`}
             >
                 
-                  {view ? <AnimatePresence>{CoursesData.data?.courseFilterDtos.length == 0  ? <NotFound/> : CoursesData.data?.courseFilterDtos.map((item)=>(
-                    <>{loading ? <ListCardLoading/> : <CoursListCard {...item} />}</>  ))}</AnimatePresence> : <AnimatePresence>                            
-
-                    {CoursesData.data?.courseFilterDtos.length == 0  ?  <NotFound/> : CoursesData.data?.courseFilterDtos.map((item) => (
-                     <>{loading ?  <CoursGridCard {...item} /> :<GridCardLoading/>}</>  ))}</AnimatePresence>
+                  {view ? <AnimatePresence> 
+                          {CoursesData.data?.courseFilterDtos.length == 0  ? <NotFound/> : CoursesData.data?.courseFilterDtos.map((item)=>(
+                          <CoursListCard {...item} />  ))}
+                     </AnimatePresence>
+                     
+                     : <AnimatePresence>    {loading ? <GridCardLoading cards={6}/> :                     
+                        CoursesData.data?.courseFilterDtos.length == 0  ?  <NotFound/> : CoursesData.data?.courseFilterDtos.map((item) => (
+                        <CoursGridCard {...item}/> )) }
+                      </AnimatePresence>
                   }                 
          
             </motion.div>
