@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import CourseCard from "../../components/coursedetailComponents/coursecard/CourseCard";
 import Detail from "../../components/coursedetailComponents/detail/Detail";
@@ -22,6 +22,9 @@ const CourseDetial = () => {
 
   const CourseDetail = useCourseId(courseId);
   console.log(CourseDetail.data);
+
+
+
 
   return (
     <div className=" container max-lg:pt-2 max-lg:px-0 relative  pb-12  ">

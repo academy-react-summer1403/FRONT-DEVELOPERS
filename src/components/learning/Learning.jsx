@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 // import Img1 from "../../assets/landing/figma.png";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -10,6 +10,7 @@ import { NavLink } from 'react-router-dom';
 import { useCourseLanding } from '../../core/services/query/queries';
 import {  useSelector } from "react-redux";
 import { useTranslation } from 'react-i18next';
+import GridCardLoading from '../skeleton/GridCardLoading';
 
 
 const SampleNextArrow = (props)=> {
@@ -89,6 +90,14 @@ const Learning = () => {
         
       };
 
+  const [loading, setLoading] = useState(true)
+  useEffect(() => {
+    setTimeout(()=>{
+      setLoading(false)
+    }, 1000)
+  }, [])
+  
+
   return (
 
     <div className='container relative max-xl:px-2  mb-28'>
@@ -136,11 +145,9 @@ const Learning = () => {
                 
             {getCourseCard.data?.courseFilterDtos.map((item)=>{
               return(  
-
-
-
-                <CoursGridCard {...item}/>
-              
+                 <>
+                {loading ? <GridCardLoading/> : <CoursGridCard {...item}/>}                
+                </>
            
             )})}
             </Slider>
