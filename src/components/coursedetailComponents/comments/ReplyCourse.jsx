@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useReplyCourse } from '../../../core/services/query/CommentQuery'
 import { replyComment } from '../../../core/services/apiComment'
 import Commentdiv from './commentdiv'
 import DateApi from '../../DateApi'
+import CommentsLoading from '../../skeleton/detail/CommentsLoading'
 
 const ReplyCourse = ({id , useId,showMore,setCommentdiv1,comentdiv1 , parentId}) => {
 
@@ -28,12 +29,20 @@ const ReplyCourse = ({id , useId,showMore,setCommentdiv1,comentdiv1 , parentId})
     };
  
 
+    const [loading, setLoading] = useState(true)
+    useEffect(() => {
+      setTimeout(()=>{
+        setLoading(false)
+      }, 900)
+    }, [])
 
   return (
     <div className={` w-full  ${
       showMore? "h-[150px] overflow-hidden" : "h-[]"
     }`}>
-    {
+
+
+    {loading ? <CommentsLoading/> :
         Reply.data?.map((item)=>(
 
  

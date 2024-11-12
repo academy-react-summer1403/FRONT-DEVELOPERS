@@ -25,12 +25,7 @@ const RelatedCourses = ({title,image}) => {
 
 
         <div data-aos="fade-right" className='w-full'>
-            <motion.div 
-              initial={{  x:-300,opacity:0,y:-300}}
-              animate={{ x:0,y:0,opacity:1}}
-              transition={{type:"tween",duration:1,stiffness:100, delay:0.2}}
-
-             
+            <div           
 
                   style={{boxShadow:" 0px 1px 1px 0 rgba(0, 0, 0, 0.25)"}}
 
@@ -72,7 +67,7 @@ const RelatedCourses = ({title,image}) => {
                   style={{boxShadow:" 0px 1px 2px 0 rgba(0, 0, 0, 0.25)"}} className='w-[126px] max-sm:w-[70px] h-[84px] max-lg:w-[100px] max-lg:h-[64px] rounded-[10px]' 
                   src={image}  onError={ImageErrore}
                   />
-            </motion.div>
+            </div>
                  
 
 

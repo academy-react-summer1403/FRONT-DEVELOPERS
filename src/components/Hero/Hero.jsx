@@ -77,7 +77,7 @@ const reportLanding =  useLandingReport()
        
 
 
-   <motion.div
+            <motion.div
               initial={{opacity:0 , x:200}}
               animate={{opacity:1 , x:0}}
               transition={{type:"spring" , stiffness:100 , delay:0.2}}
@@ -149,10 +149,10 @@ const reportLanding =  useLandingReport()
 
 
 
-     </motion.div>
+            </motion.div>
 
 
-     <Tilt style={{boxShadow:"-2px 0px 5px 0px #00000026"}} className='w-[180px]  dark:hover:bg-gray-700/100 dark:hover:transition-colors max-lg:-right-12 max-lg:-bottom-16 dark:bg-gray-700/70 max-lg:w-[130px] max-md:hidden  max-lg:h-[95px]  max-xl:w-[150px] max-xl:bottom-[-80px] max-xl:right-[-100px]  absolute bottom-[-90px] right-[-50px] h-[105px] ml-5 bg-white rounded-[10px]  z-40  
+            <Tilt style={{boxShadow:"-2px 0px 5px 0px #00000026"}} className='w-[180px]  dark:hover:bg-gray-700/100 dark:hover:transition-colors max-lg:-right-12 max-lg:-bottom-16 dark:bg-gray-700/70 max-lg:w-[130px] max-md:hidden  max-lg:h-[95px]  max-xl:w-[150px] max-xl:bottom-[-80px] max-xl:right-[-100px]  absolute bottom-[-90px] right-[-50px] h-[105px] ml-5 bg-white rounded-[10px]  z-40  
               '>
               <div style={{boxShadow: "0px 0px 5px 0px #00000059"}} className='flex  max-lg:w-[48px] max-lg:h-[48px] items-center justify-center max-xl:ml-[40px]   bg-orange rounded-full ml-[60px] mt-[-30px] w-[68px] h-[68px] '>
                 <img className='  w-[45px] h-[45px]  max-lg:w-[35px] max-lg:h-[35px]' src={Student} alt="" />
@@ -161,7 +161,7 @@ const reportLanding =  useLandingReport()
             </Tilt>
 
 
-    </div>
+          </div>
 
           {/* brand section  */}
           <div

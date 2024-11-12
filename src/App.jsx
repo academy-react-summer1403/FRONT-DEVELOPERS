@@ -29,9 +29,7 @@ import Notfound from "./publicNotFound/notfound"
 import Payment from "./components/Payment"
 import Payment1 from "./components/Payment1"
 import Paymentall from "./components/Paymentall"
-
-
-
+import Game from "./pages/game/Game"
 
 
 
@@ -69,6 +67,10 @@ const  PublicRoutes = [
       {
         path: "/basket",
         element: <Notfound />,
+      },
+      {
+        path: "/Game",
+        element: <Game/>,
       },
 
     ]},
@@ -135,6 +137,11 @@ const  PrivateRoutes = [
       path: "/basket",
       element: <NavbarBasket />,
     },
+    {
+      path: "/Game",
+      element: <Game/>,
+    },
+    
 
   ]},
 {
