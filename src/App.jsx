@@ -26,6 +26,12 @@ import StdSettings from "./pages/dashboard/content/StdSettings"
 import StdFavorite from "./pages/dashboard/content/StdFavorite"
 import NotFound from "./components/notFound/NotFound"
 import Notfound from "./publicNotFound/notfound"
+import Payment from "./components/Payment"
+import Payment1 from "./components/Payment1"
+import Paymentall from "./components/Paymentall"
+
+
+
 
 
 
@@ -169,6 +175,22 @@ const  PrivateRoutes = [
   path: "/settings",
   element: <StdSettings />,
 },
+
+
+{
+  path: "/payment/:courseId",
+  element: <Payment />,
+},
+{
+  path: "/payment1/:courseId",
+  element: <Payment1/>,
+},
+{
+  path: "/paymentall/:courseId",
+  element: <Paymentall/>,
+},
+
+
 
   ]
   

@@ -8,6 +8,7 @@ import { postRateNews } from "../../../core/services/DashApi";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { useTranslation } from "react-i18next";
 import { ImageErrore } from "../../ImageErrore";
+import { LikepostQuery } from "../../../core/services/mutation/LikeArticle";
 
 const ArticleDescription = () => {
 
@@ -44,11 +45,17 @@ const ArticleDescription = () => {
 
   
 
-  const likeArticle1 = likeArticle(like)
-  console.log(likeArticle1)
+  // const likeArticle1 = likeArticle(like)
+  // console.log(likeArticle1)
 
-  const disslikeArticle1 = disslikeArticle(disslike)
-  console.log(disslikeArticle1)
+  const LikeDescQuery = LikepostQuery()
+  console.log(LikeDescQuery)
+
+  
+
+
+  // const disslikeArticle1 = disslikeArticle(disslike)
+  // console.log(disslikeArticle1)
 
 
   const [dislike1,setDislike1]=useState(true)

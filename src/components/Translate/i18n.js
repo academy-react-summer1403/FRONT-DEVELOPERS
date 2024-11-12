@@ -101,7 +101,15 @@ i18n
     startDate: "Course Start Date",
     endDate: "Course End Date",
     rating: "Satisfaction",
-    tudentsNumber: "Number of Students"
+    tudentsNumber: "Number of Students",
+    
+      course_id: "Course ID",
+     paid: "Paid",
+      date: "Date",
+      number: "Number",
+      complete_purchase: "Complete Purchase"
+   
+    
   
 
  
@@ -210,7 +218,12 @@ suggested_articles: "مطالب پیشنهادی",
     startDate: "تاریخ شروع دوره",
     endDate: "تاریخ پایان دوره",
     rating: "رضایت",
-    studentsNumber: "تعداد دانشجویان"
+    studentsNumber: "تعداد دانشجویان",
+    course_id: "نام دوره",
+  paid: " قیمت دوره",
+  date: "تاریخ",
+  number: "شماره پیگیری" ,
+  complete_purchase: "تکمیل خرید"
  
   
 

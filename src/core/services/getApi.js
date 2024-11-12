@@ -134,3 +134,11 @@ export const disslikeArticle = async ( disslike ) => {
   console.log(data);
   return data;
 };
+
+
+export const addPayImage = async (  ) => {
+  const data = await http.post(`/CoursePayment/AddPeymentImage` )
+
+  console.log(data);
+  return data;
+};

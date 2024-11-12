@@ -40,7 +40,7 @@ const EditeProfileForm = () => {
     
         const formData = new FormData(e.target);
         formData.append("LName", LName);
-        formData.append("FName", FName);
+        formData.append("FName", userProfile.data?.fName);
         formData.append("UserAbout", UserAbout);
         formData.append("LinkdinProfile", LinkdinProfile);
         formData.append("TelegramLink", TelegramLink);
