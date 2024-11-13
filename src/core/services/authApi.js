@@ -1,5 +1,11 @@
 import http from "./interceptor";
 
+export const loginApi  = async (user) => {
+  const data = await http.post("/Sign/Login" , user)
+   
+  console.log(data);
+  return data;
+};
 
 
   export const postNumber  = async (number) => {
@@ -26,12 +32,6 @@ import http from "./interceptor";
   };
 
 
-  // export const login  = async (user) => {
-  //   const data = await http.post("/Sign/Login" , user)
-     
-  //   console.log(data);
-  //   return data;
-  // };
 
 
   
