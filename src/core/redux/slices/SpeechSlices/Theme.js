@@ -1,10 +1,10 @@
-// src/features/theme/ThemeSlice.js
+
 
 import { createSlice } from '@reduxjs/toolkit';
 
-// حالت اولیه، بررسی می‌کند که آیا تم از قبل در localStorage موجود است یا خیر
+
 const initialState = {
-  theme: localStorage.getItem("theme") || "maintheme",
+  theme: localStorage.getItem("theme" || "maintheme"),
 };
 
 const ThemeSlice = createSlice({
@@ -15,7 +15,7 @@ const ThemeSlice = createSlice({
       state.theme = action.payload;
       localStorage.setItem("theme", action.payload);
 
-      // کلاس‌ها را به‌روزرسانی می‌کند
+      
       const element = document.documentElement;
       element.classList.remove("dark", "maintheme", "secondTheme", "thirdTheme");
       element.classList.add(action.payload);
