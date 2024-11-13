@@ -5,9 +5,9 @@ import confetti from 'canvas-confetti';
 
 
 
-const WinButton = () => {
+const WinButton = ({handleNext}) => {
   const handleConfetti = () => {
-    var duration = 15 * 1000;
+    var duration = 3 * 1000;
     var animationEnd = Date.now() + duration;
     var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
     
@@ -32,12 +32,12 @@ const WinButton = () => {
   return (
     <Button
       disableRipple
-      className="relative overflow-visible rounded-full hover:-translate-y-1 px-12 shadow-xl bg-primary/30 after:content-[''] after:absolute after:rounded-full after:inset-0 after:bg-background/40 after:z-[-1] after:transition after:!duration-500 hover:after:scale-150 hover:after:opacity-0"
+      className="relative mt-5 mx-auto flex overflow-visible rounded-full px-12 shadow-xl bg-primary/30 after:content-[''] after:absolute after:rounded-full after:inset-0 after:bg-background/40 after:z-[-1] after:transition after:!duration-500 hover:after:scale-150 hover:after:opacity-0"
       size="lg"
       onPress={handleConfetti}
-      
+      onClick={()=>handleNext()}
     >
-      Press me
+       بعدی
     </Button>
   );
 };

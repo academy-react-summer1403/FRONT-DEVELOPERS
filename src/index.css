@@ -265,3 +265,10 @@ body{
   height: 3rem;
   cursor: pointer;
 }
+
+.Correct{
+  @apply bg-teal-200 border-teal-500
+}
+.wrong{
+  @apply bg-red-200 border-red-500
+}

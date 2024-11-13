@@ -27,6 +27,7 @@ import StdFavorite from "./pages/dashboard/content/StdFavorite"
 import NotFound from "./components/notFound/NotFound"
 import Notfound from "./publicNotFound/notfound"
 import Game from "./pages/game/Game"
+import PhysicApp from "./pages/game/gameWithPhysics/PhysicApp"
 
 
 
@@ -68,6 +69,10 @@ const  PublicRoutes = [
       {
         path: "/Game",
         element: <Game/>,
+      },
+      {
+        path: "/PhysicApp",
+        element: <PhysicApp/>,
       },
 
     ]},
@@ -138,7 +143,10 @@ const  PrivateRoutes = [
       path: "/Game",
       element: <Game/>,
     },
-    
+    {
+      path: "/PhysicApp",
+      element: <PhysicApp/>,
+    },
 
   ]},
 {
