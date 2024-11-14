@@ -21,7 +21,7 @@ const Pudcasts = () => {
 
 
     const PudcastApi =  useNewsPudcast()
-    console.log(PudcastApi)
+
 
 
     var settings = {

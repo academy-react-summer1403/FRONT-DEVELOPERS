@@ -46,8 +46,7 @@ const Learning = () => {
 
 
   const getCourseCard = useCourseLanding()
-  console.log(getCourseCard.data)
-
+ 
     const settings = {
       
         dots: true,

@@ -51,7 +51,7 @@ const { courseId } = useParams();
           {/* <li key={index}>{course?.fullName}</li> */}
       
       <div className="relative w-[550px] rounded-2xl mt-14 bg-[#fcfaf5cb] shadow-md h-[350px] m-auto pt-20">
-      {getMyCourses.data?.listOfMyCourses?.map((course, index) => (   <div className="w-[350px] flex mx-auto flex-wrap">
+     <div className="w-[350px] flex mx-auto flex-wrap">
         
 
         <form
@@ -60,20 +60,20 @@ onSubmit={(values) => onSubmit(values)}
 
 >
 
-        <input
+<input
             type="text"
             id="CourseId" 
             name="CourseId"
             className="border border-gray-300 w-full hidden rounded-[10px] text-right mb-2 h-[40px] text-md px-2"
             placeholder={t('course_id')}
-            defaultValue={course?.courseId}
+            defaultValue={getMyCourses.data?.listOfMyCourses?.[0].courseId}
           />
           <input
             type="text"
             
             className="border border-gray-300 w-full rounded-[10px] text-right mb-2 h-[40px] text-md px-2"
             placeholder={t('course_id')}
-            defaultValue={course?.fullName}
+            defaultValue={getMyCourses.data?.listOfMyCourses?.[0].fullName}
           />
           <input
             type="text"
@@ -81,7 +81,7 @@ onSubmit={(values) => onSubmit(values)}
             name='Paid'
             className="border-gray-300 border w-full rounded-[10px] text-right mb-2 h-[40px] text-md px-2"
             placeholder={t('paid')}
-            defaultValue={course?.cost}
+            defaultValue={getMyCourses.data?.listOfMyCourses?.[0].cost}
 
           />
           <DatePicker
@@ -111,9 +111,11 @@ onSubmit={(values) => onSubmit(values)}
             defaultValue={"123456789"}
 
           />  
+
+
   <button type='submit'> {t('complete_purchase')} <MdNavigateNext /></button>
           </form>
-</div>        ))}
+</div>    
 
         
        

@@ -1,22 +1,15 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
-import FavImg from "../assets/landing/Favorite.svg";
 import ShopImg from "../assets/landing/Shopping Bag.svg";
-import UserImg from "../assets/landing/user.png";
 import { NavLink } from 'react-router-dom';
-import { CgProfile } from "react-icons/cg";
 import Lg from './Translate/TranslateButton';
 import { useTranslation } from 'react-i18next';
 import Logo from './Logo';
 import { useUserProfile } from '../core/services/query/DashboardQuery';
-import { useDispatch, useSelector } from 'react-redux';
 import ScrollNav from './ScrollNav';
 import { IoIosLogOut } from 'react-icons/io';
 import { HiXCircle } from 'react-icons/hi2';
-import { handleToken } from '../core/redux/slices/QueryState/TokenSlice';
-import { Tooltip } from 'react-tooltip';
-import { userImg } from '../core/redux/slices/QueryState/UserSlice';
-// import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 
 
@@ -55,21 +48,21 @@ const Navbar = () => {
 
 
     const userImageProfile = useUserProfile()
-    console.log(userImageProfile.data)
-
+  
     
- const user = useSelector((state) => state.TokenSlice)
-
- console.log("user" , user)
-   
-  const token = user?.token 
-  console.log(token)   
+     const user = useSelector((state) => state.TokenSlice)
 
 
-//   const currentRoutes = user.token==null ? PublicRoutes : PrivateRoutes
 
-// logout modal 
+    const token = user?.token 
+
+
+
+ 
+
 const [openModal, setOpenModal] = useState(false)
+
+
 
 const handleLogout = (token)=>{
     localStorage.removeItem("token" , token);    
@@ -92,17 +85,17 @@ const handleLogout = (token)=>{
     
                 {/* ACCOUNT section  */}
                 <div className=' z-[99999] text-2xl flex items-center gap-2 font-bold'>
-                    <NavLink  to={user.token==null ? "/auth" : "/Dashboard" }  className='group relative w-36 max-md:w-[150px]  max-sm:w-[150px] z-[9999] 
+                    <NavLink to={user.token!==null ?  "/Dashboard" : "/auth"}  className='group relative w-36 max-md:w-[150px]  max-sm:w-[150px] z-[9999] 
                             max-lg:w-[150px] max-xl:w-[200px] h-12 bg-primary
                             mt-6 rounded-3xl hover:shadow-lg  dark:bg-orange 
-                            dark:hover:shadow-slate-700 dark:hover:shadow-md z-50
+                            dark:hover:shadow-slate-700 dark:hover:shadow-md
                             transition-shadow'>
-                        <div >  
-                            <img src={userImageProfile ? userImageProfile.data?.currentPictureAddress : userImg} alt="" className={`w-[40px]  border-white h-[40px] rounded-full absolute top-[4px] left-2  border `}/>
+                        <div className=' flex justify-center items-center gap-1 h-12 w-full' >  
+                            <img src={userImageProfile ? userImageProfile.data?.currentPictureAddress : ""} alt="" className={`w-[40px]  border-white h-[40px] rounded-full  top-[4px] left-2  border `}/>
                             
-                            {user.token==null ? <h1 className='text-sm  font-semibold text-white text-right leading-9 mr-3 py-1 '>{t("person")} </h1> :
-                            <h1 className='text-sm  font-semibold text-white text-right leading-9 mr-3 py-1 '>{t(userImageProfile.data?.fName)} {t(userImageProfile.data?.lName)}</h1>
-}
+                            <h1 className={`text-sm  font-semibold text-white mt-5 pr-1  w-[60%] h-[40px] text-right ${user.token == null ? "block" : "hidden"}`} >{t("person")} </h1> 
+                            <h1 className={`text-sm  font-semibold text-white  truncate  mt-5  w-[60%] h-[40px] ${user.token == null ? "hidden" : "block"}`}>{t(userImageProfile.data?.fName)} {t(userImageProfile.data?.lName)}</h1>
+
                         </div> 
                         
                 

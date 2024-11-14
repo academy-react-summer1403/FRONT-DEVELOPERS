@@ -45,13 +45,13 @@ const Payment1 = () => {
       <div className="relative w-[550px] rounded-2xl mt-14 bg-[#fcfaf5cb] shadow-md h-[350px] m-auto pt-16">
         <div className="w-[350px] h-[150px] flex mx-auto justify-end flex-wrap">
 
-      {getMyCourses.data?.listOfMyCourses?.map((course, index) => (  <div ref={componentRef}  className="w-[100%] h-[100%]   bg-[#fcfaf5cb] overflow-visible  flex mx-auto justify-end flex-wrap">
+      <div ref={componentRef}  className="w-[100%] h-[100%]   bg-[#fcfaf5cb] overflow-visible  flex mx-auto justify-end flex-wrap">
        <div className=' w-[350px] px-2 mb-4 text-right font-Yekan flex justify-between'>
-            <p className='text-[16px] text-gray-600'>{course?.fullName}</p>
+            <p className='text-[16px] text-gray-600'>{getMyCourses.data?.listOfMyCourses[0]?.fullName}</p>
             <p className='text-[16px] text-[#2729a7]'> : {t('course_id')}</p>
           </div>
           <div className=' w-[350px]  px-2 mb-4 text-right font-Yekan flex justify-between'>
-            <p className='text-[16px] text-gray-600'>{course?.cost}</p>
+            <p className='text-[16px] text-gray-600'>{getMyCourses.data?.listOfMyCourses[0]?.cost}</p>
             <p className='text-[16px] text-[#2729a7]'> : {t('paid')}</p>
           </div>
           <div className=' w-[350px]  px-2 mb-4 text-right font-Yekan flex justify-between'>
@@ -61,7 +61,7 @@ const Payment1 = () => {
           <div className=' w-[350px]  px-2 mb-4 text-right font-Yekan flex justify-between'>
             <p className='text-[16px] text-gray-600'>2/2/7000</p>
             <p className='text-[16px] text-[#2729a7]'> : {t('number')}</p>
-         </div></div> ))}
+         </div></div> 
 
         <button onClick={handleDownloadImage} className='shadow-sm mt-2 w-[80px] h-[30px] rounded-[10px] text-[14px] text-white font-Yekan bg-blue-800'>
             دانلودpng
