@@ -34,7 +34,7 @@ const reportLanding =  useLandingReport()
 
   const [searchCourse , setSearchCourse] = useState('')
   const [isInputFocused, setIsInputFocused] = useState(false);
-    console.log(isInputFocused)
+    
   const params = {
     RowsOfPage:20,
     PageNumber:1

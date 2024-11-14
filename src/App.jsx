@@ -32,6 +32,7 @@ import Paymentall from "./components/Paymentall"
 import Game from "./pages/game/Game"
 import QA from "./components/QA/QA"
 import PhysicApp from "./pages/game/gameWithPhysics/PhysicApp"
+import { useEffect } from "react"
 
 
 
@@ -253,10 +254,12 @@ const  PrivateRoutes = [
 
   const currentRoutes = user.token==null ? PublicRoutes : PrivateRoutes
 
+
+
   const router = createBrowserRouter(currentRoutes)
 
 
-  return <RouterProvider  router={router}/>
+  return <RouterProvider  router={createBrowserRouter(currentRoutes)}/>
   
   
   
