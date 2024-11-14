@@ -30,6 +30,7 @@ import Payment from "./components/Payment"
 import Payment1 from "./components/Payment1"
 import Paymentall from "./components/Paymentall"
 import Game from "./pages/game/Game"
+import QA from "./components/QA/QA"
 import PhysicApp from "./pages/game/gameWithPhysics/PhysicApp"
 
 
@@ -147,6 +148,11 @@ const  PrivateRoutes = [
       element: <Game/>,
     },
     {
+      path: "/QA",
+      element: <QA/>,
+    },
+    {
+    
       path: "/PhysicApp",
       element: <PhysicApp/>,
     },
