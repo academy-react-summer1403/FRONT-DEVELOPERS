@@ -1,10 +1,9 @@
 import React, { useRef, useState } from 'react'
-import LoginModal from '../../components/mainAuth/LoginModal'
 import { Button } from '@nextui-org/react'
 import HomeOfAssistant from '../../components/3DAssistant/HomeOfAssistant'
 import { NavLink } from 'react-router-dom'
 import GameBody from './GameBody'
-
+import Back from "../../assets/landing/authBack.png";
 
 
 const Game = () => {
@@ -56,19 +55,19 @@ const Game = () => {
    let [lock, setLock] = useState(false)
    const [score, setScore] = useState(0)
    const [button, setButton] = useState(false)
+   const [lose, setLose] = useState(false)
 
    const answer1 =useRef(null)
    const answer2 =useRef(null)
    const answer3 =useRef(null)
    const answer4 =useRef(null)
    const answerArrey =[answer1 ,answer2 ,answer3 ,answer4]
-   console.log("answerArrey" , answer1 ,answer2 ,answer3 ,answer4)
 
    const handleNext =()=>{
     if(lock===true){
         if(index === questionList.length-2){
             setIndex(0)
-            alert("you lose try again");
+            setLose(true)
             setQuestion(questionList[index +1])
             setLock(false)
             answerArrey.map((i)=>{
@@ -104,38 +103,56 @@ const Game = () => {
     }   
 
   return (
-    // <div className='container py-12'>
-    //     <div  className='rounded-xl bg-secondary/30 p-4 mx-auto w-[50%] max-lg:w-[80%]'>
-    //         {                   
-    //                  score !== 4  ? <GameBody 
-    //                     answerArrey={answerArrey} checkAnswer={checkAnswer} button={button}
-    //                     index={index} question={question} score={score} handleNext={handleNext}
-    //                     answer1={answer1} answer2={answer2} answer3={answer3} answer4={answer4}
-    //                  /> :
-                    
-                    
+    <div className='container py-2'>
+         <img
+        src={Back}
+        alt=""
+        className="fixed rotate-180 left-[300px] top-[10px] w-[1000px] opacity-30 -z-10"
+      />
+        <div  className='rounded-[25px] py-12 px-4 mx-auto w-[60%] max-lg:w-[80%] z-[999]
+            bg-gradient-to-br from-secondary/20 dark:from-amber-100/80 from-10% to-primary/30 dark:to-cyan-100/80 to-90%
+        '>
+            <div className='w-1/2 bg-white opacity-100 p-4 rounded-[15px] mx-auto'>
+                {                   
+                        score !== 4  ? <GameBody 
+                            answerArrey={answerArrey} checkAnswer={checkAnswer} button={button}
+                            index={index} question={question} score={score} handleNext={handleNext}
+                            answer1={answer1} answer2={answer2} answer3={answer3} answer4={answer4}
+                        /> :
+                        
+                        
 
-    //                  <NavLink to={"/"} className='group '>
-    //                     <Button 
-    //                         className="relative mt-5 mx-auto flex overflow-visible rounded-full px-12 shadow-xl bg-primary/30 after:content-[''] after:absolute after:rounded-full after:inset-0 after:bg-background/40 after:z-[-1] after:transition after:!duration-500 hover:after:scale-150 hover:after:opacity-0"
-    //                         >
-    //                         رفتن به صفحه اصلی
-    //                     </Button>
-    //                 </NavLink>                
-            
-    //         }        
+                        <NavLink to={"/"} className='group '>
+                            <Button 
+                                className="relative mt-5 mx-auto flex overflow-visible rounded-full px-12 shadow-xl bg-primary/30 after:content-[''] after:absolute after:rounded-full after:inset-0 after:bg-background/40 after:z-[-1] after:transition after:!duration-500 hover:after:scale-150 hover:after:opacity-0"
+                                >
+                                رفتن به صفحه اصلی
+                            </Button>
+                        </NavLink>                
+                
+                }        
+            </div>
+        </div>
 
-    //     </div>
+        {/* lose modal  */}
+
+        <div>                                     
+            <div className={`${lose ==false ? "hidden": "block"} fixed left-0 top-0 w-screen h-screen bg-black/70 z-[99999]
+                backdrop-blur-sm transition-all duration-700`}
+            >
+                <div className='bg-white rounded-lg shadow-lg grid gap-3 p-8 mx-auto w-1/3 mt-40'>                              
+                    <p className='dark:text-gray-950 text-[20px] text-center'>!! شما باختید  </p>
+                    <NavLink to={"/auth/v1"} className='bg-secondary p-2 rounded-md text-xs w-20 hover:scale-110
+                        transition duration-500 hover:shadow-md mx-auto text-center'> رفتن به صفحه ورود </NavLink>
+                </div>
+            </div>
+        </div>
+
+        <HomeOfAssistant/>
+
        
-    // </div>
-
-
-    //  <LoginModal/> 
-
-    <div className='h-[900px]'>
-    <HomeOfAssistant/>
- 
     </div>
+
   )
 }
 

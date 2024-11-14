@@ -11,6 +11,7 @@ export const Experience = () => {
   const cube = useRef();
   const [start, setStart] = useState(false);
   const kicker = useRef();
+
   const jump = () => {
     if (isOnFloor.current) {
       cube.current.applyImpulse({ x: 0, y: 5, z: 0 });
@@ -45,7 +46,9 @@ export const Experience = () => {
     }
   };
 
-  const speed = useRef(5);
+
+  const speed = useRef(1);
+
 
   useFrame((_state, delta) => {
     if (jumpPressed) {
@@ -64,7 +67,7 @@ export const Experience = () => {
     curRotation.multiply(incrementRotation);
     kicker.current.setNextKinematicRotation(curRotation);
 
-    speed.current += delta;
+    // speed.current += delta;
   });
 
   const isOnFloor = useRef(true);
@@ -73,9 +76,11 @@ export const Experience = () => {
     <>
       <ambientLight intensity={0.5} />
       <directionalLight position={[-10, 10, 0]} intensity={0.4} />
+
       <OrbitControls />
 
       <RigidBody
+      type="static"
         position={[-2.5, 1, 0]}
         ref={cube}
         onCollisionEnter={({ other }) => {
@@ -88,7 +93,8 @@ export const Experience = () => {
             isOnFloor.current = false;
           }
         }}
-      >
+      >   
+  
         <Box
           onPointerEnter={() => setHover(true)}
           onPointerLeave={() => setHover(false)}
@@ -96,21 +102,26 @@ export const Experience = () => {
         >
           <meshStandardMaterial color={hover ? "hotpink" : "royalblue"} />
         </Box>
-      </RigidBody>
+    
 
-      <RigidBody type="kinematicPosition" position={[0, 0.75, 0]} ref={kicker}>
-        <group position={[2.5, 0, 0]}>
-          <Box args={[5, 0.5, 0.5]}>
-            <meshStandardMaterial color="peachpuff" />
-          </Box>
-        </group>
-      </RigidBody>
+       </RigidBody>
 
-      <RigidBody type="fixed" name="floor">
-        <Box position={[0, 0, 0]} args={[10, 1, 10]}>
-          <meshStandardMaterial color="springgreen" />
-        </Box>
-      </RigidBody>
-    </>
+       <RigidBody type="kinematicPosition" position={[0, 0.75, 0]} ref={kicker}>
+         <group position={[2.5, 0, 0]}>
+           <Box args={[5, 0.5, 0.5]}>
+             <meshStandardMaterial color="peachpuff" />
+           </Box>
+         </group>
+       </RigidBody>
+      
+       <RigidBody type="fixed" name="floor">
+         <Box position={[0, 0, 0]} args={[10, 1, 10]}>
+           <meshStandardMaterial color="springgreen" />
+         </Box>
+       </RigidBody>
+      
+     </>
   );
 };
+
+
