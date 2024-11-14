@@ -61,7 +61,7 @@ const dispatch = useDispatch()
       toast.success("ورود با موفقیت انجام شد" , {
 theme:"colored"
 })
-navigate("/")
+navigate("/auth/Game")
   }else if(token == ""){
     toast.error("اطلاعات ورودی نادرست است" , {
       theme:"colored"

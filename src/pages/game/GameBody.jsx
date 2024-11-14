@@ -9,15 +9,14 @@ const GameBody = ({
     
   return (
     <div>
-        <h3 className='text-[30px] font-bold border-b-2 border-darkgreen pb-2'>queiz App</h3>
-        <div className='my-3 py-3'>
+        <h3 className='text-[25px] text-center text-green font-semibold border-b-2 border-darkgreen pb-2'> تست کپچا </h3>
+        <div className='my-2 py-2 dark:text-black'>
 
-            <div className='flex relative'>
-                <h2 className='text-[20px] font-semibold pb-2 mb-4'>{index+1}: {question.question}</h2>
-                <p className='absolute right-0'>  امتیاز شما : {score} از 4 </p>
+            <div className=' relative mb-4'>
+                <h2 className='text-[15px] font-semibold pb-2 '>{index+1}: {question.question}</h2>
             </div>
 
-            <ul className='grid mx-auto gap-2'>                    
+            <ul className='grid mx-auto gap-1'>                    
                                
                 <li ref={answer1} onClick={(e)=>checkAnswer(e , question.answer[0])} className="pl-2 border border-darkgreen h-8 py-1 text-left rounded-md w-full">
                     {question.answer[0]}
@@ -44,6 +43,7 @@ const GameBody = ({
                                 بعدی
                             </Button>
                         }
+                <p className=' text-xs text-center mt-4'>  امتیاز شما : {score} از 4 </p>
 
 
         </div>

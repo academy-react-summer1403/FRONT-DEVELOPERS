@@ -71,10 +71,6 @@ const  PublicRoutes = [
         element: <Notfound />,
       },
       {
-        path: "/Game",
-        element: <Game/>,
-      },
-      {
         path: "/PhysicApp",
         element: <PhysicApp/>,
       },
@@ -104,6 +100,10 @@ const  PublicRoutes = [
         {
           path: "/auth/v2",
           element: <VarificationVorod />,
+        },
+        {
+          path: "/auth/Game",
+          element: <Game/>,
         },
       ],
     },
@@ -142,10 +142,6 @@ const  PrivateRoutes = [
     {
       path: "/basket",
       element: <NavbarBasket />,
-    },
-    {
-      path: "/Game",
-      element: <Game/>,
     },
     {
       path: "/QA",

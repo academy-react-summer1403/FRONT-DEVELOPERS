@@ -19,13 +19,13 @@ function PhysicApp() {
       { name: Controls.back, keys: ["ArrowDown", "KeyS"] },
       { name: Controls.left, keys: ["ArrowLeft", "KeyA"] },
       { name: Controls.right, keys: ["ArrowRight", "KeyD"] },
-      { name: Controls.jump, keys: ["Space"] },
+      { name: Controls.jump, keys: ["KeyQ"] },
     ],
     []
   );
 
   return (
-    <div className="h-[500px]">
+    <div className="h-[400px]">
       <KeyboardControls map={map}>
         <Canvas shadows camera={{ position: [10, 10, 10], fov: 30 }}>
           <color attach="background" args={["#ffffff"]} />
