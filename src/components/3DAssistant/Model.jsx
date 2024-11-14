@@ -14,10 +14,11 @@ const Model = () => {
     useEffect(() => {
         actions["Experiment"].play().paused=true
     }, [])
-    useFrame(()=>(
+
+    useFrame(()=>(   
         actions["Experiment"].time=(actions["Experiment"].getClip().duration * scroll.offset)/6)
     )
-
+    
     
     
     return (

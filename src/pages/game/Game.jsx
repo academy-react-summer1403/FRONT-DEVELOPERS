@@ -132,7 +132,7 @@ const Game = () => {
 
     //  <LoginModal/> 
 
-    <div className='h-[900px]'>
+    <div className='h-[900px] '>
     <HomeOfAssistant/>
  
     </div>
