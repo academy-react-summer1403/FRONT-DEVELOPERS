@@ -13,60 +13,56 @@ import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
 
-const ArticleDescription = () => {
+const ArticleDescription = ({id}) => {
 
-  const { id } = useParams();
+ 
   const {t}=useTranslation()
 
   
   const articleDetail = useArticleDetail(id);
-  // console.log(articleDetail?.data.detailsNewsDto.id);
-
-  const [like , setLike] = useState()
-  // console.log(like)
-
-  const [disslike , setDissLike] = useState()
-  // console.log(disslike)
+  const [showMore, setShowMore] = useState(true);
 
 
+    const [like , setLike] = useState(articleDetail.data?.detailsNewsDto.currentLikeCount)
+    const [disslike , setDissLike] = useState(articleDetail.data?.detailsNewsDto.currentDissLikeCount)
+
+ console.log(articleDetail.data?.detailsNewsDto.currentDissLikeCount)
   
-  const [NewsId , setNewsId] = useState()
-  // console.log(NewsId)
 
-  const [rate , setRate] = useState()
-  console.log(rate)
 
-  const params = {
-    NewsId: id ,
-    RateNumber:rate
+  // const [rate , setRate] = useState()
+  // console.log(rate)
+
+  // const params = {
+  //   NewsId: id ,
+  //   RateNumber:rate
     
+  // }
+
+  // const   postRateNew= postRateNews(params )
+  // console.log(postRateNew) 
+
+
+
+  const handleaddlike=(id)=>{
+      const addlikenew=likeArticle(id)
+      //  setLike(articleDetail.data?.detailsNewsDto.currentLikeCount+1)
+       
+
   }
 
-  const   postRateNew= postRateNews(params )
-  console.log(postRateNew) 
+  const handledisslike=(id)=>{
+    const disslikenew=disslikeArticle(id)
+    //  setDissLike(articleDetail.data?.detailsNewsDto.currentDissLikeCount-1)
+     
+
+}
 
 
-  
-
-  // const likeArticle1 = likeArticle(like)
-  // console.log(likeArticle1)
-
-  const LikeDescQuery = LikepostQuery()
-  console.log(LikeDescQuery)
-
-  
 
 
-  // const disslikeArticle1 = disslikeArticle(disslike)
-  // console.log(disslikeArticle1)
+ 
 
-
-  const [dislike1,setDislike1]=useState(true)
-  const [like1,setlike1]=useState(true)
-
-
-  const [showMore, setShowMore] = useState(true);
-  // console.log(showMore);
 
   const [loading, setLoading] = useState(true)
   useEffect(() => {
@@ -128,11 +124,11 @@ leading-[32px] font-normal font-Yekan text-[20px] max-xl:text-[18px] flex items-
         <div className=" flex items-center gap-5">
           <div className="  share max-xl:text-[14px] flex items-center gap-2">
             <svg 
-             onClick={()=>(setlike1(!like1),setDislike1(dislike1==false ? !dislike1 : dislike1),setLike(id))} 
+             onClick={()=>handleaddlike(id)} 
               width="20"
               height="19"
                 className={`max-xl:h-[15px] max-xl:w-[16px] stroke-[#AAAAAA] dark:stroke-orange
-                  ${like1 ? "fill-none" : "fill-[#AAAAAA] dark:fill-orange"}`}
+                  ${"like1" ? "fill-none" : "fill-[#AAAAAA] dark:fill-orange"}`}
               viewBox="0 0 20 19"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -145,12 +141,12 @@ leading-[32px] font-normal font-Yekan text-[20px] max-xl:text-[18px] flex items-
                 stroke-linejoin="round"
               />
             </svg>
-           {articleDetail.data?.detailsNewsDto.currentLikeCount} 
+           {like || articleDetail.data?.detailsNewsDto?.currentLikeCount} 
             <svg
-              className={`max-xl:h-[15px] max-xl:w-[16px] stroke-[#AAAAAA] dark:stroke-orange ${dislike1 ? "fill-none" : "fill-[#AAAAAA] dark:fill-orange"} `}
+              className={`max-xl:h-[15px] max-xl:w-[16px] stroke-[#AAAAAA] dark:stroke-orange ${"dislike1" ? "fill-none" : "fill-[#AAAAAA] dark:fill-orange"} `}
               width="20"
               height="19"
-              onClick={()=>(setDislike1(!dislike1),setlike1(like1==false ? !like1 : like1),setDissLike(id))}
+              onClick={()=>handledisslike(articleDetail.data?.detailsNewsDto?.likeId)}
               viewBox="0 0 20 19"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -164,7 +160,7 @@ leading-[32px] font-normal font-Yekan text-[20px] max-xl:text-[18px] flex items-
               />
             </svg>
             
-           {articleDetail.data?.detailsNewsDto.currentDissLikeCount} 
+           {disslike||articleDetail.data?.detailsNewsDto?.currentDissLikeCount} 
 
             
           </div>

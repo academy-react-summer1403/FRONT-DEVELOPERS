@@ -4,13 +4,40 @@ import { TbTrash } from 'react-icons/tb'
 import { NavLink } from 'react-router-dom'
 import { useReserv } from '../../../core/services/query/DashboardQuery'
 import { ImageErrore } from '../../ImageErrore'
+import { deleteReserveCourse } from '../../../core/services/DashApi'
 
 const ReserveMap = () => {
 
 
   
   const Reserv = useReserv()
-  console.log(Reserv)
+  console.log(Reserv?.data)
+
+
+
+  
+  
+
+
+  const handleRemoveReserveCourse=(deleteReserve)=>{
+
+    const params={
+      id:deleteReserve
+    }
+
+    console.log(deleteReserve)
+   
+
+  const  deleteReserveMyCourse = deleteReserveCourse(params)
+  console.log(deleteReserveMyCourse)
+  
+  }
+
+  
+
+
+
+
 
 
 
@@ -23,13 +50,11 @@ const ReserveMap = () => {
 
         `}>
            <li className='col-1 my-2 flex gap-2'>
-            <NavLink>
-                <TbTrash className='text-secondary mt-4 w-5 h-5 cursor-pointer 
-                
-                ' />
-                            
-            </NavLink>
-            <NavLink>
+          
+                <TbTrash className='text-secondary mt-4 w-5 h-5 cursor-pointer ' onClick={()=>handleRemoveReserveCourse(item?.reserveId)} />
+              
+            
+            <NavLink to={"/courses-detail/"+item?.courseId}>
                 <IoEyeOutline className='text-primary dark:text-emerald-800 mt-4 w-5 h-5 cursor-pointer 
                 
                 ' />            

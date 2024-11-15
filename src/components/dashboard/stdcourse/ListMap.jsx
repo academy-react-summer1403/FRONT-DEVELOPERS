@@ -14,6 +14,7 @@ const ListMap = () => {
   console.log(getMyCourses.data?.listOfMyCourses)
   
   
+  
 
   return (
     <div>
@@ -23,7 +24,7 @@ const ListMap = () => {
                 text-gray-600 font-medium justify-items-center dark:text-white
               ${  2 ===0 ? "bg-gray-100/60 dark:bg-gray-50" : "bg-cyan-50/60 dark:bg-cyan-100/70"}                                          
               `}>
-                <NavLink className='col-1'>
+                <NavLink to={"/courses-detail/"+ item?.courseId}  className='col-1'>
                   <IoEyeOutline className='text-orange mt-4 w-5 h-5 cursor-pointer 
                   max-md:mt-2 max-md:ml-2
                   ' />            

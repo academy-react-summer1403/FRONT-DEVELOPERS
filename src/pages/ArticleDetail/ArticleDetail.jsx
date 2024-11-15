@@ -5,9 +5,9 @@ import ArticleDescription from "../../components/articledetail/articleDescriptio
 import { motion } from "framer-motion";
 import { useArticleDetail } from "../../core/services/query/queries";
 import { useParams } from "react-router-dom";
-import NewComment from "../../components/coursedetailComponents/comments/NewComment";
+// import NewComment from "../../components/coursedetailComponents/comments/NewComment";
 import { samecourses, suggestion } from "../CourseDetail/CourseDetail";
-import { useCommentNews } from "../../core/services/query/CommentQuery";
+// import { useCommentNews } from "../../core/services/query/CommentQuery";
 import { postFavoriteNews } from "../../core/services/DashApi";
 import { toast } from "react-toastify";
 import DateApi from "../../components/DateApi";
@@ -27,26 +27,35 @@ const ArticleDetail = () => {
 
   
   const articleDetail = useArticleDetail(id);
-  // console.log(articleDetail.data?.detailsNewsDto.title);
 
   const [save,setSave]=useState(false)
 
-  const [NewsId , setNewsId] = useState()
-  console.log(NewsId)
-
-  const params = {
+  
+  
+  
+  const handleAddFavoriteNews=()=>{
+     const params = {
     NewsId: id 
   }
 
-
-    
   const  addFavoriteNew = postFavoriteNews(params)
   console.log(addFavoriteNew)
   
-  
-  // if(addFavoriteNew.){
+  }
 
-  // }
+
+  useEffect(() => {
+ 
+
+    if(save){
+      handleAddFavoriteNews();
+      
+      }
+  
+  }, [save]);
+ 
+  
+  
 
   const [loading, setLoading] = useState(true)
   useEffect(() => {
@@ -252,7 +261,7 @@ const ArticleDetail = () => {
 
               <svg
                 width="18"
-              onClick={()=>(setSave(!save),setNewsId(id))}
+              onClick={()=>(setSave(!save))}
               
                 className={`  dark:stroke-secondary  max-2xl:w-[16px] h-[18px]  max-xl:h-[16px] max-xl:w-[14px] stroke-primary
                   ${save ? "  fill-primary dark:fill-secondary" :" " }` }
@@ -272,12 +281,12 @@ const ArticleDetail = () => {
             </div>
           </motion.div>
           {/* description section */}
-          <ArticleDescription />
+          <ArticleDescription id={id} />
   {/* comment section */}
 
           <div className="">
             <h4 className="mark mt-5 max-lg:mt-1 max-xl:text-[23px]  dark:text-slate-300   ">{t("comments")}</h4>
-            <NewComment newsId={id}/>
+            {/* <NewComment newsId={id}/> */}
           </div>
       </div>
 
