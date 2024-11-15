@@ -67,6 +67,7 @@ const Game = () => {
     if(lock===true){
         if(index === questionList.length-2){
             setIndex(0)
+            setScore(0)
             setLose(true)
             setQuestion(questionList[index +1])
             setLock(false)
@@ -122,11 +123,11 @@ const Game = () => {
                         
                         
 
-                        <NavLink to={"/"} className='group '>
+                        <NavLink to={"/auth/v1"} className='group '>
                             <Button 
                                 className="relative mt-5 mx-auto flex overflow-visible rounded-full px-12 shadow-xl bg-primary/30 after:content-[''] after:absolute after:rounded-full after:inset-0 after:bg-background/40 after:z-[-1] after:transition after:!duration-500 hover:after:scale-150 hover:after:opacity-0"
                                 >
-                                رفتن به صفحه اصلی
+                                رفتن به صفحه ورود
                             </Button>
                         </NavLink>                
                 
@@ -142,8 +143,8 @@ const Game = () => {
             >
                 <div className='bg-white rounded-lg shadow-lg grid gap-3 p-8 mx-auto w-1/3 mt-40'>                              
                     <p className='dark:text-gray-950 text-[20px] text-center'>!! شما باختید  </p>
-                    <NavLink to={"/auth/v1"} className='bg-secondary p-2 rounded-md text-xs w-20 hover:scale-110
-                        transition duration-500 hover:shadow-md mx-auto text-center'> رفتن به صفحه ورود </NavLink>
+                    <Button onClick={()=>setLose(false)} className='bg-secondary p-2 rounded-md text-xs w-20 hover:scale-110
+                        transition duration-500 hover:shadow-md mx-auto text-center'> تلاش مجدد </Button>
                 </div>
             </div>
         </div>
