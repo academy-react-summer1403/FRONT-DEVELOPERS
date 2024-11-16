@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PointOfHeader from '../../../components/dashboard/pointOfView/PointOfHeader'
 import PointOfMap from '../../../components/dashboard/pointOfView/PointOfMap'
 
@@ -11,6 +11,7 @@ import { BiMenuAltRight } from 'react-icons/bi'
 const StdPointOfView = () => {
 
   const categories = ["جدید ترین", "محبوب ترین" , "ارزان ترین"];
+  const [search, setSearch] = useState('')
 
 
   return (
@@ -19,7 +20,7 @@ const StdPointOfView = () => {
        <div className='border-b grid grid-cols-4 justify-items-end pb-8 my-4 gap-8' >
         {/* fillter  */}           
            <motion.div 
-            variants={SliderRight(1.0)}
+            variants={SliderRight(0.5)}
             initial="hidden"
             animate="visible"
            className="relative group max-sm:grid max-sm:justify-items-center  col-span-1 justify-self-end w-full">
@@ -62,7 +63,7 @@ const StdPointOfView = () => {
         <div className='col-span-3 grid justify-items-end w-full'>
          
             <motion.div
-              variants={SliderLeft(1.0)}
+              variants={SliderLeft(0.5)}
               initial="hidden"
               animate="visible"
               className="flex flex-row  w-4/5 
@@ -76,7 +77,7 @@ const StdPointOfView = () => {
               </div>
 
               <input
-                onChange={""}
+                onChange={(e)=>{setSearch(e.target.value)}}
                 id="search"
                 name="search"
                 type="text"
@@ -97,7 +98,7 @@ const StdPointOfView = () => {
       {/* list of courses:  */}
       <div className='my-4 '>
         <PointOfHeader/>
-        <PointOfMap/>
+        <PointOfMap search={search}/>
       </div>
 
       {/* paginatiion:  */}

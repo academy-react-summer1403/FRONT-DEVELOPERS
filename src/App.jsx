@@ -238,6 +238,10 @@ const  PrivateRoutes = [
         path: "/auth/v2",
         element: <VarificationVorod />,
       },
+      {
+        path: "/auth/Game",
+        element: <Game/>,
+      },
     ],
   },
 

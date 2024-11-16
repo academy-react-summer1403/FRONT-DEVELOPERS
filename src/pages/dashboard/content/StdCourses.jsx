@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ListMap from '../../../components/dashboard/stdcourse/ListMap'
 import ListHeader from '../../../components/dashboard/stdcourse/ListHeader'
 import { motion } from 'framer-motion'
@@ -14,6 +14,7 @@ const StdCourses = () => {
 
   const categories = ["جدید ترین", "محبوب ترین" , "ارزان ترین"];
 
+  const [search, setSearch] = useState('')
  
   
   return (
@@ -24,7 +25,7 @@ const StdCourses = () => {
       <div className='border-b grid grid-cols-4 justify-items-end pb-8 my-4 gap-8' >
         {/* fillter  */}           
            <motion.div 
-            variants={SliderRight(1.0)}
+            variants={SliderRight(0.5)}
             initial="hidden"
             animate="visible"
            className="relative group max-sm:grid max-sm:justify-items-center  col-span-1 justify-self-end w-full">
@@ -67,7 +68,7 @@ const StdCourses = () => {
         <div className='col-span-3 grid justify-items-end w-full'>
          
             <motion.div
-              variants={SliderLeft(1.0)}
+              variants={SliderLeft(0.5)}
               initial="hidden"
               animate="visible"
               className="flex flex-row  w-4/5 
@@ -81,7 +82,7 @@ const StdCourses = () => {
               </div>
 
               <input
-                onChange={""}
+                
                 id="search"
                 name="search"
                 type="text"
@@ -90,7 +91,7 @@ const StdCourses = () => {
                       h-[55px] rounded-full text-right pr-8 pb-2 dark:bg-gray-700/70  
                       "
                 style={{ boxShadow: " 0px 0.1px 1px 1px rgba(0, 0, 0, 0.1) inset" }}
-
+                onChange={(e)=>{setSearch(e.target.value)}}
               
               />
             </motion.div>
@@ -102,7 +103,7 @@ const StdCourses = () => {
       {/* list of courses:  */}
       <div className='my-4 '>
         <ListHeader/>
-        <ListMap/>
+        <ListMap search={search}/>
       </div>
 
       {/* paginatiion:  */}

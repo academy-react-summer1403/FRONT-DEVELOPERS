@@ -9,7 +9,9 @@ import * as THREE from "three";
 export const Experience = () => {
   const [hover, setHover] = useState(false);
   const cube = useRef();
+  const isOnFloor = useRef(true);
   const [start, setStart] = useState(false);
+  console.log(start)
   const kicker = useRef();
 
   const jump = () => {
@@ -18,7 +20,6 @@ export const Experience = () => {
       isOnFloor.current = false;
     }
   };
-
   const jumpPressed = useKeyboardControls((state) => state[Controls.jump]);
   const leftPressed = useKeyboardControls((state) => state[Controls.left]);
   const rightPressed = useKeyboardControls((state) => state[Controls.right]);
@@ -45,6 +46,7 @@ export const Experience = () => {
       cube.current.applyImpulse({ x: 0, y: 0, z: 0.1 });
     }
   };
+  console.log("first:::::::::::::::" ,jumpPressed ,leftPressed , rightPressed , forwardPressed , backPressed)
 
 
   const speed = useRef(1);
@@ -57,7 +59,7 @@ export const Experience = () => {
     handleMovement();
 
     if (!start) {
-      return;
+      return  ;
     }
     const curRotation = quat(kicker.current.rotation());
     const incrementRotation = new THREE.Quaternion().setFromAxisAngle(
@@ -70,7 +72,6 @@ export const Experience = () => {
     // speed.current += delta;
   });
 
-  const isOnFloor = useRef(true);
 
   return (
     <>
@@ -80,7 +81,6 @@ export const Experience = () => {
       <OrbitControls />
 
       <RigidBody
-      type="static"
         position={[-2.5, 1, 0]}
         ref={cube}
         onCollisionEnter={({ other }) => {
@@ -97,7 +97,7 @@ export const Experience = () => {
   
         <Box
           onPointerEnter={() => setHover(true)}
-          onPointerLeave={() => setHover(false)}
+          onPointerLeave={() => setHover(true)}
           onClick={() => setStart(true)}
         >
           <meshStandardMaterial color={hover ? "hotpink" : "royalblue"} />
@@ -123,5 +123,7 @@ export const Experience = () => {
      </>
   );
 };
+
+
 
 
