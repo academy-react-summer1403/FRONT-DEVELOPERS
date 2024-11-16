@@ -6,6 +6,7 @@ import { useReserv } from '../../../core/services/query/DashboardQuery'
 import { ImageErrore } from '../../ImageErrore'
 import DateApi from '../../DateApi'
 import { deleteReserveCourse } from '../../../core/services/DashApi'
+import NotFound from '../../notFound/NotFound'
 
 const ReserveMap = ({search}) => {
 
@@ -45,7 +46,9 @@ const ReserveMap = ({search}) => {
   return (
     <div>
     {Reserv.data?.filter((f)=>{
-      return search.toLowerCase()===' ' ? f : f.courseName.toLowerCase().includes(search)}).map((item) =>(
+      return search.toLowerCase()===' ' ? f : f.courseName.toLowerCase().includes(search)}) == "" ? <div className='relative w-96 flex mx-auto'> <NotFound/> </div>:
+      Reserv.data?.filter((f)=>{
+        return search.toLowerCase()===' ' ? f : f.courseName.toLowerCase().includes(search)}).map((item) =>(
         <ul  style={{boxShadow:" 0px 1px 1px 0px rgba(0,0,0,0.1)"}}
         className={`relative grid grid-cols-7 my-2 rounded-md text-[10px] text-center 
           text-gray-600 dark:text-gray-100 font-medium justify-items-center

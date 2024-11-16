@@ -5,6 +5,7 @@ import { useMyCourses } from '../../../core/services/query/DashboardQuery';
 import { ImageErrore } from '../../ImageErrore';
 import { FiDollarSign } from "react-icons/fi";
 import DateApi from '../../DateApi';
+import NotFound from '../../notFound/NotFound';
 
 
 const ListMap = ({search}) => {
@@ -20,7 +21,9 @@ const ListMap = ({search}) => {
   return (
     <div>
           {getMyCourses.data?.listOfMyCourses.filter((f)=>{
-              return search.toLowerCase()===' ' ? f : f.courseTitle.toLowerCase().includes(search)}).map((item) =>(
+              return search.toLowerCase()===' ' ? f : f.courseTitle.toLowerCase().includes(search)}) == "" ?<div className='relative w-96 flex mx-auto'> <NotFound/> </div>:
+              getMyCourses.data?.listOfMyCourses.filter((f)=>{
+                return search.toLowerCase()===' ' ? f : f.courseTitle.toLowerCase().includes(search)}).map((item) =>(
   
             <ul  style={{boxShadow:" 0px 1px 1px 0px rgba(0,0,0,0.1)"}}
               className={`relative grid grid-cols-7 gap-9 justify-end  mt-3 rounded-md text-[11px] text-center 

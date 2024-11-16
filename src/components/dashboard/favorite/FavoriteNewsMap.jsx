@@ -8,8 +8,10 @@ import { deleteCourseFavorite, deleteFavoriteCourse, deleteFavoriteNews } from '
 import FormData from 'form-data'
 import { ImageErrore } from '../../ImageErrore'
 import { Link } from 'react-router-dom'
+import DateApi from '../../DateApi'
+import NotFound from '../../notFound/NotFound'
 
-const FavoriteMapNew = () => {
+const FavoriteMapNew = ({search , category}) => {
  
   const favoriteNew = useFavoriteNews()
   // console.log(favoriteNew.data?.myFavoriteNews)
@@ -48,7 +50,11 @@ const FavoriteMapNew = () => {
 
   return (
     <div>
-    {favoriteNew.data?.myFavoriteNews?.map((item) => (
+    {favoriteNew.data?.myFavoriteNews?.filter((f)=>{
+              return search.toLowerCase()===' ' ? f : f.title.toLowerCase().includes(search)}) == "" ?<div className='relative w-96 flex mx-auto'> <NotFound/> </div>:
+
+              favoriteNew.data?.myFavoriteNews?.filter((f)=>{
+                return search.toLowerCase()===' ' ? f : f.title.toLowerCase().includes(search)}).map((item) =>(  
         <ul  style={{boxShadow:" 0px 1px 1px 0px rgba(0,0,0,0.1)"}}
         className="relative grid grid-cols-6 my-2 rounded-md text-[10px] text-center 
           text-gray-600 dark:text-white font-medium justify-items-center "
@@ -68,12 +74,12 @@ const FavoriteMapNew = () => {
             </div>
             </li> 
             <li className='col-1 my-5'>--</li>
-            <li className='col-1 my-5'>{item?.updateDate}</li>
+            <li className='col-1 my-5'><DateApi dateapi={item?.updateDate}/> </li>
             <li className='col-1 my-5'>--</li>
             <li className='col-1 my-5'>{item?.title}</li>
             <li className='col-1'>
                 <img
-                src={item?.currentImageAddressTumb}
+                src={item?.currentImageAddressTumb ? item?.currentImageAddressTumb : <ImageErrore/>}
                 onError={ImageErrore}
                 alt=""
                 className='rounded-full border w-12 h-12 col-1 shadow-md my-1'

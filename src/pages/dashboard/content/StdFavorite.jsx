@@ -12,7 +12,6 @@ const StdFavorite = () => {
 
   const categories = ["متوسط", "مبتدی" , "پیشرفته", "بدون ترتیب"];
   const [category, setCategory] = useState("بدون ترتیب")
-  console.log("category:::" , category)
   
   const [search, setSearch] = useState('')
 

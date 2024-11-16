@@ -195,7 +195,7 @@ const DashPanel = () => {
                 </div>
 
                 {/* menuBar */}
-                <ul className={`my-2 mr-8 
+                <ul className={`my-1 mr-8 
                     max-lg:mr-1 max-lg:my-12  
                     max-md:mr-0 
                     max-sm:${resposive ? "block " : "hidden"}
@@ -203,7 +203,7 @@ const DashPanel = () => {
                     {dashboard.map((items)=>(
                         <NavLink to={items.link}  key={items.id}
                         className={({isActive})=>`${isActive ? "bg-white border-l-4 border-l-orange" :" "}
-                                group flex flex-row-reverse font-semibold text-darkgreen my-2 py-3 px-4
+                                group flex flex-row-reverse font-semibold text-darkgreen my-1 py-2.5 px-4
                                 gap-4 rounded-r-full hover:bg-white hover:border-l-4 hover:border-l-orange
                                 transition-all duration-300 cursor-pointer                        
                                 max-lg:gap-0 
