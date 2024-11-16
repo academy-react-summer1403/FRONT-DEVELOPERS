@@ -1,32 +1,34 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { IoEyeOutline } from 'react-icons/io5'
 import { TbTrash } from 'react-icons/tb'
 import { useFavoriteCourse } from '../../../core/services/query/DashboardQuery'
-import { deleteCourseFavorite } from '../../../core/services/DashApi'
+import { deleteCourseFavorite, deleteFavoriteCourse } from '../../../core/services/DashApi'
 import FormData from 'form-data'
 import { ImageErrore } from '../../ImageErrore'
 import DateApi from '../../DateApi'
+import { Link, useNavigate } from 'react-router-dom'
 
 const FavoriteMap = ({search , category} ) => {
  
-  const favoriteCourse = useFavoriteCourse()
-  console.log(favoriteCourse)
-
-
-  const [deleteF , setDeleteF] = useState()
-  console.log(deleteF)
-
-
-
-  const formData = new FormData()
-  formData.append("CourseFavoriteId", deleteF);
   
+    const favoriteCourse = useFavoriteCourse()
+  
+  
+  const handleRemoveFavorite = (userFavoriteId) => {
 
 
-  const deleteFavorite = deleteCourseFavorite(formData)
-  console.log(deleteFavorite)
+    const CourseFavoriteId=new FormData()
+   CourseFavoriteId.append('CourseFavoriteId',userFavoriteId)
+    const deleteCourseFavorite=deleteFavoriteCourse(CourseFavoriteId)
+    
 
+  }
+  
+  
+ 
   console.log("category" , category)
+
+  
 
   return (
     <div>
@@ -43,15 +45,15 @@ const FavoriteMap = ({search , category} ) => {
                   <li className='col-1 my-2 flex gap-2'>
 
                     <form>
-                      <button type='button' onClick={()=>setDeleteF(item?.favoriteId)}>
+                      <button type='button' onClick={()=>handleRemoveFavorite(item?.favoriteId)}>
                               <TbTrash className='text-secondary mt-4 w-5 h-5 cursor-pointer ' />   
                       </button>
                     </form>
 
                     <div>
-                        <IoEyeOutline className='text-secondary mt-4 w-5 h-5 cursor-pointer 
-                        
-                        ' />            
+                      <Link to={"/courses-detail/"+item?.courseId}>
+                        <IoEyeOutline className='text-secondary mt-4 w-5 h-5 cursor-pointer      ' /> 
+                      </Link> 
                     </div>
                     </li> 
                     <li className='col-1 my-5'>{item?.teacheName}</li>

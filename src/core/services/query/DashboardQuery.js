@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import {  getCourseDash, getCourseDash2, getFavoriteCourse,  getMyCourses,  GetProfileInfo,  getUserProfile, reservCourse } from "../DashApi";
+import {  getCourseDash, getCourseDash2, getFavoriteCourse,  getFavoriteMyNews,  getMyCourses,  GetProfileInfo,  getUserProfile, reservCourse } from "../DashApi";
 
 
 
@@ -37,6 +37,13 @@ export function useFavoriteCourse() {
   return useQuery({
     queryKey: ["favoriteCourse" ],
     queryFn: () =>  getFavoriteCourse(),
+  });
+}
+
+export function useFavoriteNews() {
+  return useQuery({
+    queryKey: ["favoriteNews" ],
+    queryFn: () =>  getFavoriteMyNews(),
   });
 }
 

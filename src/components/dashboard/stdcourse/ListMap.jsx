@@ -15,6 +15,7 @@ const ListMap = ({search}) => {
   console.log(getMyCourses.data)
   
   
+  
 
   return (
     <div>
@@ -27,11 +28,11 @@ const ListMap = ({search}) => {
               ${  2 ===0 ? "bg-gray-100/60 dark:bg-gray-50" : "bg-cyan-50/60 dark:bg-cyan-100/70"}                                          
               `}>
                 <li className='col-1 flex gap-6'>
-                  <NavLink className="" >
-                    <IoEyeOutline className='text-orange mt-4 w-5 h-5 cursor-pointer 
-                    max-md:mt-2 max-md:ml-2
-                    ' />            
-                  </NavLink> 
+                <NavLink to={"/courses-detail/"+ item?.courseId}  className='col-1'>
+                  <IoEyeOutline className='text-orange mt-4 w-5 h-5 cursor-pointer 
+                  max-md:mt-2 max-md:ml-2
+                  ' />            
+                </NavLink> 
 
                   <NavLink to={"/payment/" + item?.courseId}>
 

@@ -33,6 +33,7 @@ import Game from "./pages/game/Game"
 import QA from "./components/QA/QA"
 import PhysicApp from "./pages/game/gameWithPhysics/PhysicApp"
 import { useEffect } from "react"
+import StdFavoriteNews from "./pages/dashboard/content/stdFavoriteNews"
 
 
 
@@ -189,6 +190,12 @@ const  PrivateRoutes = [
   path: "/stdFavorite",
   element: <StdFavorite />,
 },
+
+{
+  path: "/stdFavoriteNews",
+  element: <StdFavoriteNews />,
+},
+
 {
   path: "/settings",
   element: <StdSettings />,

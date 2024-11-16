@@ -6,10 +6,10 @@ import Description from "../../components/coursedetailComponents/Description/Des
 import HeadLines from "../../components/coursedetailComponents/Headlines/HeadLines";
 import { useCourseId } from "../../core/services/query/queries";
 import { useParams } from "react-router-dom";
-import CourseComment from "../../components/coursedetailComponents/comments/CourseComment";
+// import CourseComment from "../../components/coursedetailComponents/comments/CourseComment";
 import RelatedCourses from "../../components/coursedetailComponents/RelatedCourses/RelatedCourses";
 import { ImageErrore } from "../../components/ImageErrore";
-import { useCommentCourse } from "../../core/services/query/CommentQuery";
+// import { useCommentCourse } from "../../core/services/query/CommentQuery";
 import { useTranslation } from "react-i18next";
 
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
@@ -21,10 +21,12 @@ const CourseDetial = () => {
   const { courseId } = useParams();
   const {t}=useTranslation()
 
-  console.log({ courseId });
+  // console.log({ courseId });
 
   const CourseDetail = useCourseId(courseId);
-  console.log(CourseDetail.data);
+
+  console.log(CourseDetail.data?.isUserFavorite)
+  // console.log(CourseDetail.data);
 
   const [loading, setLoading] = useState(true)
   useEffect(() => {
@@ -55,7 +57,8 @@ const CourseDetial = () => {
             }
         </motion.div>
         {/* course detail card */}
-            {loading ? <CardLoading/> : <CourseCard courseId = {courseId} /> }
+
+ {loading ? <CardLoading/> : <CourseCard courseId={courseId} userFavoriteId={CourseDetail.data?.userFavoriteId} isUserFavorite={CourseDetail.data?.isUserFavorite}  /> }
         
       </div>
          
@@ -102,7 +105,7 @@ const CourseDetial = () => {
           {t("comments")}
           </h4>
           <div className="  ">
-             <CourseComment courseId={courseId} useComment={useCommentCourse} /> 
+             {/* <CourseComment courseId={courseId} useComment={useCommentCourse} />  */}
           </div>
         </div>
 

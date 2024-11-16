@@ -1,8 +1,8 @@
 import React from 'react'
 
-const FavoriteHeader = () => {
+const FavoriteHeaderNews = () => {
     const header=[
-        "استاد دوره", "زمان انتشار","دسته بندی","عنوان "
+        "نویسنده", "زمان انتشار","دسته بندی","عنوان "
        ]
        return (
          <div>
@@ -19,4 +19,4 @@ const FavoriteHeader = () => {
        )
     }
 
-export default FavoriteHeader
+export default FavoriteHeaderNews
