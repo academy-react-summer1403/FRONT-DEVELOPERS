@@ -25,11 +25,13 @@ const FavoriteMap = ({search , category} ) => {
 
   }
   
+  
+
 
   return (
     <div>
     
-      {category === "بدون ترتیب" ? <>
+      {category === "همه" ? <>
           {favoriteCourse.data?.favoriteCourseDto?.filter((f)=>{
               return search.toLowerCase()===' ' ? f : f.courseTitle.toLowerCase().includes(search)}) == "" ?<div className='relative w-96 flex mx-auto'> <NotFound/> </div>:
 
@@ -73,10 +75,10 @@ const FavoriteMap = ({search , category} ) => {
 
       <>
         {favoriteCourse.data?.favoriteCourseDto?.filter((i)=>{
-            return category.toLowerCase()==="بدون ترتیب" ? i : i.levelName.includes(category)}) == "" ? <NotFound/>:
+            return category.toLowerCase()==="همه" ? i : i.levelName.includes(category)}) == "" ? <NotFound/>:
             
             favoriteCourse.data?.favoriteCourseDto?.filter((i)=>{
-              return category.toLowerCase()==="بدون ترتیب" ? i : i.levelName.includes(category)}).map((item) =>(                           
+              return category.toLowerCase()==="همه" ? i : i.levelName.includes(category)}).map((item) =>(                           
 
               <ul  style={{boxShadow:" 0px 1px 1px 0px rgba(0,0,0,0.1)"}}
               className="relative grid grid-cols-6 my-2 rounded-md text-[10px] text-center 

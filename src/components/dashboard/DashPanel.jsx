@@ -15,8 +15,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { handleToken } from '../../core/redux/slices/QueryState/TokenSlice'
 
 
-
-
+import { FaRobot } from "react-icons/fa6";
 
 
 const DashPanel = () => {
@@ -98,9 +97,6 @@ const DashPanel = () => {
             link:"/stdFavoriteNews",
             isOpen:false,
         }
-
-    
-        
         ,{
             id:8,
             icon:<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -110,6 +106,14 @@ const DashPanel = () => {
             link:"/settings",
             isOpen:false,
         },
+        {
+            id:9,
+            icon:<FaRobot className="text-darkgreen w-6 h-6 bottom-[2px] absolute" />
+            ,
+            title:"ChatGPT ",
+            link:"/ChatApp",
+            isOpen:false,
+        }
 
     ]
 
@@ -168,7 +172,7 @@ const DashPanel = () => {
 
             {/* menu  */}
             <div 
-            className={`right-0 bg-primary font-red-500 rounded-r-xl py-[15px] z-40 relative
+            className={`right-0 bg-primary font-red-500 rounded-r-xl py-[8px] z-40 relative
             lg:w-[400px] 
             max-lg:${resposive ? "w-[300px] " : "w-[25px] " } 
             max-sm:w-full max-sm:rounded-t-xl max-sm:rounded-br-none max-sm:${resposive ? "h-[35%]" : "h-2"} 
@@ -185,7 +189,7 @@ const DashPanel = () => {
                     max-sm:mx-0 max-sm:block
                     max-lg:${resposive ? "block" : "hidden"}
                 `}>
-                    <img src={userProfile.data?.currentPictureAddress} onError={ImageErrore} className='w-[130px] h-[130px] rounded-full mx-auto
+                    <img src={userProfile.data?.currentPictureAddress} onError={ImageErrore} className='w-[120px] h-[120px] rounded-full mx-auto
                     max-md:w-[100px] max-md:h-[100px]  max-lg:w-24  max-lg:h-24
                     '/>
                     <p className='mt-4 text-center text-darkgreen font-bold
@@ -214,11 +218,12 @@ const DashPanel = () => {
                            
                         >
                             <NavLink to={items.link} 
-                            className=" flex flex-row-reverse gap-1 max-sm:gap-4 w-full"> 
+                            className="relative flex flex-row-reverse gap-1 max-sm:gap-4 w-full"> 
                                 <p className={` w-6 h-6
                                     max-lg:w-5 max-lg:h-5  
                                     max-sm:w-6 max-sm:h-6                         
-                                    `}>{items.icon}
+                                `}>
+                                    {items.icon}
                                  </p>                                
                             <p className={`${resposive? "max-lg:block" : "max-lg:hidden" } `}> {items.title} </p>
 
@@ -231,7 +236,7 @@ const DashPanel = () => {
                 {/* logout section    */}
                 <NavLink
                  onClick={handleLogout}
-                to={"/"} className={`flex flex-row gap-1 text-darkgreen text-sm font-semibold bottom-8 right-12 absolute
+                to={"/"} className={`flex flex-row gap-1 text-darkgreen text-sm font-semibold bottom-5 right-12 absolute
                     max-sm:${resposive ? " " : "hidden"}  
                     max-md:gap-0
                     max-lg:right-6

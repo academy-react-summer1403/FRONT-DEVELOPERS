@@ -10,8 +10,8 @@ import { BiMenuAltRight } from 'react-icons/bi'
 
 const StdFavorite = () => {
 
-  const categories = ["متوسط", "مبتدی" , "پیشرفته", "بدون ترتیب"];
-  const [category, setCategory] = useState("بدون ترتیب")
+  const categories = ["متوسط", "مبتدی" , "پیشرفته", "همه"];
+  const [category, setCategory] = useState("همه")
   
   const [search, setSearch] = useState('')
 
