@@ -10,12 +10,7 @@ import { useUserProfile } from '../../../core/services/query/DashboardQuery'
 const StdInformation = () => {
 
 
-
-
   const userProfile = useUserProfile()
-  console.log(userProfile.data?.currentPictureAddress)
-
-
   
 
   return (

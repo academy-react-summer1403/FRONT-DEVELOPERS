@@ -5,39 +5,49 @@ import { IoEyeOutline } from 'react-icons/io5'
 import { TbTrash } from 'react-icons/tb'
 import { useFavoriteCourse, useFavoriteNews } from '../../../core/services/query/DashboardQuery'
 import { deleteCourseFavorite, deleteFavoriteCourse, deleteFavoriteNews } from '../../../core/services/DashApi'
-import FormData from 'form-data'
+// import FormData from 'form-data'
 import { ImageErrore } from '../../ImageErrore'
 import { Link } from 'react-router-dom'
 import DateApi from '../../DateApi'
 import NotFound from '../../notFound/NotFound'
+import DashPagination from '../DashPagination'
 
-const FavoriteMapNew = ({search , category}) => {
+const FavoriteMapNew = ({search}) => {
  
   const favoriteNew = useFavoriteNews()
-  // console.log(favoriteNew.data?.myFavoriteNews)
-
-
-  // const [save,setSave]=useState(false)
+  console.log(favoriteNew.data)
 
   
-  
-
-
   const handleRemoveFavoriteNews=(deleteFavorite)=>{
 
     const params={
       deleteEntityId:deleteFavorite
     }
 
-    console.log(deleteFavorite)
    
 
   const  deleteFavoriteNew = deleteFavoriteNews(params)
-  console.log(deleteFavoriteNew)
   
   }
 
   
+ // States for Pagination
+ const [currentPage, setCurrentPage] = useState(1);
+ const itemsPerPage = 5; // Number of items per page
+
+ // Filter Data Based on Search
+ const filteredData = favoriteNew.data?.myFavoriteNews?.filter((f) =>
+   search.trim() === '' || f.title.toLowerCase().includes(search.toLowerCase())
+
+ );
+
+ // Paginated Data
+ const paginatedData = filteredData?.slice(
+   (currentPage - 1) * itemsPerPage,
+   currentPage * itemsPerPage
+ );
+
+ const totalPages = Math.ceil((filteredData?.length || 0) / itemsPerPage);
 
 
 
@@ -50,11 +60,13 @@ const FavoriteMapNew = ({search , category}) => {
 
   return (
     <div>
-    {favoriteNew.data?.myFavoriteNews?.filter((f)=>{
-              return search.toLowerCase()===' ' ? f : f.title.toLowerCase().includes(search)}) == "" ?<div className='relative w-96 flex mx-auto'> <NotFound/> </div>:
-
-              favoriteNew.data?.myFavoriteNews?.filter((f)=>{
-                return search.toLowerCase()===' ' ? f : f.title.toLowerCase().includes(search)}).map((item) =>(  
+      {filteredData?.length === 0 ? (
+        <div className="relative w-96 flex mx-auto">
+          <NotFound />
+        </div>
+      ) : (
+        <>
+          {paginatedData?.map((item) =>(  
         <ul  style={{boxShadow:" 0px 1px 1px 0px rgba(0,0,0,0.1)"}}
         className="relative grid grid-cols-6 my-2 rounded-md text-[10px] text-center 
           text-gray-600 dark:text-white font-medium justify-items-center "
@@ -88,6 +100,12 @@ const FavoriteMapNew = ({search , category}) => {
          
         </ul>
        ))} 
+
+        <DashPagination currentPage={currentPage} setCurrentPage={setCurrentPage} totalPages={totalPages}/>
+
+        </>
+       )
+      }
     </div>
   )
 }

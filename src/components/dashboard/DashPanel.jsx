@@ -23,7 +23,6 @@ const DashPanel = () => {
 
   
     const userProfile = useUserProfile()
-    console.log(userProfile)
   
 
 
@@ -106,14 +105,7 @@ const DashPanel = () => {
             link:"/settings",
             isOpen:false,
         },
-        {
-            id:9,
-            icon:<FaRobot className="text-darkgreen w-6 h-6 bottom-[2px] absolute" />
-            ,
-            title:"ChatGPT ",
-            link:"/ChatApp",
-            isOpen:false,
-        }
+       
 
     ]
 
@@ -125,10 +117,9 @@ const DashPanel = () => {
 
     const user = useSelector((state) => state.TokenSlice)
 
-    console.log("user" , user)
      
      const token = user?.token
-     console.log(token)   
+  
 
     const handleLogout = (token)=>{
         localStorage.removeItem("token" , token);    
@@ -145,7 +136,6 @@ const DashPanel = () => {
         if(resposive === false){return true}
         else{return false}
     }
-   console.log(resposive)
 
   return (
     <div className='bg-gray-50 dark:bg-gray-900 py-4 px-5 h-screen

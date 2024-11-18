@@ -34,7 +34,6 @@ import QA from "./components/QA/QA"
 import PhysicApp from "./pages/game/gameWithPhysics/PhysicApp"
 import { useEffect } from "react"
 import StdFavoriteNews from "./pages/dashboard/content/stdFavoriteNews"
-import ChatApp from "./components/chatGPT/ChatApp"
 
 
 
@@ -210,10 +209,6 @@ const  PrivateRoutes = [
 {
   path: "/settings",
   element: <StdSettings />,
-},
-{
-  path: "/ChatApp",
-  element: <ChatApp />,
 },
 
 

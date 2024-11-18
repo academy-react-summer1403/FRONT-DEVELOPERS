@@ -1,7 +1,4 @@
 import React, { useState } from 'react'
-import FavoriteHeader from '../../../components/dashboard/favorite/FavoriteHeader'
-import FavoriteMap from '../../../components/dashboard/favorite/FavoriteMap'
-
 import { IoIosArrowDown } from 'react-icons/io'
 import { SliderLeft, SliderRight } from '../../../utility/animation'
 import Search from "../../../assets/landing/Search.svg";
@@ -23,7 +20,7 @@ const StdFavoriteNews = () => {
        {/* search & fillter:  */}
        <div className='border-b grid grid-cols-4 justify-items-end pb-8 my-4 gap-8' >
         {/* fillter  */}           
-           <motion.div
+           {/* <motion.div
             variants={SliderRight(1.0)}
             initial="hidden"
             animate="visible"
@@ -61,7 +58,7 @@ const StdFavoriteNews = () => {
                   ))}
                 </ul>
               </div>
-            </motion.div>
+            </motion.div> */}
         
           {/* search  */}
         <div className='col-span-3 grid justify-items-end w-full'>
@@ -103,11 +100,9 @@ const StdFavoriteNews = () => {
       {/* list of courses:  */}
       <div className='my-4 '>
         <FavoriteHeaderNews/>
-        <FavoriteMapNew search={search} category={category}/>
+        <FavoriteMapNew search={search}/>
       </div>
 
-      {/* paginatiion:  */}
-      {/* <div className='border grid justify-items-center my-4'>paginatiion</div> */}
     </div>
   )
 }

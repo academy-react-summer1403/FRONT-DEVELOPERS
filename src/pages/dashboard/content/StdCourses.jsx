@@ -102,7 +102,7 @@ const StdCourses = () => {
       </div>
 
       {/* list of courses:  */}
-      <div className='my-4 '>
+      <div className='my-0 '>
         <ListHeader/>
         <ListMap search={search} category={category}/>
       </div>

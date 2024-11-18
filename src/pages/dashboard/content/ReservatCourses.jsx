@@ -16,11 +16,11 @@ const ReservatCourses = () => {
 
 
   return (
-    <div className='px-1 py-2 min-w-[400px]'>
+    <div className='px-1 py-1 min-w-[400px]'>
        {/* search & fillter:  */}
        <div className='border-b grid grid-cols-4 justify-items-end pb-8 my-4 gap-8' >
         {/* fillter  */}           
-           <motion.div
+           {/* <motion.div
             variants={SliderRight(0.5)}
             initial="hidden"
             animate="visible"
@@ -58,7 +58,7 @@ const ReservatCourses = () => {
                   ))}
                 </ul>
               </div>
-            </motion.div>
+            </motion.div> */}
         
           {/* search  */}
         <div className='col-span-3 grid justify-items-end w-full'>
@@ -97,7 +97,7 @@ const ReservatCourses = () => {
       </div>
 
       {/* list of courses:  */}
-      <div className='my-4 '>
+      <div className='my-0 '>
         <ReservateHeader/>
         <ReserveMap search={search}/>
       </div>

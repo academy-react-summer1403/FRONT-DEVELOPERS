@@ -10,6 +10,8 @@ import ScrollNav from './ScrollNav';
 import { IoIosLogOut } from 'react-icons/io';
 import { HiXCircle } from 'react-icons/hi2';
 import { useSelector } from 'react-redux';
+import { FaRobot } from 'react-icons/fa6';
+import ChatApp from "./chatGPT/ChatApp"
 
 
 
@@ -60,6 +62,7 @@ const Navbar = () => {
  
 
 const [openModal, setOpenModal] = useState(false)
+const [openChat, setOpenChat] = useState(false)
 
 
 
@@ -118,6 +121,23 @@ const handleLogout = (token)=>{
                                     <NavLink to={"#"} onClick={handleLogout}  className='bg-secondary p-2 rounded-md text-sm w-20 hover:scale-110
                                     transition duration-500 hover:shadow-md mx-auto text-center'>بله</NavLink>
                                 </div>
+                            </div>
+                        </div>
+
+                        {/* ChatGPT     */}
+                        
+                        <div>
+                            <FaRobot className="block mt-8 text-gray-400 text-3xl cursor-pointer"
+                            onClick={()=>setOpenChat(true) }/>               
+                            <div className={`${openChat ==false ? "hidden": "block"} fixed left-0 top-0 w-screen h-screen bg-black/70 z-[9999]
+                                 backdrop-blur-sm transition-all duration-700`}
+                            >
+                                <div className='bg-white rounded-lg shadow-lg grid gap-3 p-8 mx-auto w-1/3 mt-10'>
+                                    <HiXCircle onClick={()=>setOpenChat(false)} 
+                                        className=' right-2 top-2 w-6 h-6 cursor-pointer text-secondary opacity-100 justify-self-end '
+                                    />                                
+                                   <ChatApp />
+                              </div>
                             </div>
                         </div>
 
