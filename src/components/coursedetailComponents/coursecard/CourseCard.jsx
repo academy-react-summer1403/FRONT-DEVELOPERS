@@ -45,7 +45,9 @@ const CourseCard = ({courseId,userFavoriteId,isUserFavorite}) => {
 
     if(save==false){
         handleAddFavorite(courseId);
-      
+        toast.success("دوره از لیست علاقه مندی ها حذف شد" , {
+          theme:"colored"
+          })
       }
 
       
@@ -78,7 +80,7 @@ const CourseCard = ({courseId,userFavoriteId,isUserFavorite}) => {
     if(reserve){
 
       handleReserveCourse(courseId)
-
+      
     }
 
   },[reserve])

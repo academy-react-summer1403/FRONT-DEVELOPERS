@@ -100,7 +100,7 @@ const Learning = () => {
   return (
 
     <div className='container relative max-xl:px-2  mb-28'>
-      <img src={BackLearn} alt="" className='absolute w-full  scale-90 h-[70%] right-[0px] bottom-0 opacity-[30%]'/>
+      <img src={BackLearn} alt="2" className='absolute w-full  scale-90 h-[70%] right-[0px] bottom-0 opacity-[30%]'/>
     
 
         <h1 className=' mt-40 head1 '> {t("learning")}

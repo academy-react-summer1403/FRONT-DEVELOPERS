@@ -51,7 +51,7 @@ const CourseDetial = () => {
           className="max-xl:w-[550px]  max-md:hidden max-lg:h-[340px] h-[395px] max-xl:h-[320px] w-[624px] max-2xl:mr-10"
         >
           {loading ? <Skeleton className="h-full w-full  rounded-[15px]"/> : 
-            <img className=" h-full w-full  rounded-[15px]" src={CourseDetail.data?.imageAddress }
+            <img className=" h-full w-full  rounded-[15px]" src={CourseDetail.data?.imageAddress ? CourseDetail.data?.imageAddress : <ImageErrore/> }
               onError={ImageErrore} alt=''
             />
             }

@@ -28,7 +28,6 @@ const ListMap = ({ search, category }) => {
     (currentPage-1) * itemsPerPage,
     currentPage * itemsPerPage
   );
-  console.log( "paginatedData" , paginatedData)
 
   const totalPages = Math.ceil((filteredData?.length || 0) / itemsPerPage);
 

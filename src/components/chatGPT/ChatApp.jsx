@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css";
 import { ChatContainer, MainContainer, Message, MessageInput, MessageList, TypingIndicator } from '@chatscope/chat-ui-kit-react';
 
-// const API_KEY = "9a07780427c97f2855b3076e729635beb096d15f";
-const API_KEY = "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";
+
+const API_KEY = "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";
 
 const ChatApp = () => {
   const [typing, setTyping] = useState(false);
@@ -65,8 +65,10 @@ const ChatApp = () => {
           {
             message: data.choices[0].message.content,
             sender: "ChatGPT"
-          }
+          },
+          
         ]);
+        console.log("messages",messages)
         setTyping(false);
       })
       .catch((error) => {
