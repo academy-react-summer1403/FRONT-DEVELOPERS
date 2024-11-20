@@ -5,7 +5,7 @@ import persian from "react-date-object/calendars/persian";
 import persian_fa from "react-date-object/locales/persian_fa";
 import { useTranslation } from 'react-i18next';
 import { Navigate, NavLink, useNavigate, useParams } from 'react-router-dom';
-import { useMyCourses } from '../core/services/query/DashboardQuery';
+import { useMyCourses, useReserv } from '../core/services/query/DashboardQuery';
 import { StudentAddPeyment } from '../core/services/level2api';
 
 const Payment = () => {
@@ -14,8 +14,8 @@ const Payment = () => {
 
   const [selectedDate, setSelectedDate] = useState(null);
 const { courseId } = useParams();
-  const getMyCourses = useMyCourses(courseId);
-  console.log(getMyCourses.data?.listOfMyCourses)
+const Reserv = useReserv(courseId)
+console.log(Reserv?.data)
 
   console.log({ courseId });
 
@@ -51,7 +51,7 @@ const { courseId } = useParams();
           {/* <li key={index}>{course?.fullName}</li> */}
       
       <div className="relative w-[550px] rounded-2xl mt-14 bg-[#fcfaf5cb] shadow-md h-[350px] m-auto pt-20">
-     <div className="w-[350px] flex mx-auto flex-wrap">
+    {Reserv.data?.map((item)=>(<div className="w-[350px] flex mx-auto flex-wrap">
         
 
         <form
@@ -66,14 +66,14 @@ onSubmit={(values) => onSubmit(values)}
             name="CourseId"
             className="border border-gray-300 w-full hidden rounded-[10px] text-right mb-2 h-[40px] text-md px-2"
             placeholder={t('course_id')}
-            defaultValue={getMyCourses.data?.listOfMyCourses?.[0].courseId}
+            defaultValue={item?.courseId}
           />
           <input
             type="text"
             
             className="border border-gray-300 w-full rounded-[10px] text-right mb-2 h-[40px] text-md px-2"
             placeholder={t('course_id')}
-            defaultValue={getMyCourses.data?.listOfMyCourses?.[0].fullName}
+            defaultValue={item?.courseName}
           />
           <input
             type="text"
@@ -81,7 +81,7 @@ onSubmit={(values) => onSubmit(values)}
             name='Paid'
             className="border-gray-300 border w-full rounded-[10px] text-right mb-2 h-[40px] text-md px-2"
             placeholder={t('paid')}
-            defaultValue={getMyCourses.data?.listOfMyCourses?.[0].cost}
+            
 
           />
           <DatePicker
@@ -115,7 +115,7 @@ onSubmit={(values) => onSubmit(values)}
 
   <button type='submit'> {t('complete_purchase')} <MdNavigateNext /></button>
           </form>
-</div>    
+</div>    ))} 
 
         
        

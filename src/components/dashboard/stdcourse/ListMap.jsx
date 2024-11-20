@@ -30,11 +30,14 @@ const ListMap = () => {
                   ' />            
                 </NavLink> 
 
-                <NavLink to={"/payment/" + item?.courseId}>
+
+                {item?.accept ? "": <NavLink to={"/payment/" + item?.courseId}>
 
                 <FiDollarSign  className='text-green col-1 mt-4 w-4 h-4 cursor-pointer -ml-4
                   max-md:mt-2 max-md:ml-2
-                  '  /></NavLink>
+                  '  /></NavLink>}
+
+               
 
                 <li className='col-1 my-5 mr-20'>{item?.paymentStatus}</li>
                 

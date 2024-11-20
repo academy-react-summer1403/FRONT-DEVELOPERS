@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useArticleDetail } from "../../../core/services/query/queries";
 import { useParams } from "react-router-dom";
-import { disslikeArticle, likeArticle } from "../../../core/services/getApi";
+
 import { toast } from "react-toastify";
-import { postRateNews } from "../../../core/services/DashApi";
+import { deletelikeArticle, disslikeArticle, likeArticle, postRateNews } from "../../../core/services/DashApi";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { useTranslation } from "react-i18next";
 import { ImageErrore } from "../../ImageErrore";
-import { LikepostQuery } from "../../../core/services/mutation/LikeArticle";
+
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
@@ -23,40 +23,49 @@ const ArticleDescription = ({id}) => {
   const [showMore, setShowMore] = useState(true);
 
 
-    const [like , setLike] = useState(articleDetail.data?.detailsNewsDto.currentLikeCount)
-    const [disslike , setDissLike] = useState(articleDetail.data?.detailsNewsDto.currentDissLikeCount)
+    const [islike , setIsLike] = useState(articleDetail.data?.detailsNewsDto?.currentUserIsLike)
+    const [like , setLike] = useState(islike==undefined||islike==true ? true : false)
 
- console.log(articleDetail.data?.detailsNewsDto.currentDissLikeCount)
+ console.log(articleDetail.data?.detailsNewsDto)
+ console.log(islike)
+
+
+ 
+ const [isDisslike , setIsDissLike] = useState(articleDetail.data?.detailsNewsDto?.currentUserIsDissLike)
+ const [disslike , setDissLike] = useState(isDisslike==undefined||islike==true ? true : false)
+
+console.log(articleDetail.data?.detailsNewsDto)
+console.log(islike)
   
 
 
-  // const [rate , setRate] = useState()
-  // console.log(rate)
-
-  // const params = {
-  //   NewsId: id ,
-  //   RateNumber:rate
-    
-  // }
-
-  // const   postRateNew= postRateNews(params )
-  // console.log(postRateNew) 
-
-
-
-  const handleaddlike=(id)=>{
+  const handlelike=(id)=>{
       const addlikenew=likeArticle(id)
-      //  setLike(articleDetail.data?.detailsNewsDto.currentLikeCount+1)
-       
-
+      setLike(true)
+     
   }
 
-  const handledisslike=(id)=>{
-    const disslikenew=disslikeArticle(id)
-    //  setDissLike(articleDetail.data?.detailsNewsDto.currentDissLikeCount-1)
-     
+
+  const handledeletelike=(deleteEntityId)=>{
+    const deletelikenew=deletelikeArticle(deleteEntityId)
+    setLike(false)
+   
+}
+
+
+
+
+
+  const handledisslike=(likeId)=>{
+    const disslikenew=disslikeArticle(likeId)
+    setDissLike(true)
 
 }
+
+
+
+
+
 
 
 
@@ -124,11 +133,25 @@ leading-[32px] font-normal font-Yekan text-[20px] max-xl:text-[18px] flex items-
         <div className=" flex items-center gap-5">
           <div className="  share max-xl:text-[14px] flex items-center gap-2">
             <svg 
-             onClick={()=>handleaddlike(id)} 
+             onClick={()=>{
+              if(like==false){
+              handlelike(articleDetail.data?.detailsNewsDto?.id)
+            setLike(true)
+          setIsLike(true)
+          setDissLike(true)
+          setIsDissLike(true)}
+
+              if(like==true){
+                handledeletelike(articleDetail.data?.detailsNewsDto?.likeId)
+                setLike(false)
+                setIsLike(false)
+              }
+            
+            }}
               width="20"
               height="19"
                 className={`max-xl:h-[15px] max-xl:w-[16px] stroke-[#AAAAAA] dark:stroke-orange
-                  ${"like1" ? "fill-none" : "fill-[#AAAAAA] dark:fill-orange"}`}
+                  ${like ?"fill-[#AAAAAA] dark:fill-orange" :  "fill-none" }`}
               viewBox="0 0 20 19"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -141,12 +164,23 @@ leading-[32px] font-normal font-Yekan text-[20px] max-xl:text-[18px] flex items-
                 stroke-linejoin="round"
               />
             </svg>
-           {like || articleDetail.data?.detailsNewsDto?.currentLikeCount} 
+           { articleDetail.data?.detailsNewsDto?.currentLikeCount} 
             <svg
-              className={`max-xl:h-[15px] max-xl:w-[16px] stroke-[#AAAAAA] dark:stroke-orange ${"dislike1" ? "fill-none" : "fill-[#AAAAAA] dark:fill-orange"} `}
+              className={`max-xl:h-[15px] max-xl:w-[16px] stroke-[#AAAAAA] dark:stroke-orange ${disslike ? "fill-none" : "fill-[#AAAAAA] dark:fill-orange"} `}
               width="20"
               height="19"
-              onClick={()=>handledisslike(articleDetail.data?.detailsNewsDto?.likeId)}
+              onClick={()=>{
+                if(disslike==true){
+                handledisslike(articleDetail.data?.detailsNewsDto?.id)
+              setDissLike(false)
+            setIsDissLike(false)
+           handledeletelike(articleDetail.data?.detailsNewsDto?.likeId)
+                setLike(false)
+                setIsLike(false)}
+  
+             
+              
+              }}
               viewBox="0 0 20 19"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -160,7 +194,7 @@ leading-[32px] font-normal font-Yekan text-[20px] max-xl:text-[18px] flex items-
               />
             </svg>
             
-           {disslike||articleDetail.data?.detailsNewsDto?.currentDissLikeCount} 
+           {articleDetail.data?.detailsNewsDto?.currentDissLikeCount} 
 
             
           </div>

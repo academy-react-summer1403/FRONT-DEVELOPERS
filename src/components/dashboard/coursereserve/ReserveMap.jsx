@@ -5,6 +5,8 @@ import { NavLink } from 'react-router-dom'
 import { useReserv } from '../../../core/services/query/DashboardQuery'
 import { ImageErrore } from '../../ImageErrore'
 import { deleteReserveCourse } from '../../../core/services/DashApi'
+import { FiDollarSign } from "react-icons/fi";
+
 
 const ReserveMap = () => {
 
@@ -61,8 +63,14 @@ const ReserveMap = () => {
             </NavLink>
             </li> 
   
-            <li className='col-1 my-5 text-black dark:text-white'></li>
-            <li className='col-1 my-5'></li>
+            <li className='col-1 my-5 text-black dark:text-white'>
+              {item?.accept ?<NavLink to={"/payment/" + item?.courseId}>
+
+<FiDollarSign  className='text-green col-1 mt-4 w-4 h-4 cursor-pointer -ml-4
+  max-md:mt-2 max-md:ml-2
+  '  /></NavLink> : ""}
+            </li>
+            <li className='col-1 my-5'>--</li>
             <li className='col-1 my-5'>{item?.reserverDate}</li>
             <li className='col-1 my-5'>{item?.studentName}</li>
             <li className='col-1 my-5'>{item?.courseName}</li>

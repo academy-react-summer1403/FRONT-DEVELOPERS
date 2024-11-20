@@ -25,7 +25,7 @@ const CourseDetial = () => {
 
   const CourseDetail = useCourseId(courseId);
 
-  console.log(CourseDetail.data?.isUserFavorite)
+  console.log(CourseDetail.data)
   // console.log(CourseDetail.data);
 
   const [loading, setLoading] = useState(true)
@@ -58,7 +58,7 @@ const CourseDetial = () => {
         </motion.div>
         {/* course detail card */}
 
- {loading ? <CardLoading/> : <CourseCard courseId={courseId} userFavoriteId={CourseDetail.data?.userFavoriteId} isUserFavorite={CourseDetail.data?.isUserFavorite}  /> }
+ {loading ? <CardLoading/> : <CourseCard courseId={courseId} userFavoriteId={CourseDetail.data?.userFavoriteId} isUserFavorite={CourseDetail.data?.isUserFavorite}  isCourseReseve={CourseDetail.data?.isCourseReseve} /> }
         
       </div>
          

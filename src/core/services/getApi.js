@@ -120,20 +120,7 @@ export const getLandingReport = async () => {
 
 
 
-export const likeArticle = async ( id ) => {
-  const data = await http.post(`/News/NewsLike/${id}` )
 
-  console.log(data);
-  return data;
-};
-
-
-export const disslikeArticle = async ( id ) => {
-  const data = await http.post(`/News/NewsDissLike/${id}` )
-
-  console.log(data);
-  return data;
-};
 
 
 export const addPayImage = async (  ) => {

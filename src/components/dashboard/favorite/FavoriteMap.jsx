@@ -24,6 +24,7 @@ const FavoriteMap = () => {
   }
   
   
+  
  
 
 
@@ -31,6 +32,7 @@ const FavoriteMap = () => {
 
   return (
     <div>
+      
     {favoriteCourse.data?.favoriteCourseDto?.map((item) => (
         <ul  style={{boxShadow:" 0px 1px 1px 0px rgba(0,0,0,0.1)"}}
         className="relative grid grid-cols-6 my-2 rounded-md text-[10px] text-center 
