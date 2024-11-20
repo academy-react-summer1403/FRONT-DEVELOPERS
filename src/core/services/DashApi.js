@@ -252,3 +252,16 @@ export const getUserProfile = async () => {
   //   console.log(data);
   //   return data;
   // };
+
+
+  export const getMyCoursesComments=async()=>{
+    const data =await http.get("/SharePanel/GetMyCoursesComments")
+
+    return data
+  }
+
+  export const getMyNewsComments=async()=>{
+    const data =await http.get("/SharePanel/GetMyNewsComments")
+
+    return data
+  }

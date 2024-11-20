@@ -2,7 +2,7 @@ import React from 'react'
 
 const PointOfHeader = () => {
     const header=[
-        "زمان","وظعیت","دسته بندی","دیدگاه در "
+        "زمان","وضعیت","دسته بندی","دیدگاه در "
        ]
        return (
          <div>
