@@ -28,14 +28,21 @@ export const getUserProfile = async () => {
 
   export const putUserInfo = async (formData) => {
     try {
-      const response = await http.put("/SharePanel/UpdateProfileInfo", formData);
-      return response.data; // Assuming the API returns data in the response object
+      // ارسال درخواست PUT با داده‌های formData
+      const response = await http.put("/SharePanel/UpdateProfileInfo", formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data', // این هدر برای فرستادن داده‌ها با FormData ضروری است
+        },
+      });
+  
+      // اگر درخواست موفقیت‌آمیز بود، داده‌های پاسخ را برمی‌گرداند
+      return response.data;
     } catch (error) {
+      // در صورت بروز خطا، آن را لاگ کرده و خطای مناسب را پرتاب می‌کنیم
       console.error("Error updating user info:", error);
       throw new Error("Failed to update user info. Please try again.");
     }
   };
-
   
 
 
@@ -105,7 +112,7 @@ export const getUserProfile = async () => {
     },
     )
   
-    // console.log(data);
+    console.log(data);
     return data;
   };
 
@@ -209,3 +216,39 @@ export const getUserProfile = async () => {
     // console.log(data);
     return data;
   };
+
+
+
+
+  export const likeArticle = async ( id ) => {
+    const data = await http.post(`/News/NewsLike/${id}` )
+  
+    console.log(data);
+    return data;
+  };
+  
+  export const deletelikeArticle = async (deleteEntityId) => {
+    const response = await http.delete(`/News/DeleteLikeNews/`, {
+        data: { deleteEntityId }  
+    });
+
+    console.log(response);
+    return response;
+};
+
+  
+  
+  export const disslikeArticle = async ( id ) => {
+    const data = await http.post(`/News/NewsDissLike/${id}` )
+  
+    console.log(data);
+    return data;
+  };
+
+
+  // export const deletedisslikeArticle = async ( id ) => {
+  //   const data = await http.post(`/News/NewsDissLike/${id}` )
+  
+  //   console.log(data);
+  //   return data;
+  // };

@@ -6,13 +6,14 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
-const CourseCard = ({courseId,userFavoriteId,isUserFavorite}) => {
+const CourseCard = ({courseId,isUserFavorite,isCourseReseve}) => {
 
 
 
- 
- const [save,setSave]=useState(isUserFavorite)
- console.log(save)
+   const CourseDetail = useCourseId(courseId);
+ const [save,setSave]=useState(isUserFavorite? true : false)
+ const [isReserve,setIsReseve]=useState(isCourseReseve)
+ console.log(isReserve)
  
  
     
@@ -30,34 +31,44 @@ const CourseCard = ({courseId,userFavoriteId,isUserFavorite}) => {
 
 
   const handleRemoveFavorite = (userFavoriteId) => {
+  
 
 
-  const CourseFavoriteId=new FormData()
-  CourseFavoriteId.append('CourseFavoriteId',userFavoriteId)
-  const deleteCourseFavorite=deleteFavoriteCourse(CourseFavoriteId)
+    const CourseFavoriteId=new FormData()
+   CourseFavoriteId.append('CourseFavoriteId',userFavoriteId)
+    const deleteCourseFavorite=deleteFavoriteCourse(CourseFavoriteId)
+    
 
   }
-  
   
   
   useEffect(() => {
  
 
-    if(save==false){
-        handleAddFavorite(courseId);
-        toast.success("دوره از لیست علاقه مندی ها حذف شد" , {
-          theme:"colored"
-          })
+    if(save){
+      
+      handleAddFavorite(courseId)
       }
 
+
+      else{
+        handleRemoveFavorite(CourseDetail.data?.userFavoriteId)
+      }
+
+
+  
       
   
   }, [save]);
 
+
+
+  
+
  
 
  
-  const CourseDetail = useCourseId(courseId);
+
 
 
   const [reserve , setReserve] = useState(false)
@@ -65,24 +76,23 @@ const CourseCard = ({courseId,userFavoriteId,isUserFavorite}) => {
 
 
   const handleReserveCourse=(reserv)=>{
+     setIsReseve(1)
   const params = {
     courseId : reserv
   }
 
   const  reservComment = postReserv(params)
-  // console.log(reservComment) 
-
   }
 
 
   useEffect(()=>{
+   
 
     if(reserve){
 
       handleReserveCourse(courseId)
       
     }
-
   },[reserve])
  
 
@@ -96,16 +106,7 @@ const CourseCard = ({courseId,userFavoriteId,isUserFavorite}) => {
             bg-[#FFFFFF]  rounded-[15px]  h-[395px]"
     >
           <div className=" flex justify-between  relative"> 
-            <svg   onClick={() =>{
-              if(save==true){
-                setSave(false)
-              }
-
-              else if(save==false){
-                setSave(true)
-              }
-            }
-            }
+            <svg   onClick={() =>setSave(!save)}
               width="27"
               className={`h-[20px] stroke-primary dark:stroke-orange 
                 ${ save? "fill-primary  dark:fill-orange" : "  "}` }
@@ -200,8 +201,8 @@ const CourseCard = ({courseId,userFavoriteId,isUserFavorite}) => {
           
             onClick={()=>setReserve(true)}
           className="bg-secondary/90 max-lg:text-[16px]   max-md:mx-auto  max-xl:w-[280px] max-xl:h-[40px] max-lg:ml-[0] max-xl:ml-[10%] ml-[18%] max-xl:mt-[15px] mt-[25px] flex gap-3 items-center justify-center  w-[347px] h-[55px] text-white rounded-[9px] font-bold max-xl:text-[19px] text-[22px]  ">
-           <h1 className={`${reserve ? "hidden" :"block"}`}> !شرکت در دوره</h1>
-           <h1 className={`${reserve ? "block" :"hidden"}`}> قبلا شرکت کردید!</h1>
+           <h1 className={`${isReserve==1 ? "hidden" :"block"}`}> !شرکت در دوره</h1>
+           <h1 className={`${isReserve==1  ? "block" :"hidden"}`}> قبلا شرکت کردید!</h1>
 
             <svg
             

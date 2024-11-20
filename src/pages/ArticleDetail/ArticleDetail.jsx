@@ -8,7 +8,7 @@ import { useParams } from "react-router-dom";
 // import NewComment from "../../components/coursedetailComponents/comments/NewComment";
 import { samecourses, suggestion } from "../CourseDetail/CourseDetail";
 // import { useCommentNews } from "../../core/services/query/CommentQuery";
-import { postFavoriteNews } from "../../core/services/DashApi";
+import { deleteFavoriteNews, postFavoriteNews } from "../../core/services/DashApi";
 import { toast } from "react-toastify";
 import DateApi from "../../components/DateApi";
 import { useTranslation } from "react-i18next";
@@ -28,20 +28,54 @@ const ArticleDetail = () => {
   
   const articleDetail = useArticleDetail(id);
 
-  const [save,setSave]=useState(false)
+ const [save,setSave]=useState(articleDetail?.data?.detailsNewsDto?.isCurrentUserFavorite==true ? true :false)
+  
+  console.log(articleDetail.data?.detailsNewsDto?.currentUserIsLike)
 
   
   
   
   const handleAddFavoriteNews=()=>{
+
+    setSave(true)
+
+  
+     
      const params = {
     NewsId: id 
   }
 
   const  addFavoriteNew = postFavoriteNews(params)
-  console.log(addFavoriteNew)
+  console.log(addFavoriteNew)}
+
+
+  
+  
+  
+
+
+
+  const handleRemoveFavoriteNews=(deleteFavorite)=>{
+
+
+    setSave(false)
+
+   
+  
+
+
+    const params={
+      deleteEntityId:deleteFavorite
+    }
+
+    console.log(deleteFavorite)
+   
+
+  const  deleteFavoriteNew = deleteFavoriteNews(params)
+  console.log(deleteFavoriteNew)
   
   }
+
 
 
   useEffect(() => {
@@ -50,6 +84,13 @@ const ArticleDetail = () => {
     if(save){
       handleAddFavoriteNews();
       
+      }
+
+
+      else{
+
+        handleRemoveFavoriteNews(articleDetail.data?.detailsNewsDto?.currentUserFavoriteId)
+
       }
   
   }, [save]);
@@ -261,10 +302,19 @@ const ArticleDetail = () => {
 
               <svg
                 width="18"
-              onClick={()=>(setSave(!save))}
+              onClick={()=>{
+                if(save==false){
+                  setSave(true)
+                }
+                else if(save==true){
+                  setSave(false)
+
+                  
+                }
+              }}
               
                 className={`  dark:stroke-secondary  max-2xl:w-[16px] h-[18px]  max-xl:h-[16px] max-xl:w-[14px] stroke-primary
-                  ${save ? "  fill-primary dark:fill-secondary" :" " }` }
+                  ${save ? " fill-primary dark:fill-secondary" :" " }` }
                 height="20"
                 viewBox="0 0 18 20"
                 fill="none"
@@ -281,7 +331,7 @@ const ArticleDetail = () => {
             </div>
           </motion.div>
           {/* description section */}
-          <ArticleDescription id={id} />
+          <ArticleDescription id={id} currentUserIsLike={articleDetail.data?.detailsNewsDto?.currentUserIsLike} />
   {/* comment section */}
 
           <div className="">
