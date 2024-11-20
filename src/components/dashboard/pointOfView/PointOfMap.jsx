@@ -8,9 +8,6 @@ const PointOfMap = ({ search , category}) => {
   const myCoursesComments = useMyCoursesComments();
   const myNewsComments = useMyNewsComments();
 
-  console.log(myCoursesComments.data);
-  console.log(myNewsComments.data);
-
 
   // COURSE : 
 

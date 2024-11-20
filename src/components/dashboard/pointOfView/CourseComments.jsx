@@ -2,7 +2,6 @@ import React from 'react'
 import { IoEyeOutline } from 'react-icons/io5'
 import { TbTrash } from 'react-icons/tb'
 import { NavLink } from 'react-router-dom'
-import { ImageErrore } from '../../ImageErrore'
 import DateApi from '../../DateApi'
 import DashPagination from '../DashPagination'
 
