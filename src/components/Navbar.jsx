@@ -19,6 +19,8 @@ const Navbar = () => {
     
  const { t,i18n  } = useTranslation();
  const isEnglish = i18n.language === "en";
+ const isTurky = i18n.language === "tr";
+ const isEspanish = i18n.language === "es";
 
  const NavbarMenu =[
   {
@@ -153,7 +155,7 @@ const handleLogout = (token)=>{
                 {/* menu section  */}
                 <div className=' max-lg:absolute max-lg:bg-primary max-lg:h-8 max-lg:z[3000] 
                  max-lg:top-[90px] max-lg:w-[100%] max-lg:left-0 max-lg:grid max-lg:justify-items-center'>
-                    <ul className={`flex items-center gap-4 max-lg:gap-1 max-lg:pr-0 mx-auto ${isEnglish ? 'flex-row-reverse' : 'flex-row'}`}>
+                    <ul className={`flex items-center gap-4 max-lg:gap-1 max-lg:pr-0 mx-auto ${isEnglish || isEspanish || isTurky ? 'flex-row-reverse' : 'flex-row'}`}>
                         {
                             NavbarMenu.map((item)=>(
                                 <li key={item.id}>
