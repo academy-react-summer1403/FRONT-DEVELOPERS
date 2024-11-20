@@ -92,7 +92,6 @@ const CourseCard = ({courseId,isUserFavorite,isCourseReseve}) => {
 
       handleReserveCourse(courseId)
       
-
     }
   },[reserve])
  

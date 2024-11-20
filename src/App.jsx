@@ -75,7 +75,10 @@ const  PublicRoutes = [
       {
         path: "/PhysicApp",
         element: <PhysicApp/>,
-      },
+      },  {
+        path:"/*",
+        element: <PhysicApp/>,
+      }
 
     ]},
     {
@@ -97,16 +100,16 @@ const  PublicRoutes = [
         },
         {
           path: "/auth/v1",
-          element: <VorodAuth />,
+          element: <Game/>,
         },
         {
           path: "/auth/v2",
           element: <VarificationVorod />,
         },
         {
-          path: "/auth/Game",
-          element: <Game/>,
-        },
+          path: "/auth/v3",
+          element: <VorodAuth/>,
+        }, 
       ],
     },
 
@@ -153,9 +156,16 @@ const  PrivateRoutes = [
     
       path: "/PhysicApp",
       element: <PhysicApp/>,
-    },
+    },  {
+    path:"/*",
+    element: <PhysicApp/>,
+  }
 
-  ]},
+  ]
+
+
+
+},
 {
  
   path: "/",
@@ -213,7 +223,10 @@ const  PrivateRoutes = [
 {
   path: "/paymentall/:courseId",
   element: <Paymentall/>,
-},
+},  {
+  path:"/*",
+  element: <PhysicApp/>,
+}
 
 
 
@@ -239,12 +252,17 @@ const  PrivateRoutes = [
       },
       {
         path: "/auth/v1",
-        element: <VorodAuth />,
+        element: <Game />,
       },
       {
         path: "/auth/v2",
         element: <VarificationVorod />,
       },
+      {
+        path: "/auth/v3",
+        element: <VorodAuth/>,
+      },
+
     ],
   },
 
@@ -258,6 +276,13 @@ const  PrivateRoutes = [
   const token = user?.token 
   console.log(token)   
 
+  useEffect(() => {
+    
+    if(token == undefined ){
+      localStorage.removeItem("token")
+
+    }
+  }, [token])
 
   const currentRoutes = user.token==null ? PublicRoutes : PrivateRoutes
 

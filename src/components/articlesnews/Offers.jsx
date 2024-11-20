@@ -29,7 +29,6 @@ const Offers = () => {
   };
 
   const newsDataQuery = useNewsData(params, page,rows);
-  console.log(newsDataQuery.data?.news)
   
    
 

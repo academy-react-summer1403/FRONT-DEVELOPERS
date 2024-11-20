@@ -3,6 +3,7 @@ import { Canvas } from "@react-three/fiber";
 import { Physics } from "@react-three/rapier";
 import { Fragment, Suspense, useMemo } from "react";
 import { Experience } from "./Experience";
+import { PiSmileyMeltingFill } from "react-icons/pi";
 
 export const Controls = {
   forward: "forward",
@@ -36,6 +37,15 @@ function PhysicApp() {
           </Suspense>
         </Canvas>
       </KeyboardControls>
+      
+      <div className='z-[99999] absolute w-full flex flex-col mx-auto justify-center my-12 text-2xl text-secondary '>
+      <PiSmileyMeltingFill className='w-12 h-12 text-secondary flex mx-auto'/>
+
+        <p className='text-3xl text-darkgreen flex mx-auto'>
+          ...  به نظر میرسد مشکلی وجود دارد ، فعلا بفرمایید بازی 
+        </p>
+
+      </div>
     </div>
   );
 }

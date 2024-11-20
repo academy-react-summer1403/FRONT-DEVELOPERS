@@ -1,12 +1,34 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Button } from '@nextui-org/react'
 import HomeOfAssistant from '../../components/3DAssistant/HomeOfAssistant'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import GameBody from './GameBody'
 import Back from "../../assets/landing/authBack.png";
+import { useDispatch, useSelector } from 'react-redux'
+import { postQuery } from '../../core/services/mutation/Authmutation'
+import { handleToken } from '../../core/redux/slices/QueryState/TokenSlice'
+import { useForm } from 'react-hook-form'
 
 
 const Game = () => {
+
+    // toke part :
+
+   
+      
+          
+    
+      
+    // useEffect(() => {
+    //     localStorage.removeItem("token")
+    // }, [])
+    
+
+    
+        
+
+    // Game part : 
+
    const questionList =[
     {
         id:1,
@@ -123,8 +145,9 @@ const Game = () => {
                         
                         
 
-                        <NavLink to={"/auth/v1"} className='group '>
+                        <NavLink to={"/auth/v3"} className='group '>
                             <Button 
+                                
                                 className="relative mt-5 mx-auto flex overflow-visible rounded-full px-12 shadow-xl bg-primary/30 after:content-[''] after:absolute after:rounded-full after:inset-0 after:bg-background/40 after:z-[-1] after:transition after:!duration-500 hover:after:scale-150 hover:after:opacity-0"
                                 >
                                 رفتن به صفحه ورود

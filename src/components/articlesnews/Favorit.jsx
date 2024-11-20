@@ -23,7 +23,6 @@ const Favorite = () => {
       }
     
       const getCourseDash =  useCourseDash(params)
-      console.log(getCourseDash.data?.courseFilterDtos)
       
 
    
