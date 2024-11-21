@@ -46,11 +46,12 @@ const StdPointOfView = () => {
                     <li key={index} className="group" onClick={()=>setCategory(item)}>
                       <div
                        
-                        className="inline-block px-4 font-semibold text-gray-500
+                        className={`inline-block px-4 font-semibold text-gray-500
                                         hover:text-black dark:hover:text-white duration-200 p-2
                                          w-full hover:bg-teal-100 rounded-md text-right
                                         group-data-[selected]:font-semibold cursor-pointer
-                                        "
+                                        ${category === item ? "bg-teal-100 " : ""}
+                                        `}
                       >
                         {item}
                       </div>

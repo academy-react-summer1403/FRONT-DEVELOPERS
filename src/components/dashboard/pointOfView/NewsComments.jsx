@@ -23,7 +23,7 @@ const NewsComments = ({paginatedNewsData, setCurrentNewsPage,totalNewsPages , cu
                 
                 ' />            
             </NavLink>
-            <NavLink>
+            <NavLink to={"/article-detail/" + item?.newsId } >
                 <IoEyeOutline className='text-secondary mt-4 w-5 h-5 cursor-pointer 
                 
                 ' />            

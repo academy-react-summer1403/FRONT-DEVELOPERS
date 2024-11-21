@@ -3,10 +3,18 @@ import { useMyCoursesComments, useMyNewsComments } from '../../../core/services/
 import CourseComments from './CourseComments';
 import NewsComments from './NewsComments';
 import NotFound from '../../notFound/NotFound';
+import { useDeleteMyCoursesComments } from '../../../core/services/mutation/DashboardMutation';
 
 const PointOfMap = ({ search , category}) => {
+
+  // get: 
   const myCoursesComments = useMyCoursesComments();
   const myNewsComments = useMyNewsComments();
+  console.log(myNewsComments.data)
+
+  // Delete: 
+  const deletemyCouraeComments = useDeleteMyCoursesComments();
+
 
 
   // COURSE : 
@@ -26,6 +34,14 @@ const PointOfMap = ({ search , category}) => {
         currentCoursePage * itemsPerPage
       );
     const totalCoursePages = Math.ceil((filteredCourseData?.length || 0) / itemsPerPage);
+
+    // Delete Course Comment :
+    const HandleDeleteSubmit= (courseCommentId)=>{
+      if(courseCommentId){
+        deletemyCouraeComments.mutate(courseCommentId)
+      }
+    }
+    console.log("HandleDeleteSubmit" , HandleDeleteSubmit )
 
 
 
@@ -47,6 +63,9 @@ const PointOfMap = ({ search , category}) => {
       );
     const totalNewsPages = Math.ceil((filteredCourseData?.length || 0) / itemsPerPage);
 
+       // Delete News Comment :
+
+
 
 
   const noResults = filteredCourseData.length  && filteredNewsData.length ;
@@ -63,8 +82,12 @@ const PointOfMap = ({ search , category}) => {
       ) : (
         <>
           {
-            category == "اخبار" ? <> {filteredNewsData.length > 0 && <NewsComments paginatedNewsData={paginatedNewsData} setCurrentNewsPage={setCurrentNewsPage} currentNewsPage={currentNewsPage} totalNewsPages={totalNewsPages} />} </> :
-            <> {filteredCourseData.length > 0 && <CourseComments paginatedData={paginatedData} setCurrentCoursePage={setCurrentCoursePage} currentCoursePage={currentCoursePage} totalCoursePages={totalCoursePages}/>} </> 
+            category == "اخبار" ? <> {filteredNewsData.length > 0  ?<NewsComments paginatedNewsData={paginatedNewsData} setCurrentNewsPage={setCurrentNewsPage} currentNewsPage={currentNewsPage} totalNewsPages={totalNewsPages} /> : <NotFound/>} </> :
+
+            <> {filteredCourseData.length > 0 ? <CourseComments paginatedData={paginatedData} setCurrentCoursePage={setCurrentCoursePage} 
+                    currentCoursePage={currentCoursePage} totalCoursePages={totalCoursePages}
+                    HandleDeleteSubmit={HandleDeleteSubmit}      
+              /> : <NotFound/>} </> 
 
         
           }

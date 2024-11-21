@@ -6,7 +6,7 @@ import DateApi from '../../DateApi'
 import DashPagination from '../DashPagination'
 
 
-const CourseComments = ({paginatedData , setCurrentCoursePage , totalCoursePages ,currentCoursePage}) => {
+const CourseComments = ({paginatedData , setCurrentCoursePage , totalCoursePages ,currentCoursePage , HandleDeleteSubmit}) => {
 
 
 
@@ -19,11 +19,11 @@ const CourseComments = ({paginatedData , setCurrentCoursePage , totalCoursePages
         >
            <li className='col-1 my-2 flex gap-2'>
             <NavLink>
-                <TbTrash className='text-secondary mt-4 w-5 h-5 cursor-pointer 
-                
+                <TbTrash onClick={()=>HandleDeleteSubmit(item.commentId)} className='text-secondary mt-4 w-5 h-5 cursor-pointer 
+                  
                 ' />            
             </NavLink>
-            <NavLink>
+            <NavLink to={`/courses-detail/${item?.courseId}`}>
                 <IoEyeOutline className='text-secondary mt-4 w-5 h-5 cursor-pointer 
                 
                 ' />            
