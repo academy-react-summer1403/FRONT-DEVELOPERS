@@ -18,11 +18,11 @@ const NewsComments = ({paginatedNewsData, setCurrentNewsPage,totalNewsPages , cu
           text-gray-600 dark:text-white font-medium justify-items-center "
         >
            <li className='col-1 my-2 flex gap-2'>
-            <NavLink>
+            {/* <NavLink>
                 <TbTrash className='text-secondary mt-4 w-5 h-5 cursor-pointer 
                 
                 ' />            
-            </NavLink>
+            </NavLink> */}
             <NavLink to={"/article-detail/" + item?.newsId } >
                 <IoEyeOutline className='text-secondary mt-4 w-5 h-5 cursor-pointer 
                 
