@@ -79,10 +79,8 @@ export const getUserProfile = async () => {
 
 
   export const deleteReserveCourse = async ( params ) => {
-    const data = await http.delete(` /CourseReserve`,{
-      data:params
-    } )
-    // console.log(data);
+    const data = await http.delete(`/CourseReserve` , {data :params})
+    console.log(data);
     return data;
   };
 
@@ -252,3 +250,23 @@ export const getUserProfile = async () => {
   //   console.log(data);
   //   return data;
   // };
+
+
+  export const getMyCoursesComments=async()=>{
+    const data =await http.get("/SharePanel/GetMyCoursesComments")
+
+    return data
+  }
+
+  export const getMyNewsComments=async()=>{
+    const data =await http.get("/SharePanel/GetMyNewsComments")
+
+    return data
+  }
+
+  export const deleteMyCoursesComments = async (courseCommentId) => {
+    const response = await http.delete(`/Course/DeleteCourseComment?CourseCommandId=${courseCommentId}`);
+
+    console.log("response" ,response);
+    return response;
+};

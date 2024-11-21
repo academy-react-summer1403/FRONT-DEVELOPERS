@@ -1,50 +1,102 @@
-import React from 'react'
-import { IoEyeOutline } from 'react-icons/io5'
-import { TbTrash } from 'react-icons/tb'
-import { NavLink } from 'react-router-dom'
-import { ImageErrore } from '../../ImageErrore'
+import React, { useState } from 'react';
+import { useMyCoursesComments, useMyNewsComments } from '../../../core/services/query/DashboardQuery';
+import CourseComments from './CourseComments';
+import NewsComments from './NewsComments';
+import NotFound from '../../notFound/NotFound';
+import { useDeleteMyCoursesComments } from '../../../core/services/mutation/DashboardMutation';
 
-const PointOfMap = () => {
+const PointOfMap = ({ search , category}) => {
+
+  // get: 
+  const myCoursesComments = useMyCoursesComments();
+  const myNewsComments = useMyNewsComments();
+  console.log(myNewsComments.data)
+
+  // Delete: 
+  const deletemyCouraeComments = useDeleteMyCoursesComments();
 
 
 
+  // COURSE : 
+
+    // Filter Courses Data Based on Search
+    const filteredCourseData =
+      myCoursesComments.data?.myCommentsDtos?.filter((f) =>
+        f.courseTitle?.toLowerCase().includes(search.toLowerCase())
+      ) || [];
+
+    // States for course Pagination
+    const [currentCoursePage, setCurrentCoursePage] = useState(1);
+    const itemsPerPage = 5; // Number of items per page
+      // Paginated Course Data
+      const paginatedData = filteredCourseData?.slice(
+        (currentCoursePage-1) * itemsPerPage,
+        currentCoursePage * itemsPerPage
+      );
+    const totalCoursePages = Math.ceil((filteredCourseData?.length || 0) / itemsPerPage);
+
+    // Delete Course Comment :
+    const HandleDeleteSubmit= (courseCommentId)=>{
+      if(courseCommentId){
+        deletemyCouraeComments.mutate(courseCommentId)
+      }
+    }
+    console.log("HandleDeleteSubmit" , HandleDeleteSubmit )
+
+
+
+  // NEWES :
+
+    // Filter News Data Based on Search
+    const filteredNewsData =
+      myNewsComments.data?.myNewsCommetDtos?.filter((f) =>
+        f.courseTitle?.toLowerCase().includes(search.toLowerCase())
+      ) || [];
+
+      // States for course Pagination
+    const [currentNewsPage, setCurrentNewsPage] = useState(1);
+    const NewsitemsPerPage = 5; // Number of items per page
+      // Paginated Course Data
+      const paginatedNewsData = filteredNewsData?.slice(
+        (currentNewsPage-1) * NewsitemsPerPage,
+        currentNewsPage * NewsitemsPerPage
+      );
+    const totalNewsPages = Math.ceil((filteredCourseData?.length || 0) / itemsPerPage);
+
+       // Delete News Comment :
+
+
+
+
+  const noResults = filteredCourseData.length  && filteredNewsData.length ;
+
+  
+  
 
   return (
     <div>
-    {/* {item.map((item) => ( */}
-        <ul  style={{boxShadow:" 0px 1px 1px 0px rgba(0,0,0,0.1)"}}
-        className="relative grid grid-cols-6 my-2 rounded-md text-[10px] text-center 
-          text-gray-600 dark:text-white font-medium justify-items-center "
-        >
-           <li className='col-1 my-2 flex gap-2'>
-            <NavLink>
-                <TbTrash className='text-secondary mt-4 w-5 h-5 cursor-pointer 
-                
-                ' />            
-            </NavLink>
-            <NavLink>
-                <IoEyeOutline className='text-secondary mt-4 w-5 h-5 cursor-pointer 
-                
-                ' />            
-            </NavLink>
-            </li> 
-            <li className='col-1 my-5'></li>
-            <li className="col-1 my-5"></li>
-            <li className='col-1 my-5'></li>
-            <li className='col-1 my-5'></li>
-            <li className='col-1'>
-                <img
-                // src={}
-                alt=" "
-                onError={ImageErrore}
-                className='rounded-full border w-12 h-12 col-1 shadow-md my-1'
-                ></img>
-            </li>
-         
-        </ul>
-      {/* ))} */}
-    </div>
-  )
-}
+      {noResults === "" ? (
+        <div className="relative w-96 flex mx-auto">
+          <NotFound />
+        </div>
+      ) : (
+        <>
+          {
+            category == "اخبار" ? <> {filteredNewsData.length > 0  ?<NewsComments paginatedNewsData={paginatedNewsData} setCurrentNewsPage={setCurrentNewsPage} currentNewsPage={currentNewsPage} totalNewsPages={totalNewsPages} /> : <NotFound/>} </> :
 
-export default PointOfMap
+            <> {filteredCourseData.length > 0 ? <CourseComments paginatedData={paginatedData} setCurrentCoursePage={setCurrentCoursePage} 
+                    currentCoursePage={currentCoursePage} totalCoursePages={totalCoursePages}
+                    HandleDeleteSubmit={HandleDeleteSubmit}      
+              /> : <NotFound/>} </> 
+
+        
+          }
+          
+          
+        </>
+      )}
+    </div>
+  );
+};
+
+export default PointOfMap;
