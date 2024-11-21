@@ -9,13 +9,15 @@ import DateApi from '../../DateApi'
 // import { Link, useNavigate } from 'react-router-dom'
 import NotFound from '../../notFound/NotFound'
 import DashPagination from '../DashPagination'
+import { NavLink } from 'react-router-dom'
 
 
 const FavoriteMap = ({search , category} ) => {
  
   
     const favoriteCourse = useFavoriteCourse()
-  
+
+
   
   const handleRemoveFavorite = (userFavoriteId) => {
 
@@ -26,6 +28,7 @@ const FavoriteMap = ({search , category} ) => {
     
 
   }
+ 
   
    // States for Pagination
    const [currentPage, setCurrentPage] = useState(1);
@@ -67,15 +70,15 @@ const FavoriteMap = ({search , category} ) => {
                 <li className='col-1 my-2 flex gap-2'>
 
                   <form>
-                    <button type='button' onClick={()=>setDeleteF(item?.favoriteId)}>
+                    <button type='button' onClick={()=>handleRemoveFavorite(item?.favoriteId)}>
                             <TbTrash className='text-secondary mt-4 w-5 h-5 cursor-pointer ' />   
                     </button>
                   </form>
 
                   <div>
-                      <IoEyeOutline className='text-secondary mt-4 w-5 h-5 cursor-pointer 
+                    <NavLink to={"/courses-detail/" + item?.courseId}> <IoEyeOutline className='text-secondary mt-4 w-5 h-5 cursor-pointer ' />  </NavLink> 
                       
-                      ' />            
+                                
                   </div>
                   </li> 
                   <li className='col-1 my-5'>{item?.teacheName}</li>

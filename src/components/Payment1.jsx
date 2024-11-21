@@ -7,13 +7,14 @@ import { useTranslation } from 'react-i18next';
 import { NavLink, useParams } from 'react-router-dom';
 import { toPng } from 'html-to-image';
 import { useMyCourses } from '../core/services/query/DashboardQuery';
+import { StudentCoursePayDetail } from '../core/services/level2api';
 
 const Payment1 = () => {
   const { t } = useTranslation();
   const componentRef = useRef(null);
-  const { courseId,selectedDate } = useParams();
-  const getMyCourses = useMyCourses(courseId);
-  console.log(getMyCourses.data?.listOfMyCourses)
+  const { courseId } = useParams();
+  const getMyCourseDetail = StudentCoursePayDetail(courseId);
+  console.log(courseId)
 
   console.log({ courseId });
 
@@ -47,11 +48,11 @@ const Payment1 = () => {
 
       <div ref={componentRef}  className="w-[100%] h-[100%]   bg-[#fcfaf5cb] overflow-visible  flex mx-auto justify-end flex-wrap">
        <div className=' w-[350px] px-2 mb-4 text-right font-Yekan flex justify-between'>
-            <p className='text-[16px] text-gray-600'>{getMyCourses.data?.listOfMyCourses[0]?.fullName}</p>
+            <p className='text-[16px] text-gray-600'></p>
             <p className='text-[16px] text-[#2729a7]'> : {t('course_id')}</p>
           </div>
           <div className=' w-[350px]  px-2 mb-4 text-right font-Yekan flex justify-between'>
-            <p className='text-[16px] text-gray-600'>{getMyCourses.data?.listOfMyCourses[0]?.cost}</p>
+            <p className='text-[16px] text-gray-600'></p>
             <p className='text-[16px] text-[#2729a7]'> : {t('paid')}</p>
           </div>
           <div className=' w-[350px]  px-2 mb-4 text-right font-Yekan flex justify-between'>
