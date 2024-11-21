@@ -8,7 +8,7 @@ import DonutBarChart from './DonutBarChart'
 import DateApi from '../../../components/DateApi'
 import { NavLink } from 'react-router-dom'
 
-
+import { ImageErrore } from '../../../components/ImageErrore'
 
 
 const StdDashboard = () => {
@@ -144,7 +144,7 @@ const StdDashboard = () => {
               <NavLink to={"/courses-detail/" + data.courseId} style={{boxShadow:"0px 1px 1px 1px rgba(0,0,0,0.1)"}}
               className='relative bg-gray-50 dark:bg-gray-400/40  rounded-md p-2 my-4 flex gap-6'
             >
-              <img className='w-[88px] h-[60px] rounded-[6px]' src={data?.tumbImageAddress}/>
+              <img className='w-[88px] h-[60px] rounded-[6px]' src={data?.tumbImageAddress ? data?.tumbImageAddress : <ImageErrore/> } onError={ImageErrore}/>
               <div className='absolute right-0 px-2'>
                 <h1 className='right-2 text-teal-900 text-sm'>{data?.title}</h1>
                 <div className='flex flex-row-reverse mt-4'>
@@ -175,7 +175,7 @@ const StdDashboard = () => {
                 <NavLink to={"/courses-detail/" + data.courseId} style={{boxShadow:"0px 1px 1px 1px rgba(0,0,0,0.1)"}}
               className='relative bg-gray-50 dark:bg-gray-400/40  rounded-md p-2 my-4 flex gap-6'
             >
-               <img className='w-[88px] h-[60px] rounded-[6px]' src={data?.tumbImageAddress} />
+               <img className='w-[88px] h-[60px] rounded-[6px]' src={data?.tumbImageAddress ? data?.tumbImageAddress : <ImageErrore/> } onError={ImageErrore} />
               <div className='absolute right-0 px-2'>
                 <h1 className='absolute right-2 text-teal-900 text-sm'>{data?.title}</h1>
                 <div className='flex flex-row-reverse mt-10'>
