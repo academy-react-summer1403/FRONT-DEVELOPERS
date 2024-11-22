@@ -3,7 +3,7 @@ import { useMyCoursesComments, useMyNewsComments } from '../../../core/services/
 import CourseComments from './CourseComments';
 import NewsComments from './NewsComments';
 import NotFound from '../../notFound/NotFound';
-import { useDeleteMyCoursesComments } from '../../../core/services/mutation/DashboardMutation';
+import { deleteMyCoursesComments } from '../../../core/services/DashApi';
 
 const PointOfMap = ({ search , category}) => {
 
@@ -11,10 +11,6 @@ const PointOfMap = ({ search , category}) => {
   const myCoursesComments = useMyCoursesComments();
   const myNewsComments = useMyNewsComments();
   console.log(myNewsComments.data)
-
-  // Delete: 
-  const deletemyCouraeComments = useDeleteMyCoursesComments();
-
 
 
   // COURSE : 
@@ -36,13 +32,16 @@ const PointOfMap = ({ search , category}) => {
     const totalCoursePages = Math.ceil((filteredCourseData?.length || 0) / itemsPerPage);
 
     // Delete Course Comment :
-    const HandleDeleteSubmit= (courseCommentId)=>{
-      if(courseCommentId){
-        deletemyCouraeComments.mutate(courseCommentId)
-      }
+
+    const HandleDeleteSubmit = (courseCommentId) => {
+      // const params{
+      //   CourseCommandId : courseCommentId
+      // }
+  
+        return deleteMyCoursesComments(courseCommentId);
+        
     }
     console.log("HandleDeleteSubmit" , HandleDeleteSubmit )
-
 
 
   // NEWES :

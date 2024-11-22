@@ -265,8 +265,8 @@ export const getUserProfile = async () => {
   }
 
   export const deleteMyCoursesComments = async (courseCommentId) => {
-    const response = await http.delete(`/Course/DeleteCourseComment?CourseCommandId=${courseCommentId}`);
+    const data = await http.delete(`/Course/DeleteCourseComment` , { data:courseCommentId});
 
-    console.log("response" ,response);
-    return response;
+    console.log("data" ,data);
+    return data;
 };

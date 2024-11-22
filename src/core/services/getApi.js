@@ -23,6 +23,13 @@ export const getNewsId = async (id) => {
   return data;
 };
 
+export const postRateNews  = async (NewsId , RateNumber) => {
+  const data = await http.post(`/News/NewsRate?NewsId=${NewsId}&RateNumber=${RateNumber}`)
+   
+  console.log(data);
+  return data;
+};
+
 
 
 

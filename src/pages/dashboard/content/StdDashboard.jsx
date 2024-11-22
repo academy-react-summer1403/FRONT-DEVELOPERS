@@ -9,8 +9,6 @@ import DateApi from '../../../components/DateApi'
 import { NavLink } from 'react-router-dom'
 import { ImageErrore } from '../../../components/ImageErrore'
 
-import { ImageErrore } from '../../../components/ImageErrore'
-
 
 const StdDashboard = () => {
 
