@@ -11,6 +11,8 @@ import { useSelector } from "react-redux";
 import { useUserProfile } from "../../../core/services/query/DashboardQuery";
 import { toast } from "react-toastify";
 import AddProfImage from "./AddProfImage";
+import { Formik, Field, Form, ErrorMessage } from "formik";
+import * as yup from "yup";
 
 const EditeProfileForm = () => {
   const navigate = useNavigate();
@@ -26,20 +28,30 @@ const EditeProfileForm = () => {
     setDate(newDate);
   };
 
-  const onSubmit = async (e) => {
-    e.preventDefault();
+  const validation = yup.object({
+    FName: yup.string().required("این فیلد اجباری است"),
+    LName: yup.string().required("این فیلد اجباری است"),
+    
+    NationalCode: yup
+    .string()
+    .matches(/^\d+$/, "کد ملی باید شامل عدد باشد") 
+    .length(10, "کد ملی باید  10 رقمی باشد")
+    .required("این فیلد اجباری است"),
+    HomeAdderess: yup.string().required("این فیلد اجباری است"),
+    TelegramLink: yup.string().required("این فیلد اجباری است"),
+    LinkdinProfile: yup.string().required("این فیلد اجباری است"),
+  });
 
-    const formData = new FormData(e.target);
-
-    // اضافه کردن اطلاعات به فرمData
-    formData.append("FName", formData.get("FName"));
-    formData.append("LName", formData.get("LName"));
-    formData.append("UserAbout", formData.get("UserAbout"));
-    formData.append("LinkdinProfile", formData.get("LinkdinProfile"));
-    formData.append("TelegramLink", formData.get("TelegramLink"));
-    formData.append("ReceiveMessageEvent", formData.get("ReceiveMessageEvent") === "on");
-    formData.append("HomeAdderess", formData.get("HomeAdderess"));
-    formData.append("NationalCode", formData.get("NationalCode"));
+  const onSubmit = async (values) => {
+    const formData = new FormData();
+    formData.append("FName", values.FName);
+    formData.append("LName", values.LName);
+    formData.append("UserAbout", values.UserAbout);
+    formData.append("LinkdinProfile", values.LinkdinProfile);
+    formData.append("TelegramLink", values.TelegramLink);
+    formData.append("ReceiveMessageEvent", values.ReceiveMessageEvent === "on");
+    formData.append("HomeAdderess", values.HomeAdderess);
+    formData.append("NationalCode", values.NationalCode);
     formData.append("Gender", gender);
     formData.append("BirthDay", date ? date.toString() : "");
     formData.append("Latitude", location?.lat || "13");
@@ -75,166 +87,179 @@ const EditeProfileForm = () => {
         <div className="border border-gray-100 grid-col-1 w-[90%] ml-8"></div>
       </div>
 
-      <form onSubmit={onSubmit}>
-        <div>
-          <div className="flex grid-cols-3 max-xl:flex max-xl:flex-col-reverse  border-b pb-8 px-2 ">
-            <div className="grid-col-1 w-[100%]">
-              <AddProfImage images={userProfile.data?.userImage	} />
-              <div className="w-full">
-                <label className="relative text-right text-sm grid-col-1 text-gray-400">
-                  <p className="py-2 px-4">درباره من</p>
-                  <textarea
-                    type="text"
-                    defaultValue={userProfile.data?.userAbout}
-                    id="UserAbout"
-                    name="UserAbout"
-                    style={{
-                      boxShadow: "0px 1px 3px 0px #00000033 inset",
-                    }}
-                    className="rounded-md bg-gray-50 dark:bg-white text-darkgreen h-[150px] w-full text-right font-medium focus:outline outline-primary outline-[1.5px]"
-                  />
-                </label>
+      <Formik
+        initialValues={{
+          FName: userProfile.data?.fName,
+          LName: userProfile.data?.lName,
+          NationalCode: userProfile.data?.nationalCode,
+          HomeAdderess: userProfile.data?.homeAdderess,
+          TelegramLink: userProfile.data?.telegramLink,
+          LinkdinProfile: userProfile.data?.linkdinProfile,
+          UserAbout: userProfile.data?.userAbout,
+          ReceiveMessageEvent: userProfile.data?.ReceiveMessageEvent ? "on" : "",
+        }}
+        validationSchema={validation}
+        onSubmit={onSubmit}
+      >
+        {({ values, handleChange, setFieldValue }) => (
+          <Form>
+            <div>
+              <div className="flex grid-cols-3 max-xl:flex max-xl:flex-col-reverse  border-b pb-8 px-2 ">
+                <div className="grid-col-1 w-[100%]">
+                  <AddProfImage images={userProfile.data?.userImage} />
+                  <div className="w-full">
+                    <label className="relative text-right text-sm grid-col-1 text-gray-400">
+                      <p className="py-2 px-4">درباره من</p>
+                      <Field
+                        as="textarea"
+                        name="UserAbout"
+                        placeholder="...درباره شما"
+                        style={{
+                          boxShadow: "0px 1px 3px 0px #00000033 inset",
+                        }}
+                        className="rounded-md bg-gray-50 dark:bg-white text-darkgreen h-[150px] w-full text-right font-medium focus:outline outline-primary outline-[1.5px]"
+                      />
+                      <ErrorMessage name="FName"  component="div"  className="text-red-500 text-xs mt-1" />
+
+                    </label>
+                  </div>
+                </div>
+                <ul className="grid-col-2 w-[100%] pl-4 justify-self-center max-xl:px-32 max-lg:px-20 max-md:px-10">
+                  <li className="flex flex-row-reverse max-sm:flex-col gap-4">
+                    <label className="relative text-right text-sm text-gray-400">
+                      <p className="py-2 px-4">نام</p>
+                      <Field
+                        type="text"
+                        id="FName"
+                        name="FName"
+                        placeholder="...نام خود را وارد کنید"
+                        style={{
+                          boxShadow: "0px 1px 3px 0px #00000033 inset",
+                        }}
+                        className="px-4 pt-1 rounded-md bg-gray-50 dark:bg-white leading-8 text-darkgreen placeholder-sm text-right placeholder-darkgreen/30 font-medium focus:outline outline-primary outline-[1.5px]"
+                      />
+                      <ErrorMessage name="FName"  component="div"  className="text-red-500 text-xs mt-1" />
+                    </label>
+
+                    <label className="relative text-right text-sm text-gray-400">
+                      <p className="py-2 px-4">نام خانوادگی</p>
+                      <Field
+                        type="text"
+                        id="LName"
+                        name="LName"
+                        placeholder="...نام خانوادگی خود را وارد کنید"
+                        style={{
+                          boxShadow: "0px 1px 3px 0px #00000033 inset",
+                        }}
+                        className="px-4 pt-1 rounded-md bg-gray-50 dark:bg-white leading-8 text-darkgreen placeholder-md text-right placeholder-darkgreen/30 font-medium focus:outline outline-primary outline-[1.5px]"
+                      />
+                      <ErrorMessage name="FName"  component="div"  className="text-red-500 text-xs mt-1" />
+
+                    </label>
+                  </li>
+
+                  <li className="flex flex-row-reverse max-sm:flex-col gap-4">
+                    <label className="relative text-right text-sm text-gray-400">
+                      <p className="py-2 px-4">کد ملی</p>
+                      <Field
+                        type="text"
+                        id="NationalCode"
+                        name="NationalCode"
+                        placeholder="...کدملی خود را وارد کنید"
+                        style={{
+                          boxShadow: "0px 1px 3px 0px #00000033 inset",
+                        }}
+                        className="px-4 pt-1 rounded-md bg-gray-50 dark:bg-white leading-8 text-darkgreen placeholder-sm text-right placeholder-darkgreen/30 font-medium focus:outline outline-primary outline-[1.5px]"
+                      />
+                      <ErrorMessage name="NationalCode"  component="div"  className="text-red-500 text-xs mt-1" />
+
+                    </label>
+
+                    <label className="relative text-right text-sm text-gray-400">
+                      <p className="py-2 px-4">جنسیت</p>
+                      <Field as="select" name="Gender" onChange={(e) => setGender(e.target.value === "true")}
+                    className="px-4 py-2 rounded-md bg-gray-50 dark:bg-white text-darkgreen placeholder-darkgreen/30 font-medium focus:outline outline-primary outline-[1.5px]"
+                    >
+                        <option value="true">مرد</option>
+                        <option value="false">زن</option>
+                      </Field>
+                    </label>
+                  </li>
+
+                  <li className="flex flex-row-reverse max-sm:flex-col gap-4">
+                    <label className="relative text-right text-sm text-gray-400">
+                      <p className="py-2 px-4">آدرس منزل</p>
+                      <Field
+                        type="text"
+                        id="HomeAdderess"
+                        name="HomeAdderess"
+                        placeholder="...آدرس را وارد کنید"
+                        style={{
+                          boxShadow: "0px 1px 3px 0px #00000033 inset",
+                        }}
+                        className="px-4 pt-1 rounded-md bg-gray-50 dark:bg-white leading-8 text-darkgreen placeholder-sm text-right placeholder-darkgreen/30 font-medium focus:outline outline-primary outline-[1.5px]"
+                      />
+                      <ErrorMessage name="FName"  component="div"  className="text-red-500 text-xs mt-1" />
+
+                    </label>
+
+                    <label className="relative text-right text-sm text-gray-400">
+                      <p className="py-2 px-4">لینک تلگرام</p>
+                      <Field
+                        type="text"
+                        id="TelegramLink"
+                        name="TelegramLink"
+                        placeholder="...لینک تلگرام را وارد کنید"
+                        style={{
+                          boxShadow: "0px 1px 3px 0px #00000033 inset",
+                        }}
+                        className="px-4 pt-1 rounded-md bg-gray-50 dark:bg-white leading-8 text-darkgreen placeholder-sm text-right placeholder-darkgreen/30 font-medium focus:outline outline-primary outline-[1.5px]"
+                      />
+                      
+                    </label>
+                  </li>
+
+                  <li className="flex flex-row-reverse max-sm:flex-col gap-4">
+                    <label className="relative text-right text-sm text-gray-400">
+                      <p className="py-2 px-4">لینک لینکدین</p>
+                      <Field
+                        type="text"
+                        id="LinkdinProfile"
+                        name="LinkdinProfile"
+                        placeholder="...لینک لینکدین را وارد کنید"
+                        style={{
+                          boxShadow: "0px 1px 3px 0px #00000033 inset",
+                        }}
+                        className="px-4 pt-1 rounded-md bg-gray-50 dark:bg-white leading-8 text-darkgreen placeholder-sm text-right placeholder-darkgreen/30 font-medium focus:outline outline-primary outline-[1.5px]"
+                      />
+                    </label>
+
+                    <label className="relative text-right text-sm text-gray-400">
+                      <p className="py-2 px-4">تاریخ تولد</p>
+                      <DatePicker
+                        value={date}
+                        onChange={handleDateChange}
+                        format="YYYY/MM/DD"
+                        className="px-4 pt-1 rounded-md bg-gray-50 dark:bg-white leading-8 text-darkgreen placeholder-sm text-right placeholder-darkgreen/30 font-medium focus:outline outline-primary outline-[1.5px]"
+                      />
+                    </label>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="flex justify-center mt-8">
+                <button
+                  type="submit"
+                  className="flex items-center gap-2 py-2 px-6 rounded-md bg-primary text-white font-semibold hover:bg-primary-dark"
+                >
+                  <img src={save} alt="Save" />
+                  ذخیره اطلاعات
+                </button>
               </div>
             </div>
-            <ul className="grid-col-2 w-[100%] pl-4 justify-self-center max-xl:px-32 max-lg:px-20 max-md:px-10">
-              <li className="flex flex-row-reverse max-sm:flex-col gap-4">
-                <label className="relative text-right text-sm text-gray-400">
-                  <p className="py-2 px-4">نام</p>
-                  <input
-                    type="text"
-                    id="FName"
-                    name="FName"
-                    defaultValue={userProfile.data?.fName}
-                    placeholder="این فیلد اجباری است"
-                    style={{
-                      boxShadow: "0px 1px 3px 0px #00000033 inset",
-                    }}
-                    className="px-4 pt-1 rounded-md bg-gray-50 dark:bg-white leading-8 text-darkgreen placeholder-sm text-right placeholder-darkgreen/30 font-medium focus:outline outline-primary outline-[1.5px]"
-                  />
-                </label>
-
-                <label className="relative text-right text-sm text-gray-400">
-                  <p className="py-2 px-4">نام خانوادگی</p>
-                  <input
-                    type="text"
-                    id="LName"
-                    name="LName"
-                    defaultValue={userProfile.data?.lName}
-                    placeholder="این فیلد اجباری است"
-                    style={{
-                      boxShadow: "0px 1px 3px 0px #00000033 inset",
-                    }}
-                    className="px-4 pt-1 rounded-md bg-gray-50 dark:bg-white leading-8 text-darkgreen placeholder-md text-right placeholder-darkgreen/30 font-medium focus:outline outline-primary outline-[1.5px]"
-                  />
-                </label>
-              </li>
-
-              <li className="flex flex-row-reverse max-sm:flex-col gap-4">
-                <label className="relative text-right text-sm text-gray-400">
-                  <p className="py-2 px-4">کد ملی</p>
-                  <input
-                    type="text"
-                    id="NationalCode"
-                    name="NationalCode"
-                    defaultValue={userProfile.data?.nationalCode}
-                    placeholder="این فیلد اجباری است"
-                    style={{
-                      boxShadow: "0px 1px 3px 0px #00000033 inset",
-                    }}
-                    className="px-4 pt-1 rounded-md bg-gray-50 dark:bg-white leading-8 text-darkgreen placeholder-sm text-right placeholder-darkgreen/30 font-medium focus:outline outline-primary outline-[1.5px]"
-                  />
-                </label>
-
-                <label className="relative text-right text-sm text-gray-400">
-                  <p className="py-2 px-4">جنسیت</p>
-                  <select
-                    id="Gender"
-                    name="Gender"
-                    value={gender ? "true" : "false"}
-                    onChange={(e) => setGender(e.target.value === "true")}
-                    className="px-4 py-2 rounded-md bg-gray-50 dark:bg-white text-darkgreen placeholder-darkgreen/30 font-medium focus:outline outline-primary outline-[1.5px]"
-                  >
-                    <option value="true">مرد</option>
-                    <option value="false">زن</option>
-                  </select>
-                </label>
-              </li>
-
-              <li className="flex flex-row-reverse max-sm:flex-col gap-4">
-                <label className="relative text-right text-sm text-gray-400">
-                  <p className="py-2 px-4">آدرس منزل</p>
-                  <input
-                    type="text"
-                    id="HomeAdderess"
-                    name="HomeAdderess"
-                    defaultValue={userProfile.data?.homeAdderess}
-                    placeholder="این فیلد اجباری است"
-                    style={{
-                      boxShadow: "0px 1px 3px 0px #00000033 inset",
-                    }}
-                    className="px-4 pt-1 rounded-md bg-gray-50 dark:bg-white leading-8 text-darkgreen placeholder-sm text-right placeholder-darkgreen/30 font-medium focus:outline outline-primary outline-[1.5px]"
-                  />
-                </label>
-
-                <label className="relative text-right text-sm text-gray-400">
-                  <p className="py-2 px-4">لینک تلگرام</p>
-                  <input
-                    type="text"
-                    id="TelegramLink"
-                    name="TelegramLink"
-                    defaultValue={userProfile.data?.telegramLink}
-                    placeholder="این فیلد اجباری است"
-                    style={{
-                      boxShadow: "0px 1px 3px 0px #00000033 inset",
-                    }}
-                    className="px-4 pt-1 rounded-md bg-gray-50 dark:bg-white leading-8 text-darkgreen placeholder-sm text-right placeholder-darkgreen/30 font-medium focus:outline outline-primary outline-[1.5px]"
-                  />
-                </label>
-              </li>
-
-              <li className="flex flex-row-reverse max-sm:flex-col gap-4">
-                <label className="relative text-right text-sm text-gray-400">
-                  <p className="py-2 px-4">لینک لینکدین</p>
-                  <input
-                    type="text"
-                    id="LinkdinProfile"
-                    name="LinkdinProfile"
-                    defaultValue={userProfile.data?.linkdinProfile}
-                    placeholder="این فیلد اجباری است"
-                    style={{
-                      boxShadow: "0px 1px 3px 0px #00000033 inset",
-                    }}
-                    className="px-4 pt-1 rounded-md bg-gray-50 dark:bg-white leading-8 text-darkgreen placeholder-sm text-right placeholder-darkgreen/30 font-medium focus:outline outline-primary outline-[1.5px]"
-                  />
-                </label>
-
-                <label className="relative text-right text-sm text-gray-400">
-                  <p className="py-2 px-4">تاریخ تولد</p>
-                  <DatePicker
-                    value={date}
-                    onChange={handleDateChange}
-                  
-                    format="YYYY/MM/DD"
-                    className="px-4 pt-1 rounded-md bg-gray-50 dark:bg-white leading-8 text-darkgreen placeholder-sm text-right placeholder-darkgreen/30 font-medium focus:outline outline-primary outline-[1.5px]"
-                  />
-                </label>
-              </li>
-
-             
-            </ul>
-          </div>
-
-          <div className="flex justify-center mt-8">
-            <button
-              type="submit"
-              className="flex items-center gap-2 py-2 px-6 rounded-md bg-primary text-white font-semibold hover:bg-primary-dark"
-            >
-              <img src={save} alt="Save" />
-              ذخیره اطلاعات
-            </button>
-          </div>
-        </div>
-      </form>
+          </Form>
+        )}
+      </Formik>
     </div>
   );
 };
