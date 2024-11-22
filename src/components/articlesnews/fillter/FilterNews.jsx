@@ -2,6 +2,7 @@ import React from 'react'
 import { Tooltip } from 'react-tooltip'
 import { TbBrandReactNative } from "react-icons/tb";
 import { MdPlaylistRemove } from "react-icons/md";
+import { RiTestTubeFill } from "react-icons/ri";
 
 const FilterNews = () => {
     const filter=[
