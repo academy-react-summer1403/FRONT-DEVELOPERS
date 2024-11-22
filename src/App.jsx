@@ -26,6 +26,7 @@ import StdSettings from "./pages/dashboard/content/StdSettings"
 import StdFavorite from "./pages/dashboard/content/StdFavorite"
 import NotFound from "./components/notFound/NotFound"
 import Notfound from "./publicNotFound/notfound"
+import Game from "./pages/game/Game"
 
 
 
@@ -63,6 +64,10 @@ const  PublicRoutes = [
       {
         path: "/basket",
         element: <Notfound />,
+      },
+      {
+        path: "/Game",
+        element: <Game/>,
       },
 
     ]},
@@ -129,6 +134,11 @@ const  PrivateRoutes = [
       path: "/basket",
       element: <NavbarBasket />,
     },
+    {
+      path: "/Game",
+      element: <Game/>,
+    },
+    
 
   ]},
 {

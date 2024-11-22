@@ -16,9 +16,10 @@ import { useCourses, useTopCourses } from "../../core/services/query/queries";
 import { SliderRight } from "../../utility/animation";
 import { useDispatch, useSelector } from "react-redux";
 // import { QuerySlice } from "../../core/redux/slices/QueryState/QueryRedux";
-import {  useState } from "react";
+import {  useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import NotFound from "../../components/notFound/NotFound";
+import GridCardLoading from "../../components/skeleton/GridCardLoading";
 
 
 
@@ -80,6 +81,7 @@ const CoursPage = () => {
     setPage((old) => Math.min(old + 1, 28));
   };
 
+  const [sortTitle, setSortTitle] = useState("بدون ترتیب")
   const categories = [
     {
       title:`${t('Cheapest')}`,
@@ -95,6 +97,14 @@ const CoursPage = () => {
     },
   
   ];
+
+  const [loading, setLoading] = useState(true)
+  useEffect(() => {
+    setTimeout(()=>{
+      setLoading(false)
+    }, 1000)
+  }, [])
+  
 
   return (
     <div className="xl:container px-2 z-10 h-full ">
@@ -236,9 +246,9 @@ const CoursPage = () => {
             {/* right: buttons */}
             <div className=" relative z-50">
               <button
-                className="relative z-50  mr-2 p-3 hover:bg-gray-200 
+                className={` ${view? "" : "bg-gray-200"} relative z-50  mr-2 p-3 hover:bg-gray-200 
                          transition duration-300 shadow-sm shadow-gray-400 outline-none indent-1
-                         rounded rounded-tl-2xl top-0  w-[50px]"
+                         rounded rounded-tl-2xl top-0  w-[50px]`}
                 onClick={() => (setView(false),setView1(6))}
               >
                 {" "}
@@ -246,9 +256,9 @@ const CoursPage = () => {
               </button>
 
               <button
-                className="absolute top-[0.25px] p-2 hover:bg-gray-200 
+                className={` ${view? "bg-gray-200" : ""} absolute top-[0.25px] p-2 hover:bg-gray-200 
                         transition duration-300 shadow-sm shadow-gray-400 outline-none indent-1 
-                        rounded rounded-tr-2xl w-[50px] h-[50px]"
+                        rounded rounded-tr-2xl w-[50px] h-[50px]`}
                 onClick={() => (setView(true),setView1(3))}
               >
                 {" "}
@@ -266,7 +276,7 @@ const CoursPage = () => {
                   className="relative top-1 h-5 w-5 mr-8 flex-none rotate-180 group-hover:rotate-0 
                                 duration-300 text-teal-900 dark:text-teal-600"
                 />
-                {t('Newest')}
+                {sortTitle}
                 <BiMenuAltRight className="w-7 h-7 mt-1 text-teal-900 dark:text-teal-600 ml-6" />
               </div>
 
@@ -276,13 +286,14 @@ const CoursPage = () => {
               >
                 <ul className="space-y-2">
                   {categories.map((item, index) => (
-                    <li key={index} className="group">
-                      <div onClick={()=>setSort(item.col)}
-                        className="block px-4 font-semibold text-gray-500
+                    <li key={index} className="group" onClick={()=>setSortTitle(item.title)}>
+                      <div onClick={()=>setSort(item.col) }
+                        className={`block px-4 font-semibold text-gray-500
                                         hover:text-black dark:hover:text-white duration-200 p-2
                                          w-full hover:bg-primary rounded-md text-right
                                         group-data-[selected]:font-semibold cursor-pointer
-                                        "
+                                        ${sortTitle == item.title ? "bg-primary text-white" : "" }
+                                        `}
                       >
                         {item.title}
                       </div>
@@ -300,9 +311,15 @@ const CoursPage = () => {
                   ${view ? "grid-cols-1 mt-2":"grid-cols-3 max-lg:grid-cols-2 max-sm:justify-items-center max-sm:grid-cols-1  pt-0"}`}
             >
                 
-                  {view ? <AnimatePresence>{CoursesData.data?.courseFilterDtos.length == 0  ? <NotFound/> : CoursesData.data?.courseFilterDtos.map((item) => (<CoursListCard {...item} /> ))}</AnimatePresence> : <AnimatePresence>                
-                  
-                    {CoursesData.data?.courseFilterDtos.length == 0  ?  <NotFound/> : CoursesData.data?.courseFilterDtos.map((item) => (<CoursGridCard {...item} /> ))}</AnimatePresence>
+                  {view ? <AnimatePresence> 
+                          {CoursesData.data?.courseFilterDtos.length == 0  ? <NotFound/> : CoursesData.data?.courseFilterDtos.map((item)=>(
+                          <CoursListCard {...item} />  ))}
+                     </AnimatePresence>
+                     
+                     : <AnimatePresence>    {loading ? <GridCardLoading cards={6}/> :                     
+                        CoursesData.data?.courseFilterDtos.length == 0  ?  <NotFound/> : CoursesData.data?.courseFilterDtos.map((item) => (
+                        <CoursGridCard {...item}/> )) }
+                      </AnimatePresence>
                   }                 
          
             </motion.div>

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion';
 import profile from "../../../assets/detail/prof.jpg"
 import { useParams } from 'react-router-dom';
@@ -9,12 +9,22 @@ import { useTranslation } from 'react-i18next';
 import AOS from "aos";
 import 'aos/dist/aos.css';
 
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
+import Related from '../../skeleton/detail/Related';
+
 const Detail = ({courseId}) => {
 
   useEffect(() => {
     AOS.init();
   }, [])
 
+  const [loading, setLoading] = useState(true)
+  useEffect(() => {
+    setTimeout(()=>{
+      setLoading(false)
+    }, 1000)
+  }, [])
 
   const CourseDetail = useCourseId(courseId);
   console.log(CourseDetail)
@@ -263,7 +273,8 @@ const Detail = ({courseId}) => {
               
                 
               className='flex flex-wrap w-full gap-5  max-sm:justify-center  max-md:justify-start'>
-              {coursedetals.map((item, index) => (
+
+              {loading ? <Related  cards={6} custumStyle="h-[70px] px-4" imageStyle=" w-[60px] h-[40px] mt-2"/> : coursedetals.map((item, index) => (
                 <div
                 
                 data-aos="zoom-in-right"

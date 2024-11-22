@@ -10,12 +10,13 @@ import { BiMenuAltRight } from "react-icons/bi";
 import { IoIosArrowDown } from "react-icons/io";
 import { AnimatePresence, motion } from "framer-motion";
 import { useNewsData } from "../../core/services/query/queries";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { SliderRight } from "../../utility/animation";
 import Pagination from "../../components/Pagination";
 import { useTranslation } from "react-i18next";
 import NotFound from "../../components/notFound/NotFound";
 import FilterNews from "../../components/articlesnews/fillter/FilterNews";
+import NewsCardLoading from "../../components/skeleton/NewsCardLoading";
 
 const ArticlesNews = () => {
   const { t } = useTranslation();
@@ -40,6 +41,15 @@ const ArticlesNews = () => {
   };
 
   const categories = [t("newest"), t("popular")];
+
+
+  const [loading, setLoading] = useState(true)
+  useEffect(() => {
+    setTimeout(()=>{
+      setLoading(false)
+    }, 1000)
+  }, [])
+  
 
   return (
     <div className="  lg:container max-lg:px-12 max-lg:px-2  ">
@@ -101,7 +111,7 @@ const ArticlesNews = () => {
         {/* text part */}
         <div className="grid justify-items-end w-full my-4 mr-6 h-90 relative max-sm:w-full max-sm:mx-auto max-md:w-full max-md:mx-auto">
           <div className="flex flex-row-reverse mt-4 pt-5 ">
-            <div className="head2 relative top-4 ml-2"></div>
+            <div className="head2 relative top-4 ml-2 "></div>
             <h2 className="text-3xl font-bold dark:text-white">
             {t("articles_and_news")}
             </h2>
@@ -204,8 +214,8 @@ const ArticlesNews = () => {
                     
                 "
           >
-            <AnimatePresence>
-              {newsDataQuery.data?.news.length == 0  ? <NotFound/> : newsDataQuery.data?.news.map((item) => (
+            <AnimatePresence> {loading ?<NewsCardLoading cards={6}/> :  
+              newsDataQuery.data?.news.length == 0  ? <NotFound/> : newsDataQuery.data?.news.map((item) => (
                 <ArticleNewsCard {...item} />
               ))}
 

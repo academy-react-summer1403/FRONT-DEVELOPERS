@@ -10,6 +10,7 @@ import { useTranslation } from 'react-i18next';
 
 import AOS from "aos";
 import 'aos/dist/aos.css';
+import CommentsLoading from '../../skeleton/detail/CommentsLoading';
 
 
 const CourseComment = ({courseId}) => {
@@ -81,6 +82,13 @@ const CourseComment = ({courseId}) => {
     AOS.init();
   }, [])
 
+  const [loading, setLoading] = useState(true)
+  useEffect(() => {
+    setTimeout(()=>{
+      setLoading(false)
+    }, 1000)
+  }, [])
+
   return (
     <div  style={{ boxShadow: " 0px 1px 2px 0 rgba(0, 0, 0, 0.25)" }}
      className={`mt-[15px] bg-white dark:bg-slate-700 rounded-[15px] p-[20.5px] overflow-hidden relative ${showMore ? "h-[770px] mb-40"  : "h-[] min-h-[770px]" }`} >
@@ -117,7 +125,7 @@ const CourseComment = ({courseId}) => {
 
         </div>
 
-        {
+        {loading ? <CommentsLoading cards={2}/>  :   
             GetCommentCourse.data?.map((item)=>(
             <div data-aos="zoom-in-down"
              className={`bg-[#F9F9F9]  dark:bg-slate-800 rounded-[7px] w-full  flex flex-col  p-[20.5px] mt-[30px]
@@ -187,15 +195,19 @@ const CourseComment = ({courseId}) => {
                 <div className='w-full  flex justify-start'>
                
                
-           
-                <ReplyCourse useId={courseId}  id={item?.id} showMore={showMore} comentdiv1={comentdiv1} setCommentdiv1={setCommentdiv1}/>     </div>  
+              
+                  <ReplyCourse useId={courseId}  id={item?.id} showMore={showMore} comentdiv1={comentdiv1} setCommentdiv1={setCommentdiv1}/>    
+                  
+                  
+                  </div>  
+                
                 </div>
 
            
               
             </div>
 
-            ))
+            ))  
 
         }
 

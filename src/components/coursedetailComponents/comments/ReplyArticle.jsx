@@ -1,8 +1,10 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useReplyCourse, useReplyNews } from '../../../core/services/query/CommentQuery'
 import { replyComment } from '../../../core/services/apiComment'
 import Commentdiv from './commentdiv'
 import DateApi from '../../DateApi'
+import { ImageErrore } from '../../ImageErrore'
+import CommentsLoading from '../../skeleton/detail/CommentsLoading'
 
 const ReplyArticle = ({id ,showMore,setCommentdiv1,comentdiv1}) => {
 
@@ -29,13 +31,19 @@ const ReplyArticle = ({id ,showMore,setCommentdiv1,comentdiv1}) => {
       console.log(replyAddComment)
     };
  
-
+    const [loading, setLoading] = useState(true)
+    useEffect(() => {
+      setTimeout(()=>{
+        setLoading(false)
+      }, 1000)
+    }, [])
+  
 
   return (
     <div className={` w-full  ${
       showMore? "h-[150px] overflow-hidden" : "h-[]"
     }`}>
-    {
+     {loading ? <CommentsLoading cards={1}/>  : 
         Reply.data?.map((item)=>(
 
  
@@ -81,7 +89,7 @@ const ReplyArticle = ({id ,showMore,setCommentdiv1,comentdiv1}) => {
 
        
 
-          <img className=' profile' src={item?.pictureAddress} alt="" />
+          <img className=' profile' src={item?.pictureAddress ? item?.pictureAddress : ImageErrore} onError={ImageErrore} alt="" />
   </div>
 
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import CourseCard from "../../components/coursedetailComponents/coursecard/CourseCard";
 import Detail from "../../components/coursedetailComponents/detail/Detail";
@@ -12,7 +12,10 @@ import { ImageErrore } from "../../components/ImageErrore";
 import { useCommentCourse } from "../../core/services/query/CommentQuery";
 import { useTranslation } from "react-i18next";
 
-
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
+import CardLoading from "../../components/skeleton/detail/CardLoading";
+import Related from "../../components/skeleton/detail/Related";
 
 const CourseDetial = () => {
   const { courseId } = useParams();
@@ -23,7 +26,16 @@ const CourseDetial = () => {
   const CourseDetail = useCourseId(courseId);
   console.log(CourseDetail.data);
 
+  const [loading, setLoading] = useState(true)
+  useEffect(() => {
+    setTimeout(()=>{
+      setLoading(false)
+    }, 1000)
+  }, [])
+
+
   return (
+  <SkeletonTheme  baseColor="#cbd5e1" highlightColor="#f5f5f5" >
     <div className=" container max-lg:pt-2 max-lg:px-0 relative  pb-12  ">
   
       {/* top  */}
@@ -36,14 +48,15 @@ const CourseDetial = () => {
           style={{ boxShadow: "box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25)" }}
           className="max-xl:w-[550px]  max-md:hidden max-lg:h-[340px] h-[395px] max-xl:h-[320px] w-[624px] max-2xl:mr-10"
         >
-         <img className=" h-full w-full  rounded-[15px]" src={CourseDetail.data?.imageAddress }
-            onError={ImageErrore} alt=''
+          {loading ? <Skeleton className="h-full w-full  rounded-[15px]"/> : 
+            <img className=" h-full w-full  rounded-[15px]" src={CourseDetail.data?.imageAddress }
+              onError={ImageErrore} alt=''
             />
-
+            }
         </motion.div>
         {/* course detail card */}
-
-        <CourseCard courseId = {courseId}/>
+            {loading ? <CardLoading/> : <CourseCard courseId = {courseId} /> }
+        
       </div>
          
 
@@ -65,7 +78,7 @@ const CourseDetial = () => {
 
 
 
-            {samecourses.map((data,index)=>( 
+            {loading ?  <Related cards={4} custumStyle="h-[112px] p-[15px]" imageStyle="w-[120px] h-[80px]"/> :   samecourses.map((data,index)=>( 
 
             <RelatedCourses  key={index} title={data.title} image={data.image} />))}
           </div>
@@ -89,14 +102,14 @@ const CourseDetial = () => {
           {t("comments")}
           </h4>
           <div className="  ">
-          
-            <CourseComment courseId={courseId} useComment={useCommentCourse} />
+             <CourseComment courseId={courseId} useComment={useCommentCourse} /> 
           </div>
         </div>
 
       </div>
 
     </div>
+  </SkeletonTheme>
   );
 };
 

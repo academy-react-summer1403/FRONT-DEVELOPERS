@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useArticleDetail } from "../../../core/services/query/queries";
 import { useParams } from "react-router-dom";
@@ -8,6 +8,9 @@ import { postRateNews } from "../../../core/services/DashApi";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { useTranslation } from "react-i18next";
 import { ImageErrore } from "../../ImageErrore";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
+
 
 const ArticleDescription = () => {
 
@@ -58,6 +61,13 @@ const ArticleDescription = () => {
   const [showMore, setShowMore] = useState(true);
   // console.log(showMore);
 
+  const [loading, setLoading] = useState(true)
+  useEffect(() => {
+    setTimeout(()=>{
+      setLoading(false)
+    }, 2000)
+  }, [])
+
   return (
     <div className=" max-xl:w-[600px] max-sm:w-full max-lg:w-[450px] max-md:w-full">
       <div
@@ -76,14 +86,14 @@ const ArticleDescription = () => {
             }`}
           >
 
-            {articleDetail.data?.detailsNewsDto.describe}
-           
+            {loading ? <Skeleton count={3} /> : articleDetail.data?.detailsNewsDto.describe}
+            {loading ? <Skeleton width={"600px"} height={"250px"}  className="mr-12 mt-6 rounded-xl"/> :
             <img
               className="w-[575px] h-[320px] max-lg:w-[500px] max-lg:h-[250px] max-xl:w-[535px] max-xl:h-[280px] rounded-[10px] mx-auto my-[20px]"
               src={articleDetail.data?.detailsNewsDto.currentImageAddress ? articleDetail.data?.detailsNewsDto.currentImageAddress  : ImageErrore} onError={ImageErrore}
               alt=""
             />
-         
+              }
           </motion.p>
         </div>
 
