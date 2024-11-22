@@ -1,78 +1,41 @@
 import React, { useEffect, useState } from 'react'
-import { motion } from 'framer-motion';
 import { useCourseId } from '../../../core/services/query/queries';
-import { deleteFavoriteCourse, postFavoriteCourse, postReserv } from '../../../core/services/DashApi';
-import { toast, ToastContainer } from 'react-toastify';
+import { postReserv } from '../../../core/services/DashApi';
 import 'react-toastify/dist/ReactToastify.css';
+import { useDeleteFavoriteCourse, usePostFavoriteCourse } from '../../../core/services/mutation/LikeArticle';
 
 
 const CourseCard = ({courseId,isUserFavorite,isCourseReseve}) => {
 
 
 
-   const CourseDetail = useCourseId(courseId);
+  const CourseDetail = useCourseId(courseId);
+
  const [save,setSave]=useState(isUserFavorite? true : false)
  const [isReserve,setIsReseve]=useState(isCourseReseve)
- console.log(isReserve)
  
- 
-    
+const [favorite, setFavorite] = useState(CourseDetail.data?.isUserFavorite)
 
-  const handleAddFavorite = (favorite) => {
 
-    try{
-  
-   const addFavorite = {
-      courseId: favorite
-    };
+ const addFavoriteCourse = usePostFavoriteCourse();
 
-    const addFavoriteCourse = postFavoriteCourse(addFavorite);
-}catch{
-
-  
-}
+  const handleAddFavorite = (favorite) => {  
+      const params = {
+        "courseId": favorite
+      };
+      addFavoriteCourse.mutate(params)
+     
   }
 
 
+  const deleteFavoriteCourse = useDeleteFavoriteCourse();
 
   const handleRemoveFavorite = (userFavoriteId) => {
-  
-
-
     const CourseFavoriteId=new FormData()
-   CourseFavoriteId.append('CourseFavoriteId',userFavoriteId)
-    const deleteCourseFavorite=deleteFavoriteCourse(CourseFavoriteId)
-    
-
+    CourseFavoriteId.append('CourseFavoriteId',userFavoriteId)
+    deleteFavoriteCourse.mutate(CourseFavoriteId)
   }
   
-  
-  useEffect(() => {
- 
-
-    if(save){
-      
-      handleAddFavorite(courseId)
-      }
-
-
-      else{
-        handleRemoveFavorite(CourseDetail.data?.userFavoriteId)
-      }
-
-
-
-      
-
-  
-      
-  
-  }, [save]);
-
-
-
-  
-
  
 
  
@@ -81,8 +44,6 @@ const CourseCard = ({courseId,isUserFavorite,isCourseReseve}) => {
 
   const [reserve , setReserve] = useState(false)
   
-
-
   const handleReserveCourse=(reserv)=>{
      setIsReseve(1)
   const params = {
@@ -114,9 +75,9 @@ const CourseCard = ({courseId,isUserFavorite,isCourseReseve}) => {
             bg-[#FFFFFF]  rounded-[15px]  h-[395px]"
     >
           <div className=" flex justify-between  relative"> 
-            <svg   onClick={() =>setSave(!save)}
+            <svg   onClick={() =>( favorite === true? handleRemoveFavorite( CourseDetail.data?.userFavoriteId) : handleAddFavorite( CourseDetail.data?.courseId) , setSave(!save))}
               width="27"
-              className={`h-[20px] stroke-primary dark:stroke-orange 
+              className={`h-[20px] stroke-primary dark:stroke-orange cursor-pointer
                 ${ save? "fill-primary  dark:fill-orange" : "  "}` }
               height="27"
               viewBox="0 0 27 27"

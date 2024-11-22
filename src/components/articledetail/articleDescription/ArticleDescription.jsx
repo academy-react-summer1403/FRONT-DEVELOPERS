@@ -52,7 +52,7 @@ const ArticleDescription = ({id}) => {
     const deletelikenew=deletelikeArticle(deleteEntityId)
     setLike(false)
    
-}
+  }
 
 
 
@@ -68,16 +68,35 @@ const ArticleDescription = ({id}) => {
 
   //  Rate : 
 
-  const [colorRate, setColorRate] = useState(articleDetail.data?.detailsNewsDto?.currentRate)
-  console.log(colorRate)
+  const [colorRate, setColorRate] = useState(articleDetail.data?.detailsNewsDto.currentRate)
+  
 
   const handleRate =(NewsId , RateNumber)=>{
-    console.log(NewsId , RateNumber)
+    try{
+      return postRateNews(NewsId , RateNumber ) ,
+      toast.success("امتیاز شما ثبت شد" , {
+        theme:"colored"
+        })
+    }catch{
+      toast.error("شما قبلا امتیاز داده اید" , {
+        theme:"colored"
+        })
+    }  
     
-    return postRateNews(NewsId , RateNumber )
   }
   console.log("handleRate",handleRate)
 
+  useEffect(() => {
+    if(articleDetail.data){
+      setColorRate(articleDetail.data?.detailsNewsDto.currentRate)
+    } 
+  }, [articleDetail])
+
+  useEffect(() => {
+    if(articleDetail.data){
+      setColorRate(articleDetail.data?.detailsNewsDto.currentRate)
+    } 
+  }, [colorRate])
 
   const [loading, setLoading] = useState(true)
   useEffect(() => {
@@ -311,8 +330,8 @@ leading-[32px] font-normal font-Yekan text-[20px] max-xl:text-[18px] flex items-
             />
           </svg>
 
-          <h1 className=" share max-xl:text-[14px]  max-sm:text-[12px] ">
-           {t("rate")}{articleDetail.data?.detailsNewsDto.currentRate} {t("personrate")}
+          <h1 className=" share max-xl:text-[14px]  max-sm:text-[12px] flex flex-row-reverse">
+            {t("rate")}  {articleDetail.data?.detailsNewsDto.currentRate}
           </h1>
         </div>
       </motion.div>

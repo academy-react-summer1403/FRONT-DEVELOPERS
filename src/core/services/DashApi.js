@@ -85,9 +85,9 @@ export const getUserProfile = async () => {
   };
 
 
-  export const postFavoriteCourse = async ( addFavorite ) => {
-    const data = await http.post("/Course/AddCourseFavorite" , addFavorite )
-    // console.log(data);
+  export const postFavoriteCourse = async ( params ) => {
+    const data = await http.post("/Course/AddCourseFavorite" ,  params)
+    console.log(data);
     return data;
 
     
