@@ -92,7 +92,7 @@ const ProfileInformation = () => {
             </div>
 
             <div className='flex flex-row-reverse gap-2 text-right'>                
-                <p className='text-orange dark:text-amber-400 font-medium '>{userProfile.data?.gender ? userProfile.data?.gender : "--"} <span className='text-gray-400 dark:text-white'> : جنسیت </span></p>
+             <span className='text-gray-400 dark:text-white'> : جنسیت </span>   <p className='text-orange dark:text-amber-400 font-medium '>{userProfile.data?.gender ?"مرد":" زن " } </p>
             </div>
 
             <div className='flex flex-row-reverse gap-2 text-right text-orange dark:text-amber-400'>                 

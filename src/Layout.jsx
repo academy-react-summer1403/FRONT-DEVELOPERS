@@ -4,6 +4,7 @@ import Footer from './components/Footer'
 import { Outlet } from 'react-router-dom'
 import DarkMode from './components/DarkMode'
 import SpeechBot from './components/speech/Speech'
+import HomeOfAssistant from './components/3DAssistant/HomeOfAssistant'
 
 const Layout = () => {
  
@@ -13,11 +14,13 @@ const Layout = () => {
 
         <Navbar/>
           <Outlet/>
-          
-       
         <Footer  />
-         <DarkMode />
-         <SpeechBot />
+        
+        <DarkMode />
+        <SpeechBot />
+        
+      
+      
     </div>
   )
 }

@@ -27,7 +27,7 @@ const Detail = ({courseId}) => {
   }, [])
 
   const CourseDetail = useCourseId(courseId);
-  console.log(CourseDetail)
+  // console.log(CourseDetail)
   const {t}=useTranslation()
  
   const coursedetals = [

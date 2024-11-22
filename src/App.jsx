@@ -26,7 +26,14 @@ import StdSettings from "./pages/dashboard/content/StdSettings"
 import StdFavorite from "./pages/dashboard/content/StdFavorite"
 import NotFound from "./components/notFound/NotFound"
 import Notfound from "./publicNotFound/notfound"
+import Payment from "./components/Payment"
+import Payment1 from "./components/Payment1"
+import Paymentall from "./components/Paymentall"
 import Game from "./pages/game/Game"
+import QA from "./components/QA/QA"
+import PhysicApp from "./pages/game/gameWithPhysics/PhysicApp"
+import { useEffect } from "react"
+import StdFavoriteNews from "./pages/dashboard/content/stdFavoriteNews"
 
 
 
@@ -66,9 +73,12 @@ const  PublicRoutes = [
         element: <Notfound />,
       },
       {
-        path: "/Game",
-        element: <Game/>,
-      },
+        path: "/PhysicApp",
+        element: <PhysicApp/>,
+      },  {
+        path:"/*",
+        element: <PhysicApp/>,
+      }
 
     ]},
     {
@@ -90,12 +100,16 @@ const  PublicRoutes = [
         },
         {
           path: "/auth/v1",
-          element: <VorodAuth />,
+          element: <Game/>,
         },
         {
           path: "/auth/v2",
           element: <VarificationVorod />,
         },
+        {
+          path: "/auth/v3",
+          element: <VorodAuth/>,
+        }, 
       ],
     },
 
@@ -135,12 +149,23 @@ const  PrivateRoutes = [
       element: <NavbarBasket />,
     },
     {
-      path: "/Game",
-      element: <Game/>,
+      path: "/QA",
+      element: <QA/>,
     },
+    {
     
+      path: "/PhysicApp",
+      element: <PhysicApp/>,
+    },  {
+    path:"/*",
+    element: <PhysicApp/>,
+  }
 
-  ]},
+  ]
+
+
+
+},
 {
  
   path: "/",
@@ -175,10 +200,35 @@ const  PrivateRoutes = [
   path: "/stdFavorite",
   element: <StdFavorite />,
 },
+
+{
+  path: "/stdFavoriteNews",
+  element: <StdFavoriteNews />,
+},
+
 {
   path: "/settings",
   element: <StdSettings />,
 },
+
+
+{
+  path: "/payment/:courseId",
+  element: <Payment />,
+},
+{
+  path: "/payment1/:courseId",
+  element: <Payment1/>,
+},
+{
+  path: "/paymentall/:courseId",
+  element: <Paymentall/>,
+},  {
+  path:"/*",
+  element: <PhysicApp/>,
+}
+
+
 
   ]
   
@@ -202,12 +252,17 @@ const  PrivateRoutes = [
       },
       {
         path: "/auth/v1",
-        element: <VorodAuth />,
+        element: <Game />,
       },
       {
         path: "/auth/v2",
         element: <VarificationVorod />,
       },
+      {
+        path: "/auth/v3",
+        element: <VorodAuth/>,
+      },
+
     ],
   },
 
@@ -221,13 +276,22 @@ const  PrivateRoutes = [
   const token = user?.token 
   console.log(token)   
 
+  useEffect(() => {
+    
+    if(token == undefined ){
+      localStorage.removeItem("token")
+
+    }
+  }, [token])
 
   const currentRoutes = user.token==null ? PublicRoutes : PrivateRoutes
+
+
 
   const router = createBrowserRouter(currentRoutes)
 
 
-  return <RouterProvider  router={router}/>
+  return <RouterProvider  router={createBrowserRouter(currentRoutes)}/>
   
   
   

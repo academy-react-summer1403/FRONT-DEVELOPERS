@@ -7,10 +7,22 @@ export const TranslateSlice= createSlice({
     name:"translate",
     initialState:{},
     reducers:{
-        toggleLanguage:()=>{
-     const newLanguage = i18n.language === 'en' ? 'fa' : 'en';
-    i18n.changeLanguage(newLanguage);
-        }
+        toggleLanguage1:()=>{
+            const newLanguage = i18n.language = 'en';
+            i18n.changeLanguage(newLanguage);
+        },
+        toggleLanguage2:()=>{
+            const newLanguage = i18n.language = 'fa' ;
+           i18n.changeLanguage(newLanguage);
+        },
+        toggleLanguage3:()=>{
+                const newLanguage = i18n.language = 'es';
+               i18n.changeLanguage(newLanguage);
+        },
+        toggleLanguage4:()=>{
+            const newLanguage = i18n.language = 'tr';
+           i18n.changeLanguage(newLanguage);
+    },
     }
 })
 

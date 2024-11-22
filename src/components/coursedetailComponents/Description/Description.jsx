@@ -16,7 +16,7 @@ const Description = ({courseId}) => {
  
 
   const CourseDetail = useCourseId(courseId);
-  console.log(CourseDetail.data);
+  // console.log(CourseDetail.data);
 
   const [loading, setLoading] = useState(true)
   useEffect(() => {

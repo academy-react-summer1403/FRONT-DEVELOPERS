@@ -1,22 +1,17 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
-import FavImg from "../assets/landing/Favorite.svg";
 import ShopImg from "../assets/landing/Shopping Bag.svg";
-import UserImg from "../assets/landing/user.png";
 import { NavLink } from 'react-router-dom';
-import { CgProfile } from "react-icons/cg";
 import Lg from './Translate/TranslateButton';
 import { useTranslation } from 'react-i18next';
 import Logo from './Logo';
 import { useUserProfile } from '../core/services/query/DashboardQuery';
-import { useDispatch, useSelector } from 'react-redux';
 import ScrollNav from './ScrollNav';
 import { IoIosLogOut } from 'react-icons/io';
 import { HiXCircle } from 'react-icons/hi2';
-import { handleToken } from '../core/redux/slices/QueryState/TokenSlice';
-import { Tooltip } from 'react-tooltip';
-import { userImg } from '../core/redux/slices/QueryState/UserSlice';
-// import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { FaRobot } from 'react-icons/fa6';
+import ChatApp from "./chatGPT/ChatApp"
 
 
 
@@ -24,6 +19,8 @@ const Navbar = () => {
     
  const { t,i18n  } = useTranslation();
  const isEnglish = i18n.language === "en";
+ const isTurky = i18n.language === "tr";
+ const isEspanish = i18n.language === "es";
 
  const NavbarMenu =[
   {
@@ -55,27 +52,29 @@ const Navbar = () => {
 
 
     const userImageProfile = useUserProfile()
-    console.log(userImageProfile.data)
 
-    
- const user = useSelector((state) => state.TokenSlice)
-
- console.log("user" , user)
-   
-  const token = user?.token 
-  console.log(token)   
+     const user = useSelector((state) => state.TokenSlice)
 
 
-//   const currentRoutes = user.token==null ? PublicRoutes : PrivateRoutes
 
-// logout modal 
+    const token = user?.token 
+
+
+
+ 
+
 const [openModal, setOpenModal] = useState(false)
+const [openChat, setOpenChat] = useState(false)
+
+
 
 const handleLogout = (token)=>{
     localStorage.removeItem("token" , token);    
     setRemove(false)
     setOpenModal(false)
 }
+
+  
 
 
   return (
@@ -92,17 +91,17 @@ const handleLogout = (token)=>{
     
                 {/* ACCOUNT section  */}
                 <div className=' z-[99999] text-2xl flex items-center gap-2 font-bold'>
-                    <NavLink  to={user.token==null ? "/auth" : "/Dashboard" }  className='group relative w-36 max-md:w-[150px]  max-sm:w-[150px] z-[9999] 
+                    <NavLink to={user.token!==null ?  "/Dashboard" : "/auth"}  className='group relative w-36 max-md:w-[150px]  max-sm:w-[150px] z-[9999] 
                             max-lg:w-[150px] max-xl:w-[200px] h-12 bg-primary
                             mt-6 rounded-3xl hover:shadow-lg  dark:bg-orange 
-                            dark:hover:shadow-slate-700 dark:hover:shadow-md z-50
+                            dark:hover:shadow-slate-700 dark:hover:shadow-md
                             transition-shadow'>
-                        <div >  
-                            <img src={userImageProfile ? userImageProfile.data?.currentPictureAddress : userImg} alt="" className={`w-[40px]  border-white h-[40px] rounded-full absolute top-[4px] left-2  border `}/>
+                        <div className=' flex justify-center items-center gap-1 h-12 w-full' >  
+                            <img src={userImageProfile ? userImageProfile.data?.currentPictureAddress : ""} alt="" className={`w-[40px]  border-white h-[40px] rounded-full  top-[4px] left-2  border `}/>
                             
-                            {user.token==null ? <h1 className='text-sm  font-semibold text-white text-right leading-9 mr-3 py-1 '>{t("person")} </h1> :
-                            <h1 className='text-sm  font-semibold text-white text-right leading-9 mr-3 py-1 '>{t(userImageProfile.data?.fName)} {t(userImageProfile.data?.lName)}</h1>
-}
+                            <h1 className={`text-sm  font-semibold text-white mt-5 pr-1  w-[60%] h-[40px] text-right ${user.token == null ? "block" : "hidden"}`} >{t("person")} </h1> 
+                            <h1 className={`text-sm  font-semibold text-white  truncate  mt-5  w-[60%] h-[40px] ${user.token == null ? "hidden" : "block"}`}>{t(userImageProfile.data?.fName)} {t(userImageProfile.data?.lName)}</h1>
+
                         </div> 
                         
                 
@@ -127,6 +126,23 @@ const handleLogout = (token)=>{
                             </div>
                         </div>
 
+                        {/* ChatGPT     */}
+                        
+                        <div>
+                            <FaRobot className="block mt-8 text-gray-400 text-3xl cursor-pointer"
+                            onClick={()=>setOpenChat(true) }/>               
+                            <div className={`${openChat ==false ? "hidden": "block"} fixed left-0 top-0 w-screen h-screen bg-black/70 z-[9999]
+                                 backdrop-blur-sm transition-all duration-700`}
+                            >
+                                <div className='bg-white rounded-lg shadow-lg grid gap-3 p-8 mx-auto w-1/3 mt-10'>
+                                    <HiXCircle onClick={()=>setOpenChat(false)} 
+                                        className=' right-2 top-2 w-6 h-6 cursor-pointer text-secondary opacity-100 justify-self-end '
+                                    />                                
+                                   <ChatApp />
+                              </div>
+                            </div>
+                        </div>
+
                         <NavLink to={"/basket"} className='relative '>
                             <img src={ShopImg} alt="" className='mt-8 '/>
                             <div className='w-[16px] h-[16px] flex  items-center font-Yekan justify-center bg-orange rounded-full absolute px-[1px] max-lg:bottom-0 bottom-0 right-[-2px] text-[12px] font-normal text-white leading-3'>0</div>
@@ -139,7 +155,7 @@ const handleLogout = (token)=>{
                 {/* menu section  */}
                 <div className=' max-lg:absolute max-lg:bg-primary max-lg:h-8 max-lg:z[3000] 
                  max-lg:top-[90px] max-lg:w-[100%] max-lg:left-0 max-lg:grid max-lg:justify-items-center'>
-                    <ul className={`flex items-center gap-4 max-lg:gap-1 max-lg:pr-0 mx-auto ${isEnglish ? 'flex-row-reverse' : 'flex-row'}`}>
+                    <ul className={`flex items-center gap-4 max-lg:gap-1 max-lg:pr-0 mx-auto ${isEnglish || isEspanish || isTurky ? 'flex-row-reverse' : 'flex-row'}`}>
                         {
                             NavbarMenu.map((item)=>(
                                 <li key={item.id}>

@@ -2,7 +2,7 @@ import React from 'react'
 
 const FavoriteHeader = () => {
     const header=[
-        "نویسنده", "زمان انتشار","دسته بندی","عنوان "
+        "استاد دوره", "زمان انتشار","دسته بندی","عنوان "
        ]
        return (
          <div>

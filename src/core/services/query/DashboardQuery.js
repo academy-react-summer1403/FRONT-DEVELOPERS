@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import {  getCourseDash, getCourseDash2, getFavoriteCourse,  getMyCourses,  GetProfileInfo,  getUserProfile, reservCourse } from "../DashApi";
+import {  getCourseDash, getCourseDash2, getFavoriteCourse,  getFavoriteMyNews,  getMyCourses,  getMyCoursesComments,  getMyNewsComments,  GetProfileInfo,  getUserProfile, reservCourse } from "../DashApi";
 
 
 
@@ -40,6 +40,13 @@ export function useFavoriteCourse() {
   });
 }
 
+export function useFavoriteNews() {
+  return useQuery({
+    queryKey: ["favoriteNews" ],
+    queryFn: () =>  getFavoriteMyNews(),
+  });
+}
+
 
 export function useCourseDash(params) {
   return useQuery({
@@ -59,5 +66,19 @@ export function useProfileInfo() {
   return useQuery({
     queryKey: ["profInfo"  , ],
     queryFn: () =>  GetProfileInfo(),
+  });
+}
+
+export function useMyCoursesComments() {
+  return useQuery({
+    queryKey: ["myCoursesComments" ],
+    queryFn: () =>  getMyCoursesComments(),
+  });
+}
+
+export function useMyNewsComments() {
+  return useQuery({
+    queryKey: ["myNewsComments" ],
+    queryFn: () =>  getMyNewsComments(),
   });
 }

@@ -1,39 +1,108 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion';
 import { useCourseId } from '../../../core/services/query/queries';
-import { postFavoriteCourse, postReserv } from '../../../core/services/DashApi';
-import { toast } from 'react-toastify';
+import { deleteFavoriteCourse, postFavoriteCourse, postReserv } from '../../../core/services/DashApi';
+import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const CourseCard = ({courseId}) => {
 
-  const [favorite , setFavorite] = useState()
-  console.log(favorite)
+const CourseCard = ({courseId,isUserFavorite,isCourseReseve}) => {
 
-  const addFavorite = {
-    courseId : favorite
+
+
+   const CourseDetail = useCourseId(courseId);
+ const [save,setSave]=useState(isUserFavorite? true : false)
+ const [isReserve,setIsReseve]=useState(isCourseReseve)
+ console.log(isReserve)
+ 
+ 
+    
+
+  const handleAddFavorite = (favorite) => {
+
+    try{
+  
+   const addFavorite = {
+      courseId: favorite
+    };
+
+    const addFavoriteCourse = postFavoriteCourse(addFavorite);
+}catch{
+
+  
+}
   }
 
-  const addFavoriteCourse = postFavoriteCourse(addFavorite)
-  console.log(addFavoriteCourse)
+
+
+  const handleRemoveFavorite = (userFavoriteId) => {
+  
+
+
+    const CourseFavoriteId=new FormData()
+   CourseFavoriteId.append('CourseFavoriteId',userFavoriteId)
+    const deleteCourseFavorite=deleteFavoriteCourse(CourseFavoriteId)
+    
+
+  }
+  
+  
+  useEffect(() => {
+ 
+
+    if(save){
+      
+      handleAddFavorite(courseId)
+      }
+
+
+      else{
+        handleRemoveFavorite(CourseDetail.data?.userFavoriteId)
+      }
+
+
+
+      
+
+  
+      
+  
+  }, [save]);
+
+
+
+  
 
  
 
  
-  const CourseDetail = useCourseId(courseId);
-  console.log(CourseDetail.data);
 
 
-  const [reserv , setReserv] = useState()
-  console.log(reserv)
 
+  const [reserve , setReserve] = useState(false)
+  
+
+
+  const handleReserveCourse=(reserv)=>{
+     setIsReseve(1)
   const params = {
     courseId : reserv
   }
 
   const  reservComment = postReserv(params)
-  console.log(reservComment) 
-  const [save,setSave]=useState(false)
+  }
+
+
+  useEffect(()=>{
+   
+
+    if(reserve){
+
+      handleReserveCourse(courseId)
+      
+    }
+  },[reserve])
+ 
 
   return (
     <>
@@ -45,10 +114,10 @@ const CourseCard = ({courseId}) => {
             bg-[#FFFFFF]  rounded-[15px]  h-[395px]"
     >
           <div className=" flex justify-between  relative"> 
-            <svg onClick={()=>(setFavorite(courseId),setSave(!save))}
+            <svg   onClick={() =>setSave(!save)}
               width="27"
               className={`h-[20px] stroke-primary dark:stroke-orange 
-                ${save ? " fill-primary  dark:fill-orange" : " "}` }
+                ${ save? "fill-primary  dark:fill-orange" : "  "}` }
               height="27"
               viewBox="0 0 27 27"
               fill="none"
@@ -138,9 +207,11 @@ const CourseCard = ({courseId}) => {
                 
           <button
           
-            onClick={()=>setReserv(courseId )}
+            onClick={()=>setReserve(true)}
           className="bg-secondary/90 max-lg:text-[16px]   max-md:mx-auto  max-xl:w-[280px] max-xl:h-[40px] max-lg:ml-[0] max-xl:ml-[10%] ml-[18%] max-xl:mt-[15px] mt-[25px] flex gap-3 items-center justify-center  w-[347px] h-[55px] text-white rounded-[9px] font-bold max-xl:text-[19px] text-[22px]  ">
-            !شرکت در دوره
+           <h1 className={`${isReserve==1 ? "hidden" :"block"}`}> !شرکت در دوره</h1>
+           <h1 className={`${isReserve==1  ? "block" :"hidden"}`}> قبلا شرکت کردید!</h1>
+
             <svg
             
               width="25"

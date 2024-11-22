@@ -8,7 +8,7 @@ import { HiX } from "react-icons/hi";
 import { FaCheck } from "react-icons/fa6";
 import { Tooltip } from 'react-tooltip';
 
-const AddProfImage = () => {
+const AddProfImage = ({images}) => {
     
     const [Open, setOpen] = useState(false)
     const [image, setimage] = useState(null)

@@ -87,16 +87,23 @@ function SpeechBot() {
 
             if (result.toLowerCase().includes('change theme to dark') ||result.toLowerCase().includes('dark')  ){
                     dispatch(setTheme("dark"));
-               
-                
-            }
-            
-            if (result.toLowerCase().includes('change') || theme=="maintheme"||theme=="secondTheme"){
+            }  
 
-               
-                    dispatch(setTheme("thirdTheme"));
-               
+
+            if (result.toLowerCase().includes('change theme to light') ||result.toLowerCase().includes('light')  ){
+                dispatch(setTheme("maintheme"));
+            }  
                 
+            if (result.toLowerCase().includes('change theme') ||result.toLowerCase().includes('theme3') && (theme=="maintheme"||theme=="secondTheme")){
+                    dispatch(setTheme("thirdTheme"))
+            }
+
+            if (result.toLowerCase().includes('change theme')||result.toLowerCase().includes('theme1') && (theme=="thirdTheme"||theme=="secondTheme")){
+                dispatch(setTheme("maintheme"))
+            }
+
+            if (result.toLowerCase().includes('change theme')||result.toLowerCase().includes('theme2') && (theme=="thirdTheme"||theme=="maintheme")){
+                dispatch(setTheme("secondTheme"))
             }
 
   

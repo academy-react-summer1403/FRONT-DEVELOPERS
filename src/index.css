@@ -134,6 +134,7 @@ body{
 
 
 
+
 .slick-slide > div {
     margin:0 30px;
 }
@@ -264,4 +265,11 @@ body{
   width: 2rem;
   height: 3rem;
   cursor: pointer;
+}
+
+.Correct{
+  @apply bg-teal-200 border-teal-500
+}
+.wrong{
+  @apply bg-red-200 border-red-500
 }

@@ -10,17 +10,12 @@ import { useUserProfile } from '../../../core/services/query/DashboardQuery'
 const StdInformation = () => {
 
 
-
-
   const userProfile = useUserProfile()
-  console.log(userProfile.data?.currentPictureAddress)
-
-
   
 
   return (
     <div style={{boxShadow:"0px 1px 1px 1px rgba(0,0,0,0.1)"}}
-     className='relative rounded-xl mx-10 my-16 p-8 max-lg:px-4 min-w-[400px] bg-primary/5 
+     className='relative rounded-xl mx-10 my-16 p-8  min-w-[400px] bg-primary/5 
       max-lg:px-1
       max-sm:px-1
     '>

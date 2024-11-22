@@ -5,11 +5,12 @@ import ArticleDescription from "../../components/articledetail/articleDescriptio
 import { motion } from "framer-motion";
 import { useArticleDetail } from "../../core/services/query/queries";
 import { useParams } from "react-router-dom";
-import NewComment from "../../components/coursedetailComponents/comments/NewComment";
+// import NewComment from "../../components/coursedetailComponents/comments/NewComment";
 import { samecourses, suggestion } from "../CourseDetail/CourseDetail";
-import { useCommentNews } from "../../core/services/query/CommentQuery";
-import { postFavoriteNews } from "../../core/services/DashApi";
-import { toast } from "react-toastify";
+// import { useCommentNews } from "../../core/services/query/CommentQuery";
+import { deleteFavoriteNews, postFavoriteNews } from "../../core/services/DashApi";
+import { toast, ToastContainer } from 'react-toastify';
+
 import DateApi from "../../components/DateApi";
 import { useTranslation } from "react-i18next";
 import Related from "../../components/skeleton/detail/Related";
@@ -27,26 +28,107 @@ const ArticleDetail = () => {
 
   
   const articleDetail = useArticleDetail(id);
-  // console.log(articleDetail.data?.detailsNewsDto.title);
 
-  const [save,setSave]=useState(false)
+ const [save,setSave]=useState(articleDetail?.data?.detailsNewsDto?.isCurrentUserFavorite==true ? true :false)
+  
+  console.log(articleDetail.data?.detailsNewsDto?.currentUserIsLike)
 
-  const [NewsId , setNewsId] = useState()
-  console.log(NewsId)
+  
+  
+  
+  const handleAddFavoriteNews=()=>{
 
-  const params = {
-    NewsId: id 
-  }
+
+    try {
+     
+    setSave(true)
+
+  
+     
+    const params = {
+   NewsId: id 
+ }
+
+ const  addFavoriteNew = postFavoriteNews(params)
+ console.log(addFavoriteNew)
+      toast.success('با موفقیت انجام شد.', {
+        theme: "colored",
+      });
+    } catch (error) {
+      toast.error('خطا در انجام عملیات', {
+        theme: "colored",
+      });
+    }
+
+
+}
+
+
+  
+  
+  
+
+
+
+  const handleRemoveFavoriteNews=(deleteFavorite)=>{
+    
+    try {
+     
+    
+    setSave(false)
+
+   
+  
+
+
+    const params={
+      deleteEntityId:deleteFavorite
+    }
+
+    console.log(deleteFavorite)
+   
+
+  const  deleteFavoriteNew = deleteFavoriteNews(params)
+  console.log(deleteFavoriteNew)
+      toast.success('دوره به علاقه‌مندی‌ها اضافه شد.', {
+        theme: "colored",
+      });
+    } catch (error) {
+      toast.error('خطا در اضافه کردن به علاقه‌مندی‌ها.', {
+        theme: "colored",
+      });
+    }
+    
+
 
 
     
-  const  addFavoriteNew = postFavoriteNews(params)
-  console.log(addFavoriteNew)
-  
-  
-  // if(addFavoriteNew.){
 
-  // }
+
+  
+  }
+
+
+
+  useEffect(() => {
+ 
+
+    if(save){
+      handleAddFavoriteNews();
+      
+      }
+
+
+      else{
+
+        handleRemoveFavoriteNews(articleDetail.data?.detailsNewsDto?.currentUserFavoriteId)
+
+      }
+  
+  }, [save]);
+ 
+  
+  
 
   const [loading, setLoading] = useState(true)
   useEffect(() => {
@@ -252,10 +334,19 @@ const ArticleDetail = () => {
 
               <svg
                 width="18"
-              onClick={()=>(setSave(!save),setNewsId(id))}
+              onClick={()=>{
+                if(save==false){
+                  setSave(true)
+                }
+                else if(save==true){
+                  setSave(false)
+
+                  
+                }
+              }}
               
                 className={`  dark:stroke-secondary  max-2xl:w-[16px] h-[18px]  max-xl:h-[16px] max-xl:w-[14px] stroke-primary
-                  ${save ? "  fill-primary dark:fill-secondary" :" " }` }
+                  ${save ? " fill-primary dark:fill-secondary" :" " }` }
                 height="20"
                 viewBox="0 0 18 20"
                 fill="none"
@@ -272,12 +363,12 @@ const ArticleDetail = () => {
             </div>
           </motion.div>
           {/* description section */}
-          <ArticleDescription />
+          <ArticleDescription id={id} currentUserIsLike={articleDetail.data?.detailsNewsDto?.currentUserIsLike} />
   {/* comment section */}
 
           <div className="">
             <h4 className="mark mt-5 max-lg:mt-1 max-xl:text-[23px]  dark:text-slate-300   ">{t("comments")}</h4>
-            <NewComment newsId={id}/>
+            {/* <NewComment newsId={id}/> */}
           </div>
       </div>
 

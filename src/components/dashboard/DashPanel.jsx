@@ -15,8 +15,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { handleToken } from '../../core/redux/slices/QueryState/TokenSlice'
 
 
-
-
+import { FaRobot } from "react-icons/fa6";
 
 
 const DashPanel = () => {
@@ -24,7 +23,6 @@ const DashPanel = () => {
 
   
     const userProfile = useUserProfile()
-    console.log(userProfile)
   
 
 
@@ -84,11 +82,22 @@ const DashPanel = () => {
             icon:<svg width="16" height="18" viewBox="0 0 15 17" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M12.3939 0.907107C13.3564 1.01911 14.0625 1.84948 14.0625 2.81898V16.3754L7.5 13.0941L0.9375 16.3754V2.81898C0.9375 1.84948 1.64275 1.01911 2.60613 0.907107C5.85779 0.529662 9.14221 0.529662 12.3939 0.907107Z" className='fill-darkgreen'/>
             </svg>,
-            title:"علاقه مندی ها",
+            title:"دوره های مورد علاقه",
             link:"/stdFavorite",
             isOpen:false,
-        },{
+        }
+
+        ,{
             id:7,
+            icon:<svg width="16" height="18" viewBox="0 0 15 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12.3939 0.907107C13.3564 1.01911 14.0625 1.84948 14.0625 2.81898V16.3754L7.5 13.0941L0.9375 16.3754V2.81898C0.9375 1.84948 1.64275 1.01911 2.60613 0.907107C5.85779 0.529662 9.14221 0.529662 12.3939 0.907107Z" className='fill-darkgreen'/>
+            </svg>,
+            title:"اخبار مورد علاقه",
+            link:"/stdFavoriteNews",
+            isOpen:false,
+        }
+        ,{
+            id:8,
             icon:<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M9.99957 0.145508C8.45847 0.145508 7.20551 0.666119 6.11273 1.23226C5.78251 1.40333 5.47575 1.57256 5.18262 1.73427C4.46537 2.12994 3.82962 2.48062 3.13152 2.70337C2.7215 2.83418 2.3583 2.95006 2.10078 3.05097C1.8584 3.14595 1.57034 3.27611 1.36595 3.50325C1.18236 3.70729 1.08805 3.93635 1.02551 4.15547C0.968745 4.35436 0.920216 4.62363 0.873668 4.88197C-0.261113 11.1755 2.2203 17.1378 8.2799 19.4577C8.87546 19.6858 9.31418 19.8538 10.0026 19.8538C10.6911 19.8538 11.1297 19.6858 11.7253 19.4577C17.7847 17.1377 20.2637 11.1752 19.1286 4.88192C19.082 4.62356 19.0334 4.35423 18.9767 4.15532C18.9141 3.93619 18.8197 3.7071 18.6361 3.50306C18.4317 3.27591 18.1437 3.14579 17.9012 3.05085C17.6437 2.94997 17.2806 2.83416 16.8705 2.70341C16.1721 2.48066 15.5359 2.1299 14.818 1.73417C14.5248 1.5725 14.2178 1.40327 13.8876 1.23225C12.7942 0.666129 11.5408 0.145508 9.99957 0.145508ZM7.70882 6.96322V7.93643C7.63995 7.9573 7.57153 7.98236 7.50355 8.01252C6.93506 8.26479 6.49783 8.74173 6.27302 9.32317C6.17594 9.57434 6.13863 9.8322 6.12131 10.1041C6.10464 10.3658 6.10464 10.6845 6.10465 11.0666V11.1098C6.10464 11.4918 6.10464 11.8106 6.12131 12.0723C6.13863 12.3442 6.17594 12.6022 6.27302 12.8533C6.49783 13.4348 6.93506 13.9116 7.50355 14.1639C7.75319 14.2747 8.00879 14.3165 8.27055 14.3357C8.51952 14.3538 8.8212 14.3538 9.17448 14.3538H10.8265C11.1799 14.3538 11.4815 14.3538 11.7304 14.3357C11.9922 14.3165 12.2478 14.2747 12.4974 14.1639C13.0659 13.9116 13.5032 13.4348 13.7279 12.8533C13.825 12.6022 13.8623 12.3442 13.8796 12.0723C13.8963 11.8106 13.8963 11.4918 13.8963 11.1098V11.0666C13.8963 10.6845 13.8963 10.3658 13.8796 10.1041C13.8623 9.8322 13.825 9.57434 13.7279 9.32317C13.5032 8.74173 13.0659 8.26479 12.4974 8.01252C12.4295 7.98236 12.361 7.9573 12.2922 7.93643V6.96322C12.2922 5.70585 11.2424 4.72884 10.0005 4.72884C8.75859 4.72884 7.70882 5.70585 7.70882 6.96322ZM10.0005 6.10384C9.47047 6.10384 9.08382 6.51195 9.08382 6.96322V7.8226L9.17448 7.82259H10.8265L10.9172 7.8226V6.96322C10.9172 6.51195 10.5305 6.10384 10.0005 6.10384Z" className='fill-darkgreen'/>
             </svg>,
@@ -96,6 +105,7 @@ const DashPanel = () => {
             link:"/settings",
             isOpen:false,
         },
+       
 
     ]
 
@@ -107,10 +117,9 @@ const DashPanel = () => {
 
     const user = useSelector((state) => state.TokenSlice)
 
-    console.log("user" , user)
      
      const token = user?.token
-     console.log(token)   
+  
 
     const handleLogout = (token)=>{
         localStorage.removeItem("token" , token);    
@@ -127,7 +136,6 @@ const DashPanel = () => {
         if(resposive === false){return true}
         else{return false}
     }
-   console.log(resposive)
 
   return (
     <div className='bg-gray-50 dark:bg-gray-900 py-4 px-5 h-screen
@@ -154,7 +162,7 @@ const DashPanel = () => {
 
             {/* menu  */}
             <div 
-            className={`right-0 bg-primary font-red-500 rounded-r-xl py-[15px] z-40 relative
+            className={`right-0 bg-primary font-red-500 rounded-r-xl py-[8px] z-40 relative
             lg:w-[400px] 
             max-lg:${resposive ? "w-[300px] " : "w-[25px] " } 
             max-sm:w-full max-sm:rounded-t-xl max-sm:rounded-br-none max-sm:${resposive ? "h-[35%]" : "h-2"} 
@@ -171,7 +179,7 @@ const DashPanel = () => {
                     max-sm:mx-0 max-sm:block
                     max-lg:${resposive ? "block" : "hidden"}
                 `}>
-                    <img src={userProfile.data?.currentPictureAddress} onError={ImageErrore} className='w-[130px] h-[130px] rounded-full mx-auto
+                    <img src={userProfile.data?.currentPictureAddress} onError={ImageErrore} className='w-[120px] h-[120px] rounded-full mx-auto
                     max-md:w-[100px] max-md:h-[100px]  max-lg:w-24  max-lg:h-24
                     '/>
                     <p className='mt-4 text-center text-darkgreen font-bold
@@ -181,7 +189,7 @@ const DashPanel = () => {
                 </div>
 
                 {/* menuBar */}
-                <ul className={`my-2 mr-8 
+                <ul className={`my-1 mr-8 
                     max-lg:mr-1 max-lg:my-12  
                     max-md:mr-0 
                     max-sm:${resposive ? "block " : "hidden"}
@@ -189,7 +197,7 @@ const DashPanel = () => {
                     {dashboard.map((items)=>(
                         <NavLink to={items.link}  key={items.id}
                         className={({isActive})=>`${isActive ? "bg-white border-l-4 border-l-orange" :" "}
-                                group flex flex-row-reverse font-semibold text-darkgreen my-2 py-3 px-4
+                                group flex flex-row-reverse font-semibold text-darkgreen my-1 py-2.5 px-4
                                 gap-4 rounded-r-full hover:bg-white hover:border-l-4 hover:border-l-orange
                                 transition-all duration-300 cursor-pointer                        
                                 max-lg:gap-0 
@@ -200,11 +208,12 @@ const DashPanel = () => {
                            
                         >
                             <NavLink to={items.link} 
-                            className=" flex flex-row-reverse gap-1 max-sm:gap-4 w-full"> 
+                            className="relative flex flex-row-reverse gap-1 max-sm:gap-4 w-full"> 
                                 <p className={` w-6 h-6
                                     max-lg:w-5 max-lg:h-5  
                                     max-sm:w-6 max-sm:h-6                         
-                                    `}>{items.icon}
+                                `}>
+                                    {items.icon}
                                  </p>                                
                             <p className={`${resposive? "max-lg:block" : "max-lg:hidden" } `}> {items.title} </p>
 
@@ -217,7 +226,7 @@ const DashPanel = () => {
                 {/* logout section    */}
                 <NavLink
                  onClick={handleLogout}
-                to={"/"} className={`flex flex-row gap-1 text-darkgreen text-sm font-semibold bottom-8 right-12 absolute
+                to={"/"} className={`flex flex-row gap-1 text-darkgreen text-sm font-semibold bottom-5 right-12 absolute
                     max-sm:${resposive ? " " : "hidden"}  
                     max-md:gap-0
                     max-lg:right-6

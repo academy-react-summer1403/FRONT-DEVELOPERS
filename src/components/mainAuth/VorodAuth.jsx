@@ -15,6 +15,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
 import { IoEyeOutline } from 'react-icons/io5';
 import { FaRegEyeSlash } from 'react-icons/fa6';
+import { useForm } from 'react-hook-form';
+import { postQuery } from '../../core/services/mutation/Authmutation';
 
 
 
@@ -22,35 +24,24 @@ import { FaRegEyeSlash } from 'react-icons/fa6';
 
 const VorodAuth = () => {
 
-    
-  const [phoneOrGmail , setPhoneOrGmail] = useState("");
-  const [password , setPassword] = useState("");
-
 
   const navigate = useNavigate()
-
-console.log(phoneOrGmail)
-console.log(password)
-
 
 const dispatch = useDispatch()
 
 
-  const onSubmit =async (e)=>{
-    e.preventDefault();
-    const user = {
-      
-      phoneOrGmail,
-      password,
-      rememberMe:true
-    };
-    console.log(user)
+  const {handleSubmit , register} = useForm()
 
 
-      const data = await http.post("/Sign/Login" , user)
-        console.log(data)
+  const loginQuery = postQuery()
+  console.log(loginQuery)
 
-      const token = data.token
+  const handleCreateSubmit = (user)=>{
+    loginQuery.mutate(user)
+    console.log(handleCreateSubmit)
+  }
+
+      const token = loginQuery?.data?.token
       console.log(token)
   
       
@@ -65,19 +56,19 @@ const dispatch = useDispatch()
 
 
 
-  if(data.success == true){
+  if(token){
 
       toast.success("ورود با موفقیت انجام شد" , {
 theme:"colored"
 })
 navigate("/")
-  }else{
+  }else if(token == ""){
     toast.error("اطلاعات ورودی نادرست است" , {
       theme:"colored"
       })
   }
 
-}
+
     
 
 
@@ -174,7 +165,7 @@ const [showHidePassword, setShowHidePassword] = useState(false);
 
               <form
                 // initialValues={{ title: "", desc: "" }}
-                onSubmit={(values) => onSubmit(values)}
+                onSubmit={handleSubmit(handleCreateSubmit)}
                 validationSchema={validation}
               >
                 <div className='relative flex flex-col gap-4'>
@@ -182,7 +173,7 @@ const [showHidePassword, setShowHidePassword] = useState(false);
                      id="email"
                      name="email"
                      placeholder="ایمیل یا شماره همراه"
-                     onChange={(e)=>setPhoneOrGmail(e.target.value)}
+                     {...register("phoneOrGmail")}
                     className="w-[200px] h-[40px] ml-[50px] outline-none shadow-inner shadow-gray-400 border border-gray-300 rounded-lg bg-gray-100
                     text-[10px] font-semibold text-left indent-[10px] dark:text-black"
                    
@@ -204,7 +195,7 @@ const [showHidePassword, setShowHidePassword] = useState(false);
                     name="password"
                     className="w-[200px] h-[40px] ml-[50px] outline-none shadow-inner shadow-gray-400 border border-gray-300 rounded-lg bg-gray-100
                     text-[10px] font-semibold text-left indent-[10px] dark:text-black"
-                    onChange={(e)=>setPassword(e.target.value)}
+                    {...register("password")}
                     
                     // value={item.title}
                     required
