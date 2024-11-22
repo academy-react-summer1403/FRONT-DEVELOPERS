@@ -7,6 +7,8 @@ import { ImageErrore } from '../../ImageErrore';
 import DateApi from '../../DateApi';
 import NotFound from '../../notFound/NotFound';
 import DashPagination from '../DashPagination';
+import { FiDollarSign } from 'react-icons/fi';
+
 import { useDeleteReserveCourse } from '../../../core/services/mutation/DashboardMutation';
 
 const ReserveMap = ({ search }) => {

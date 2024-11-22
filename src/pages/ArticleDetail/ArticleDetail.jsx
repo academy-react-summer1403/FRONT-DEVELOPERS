@@ -9,7 +9,8 @@ import { useParams } from "react-router-dom";
 import { samecourses, suggestion } from "../CourseDetail/CourseDetail";
 // import { useCommentNews } from "../../core/services/query/CommentQuery";
 import { deleteFavoriteNews, postFavoriteNews } from "../../core/services/DashApi";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from 'react-toastify';
+
 import DateApi from "../../components/DateApi";
 import { useTranslation } from "react-i18next";
 import Related from "../../components/skeleton/detail/Related";
@@ -37,16 +38,30 @@ const ArticleDetail = () => {
   
   const handleAddFavoriteNews=()=>{
 
+
+    try {
+     
     setSave(true)
 
   
      
-     const params = {
-    NewsId: id 
-  }
+    const params = {
+   NewsId: id 
+ }
 
-  const  addFavoriteNew = postFavoriteNews(params)
-  console.log(addFavoriteNew)}
+ const  addFavoriteNew = postFavoriteNews(params)
+ console.log(addFavoriteNew)
+      toast.success('با موفقیت انجام شد.', {
+        theme: "colored",
+      });
+    } catch (error) {
+      toast.error('خطا در انجام عملیات', {
+        theme: "colored",
+      });
+    }
+
+
+}
 
 
   
@@ -56,8 +71,10 @@ const ArticleDetail = () => {
 
 
   const handleRemoveFavoriteNews=(deleteFavorite)=>{
-
-
+    
+    try {
+     
+    
     setSave(false)
 
    
@@ -73,6 +90,21 @@ const ArticleDetail = () => {
 
   const  deleteFavoriteNew = deleteFavoriteNews(params)
   console.log(deleteFavoriteNew)
+      toast.success('دوره به علاقه‌مندی‌ها اضافه شد.', {
+        theme: "colored",
+      });
+    } catch (error) {
+      toast.error('خطا در اضافه کردن به علاقه‌مندی‌ها.', {
+        theme: "colored",
+      });
+    }
+    
+
+
+
+    
+
+
   
   }
 

@@ -19,13 +19,18 @@ const CourseCard = ({courseId,isUserFavorite,isCourseReseve}) => {
     
 
   const handleAddFavorite = (favorite) => {
+
+    try{
   
    const addFavorite = {
       courseId: favorite
     };
 
     const addFavoriteCourse = postFavoriteCourse(addFavorite);
+}catch{
 
+  
+}
   }
 
 
@@ -55,6 +60,9 @@ const CourseCard = ({courseId,isUserFavorite,isCourseReseve}) => {
         handleRemoveFavorite(CourseDetail.data?.userFavoriteId)
       }
 
+
+
+      
 
   
       

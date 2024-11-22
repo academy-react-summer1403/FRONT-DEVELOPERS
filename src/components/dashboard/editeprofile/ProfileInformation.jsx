@@ -45,8 +45,9 @@ const ProfileInformation = () => {
             </div>
 
             <div className='flex flex-row-reverse text-right'>    
-              
-                <p className='text-orange dark:text-amber-400 font-medium w-[90%]'> <span className='text-gray-400 dark:text-white w-42'> آدرس :</span>{JSON.stringify(location)} </p>
+              {/* {JSON.stringify(location)} */}
+                <p className='text-orange dark:text-amber-400 font-medium w-[90%]'> <span className='text-gray-400 dark:text-white w-42'> آدرس :</span>
+                {userProfile.data?.homeAdderess	 ? userProfile.data?.homeAdderess	 :"--" } </p>
 
 
                    

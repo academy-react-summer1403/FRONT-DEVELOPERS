@@ -7,6 +7,7 @@ import { useCourseDash, useCourseDash2, useMyCourses, useReserv} from '../../../
 import DonutBarChart from './DonutBarChart'
 import DateApi from '../../../components/DateApi'
 import { NavLink } from 'react-router-dom'
+import { ImageErrore } from '../../../components/ImageErrore'
 
 import { ImageErrore } from '../../../components/ImageErrore'
 
@@ -39,7 +40,7 @@ const StdDashboard = () => {
 
 
   return (
-    <div className='px-8 py-2 max-lg:px-4 
+    <div className='px-8 py-2 
       max-lg:px-1
       max-sm:px-1
     '>
@@ -144,7 +145,7 @@ const StdDashboard = () => {
               <NavLink to={"/courses-detail/" + data.courseId} style={{boxShadow:"0px 1px 1px 1px rgba(0,0,0,0.1)"}}
               className='relative bg-gray-50 dark:bg-gray-400/40  rounded-md p-2 my-4 flex gap-6'
             >
-              <img className='w-[88px] h-[60px] rounded-[6px]' src={data?.tumbImageAddress ? data?.tumbImageAddress : <ImageErrore/> } onError={ImageErrore}/>
+              <img className='w-[88px] h-[60px] rounded-[6px]' src={data?.tumbImageAddress ? data?.tumbImageAddress : ImageErrore}  onError={ImageErrore}/>
               <div className='absolute right-0 px-2'>
                 <h1 className='right-2 text-teal-900 text-sm'>{data?.title}</h1>
                 <div className='flex flex-row-reverse mt-4'>
@@ -162,7 +163,7 @@ const StdDashboard = () => {
 
           </div>
 
-          <div className='flex text-gray-400 text-[10px] pl-[35%] my-4 gap-2'><IoIosArrowBack className='mt-1'/>مشاهده همه </div>
+          <NavLink to={"/courses"} className='flex text-gray-400 text-[10px] pl-[35%] my-4 gap-2'><IoIosArrowBack className='mt-1'/>مشاهده همه </NavLink>
         </div>
 
         {/* :دوره های در حال برگزاری */}
@@ -175,7 +176,7 @@ const StdDashboard = () => {
                 <NavLink to={"/courses-detail/" + data.courseId} style={{boxShadow:"0px 1px 1px 1px rgba(0,0,0,0.1)"}}
               className='relative bg-gray-50 dark:bg-gray-400/40  rounded-md p-2 my-4 flex gap-6'
             >
-               <img className='w-[88px] h-[60px] rounded-[6px]' src={data?.tumbImageAddress ? data?.tumbImageAddress : <ImageErrore/> } onError={ImageErrore} />
+               <img className='w-[88px] h-[60px] rounded-[6px]' src={data?.tumbImageAddress ? data?.tumbImageAddress : ImageErrore}  onError={ImageErrore}/>
               <div className='absolute right-0 px-2'>
                 <h1 className='absolute right-2 text-teal-900 text-sm'>{data?.title}</h1>
                 <div className='flex flex-row-reverse mt-10'>
@@ -191,7 +192,7 @@ const StdDashboard = () => {
 
           </div>
 
-          <div className='flex text-gray-400 text-[10px] pl-[40%] my-4 gap-2'><IoIosArrowBack className='mt-1'/>مشاهده همه </div>
+          <NavLink to={"/courses"} className='flex text-gray-400 text-[10px] pl-[40%] my-4 gap-2'><IoIosArrowBack className='mt-1'/>مشاهده همه </NavLink>
         </div>
 
       </div>    
