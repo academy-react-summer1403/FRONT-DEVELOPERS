@@ -15,10 +15,44 @@ import { SliderRight } from "../../utility/animation";
 import Pagination from "../../components/Pagination";
 import { useTranslation } from "react-i18next";
 import NotFound from "../../components/notFound/NotFound";
-import FilterNews from "../../components/articlesnews/fillter/FilterNews";
 import NewsCardLoading from "../../components/skeleton/NewsCardLoading";
 
+import { BiSolidNews } from "react-icons/bi";
+import { RiTestTubeFill } from "react-icons/ri";
+import { TbBrandReactNative } from "react-icons/tb";
+import { Tooltip } from "react-tooltip";
+import { MdOutlinePlaylistRemove } from "react-icons/md";
+
 const ArticlesNews = () => {
+
+  const filter=[
+    {
+      id:1,
+      tool1:"ری اکت",
+      tool2:"react",
+      icon:<TbBrandReactNative className='w-6 h-6 text-darkgreen'/>,
+    },
+    {
+      id:2,
+      tool1:"تست",
+      tool2:"test",
+      icon:<RiTestTubeFill className='w-6 h-6 text-darkgreen'/>,
+    },{
+      id:3,
+      tool1:"ui ux",
+      tool2:"interface",
+      icon:<svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M1.5625 7.42187C1.5625 6.34271 2.4375 5.46875 3.51562 5.46875H9.76562C10.8448 5.46875 11.7188 6.34375 11.7188 7.42187V11.3281C11.7188 12.4073 10.8438 13.2812 9.76562 13.2812H3.51562C2.99762 13.2812 2.50084 13.0755 2.13456 12.7092C1.76828 12.3429 1.5625 11.8461 1.5625 11.3281V7.42187ZM14.0625 8.98437C14.0625 7.90521 14.9375 7.03125 16.0156 7.03125H21.4844C22.5625 7.03125 23.4375 7.90625 23.4375 8.98437V17.5781C23.4375 18.6562 22.5625 19.5312 21.4844 19.5312H16.0156C15.4976 19.5312 15.0008 19.3255 14.6346 18.9592C14.2683 18.5929 14.0625 18.0961 14.0625 17.5781V8.98437ZM3.125 16.7969C3.125 15.7177 4 14.8438 5.07812 14.8438H10.5469C11.626 14.8438 12.5 15.7188 12.5 16.7969V19.1406C12.5 20.2187 11.625 21.0937 10.5469 21.0937H5.07812C4.56012 21.0937 4.06334 20.888 3.69706 20.5217C3.33078 20.1554 3.125 19.6586 3.125 19.1406V16.7969Z" className='fill-darkgreen'/>
+      </svg>,
+    },{
+      id:4,
+      tool1:"حدف",
+      tool2:"فیلترها",
+      icon:<MdOutlinePlaylistRemove  className='w-7 h-7 text-darkgreen'/>,
+    },
+
+  ]
+
   const { t } = useTranslation();
   const [sort, setSort] = useState();
   const [page, setPage] = useState(1);
@@ -41,6 +75,17 @@ const ArticlesNews = () => {
   };
 
   const categories = [t("newest"), t("popular")];
+
+  // Fillter : 
+  const [isfillter, setIsfillter] = useState([])
+  // console.log("isfillter" , isfillter)
+
+  // const filterData = newsDataQuery.data?.news.filter((f) => {
+  //   const matchesCategory = isfillter.length === 0 || f.miniDescribe.includes(isfillter[0] , isfillter[1]);
+  //   return matchesCategory;
+  // });
+  // console.log(filterData)
+
 
 
   const [loading, setLoading] = useState(true)
@@ -197,13 +242,21 @@ const ArticlesNews = () => {
             </div>
 
             {/* filter  */}
-            <div  className='relative max-sm:grid max-sm:justify-items-center'>
-          
-                  <FilterNews  />
+            <div  className='relative max-sm:grid max-sm:justify-items-center'>          
+              <div className='grid grid-cols-4 gap-4 mx-auto justify-items-center 
+                px-5 py-3 dark:bg-gray-700/70 rounded-full shadow-sm shadow-gray-500 outline-none indent-0
+                dark:text-white text-gray-900 hover:bg-gray-50 cursor-pointer text-lg
+              '>
+                  {filter.map((item )=>(
+                      <div key={item.id} className={`relative flex ${isfillter[0] === item.tool1 ? "border-b border-darkgreen":"" }`} data-tooltip-id="tooltip" data-tooltip-content={`${item.tool1}  ${item.tool2}`}>
+                          <p onClick={()=>item.tool1 === "حذف" ? setIsfillter([null]): setIsfillter([item.tool1, item.tool2])} >{item.icon}</p><Tooltip id="tooltip" />                         
+                      </div>
+                  ))}
+              </div>
             </div>
           </div>
 
-          {/* carde  */}
+          {/* card */}
           <motion.div
             layout
             className="grid grid-cols-3 my-8 gap-4 
