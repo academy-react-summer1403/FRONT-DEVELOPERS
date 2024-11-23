@@ -119,7 +119,7 @@ const EditeProfileForm = () => {
                         }}
                         className="rounded-md bg-gray-50 dark:bg-white text-darkgreen h-[150px] w-full text-right font-medium focus:outline outline-primary outline-[1.5px]"
                       />
-                      <ErrorMessage name="FName"  component="div"  className="text-red-500 text-xs mt-1" />
+                      <ErrorMessage name="UserAbout"  component="div"  className="text-red-500 text-xs mt-1" />
 
                     </label>
                   </div>
@@ -153,7 +153,7 @@ const EditeProfileForm = () => {
                         }}
                         className="px-4 pt-1 rounded-md bg-gray-50 dark:bg-white leading-8 text-darkgreen placeholder-md text-right placeholder-darkgreen/30 font-medium focus:outline outline-primary outline-[1.5px]"
                       />
-                      <ErrorMessage name="FName"  component="div"  className="text-red-500 text-xs mt-1" />
+                      <ErrorMessage name="LName"  component="div"  className="text-red-500 text-xs mt-1" />
 
                     </label>
                   </li>
@@ -199,7 +199,7 @@ const EditeProfileForm = () => {
                         }}
                         className="px-4 pt-1 rounded-md bg-gray-50 dark:bg-white leading-8 text-darkgreen placeholder-sm text-right placeholder-darkgreen/30 font-medium focus:outline outline-primary outline-[1.5px]"
                       />
-                      <ErrorMessage name="FName"  component="div"  className="text-red-500 text-xs mt-1" />
+                      <ErrorMessage name="HomeAdderess"  component="div"  className="text-red-500 text-xs mt-1" />
 
                     </label>
 

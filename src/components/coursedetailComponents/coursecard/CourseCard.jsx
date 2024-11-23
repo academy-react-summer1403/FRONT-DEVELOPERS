@@ -26,8 +26,16 @@ const CourseCard = ({courseId,isUserFavorite,isCourseReseve}) => {
       courseId: favorite
     };
 
+    toast.success('دوره به علاقه‌مندی‌ها اضافه شد.', {
+      theme: "colored",
+    });
+
     const addFavoriteCourse = postFavoriteCourse(addFavorite);
-}catch{
+}catch (error) {
+  toast.error('خطا در اضافه کردن به علاقه‌مندی‌ها.', {
+    theme: "colored",
+  });
+
 
   
 }
@@ -36,12 +44,26 @@ const CourseCard = ({courseId,isUserFavorite,isCourseReseve}) => {
 
 
   const handleRemoveFavorite = (userFavoriteId) => {
+
+    try{
   
 
 
     const CourseFavoriteId=new FormData()
    CourseFavoriteId.append('CourseFavoriteId',userFavoriteId)
     const deleteCourseFavorite=deleteFavoriteCourse(CourseFavoriteId)
+    toast.success('دوره از علاقه‌مندی‌ها حذف شد.', {
+      theme: "colored",
+    });
+  
+  }
+
+  catch (error) {
+    toast.error('خطا در حذف از  علاقه‌مندی‌ها.', {
+      theme: "colored",
+    });
+
+  }
     
 
   }
@@ -84,12 +106,26 @@ const CourseCard = ({courseId,isUserFavorite,isCourseReseve}) => {
 
 
   const handleReserveCourse=(reserv)=>{
+
+    try{
      setIsReseve(1)
   const params = {
     courseId : reserv
   }
 
   const  reservComment = postReserv(params)
+  toast.success('دوره رزرو شد.', {
+    theme: "colored",
+  });
+
+
+}
+  catch(error){
+    toast.error('دوره رزرو نشد.', {
+      theme: "colored",
+    });
+
+  }
   }
 
 

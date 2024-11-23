@@ -67,7 +67,8 @@ const HandleDeleteReserve= (reserveId)=>{
                   <IoEyeOutline className="text-primary dark:text-emerald-800 mt-4 w-5 h-5 cursor-pointer" />
                 </NavLink>
               </li>
-              <li className="col-1 my-5 text-black dark:text-white"> {item?.accept == true ? "تایید شده " : "در انتظار تایید"} </li>
+              <li className="col-1 my-5 text-black dark:text-white"> {item?.accept == true ? <NavLink  to={`/payment/${item?.courseId}`}
+              >$</NavLink> : "در انتظار تایید"} </li>
               <li className="col-1 my-5"> -- </li>
               <li className="col-1 my-5">
                 {' '}
