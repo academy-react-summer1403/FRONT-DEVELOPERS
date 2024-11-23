@@ -33,7 +33,6 @@ const Filter = () => {
     },
   ]);
 
-
   const [level, setLevel] = useState([
     {
       id: 1,

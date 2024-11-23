@@ -85,9 +85,9 @@ export const getUserProfile = async () => {
   };
 
 
-  export const postFavoriteCourse = async ( addFavorite ) => {
-    const data = await http.post("/Course/AddCourseFavorite" , addFavorite )
-    // console.log(data);
+  export const postFavoriteCourse = async ( params ) => {
+    const data = await http.post("/Course/AddCourseFavorite" ,  params)
+    console.log(data);
     return data;
 
     
@@ -265,8 +265,8 @@ export const getUserProfile = async () => {
   }
 
   export const deleteMyCoursesComments = async (courseCommentId) => {
-    const response = await http.delete(`/Course/DeleteCourseComment?CourseCommandId=${courseCommentId}`);
+    const data = await http.delete(`/Course/DeleteCourseComment` , { data:courseCommentId});
 
-    console.log("response" ,response);
-    return response;
+    console.log("data" ,data);
+    return data;
 };

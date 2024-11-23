@@ -15,16 +15,17 @@ const StdInformation = () => {
 
   return (
     <div style={{boxShadow:"0px 1px 1px 1px rgba(0,0,0,0.1)"}}
-     className='relative rounded-xl mx-10 my-16 p-8  min-w-[400px] bg-primary/5 
+     className='relative rounded-xl mx-10 mt-16 p-8  min-w-[400px] bg-primary/5 
       max-lg:px-1
-      max-sm:px-1
+      max-sm:px-0
+      max-sm:mx-0
     '>
-       <img src={userProfile.data?.currentPictureAddress} className='absolute right-8 top-[-70px] w-[100px] h-[100px] rounded-full'/>
+       <img src={userProfile.data?.currentPictureAddress} className='absolute right-10 top-[-50px] w-[80px] h-[80px] rounded-full'/>
   
 
       {/* contenet:  */}
       <div className='grid gap-6'> 
-        <ProfileInformation/>       
+        <ProfileInformation />       
 
         {/* edite:  */}
         <button className='flex flex-row-reverse px-4 py-0.5 mx-auto border border-primary dark:bg-primary rounded-full  text-darkgreen'>

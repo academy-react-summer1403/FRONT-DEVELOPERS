@@ -10,8 +10,6 @@ import { NavLink } from 'react-router-dom'
 import { ImageErrore } from '../../../components/ImageErrore'
 
 
-
-
 const StdDashboard = () => {
 
 

@@ -7,35 +7,31 @@ import { ImageErrore } from '../../ImageErrore';
 import DateApi from '../../DateApi';
 import NotFound from '../../notFound/NotFound';
 import DashPagination from '../DashPagination';
-import { FiDollarSign } from 'react-icons/fi';
 
-import { useDeleteReserveCourse } from '../../../core/services/mutation/DashboardMutation';
+import {   deleteReserveCourse } from '../../../core/services/DashApi';
 
 const ReserveMap = ({ search }) => {
   const Reserv = useReserv();
 
   // States for Pagination
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 5; // Number of items per page
+  const itemsPerPage = 5; 
 
+ 
 
-const deleteReserveMyCourse = useDeleteReserveCourse();
-
-const HandleDeleteReserve= (reserveId)=>{
-  const params = {
-    "id": reserveId,
-  };
-  if(params){
-    deleteReserveMyCourse.mutate(params)
+  const HandleDeleteReserve= (reserveId)=>{
+    const params = {
+      "id": reserveId,
+    }
+    return deleteReserveCourse(params)
   }
-}
 
   // Filter Data Based on Search
   const filteredData = Reserv.data?.filter((f) =>
     search.trim() === '' || f.courseName.toLowerCase().includes(search.toLowerCase())
   );
 
-  // Paginated Data
+  // Pagination
   const paginatedData = filteredData?.slice(
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
