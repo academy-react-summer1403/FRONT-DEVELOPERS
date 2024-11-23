@@ -1,9 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import { useNavigate } from "react-router-dom";
 import DatePicker from "react-multi-date-picker";
-import persian from "react-date-object/calendars/persian";
-import persian_fa from "react-date-object/locales/persian_fa";
-import { CiCircleRemove } from "react-icons/ci";
 import editeprof from "../../../assets/dashboard/edite2.svg";
 import save from "../../../assets/dashboard/save.svg";
 import { putUserInfo } from "../../../core/services/DashApi";
