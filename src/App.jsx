@@ -91,7 +91,7 @@ const  PublicRoutes = [
           element: <SignAuth />,
         },
         {
-          path: "/auth/2",
+          path: "/auth/2/:phoneNumber",
           element: <VarificationAuth />,
         },
         {
@@ -221,7 +221,7 @@ const  PrivateRoutes = [
   element: <Payment1/>,
 },
 {
-  path: "/paymentall/:courseId",
+  path: "/paymentall/:paymentId",
   element: <Paymentall/>,
 },  {
   path:"/*",

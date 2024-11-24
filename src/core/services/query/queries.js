@@ -16,6 +16,7 @@ import {
   TeacherCourses,
   TypeCourses,
 } from "../getApi";
+import { StudentCoursePayDetail } from "../level2api";
 
 
 export function useNewsData(params , page,rows ) {
@@ -122,4 +123,13 @@ export function useLandingReport(){
   })
 }
 
+export function useStudentCoursePayDetail(Id){
+  return useQuery({
+    queryKey:["paymentdetail" ],
+    queryFn:()=>StudentCoursePayDetail(Id)
+  })
+}
+
+
+StudentCoursePayDetail
 

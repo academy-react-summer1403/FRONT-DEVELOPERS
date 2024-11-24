@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useCourseId } from '../../../core/services/query/queries';
 import { postReserv } from '../../../core/services/DashApi';
-import 'react-toastify/dist/ReactToastify.css';
+
 import { useDeleteFavoriteCourse, usePostFavoriteCourse } from '../../../core/services/mutation/LikeArticle';
+import { toast } from "react-toastify";
 
 
 const CourseCard = ({courseId,isUserFavorite,isCourseReseve}) => {
@@ -13,6 +14,7 @@ const CourseCard = ({courseId,isUserFavorite,isCourseReseve}) => {
 
  const [save,setSave]=useState(isUserFavorite? true : false)
  const [isReserve,setIsReseve]=useState(isCourseReseve)
+ console.log(isCourseReseve)
  
 const [favorite, setFavorite] = useState(CourseDetail.data?.isUserFavorite)
 
@@ -44,14 +46,41 @@ const [favorite, setFavorite] = useState(CourseDetail.data?.isUserFavorite)
 
   const [reserve , setReserve] = useState(false)
   
-  const handleReserveCourse=(reserv)=>{
-     setIsReseve(1)
-  const params = {
-    courseId : reserv
-  }
 
-  const  reservComment = postReserv(params)
-  }
+  const handleReserveCourse=(reserv)=>{
+   
+    setIsReseve(1)
+ const params = {
+   courseId : reserv
+ }
+ const  reservComment = postReserv(params)
+
+
+ }
+
+
+ useEffect(()=>{
+
+
+try{
+   if(reserve){
+
+     handleReserveCourse(courseId)
+      toast.success("اطلاعات شما با موفقیت بروزرسانی شد.", {
+        theme: "colored",
+      });
+    }
+
+    
+
+   }catch (error) {
+      toast.error("بروزرسانی اطلاعات با خطا مواجه شد. دوباره امتحان کنید.", {
+        theme: "colored",
+      });
+      console.error("Error updating user info:", error);
+    }
+ },[reserve])
+
 
 
   useEffect(()=>{
@@ -168,7 +197,7 @@ const [favorite, setFavorite] = useState(CourseDetail.data?.isUserFavorite)
                 
           <button
           
-            onClick={()=>setReserve(true)}
+            onClick={()=>{reserve ?"":setReserve(true)}}
           className="bg-secondary/90 max-lg:text-[16px]   max-md:mx-auto  max-xl:w-[280px] max-xl:h-[40px] max-lg:ml-[0] max-xl:ml-[10%] ml-[18%] max-xl:mt-[15px] mt-[25px] flex gap-3 items-center justify-center  w-[347px] h-[55px] text-white rounded-[9px] font-bold max-xl:text-[19px] text-[22px]  ">
            <h1 className={`${isReserve==1 ? "hidden" :"block"}`}> !شرکت در دوره</h1>
            <h1 className={`${isReserve==1  ? "block" :"hidden"}`}> قبلا شرکت کردید!</h1>

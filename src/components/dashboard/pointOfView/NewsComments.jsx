@@ -30,10 +30,10 @@ const NewsComments = ({paginatedNewsData, setCurrentNewsPage,totalNewsPages , cu
             </NavLink>
             </li> 
 
-            <li className='col-1 my-5'><DateApi dateapi={item.insertDate}/></li>
-            <li className="col-1 my-5">{item.accept == true ? "تایید شده" : "تایید نشده"}</li>
+            <li className='col-1 my-5'><DateApi dateapi={item?.insertDate}/></li>
+            <li className="col-1 my-5">{item?.accept == true ? "تایید شده" : "تایید نشده"}</li>
             <li className='col-1 my-5'> اخبار </li>
-            <li className='col-1 my-5'>{item.courseTitle}</li>
+            <li className='col-1 my-5'>{item?.courseTitle}</li>
 
             <li className='col-1 leading-[50px]'>
                #00{i}

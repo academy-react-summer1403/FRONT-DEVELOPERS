@@ -26,7 +26,7 @@ export const StudentAddPeyment = async (formData) => {
 
 export const StudentCoursePayDetail = async (Id) => {
 
-    const data = await http.get(`/CoursePayment/${Id}`);
+    const data = await http.get(`/CoursePayment/StudentUserPayList?CourseId=${Id}`);
     console.log(data);
     return data;
  
@@ -34,7 +34,7 @@ export const StudentCoursePayDetail = async (Id) => {
 
 
 
-export const addPayImage = async (imageFile  ) => {
+export const addPayImage = async (imageFile) => {
   const data = await http.post(`/CoursePayment/AddPeymentImage` , imageFile )
 
   console.log(data);

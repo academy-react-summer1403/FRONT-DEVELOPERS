@@ -8,7 +8,7 @@ import more from "../../assets/landing/more course 2.png";
 import * as yup from "yup";
 // import ReactVerificationInput from "react-verification-input-aria";
 import "react-verification-input-aria/lib/style.css";
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate, useParams } from 'react-router-dom';
 import {   postCode } from '../../core/services/authApi';
 import OTPInput from 'react-otp-input';
 import 'react-toastify/dist/ReactToastify.css';
@@ -18,9 +18,11 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const VarificationAuth = () => {
 
-
+const {phoneNumber} = useParams()
+console.log(phoneNumber)
 
  const [verifyCode , setVerifyCode] = useState("");
+
 
 
   const navigate = useNavigate()
@@ -30,9 +32,9 @@ console.log(verifyCode)
   const onSubmit = (e)=>{
     e.preventDefault();
     const code = {
-      verifyCode,
-      phoneNumber: "09926695494",
-      phoneNumber:"09057048345"
+      verifyCode : verifyCode,
+      phoneNumber: phoneNumber,
+
     };
     console.log(code)
 
