@@ -31,9 +31,9 @@ const FavoriteMap = ({search , category} ) => {
   
    // States for Pagination
    const [currentPage, setCurrentPage] = useState(1);
-   const itemsPerPage = 4; // Number of items per page
+   const itemsPerPage = 5; 
  
-   // Filter Data Based on Search and Category
+   // Filter Search and Category
    const filteredData = favoriteCourse.data?.favoriteCourseDto?.filter((f) => {
      const matchesSearch = search.trim() === '' || f.courseTitle.toLowerCase().includes(search.toLowerCase());
      const matchesCategory = category === 'همه' || f.levelName.includes(category);
@@ -63,7 +63,7 @@ const FavoriteMap = ({search , category} ) => {
        {paginatedData?.map((item , i) => (                        
 
               <ul  style={{boxShadow:" 0px 1px 1px 0px rgba(0,0,0,0.1)"}}
-              className="relative grid grid-cols-6 my-2 rounded-md text-[10px] text-center 
+              className="relative grid grid-cols-6 my-3 rounded-md text-[10px] text-center 
                 text-gray-600 dark:text-white font-medium justify-items-center "
               >
                 <li className='col-1 my-2 flex gap-2'>

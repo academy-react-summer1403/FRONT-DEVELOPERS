@@ -49,17 +49,13 @@ const ListMap = ({ search, category }) => {
             >
               <li className="col-1 flex gap-6">
                 <NavLink to={`/courses-detail/${item?.courseId}`} className="col-1">
-                  <IoEyeOutline className="text-orange mt-4 w-5 h-5 cursor-pointer max-md:mt-2 max-md:ml-2" />
+                  <IoEyeOutline className="text-orange mt-4 ml-5 w-5 h-5 cursor-pointer max-md:mt-2 max-md:ml-2" />
                 </NavLink>
 
-                <NavLink to={`/payment/${item?.courseId}`}>
-                  <FiDollarSign
-                    className="text-green mt-4 w-4 h-4 cursor-pointer -ml-4 max-md:mt-2 max-md:ml-2"
-                  />
-                </NavLink>
+          
               </li>
 
-              <li className="col-1 my-5 mr-4 ">{item?.paymentStatus}</li>
+              <li className="col-1 my-5 ml-4 "> {item?.paymentStatus}</li>
               <li className="col-1 my-5">{item?.cost}</li>
               <li className="col-1 my-5">
                 <DateApi dateapi={item?.lastUpdate} />

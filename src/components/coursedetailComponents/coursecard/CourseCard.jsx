@@ -1,78 +1,43 @@
 import React, { useEffect, useState } from 'react'
-import { motion } from 'framer-motion';
 import { useCourseId } from '../../../core/services/query/queries';
-import { deleteFavoriteCourse, postFavoriteCourse, postReserv } from '../../../core/services/DashApi';
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { postReserv } from '../../../core/services/DashApi';
+
+import { useDeleteFavoriteCourse, usePostFavoriteCourse } from '../../../core/services/mutation/LikeArticle';
+import { toast } from "react-toastify";
 
 
 const CourseCard = ({courseId,isUserFavorite,isCourseReseve}) => {
 
 
 
-   const CourseDetail = useCourseId(courseId);
+  const CourseDetail = useCourseId(courseId);
+
  const [save,setSave]=useState(isUserFavorite? true : false)
  const [isReserve,setIsReseve]=useState(isCourseReseve)
- console.log(isReserve)
+ console.log(isCourseReseve)
  
- 
-    
+const [favorite, setFavorite] = useState(CourseDetail.data?.isUserFavorite)
 
-  const handleAddFavorite = (favorite) => {
 
-    try{
-  
-   const addFavorite = {
-      courseId: favorite
-    };
+ const addFavoriteCourse = usePostFavoriteCourse();
 
-    const addFavoriteCourse = postFavoriteCourse(addFavorite);
-}catch{
-
-  
-}
+  const handleAddFavorite = (favorite) => {  
+      const params = {
+        "courseId": favorite
+      };
+      addFavoriteCourse.mutate(params)
+     
   }
 
 
+  const deleteFavoriteCourse = useDeleteFavoriteCourse();
 
   const handleRemoveFavorite = (userFavoriteId) => {
-  
-
-
     const CourseFavoriteId=new FormData()
-   CourseFavoriteId.append('CourseFavoriteId',userFavoriteId)
-    const deleteCourseFavorite=deleteFavoriteCourse(CourseFavoriteId)
-    
-
+    CourseFavoriteId.append('CourseFavoriteId',userFavoriteId)
+    deleteFavoriteCourse.mutate(CourseFavoriteId)
   }
   
-  
-  useEffect(() => {
- 
-
-    if(save){
-      
-      handleAddFavorite(courseId)
-      }
-
-
-      else{
-        handleRemoveFavorite(CourseDetail.data?.userFavoriteId)
-      }
-
-
-
-      
-
-  
-      
-  
-  }, [save]);
-
-
-
-  
-
  
 
  
@@ -82,15 +47,40 @@ const CourseCard = ({courseId,isUserFavorite,isCourseReseve}) => {
   const [reserve , setReserve] = useState(false)
   
 
-
   const handleReserveCourse=(reserv)=>{
-     setIsReseve(1)
-  const params = {
-    courseId : reserv
-  }
+   
+    setIsReseve(1)
+ const params = {
+   courseId : reserv
+ }
+ const  reservComment = postReserv(params)
 
-  const  reservComment = postReserv(params)
-  }
+
+ }
+
+
+ useEffect(()=>{
+
+
+try{
+   if(reserve){
+
+     handleReserveCourse(courseId)
+      toast.success("اطلاعات شما با موفقیت بروزرسانی شد.", {
+        theme: "colored",
+      });
+    }
+
+    
+
+   }catch (error) {
+      toast.error("بروزرسانی اطلاعات با خطا مواجه شد. دوباره امتحان کنید.", {
+        theme: "colored",
+      });
+      console.error("Error updating user info:", error);
+    }
+ },[reserve])
+
 
 
   useEffect(()=>{
@@ -114,9 +104,9 @@ const CourseCard = ({courseId,isUserFavorite,isCourseReseve}) => {
             bg-[#FFFFFF]  rounded-[15px]  h-[395px]"
     >
           <div className=" flex justify-between  relative"> 
-            <svg   onClick={() =>setSave(!save)}
+            <svg   onClick={() =>( favorite === true? handleRemoveFavorite( CourseDetail.data?.userFavoriteId) : handleAddFavorite( CourseDetail.data?.courseId) , setSave(!save))}
               width="27"
-              className={`h-[20px] stroke-primary dark:stroke-orange 
+              className={`h-[20px] stroke-primary dark:stroke-orange cursor-pointer
                 ${ save? "fill-primary  dark:fill-orange" : "  "}` }
               height="27"
               viewBox="0 0 27 27"
@@ -207,7 +197,7 @@ const CourseCard = ({courseId,isUserFavorite,isCourseReseve}) => {
                 
           <button
           
-            onClick={()=>setReserve(true)}
+            onClick={()=>{reserve ?"":setReserve(true)}}
           className="bg-secondary/90 max-lg:text-[16px]   max-md:mx-auto  max-xl:w-[280px] max-xl:h-[40px] max-lg:ml-[0] max-xl:ml-[10%] ml-[18%] max-xl:mt-[15px] mt-[25px] flex gap-3 items-center justify-center  w-[347px] h-[55px] text-white rounded-[9px] font-bold max-xl:text-[19px] text-[22px]  ">
            <h1 className={`${isReserve==1 ? "hidden" :"block"}`}> !شرکت در دوره</h1>
            <h1 className={`${isReserve==1  ? "block" :"hidden"}`}> قبلا شرکت کردید!</h1>

@@ -43,8 +43,8 @@ const Payment = () => {
   
   return (
     <div>
-      {/* نمایش توست‌ها فقط در همین صفحه */}
-      <ToastContainer /> {/* قرار دادن ToastContainer برای نمایش پیغام‌ها */}
+    
+      <ToastContainer /> 
 
       <div className="relative w-[550px] rounded-2xl mt-14 bg-[#fcfaf5cb] shadow-md h-[350px] m-auto pt-20">
         <div className="w-[350px] flex mx-auto flex-wrap">

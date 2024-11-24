@@ -7,35 +7,32 @@ import { ImageErrore } from '../../ImageErrore';
 import DateApi from '../../DateApi';
 import NotFound from '../../notFound/NotFound';
 import DashPagination from '../DashPagination';
-import { FiDollarSign } from 'react-icons/fi';
 
-import { useDeleteReserveCourse } from '../../../core/services/mutation/DashboardMutation';
+import {   deleteReserveCourse } from '../../../core/services/DashApi';
+import { FiDollarSign } from 'react-icons/fi';
 
 const ReserveMap = ({ search }) => {
   const Reserv = useReserv();
 
   // States for Pagination
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 5; // Number of items per page
+  const itemsPerPage = 5; 
 
+ 
 
-const deleteReserveMyCourse = useDeleteReserveCourse();
-
-const HandleDeleteReserve= (reserveId)=>{
-  const params = {
-    "id": reserveId,
-  };
-  if(params){
-    deleteReserveMyCourse.mutate(params)
+  const HandleDeleteReserve= (reserveId)=>{
+    const params = {
+      "id": reserveId,
+    }
+    return deleteReserveCourse(params)
   }
-}
 
   // Filter Data Based on Search
   const filteredData = Reserv.data?.filter((f) =>
     search.trim() === '' || f.courseName.toLowerCase().includes(search.toLowerCase())
   );
 
-  // Paginated Data
+  // Pagination
   const paginatedData = filteredData?.slice(
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
@@ -55,20 +52,34 @@ const HandleDeleteReserve= (reserveId)=>{
             <ul
               key={item.reserveId}
               style={{ boxShadow: '0px 1px 1px 0px rgba(0,0,0,0.1)' }}
-              className={`relative grid grid-cols-7 my-2 rounded-md text-[10px] text-center 
+              className={`relative grid grid-cols-6 my-2 rounded-md text-[10px] text-center 
                   text-gray-600 dark:text-gray-100 font-medium justify-items-center`}
             >
               <li className="col-1 my-2 flex gap-2">
-                <TbTrash
-                  className="text-secondary mt-4 w-5 h-5 cursor-pointer"
+
+          {
+            item?.accept == false ? <TbTrash
+                  className="text-secondary mt-3 w-5 h-5 cursor-pointer"
                   onClick={() => HandleDeleteReserve(item?.reserveId)}
                 />
+            :
+            
+            <NavLink  to={`/payment/${item?.courseId}`}>
+            <FiDollarSign
+              className="text-green mt-3 w-5 h-5 cursor-pointer"
+            />
+          </NavLink>
+           
+          }
+                
                 <NavLink to={`/courses-detail/${item?.courseId}`}>
-                  <IoEyeOutline className="text-primary dark:text-emerald-800 mt-4 w-5 h-5 cursor-pointer" />
+                  <IoEyeOutline className="text-primary dark:text-emerald-800 mt-3 w-5 h-5 cursor-pointer" />
                 </NavLink>
               </li>
-              <li className="col-1 my-5 text-black dark:text-white"> {item?.accept == true ? "تایید شده " : "در انتظار تایید"} </li>
-              <li className="col-1 my-5"> -- </li>
+              <li className="col-1 my-5 text-black dark:text-white"> {item?.accept == true ? <NavLink
+              className="text-green"  to={`/payment/${item?.courseId}`}
+              >در انتظار پرداخت</NavLink> : "در انتظار تایید"} </li>
+              
               <li className="col-1 my-5">
                 {' '}
                 <DateApi dateapi={item?.reserverDate} />{' '}

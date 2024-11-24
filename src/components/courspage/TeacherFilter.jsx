@@ -28,7 +28,7 @@ const TeacherFilter = () => {
     <>
       
         <div className="z-40 relative flex flex-col gap-2  ">
-          <div className="flex flex-row justify-end ">
+          <div className="flex flex-row justify-end overflow-hidden">
              <label to="checkbox" >{teacher.data?.[0].fullName}</label>
           <input
             type="checkbox"
@@ -40,7 +40,8 @@ const TeacherFilter = () => {
              }
           />
           </div>
-          <div className="flex flex-row justify-end ">
+
+          {/* <div className="flex flex-row justify-end overflow-hidden">
              <label to="checkbox">{teacher.data?.[1].fullName}</label>
           <input
             type="checkbox"
@@ -51,8 +52,9 @@ const TeacherFilter = () => {
               () => dispatch((Add("")),setFilter2(true))
              }
           />
-          </div>
-            <div className=" flex flex-row justify-end ">
+          </div> */}
+
+            <div className=" flex flex-row justify-end overflow-hidden ">
                <label className='whitespace-nowrap' to="checkbox">{teacher.data?.[2].fullName}</label>
           <input
             type="checkbox"
@@ -65,7 +67,7 @@ const TeacherFilter = () => {
           /> 
             </div>
 
-            <div className=" flex flex-row justify-end ">
+            <div className=" flex flex-row justify-end overflow-hidden ">
                <label className='whitespace-nowrap' to="checkbox">{teacher.data?.[3].fullName}</label>
           <input
             type="checkbox"

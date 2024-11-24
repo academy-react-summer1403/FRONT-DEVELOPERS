@@ -221,7 +221,7 @@ const  PrivateRoutes = [
   element: <Payment1/>,
 },
 {
-  path: "/paymentall/:courseId",
+  path: "/paymentall/:paymentId",
   element: <Paymentall/>,
 },  {
   path:"/*",
