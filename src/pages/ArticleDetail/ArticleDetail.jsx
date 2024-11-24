@@ -17,6 +17,7 @@ import Related from "../../components/skeleton/detail/Related";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import { useDeleteFavoriteNews, usePostFavoriteNews } from "../../core/services/mutation/LikeArticle";
+import NewComment from "../../components/coursedetailComponents/comments/NewComment";
 
 // import { samecourses, suggestion } from "../CourseDetail/CourseDetail";
 
@@ -299,7 +300,7 @@ const ArticleDetail = () => {
 
           <div className="">
             <h4 className="mark mt-5 max-lg:mt-1 max-xl:text-[23px]  dark:text-slate-300   ">{t("comments")}</h4>
-            {/* <NewComment newsId={id}/> */}
+            <NewComment newsId={id}/>
           </div>
       </div>
 

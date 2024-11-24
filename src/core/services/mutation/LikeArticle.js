@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { deleteFavoriteCourse, deleteFavoriteNews, postFavoriteCourse, postFavoriteNews } from "../DashApi";
+import { deleteFavoriteCourse, deleteFavoriteNews, deletelikeArticle, disslikeArticle, likeArticle, postFavoriteCourse, postFavoriteNews } from "../DashApi";
 import { toast } from "react-toastify";
 import { postRateNews } from "../getApi";
 
@@ -62,18 +62,20 @@ export const usePostFavoriteCourse=()=>{
         const queryClient = useQueryClient();
     
         return useMutation({
-            mutationFn:(NewsId , RateNumber)=> postRateNews(NewsId , RateNumber),
+            mutationFn:({NewsId, RateNumber})=> postRateNews({NewsId, RateNumber}),
             onSuccess:()=>{
                 toast.success("امتیاز شما ثبت شد" , {
                     theme:"colored"
                     })
             },
             onSettled:async(_,error) =>{
-                if(error){
-                    toast.warning("شما قبلا امتیاز داده اید" , {
-                        theme:"colored"
-                        })
-                    
+                if (error) {
+                    console.error("Error Details:", error);
+                    if (error.response?.status === 400) {
+                        toast.warning("داده‌های ارسالی اشتباه است یا قبلاً امتیاز داده‌اید", { theme: "colored" });
+                    } else {
+                        toast.error("خطای نامشخص رخ داده است", { theme: "colored" });
+                    }
                 }
                 else{
                    await queryClient.invalidateQueries({queryKey:["postRateNewses"]})
@@ -135,4 +137,83 @@ export const usePostFavoriteCourse=()=>{
             
         })
 
+    }
+
+    export const uselikeArticle=()=>{
+        const queryClient = useQueryClient();
+    
+        return useMutation({
+            mutationFn:(id)=> likeArticle(id),
+            onSuccess:()=>{
+                toast.success("خبر لایک شد" , {
+                    theme:"colored"
+                    })
+            },
+            onSettled:async(_,error) =>{
+                if(error){
+                    toast.error("خطایی رخ داده است" , {
+                        theme:"colored"
+                        })
+                    
+                }
+                else{
+                   await queryClient.invalidateQueries({queryKey:["postlikeArticle"]})
+    
+                }
+            },
+            
+        })
+    }
+
+    export const useDeletelikeArticle=()=>{
+        const queryClient = useQueryClient();
+    
+        return useMutation({
+            mutationFn:(deleteEntityId)=> deletelikeArticle(deleteEntityId),
+            onSuccess:()=>{
+                toast.success("لایک حذف شد" , {
+                    theme:"colored"
+                    })
+            },
+            onSettled:async(_,error) =>{
+                if(error){
+                    toast.warning("خطایی رخ داده است" , {
+                        theme:"colored"
+                        })
+                    
+                }
+                else{
+                   await queryClient.invalidateQueries({queryKey:["deletelikeArticles"]})
+    
+                }
+            },
+            
+        })
+
+    }
+
+    export const useDisslikeArticle=()=>{
+        const queryClient = useQueryClient();
+    
+        return useMutation({
+            mutationFn:(id)=> disslikeArticle(id),
+            onSuccess:()=>{
+                toast.success("عملیات موفق" , {
+                    theme:"colored"
+                    })
+            },
+            onSettled:async(_,error) =>{
+                if(error){
+                    toast.error("خطایی رخ داده است" , {
+                        theme:"colored"
+                        })
+                    
+                }
+                else{
+                   await queryClient.invalidateQueries({queryKey:["postdisslikeArticle"]})
+    
+                }
+            },
+            
+        })
     }
