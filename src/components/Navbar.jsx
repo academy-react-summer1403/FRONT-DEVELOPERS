@@ -143,10 +143,10 @@ const handleLogout = (token)=>{
                             </div>
                         </div>
 
-                        <NavLink to={"/basket"} className='relative '>
+                        {/* <NavLink to={"/basket"} className='relative '>
                             <img src={ShopImg} alt="" className='mt-8 '/>
                             <div className='w-[16px] h-[16px] flex  items-center font-Yekan justify-center bg-orange rounded-full absolute px-[1px] max-lg:bottom-0 bottom-0 right-[-2px] text-[12px] font-normal text-white leading-3'>0</div>
-                        </NavLink>
+                        </NavLink> */}
                         <Lg/>
                     </div>                   
                     

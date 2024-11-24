@@ -1,6 +1,7 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { deleteFavoriteCourse, postFavoriteCourse } from "../DashApi";
+import { deleteFavoriteCourse, deleteFavoriteNews, postFavoriteCourse, postFavoriteNews } from "../DashApi";
 import { toast } from "react-toastify";
+import { postRateNews } from "../getApi";
 
 
 
@@ -16,7 +17,7 @@ export const usePostFavoriteCourse=()=>{
             },
             onSettled:async(_,error) =>{
                 if(error){
-                    toast.warning("------" , {
+                    toast.error("خطایی رخ داده است" , {
                         theme:"colored"
                         })
                     
@@ -55,4 +56,83 @@ export const usePostFavoriteCourse=()=>{
             },
             
         })
+    }
+
+    export const usePostRateNews=()=>{
+        const queryClient = useQueryClient();
+    
+        return useMutation({
+            mutationFn:(NewsId , RateNumber)=> postRateNews(NewsId , RateNumber),
+            onSuccess:()=>{
+                toast.success("امتیاز شما ثبت شد" , {
+                    theme:"colored"
+                    })
+            },
+            onSettled:async(_,error) =>{
+                if(error){
+                    toast.warning("شما قبلا امتیاز داده اید" , {
+                        theme:"colored"
+                        })
+                    
+                }
+                else{
+                   await queryClient.invalidateQueries({queryKey:["postRateNewses"]})
+    
+                }
+            },
+            
+        })
+    }
+
+    export const usePostFavoriteNews=()=>{
+        const queryClient = useQueryClient();
+    
+        return useMutation({
+            mutationFn:(params)=> postFavoriteNews(params),
+            onSuccess:()=>{
+                toast.success("خبر به علاقه مندی اضافه شد" , {
+                    theme:"colored"
+                    })
+            },
+            onSettled:async(_,error) =>{
+                if(error){
+                    toast.error("خطایی رخ داده است" , {
+                        theme:"colored"
+                        })
+                    
+                }
+                else{
+                   await queryClient.invalidateQueries({queryKey:["postFavoriteNewses"]})
+    
+                }
+            },
+            
+        })
+    }
+
+    export const useDeleteFavoriteNews=()=>{
+        const queryClient = useQueryClient();
+    
+        return useMutation({
+            mutationFn:(params)=> deleteFavoriteNews(params),
+            onSuccess:()=>{
+                toast.success("خبر با موفقیت از علاقه مندی حذف شد" , {
+                    theme:"colored"
+                    })
+            },
+            onSettled:async(_,error) =>{
+                if(error){
+                    toast.warning("خطایی رخ داده است" , {
+                        theme:"colored"
+                        })
+                    
+                }
+                else{
+                   await queryClient.invalidateQueries({queryKey:["deleteFavoriteNewses"]})
+    
+                }
+            },
+            
+        })
+
     }
