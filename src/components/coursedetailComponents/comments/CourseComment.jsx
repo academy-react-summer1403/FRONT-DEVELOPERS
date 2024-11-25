@@ -11,6 +11,7 @@ import { ImageErrore } from '../../ImageErrore';
 import CommentsLoading from '../../skeleton/detail/CommentsLoading';
 import { useDeleteCourseCommentLike, useDeleteLikeComment, useDislikeCourseComment, useLikeCommentCourse } from '../../../core/services/mutation/DetailsMutation';
 import Commentdiv from './Commentdiv';
+import CommentdivCourse from './CommentdivCourse';
 
 
 const CourseComment = ({courseId}) => {
@@ -105,7 +106,7 @@ const CourseComment = ({courseId}) => {
             </svg>
         </button>
 
-            {/* <Commentdiv comentdiv={comentdiv} setCommentdiv={setCommentdiv} holder={"نظر جدید"} Id={courseId}/> */}
+            <CommentdivCourse comentdiv={comentdiv} setCommentdiv={setCommentdiv} holder={"نظر جدید"} Id={courseId}/> 
     
         {/* comments:  */}
         {loading ? <CommentsLoading cards={2}/>  : 

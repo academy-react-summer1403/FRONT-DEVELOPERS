@@ -1,8 +1,15 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { deleteFavoriteCourse, deleteFavoriteNews, deletelikeArticle, disslikeArticle, likeArticle, postFavoriteCourse, postFavoriteNews } from "../DashApi";
+
+import { deleteFavoriteCourse, deleteFavoriteNews, deletelikeArticle, 
+        disslikeArticle, likeArticle, postFavoriteCourse, postFavoriteNews 
+        } from "../DashApi";
+
 import { toast } from "react-toastify";
 import { postRateNews } from "../getApi";
-import { deleteCourseCommentLike, deleteLikeComment, dislikeCourseComment, likeComment, postCommentNews, postCourseCommentLike } from "../apiComment";
+
+import { deleteCourseCommentLike, deleteLikeComment, dislikeCourseComment,
+         likeComment, postCommentCourse, postCommentNews, postCourseCommentLike 
+        } from "../apiComment";
 
 
     // cours Mutations : 
@@ -110,13 +117,14 @@ import { deleteCourseCommentLike, deleteLikeComment, dislikeCourseComment, likeC
             
         })
     }
+
     export const useDislikeCourseComment=()=>{
         const queryClient = useQueryClient();
     
         return useMutation({
             mutationFn:(disslikeparams)=> dislikeCourseComment(disslikeparams),
             onSuccess:()=>{
-                toast.success("عملیات موفق" , {
+                toast.success(" دیس لایک انجام شد" , {
                     theme:"colored"
                     })
             },
@@ -135,6 +143,35 @@ import { deleteCourseCommentLike, deleteLikeComment, dislikeCourseComment, likeC
             
         })
     }
+
+    export const usePostCommentCourse=()=>{
+        const queryClient = useQueryClient();
+    
+        return useMutation({
+            mutationFn:(formData)=> postCommentCourse(formData),
+            onSuccess:()=>{
+                toast.success("نظر شما ثبت شد و بعد از تایید توسط ادمین نمایش داده میشود " , {
+                    theme:"colored"
+                    })
+            },
+            onSettled:async(_,error) =>{
+                if (error) {
+                  
+                    toast.error("خطایی رخ داده است", { theme: "colored" });
+                    
+                }
+                else{
+                   await queryClient.invalidateQueries({queryKey:["postCommentCourses"]})
+    
+                }
+            },
+            
+        })
+    }
+
+
+
+
 
     // cours article&News Mutations : 
 
@@ -367,7 +404,7 @@ import { deleteCourseCommentLike, deleteLikeComment, dislikeCourseComment, likeC
                     
                 }
                 else{
-                   await queryClient.invalidateQueries({queryKey:["postRateNewses"]})
+                   await queryClient.invalidateQueries({queryKey:["postCommentNewses"]})
     
                 }
             },

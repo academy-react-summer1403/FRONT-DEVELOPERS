@@ -1,43 +1,3 @@
-// import FormData from 'form-data';
-// import React from 'react'
-// import { postComment } from '../../../core/services/apiComment';
-
-// const Commentdiv = ({comentdiv,setCommentdiv,holder,Id}) => {
-
-//   const onSubmit = async (e) => {
-//     e.preventDefault();
-  
-//     const formData = new FormData(e.target);
-//     formData.append("CourseId", Id);
-//     formData.append("Title", Title);
-//     formData.append("Describe", Describe);
-
-
-//      const addComment = postComment(formData)
-//      console.log(addComment)
-
-//    };
-
-//   return (
-    
-//     <div className={`${comentdiv ? "block" : "hidden"} border border-gray-300  dark:bg-slate-600 bg-[#e2e2e2ee] w-[550px] max-xl:w-3/4 h-[200px] rounded-3xl z-50 top-[35%]  fixed `}>
-//    
-   
-//          
-   
-   
-   
-   
-   
-   
-   
-//             </div>
-//   )
-// }
-
-// export default Commentdiv
-
-
 import React, { useEffect, useState } from 'react'
 import { HiXCircle } from 'react-icons/hi2';
 import { usePostCommentNews } from '../../../core/services/mutation/DetailsMutation';
@@ -46,6 +6,7 @@ import { useForm } from 'react-hook-form';
 const Commentdiv = ({comentdiv ,setCommentdiv,holder,Id , UserId}) => {
     const [userIp, setUserIp] = useState(null);
 
+    // IP address:
     useEffect(() => {
         fetch('https://api.ipify.org?format=json')
           .then(response => response.json())
