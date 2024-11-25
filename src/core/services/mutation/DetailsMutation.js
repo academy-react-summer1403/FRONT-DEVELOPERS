@@ -2,10 +2,11 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { deleteFavoriteCourse, deleteFavoriteNews, deletelikeArticle, disslikeArticle, likeArticle, postFavoriteCourse, postFavoriteNews } from "../DashApi";
 import { toast } from "react-toastify";
 import { postRateNews } from "../getApi";
+import { deleteCourseCommentLike, deleteLikeComment, dislikeCourseComment, likeComment, postCommentNews, postCourseCommentLike } from "../apiComment";
 
 
-
-export const usePostFavoriteCourse=()=>{
+    // cours Mutations : 
+    export const usePostFavoriteCourse=()=>{
         const queryClient = useQueryClient();
     
         return useMutation({
@@ -30,7 +31,6 @@ export const usePostFavoriteCourse=()=>{
             
         })
     }
-
 
     export const useDeleteFavoriteCourse=()=>{
         const queryClient = useQueryClient();
@@ -57,6 +57,86 @@ export const usePostFavoriteCourse=()=>{
             
         })
     }
+
+    export const useLikeCommentCourse=()=>{
+        const queryClient = useQueryClient();
+    
+        return useMutation({
+            mutationFn:(id)=> postCourseCommentLike(id),
+            onSuccess:()=>{
+                toast.success("نظر لایک شد" , {
+                    theme:"colored"
+                    })
+            },
+            onSettled:async(_,error) =>{
+                if(error){
+                    
+                    toast.error(`${error.message}` , {
+                        theme:"colored"
+                        })
+                    
+                }
+                else{
+                   await queryClient.invalidateQueries({queryKey:["postCourseCommentLikes"]})
+    
+                }
+            },
+            
+        })
+    }
+
+    export const useDeleteCourseCommentLike=()=>{
+        const queryClient = useQueryClient();
+    
+        return useMutation({
+            mutationFn:(params)=> deleteCourseCommentLike(params),
+            onSuccess:()=>{
+                toast.success(" لایک حذف شد" , {
+                    theme:"colored"
+                    })
+            },
+            onSettled:async(_,error) =>{
+                if(error){
+                    toast.warning("خطایی رخ داد" , {
+                        theme:"colored"
+                        })
+                    
+                }
+                else{
+                   await queryClient.invalidateQueries({queryKey:["deleteCourseCommentLikes"]})
+    
+                }
+            },
+            
+        })
+    }
+    export const useDislikeCourseComment=()=>{
+        const queryClient = useQueryClient();
+    
+        return useMutation({
+            mutationFn:(disslikeparams)=> dislikeCourseComment(disslikeparams),
+            onSuccess:()=>{
+                toast.success("عملیات موفق" , {
+                    theme:"colored"
+                    })
+            },
+            onSettled:async(_,error) =>{
+                if(error){
+                    toast.error("خطایی رخ داده است" , {
+                        theme:"colored"
+                        })
+                    
+                }
+                else{
+                   await queryClient.invalidateQueries({queryKey:["postdisslikeArticle"]})
+    
+                }
+            },
+            
+        })
+    }
+
+    // cours article&News Mutations : 
 
     export const usePostRateNews=()=>{
         const queryClient = useQueryClient();
@@ -217,3 +297,81 @@ export const usePostFavoriteCourse=()=>{
             
         })
     }
+
+    export const useLikeComment=()=>{
+        const queryClient = useQueryClient();
+    
+        return useMutation({
+            mutationFn:(likeparams)=> likeComment(likeparams),
+            onSuccess:()=>{
+                toast.success("نظر لایک شد" , {
+                    theme:"colored"
+                    })
+            },
+            onSettled:async(_,error) =>{
+                if(error){
+                    toast.error("خطایی رخ داده است" , {
+                        theme:"colored"
+                        })
+                    
+                }
+                else{
+                   await queryClient.invalidateQueries({queryKey:["postlikeComment"]})
+    
+                }
+            },
+            
+        })
+    }
+    
+    export const useDeleteLikeComment=()=>{
+        const queryClient = useQueryClient();
+    
+        return useMutation({
+            mutationFn:(params)=> deleteLikeComment(params),
+            onSuccess:()=>{
+                toast.success(" لایک حذف شد" , {
+                    theme:"colored"
+                    })
+            },
+            onSettled:async(_,error) =>{
+                if(error){
+                    toast.warning("------" , {
+                        theme:"colored"
+                        })
+                    
+                }
+                else{
+                   await queryClient.invalidateQueries({queryKey:["deleteLikeComments"]})
+    
+                }
+            },
+            
+        })
+    }
+
+    export const usePostCommentNews=()=>{
+        const queryClient = useQueryClient();
+    
+        return useMutation({
+            mutationFn:(params)=> postCommentNews(params),
+            onSuccess:()=>{
+                toast.success("نظر شما ثبت شد" , {
+                    theme:"colored"
+                    })
+            },
+            onSettled:async(_,error) =>{
+                if (error) {
+                  
+                    toast.error("خطایی رخ داده است", { theme: "colored" });
+                    
+                }
+                else{
+                   await queryClient.invalidateQueries({queryKey:["postRateNewses"]})
+    
+                }
+            },
+            
+        })
+    }
+

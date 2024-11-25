@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useCourseId } from '../../../core/services/query/queries';
 import { postReserv } from '../../../core/services/DashApi';
 
-import { useDeleteFavoriteCourse, usePostFavoriteCourse } from '../../../core/services/mutation/LikeArticle';
+import { useDeleteFavoriteCourse, usePostFavoriteCourse } from '../../../core/services/mutation/DetailsMutation';
 import { toast } from "react-toastify";
 
 

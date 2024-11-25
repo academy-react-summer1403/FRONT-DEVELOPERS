@@ -6,16 +6,15 @@ import Description from "../../components/coursedetailComponents/Description/Des
 import HeadLines from "../../components/coursedetailComponents/Headlines/HeadLines";
 import { useCourseId } from "../../core/services/query/queries";
 import { useParams } from "react-router-dom";
-// import CourseComment from "../../components/coursedetailComponents/comments/CourseComment";
 import RelatedCourses from "../../components/coursedetailComponents/RelatedCourses/RelatedCourses";
 import { ImageErrore } from "../../components/ImageErrore";
-// import { useCommentCourse } from "../../core/services/query/CommentQuery";
 import { useTranslation } from "react-i18next";
 
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import CardLoading from "../../components/skeleton/detail/CardLoading";
 import Related from "../../components/skeleton/detail/Related";
+import CourseComment from "../../components/coursedetailComponents/comments/CourseComment";
 
 const CourseDetial = () => {
   const { courseId } = useParams();
@@ -105,7 +104,7 @@ const CourseDetial = () => {
           {t("comments")}
           </h4>
           <div className="  ">
-             {/* <CourseComment courseId={courseId} useComment={useCommentCourse} />  */}
+             <CourseComment courseId={courseId} /> 
           </div>
         </div>
 

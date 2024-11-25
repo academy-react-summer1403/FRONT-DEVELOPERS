@@ -9,7 +9,7 @@ import HomeOfAssistant from './components/3DAssistant/HomeOfAssistant'
 const Layout = () => {
  
   return (
-    <div className="bg-white dark:bg-gray-900 dark:text-white duration-200 ">
+    <div className="bg-gray-50/20 dark:bg-gray-900 dark:text-white duration-200 ">
       
 
         <Navbar/>

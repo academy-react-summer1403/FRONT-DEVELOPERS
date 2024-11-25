@@ -8,7 +8,7 @@ import { ImageErrore } from "../../ImageErrore";
 
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-import { useDeletelikeArticle, useDisslikeArticle, uselikeArticle, usePostRateNews } from "../../../core/services/mutation/LikeArticle";
+import { useDeletelikeArticle, useDisslikeArticle, uselikeArticle, usePostRateNews } from "../../../core/services/mutation/DetailsMutation";
 import { use } from "i18next";
 import { toast } from "react-toastify";
 
