@@ -23,14 +23,14 @@ console.log(phoneNumber)
   const onSubmit = (e)=>{
     e.preventDefault();
     const number = {
-      phoneNumber
+      phoneNumber : phoneNumber
     };
     console.log(number)
 
   const res = postNumber(number)
     console.log(res)
 
-    navigate("/auth/2");
+    navigate(`/auth/2/${phoneNumber}`);
 
   }
 
@@ -136,14 +136,16 @@ console.log(phoneNumber)
                       component="div"
                       className="text-red-500 w-[50px] text-[10px] font-semibold absolute whitespace-nowrap left-[50px] "
                     /> */}
-                    
-                    <button
+            
+                      <button
                    
                       type="submit"
                       className="w-[90px] h-[30px] rounded-2xl bg-orange absolute top-[80px] right-[105px] text-white text-[10px] font-semibold"
                     >
                       دریافت کد تایید
                     </button>
+                    
+                    
                 
                     <NavLink to={"/auth/v1"}>
                     <button

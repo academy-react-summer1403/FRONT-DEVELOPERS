@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useArticleDetail } from "../../../core/services/query/queries";
-import { useParams } from "react-router-dom";
-
-import { toast } from "react-toastify";
 import { deletelikeArticle, disslikeArticle, likeArticle } from "../../../core/services/DashApi";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { useTranslation } from "react-i18next";
@@ -11,92 +8,75 @@ import { ImageErrore } from "../../ImageErrore";
 
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-import { postRateNews } from "../../../core/services/getApi";
+import { useDeletelikeArticle, useDisslikeArticle, uselikeArticle, usePostRateNews } from "../../../core/services/mutation/LikeArticle";
+import { use } from "i18next";
+import { toast } from "react-toastify";
 
 
 const ArticleDescription = ({id}) => {
 
- 
   const {t}=useTranslation()
-
   
   const articleDetail = useArticleDetail(id);
   const [showMore, setShowMore] = useState(true);
+  console.log("articleDetail" , articleDetail.data)
 
-  
+  // like & disslike 
 
-    const [islike , setIsLike] = useState(articleDetail.data?.detailsNewsDto?.currentUserIsLike)
-    const [like , setLike] = useState(islike==undefined||islike==true ? true : false)
+  const [like , setLike] = useState(articleDetail.data?.detailsNewsDto?.currentUserIsLike)
+  const [currentlike , setCurrentlike] = useState(articleDetail.data?.detailsNewsDto?.currentLikeCount)
+  const [disslike , setDissLike] = useState(articleDetail.data?.detailsNewsDto?.currentUserIsDissLike)
+  console.log("like" , like ,disslike )
 
- console.log(articleDetail.data)
-//  console.log(islike)
-
-
- 
- const [isDisslike , setIsDissLike] = useState(articleDetail.data?.detailsNewsDto?.currentUserIsDissLike)
- const [disslike , setDissLike] = useState(isDisslike==undefined||islike==true ? true : false)
-
-// console.log(articleDetail.data?.detailsNewsDto)
-// console.log(islike)
-  
-
-
+  const addlikenew = uselikeArticle(id)
   const handlelike=(id)=>{
-      const addlikenew=likeArticle(id)
-      setLike(true)
-     
+    addlikenew.mutate(id)    
   }
 
-
+  const deletelikenew=useDeletelikeArticle()
   const handledeletelike=(deleteEntityId)=>{
-    const deletelikenew=deletelikeArticle(deleteEntityId)
-    setLike(false)
-   
+    deletelikenew.mutate(deleteEntityId)   
   }
 
+  const disslikenew=useDisslikeArticle()
 
-
-
-
-  const handledisslike=(likeId)=>{
-    const disslikenew=disslikeArticle(likeId)
-    setDissLike(true)
-
-}
-
-
+  const handledisslike=(id)=>{
+    if(disslike==false){
+      disslikenew.mutate(id)
+    }
+  }
 
   //  Rate : 
 
-  const [colorRate, setColorRate] = useState(articleDetail.data?.detailsNewsDto.currentRate)
-  
+  const [colorRate, setColorRate] = useState(articleDetail.data?.detailsNewsDto?.currentUserRateNumber)
+  const [currentRate, setCurrentRate] = useState(articleDetail.data?.detailsNewsDto.currentRate)
 
-  const handleRate =(NewsId , RateNumber)=>{
-    try{
-      return postRateNews(NewsId , RateNumber ) ,
-      toast.success("امتیاز شما ثبت شد" , {
-        theme:"colored"
-        })
-    }catch{
-      toast.error("شما قبلا امتیاز داده اید" , {
-        theme:"colored"
-        })
-    }  
+  const postRate = usePostRateNews()
+
+  const handleRate = (NewsId, RateNumber) => {
+    if(articleDetail.data?.detailsNewsDto.currentUserRateNumber === 0 ){
+      if (RateNumber !== undefined && RateNumber !== null) {
+              postRate.mutate({NewsId, RateNumber});
+
+          } else {
+              console.error("RateNumber is undefined or null");
+          }
+    }else{
+      toast.warning("قبلاً امتیاز داده‌اید", { theme: "colored" });
+    }
     
-  }
-  console.log("handleRate",handleRate)
+};
 
   useEffect(() => {
     if(articleDetail.data){
-      setColorRate(articleDetail.data?.detailsNewsDto.currentRate)
+      setColorRate(articleDetail.data?.detailsNewsDto?.currentUserRateNumber)
+      setCurrentRate(articleDetail.data?.detailsNewsDto?.currentRate)
+      setLike(articleDetail.data?.detailsNewsDto?.currentUserIsLike)
+      setCurrentlike(articleDetail.data?.detailsNewsDto?.currentLikeCount)
+      setDissLike(articleDetail.data?.detailsNewsDto?.currentUserIsDissLike)
     } 
-  }, [articleDetail])
+  }, [articleDetail.data])
 
-  useEffect(() => {
-    if(articleDetail.data){
-      setColorRate(articleDetail.data?.detailsNewsDto.currentRate)
-    } 
-  }, [colorRate])
 
   const [loading, setLoading] = useState(true)
   useEffect(() => {
@@ -157,25 +137,22 @@ leading-[32px] font-normal font-Yekan text-[20px] max-xl:text-[18px] flex items-
       >
         <div className=" flex items-center gap-5">
           <div className="  share max-xl:text-[14px] flex items-center gap-2">
+          {/* Like: */}
             <svg 
              onClick={()=>{
               if(like==false){
-              handlelike(articleDetail.data?.detailsNewsDto?.id)
-            setLike(true)
-          setIsLike(true)
-          setDissLike(true)
-          setIsDissLike(true)}
-
+                handlelike(articleDetail.data?.detailsNewsDto?.id)
+                setLike(true)                
+              }
               if(like==true){
-                handledeletelike(articleDetail.data?.detailsNewsDto?.likeId)
-                setLike(false)
-                setIsLike(false)
+                handledeletelike(articleDetail.data?.detailsNewsDto?.likeId)    
+                setLike(false)            
               }
             
             }}
               width="20"
               height="19"
-                className={`max-xl:h-[15px] max-xl:w-[16px] stroke-[#AAAAAA] dark:stroke-orange
+                className={`cursor-pointer max-xl:h-[15px] max-xl:w-[16px] stroke-[#AAAAAA] dark:stroke-orange
                   ${like ?"fill-[#AAAAAA] dark:fill-orange" :  "fill-none" }`}
               viewBox="0 0 20 19"
               fill="none"
@@ -189,22 +166,21 @@ leading-[32px] font-normal font-Yekan text-[20px] max-xl:text-[18px] flex items-
                 stroke-linejoin="round"
               />
             </svg>
-           { articleDetail.data?.detailsNewsDto?.currentLikeCount} 
+           { currentlike}
+
+           {/* DissLike:  */}
             <svg
-              className={`max-xl:h-[15px] max-xl:w-[16px] stroke-[#AAAAAA] dark:stroke-orange ${disslike ? "fill-none" : "fill-[#AAAAAA] dark:fill-orange"} `}
+              className={`cursor-pointer max-xl:h-[15px] max-xl:w-[16px] stroke-[#AAAAAA] dark:stroke-orange ${disslike ? "fill-[#AAAAAA] dark:fill-orange" : "fill-none "} `}
               width="20"
               height="19"
               onClick={()=>{
-                if(disslike==true){
-                handledisslike(articleDetail.data?.detailsNewsDto?.id)
-              setDissLike(false)
-            setIsDissLike(false)
-           handledeletelike(articleDetail.data?.detailsNewsDto?.likeId)
-                setLike(false)
-                setIsLike(false)}
-  
-             
-              
+                if(disslike==false){
+                  handledisslike(articleDetail.data?.detailsNewsDto?.id)
+                  setDissLike(true)
+            
+                  handledeletelike(articleDetail.data?.detailsNewsDto?.likeId)
+                  setLike(false)
+                }         
               }}
               viewBox="0 0 20 19"
               fill="none"
@@ -261,7 +237,7 @@ leading-[32px] font-normal font-Yekan text-[20px] max-xl:text-[18px] flex items-
             
               <path
                 onClick={()=>(setColorRate(5) , 
-                  handleRate(articleDetail.data?.detailsNewsDto?.id , articleDetail.data?.detailsNewsDto?.currentRate + 5)
+                  handleRate(articleDetail.data?.detailsNewsDto?.id ,  5)
                 )}
                 className={`peer stroke-[#FFC700] hover:fill-[#FFC700] ${colorRate == 5 ? "fill-[#FFC700]" : "fill-white"}`}
                 fill-rule="evenodd"
@@ -273,10 +249,10 @@ leading-[32px] font-normal font-Yekan text-[20px] max-xl:text-[18px] flex items-
               />
               <path
                 onClick={()=>(setColorRate(4) ,
-                  handleRate(articleDetail.data?.detailsNewsDto?.id , articleDetail.data?.detailsNewsDto?.currentRate + 4)
+                  handleRate(articleDetail.data?.detailsNewsDto?.id ,  4)
                 
                 )}
-                className={`peer stroke-[#FFC700] fill-white hover:fill-[#FFC700] peer-hover:fill-[#FFC700] 
+                className={`peer stroke-[#FFC700]  hover:fill-[#FFC700] peer-hover:fill-[#FFC700] 
                   ${colorRate == 4 || colorRate == 5 ? "fill-[#FFC700]" : "fill-white"}`}
                 fill-rule="evenodd"
                 clip-rule="evenodd"
@@ -288,11 +264,11 @@ leading-[32px] font-normal font-Yekan text-[20px] max-xl:text-[18px] flex items-
             
             <path
                onClick={()=>(setColorRate(3) ,
-                handleRate(articleDetail.data?.detailsNewsDto?.id , articleDetail.data?.detailsNewsDto?.currentRate + 3)
+                handleRate(articleDetail.data?.detailsNewsDto?.id , 3)
               
               )}
-              className={`peer stroke-[#FFC700] fill-white hover:fill-[#FFC700] peer-hover:fill-[#FFC700]
-                ${colorRate == 3 || colorRate == 4 || colorRate == 5 ? "fill-[#FFC700]" : "fill-white"}`}
+              className={`peer stroke-[#FFC700] hover:fill-[#FFC700] peer-hover:fill-[#FFC700]
+                ${colorRate === 3 || colorRate === 4 || colorRate === 5  ? "fill-[#FFC700]" : "fill-white"}`}
               fill-rule="evenodd"
               clip-rule="evenodd"
               d="M56.3644 3.07753C56.7939 2.04496 58.2589 2.04496 58.6884 3.07753L60.6845 7.87703L65.8656 8.29313C66.9816 8.3823 67.4341 9.7744 66.5837 10.503L62.6365 13.8846L63.8417 18.9401C64.1015 20.0292 62.9174 20.8892 61.9625 20.3063L57.5264 17.5968L53.0902 20.3063C52.1353 20.8892 50.9513 20.0282 51.2111 18.9401L52.4162 13.8846L48.4691 10.503C47.6186 9.7744 48.0712 8.3823 49.1872 8.29313L54.3682 7.87703L56.3644 3.07753Z"
@@ -302,10 +278,10 @@ leading-[32px] font-normal font-Yekan text-[20px] max-xl:text-[18px] flex items-
             />
             <path
               onClick={()=>(setColorRate(2) , 
-                handleRate(articleDetail.data?.detailsNewsDto?.id , articleDetail.data?.detailsNewsDto?.currentRate +2)
+                handleRate(articleDetail.data?.detailsNewsDto?.id , 2)
               
               )}
-              className={`peer stroke-[#FFC700] fill-white hover:fill-[#FFC700] peer-hover:fill-[#FFC700] 
+              className={`peer stroke-[#FFC700]  hover:fill-[#FFC700] peer-hover:fill-[#FFC700] 
                 ${colorRate == 2 || colorRate == 3 || colorRate == 4 || colorRate == 5 ? "fill-[#FFC700]" : "fill-white"}`}
               fill-rule="evenodd"
               clip-rule="evenodd"
@@ -317,12 +293,12 @@ leading-[32px] font-normal font-Yekan text-[20px] max-xl:text-[18px] flex items-
             
             <path 
             onClick={()=>(setColorRate(1) , 
-              handleRate(articleDetail.data?.detailsNewsDto?.id , articleDetail.data?.detailsNewsDto?.currentRate + 1)
+              handleRate(articleDetail.data?.detailsNewsDto?.id , 1 )
             
             )}
               d="M103.052 3.3547C103.092 3.25579 103.161 3.17117 103.25 3.11162C103.339 3.05206 103.443 3.02026 103.55 3.02026C103.657 3.02026 103.762 3.05206 103.85 3.11162C103.939 3.17117 104.008 3.25579 104.049 3.3547L106.086 8.25487C106.124 8.34656 106.187 8.42595 106.267 8.48431C106.348 8.54267 106.443 8.57773 106.541 8.58564L111.832 9.00941C112.31 9.04776 112.504 9.64506 112.14 9.95665L108.109 13.4101C108.034 13.4745 107.978 13.5584 107.947 13.6526C107.916 13.7468 107.912 13.8476 107.935 13.9441L109.167 19.107C109.191 19.2105 109.185 19.3191 109.148 19.419C109.111 19.5189 109.045 19.6056 108.959 19.6682C108.873 19.7308 108.77 19.7664 108.664 19.7706C108.557 19.7748 108.452 19.7474 108.361 19.6918L103.831 16.9258C103.747 16.8741 103.649 16.8468 103.55 16.8468C103.451 16.8468 103.354 16.8741 103.269 16.9258L98.7392 19.6928C98.6484 19.7484 98.5431 19.7758 98.4367 19.7716C98.3302 19.7674 98.2275 19.7318 98.1413 19.6692C98.0551 19.6066 97.9894 19.5199 97.9525 19.42C97.9156 19.3201 97.9091 19.2115 97.9338 19.1079L99.1658 13.9441C99.1887 13.8476 99.1845 13.7468 99.1537 13.6525C99.1229 13.5583 99.0667 13.4744 98.9913 13.4101L94.9608 9.95665C94.8796 9.88746 94.8208 9.79574 94.7918 9.69311C94.7628 9.59047 94.7649 9.48154 94.7979 9.38011C94.8308 9.27867 94.8931 9.1893 94.9769 9.12331C95.0607 9.05732 95.1622 9.01768 95.2685 9.00941L100.559 8.58564C100.658 8.57773 100.753 8.54267 100.833 8.48431C100.913 8.42595 100.976 8.34656 101.014 8.25487L103.052 3.3547Z"
               stroke="#FFC700"
-              className={`peer stroke-[#FFC700] fill-white hover:fill-[#FFC700] peer-hover:fill-[#FFC700] 
+              className={`peer stroke-[#FFC700] hover:fill-[#FFC700] peer-hover:fill-[#FFC700] 
                 ${colorRate == 5 || colorRate == 4 || colorRate == 3 || colorRate == 2 || colorRate == 1 ? "fill-[#FFC700]" : "fill-white"}`}
               stroke-width="1.4"
               stroke-linecap="round"
@@ -331,7 +307,7 @@ leading-[32px] font-normal font-Yekan text-[20px] max-xl:text-[18px] flex items-
           </svg>
 
           <h1 className=" share max-xl:text-[14px]  max-sm:text-[12px] flex flex-row-reverse">
-            {t("rate")}  {articleDetail.data?.detailsNewsDto.currentRate}
+            {t("rate")}  {currentRate} نفر
           </h1>
         </div>
       </motion.div>

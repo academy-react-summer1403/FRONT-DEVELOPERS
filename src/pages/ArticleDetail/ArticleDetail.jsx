@@ -16,6 +16,8 @@ import { useTranslation } from "react-i18next";
 import Related from "../../components/skeleton/detail/Related";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import { useDeleteFavoriteNews, usePostFavoriteNews } from "../../core/services/mutation/LikeArticle";
+import NewComment from "../../components/coursedetailComponents/comments/NewComment";
 
 // import { samecourses, suggestion } from "../CourseDetail/CourseDetail";
 
@@ -29,105 +31,42 @@ const ArticleDetail = () => {
   
   const articleDetail = useArticleDetail(id);
 
- const [save,setSave]=useState(articleDetail?.data?.detailsNewsDto?.isCurrentUserFavorite==true ? true :false)
+ const [save,setSave]=useState(articleDetail?.data?.detailsNewsDto?.isCurrentUserFavorite)
+ console.log("save" , save)
   
-  console.log(articleDetail.data?.detailsNewsDto?.currentUserIsLike)
+  console.log("articleDetail" , articleDetail?.data?.detailsNewsDto?.isCurrentUserFavorite)
 
   
   
-  
+  const  addFavoriteNew = usePostFavoriteNews()
+
   const handleAddFavoriteNews=()=>{
-
-
-    try {
-     
-    setSave(true)
-
-  
-     
     const params = {
-   NewsId: id 
- }
-
- const  addFavoriteNew = postFavoriteNews(params)
- console.log(addFavoriteNew)
-      toast.success('با موفقیت انجام شد.', {
-        theme: "colored",
-      });
-    } catch (error) {
-      toast.error('خطا در انجام عملیات', {
-        theme: "colored",
-      });
+      NewsId: id 
     }
 
-
-}
-
-
-  
-  
-  
-
-
-
-  const handleRemoveFavoriteNews=(deleteFavorite)=>{
-    
-    try {
-     
-    
-    setSave(false)
-
-   
-  
-
-
-    const params={
-      deleteEntityId:deleteFavorite
-    }
-
-    console.log(deleteFavorite)
-   
-
-  const  deleteFavoriteNew = deleteFavoriteNews(params)
-  console.log(deleteFavoriteNew)
-      toast.success('دوره به علاقه‌مندی‌ها اضافه شد.', {
-        theme: "colored",
-      });
-    } catch (error) {
-      toast.error('خطا در اضافه کردن به علاقه‌مندی‌ها.', {
-        theme: "colored",
-      });
-    }
-    
-
-
-
-    
-
-
-  
+    addFavoriteNew.mutate(params)
+    setSave(true)
   }
 
 
+  const  deleteFavoriteNew = useDeleteFavoriteNews()
+
+  const handleRemoveFavoriteNews=(deleteFavorite)=>{
+    const params={
+      deleteEntityId:deleteFavorite
+    }
+    deleteFavoriteNew.mutate(params)
+    setSave(false)
+  }
+
 
   useEffect(() => {
+    if (articleDetail?.data) {
+      setSave(articleDetail.data.detailsNewsDto?.isCurrentUserFavorite);
+    }
+  }, [articleDetail?.data]);
  
-
-    if(save){
-      handleAddFavoriteNews();
-      
-      }
-
-
-      else{
-
-        handleRemoveFavoriteNews(articleDetail.data?.detailsNewsDto?.currentUserFavoriteId)
-
-      }
-  
-  }, [save]);
- 
-  
   
 
   const [loading, setLoading] = useState(true)
@@ -334,19 +273,12 @@ const ArticleDetail = () => {
 
               <svg
                 width="18"
-              onClick={()=>{
-                if(save==false){
-                  setSave(true)
-                }
-                else if(save==true){
-                  setSave(false)
-
-                  
-                }
-              }}
-              
-                className={`  dark:stroke-secondary  max-2xl:w-[16px] h-[18px]  max-xl:h-[16px] max-xl:w-[14px] stroke-primary
-                  ${save ? " fill-primary dark:fill-secondary" :" " }` }
+              onClick={()=>{save ?                 
+                  handleRemoveFavoriteNews(articleDetail.data?.detailsNewsDto.currentUserFavoriteId)
+                  : handleAddFavoriteNews(articleDetail.data?.detailsNewsDto.id)                
+              }}                           
+                className={`cursor-pointer  dark:stroke-secondary  max-2xl:w-[16px] h-[18px]  max-xl:h-[16px] max-xl:w-[14px] stroke-primary
+                  ${ save ? " fill-primary dark:fill-secondary" :" " }` }
                 height="20"
                 viewBox="0 0 18 20"
                 fill="none"
@@ -354,7 +286,7 @@ const ArticleDetail = () => {
               >
                 <path
                   d="M14.593 1.322C15.693 1.45 16.5 2.399 16.5 3.507V19L9 15.25L1.5 19V3.507C1.5 2.399 2.306 1.45 3.407 1.322C7.12319 0.890633 10.8768 0.890633 14.593 1.322Z"
-                  
+                 
                   stroke-width="2"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -368,7 +300,7 @@ const ArticleDetail = () => {
 
           <div className="">
             <h4 className="mark mt-5 max-lg:mt-1 max-xl:text-[23px]  dark:text-slate-300   ">{t("comments")}</h4>
-            {/* <NewComment newsId={id}/> */}
+            <NewComment newsId={id}/>
           </div>
       </div>
 

@@ -30,10 +30,9 @@ const LoginAuth = () => {
   const onSubmit = (e)=>{
     e.preventDefault();
     const user = {
-      phoneNumber:"09926695494",
-      phoneNumber:"09057048345",
-      gmail,
-      password
+      phoneNumber:phoneNumber,
+      gmail:gmail,
+      password:password
     };
     console.log(user)
 

@@ -91,7 +91,7 @@ const  PublicRoutes = [
           element: <SignAuth />,
         },
         {
-          path: "/auth/2",
+          path: "/auth/2/:phoneNumber",
           element: <VarificationAuth />,
         },
         {
