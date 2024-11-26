@@ -33,10 +33,10 @@ export function useCommentCourse(courseId ) {
   }
 
 
-  export function useReplyNews(Id , parentId) {
+  export function useReplyNews(Id ) {
     const query = useQuery({
-      queryKey: ["replyCourse",Id , parentId],
-      queryFn: () => getReplyNews(Id , parentId),
+      queryKey: ["replyCourse",Id ],
+      queryFn: () => getReplyNews(Id ),
     });
   
     return query;

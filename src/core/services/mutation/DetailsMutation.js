@@ -9,6 +9,7 @@ import { postRateNews } from "../getApi";
 
 import { deleteCourseCommentLike, deleteLikeComment, dislikeCourseComment,
          likeComment, postCommentCourse, postCommentNews, postCourseCommentLike, 
+         postReplyNews, 
          replyComment
         } from "../apiComment";
 
@@ -437,3 +438,27 @@ import { deleteCourseCommentLike, deleteLikeComment, dislikeCourseComment,
         })
     }
 
+    export const usePostReplyNews=()=>{
+        const queryClient = useQueryClient();
+    
+        return useMutation({
+            mutationFn:(params)=> postReplyNews(params),
+            onSuccess:()=>{
+                toast.success("نظر شما ثبت شد" , {
+                    theme:"colored"
+                    })
+            },
+            onSettled:async(_,error) =>{
+                if (error) {
+                  
+                    toast.error("خطایی رخ داده است", { theme: "colored" });
+                    
+                }
+                else{
+                   await queryClient.invalidateQueries({queryKey:["postReplyNewses"]})
+    
+                }
+            },
+            
+        })
+    }

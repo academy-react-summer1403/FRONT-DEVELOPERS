@@ -11,13 +11,16 @@ import { ImageErrore } from '../../ImageErrore';
 import CommentsLoading from '../../skeleton/detail/CommentsLoading';
 import { useDeleteLikeComment, useLikeComment } from '../../../core/services/mutation/DetailsMutation';
 import Commentdiv from './Commentdiv';
+import AddReplyNews from './AddReplyNews';
+import ReplyArticle from './ReplyArticle';
 
 
-const NewComment = ({id , UserId}) => {
+const NewComment = ({id , UserId }) => {
+
+
   const [loading, setLoading] = useState(true)
 
     const GetCommentNews = useCommentNews(id);
-    console.log("GetCommentNews",GetCommentNews.data)
 
     // like: 
     const postLikeComment = useLikeComment()
@@ -60,7 +63,6 @@ const NewComment = ({id , UserId}) => {
     // }
     
     const [comentdiv,setCommentdiv]=useState(false)
-    console.log("addcomment" ,comentdiv )
     const [showMore, setShowMore] = useState(true);
     const {t}=useTranslation()
     
@@ -74,6 +76,16 @@ const NewComment = ({id , UserId}) => {
       setLoading(false)
     }, 1000)
   }, [])
+
+
+  const [replydiv,setReplydiv]=useState( )     
+ 
+  console.log("replydiv" ,replydiv )
+  
+  const handleReply =(id)=>{ 
+    setReplydiv(id);
+  }  
+
 
   return (
     <div  style={{ boxShadow: " 0px 1px 2px 0 rgba(0, 0, 0, 0.25)" }}
@@ -115,9 +127,11 @@ const NewComment = ({id , UserId}) => {
                     <div className=' border-b justify-between h-[80px] px-5 flex items-center'>
 
                         <div className='  gap-3 flex items-center justify-between'>
-                            <svg onClick={()=>setCommentdiv1(true) } width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <svg className='cursor-pointer' onClick={()=>handleReply(item?.id) } width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M6.73572 0.264172C6.86446 0.393079 6.93678 0.567817 6.93678 0.750005C6.93678 0.932193 6.86446 1.10693 6.73572 1.23584L2.40905 5.5625H11.7499C13.3909 5.5625 14.9647 6.2144 16.1251 7.37478C17.2855 8.53516 17.9374 10.109 17.9374 11.75C17.9374 13.391 17.2855 14.9648 16.1251 16.1252C14.9647 17.2856 13.3909 17.9375 11.7499 17.9375H8.99988C8.81755 17.9375 8.64268 17.8651 8.51375 17.7361C8.38482 17.6072 8.31238 17.4323 8.31238 17.25C8.31238 17.0677 8.38482 16.8928 8.51375 16.7639C8.64268 16.6349 8.81755 16.5625 8.99988 16.5625H11.7499C12.3819 16.5625 13.0077 16.438 13.5915 16.1962C14.1754 15.9543 14.706 15.5998 15.1528 15.153C15.5997 14.7061 15.9542 14.1755 16.1961 13.5917C16.4379 13.0078 16.5624 12.382 16.5624 11.75C16.5624 11.118 16.4379 10.4922 16.1961 9.90834C15.9542 9.32446 15.5997 8.79393 15.1528 8.34705C14.706 7.90017 14.1754 7.54569 13.5915 7.30383C13.0077 7.06198 12.3819 6.9375 11.7499 6.9375H2.40905L6.73572 11.2642C6.80326 11.3271 6.85744 11.403 6.89502 11.4873C6.93259 11.5717 6.9528 11.6627 6.95443 11.755C6.95605 11.8473 6.93907 11.939 6.9045 12.0246C6.86992 12.1102 6.81845 12.188 6.75317 12.2533C6.68788 12.3186 6.61012 12.37 6.52451 12.4046C6.43891 12.4392 6.34722 12.4562 6.2549 12.4545C6.16259 12.4529 6.07156 12.4327 5.98722 12.3951C5.90289 12.3576 5.82699 12.3034 5.76405 12.2358L0.26405 6.73584C0.135304 6.60693 0.0629883 6.43219 0.0629883 6.25C0.0629883 6.06782 0.135304 5.89308 0.26405 5.76417L5.76405 0.264172C5.89296 0.135426 6.06769 0.0631104 6.24988 0.0631104C6.43207 0.0631104 6.60681 0.135426 6.73572 0.264172Z" className='fill-primary' />
                             </svg>
+                            <AddReplyNews comentdiv={replydiv} setCommentdiv={setReplydiv} Id={item?.id} newsId={id}   UserId={UserId}  parentId={item?.parentId} /> 
+
 
                             {/* comment like: */}
 
@@ -157,7 +171,7 @@ const NewComment = ({id , UserId}) => {
                     <p className='w-full  min-h-[40px]  text-right py-2 px-5 comment text-[15px] '>{item?.describe}</p>
 
                     <div className='w-full  flex justify-start'>
-                        {/* <ReplyArticle useId={newsId}  id={item?.id} parentId={item?.parentId} showMore={showMore} comentdiv1={comentdiv1} setCommentdiv1={setCommentdiv1}/>  */}
+                        <ReplyArticle Id={item?.id} showMore={showMore}  UserId={UserId}  /> 
                     </div>  
                 </div>          
             </div>
