@@ -1,10 +1,8 @@
 import React from 'react'
 import { HiXCircle } from 'react-icons/hi2';
-import { usePostCommentCourse} from '../../../core/services/mutation/DetailsMutation';
-import { useForm } from 'react-hook-form';
+import { usePostCommentCourse } from '../../../core/services/mutation/DetailsMutation';
 
-const CommentdivCourse = ({comentdiv ,setCommentdiv,holder,Id }) => {
-
+const CommentdivCourse = ({comentdiv ,setCommentdiv,holder,Id}) => {
     const CommentCourse = usePostCommentCourse()
     const handlePostCommentCourse = async(e)=>{
 
@@ -22,7 +20,7 @@ const CommentdivCourse = ({comentdiv ,setCommentdiv,holder,Id }) => {
 
 
   return (
-    <div className={`${comentdiv ===true ? "block" : "hidden"} p-5 border border-gray-300  dark:bg-slate-600 bg-[#e2e2e2ee] max-xl:w-3/4  rounded-3xl z-50 mt-2 relative `}>
+    <div className={`${comentdiv ===true ? "block" : "hidden"} p-5 border border-gray-300  dark:bg-slate-600 bg-[#e2e2e2ee] w-[90%]  rounded-3xl z-50 top-14 absolute `}>
         <HiXCircle onClick={()=>setCommentdiv(false)} 
             className='absolute right-4 top-4 w-7 h-7 cursor-pointer text-secondary opacity-100 justify-self-end '
         /> 

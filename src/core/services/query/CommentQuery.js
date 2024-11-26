@@ -13,10 +13,10 @@ export function useCommentCourse(courseId ) {
   }
 
 
-  export function useReplyCourse(id , courseId) {
+  export function useReplyCourse( courseId, id ) {
     const query = useQuery({
-      queryKey: ["replyCourse", id , courseId ],
-      queryFn: () => getReplyCourse(id , courseId  ),
+      queryKey: ["replyCourse",  courseId , id],
+      queryFn: () => getReplyCourse(  courseId ,id ),
     });
   
     return query;

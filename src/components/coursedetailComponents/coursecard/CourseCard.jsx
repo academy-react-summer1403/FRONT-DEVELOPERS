@@ -14,7 +14,7 @@ const CourseCard = ({courseId,isUserFavorite,isCourseReseve}) => {
 
  const [save,setSave]=useState(isUserFavorite? true : false)
  const [isReserve,setIsReseve]=useState(isCourseReseve)
- console.log(isCourseReseve)
+//  console.log(isCourseReseve)
  
 const [favorite, setFavorite] = useState(CourseDetail.data?.isUserFavorite)
 

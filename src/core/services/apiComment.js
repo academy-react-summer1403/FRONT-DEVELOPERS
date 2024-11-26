@@ -12,7 +12,7 @@ export const getCommentCourse =  (courseId ) => {
     return data;
   };
 
-  export const getReplyCourse = async (id , courseId ) => {
+  export const getReplyCourse = async (courseId ,id ) => {
     const data = await http.get(`/Course/GetCourseReplyCommnets/${courseId}/${id}`);
     // console.log(data);
     return data;
@@ -75,9 +75,9 @@ export const getCommentCourse =  (courseId ) => {
   };
 
   export const replyComment = async ( formData ) => {
-    const data = await http.post("/Course/AddReplyCourseComment" ,formData  )
+    const data = await http.post("/Course/AddReplyCourseComment" , formData  )
 
-    // console.log(data);
+    console.log(data);
     return data;
   };
 

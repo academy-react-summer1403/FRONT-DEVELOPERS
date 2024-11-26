@@ -20,12 +20,8 @@ const CourseDetial = () => {
   const { courseId } = useParams();
   const {t}=useTranslation()
 
-  // console.log({ courseId });
 
   const CourseDetail = useCourseId(courseId);
-
-  console.log(CourseDetail.data)
-  // console.log(CourseDetail.data);
 
   const [loading, setLoading] = useState(true)
   useEffect(() => {

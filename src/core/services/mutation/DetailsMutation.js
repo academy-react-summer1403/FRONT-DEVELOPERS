@@ -8,7 +8,8 @@ import { toast } from "react-toastify";
 import { postRateNews } from "../getApi";
 
 import { deleteCourseCommentLike, deleteLikeComment, dislikeCourseComment,
-         likeComment, postCommentCourse, postCommentNews, postCourseCommentLike 
+         likeComment, postCommentCourse, postCommentNews, postCourseCommentLike, 
+         replyComment
         } from "../apiComment";
 
 
@@ -169,6 +170,30 @@ import { deleteCourseCommentLike, deleteLikeComment, dislikeCourseComment,
         })
     }
 
+    export const usePostReplyComment=()=>{
+        const queryClient = useQueryClient();
+    
+        return useMutation({
+            mutationFn:(formData)=> replyComment(formData),
+            onSuccess:()=>{
+                toast.success("نظر شما ثبت شد و بعد از تایید توسط ادمین نمایش داده میشود " , {
+                    theme:"colored"
+                    })
+            },
+            onSettled:async(_,error) =>{
+                if (error) {
+                  
+                    toast.error("خطایی رخ داده است", { theme: "colored" });
+                    
+                }
+                else{
+                   await queryClient.invalidateQueries({queryKey:["postReplyComment"]})
+    
+                }
+            },
+            
+        })
+    }
 
 
 
