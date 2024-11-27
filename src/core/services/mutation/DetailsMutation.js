@@ -447,6 +447,10 @@ import { deleteCourseCommentLike, deleteLikeComment, dislikeCourseComment,
                 toast.success("نظر شما ثبت شد" , {
                     theme:"colored"
                     })
+                
+                        
+                      
+                    
             },
             onSettled:async(_,error) =>{
                 if (error) {
