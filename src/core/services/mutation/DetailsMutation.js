@@ -110,7 +110,7 @@ import { deleteCourseCommentLike, deleteLikeComment, dislikeCourseComment,
         const queryClient = useQueryClient();
     
         return useMutation({
-            mutationFn:(params)=> deleteCourseCommentLike(params),
+            mutationFn:(CourseCommandId)=> deleteCourseCommentLike(CourseCommandId),
             onSuccess:()=>{
                 toast.success(" لایک حذف شد" , {
                     theme:"colored"

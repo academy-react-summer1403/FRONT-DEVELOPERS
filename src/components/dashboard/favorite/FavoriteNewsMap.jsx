@@ -10,11 +10,18 @@ import { Link } from 'react-router-dom'
 import DateApi from '../../DateApi'
 import NotFound from '../../notFound/NotFound'
 import DashPagination from '../DashPagination'
+import { HiXCircle } from 'react-icons/hi2';
+
 
 const FavoriteMapNew = ({search}) => {
  
-  const favoriteNew = useFavoriteNews()
-  console.log(favoriteNew.data)
+  const favoriteNews = useFavoriteNews()
+  const [favoriteNew, setfavoriteNew] = useState(favoriteNews?.data?.myFavoriteNews || [])
+  useEffect(() => {
+    if(favoriteNews?.data){
+      setfavoriteNew(favoriteNews?.data?.myFavoriteNews)
+    }
+  }, [favoriteNews?.data])
 
   
   const handleRemoveFavoriteNews=(deleteFavorite)=>{
@@ -22,10 +29,10 @@ const FavoriteMapNew = ({search}) => {
     const params={
       deleteEntityId:deleteFavorite
     }
-
-   
-
-  const  deleteFavoriteNew = deleteFavoriteNews(params)
+     deleteFavoriteNews(params)
+     .then(() => {
+      setfavoriteNew(prevData => prevData.filter(item => item?.favoriteId !== deleteFavorite));
+    })
   
   }
 
@@ -35,7 +42,7 @@ const FavoriteMapNew = ({search}) => {
  const itemsPerPage = 5; // Number of items per page
 
  // Filter Data Based on Search
- const filteredData = favoriteNew.data?.myFavoriteNews?.filter((f) =>
+ const filteredData = favoriteNew.filter((f) =>
    search.trim() === '' || f.title.toLowerCase().includes(search.toLowerCase())
 
  );
@@ -51,9 +58,10 @@ const FavoriteMapNew = ({search}) => {
 
 
 
-
   
 
+  
+ const [deletmodal, setDeletmodal] = useState()
 
 
 
@@ -73,10 +81,24 @@ const FavoriteMapNew = ({search}) => {
            <li className='col-1 my-2 flex gap-2'>
 
             <form>
-               <button type='button' className='' onClick={()=>handleRemoveFavoriteNews(item?.favoriteId)}>
+               <button type='button' className='' onClick={() => setDeletmodal(item?.newsId)}>
                        <TbTrash className='text-secondary mt-4 w-5 h-5 cursor-pointer ' />   
                </button>
             </form>
+            {/* Delet modal :  */}
+                            
+            <div className={`${deletmodal == item?.newsId ? "block": "hidden"} fixed left-0 top-0 w-screen h-screen bg-black/70 z-[9999]
+                                 backdrop-blur-sm transition-all duration-700`}
+                            >
+                                <div className='bg-white rounded-lg shadow-lg grid gap-3 p-8 mx-auto w-1/3 mt-40'>
+                                    <HiXCircle onClick={()=>setDeletmodal(false)} 
+                                        className=' right-4 top-4 w-5 h-5 cursor-pointer text-secondary opacity-100 justify-self-end '
+                                    />                                
+                                    <p className='dark:text-gray-950 text-[20px] text-center'> آیا میخواهید دوره مورد علاقه را حذف کنید؟ </p>
+                                    <button to={"#"} onClick={()=>(handleRemoveFavoriteNews(item?.favoriteId) , setDeletmodal(false))}  className='bg-secondary p-2 rounded-md text-sm w-20 hover:scale-110
+                                    transition duration-500 hover:shadow-md mx-auto text-center'>بله</button>
+                                </div>
+                            </div>
 
             <div>
                <Link to={"/article-detail/"+item?.newsId}> <IoEyeOutline className='text-secondary mt-4 w-5 h-5 cursor-pointer' /> </Link>

@@ -63,8 +63,8 @@ export const getCommentCourse =  (courseId ) => {
     const response =await http.post(`/Course/AddCourseCommentLike?CourseCommandId=${id}` )
     return response;
   }
-  export const deleteCourseCommentLike = async ( params ) => {
-    const data = await http.delete(`/Course/DeleteCourseCommentLike` ,{data : params}  )
+  export const deleteCourseCommentLike = async ( CourseCommandId ) => {
+    const data = await http.delete(`/Course/DeleteCourseCommentLike?CourseCommandId=${CourseCommandId}` )
     return data;
   };
   export const dislikeCourseComment = async ( disslikeparams ) => {

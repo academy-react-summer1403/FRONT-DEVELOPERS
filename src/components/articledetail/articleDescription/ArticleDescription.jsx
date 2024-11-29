@@ -18,7 +18,7 @@ const ArticleDescription = ({id}) => {
   const {t}=useTranslation()
   
   const articleDetail = useArticleDetail(id);
-  const [showMore, setShowMore] = useState(true);
+  const [showMore, setShowMore] = useState(false);
 
   // like & disslike 
 
@@ -90,13 +90,13 @@ const ArticleDescription = ({id}) => {
         className=" bg-white dark:bg-slate-700 max-sm:w-full  p-[24.5px]  mt-[15px] rounded-[15px]   "
       >
         <div
-          className={` overflow-hidden    ${showMore ? "max-h-[1586px] max-lg:h-[800px] max-xl:h-[995px]" : "h-[] transition delay-150 duration-300"}`}
+          className={` overflow-hidden ${showMore ? "max-h-[1586px] max-lg:h-[800px] max-xl:h-[995px]" : "h-[] transition delay-150 duration-300"}`}
         >
           <motion.p 
                  initial={{ x:0,opacity:0,y:-300}}
                  animate={{ x:0,y:0,opacity:1}}
                  transition={{type:"spring" ,duration:3 , delay:0}}
-            className={`bg-white dark:text-slate-300 dark:bg-slate-700 text-right  font-Yekan  max-sm:w-fullfont-normal text-[18px] max-lg:text-[14px] max-xl:text-[16px] text-[#555555] leading-[30px]   ${
+            className={`bg-white dark:text-slate-300 dark:bg-slate-700 text-right font-Yekan  max-sm:w-fullfont-normal text-[18px] max-lg:text-[14px] max-xl:text-[16px] text-[#555555] leading-[30px]   ${
               showMore ? "max-h-[1586px] max-xl:h-[995px] max-lg:h-[1200px]" : "h-[]"
             }`}
           >

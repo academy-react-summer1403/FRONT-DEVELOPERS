@@ -116,7 +116,7 @@ console.log(id)
             <Commentdiv comentdiv={comentdiv} setCommentdiv={setCommentdiv} holder={"نظر جدید"} Id={id} UserId={UserId}/>
     
         {/* comments:  */}
-        {loading ? <CommentsLoading cards={2}/>  :  GetCommentNews.data.length === 0  ? <h1 className='text-3xl text-green py-24 my-12  text-center'>... نظری وجود ندارد</h1>:
+        {loading ? <CommentsLoading cards={2}/>  :  GetCommentNews.data?.length === 0  ? <h1 className='text-3xl text-green py-24 my-12  text-center'>... نظری وجود ندارد</h1>:
             GetCommentNews.data?.map((item , index)=>(
             <div key={index} data-aos="zoom-in-down" style={{boxShadow:"-1px 2px 1px 0 rgba(0,0,0,0.2)"}}
                 className={`bg-[#F9F9F9] dark:bg-slate-800 rounded-[7px] w-full  flex flex-col  p-[20.5px] mt-[30px]

@@ -184,7 +184,7 @@ const DashPanel = () => {
                     '/>
                     <p className='mt-4 text-center text-darkgreen font-bold
                         max-lg:text-sm 
-                    '>{userProfile.data?.fName}{userProfile.data?.lName} خوش آمدید
+                    '>{userProfile.data?.fName}{" "} {userProfile.data?.lName} خوش آمدید
                     </p>
                 </div>
 
