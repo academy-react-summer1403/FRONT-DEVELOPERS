@@ -9,28 +9,28 @@ const GameBody = ({
     
   return (
     <div>
-        <h3 className='text-[25px] text-center text-green font-semibold border-b-2 border-darkgreen pb-2'> تست کپچا </h3>
-        <div className='my-2 py-2 dark:text-black'>
+        <h3 className='text-[25px]  text-center text-green font-semibold border-b-2 border-darkgreen pb-2'> تست کپچا </h3>
+        <div className='my-2 py-2 dark:text-black '>
 
             <div className=' relative mb-4'>
-                <h2 className='text-[15px] font-semibold pb-2 '>{index+1}: {question.question}</h2>
+                <h2 className='text-[15px]  font-Yekan font-semibold pb-2 '>{index+1}: {question.question}</h2>
             </div>
 
             <ul className='grid mx-auto gap-1'>                    
                                
-                <li ref={answer1} onClick={(e)=>checkAnswer(e , question.answer[0])} className="pl-2 border border-darkgreen h-8 py-1 text-left rounded-md w-full">
+                <li ref={answer1} onClick={(e)=>checkAnswer(e , question.answer[0])} className="pl-2 font-Yekan border border-darkgreen  h-8 py-1 text-left rounded-md w-full">
                     {question.answer[0]}
                 </li>
                                 
-                <li ref={answer2} onClick={(e)=>checkAnswer(e ,question.answer[1])} className="pl-2 border border-darkgreen h-8 py-1 text-left rounded-md w-full">
+                <li ref={answer2} onClick={(e)=>checkAnswer(e ,question.answer[1])} className="pl-2 font-Yekan border border-darkgreen h-8 py-1 text-left rounded-md w-full">
                     {question.answer[1]}                    
                 </li>                                        
                                 
-                <li ref={answer3} onClick={(e)=>checkAnswer(e ,question.answer[2])} className="pl-2 border border-darkgreen h-8 py-1 text-left rounded-md w-full">
+                <li ref={answer3} onClick={(e)=>checkAnswer(e ,question.answer[2])} className="pl-2 font-Yekan border border-darkgreen h-8 py-1 text-left rounded-md w-full">
                     {question.answer[2]}
                 </li>
                                 
-                <li ref={answer4} onClick={(e)=>checkAnswer(e , question.answer[3])} className="pl-2 border border-darkgreen h-8 py-1 text-left rounded-md w-full">
+                <li ref={answer4} onClick={(e)=>checkAnswer(e , question.answer[3])} className="pl-2 font-Yekan border border-darkgreen h-8 py-1 text-left rounded-md w-full">
                     {question.answer[3]}
                 </li>                          
             </ul> 
@@ -43,7 +43,7 @@ const GameBody = ({
                                 بعدی
                             </Button>
                         }
-                <p className=' text-xs text-center mt-4'>  امتیاز شما : {score} از 4 </p>
+                <p className=' font-Yekan text-xs text-center mt-4'>  امتیاز شما : {score} از 4 </p>
 
 
         </div>

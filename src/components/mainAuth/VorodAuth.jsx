@@ -59,12 +59,14 @@ const dispatch = useDispatch()
   if(token){
 
       toast.success("ورود با موفقیت انجام شد" , {
-theme:"colored"
+theme:"colored",
+ className:"custom-toast"
 })
 navigate("/")
   }else if(token == ""){
     toast.error("اطلاعات ورودی نادرست است" , {
-      theme:"colored"
+      theme:"colored",
+       className:"custom-toast"
       })
   }
 

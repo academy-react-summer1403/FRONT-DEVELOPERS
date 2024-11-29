@@ -4,7 +4,7 @@ import CourseCard from "../../components/coursedetailComponents/coursecard/Cours
 import Detail from "../../components/coursedetailComponents/detail/Detail";
 import Description from "../../components/coursedetailComponents/Description/Description";
 import HeadLines from "../../components/coursedetailComponents/Headlines/HeadLines";
-import { useCourseId } from "../../core/services/query/queries";
+import { useCourseId, useGetRelatedcourse } from "../../core/services/query/queries";
 import { useParams } from "react-router-dom";
 import RelatedCourses from "../../components/coursedetailComponents/RelatedCourses/RelatedCourses";
 import { ImageErrore } from "../../components/ImageErrore";
@@ -22,6 +22,7 @@ const CourseDetial = () => {
 
 
   const CourseDetail = useCourseId(courseId);
+  const samecourses=useGetRelatedcourse()
 
   const [loading, setLoading] = useState(true)
   useEffect(() => {
@@ -76,9 +77,9 @@ const CourseDetial = () => {
 
 
 
-            {loading ?  <Related cards={4} custumStyle="h-[112px] p-[15px]" imageStyle="w-[120px] h-[80px]"/> :   samecourses.map((data,index)=>( 
+            {loading ?  <Related cards={4} custumStyle="h-[112px] p-[15px]" imageStyle="w-[120px] h-[80px]"/> :   samecourses?.data?.courseFilterDtos?.map((data,index)=>( 
 
-            <RelatedCourses  key={index} title={data.title} image={data.image} />))}
+            <RelatedCourses  key={index} title={data?.title} image={data?.tumbImageAddress} />))}
           </div>
 
         
@@ -114,21 +115,6 @@ const CourseDetial = () => {
 export default CourseDetial;
 
 
-
-export const samecourses=[
-  {title:"دوره تخصصی ترفند های طراحی فرانت اند",
-  image:"https://s3-alpha-sig.figma.com/img/ff18/00fa/69286aff4819156512be6e0b2ffd22d9?Expires=1728259200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=m8gZMtnAmFHDZAupQ2ddctQNGS1hplRMyG1r8zBHOExGkYljmi21lsVWvgc4DlqMLTpPN2hdBOAQT-t9zb~PneJmVt5qBlQmGDa8s9j-DP1ZmCpSex8NGE40nluJ29PmkIWChB3ALr2zCB~J-PVVKAGCAcxi4Q5aPF10ngtMeWeL6A2qyoZbKgmYl6cjgHeFlSWBhVvYTlOhSt9pvWBK4a6CsGcmTX4cFlDfaWNOK0jLzpzCQel6jqqCFF5Yxny9tcuFsWPr8Hz15CLihJLJeSuHhVpxeNUdUxm88j7QCfcQ~MwOjGTad7~CjN04Es35Bvp6Ni-Up3mvfciybPHJyQ__"
-  },
-  {title:"دوره تخصصی ترفند های طراحی فرانت اند",
-      image:"https://s3-alpha-sig.figma.com/img/ff18/00fa/69286aff4819156512be6e0b2ffd22d9?Expires=1728259200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=m8gZMtnAmFHDZAupQ2ddctQNGS1hplRMyG1r8zBHOExGkYljmi21lsVWvgc4DlqMLTpPN2hdBOAQT-t9zb~PneJmVt5qBlQmGDa8s9j-DP1ZmCpSex8NGE40nluJ29PmkIWChB3ALr2zCB~J-PVVKAGCAcxi4Q5aPF10ngtMeWeL6A2qyoZbKgmYl6cjgHeFlSWBhVvYTlOhSt9pvWBK4a6CsGcmTX4cFlDfaWNOK0jLzpzCQel6jqqCFF5Yxny9tcuFsWPr8Hz15CLihJLJeSuHhVpxeNUdUxm88j7QCfcQ~MwOjGTad7~CjN04Es35Bvp6Ni-Up3mvfciybPHJyQ__"
-  },
-  {title:"دوره تخصصی ترفند های طراحی فرانت اند",
-          image:"https://s3-alpha-sig.figma.com/img/ff18/00fa/69286aff4819156512be6e0b2ffd22d9?Expires=1728259200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=m8gZMtnAmFHDZAupQ2ddctQNGS1hplRMyG1r8zBHOExGkYljmi21lsVWvgc4DlqMLTpPN2hdBOAQT-t9zb~PneJmVt5qBlQmGDa8s9j-DP1ZmCpSex8NGE40nluJ29PmkIWChB3ALr2zCB~J-PVVKAGCAcxi4Q5aPF10ngtMeWeL6A2qyoZbKgmYl6cjgHeFlSWBhVvYTlOhSt9pvWBK4a6CsGcmTX4cFlDfaWNOK0jLzpzCQel6jqqCFF5Yxny9tcuFsWPr8Hz15CLihJLJeSuHhVpxeNUdUxm88j7QCfcQ~MwOjGTad7~CjN04Es35Bvp6Ni-Up3mvfciybPHJyQ__"
-  },
-  {title:"دوره تخصصی ترفند های طراحی فرانت اند",
-              image:"https://s3-alpha-sig.figma.com/img/ff18/00fa/69286aff4819156512be6e0b2ffd22d9?Expires=1728259200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=m8gZMtnAmFHDZAupQ2ddctQNGS1hplRMyG1r8zBHOExGkYljmi21lsVWvgc4DlqMLTpPN2hdBOAQT-t9zb~PneJmVt5qBlQmGDa8s9j-DP1ZmCpSex8NGE40nluJ29PmkIWChB3ALr2zCB~J-PVVKAGCAcxi4Q5aPF10ngtMeWeL6A2qyoZbKgmYl6cjgHeFlSWBhVvYTlOhSt9pvWBK4a6CsGcmTX4cFlDfaWNOK0jLzpzCQel6jqqCFF5Yxny9tcuFsWPr8Hz15CLihJLJeSuHhVpxeNUdUxm88j7QCfcQ~MwOjGTad7~CjN04Es35Bvp6Ni-Up3mvfciybPHJyQ__"
-  },
-]
 
 
 export const suggestion=[

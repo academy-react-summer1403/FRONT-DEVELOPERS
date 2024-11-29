@@ -51,22 +51,22 @@ const Game = () => {
     },
     {
         id:4,
-        question:"how maney color does the rainbow have?",
+        question:"تعداد رنگ های رنگین کمان چند است؟",
         answer:["8","6","7","4"],
         isCorrect:"7"
     },
     {
         id:5,
-        question:" what does ctrl+c do? ",
-        answer:["copy","cut","past","select"],
-        isCorrect:"copy"
-         
+        question:"کاربرد ctrl+c چیست؟",
+        answer:["کپی(copy)","بریدن(cut)","الصاق(Paste)","انتخاب(select)"],
+        isCorrect:"کپی(copy)"
+   
     },
     {
         id:6,
-        question:"what does ctrl+v do??",
-        answer:["copy","cut","past","select"],
-        isCorrect:"past"
+        question:"کاربرد ctrl+v چیست؟",
+        answer:["کپی(copy)","بریدن(cut)","الصاق(Paste)","انتخاب(select)"],
+        isCorrect:"الصاق(Paste)"
        
 
     },

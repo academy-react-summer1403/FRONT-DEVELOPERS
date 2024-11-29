@@ -60,11 +60,14 @@ const EditeProfileForm = () => {
 
       toast.success("اطلاعات شما با موفقیت بروزرسانی شد.", {
         theme: "colored",
+         className:"custom-toast"
+        
       });
       navigate("/info");
     } catch (error) {
       toast.error("بروزرسانی اطلاعات با خطا مواجه شد. دوباره امتحان کنید.", {
         theme: "colored",
+         className:"custom-toast"
       });
       console.error("Error updating user info:", error);
     }

@@ -3,14 +3,15 @@ import { motion } from 'framer-motion'
 import { ImageErrore } from '../../ImageErrore'
 import { IoIosArrowBack } from "react-icons/io";
 import { useTranslation } from 'react-i18next';
-
-
 import AOS from "aos";
 import 'aos/dist/aos.css';
 
 
 
+
 const RelatedCourses = ({title,image}) => {
+
+
 
   const {t}=useTranslation()
 
@@ -65,7 +66,7 @@ const RelatedCourses = ({title,image}) => {
                   animate={{ x:0,y:0,opacity:1}}
                   transition={{type:"tween",duration:1,stiffness:100, delay:0.2}}
                   style={{boxShadow:" 0px 1px 2px 0 rgba(0, 0, 0, 0.25)"}} className='w-[126px] max-sm:w-[70px] h-[84px] max-lg:w-[100px] max-lg:h-[64px] rounded-[10px]' 
-                  src={image}  onError={ImageErrore}
+                  src={image ? image : <ImageErrore/>}  onError={ImageErrore}
                   />
             </div>
                  

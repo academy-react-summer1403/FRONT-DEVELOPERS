@@ -1,6 +1,6 @@
-import { toast } from "react-toastify";
+
 import http from "./interceptor";
-import 'react-toastify/dist/ReactToastify.css';
+
 
 
 export const getNews = async (params , page,rows  ) => {
@@ -11,6 +11,12 @@ export const getNews = async (params , page,rows  ) => {
   return data;
 };
 
+
+export const getNews1 = async ( ) => {
+  const data = await http.get(`/News?PageNumber=1&RowsOfPage=3` )
+  
+  return data;
+};
 export const getNewsPudcast = async ( ) => {
   const data = await http.get(`/News`)
   // console.log(data);
@@ -47,6 +53,17 @@ export const getCourse = async (  search , params) => {
   // console.log(data);
   return data;
 };
+
+
+export const Relatedcourse  = async () => {
+  const data = await http.get(`/Home/GetCoursesWithPagination?PageNumber=1&RowsOfPage=4`)
+   
+  console.log(data);
+  return data;
+}
+
+
+
 
 export const getCourseId = async (courseId) => {
   const data = await http.get(`/Home/GetCourseDetails?CourseId=${courseId}`);
