@@ -140,6 +140,8 @@ body{
 }
 
 
+
+
 .button__bar {
     display: inline-block;
     vertical-align: middle;
@@ -274,4 +276,8 @@ body{
 }
 .wrong{
   @apply bg-red-200 border-red-500
+}
+
+.custom-toast {
+  z-index: 9999 !important;
 }

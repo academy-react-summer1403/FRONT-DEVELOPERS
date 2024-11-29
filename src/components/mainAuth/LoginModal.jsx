@@ -65,12 +65,14 @@ const LoginModal = () => {
     if(data.success == true){
   
         toast.success("ورود با موفقیت انجام شد" , {
-  theme:"colored"
+  theme:"colored",
+   className:"custom-toast"
   })
   navigate("/")
     }else{
       toast.error("اطلاعات ورودی نادرست است" , {
-        theme:"colored"
+        theme:"colored",
+         className:"custom-toast"
         })
     }
   

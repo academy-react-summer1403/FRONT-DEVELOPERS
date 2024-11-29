@@ -8,21 +8,30 @@ import {
   getCourseLandingSearchBar,
   getLandingReport,
   getNews,
+  getNews1,
   getNewsId,
   getNewsLandingSearchBar,
   getNewsPudcast,
   getTopCourse,
   LevelCourses,
+  Relatedcourse,
   TeacherCourses,
   TypeCourses,
 } from "../getApi";
-import { StudentCoursePayDetail } from "../level2api";
+import { GetSecurityInfo, StudentCoursePayDetail } from "../level2api";
 
 
 export function useNewsData(params , page,rows ) {
   return useQuery({
     queryKey: ["news", params,page,rows  ],
     queryFn: () => getNews( params, page ,rows  ),
+  });
+}
+
+export function useNewsData1() {
+  return useQuery({
+    queryKey: ["news" ],
+    queryFn: () => getNews1( ),
   });
 }
 
@@ -129,6 +138,22 @@ export function useStudentCoursePayDetail(Id){
     queryFn:()=>StudentCoursePayDetail(Id)
   })
 }
+
+export function useGetSecurityInfo(){
+  return useQuery({
+    queryKey:["GetSecurityInfo" ],
+    queryFn:()=>GetSecurityInfo()
+  })
+}
+
+
+export function useGetRelatedcourse(){
+  return useQuery({
+    queryKey:["Relatedcourse" ],
+    queryFn:()=>Relatedcourse()
+  })
+}
+
 
 
 StudentCoursePayDetail

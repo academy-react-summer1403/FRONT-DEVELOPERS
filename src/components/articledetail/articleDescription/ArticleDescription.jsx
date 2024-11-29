@@ -60,7 +60,7 @@ const ArticleDescription = ({id}) => {
               console.error("RateNumber is undefined or null");
           }
     }else{
-      toast.warning("قبلاً امتیاز داده‌اید", { theme: "colored" });
+      toast.warning("قبلاً امتیاز داده‌اید", { theme: "colored", className:"custom-toast" });
     }
     
 };

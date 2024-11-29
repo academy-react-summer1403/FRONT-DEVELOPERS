@@ -1,11 +1,11 @@
-import { toast } from "react-toastify";
+
 import http from "./interceptor";
-import 'react-toastify/dist/ReactToastify.css';
+
 
 export const getUserProfile = async () => {
     const data = await http.get("/SharePanel/GetProfileInfo" )
 
-    // console.log(data);
+    
     return data;
   };
 
@@ -13,7 +13,7 @@ export const getUserProfile = async () => {
   export const postUserImg = async ( formFile) => {
     const data = await http.post("/SharePanel/AddProfileImage" , formFile )
 
-    // console.log(data);
+
     return data;
   };
 
@@ -22,15 +22,25 @@ export const getUserProfile = async () => {
   export const postUserMainImg = async (  formId) => {
     const data = await http.post("/SharePanel/SelectProfileImage" , formId )
 
-    // console.log(data);
+
     return data;
   };
 
   export const putUserInfo = async (formData) => {
-      const response = await http.put("/SharePanel/UpdateProfileInfo", formData);
-  
-      return response;
- 
+    try {
+     
+      const response = await http.put("/SharePanel/UpdateProfileInfo", formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data', 
+        },
+      });
+
+      return response.data;
+    } catch (error) {
+   
+      console.error("Error updating user info:", error);
+      throw new Error("Failed to update user info. Please try again.");
+    }
   };
   
 
@@ -40,7 +50,7 @@ export const getUserProfile = async () => {
   export const getMyCourses = async () => {
     const data = await http.get("/SharePanel/GetMyCourses" )
   
-    // console.log(data);
+
     return data;
   };
 
@@ -127,11 +137,7 @@ export const getUserProfile = async () => {
     const data = await http.post(`/News/NewsRate`,null,{
       params:params
     })
-    //   toast.success("عملیات  با موفقیت انجام شد" ,{
-    //     theme:"colored"}
-    // ))
-  
-    // console.log(data);
+   
     return data;
   };
 
@@ -139,12 +145,7 @@ export const getUserProfile = async () => {
 
 
 
-  // export const getCommentPanel = async ( ) => {
-  //   const data = await http.post("/CourseReserve/ReserveAdd" )
   
-  //   console.log(data);
-  //   return data;
-  // };
 
 
   export const getFavoriteCourse = async ( ) => {
@@ -233,12 +234,7 @@ export const getUserProfile = async () => {
   };
 
 
-  // export const deletedisslikeArticle = async ( id ) => {
-  //   const data = await http.post(`/News/NewsDissLike/${id}` )
-  
-  //   console.log(data);
-  //   return data;
-  // };
+
 
 
   export const getMyCoursesComments=async()=>{

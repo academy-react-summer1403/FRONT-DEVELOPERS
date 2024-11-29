@@ -6,8 +6,8 @@ import persian_fa from "react-date-object/locales/persian_fa";
 import { useTranslation } from 'react-i18next';
 import { useNavigate, useParams } from 'react-router-dom';
 import { StudentAddPeyment } from '../core/services/level2api';
-import { toast, ToastContainer } from 'react-toastify'; // وارد کردن ToastContainer و toast برای نمایش پیغام‌ها
-import 'react-toastify/dist/ReactToastify.css'; // استایل مورد نیاز برای نمایش توست‌ها
+import { toast, ToastContainer } from 'react-toastify'; 
+import 'react-toastify/dist/ReactToastify.css'; 
 
 const Payment = () => {
   const { t } = useTranslation();
@@ -30,6 +30,7 @@ const Payment = () => {
       
       toast.success(t('با موفقیت انجام شد.'), {
         theme: "colored",
+         className:"custom-toast"
       });
 
       navigate(`/payment1/${courseId}`);

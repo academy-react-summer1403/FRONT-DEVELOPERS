@@ -43,7 +43,28 @@ export const addPayImage = async (imageFile) => {
 
 
 
+export const GetSecurityInfo =async()=>{
+  const data=await http.get(`/SharePanel/GetSecurityInfo`);
+  console.log(data);
+  return data;
+}
 
+
+
+export const EditSecurity = async (Edit) => {
+  const data = await http.put(`/SharePanel/EditSecurity` , (Edit) )
+
+  console.log(data);
+  return data;
+};
+
+
+export const login2step = async (verify) => {
+  const data = await http.post(`/Sign/LoginTwoStep?VerifyCode=${verify}` )
+
+  console.log(data);
+  return data;
+};
 
 
 

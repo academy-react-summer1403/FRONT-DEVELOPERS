@@ -99,8 +99,8 @@ const handleLogout = (token)=>{
                         <div className=' flex justify-center items-center gap-1 h-12 w-full' >  
                             <img src={userImageProfile ? userImageProfile.data?.currentPictureAddress : ""} alt="" className={`w-[40px]  ${user.token == null ? "hidden" : "block border border-white"} h-[40px] rounded-full  top-[4px] left-2 `}/>
                             
-                            <h1 className={`text-sm  font-semibold text-white mt-5 pr-1   h-[40px] text-center ${user.token == null ? "block" : "hidden"}`} >{t("person")} </h1> 
-                            <h1 className={`text-sm  font-semibold text-white  truncate  mt-5  w-[60%] h-[40px] ${user.token == null ? "hidden" : "block"}`}>{t(userImageProfile.data?.fName)} {t(userImageProfile.data?.lName)}</h1>
+                            <h1 className={`text-sm  font-semibold text-white mt-5 pr-1   h-[40px] text-center ${user.token == null || user.token == undefined  ? "block" : "hidden"}`} > {t("person")} </h1> 
+                            <h1 className={`text-sm  font-semibold text-white  truncate  mt-5  w-[60%] h-[40px] ${user.token == null || user.token == undefined  ? "hidden" : "block"}`}>{t(userImageProfile.data?.fName)} {t(userImageProfile.data?.lName)}</h1>
 
                         </div> 
                         

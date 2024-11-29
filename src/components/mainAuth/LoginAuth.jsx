@@ -39,7 +39,7 @@ const LoginAuth = () => {
   const res = postRegister(user)
     console.log(res)
 
-    navigate("/");
+    navigate("/auth/twostep");
   }
 
 

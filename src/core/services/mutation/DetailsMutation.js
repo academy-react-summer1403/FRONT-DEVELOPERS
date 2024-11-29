@@ -23,18 +23,14 @@ import { deleteCourseCommentLike, deleteLikeComment, dislikeCourseComment,
             onSuccess:()=>{
                 toast.success("دوره با موفقیت به علاقه مندی اضافه شد" , {
                     theme:"colored",
-                    style: {
-                        zIndex: 9999, 
-                      },
+                     className:"custom-toast"
                     })
             },
             onSettled:async(_,error) =>{
                 if(error){
                     toast.error("خطایی رخ داده است" , {
                         theme:"colored",
-                        style: {
-                            zIndex: 9999, 
-                          },
+                         className:"custom-toast"
                         })
                     
                 }
@@ -55,18 +51,14 @@ import { deleteCourseCommentLike, deleteLikeComment, dislikeCourseComment,
             onSuccess:()=>{
                 toast.success("دوره با موفقیت از علاقه مندی حذف شد" , {
                     theme:"colored",
-                    style: {
-                        zIndex: "9999", 
-                      },
+                         className:"custom-toast"
                     })
             },
             onSettled:async(_,error) =>{
                 if(error){
-                    toast.warning("بروزرسانی اطلاعات با خطا مواجه شد. دوباره امتحان کنید." , {
+                    toast.warning("------" , {
                         theme:"colored",
-                        style: {
-                            zIndex: 9999, 
-                          },
+                         className:"custom-toast"
                         })
                     
                 }
@@ -86,7 +78,8 @@ import { deleteCourseCommentLike, deleteLikeComment, dislikeCourseComment,
             mutationFn:(id)=> postCourseCommentLike(id),
             onSuccess:()=>{
                 toast.success("نظر لایک شد" , {
-                    theme:"colored"
+                    theme:"colored",
+                         className:"custom-toast"
                     })
             },
             onSettled:async(_,error) =>{
@@ -94,6 +87,8 @@ import { deleteCourseCommentLike, deleteLikeComment, dislikeCourseComment,
                     
                     toast.error(`${error.message}` , {
                         theme:"colored"
+                        ,
+                         className:"custom-toast"
                         })
                     
                 }
@@ -113,13 +108,15 @@ import { deleteCourseCommentLike, deleteLikeComment, dislikeCourseComment,
             mutationFn:(CourseCommandId)=> deleteCourseCommentLike(CourseCommandId),
             onSuccess:()=>{
                 toast.success(" لایک حذف شد" , {
-                    theme:"colored"
+                    theme:"colored",
+                         className:"custom-toast"
                     })
             },
             onSettled:async(_,error) =>{
                 if(error){
                     toast.warning("خطایی رخ داد" , {
-                        theme:"colored"
+                        theme:"colored",
+                         className:"custom-toast"
                         })
                     
                 }
@@ -139,13 +136,15 @@ import { deleteCourseCommentLike, deleteLikeComment, dislikeCourseComment,
             mutationFn:(disslikeparams)=> dislikeCourseComment(disslikeparams),
             onSuccess:()=>{
                 toast.success(" دیس لایک انجام شد" , {
-                    theme:"colored"
+                    theme:"colored",
+                         className:"custom-toast"
                     })
             },
             onSettled:async(_,error) =>{
                 if(error){
                     toast.error("خطایی رخ داده است" , {
-                        theme:"colored"
+                        theme:"colored",
+                         className:"custom-toast"
                         })
                     
                 }
@@ -165,13 +164,15 @@ import { deleteCourseCommentLike, deleteLikeComment, dislikeCourseComment,
             mutationFn:(formData)=> postCommentCourse(formData),
             onSuccess:()=>{
                 toast.success("نظر شما ثبت شد و بعد از تایید توسط ادمین نمایش داده میشود " , {
-                    theme:"colored"
+                    theme:"colored",
+                         className:"custom-toast"
                     })
             },
             onSettled:async(_,error) =>{
                 if (error) {
                   
-                    toast.error("خطایی رخ داده است", { theme: "colored" });
+                    toast.error("خطایی رخ داده است", { theme: "colored" ,
+                        className:"custom-toast"});
                     
                 }
                 else{
@@ -190,13 +191,15 @@ import { deleteCourseCommentLike, deleteLikeComment, dislikeCourseComment,
             mutationFn:(formData)=> replyComment(formData),
             onSuccess:()=>{
                 toast.success("نظر شما ثبت شد و بعد از تایید توسط ادمین نمایش داده میشود " , {
-                    theme:"colored"
+                    theme:"colored",
+                         className:"custom-toast"
                     })
             },
             onSettled:async(_,error) =>{
                 if (error) {
                   
-                    toast.error("خطایی رخ داده است", { theme: "colored" });
+                    toast.error("خطایی رخ داده است", { theme: "colored" ,
+                        className:"custom-toast"});
                     
                 }
                 else{
@@ -220,16 +223,19 @@ import { deleteCourseCommentLike, deleteLikeComment, dislikeCourseComment,
             mutationFn:({NewsId, RateNumber})=> postRateNews({NewsId, RateNumber}),
             onSuccess:()=>{
                 toast.success("امتیاز شما ثبت شد" , {
-                    theme:"colored"
+                    theme:"colored",
+                         className:"custom-toast"
                     })
             },
             onSettled:async(_,error) =>{
                 if (error) {
                     console.error("Error Details:", error);
                     if (error.response?.status === 400) {
-                        toast.warning("داده‌های ارسالی اشتباه است یا قبلاً امتیاز داده‌اید", { theme: "colored" });
+                        toast.warning("داده‌های ارسالی اشتباه است یا قبلاً امتیاز داده‌اید", { theme: "colored" ,
+                            className:"custom-toast"});
                     } else {
-                        toast.error("خطای نامشخص رخ داده است", { theme: "colored" });
+                        toast.error("خطای نامشخص رخ داده است", { theme: "colored" ,
+                            className:"custom-toast"});
                     }
                 }
                 else{
@@ -248,13 +254,15 @@ import { deleteCourseCommentLike, deleteLikeComment, dislikeCourseComment,
             mutationFn:(params)=> postFavoriteNews(params),
             onSuccess:()=>{
                 toast.success("خبر به علاقه مندی اضافه شد" , {
-                    theme:"colored"
+                    theme:"colored",
+                         className:"custom-toast"
                     })
             },
             onSettled:async(_,error) =>{
                 if(error){
                     toast.error("خطایی رخ داده است" , {
-                        theme:"colored"
+                        theme:"colored",
+                         className:"custom-toast"
                         })
                     
                 }
@@ -274,13 +282,15 @@ import { deleteCourseCommentLike, deleteLikeComment, dislikeCourseComment,
             mutationFn:(params)=> deleteFavoriteNews(params),
             onSuccess:()=>{
                 toast.success("خبر با موفقیت از علاقه مندی حذف شد" , {
-                    theme:"colored"
+                    theme:"colored",
+                         className:"custom-toast"
                     })
             },
             onSettled:async(_,error) =>{
                 if(error){
                     toast.warning("خطایی رخ داده است" , {
-                        theme:"colored"
+                        theme:"colored",
+                         className:"custom-toast"
                         })
                     
                 }
@@ -301,13 +311,15 @@ import { deleteCourseCommentLike, deleteLikeComment, dislikeCourseComment,
             mutationFn:(id)=> likeArticle(id),
             onSuccess:()=>{
                 toast.success("خبر لایک شد" , {
-                    theme:"colored"
+                    theme:"colored",
+                         className:"custom-toast"
                     })
             },
             onSettled:async(_,error) =>{
                 if(error){
                     toast.error("خطایی رخ داده است" , {
-                        theme:"colored"
+                        theme:"colored",
+                         className:"custom-toast"
                         })
                     
                 }
@@ -327,13 +339,15 @@ import { deleteCourseCommentLike, deleteLikeComment, dislikeCourseComment,
             mutationFn:(deleteEntityId)=> deletelikeArticle(deleteEntityId),
             onSuccess:()=>{
                 toast.success("لایک حذف شد" , {
-                    theme:"colored"
+                    theme:"colored",
+                         className:"custom-toast"
                     })
             },
             onSettled:async(_,error) =>{
                 if(error){
                     toast.warning("خطایی رخ داده است" , {
-                        theme:"colored"
+                        theme:"colored",
+                         className:"custom-toast"
                         })
                     
                 }
@@ -354,13 +368,15 @@ import { deleteCourseCommentLike, deleteLikeComment, dislikeCourseComment,
             mutationFn:(id)=> disslikeArticle(id),
             onSuccess:()=>{
                 toast.success("عملیات موفق" , {
-                    theme:"colored"
+                    theme:"colored",
+                         className:"custom-toast"
                     })
             },
             onSettled:async(_,error) =>{
                 if(error){
                     toast.error("خطایی رخ داده است" , {
-                        theme:"colored"
+                        theme:"colored",
+                         className:"custom-toast"
                         })
                     
                 }
@@ -380,13 +396,15 @@ import { deleteCourseCommentLike, deleteLikeComment, dislikeCourseComment,
             mutationFn:(likeparams)=> likeComment(likeparams),
             onSuccess:()=>{
                 toast.success("نظر لایک شد" , {
-                    theme:"colored"
+                    theme:"colored",
+                         className:"custom-toast"
                     })
             },
             onSettled:async(_,error) =>{
                 if(error){
                     toast.error("خطایی رخ داده است" , {
-                        theme:"colored"
+                        theme:"colored",
+                         className:"custom-toast"
                         })
                     
                 }
@@ -406,13 +424,15 @@ import { deleteCourseCommentLike, deleteLikeComment, dislikeCourseComment,
             mutationFn:(params)=> deleteLikeComment(params),
             onSuccess:()=>{
                 toast.success(" لایک حذف شد" , {
-                    theme:"colored"
+                    theme:"colored",
+                         className:"custom-toast"
                     })
             },
             onSettled:async(_,error) =>{
                 if(error){
                     toast.warning("------" , {
-                        theme:"colored"
+                        theme:"colored",
+                         className:"custom-toast"
                         })
                     
                 }
@@ -432,13 +452,15 @@ import { deleteCourseCommentLike, deleteLikeComment, dislikeCourseComment,
             mutationFn:(params)=> postCommentNews(params),
             onSuccess:()=>{
                 toast.success("نظر شما ثبت شد" , {
-                    theme:"colored"
+                    theme:"colored",
+                         className:"custom-toast"
                     })
             },
             onSettled:async(_,error) =>{
                 if (error) {
                   
-                    toast.error("خطایی رخ داده است", { theme: "colored" });
+                    toast.error("خطایی رخ داده است", { theme: "colored",
+                        className:"custom-toast" });
                     
                 }
                 else{
@@ -457,7 +479,8 @@ import { deleteCourseCommentLike, deleteLikeComment, dislikeCourseComment,
             mutationFn:(params)=> postReplyNews(params),
             onSuccess:()=>{
                 toast.success("نظر شما ثبت شد" , {
-                    theme:"colored"
+                    theme:"colored",
+                         className:"custom-toast"
                     })
                 
                         
@@ -467,7 +490,8 @@ import { deleteCourseCommentLike, deleteLikeComment, dislikeCourseComment,
             onSettled:async(_,error) =>{
                 if (error) {
                   
-                    toast.error("خطایی رخ داده است", { theme: "colored" });
+                    toast.error("خطایی رخ داده است", { theme: "colored",
+                        className:"custom-toast" });
                     
                 }
                 else{
