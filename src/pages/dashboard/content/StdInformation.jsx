@@ -2,6 +2,7 @@ import React from 'react'
 import ProfileInformation from '../../../components/dashboard/editeprofile/ProfileInformation'
 import { NavLink } from 'react-router-dom'
 import { useUserProfile } from '../../../core/services/query/DashboardQuery'
+import { ImageErrore } from '../../../components/ImageErrore'
 
 
 
@@ -20,7 +21,7 @@ const StdInformation = () => {
       max-sm:px-0
       max-sm:mx-0
     '>
-       <img src={userProfile.data?.currentPictureAddress} className='absolute right-10 top-[-50px] w-[80px] h-[80px] rounded-full'/>
+       <img src={userProfile.data?.currentPictureAddress ? userProfile.data?.currentPictureAddress : <ImageErrore/> } onError={ImageErrore} className='absolute right-10 top-[-50px] w-[80px] h-[80px] rounded-full'/>
   
 
       {/* contenet:  */}

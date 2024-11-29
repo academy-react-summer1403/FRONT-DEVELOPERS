@@ -137,7 +137,7 @@ const Game = () => {
         '>
             <div className='w-1/2 bg-white opacity-100 p-4 rounded-[15px] mx-auto'>
                 {                   
-                        score !== 4  ? <GameBody 
+                        score !==2  ? <GameBody 
                             answerArrey={answerArrey} checkAnswer={checkAnswer} button={button}
                             index={index} question={question} score={score} handleNext={handleNext}
                             answer1={answer1} answer2={answer2} answer3={answer3} answer4={answer4}

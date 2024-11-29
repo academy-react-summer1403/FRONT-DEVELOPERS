@@ -19,14 +19,12 @@ const ArticleDescription = ({id}) => {
   
   const articleDetail = useArticleDetail(id);
   const [showMore, setShowMore] = useState(true);
-  console.log("articleDetail" , articleDetail.data)
 
   // like & disslike 
 
   const [like , setLike] = useState(articleDetail.data?.detailsNewsDto?.currentUserIsLike)
   const [currentlike , setCurrentlike] = useState(articleDetail.data?.detailsNewsDto?.currentLikeCount)
   const [disslike , setDissLike] = useState(articleDetail.data?.detailsNewsDto?.currentUserIsDissLike)
-  console.log("like" , like ,disslike )
 
   const addlikenew = uselikeArticle(id)
   const handlelike=(id)=>{

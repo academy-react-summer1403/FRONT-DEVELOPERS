@@ -17,8 +17,6 @@ import "react-loading-skeleton/dist/skeleton.css";
 import { useDeleteFavoriteNews, usePostFavoriteNews } from "../../core/services/mutation/DetailsMutation";
 import NewComment from "../../components/coursedetailComponents/comments/NewComment";
 
-// import { samecourses, suggestion } from "../CourseDetail/CourseDetail";
-
 
 const ArticleDetail = () => {
 
@@ -28,11 +26,11 @@ const ArticleDetail = () => {
 
   
   const articleDetail = useArticleDetail(id);
-  console.log("articleDetail" , articleDetail.data)
+  console.log(articleDetail?.data)
+  
 
  const [save,setSave]=useState(articleDetail?.data?.detailsNewsDto?.isCurrentUserFavorite)
   
-  console.log("articleDetail" , articleDetail?.data?.detailsNewsDto?.isCurrentUserFavorite)
 
   
   

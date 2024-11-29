@@ -14,6 +14,7 @@ import * as yup from "yup";
 const EditeProfileForm = () => {
   const navigate = useNavigate();
   const userProfile = useUserProfile();
+  console.log("userProfile ::::" , userProfile?.data)
   const location = useSelector((state) => state.LocationSlice.location);
 
   const [gender, setGender] = useState(userProfile.data?.gender ? true : false);
@@ -102,8 +103,9 @@ const EditeProfileForm = () => {
           <Form>
             <div>
               <div className="flex grid-cols-3 max-xl:flex max-xl:flex-col-reverse  border-b pb-8 px-2 ">
+
                 <div className="grid-col-1 w-[100%]">
-                  <AddProfImage images={userProfile.data?.userImage} />
+                  <AddProfImage allimages={userProfile.data?.userImage} currentImage={userProfile.data?.currentPictureAddress}/>
                   <div className="w-full">
                     <label className="relative text-right text-sm grid-col-1 text-gray-400">
                       <p className="py-2 px-4">درباره من</p>
@@ -121,9 +123,10 @@ const EditeProfileForm = () => {
                     </label>
                   </div>
                 </div>
+
                 <ul className="grid-col-2 w-[100%] pl-4 justify-self-center max-xl:px-32 max-lg:px-20 max-md:px-10">
                   <li className="flex flex-row-reverse max-sm:flex-col gap-4">
-                    <label className="relative text-right text-sm text-gray-400">
+                    <label className="relative text-right text-sm text-gray-400 w-full">
                       <p className="py-2 px-4">نام</p>
                       <Field
                         type="text"
@@ -133,12 +136,12 @@ const EditeProfileForm = () => {
                         style={{
                           boxShadow: "0px 1px 3px 0px #00000033 inset",
                         }}
-                        className="px-4 pt-1 rounded-md bg-gray-50 dark:bg-white leading-8 text-darkgreen placeholder-sm text-right placeholder-darkgreen/30 font-medium focus:outline outline-primary outline-[1.5px]"
+                        className="px-4 pt-1 w-full rounded-md bg-gray-50 dark:bg-white leading-8 text-darkgreen placeholder-sm text-right placeholder-darkgreen/30 font-medium focus:outline outline-primary outline-[1.5px]"
                       />
                       <ErrorMessage name="FName"  component="div"  className="text-red-500 text-xs mt-1" />
                     </label>
 
-                    <label className="relative text-right text-sm text-gray-400">
+                    <label className="relative text-right text-sm text-gray-400 w-full">
                       <p className="py-2 px-4">نام خانوادگی</p>
                       <Field
                         type="text"
@@ -148,7 +151,7 @@ const EditeProfileForm = () => {
                         style={{
                           boxShadow: "0px 1px 3px 0px #00000033 inset",
                         }}
-                        className="px-4 pt-1 rounded-md bg-gray-50 dark:bg-white leading-8 text-darkgreen placeholder-md text-right placeholder-darkgreen/30 font-medium focus:outline outline-primary outline-[1.5px]"
+                        className="px-4 w-full pt-1 rounded-md bg-gray-50 dark:bg-white leading-8 text-darkgreen placeholder-md text-right placeholder-darkgreen/30 font-medium focus:outline outline-primary outline-[1.5px]"
                       />
                       <ErrorMessage name="LName"  component="div"  className="text-red-500 text-xs mt-1" />
 
@@ -156,7 +159,7 @@ const EditeProfileForm = () => {
                   </li>
 
                   <li className="flex flex-row-reverse max-sm:flex-col gap-4">
-                    <label className="relative text-right text-sm text-gray-400">
+                    <label className="relative text-right text-sm text-gray-400 w-full">
                       <p className="py-2 px-4">کد ملی</p>
                       <Field
                         type="text"
@@ -166,17 +169,20 @@ const EditeProfileForm = () => {
                         style={{
                           boxShadow: "0px 1px 3px 0px #00000033 inset",
                         }}
-                        className="px-4 pt-1 rounded-md bg-gray-50 dark:bg-white leading-8 text-darkgreen placeholder-sm text-right placeholder-darkgreen/30 font-medium focus:outline outline-primary outline-[1.5px]"
+                        className="px-4 w-full pt-1 rounded-md bg-gray-50 dark:bg-white leading-8 text-darkgreen placeholder-sm text-right placeholder-darkgreen/30 font-medium focus:outline outline-primary outline-[1.5px]"
                       />
                       <ErrorMessage name="NationalCode"  component="div"  className="text-red-500 text-xs mt-1" />
 
                     </label>
 
-                    <label className="relative text-right text-sm text-gray-400">
+                    <label className="relative text-right text-sm text-gray-400  w-full">
                       <p className="py-2 px-4">جنسیت</p>
                       <Field as="select" name="Gender" onChange={(e) => setGender(e.target.value === "true")}
-                    className="px-4 py-2 rounded-md bg-gray-50 dark:bg-white text-darkgreen placeholder-darkgreen/30 font-medium focus:outline outline-primary outline-[1.5px]"
-                    >
+                        style={{
+                          boxShadow: "0px 1px 3px 0px #00000033 inset",
+                        }}
+                        className="px-4 pt-1 h-[31px] w-full rounded-md bg-gray-50 dark:bg-white leading-8 text-darkgreen placeholder-sm text-right placeholder-darkgreen/30 font-medium focus:outline outline-primary outline-[1.5px]"
+                        >
                         <option value="true">مرد</option>
                         <option value="false">زن</option>
                       </Field>
@@ -184,7 +190,7 @@ const EditeProfileForm = () => {
                   </li>
 
                   <li className="flex flex-row-reverse max-sm:flex-col gap-4">
-                    <label className="relative text-right text-sm text-gray-400">
+                    <label className="relative text-right text-sm text-gray-400 w-full">
                       <p className="py-2 px-4">آدرس منزل</p>
                       <Field
                         type="text"
@@ -194,13 +200,13 @@ const EditeProfileForm = () => {
                         style={{
                           boxShadow: "0px 1px 3px 0px #00000033 inset",
                         }}
-                        className="px-4 pt-1 rounded-md bg-gray-50 dark:bg-white leading-8 text-darkgreen placeholder-sm text-right placeholder-darkgreen/30 font-medium focus:outline outline-primary outline-[1.5px]"
+                        className="px-4 pt-1 w-full rounded-md bg-gray-50 dark:bg-white leading-8 text-darkgreen placeholder-sm text-right placeholder-darkgreen/30 font-medium focus:outline outline-primary outline-[1.5px]"
                       />
                       <ErrorMessage name="HomeAdderess"  component="div"  className="text-red-500 text-xs mt-1" />
 
                     </label>
 
-                    <label className="relative text-right text-sm text-gray-400">
+                    <label className="relative text-right text-sm text-gray-400 w-full">
                       <p className="py-2 px-4">لینک تلگرام</p>
                       <Field
                         type="text"
@@ -210,14 +216,14 @@ const EditeProfileForm = () => {
                         style={{
                           boxShadow: "0px 1px 3px 0px #00000033 inset",
                         }}
-                        className="px-4 pt-1 rounded-md bg-gray-50 dark:bg-white leading-8 text-darkgreen placeholder-sm text-right placeholder-darkgreen/30 font-medium focus:outline outline-primary outline-[1.5px]"
+                        className="px-4 w-full pt-1 rounded-md bg-gray-50 dark:bg-white leading-8 text-darkgreen placeholder-sm text-right placeholder-darkgreen/30 font-medium focus:outline outline-primary outline-[1.5px]"
                       />
                       
                     </label>
                   </li>
 
                   <li className="flex flex-row-reverse max-sm:flex-col gap-4">
-                    <label className="relative text-right text-sm text-gray-400">
+                    <label className="relative text-right text-sm text-gray-400 w-full">
                       <p className="py-2 px-4">لینک لینکدین</p>
                       <Field
                         type="text"
@@ -227,17 +233,27 @@ const EditeProfileForm = () => {
                         style={{
                           boxShadow: "0px 1px 3px 0px #00000033 inset",
                         }}
-                        className="px-4 pt-1 rounded-md bg-gray-50 dark:bg-white leading-8 text-darkgreen placeholder-sm text-right placeholder-darkgreen/30 font-medium focus:outline outline-primary outline-[1.5px]"
+                        className="px-4 pt-1 w-full rounded-md bg-gray-50 dark:bg-white leading-8 text-darkgreen placeholder-sm text-right placeholder-darkgreen/30 font-medium focus:outline outline-primary outline-[1.5px]"
                       />
                     </label>
 
-                    <label className="relative text-right text-sm text-gray-400">
+                    <label className="relative text-right text-sm text-gray-400 w-full">
                       <p className="py-2 px-4">تاریخ تولد</p>
                       <DatePicker
                         value={date}
                         onChange={handleDateChange}
                         format="YYYY/MM/DD"
-                        className="px-4 pt-1 rounded-md bg-gray-50 dark:bg-white leading-8 text-darkgreen placeholder-sm text-right placeholder-darkgreen/30 font-medium focus:outline outline-primary outline-[1.5px]"
+                        style={{
+                          boxShadow: "0px 1px 3px 0px #00000033 inset",
+                          width:"100%",
+                          height:"31px",
+                          border:"0px",
+                          backgroundColor:"#f9fafb",
+                          position:"absolute",
+                          bottom:"0px",
+                          left:"0px"
+                        }}
+
                       />
                     </label>
                   </li>

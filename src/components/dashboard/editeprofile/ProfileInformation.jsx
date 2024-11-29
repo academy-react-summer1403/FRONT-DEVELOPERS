@@ -94,7 +94,7 @@ const ProfileInformation = () => {
             <div className='flex flex-row-reverse gap-2 text-right '>  
                 <span className='text-gray-400 dark:text-white flex'>: نام و نام خانوادگی </span>
                 <p className=' text-orange dark:text-amber-400 font-medium grid'>
-                    {userProfile.data?.fName ? userProfile.data?.fName : "--"}{userProfile.data?.lName ? userProfile.data?.lName : "--"}              
+                    {userProfile.data?.fName ? userProfile.data?.fName : "--"} {" "}{userProfile.data?.lName ? userProfile.data?.lName : "--"}              
                 </p>
             </div>
 

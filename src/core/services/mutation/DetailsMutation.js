@@ -22,13 +22,19 @@ import { deleteCourseCommentLike, deleteLikeComment, dislikeCourseComment,
             mutationFn:(params)=> postFavoriteCourse(params),
             onSuccess:()=>{
                 toast.success("دوره با موفقیت به علاقه مندی اضافه شد" , {
-                    theme:"colored"
+                    theme:"colored",
+                    style: {
+                        zIndex: 9999, 
+                      },
                     })
             },
             onSettled:async(_,error) =>{
                 if(error){
                     toast.error("خطایی رخ داده است" , {
-                        theme:"colored"
+                        theme:"colored",
+                        style: {
+                            zIndex: 9999, 
+                          },
                         })
                     
                 }
@@ -48,13 +54,19 @@ import { deleteCourseCommentLike, deleteLikeComment, dislikeCourseComment,
             mutationFn:(CourseFavoriteId)=> deleteFavoriteCourse(CourseFavoriteId),
             onSuccess:()=>{
                 toast.success("دوره با موفقیت از علاقه مندی حذف شد" , {
-                    theme:"colored"
+                    theme:"colored",
+                    style: {
+                        zIndex: "9999", 
+                      },
                     })
             },
             onSettled:async(_,error) =>{
                 if(error){
-                    toast.warning("------" , {
-                        theme:"colored"
+                    toast.warning("بروزرسانی اطلاعات با خطا مواجه شد. دوباره امتحان کنید." , {
+                        theme:"colored",
+                        style: {
+                            zIndex: 9999, 
+                          },
                         })
                     
                 }

@@ -27,21 +27,10 @@ export const getUserProfile = async () => {
   };
 
   export const putUserInfo = async (formData) => {
-    try {
-      // ارسال درخواست PUT با داده‌های formData
-      const response = await http.put("/SharePanel/UpdateProfileInfo", formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data', // این هدر برای فرستادن داده‌ها با FormData ضروری است
-        },
-      });
+      const response = await http.put("/SharePanel/UpdateProfileInfo", formData);
   
-      // اگر درخواست موفقیت‌آمیز بود، داده‌های پاسخ را برمی‌گرداند
-      return response.data;
-    } catch (error) {
-      // در صورت بروز خطا، آن را لاگ کرده و خطای مناسب را پرتاب می‌کنیم
-      console.error("Error updating user info:", error);
-      throw new Error("Failed to update user info. Please try again.");
-    }
+      return response;
+ 
   };
   
 

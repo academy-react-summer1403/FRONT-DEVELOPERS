@@ -43,7 +43,7 @@ const GameBody = ({
                                 بعدی
                             </Button>
                         }
-                <p className=' text-xs text-center mt-4'>  امتیاز شما : {score} از 4 </p>
+                <p className=' text-xs text-center mt-4'>  امتیاز شما : {score} از 2 </p>
 
 
         </div>
