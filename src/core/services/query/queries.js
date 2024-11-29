@@ -16,7 +16,7 @@ import {
   TeacherCourses,
   TypeCourses,
 } from "../getApi";
-import { StudentCoursePayDetail } from "../level2api";
+import { GetSecurityInfo, StudentCoursePayDetail } from "../level2api";
 
 
 export function useNewsData(params , page,rows ) {
@@ -129,6 +129,15 @@ export function useStudentCoursePayDetail(Id){
     queryFn:()=>StudentCoursePayDetail(Id)
   })
 }
+
+export function useGetSecurityInfo(){
+  return useQuery({
+    queryKey:["GetSecurityInfo" ],
+    queryFn:()=>GetSecurityInfo()
+  })
+}
+
+
 
 
 StudentCoursePayDetail

@@ -1,35 +1,74 @@
-import { Field, Form, Formik } from 'formik';
-import React from 'react'
+import { useEffect, useState } from 'react';
 import { BsCheck } from 'react-icons/bs';
+import { useGetSecurityInfo } from '../../../core/services/query/queries';
+import { EditSecurity } from '../../../core/services/level2api';
 
-import { IoIosArrowDown } from 'react-icons/io'
+const TwoStepLogin = () => {
+  const GetSecurityInfo = useGetSecurityInfo();
 
-const TowStwpLogin = () => {
+  
+
+  const [isChecked, setIsChecked] = useState(GetSecurityInfo?.data?.twoStepAuth);
+  console.log(isChecked)
+
+
+  const handleupdateEditSecurity =(isChecked1)=>{
+     const Edit={
+    twoStepAuth:isChecked1,
+    recoveryEmail:GetSecurityInfo?.data?.recoveryEmail,
+    baseUrl:"https://classapi.sepehracademy.ir/api"
+  }
+   const updateEditSecurity=EditSecurity(Edit)
+
+  }
+ 
+ 
+  
+
   return (
     <>
-        <Formik
-         initialValues={{
-          toggle: false,
-        }}
-        onSubmit={(toggle) => {
-            console.log("values",toggle);
-            
-          }}
-        >
-            <Form>
-                    {/* Body  */} 
-                    <button type='submit' className='flex mx-auto my-6 px-3 pb-6'>
-                        <label className='relayive flex flex-row gap-2'>
-                            <Field type="checkbox" name="toggle" style={{boxShadow:" 0px 1px 3px 0px #00000033 inset"}}
-                                className="appearance-none w-5 h-5 mt-1 rounded-md bg-gray-50 checked:bg-darkgreen dark:checked:bg-teal-500 transition duration-300 "/>
-                                <BsCheck  className='absolute mx-0.25 mt-1 text-white text-xl '/>
-                            <p className='text-darkgreen text-sm'>مایل به ورود دومرحله ای هستم</p>
-                        </label>
-                    </button>
-            </Form>
-        </Formik>
-    </>
-  )
-}
+      {/* Body */}
+      <button type="submit" onClick={()=>(setIsChecked(!isChecked),handleupdateEditSecurity(GetSecurityInfo?.data?.twoStepAuth==true ? false : true))}   className="flex mx-auto my-6 px-3 pb-6">
+        <label className="relative flex flex-row gap-2 items-center">
+          
+        <svg
+    fill="#000000"
+    width="25px"
+    height="25px"
+    viewBox="0 0 24 24"
+    id="check-mark-square"
+    data-name="Flat Color"
+    xmlns="http://www.w3.org/2000/svg"
+    className="shadow-inner border rounded-md"
+   
+    
+  >
+    <rect
+      id="primary"
+      x={2}
+      y={2}
+      width={20}
+      height={20}
+      rx={2}
+      style={{
+       
+     
+      }}
+      className={` shadow-inner ${ isChecked==false  ? "fill-primary  dark:fill-orange" : " fill-white "}` }
 
-export default TowStwpLogin
+    />
+    <path
+      id="secondary"
+      d="M11,15.5a1,1,0,0,1-.71-.29l-3-3a1,1,0,1,1,1.42-1.42L11,13.09l4.29-4.3a1,1,0,0,1,1.42,1.42l-5,5A1,1,0,0,1,11,15.5Z"
+     
+      className={` ${isChecked==false    ? "fill-white  " : " fill-[#cccccc36] "}` }
+    />
+  </svg>
+          <p className="text-darkgreen text-sm">مایل به ورود دومرحله‌ای هستم</p>
+        </label>
+      </button>
+    </>
+  );
+};
+
+export default TwoStepLogin;

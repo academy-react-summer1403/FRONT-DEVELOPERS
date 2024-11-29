@@ -145,7 +145,7 @@ console.log(verifyCode)
               </h1>
 
               <p className=" w-[200px] h-[20px] text-gray-500 text-[9px] mx-auto text-center absolute left-[50px] -top-[70px] font-sans">
-              کد تایید به شماره ی {`09926695494`} ارسال شده است ، در صورت مغایرت روی <h1 className="text-primary">ویرایش</h1> کلیک کنید
+              کد تایید به شماره ی {phoneNumber} ارسال شده است ، در صورت مغایرت روی <h1 className="text-primary">ویرایش</h1> کلیک کنید
               </p>
 
               {/* form  */}
