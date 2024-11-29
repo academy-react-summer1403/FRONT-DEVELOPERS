@@ -127,8 +127,8 @@ const ProfileInformation = () => {
                 <p data-tooltip-id="my-tooltip" data-tooltip-content={userProfile.data?.userAbout}   className='cursor-pointer flex flex-row-reverse'>
                     
                     <span className='text-gray-400 dark:text-white'>  : درباره من </span>
-                    <p className='text-orange  text-right font-medium grid'>
-                        {userProfile.data?.userAbout ? userProfile.data?.userAbout.slice(0,80) :"--"}
+                    <p className='text-orange  text-right font-medium '>
+                        {userProfile.data?.userAbout ? userProfile.data?.userAbout.slice(0,30) :"--"}
 
                     </p>
 

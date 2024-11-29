@@ -92,7 +92,7 @@ const ArticlesNews = () => {
   
 
   return (
-    <div className="  lg:container max-lg:px-12 max-lg:px-2  ">
+    <div className="  lg:container max-xl:px-2  ">
       <img
         src={BackImg}
         alt=""
@@ -252,7 +252,7 @@ const ArticlesNews = () => {
           </div>
 
           {/* card */}
-          <motion.div className="grid grid-cols-3 my-8 gap-4">
+          <motion.div className="grid grid-cols-3 max-xl:grid-cols-2 max-lg:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1 my-8 gap-4">
         <AnimatePresence>
           {filteredNews?.length > 0 ? (
             filteredNews.map((item) => <ArticleNewsCard {...item} />)

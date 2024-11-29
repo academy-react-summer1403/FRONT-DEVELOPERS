@@ -5,19 +5,17 @@ import ArticleDescription from "../../components/articledetail/articleDescriptio
 import { motion } from "framer-motion";
 import { useArticleDetail } from "../../core/services/query/queries";
 import { useParams } from "react-router-dom";
-// import NewComment from "../../components/coursedetailComponents/comments/NewComment";
 import { samecourses, suggestion } from "../CourseDetail/CourseDetail";
 // import { useCommentNews } from "../../core/services/query/CommentQuery";
-import { deleteFavoriteNews, postFavoriteNews } from "../../core/services/DashApi";
-import { toast, ToastContainer } from 'react-toastify';
+import BackImg from "../../assets/courses/background.svg";
 
 import DateApi from "../../components/DateApi";
 import { useTranslation } from "react-i18next";
 import Related from "../../components/skeleton/detail/Related";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-import { useDeleteFavoriteNews, usePostFavoriteNews } from "../../core/services/mutation/LikeArticle";
-// import NewComment from "../../components/coursedetailComponents/comments/NewComment";
+import { useDeleteFavoriteNews, usePostFavoriteNews } from "../../core/services/mutation/DetailsMutation";
+import NewComment from "../../components/coursedetailComponents/comments/NewComment";
 
 // import { samecourses, suggestion } from "../CourseDetail/CourseDetail";
 
@@ -30,9 +28,9 @@ const ArticleDetail = () => {
 
   
   const articleDetail = useArticleDetail(id);
+  console.log("articleDetail" , articleDetail.data)
 
  const [save,setSave]=useState(articleDetail?.data?.detailsNewsDto?.isCurrentUserFavorite)
- console.log("save" , save)
   
   console.log("articleDetail" , articleDetail?.data?.detailsNewsDto?.isCurrentUserFavorite)
 
@@ -82,7 +80,7 @@ const ArticleDetail = () => {
     <SkeletonTheme baseColor="#cbd5e1" highlightColor="#f5f5f5">
       <div
         className="  relative  container mb-5  max-lg:pt-4" >
-      
+     
   <img
           className="bottom-[15%] absolute opacity-[15%] scale-150  -translate-x-72 rotate-90 "
           src="https://s3-alpha-sig.figma.com/img/19be/48f2/2796a9e90ec1b19857e151fc13e21059?Expires=1728259200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=mZW-g30z8Y9kCtc4Q1Y82wXJ5M3YX1ja6v-gYlyazEUHmGj5fgx4YewqoPzoMl4V4J~Y2sETrcyxsiSfnJArb~OKXnzzQcBQwRsRnlSZI5eAqC9mPjX~jPtEjEaaNYlHuPhaUQ671CFaG9FP8BAUgrxGbtub-sQCi8oLtVfkXsjsO4-KqNeUdQpM9MfXLhXrbdziI4zuOcpcn74-w8NTLCgEbqS66Vs7LO4-uoZQC0Kfv6we2O7hov7fqXpvrD8dLTZNQ22GCZ5C9iP6fYmkkQ6sgbL5HZBGy4Ocxh3cxeAgyhp6R56KMjTb~fHkpUTzkxI2T4Z-fBM4z~wSy~mrcw__"
@@ -300,7 +298,7 @@ const ArticleDetail = () => {
 
           <div className="">
             <h4 className="mark mt-5 max-lg:mt-1 max-xl:text-[23px]  dark:text-slate-300   ">{t("comments")}</h4>
-            {/* <NewComment newsId={id}/> */}
+            <NewComment id={articleDetail.data?.detailsNewsDto?.id} UserId={articleDetail.data?.detailsNewsDto?.userId}/>
           </div>
       </div>
 
