@@ -95,6 +95,7 @@ const EditeProfileForm = () => {
           NationalCode: userProfile.data?.nationalCode,
           HomeAdderess: userProfile.data?.homeAdderess,
           TelegramLink: userProfile.data?.telegramLink,
+          Email: userProfile.data?.email,
           LinkdinProfile: userProfile.data?.linkdinProfile,
           UserAbout: userProfile.data?.userAbout,
           ReceiveMessageEvent: userProfile.data?.ReceiveMessageEvent ? "on" : "",
@@ -227,15 +228,16 @@ const EditeProfileForm = () => {
 
                   <li className="flex flex-row-reverse max-sm:flex-col gap-4">
                     <label className="relative text-right text-sm text-gray-400 w-full">
-                      <p className="py-2 px-4">لینک لینکدین</p>
+                      <p className="py-2 px-4">ایمیل </p>
                       <Field
                         type="text"
-                        id="LinkdinProfile"
-                        name="LinkdinProfile"
-                        placeholder="...لینک لینکدین را وارد کنید"
+                        id="Email"
+                        name="Email"
+                        placeholder="ایمیل قابل تغییر نیست!"
                         style={{
                           boxShadow: "0px 1px 3px 0px #00000033 inset",
                         }}
+                        disabled
                         className="px-4 pt-1 w-full rounded-md bg-gray-50 dark:bg-white leading-8 text-darkgreen placeholder-sm text-right placeholder-darkgreen/30 font-medium focus:outline outline-primary outline-[1.5px]"
                       />
                     </label>
@@ -259,6 +261,22 @@ const EditeProfileForm = () => {
 
                       />
                     </label>
+                  </li>
+
+                  <li className="flex flex-row-reverse max-sm:flex-col gap-4">
+                    <label className="relative text-right text-sm text-gray-400 w-full">
+                        <p className="py-2 px-4">لینک لینکدین</p>
+                        <Field
+                          type="text"
+                          id="LinkdinProfile"
+                          name="LinkdinProfile"
+                          placeholder="...لینک لینکدین را وارد کنید"
+                          style={{
+                            boxShadow: "0px 1px 3px 0px #00000033 inset",
+                          }}
+                          className="px-4 pt-1 w-full rounded-md bg-gray-50 dark:bg-white leading-8 text-darkgreen placeholder-sm text-right placeholder-darkgreen/30 font-medium focus:outline outline-primary outline-[1.5px]"
+                        />
+                      </label>
                   </li>
                 </ul>
               </div>
