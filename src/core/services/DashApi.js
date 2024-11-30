@@ -25,7 +25,8 @@ export const getUserProfile = async () => {
   };
 
   export const deleteProfileImage = async (  formId) => {
-    const data = await http.delete("/SharePanel/DeleteProfileImage" , formId )
+    const data = await http.delete("/SharePanel/DeleteProfileImage" , {data : formId} )
+    console.log("data:::" , data)
     return data;
   };
 

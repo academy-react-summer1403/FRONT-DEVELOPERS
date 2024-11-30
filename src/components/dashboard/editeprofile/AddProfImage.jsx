@@ -8,8 +8,9 @@ import { Tooltip } from 'react-tooltip';
 
 
 import Avatar from "react-avatar-edit";
-import { deleteProfileImage, postUserImg, postUserMainImg } from '../../../core/services/DashApi';
+import { postUserImg, postUserMainImg } from '../../../core/services/DashApi';
 import { toast } from 'react-toastify';
+import { useDeleteProfileImage } from '../../../core/services/mutation/DashboardMutation';
 
 function AddProfImage({allimages , currentImage}) {
 
@@ -18,7 +19,7 @@ function AddProfImage({allimages , currentImage}) {
 
   // crop image :
   const [preview, setPreview] = useState();
-  console.log(preview)
+
   function onClose(pv) {
     setPreview(pv);
   }
@@ -68,14 +69,16 @@ function AddProfImage({allimages , currentImage}) {
   }
 
   //Delete image from list
-   
-  const handleDeleteImage = (dataId) =>{
+   const deleteProfileImage =useDeleteProfileImage()
+    const handleDeleteImage = (dataId) =>{
+        console.log("dataId :::" ,dataId)
 
-    const formId = new FormData();
-    formId.append("DeleteEntityId",dataId);
-
-    deleteProfileImage(formId).then(toast.success("عکس با موفقیت حذف شد" ,{ theme:"colored"}))
-  }
+      const formId = new FormData();
+      formId.append("DeleteEntityId",dataId);
+      
+      console.log("formId::::" ,formId)
+      deleteProfileImage.mutate(formId)
+    }
     
 
   return (

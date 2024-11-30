@@ -2,7 +2,7 @@ import { useQueryClient , useMutation} from '@tanstack/react-query';
 
 // import { deleteMyCoursesComments, deleteReserveCourse } from "../DashApi";
 import { toast } from 'react-toastify';
-import { postUserImg } from '../DashApi';
+import { deleteProfileImage, postUserImg } from '../DashApi';
 
 
 // export const useDeleteMyCoursesComments=()=>{
@@ -32,29 +32,29 @@ import { postUserImg } from '../DashApi';
 // }
 
 
-// export const useDeleteReserveCourse=()=>{
-//     const queryClient = useQueryClient();
+export const useDeleteProfileImage=()=>{
+    const queryClient = useQueryClient();
 
-//     return useMutation({
-//         mutationFn:(params)=> deleteReserveCourse(params),
-//         onSuccess:()=>{
-//             toast.success("دوره ی رزرو شده با موفقیت حذف شد" , {
-//                 theme:"colored"
-//                 })
-//         },
-//         onSettled:async(_,error) =>{
-//             if(error.status === 422){
-//                 toast.warning("دوره تایید شده حذف نمیشود" , {
-//                     theme:"colored"
-//                     })
-//             }
-//             else{
-//                await queryClient.invalidateQueries({queryKey:["deleteDashReserveCourse"]})
+    return useMutation({
+        mutationFn:(formId)=> deleteProfileImage(formId),
+        onSuccess:()=>{
+            toast.success("عکس با موفقیت حذف شد" , {
+                theme:"colored"
+                })
+        },
+        onSettled:async(_,error) =>{
+            if(error.status === 422){
+                toast.warning("خطا رخ داد ،بعدا تلاش کنید" , {
+                    theme:"colored"
+                    })
+            }
+            else{
+               await queryClient.invalidateQueries({queryKey:["deleteProfileImages"]})
                 
-//             }
-//         },
+            }
+        },
         
 
-//     })
-// }
+    })
+}
 
