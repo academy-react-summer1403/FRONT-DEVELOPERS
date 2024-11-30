@@ -22,15 +22,22 @@ const CourseComment = ({courseId}) => {
     const GetCommentcourse = useCommentCourse(courseId);
     console.log("GetCommentcourse",GetCommentcourse.data)
 
+    const [like, setLike] = useState(GetCommentcourse.data)
+    useEffect(() => {
+        if(GetCommentcourse.data){
+            setLike(GetCommentcourse.data)
+            
+        }
+    }, [GetCommentcourse.data])
+    
+
     // like: 
-    const postLikeComment = useLikeCommentCourse()
+    const postLikeComment = useLikeCommentCourse( like)
     const handleLikeComment =(id)=>{
         GetCommentcourse.data?.map((comment)=>{
             console.log("currentUserEmotion",comment.currentUserEmotion)
             if(comment.id === id){
-                postLikeComment.mutate( id);
-                currentUserEmotion = "LIKED"
-                comment.likeCount +=  1 ;                
+                postLikeComment.mutate( id);          
             }
         })       
     }
@@ -52,17 +59,13 @@ const CourseComment = ({courseId}) => {
     // }
 
     // dissLike:
-    const [dissLike, setDissLike] = useState("")
 
-    const DislikeCourseComment =useDislikeCourseComment()
+    const DislikeCourseComment =useDislikeCourseComment(like)
     const handleDissLikeComment =(id)=>{
-        const disslikeparams={
-            CourseCommandId : id
-        }
 
         GetCommentcourse.data?.map((comment)=>{
             if(comment.id === id){
-                DislikeCourseComment.mutate( disslikeparams);
+                DislikeCourseComment.mutate( id);
             }
         })       
     }

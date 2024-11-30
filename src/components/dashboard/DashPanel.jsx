@@ -226,7 +226,7 @@ const DashPanel = () => {
                 {/* logout section    */}
                 <NavLink
                  onClick={handleLogout}
-                to={"/"} className={`flex flex-row gap-1 text-darkgreen text-sm font-semibold bottom-5 right-12 absolute
+                    to={"/#"} className={`flex flex-row gap-1 text-darkgreen text-sm font-semibold bottom-5 right-12 absolute
                     max-sm:${resposive ? " " : "hidden"}  
                     max-md:gap-0
                     max-lg:right-6

@@ -11,7 +11,7 @@ export const getUserProfile = async () => {
 
 
   export const postUserImg = async ( formFile) => {
-    const data = await http.post("/SharePanel/AddProfileImage" , formFile )
+    const data = await http.post("/SharePanel/AddProfileImage" , formFile)
 
 
     return data;
@@ -21,8 +21,11 @@ export const getUserProfile = async () => {
   
   export const postUserMainImg = async (  formId) => {
     const data = await http.post("/SharePanel/SelectProfileImage" , formId )
+    return data;
+  };
 
-
+  export const deleteProfileImage = async (  formId) => {
+    const data = await http.delete("/SharePanel/DeleteProfileImage" , formId )
     return data;
   };
 

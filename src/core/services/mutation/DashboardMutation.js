@@ -58,30 +58,3 @@ import { postUserImg } from '../DashApi';
 //     })
 // }
 
-
-
-export const usepostUserImg=()=>{
-    const queryClient = useQueryClient();
-
-    return useMutation({
-        mutationFn:(formFile)=> postUserImg(formFile),
-        onSuccess:()=>{
-            toast.success("عکس بارگذاری شد" , {
-                theme:"colored"
-                })
-        },
-        onSettled:async(_,error) =>{
-            if(error.status === 422){
-                toast.warning("بارگذاری با خطا مواجه شد" , {
-                    theme:"colored"
-                    })
-            }
-            else{
-               await queryClient.invalidateQueries({queryKey:["postUserImgA"]})
-                
-            }
-        },
-        
-
-    })
-}

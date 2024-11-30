@@ -71,11 +71,20 @@ import { deleteCourseCommentLike, deleteLikeComment, dislikeCourseComment,
         })
     }
 
-    export const useLikeCommentCourse=()=>{
+    export const useLikeCommentCourse=(like)=>{
         const queryClient = useQueryClient();
     
         return useMutation({
             mutationFn:(id)=> postCourseCommentLike(id),
+            onMutate:(id)=>{
+                like.map((item)=>{
+                    if(item.id === id){
+                        item.currentUserEmotion = "LIKED",
+                        item.likeCount +=1
+
+                    } 
+                })
+            },
             onSuccess:()=>{
                 toast.success("نظر لایک شد" , {
                     theme:"colored",
@@ -129,11 +138,22 @@ import { deleteCourseCommentLike, deleteLikeComment, dislikeCourseComment,
         })
     }
 
-    export const useDislikeCourseComment=()=>{
+    export const useDislikeCourseComment=( like)=>{
         const queryClient = useQueryClient();
     
         return useMutation({
             mutationFn:(disslikeparams)=> dislikeCourseComment(disslikeparams),
+
+            onMutate:(disslikeparams)=>{
+                like.map((item)=>{
+                    if(item.id === disslikeparams){
+                        item.currentUserEmotion = "DISSLIKED",
+                        item.disslikeCount +=1
+
+                    } 
+                })
+            },
+            
             onSuccess:()=>{
                 toast.success(" دیس لایک انجام شد" , {
                     theme:"colored",

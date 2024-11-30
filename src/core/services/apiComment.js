@@ -68,9 +68,9 @@ export const getCommentCourse =  (courseId ) => {
     return data;
   };
   export const dislikeCourseComment = async ( disslikeparams ) => {
-    const data = await http.post("/Course/AddCourseCommentDissLike" , null , {
-      params:disslikeparams
-    } )
+    const data = await http.post(`/Course/AddCourseCommentDissLike?CourseCommandId=${disslikeparams}` )
+     
+    
     return data;
   };
 
