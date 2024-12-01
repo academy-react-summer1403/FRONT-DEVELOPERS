@@ -33,7 +33,7 @@ const ProfileInformation = () => {
   return (
     <div className='grid grid-cols-2 max-xl:grid-cols-1 max-lg:grid-cols-2 max-md:grid-cols-1  mt-4 gap-2 justify-items-center text-[15px]'>
             {/* left:  */}
-        <div className='grid grid-col-1  gap-8'>
+        <div className='grid grid-col-1  font-Yekan  gap-8'>
             <div className='flex flex-row-reverse gap-2 text-right '> 
                 <span className='text-gray-400  dark:text-white'> :شماره ی همراه </span>
                 <p className='text-orange dark:text-amber-400 font-medium grid'>
@@ -89,7 +89,7 @@ const ProfileInformation = () => {
         </div>
 
             {/* right:  */}
-         <div className='grid grid-col-1 gap-8 pl-12 max-lg:pl-0 max-md:mt-8 max-md:border-none border-l border-gray-200'>
+         <div className='grid grid-col-1 gap-8 pl-12 font-Yekan  max-lg:pl-0 max-md:mt-8 max-md:border-none border-l border-gray-200'>
 
             <div className='flex flex-row-reverse gap-2 text-right '>  
                 <span className='text-gray-400 dark:text-white flex'>: نام و نام خانوادگی </span>
