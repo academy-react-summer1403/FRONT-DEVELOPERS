@@ -88,16 +88,16 @@ const FavoriteMap = ({search , category} ) => {
                             
                   <div className={`${deletmodal == item?.courseId ? "block": "hidden"} fixed left-0 top-0 w-screen h-screen bg-black/70 z-[9999]
                                  backdrop-blur-sm transition-all duration-700`}
-                            >
-                                <div className='bg-white rounded-lg shadow-lg grid gap-3 p-8 mx-auto w-1/3 mt-40'>
-                                    <HiXCircle onClick={()=>setDeletmodal(false)} 
-                                        className=' right-4 top-4 w-5 h-5 cursor-pointer text-secondary opacity-100 justify-self-end '
-                                    />                                
-                                    <p className='dark:text-gray-950 text-[20px] text-center'> آیا میخواهید دوره مورد علاقه را حذف کنید؟ </p>
-                                    <button to={"#"} onClick={()=>(handleRemoveFavorite(item?.favoriteId) , setDeletmodal(false))}  className='bg-secondary p-2 rounded-md text-sm w-20 hover:scale-110
-                                    transition duration-500 hover:shadow-md mx-auto text-center'>بله</button>
-                                </div>
-                            </div>
+                  >
+                    <div className='bg-white rounded-lg shadow-lg grid gap-3 p-8 mx-auto w-1/3 mt-40'>
+                      <HiXCircle onClick={()=>setDeletmodal(false)} 
+                        className=' right-4 top-4 w-5 h-5 cursor-pointer text-secondary opacity-100 justify-self-end '
+                      />                                
+                      <p className='dark:text-gray-950 text-[20px] text-center'> آیا میخواهید دوره مورد علاقه را حذف کنید؟ </p>
+                      <button to={"#"} onClick={()=>(handleRemoveFavorite(item?.favoriteId) , setDeletmodal(false))}  className='bg-secondary p-2 rounded-md text-sm w-20 hover:scale-110
+                        transition duration-500 hover:shadow-md mx-auto text-center'>بله</button>
+                    </div>
+                  </div>
 
                   <div>
                     <NavLink to={"/courses-detail/" + item?.courseId}> <IoEyeOutline className='text-secondary mt-4 w-5 h-5 cursor-pointer ' />  </NavLink> 

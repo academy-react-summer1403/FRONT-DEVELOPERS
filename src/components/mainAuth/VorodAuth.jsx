@@ -23,47 +23,38 @@ import { postQuery } from '../../core/services/mutation/Authmutation';
 
 
 const VorodAuth = () => {
-
+  
+  const [showHidePassword, setShowHidePassword] = useState(false);
 
   const navigate = useNavigate()
-
-const dispatch = useDispatch()
-
-
+  const dispatch = useDispatch()
   const {handleSubmit , register} = useForm()
-
-
   const loginQuery = postQuery()
-  console.log(loginQuery)
+
 
   const handleCreateSubmit = (user)=>{
     loginQuery.mutate(user)
     console.log(handleCreateSubmit)
   }
 
-      const token = loginQuery?.data?.token
-      console.log(token)
-  
-      
-  
-      localStorage.setItem("token" , token); 
-
-
-          dispatch(handleToken(token))
-
+  const token = loginQuery?.data?.token
+  console.log(token)
   
 
-
+  localStorage.setItem("token" , token); 
+  dispatch(handleToken(token))
 
 
   if(token){
+    toast.success("ورود با موفقیت انجام شد" , {
+      theme:"colored",
+      className:"custom-toast"
+    })
+    navigate("/")
+    window.location.reload();
 
-      toast.success("ورود با موفقیت انجام شد" , {
-theme:"colored",
- className:"custom-toast"
-})
-navigate("/")
-  }else if(token == ""){
+  }
+  else if(token == ""){
     toast.error("اطلاعات ورودی نادرست است" , {
       theme:"colored",
        className:"custom-toast"
@@ -71,21 +62,7 @@ navigate("/")
   }
 
 
-    
-
-
- 
-    
-
   
-
- 
-
-
-  
-const [showHidePassword, setShowHidePassword] = useState(false);
-
-
 
   const validation = yup.object().shape({
     email: yup.string().email("InvalidEmail").required("پر کردن این فیلد اجباریست"),
@@ -98,11 +75,11 @@ const [showHidePassword, setShowHidePassword] = useState(false);
 
   return (
     <div className="container relative">
-    <img
-      src={Back}
-      alt=""
-      className="fixed rotate-180 left-[300px] top-[30px] w-[1000px] opacity-30"
-    />
+      <img
+        src={Back}
+        alt=""
+        className="fixed rotate-180 left-[300px] top-[30px] w-[1000px] opacity-30"
+      />
 
     {/* hero image  */}
     <div className="flex justify-center items-center relative">
@@ -110,32 +87,31 @@ const [showHidePassword, setShowHidePassword] = useState(false);
         initial={{ opacity: 1, x: 0 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ type: "spring", stiffness: 100, delay: 0.6 }}
-        className="w-[800px]  h-[500px] mt-[10px] relative
-     rounded-2xl 
-      "
+        className="w-[800px]  h-[500px] mt-[10px] relative rounded-2xl "
       >
         <NavLink to={"/auth"}
           className="absolute w-[100px] h-[50px]  text-center font-semibold text-green hover:text-orange dark:text-white 
-      leading-[50px] top-[65px] -right-[90px]"
+          leading-[50px] top-[65px] -right-[90px]"
         >
           ثبت نام
         </NavLink>
 
         <NavLink to={"/auth/v1"}
           className="absolute w-[100px] h-[50px]  text-center font-semibold text-green hover:text-orange dark:text-white 
-      leading-[50px] top-[155px] -right-[90px]"
+          leading-[50px] top-[155px] -right-[90px]"
         >
           ورود
         </NavLink>
 
         <div
           className="absolute w-[90px] h-[50px] z-[5000] text-center font-semibold text-green hover:text-orange dark:text-white 
-      leading-[50px] -bottom-[10px] left-[20px]"
+          leading-[50px] -bottom-[10px] left-[20px]"
         >
          <NavLink to={"/"}> <img src={more} alt="" /></NavLink>
         </div>
 
-        <div className="w-full h-full border border-[#fff0] relative"><img
+        <div className="w-full h-full border border-[#fff0] relative">
+          <img
             src={Background}
             alt=""
             className="w-full h-full opacity-80 dark:opacity-50 absolute top-0 left-0  "
@@ -148,11 +124,6 @@ const [showHidePassword, setShowHidePassword] = useState(false);
             alt=""
             className="w-[350px] h-[360px]   mx-auto mt-[10%] max-md:mt-[15%] relative"
           >
-
-
-
-
-
 
             {/* formik section  */}
 
@@ -207,7 +178,6 @@ const [showHidePassword, setShowHidePassword] = useState(false);
                     component="div"
                     className="text-red-500 w-[50px] text-[10px] font-semibold absolute whitespace-nowrap left-[50px] top-[93px]"
                   /> */}
-             
                   <button 
 
                     type="submit"
@@ -215,7 +185,6 @@ const [showHidePassword, setShowHidePassword] = useState(false);
                   >
                     ورود به حساب
                   </button>
-          
 
                   <NavLink to={"/auth"}> 
                   <button
@@ -228,14 +197,12 @@ const [showHidePassword, setShowHidePassword] = useState(false);
                 </div>
               </form>
 
-
-              <h1 className='w-[60px] h-[10px]  absolute left-[55px] bottom-[85px] text-[8px] font-semibold text-orange text-center whitespace-nowrap'>فراموشی رمز عبور</h1>
+              <NavLink to={"/auth/forget1"}>
+                <h1 className='w-[60px] h-[10px]  absolute left-[55px] bottom-[85px] text-[8px] font-semibold text-orange
+                  text-center whitespace-nowrap'>فراموشی رمز عبور</h1>
+              </NavLink>
+              
             </div>
-
-
-
-
-
 
             <motion.img src={AuthB1Img} className="w-full h-full" />
 

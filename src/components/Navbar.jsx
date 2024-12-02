@@ -58,8 +58,7 @@ const Navbar = () => {
 
 
     const token = user?.token 
-
-
+   
 
  
 
@@ -73,8 +72,6 @@ const handleLogout = (token)=>{
     setRemove(false)
     setOpenModal(false)
 }
-
-  
 
 
   return (
@@ -107,7 +104,7 @@ const handleLogout = (token)=>{
                 
                     </NavLink>
                     {/* shop&favorit  */}
-                    <div className='flex justify-center flex-row gap-4 pr-9 mx-4 max-lg:gap-1 max-lg:ml-0 z-[-1]'>  
+                    <div className='flex justify-center flex-row gap-4 pr-9 mx-4 max-lg:gap-1 max-lg:ml-0 '>  
                         {/* log out     */}
                         <div>
                             <IoIosLogOut className={`${user.token == null ? "hidden" : "block"} block mt-8 text-gray-400 text-3xl cursor-pointer `}
