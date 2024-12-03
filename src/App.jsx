@@ -287,9 +287,10 @@ const  PrivateRoutes = [
       {
         path: "/auth/s2",
         element: <Q2/>,
-        path: "/auth/forget1",
-        element: <ForgetPassOne/>,
+        
       },
+      {path: "/auth/forget1",
+        element: <ForgetPassOne/>,}
 
     ],
   },
