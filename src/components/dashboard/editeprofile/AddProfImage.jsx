@@ -101,7 +101,7 @@ function AddProfImage({allimages , currentImage}) {
             <HiXCircle onClick={()=>setOpen(false)} className='absolute right-4 top-4 w-8 h-8 cursor-pointer text-gray-200 opacity-100'/>
             {/* main image  */}
             <div className='relative flex'>
-                <img src={currentImage ? currentImage : <ImageErrore />}  onError={ImageErrore}  className='w-56 h-56 rounded-xl' />
+                <img src={currentImage ? currentImage : <ImageErrore />}  onError={ImageErrore}  className='w-56 h-56 rounded-xl  bg-gray-100' />
                 <div onClick={()=>handlePostUserImg(preview)} data-tooltip-id="tooltip" data-tooltip-content="تنظیم به عنوان تصویر اصلی"  className='cursor-pointer w-9 h-9 absolute pl-1.5 pt-1.5 bg-white rounded-full shadow-md bottom-[-10px] right-[-10px]'>
                     <FaCheck className='text-lime-600 w-6 h-6 '/>
                 </div><Tooltip id="tooltip" />
@@ -131,6 +131,7 @@ function AddProfImage({allimages , currentImage}) {
                       src={"null"}
                       labelStyle={{fontSize:"30px" , cursor:"pointer"}}
                       label="+"
+                      round={false}
                         
                   />
                 </div><Tooltip id="addtooltip" />
@@ -154,20 +155,12 @@ function AddProfImage({allimages , currentImage}) {
             <HiXCircle onClick={()=>setWebcam(false)} className='absolute right-4 top-4 w-8 h-8 cursor-pointer text-gray-200 opacity-100'/>
             {/* main image  */}
             <div className='relative flex'>
-                <div onClick={()=>handlePostUserImg(preview)} data-tooltip-id="tooltip" 
-                  data-tooltip-content="تنظیم به عنوان تصویر اصلی"  
-                  className='cursor-pointer w-9 h-9 absolute pl-1.5 pt-1.5 bg-white rounded-full shadow-md bottom-1 right-28'
+                <div onClick={()=>(handlePostUserImg(preview) , setOpen(false) , setWebcam(false))} data-tooltip-id="tooltip" 
+                  className='cursor-pointer w-9 h-9 absolute pl-1.5 pt-1.5 bg-white rounded-full shadow-[0_1px_10px_1px_rgba(0,0,0,0.3)] bottom-8 right-[47%]'
                 >
                     <FaCheck className='text-lime-600 w-6 h-6 '/>
                 </div><Tooltip id="tooltip" />
-                {webcam && <Camera setPreview={setPreview} base64ToFile={base64ToFile}/>}
-                
-            </div>
-
-            {/* map image  */}
-            <div className='flex flex-row gap-3 justify-center text-white' >
-                      
-
+                {webcam && <Camera setPreview={setPreview} base64ToFile={base64ToFile} />}
                 
             </div>
             

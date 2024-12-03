@@ -21,7 +21,6 @@ const NewComment = ({id , UserId }) => {
   const [loading, setLoading] = useState(true)
 
     const GetCommentNews = useCommentNews(id);
-console.log(id)
 
     // like: 
     const postLikeComment = useLikeComment()

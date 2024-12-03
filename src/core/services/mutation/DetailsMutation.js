@@ -471,7 +471,7 @@ import { deleteCourseCommentLike, deleteLikeComment, dislikeCourseComment,
         return useMutation({
             mutationFn:(params)=> postCommentNews(params),
             onSuccess:()=>{
-                toast.success("نظر شما ثبت شد" , {
+                toast.success("! نظر شما ثبت شدو بعد از تایید نمایش داده میشود " , {
                     theme:"colored",
                          className:"custom-toast"
                     })
