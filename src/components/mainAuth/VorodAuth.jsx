@@ -62,7 +62,7 @@ const dispatch = useDispatch()
 theme:"colored",
  className:"custom-toast"
 })
-navigate("/")
+navigate("/auth/suggestion")
   }else if(token == ""){
     toast.error("اطلاعات ورودی نادرست است" , {
       theme:"colored",
