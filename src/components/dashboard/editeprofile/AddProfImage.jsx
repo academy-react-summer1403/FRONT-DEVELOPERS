@@ -11,6 +11,7 @@ import Avatar from "react-avatar-edit";
 import { postUserImg, postUserMainImg } from '../../../core/services/DashApi';
 import { toast } from 'react-toastify';
 import { useDeleteProfileImage } from '../../../core/services/mutation/DashboardMutation';
+import Camera from './Camera';
 
 function AddProfImage({allimages , currentImage}) {
 
@@ -80,7 +81,7 @@ function AddProfImage({allimages , currentImage}) {
       deleteProfileImage.mutate(formId)
     }
     
-
+    const [webcam, setWebcam] = useState(false)
   return (
     <div>
 
@@ -90,21 +91,21 @@ function AddProfImage({allimages , currentImage}) {
             <div className="absolute bottom-0 w-full h-10 bg-gray-600/40 z-40"> <TiCameraOutline className="flex mx-auto text-white w-8 h-8" /></div>
         </div>
 
-      {/* modal:  */}
+      {/* modal: 1 */}
     
         <div style={{backdropFilter: "box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25) "}}
-        className={`fixed top-[100px] w-[58%] h-[75%] flex flex-col justify-center gap-14 items-center left-[250px] bg-neutral-500/80 z-[9999] rounded-xl
-            ${Open ? "block" : "hidden "} transition-all duration-700 ease-in-out  backdrop-blur-sm
+        className={` ${!webcam && Open?  "block" : "hidden " } fixed top-[100px] w-[58%] h-[75%] flex flex-col justify-center gap-14 items-center left-[250px] bg-neutral-500/80 z-[9999] rounded-xl
+             transition-all duration-700 ease-in-out  backdrop-blur-sm
         `}>
             {/* close modal    */}
             <HiXCircle onClick={()=>setOpen(false)} className='absolute right-4 top-4 w-8 h-8 cursor-pointer text-gray-200 opacity-100'/>
-            
             {/* main image  */}
-            <div className='relative'>
+            <div className='relative flex'>
                 <img src={currentImage ? currentImage : <ImageErrore />}  onError={ImageErrore}  className='w-56 h-56 rounded-xl' />
                 <div onClick={()=>handlePostUserImg(preview)} data-tooltip-id="tooltip" data-tooltip-content="تنظیم به عنوان تصویر اصلی"  className='cursor-pointer w-9 h-9 absolute pl-1.5 pt-1.5 bg-white rounded-full shadow-md bottom-[-10px] right-[-10px]'>
                     <FaCheck className='text-lime-600 w-6 h-6 '/>
                 </div><Tooltip id="tooltip" />
+                {/* <Camera /> */}
             </div>
 
             {/* map image  */}
@@ -118,27 +119,61 @@ function AddProfImage({allimages , currentImage}) {
                 
                 ))} 
 
+
+                {/* choose & crop  */}
+                <div data-tooltip-id="addtooltip" data-tooltip-content="اضافه کردن عکس جدید" >            
+                  <Avatar
+                      width={100}
+                      height={100}
+                      onCrop={onCrop}
+                      onClose={onClose}
+                      onBeforeFileLoad={onBeforeFileLoad}
+                      src={"null"}
+                      labelStyle={{fontSize:"30px" , cursor:"pointer"}}
+                      label="+"
+                        
+                  />
+                </div><Tooltip id="addtooltip" />
+
+                {/* webcam :  */}
+                <div onClick={()=>setWebcam(true)} className='w-[100px] h-[100px] border-dashed border-2 rounded-md border-gray-200/20 text-sm text-center pt-10 font-semibold cursor-pointer'>
+                  webcam
+                </div>
+            </div>
+            
+        </div>
+
+
+       {/* modal: 2  :webcam */}
+    
+       <div style={{backdropFilter: "box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25) "}}
+        className={`fixed top-[100px] w-[58%] h-[75%] flex flex-col justify-center gap-14 items-center left-[250px] bg-neutral-500/80 z-[9999] rounded-xl
+            ${webcam && Open?  "block" : "hidden " } transition-all duration-700 ease-in-out  backdrop-blur-sm
+        `}>
+            {/* close modal    */}
+            <HiXCircle onClick={()=>setWebcam(false)} className='absolute right-4 top-4 w-8 h-8 cursor-pointer text-gray-200 opacity-100'/>
+            {/* main image  */}
+            <div className='relative flex'>
+                <div onClick={()=>handlePostUserImg(preview)} data-tooltip-id="tooltip" 
+                  data-tooltip-content="تنظیم به عنوان تصویر اصلی"  
+                  className='cursor-pointer w-9 h-9 absolute pl-1.5 pt-1.5 bg-white rounded-full shadow-md bottom-1 right-28'
+                >
+                    <FaCheck className='text-lime-600 w-6 h-6 '/>
+                </div><Tooltip id="tooltip" />
+                {webcam && <Camera setPreview={setPreview} base64ToFile={base64ToFile}/>}
                 
-           
+            </div>
 
-            
-
-            {/* choose & crop  */}
-            <div data-tooltip-id="addtooltip" data-tooltip-content="اضافه کردن عکس جدید" >            
-                <Avatar
-                    width={100}
-                    height={100}
-                    onCrop={onCrop}
-                    onClose={onClose}
-                    onBeforeFileLoad={onBeforeFileLoad}
-                    src={"null"}
-                    className="text-[8px]"
+            {/* map image  */}
+            <div className='flex flex-row gap-3 justify-center text-white' >
                       
-                />
-            </div><Tooltip id="addtooltip" />
-        </div>
+
+                
+            </div>
             
         </div>
+
+
     </div>
   );
 }
