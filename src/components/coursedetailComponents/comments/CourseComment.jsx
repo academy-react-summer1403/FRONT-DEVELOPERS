@@ -22,46 +22,50 @@ const CourseComment = ({courseId}) => {
     const GetCommentcourse = useCommentCourse(courseId);
     console.log("GetCommentcourse",GetCommentcourse.data)
 
+    const [like, setLike] = useState(GetCommentcourse.data)
+    useEffect(() => {
+        if(GetCommentcourse.data){
+            setLike(GetCommentcourse.data)
+            
+        }
+    }, [GetCommentcourse.data])
+    
+
     // like: 
-    const postLikeComment = useLikeCommentCourse()
+    const postLikeComment = useLikeCommentCourse( like)
     const handleLikeComment =(id)=>{
         GetCommentcourse.data?.map((comment)=>{
             console.log("currentUserEmotion",comment.currentUserEmotion)
             if(comment.id === id){
-                postLikeComment.mutate( id);
-                currentUserEmotion = "LIKED"
-                comment.likeCount +=  1 ;                
+                postLikeComment.mutate( id);          
             }
         })       
     }
 
     // delete like :
-    const DeleteCourseCommentLike =useDeleteCourseCommentLike()
-    const handledeleteCommentlike =(likeid)=>{
-        const params={
-            "CourseCommandId": likeid
-        }
-        GetCommentcourse.data?.map((comment)=>{
-            if(comment.currentUserLikeId === likeid){
-                DeleteCourseCommentLike.mutate( params);
+    // {item?.currentUserEmotion === "LIKED"  ? handledeleteCommentlike(item?.id)  : handleLikeComment(item?.id)}
+    // const DeleteCourseCommentLike =useDeleteCourseCommentLike()
+    // const handledeleteCommentlike =(id)=>{
+    //     // const params={
+    //     //     "CourseCommandId": likeid
+    //     // }
+    //     GetCommentcourse.data?.map((comment)=>{
+    //         if(comment.id === id){
+    //             DeleteCourseCommentLike.mutate( id);
                
-                comment.likeCount = comment.likeCount - 1 ;                
-            }
-        })       
-    }
+    //             comment.likeCount = comment.likeCount - 1 ;                
+    //         }
+    //     })       
+    // }
 
     // dissLike:
-    const [dissLike, setDissLike] = useState("")
 
-    const DislikeCourseComment =useDislikeCourseComment()
+    const DislikeCourseComment =useDislikeCourseComment(like)
     const handleDissLikeComment =(id)=>{
-        const disslikeparams={
-            CourseCommandId : id
-        }
 
         GetCommentcourse.data?.map((comment)=>{
             if(comment.id === id){
-                DislikeCourseComment.mutate( disslikeparams);
+                DislikeCourseComment.mutate( id);
             }
         })       
     }
@@ -141,7 +145,7 @@ const CourseComment = ({courseId}) => {
                             {/* comment like: */}
 
                             <h3 className=' like flex items-center gap-2'>
-                                <svg  onClick={()=>{item?.currentUserEmotion === "LIKED"  ? handledeleteCommentlike(item?.currentUserLikeId)  : handleLikeComment(item?.id)}} width="20" height="19" className={`cursor-pointer max-lg:w-[15px] max-lg:h-[17px] stroke-orange/80
+                                <svg  onClick={()=>{item?.currentUserEmotion === "LIKED"  ? "handledeleteCommentlike(item?.id) " : handleLikeComment(item?.id)}} width="20" height="19" className={`cursor-pointer max-lg:w-[15px] max-lg:h-[17px] stroke-orange/80
                                 ${item?.currentUserEmotion == "LIKED" ? "fill-orange/80 " : " "} `}viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M5.08025 8.39587C5.81909 8.39587 6.4855 7.98704 6.942 7.40587C7.65357 6.49802 8.54682 5.74871 9.56459 5.20587C10.2273 4.85387 10.8021 4.32954 11.0798 3.63379C11.2749 3.14635 11.3751 2.62615 11.375 2.10112V1.52087C11.375 1.33854 11.4474 1.16367 11.5764 1.03474C11.7053 0.905807 11.8802 0.833374 12.0625 0.833374C12.6095 0.833374 13.1341 1.05067 13.5209 1.43747C13.9077 1.82426 14.125 2.34887 14.125 2.89587C14.125 3.95187 13.8867 4.95196 13.4623 5.84571C13.2184 6.35721 13.5603 7.02087 14.1268 7.02087M14.1268 7.02087H16.9923C17.9328 7.02087 18.7753 7.65704 18.8752 8.59296C18.9164 8.97979 18.9375 9.37212 18.9375 9.77087C18.9413 12.2792 18.0841 14.7128 16.5093 16.6651C16.1536 17.107 15.6045 17.3334 15.038 17.3334H11.3567C10.9139 17.3334 10.473 17.2619 10.0523 17.1225L7.19775 16.1692C6.7771 16.0293 6.33665 15.9581 5.89334 15.9584H4.412M14.1268 7.02087H12.0625M4.412 15.9584C4.48809 16.1463 4.57059 16.3296 4.6595 16.5102C4.84009 16.8769 4.588 17.3334 4.18009 17.3334H3.34775C2.53284 17.3334 1.7775 16.8585 1.54009 16.0794C1.22259 15.0373 1.06164 13.9539 1.0625 12.8646C1.0625 11.441 1.33292 10.0816 1.82425 8.83312C2.10475 8.12362 2.81975 7.70837 3.58334 7.70837H4.54859C4.98125 7.70837 5.2315 8.21804 5.00692 8.58837C4.22399 9.87716 3.81106 11.3567 3.81342 12.8646C3.81342 13.9591 4.02609 15.0032 4.41292 15.9584H4.412Z"  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>

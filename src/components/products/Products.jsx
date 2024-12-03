@@ -26,7 +26,7 @@ const Products = () => {
 
   return (
     <div>
-      <div className="container relative mt-20">
+      <div className="container relative mt-20 max-lg:mt-40 max-md:mt-60">
         <img
           src={BackProducts}
           alt=""

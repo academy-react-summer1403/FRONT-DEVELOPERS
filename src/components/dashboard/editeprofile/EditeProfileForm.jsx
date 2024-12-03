@@ -10,10 +10,16 @@ import { toast } from "react-toastify";
 import AddProfImage from "./AddProfImage";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as yup from "yup";
+import Map from "../../../pages/dashboard/content/Map";
+import { ImageErrore } from "../../ImageErrore";
+import { HiXCircle } from "react-icons/hi";
+import { TiCameraOutline } from "react-icons/ti";
+import { CiCircleRemove } from "react-icons/ci";
 
 const EditeProfileForm = () => {
   const navigate = useNavigate();
   const userProfile = useUserProfile();
+  console.log("userProfile ::::" , userProfile?.data)
   const location = useSelector((state) => state.LocationSlice.location);
 
   const [gender, setGender] = useState(userProfile.data?.gender ? true : false);
@@ -73,8 +79,9 @@ const EditeProfileForm = () => {
     }
   };
 
+  const [open, setOpen] = useState(false)
   return (
-    <div className="py-10 px-8 max-md:px-1 mt-[5px]">
+    <div className="py-10 px-8 max-md:px-1 mt-[5px] font-Yekan ">
       <div className="relative gap-28 grid grid-cols-2 mb-12">
         <div className="border border-gray-100 grid-col-1 w-[85%]"></div>
         <h3 className="absolute bottom-[-8px] left-[38%] text-lg text-gray-400 max-lg:left-[30%] max-md:left-[32%] max-md:text-[16px]">
@@ -94,6 +101,8 @@ const EditeProfileForm = () => {
           NationalCode: userProfile.data?.nationalCode,
           HomeAdderess: userProfile.data?.homeAdderess,
           TelegramLink: userProfile.data?.telegramLink,
+          PhoneNumber: userProfile.data?.phoneNumber,
+          Email: userProfile.data?.email,
           LinkdinProfile: userProfile.data?.linkdinProfile,
           UserAbout: userProfile.data?.userAbout,
           ReceiveMessageEvent: userProfile.data?.ReceiveMessageEvent ? "on" : "",
@@ -105,8 +114,9 @@ const EditeProfileForm = () => {
           <Form>
             <div>
               <div className="flex grid-cols-3 max-xl:flex max-xl:flex-col-reverse  border-b pb-8 px-2 ">
+
                 <div className="grid-col-1 w-[100%]">
-                  <AddProfImage images={userProfile.data?.userImage} />
+                  <AddProfImage allimages={userProfile.data?.userImage} currentImage={userProfile.data?.currentPictureAddress}/>
                   <div className="w-full">
                     <label className="relative text-right text-sm grid-col-1 text-gray-400">
                       <p className="py-2 px-4">درباره من</p>
@@ -124,9 +134,10 @@ const EditeProfileForm = () => {
                     </label>
                   </div>
                 </div>
+
                 <ul className="grid-col-2 w-[100%] pl-4 justify-self-center max-xl:px-32 max-lg:px-20 max-md:px-10">
                   <li className="flex flex-row-reverse max-sm:flex-col gap-4">
-                    <label className="relative text-right text-sm text-gray-400">
+                    <label className="relative text-right text-sm text-gray-400 w-full">
                       <p className="py-2 px-4">نام</p>
                       <Field
                         type="text"
@@ -136,12 +147,12 @@ const EditeProfileForm = () => {
                         style={{
                           boxShadow: "0px 1px 3px 0px #00000033 inset",
                         }}
-                        className="px-4 pt-1 rounded-md bg-gray-50 dark:bg-white leading-8 text-darkgreen placeholder-sm text-right placeholder-darkgreen/30 font-medium focus:outline outline-primary outline-[1.5px]"
+                        className="px-4 pt-1 w-full rounded-md bg-gray-50 dark:bg-white leading-8 text-darkgreen placeholder-sm text-right placeholder-darkgreen/30 font-medium focus:outline outline-primary outline-[1.5px]"
                       />
                       <ErrorMessage name="FName"  component="div"  className="text-red-500 text-xs mt-1" />
                     </label>
 
-                    <label className="relative text-right text-sm text-gray-400">
+                    <label className="relative text-right text-sm text-gray-400 w-full">
                       <p className="py-2 px-4">نام خانوادگی</p>
                       <Field
                         type="text"
@@ -151,7 +162,7 @@ const EditeProfileForm = () => {
                         style={{
                           boxShadow: "0px 1px 3px 0px #00000033 inset",
                         }}
-                        className="px-4 pt-1 rounded-md bg-gray-50 dark:bg-white leading-8 text-darkgreen placeholder-md text-right placeholder-darkgreen/30 font-medium focus:outline outline-primary outline-[1.5px]"
+                        className="px-4 w-full pt-1 rounded-md bg-gray-50 dark:bg-white leading-8 text-darkgreen placeholder-md text-right placeholder-darkgreen/30 font-medium focus:outline outline-primary outline-[1.5px]"
                       />
                       <ErrorMessage name="LName"  component="div"  className="text-red-500 text-xs mt-1" />
 
@@ -159,7 +170,7 @@ const EditeProfileForm = () => {
                   </li>
 
                   <li className="flex flex-row-reverse max-sm:flex-col gap-4">
-                    <label className="relative text-right text-sm text-gray-400">
+                    <label className="relative text-right text-sm text-gray-400 w-full">
                       <p className="py-2 px-4">کد ملی</p>
                       <Field
                         type="text"
@@ -169,17 +180,20 @@ const EditeProfileForm = () => {
                         style={{
                           boxShadow: "0px 1px 3px 0px #00000033 inset",
                         }}
-                        className="px-4 pt-1 rounded-md bg-gray-50 dark:bg-white leading-8 text-darkgreen placeholder-sm text-right placeholder-darkgreen/30 font-medium focus:outline outline-primary outline-[1.5px]"
+                        className="px-4 w-full pt-1 font-Yekan  rounded-md bg-gray-50 dark:bg-white leading-8 text-darkgreen placeholder-sm text-right placeholder-darkgreen/30 font-medium focus:outline outline-primary outline-[1.5px]"
                       />
                       <ErrorMessage name="NationalCode"  component="div"  className="text-red-500 text-xs mt-1" />
 
                     </label>
 
-                    <label className="relative text-right text-sm text-gray-400">
+                    <label className="relative text-right text-sm text-gray-400  w-full">
                       <p className="py-2 px-4">جنسیت</p>
                       <Field as="select" name="Gender" onChange={(e) => setGender(e.target.value === "true")}
-                    className="px-4 py-2 rounded-md bg-gray-50 dark:bg-white text-darkgreen placeholder-darkgreen/30 font-medium focus:outline outline-primary outline-[1.5px]"
-                    >
+                        style={{
+                          boxShadow: "0px 1px 3px 0px #00000033 inset",
+                        }}
+                        className="px-4 pt-1 h-[31px] w-full rounded-md bg-gray-50 dark:bg-white leading-8 text-darkgreen placeholder-sm text-right placeholder-darkgreen/30 font-medium focus:outline outline-primary outline-[1.5px]"
+                        >
                         <option value="true">مرد</option>
                         <option value="false">زن</option>
                       </Field>
@@ -187,24 +201,64 @@ const EditeProfileForm = () => {
                   </li>
 
                   <li className="flex flex-row-reverse max-sm:flex-col gap-4">
-                    <label className="relative text-right text-sm text-gray-400">
-                      <p className="py-2 px-4">آدرس منزل</p>
+                    
+
+                    <label className="relative text-right text-sm text-gray-400 w-full">
+                      <p className="py-2 px-4">تاریخ تولد</p>
+                      <DatePicker
+                        value={date}
+                        onChange={handleDateChange}
+                        format="YYYY/MM/DD"
+                        style={{
+                          boxShadow: "0px 1px 3px 0px #00000033 inset",
+                          width:"100%",
+                          height:"31px",
+                          border:"0px",
+                          backgroundColor:"#f9fafb",
+                          position:"absolute",
+                          bottom:"0px",
+                          left:"0px"
+                        }}
+
+                      />
+                    </label>
+
+                    <label className="relative text-right text-sm text-gray-400 w-full">
+                      <p className="py-2 px-4">شماره همراه </p>
                       <Field
                         type="text"
-                        id="HomeAdderess"
-                        name="HomeAdderess"
-                        placeholder="...آدرس را وارد کنید"
+                        id="PhoneNumber"
+                        name="PhoneNumber"
                         style={{
                           boxShadow: "0px 1px 3px 0px #00000033 inset",
                         }}
-                        className="px-4 pt-1 rounded-md bg-gray-50 dark:bg-white leading-8 text-darkgreen placeholder-sm text-right placeholder-darkgreen/30 font-medium focus:outline outline-primary outline-[1.5px]"
+                        disabled
+                        className="px-4 pt-1 w-full font-Yekan rounded-md bg-gray-50 dark:bg-white leading-8 text-darkgreen placeholder-sm text-right placeholder-darkgreen/30 font-medium focus:outline outline-primary outline-[1.5px]"
                       />
-                      <ErrorMessage name="HomeAdderess"  component="div"  className="text-red-500 text-xs mt-1" />
 
                     </label>
 
-                    <label className="relative text-right text-sm text-gray-400">
-                      <p className="py-2 px-4">لینک تلگرام</p>
+                    
+                  </li>
+
+                  <li className="flex flex-row-reverse max-sm:flex-col gap-4">
+                    <label className="relative text-right text-sm text-gray-400 w-full">
+                      <p className="py-2 px-4">ایمیل </p>
+                      <Field
+                        type="text"
+                        id="Email"
+                        name="Email"
+                        placeholder="ایمیل قابل تغییر نیست!"
+                        style={{
+                          boxShadow: "0px 1px 3px 0px #00000033 inset",
+                        }}
+                        disabled
+                        className="px-4 pt-1 w-full rounded-md bg-gray-50 dark:bg-white leading-8 text-darkgreen placeholder-sm text-right placeholder-darkgreen/30 font-medium focus:outline outline-primary outline-[1.5px]"
+                      />
+                    </label>
+
+                    <label className="relative text-right text-sm text-gray-400 w-full">
+                      <p className="py-2 px-4">تلگرام</p>
                       <Field
                         type="text"
                         id="TelegramLink"
@@ -213,48 +267,92 @@ const EditeProfileForm = () => {
                         style={{
                           boxShadow: "0px 1px 3px 0px #00000033 inset",
                         }}
-                        className="px-4 pt-1 rounded-md bg-gray-50 dark:bg-white leading-8 text-darkgreen placeholder-sm text-right placeholder-darkgreen/30 font-medium focus:outline outline-primary outline-[1.5px]"
+                        className="px-4 w-full pt-1 rounded-md bg-gray-50 dark:bg-white leading-8 text-darkgreen placeholder-sm text-right placeholder-darkgreen/30 font-medium focus:outline outline-primary outline-[1.5px]"
                       />
                       
                     </label>
+                   
                   </li>
 
                   <li className="flex flex-row-reverse max-sm:flex-col gap-4">
-                    <label className="relative text-right text-sm text-gray-400">
-                      <p className="py-2 px-4">لینک لینکدین</p>
-                      <Field
-                        type="text"
-                        id="LinkdinProfile"
-                        name="LinkdinProfile"
-                        placeholder="...لینک لینکدین را وارد کنید"
-                        style={{
-                          boxShadow: "0px 1px 3px 0px #00000033 inset",
-                        }}
-                        className="px-4 pt-1 rounded-md bg-gray-50 dark:bg-white leading-8 text-darkgreen placeholder-sm text-right placeholder-darkgreen/30 font-medium focus:outline outline-primary outline-[1.5px]"
-                      />
-                    </label>
-
-                    <label className="relative text-right text-sm text-gray-400">
-                      <p className="py-2 px-4">تاریخ تولد</p>
-                      <DatePicker
-                        value={date}
-                        onChange={handleDateChange}
-                        format="YYYY/MM/DD"
-                        className="px-4 pt-1 rounded-md bg-gray-50 dark:bg-white leading-8 text-darkgreen placeholder-sm text-right placeholder-darkgreen/30 font-medium focus:outline outline-primary outline-[1.5px]"
-                      />
-                    </label>
+                    <label className="relative text-right text-sm text-gray-400 w-full">
+                        <p className="py-2 px-4">لینک لینکدین</p>
+                        <Field
+                          type="text"
+                          id="LinkdinProfile"
+                          name="LinkdinProfile"
+                          placeholder="...لینک لینکدین را وارد کنید"
+                          style={{
+                            boxShadow: "0px 1px 3px 0px #00000033 inset",
+                          }}
+                          className="px-4 pt-1 w-full rounded-md bg-gray-50 dark:bg-white leading-8 text-darkgreen placeholder-sm text-right placeholder-darkgreen/30 font-medium focus:outline outline-primary outline-[1.5px]"
+                        />
+                      </label>
                   </li>
                 </ul>
               </div>
 
-              <div className="flex justify-center mt-8">
+              <div className="">
+                <div className=" grid grid-cols-2 max-sm:grid-cols-1">
+                  {/* OpenModal  */}
+                  <div>
+                    <div onClick={()=>setOpen(true)} className='group relative flex mx-auto cursor-pointer rounded-full border w-40 h-40 mt-4 overflow-hidden'>
+                        <img 
+                          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIF6pXlKVoKbos-BYOtXcovKuOUfQUQYSI_w&s"
+                          onError={ImageErrore} className="absolute rounded-full w-40 h-40 "
+                        />
+                        <div className="absolute bottom-0 w-full h-10 bg-gray-600/40 z-40"> <TiCameraOutline className="flex mx-auto text-white w-8 h-8" /></div>
+                    </div>
+                     {/* Modal  */}
+                    <div style={{backdropFilter: "box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25) "}}
+                      className={`fixed top-[100px] w-[58%] h-[75%] flex flex-col justify-center gap-14 items-center left-[250px] bg-neutral-500/80 z-[9999] rounded-xl
+                          ${open ? "block" : "hidden "} transition-all duration-700 ease-in-out  backdrop-blur-sm
+                      `}>
+                          {/* close modal    */}
+                          <HiXCircle onClick={()=>setOpen(false)} className='absolute right-4 top-4 w-8 h-8 cursor-pointer text-gray-200 opacity-100'/>
+            
+
+                          <Map/>
+                    </div>
+                  </div>
+                  <label className="relative text-right text-sm text-gray-400 h-40 w-full pt-8">
+                      <p className="py-2 px-4">آدرس منزل</p>
+                      <Field
+                      as="textarea"
+                        type="text"
+                        id="HomeAdderess"
+                        name="HomeAdderess"
+                        placeholder="...آدرس را وارد کنید"
+                        style={{
+                          boxShadow: "0px 1px 3px 0px #00000033 inset",
+                        }}
+                        className="px-4 pt-1 w-full h-14 rounded-md bg-gray-50 dark:bg-white leading-8 text-darkgreen placeholder-sm text-right placeholder-darkgreen/30 font-medium focus:outline outline-primary outline-[1.5px]"
+                      />
+                      <ErrorMessage name="HomeAdderess"  component="div"  className="text-red-500 text-xs mt-1" />
+
+                    </label>
+                </div>
+                 
+                <div className="flex mt-5 gap-2 ">
                 <button
+                    type="submit"
+                    className="flex items-center gap-2 px-7 rounded-full text-gray-400 bg-gray-200 hover:text-red-700  hover:bg-red-200 "
+                  >
+                    <CiCircleRemove className="w-4 h-4"/>
+                    لغو
+                  </button>
+
+                  <button
                   type="submit"
-                  className="flex items-center gap-2 py-2 px-6 rounded-md bg-primary text-white font-semibold hover:bg-primary-dark"
-                >
-                  <img src={save} alt="Save" />
-                  ذخیره اطلاعات
-                </button>
+                  className="flex items-center gap-2 py-2 px-6 rounded-full bg-primary text-darakgreen  hover:bg-primary-dark"
+                  >
+                    <img src={save} alt="Save" />
+                    ذخیره تغییرات
+                  </button>
+
+                  
+                </div>
+                
               </div>
             </div>
           </Form>

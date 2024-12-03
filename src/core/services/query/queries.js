@@ -19,6 +19,7 @@ import {
   TypeCourses,
 } from "../getApi";
 import { GetSecurityInfo, StudentCoursePayDetail } from "../level2api";
+import { getConfigValue } from "../authApi";
 
 
 export function useNewsData(params , page,rows ) {
@@ -154,7 +155,12 @@ export function useGetRelatedcourse(){
   })
 }
 
-
+export function useGetConfigValue(params){
+  return useQuery({
+    queryKey:["getConfigValue" , params ],
+    queryFn:()=>getConfigValue(params)
+  })
+}
 
 StudentCoursePayDetail
 

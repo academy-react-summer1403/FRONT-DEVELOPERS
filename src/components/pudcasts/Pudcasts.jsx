@@ -22,8 +22,6 @@ const Pudcasts = () => {
 
     const PudcastApi =  useNewsPudcast()
 
-
-
     var settings = {
 
         dots:true,
@@ -56,7 +54,7 @@ const Pudcasts = () => {
 
     <h1 className=' head1'> {t("Podcasts")}
           <div className='head2'></div> </h1>
-          <h3 className='head3'> {t("Podcasttext")} </h3>
+          <h3 className='head3 max-sm:mb-10'> {t("Podcasttext")} </h3>
           
 
   
@@ -80,7 +78,7 @@ const Pudcasts = () => {
            
             {PudcastApi.data?.news.map((data)=>(
 
-                <div className='     -ml-14'>
+                <div className=' -ml-14'>
 
                    <div className='flex flex-col items-end justify-end'>
                         <h3 className=' text-[#AAAAAA] text-[12px] font-Yekan font-semibold   max-lg:mr-[80px] max-md:mr-[250px] max-sm:-mt-1 max-sm:mr-[90px]  mr-[370px]'>
@@ -89,12 +87,14 @@ const Pudcasts = () => {
                         <h1 className='max-md:-mr-6 text-[26px] text-[#006865]  max-sm:text-[16px] max-sm:-mr-4 max-sm:mt-[9px] font-bold font-Yekan max-lg:text-[22px] max-lg:mr-[-45px]  text-right mt-5'>
                             {data?.title}
                         </h1>
-                        <p className="max-sm:ml-[60px] text-[#828F8E] max-md:-mr-5 text-[15px] leading-[21px] font-Yekan font-semibold text-right mt-3 w-96 max-lg:mr-[-45px] max-lg:text-[14px] max-lg:w-80   ml-14">
+                        <p className="max-sm:ml-[60px] overflow-hidden text-[#828F8E] max-md:-mr-5 text-[15px] leading-[21px] font-Yekan font-semibold text-right
+                         mt-3 w-96 max-lg:mr-[-45px] max-lg:text-[14px] max-lg:w-80   ml-14">
                             {data?.miniDescribe}
                         </p>
                     </div> 
 
-                    <div className='  max-md:mt-2 max-md:ml-0  max-lg:mt-[10px]   mt-10 flex ml-14 items-center text-[13px] font-semibold font-Yekan text-[#AAAAAA] text-right gap-5'>
+                    <div className=' max-md:mt-2 max-md:ml-10  max-lg:mt-[10px]   mt-10 flex ml-14 items-center text-[13px] 
+                    font-semibold font-Yekan text-[#AAAAAA] text-right gap-5'>
                         <div className=' flex items-center gap-1 ml-16'>
                             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M7 3V7H10M13 7C13 7.78793 12.8448 8.56815 12.5433 9.2961C12.2417 10.0241 11.7998 10.6855 11.2426 11.2426C10.6855 11.7998 10.0241 12.2417 9.2961 12.5433C8.56815 12.8448 7.78793 13 7 13C6.21207 13 5.43185 12.8448 4.7039 12.5433C3.97595 12.2417 3.31451 11.7998 2.75736 11.2426C2.20021 10.6855 1.75825 10.0241 1.45672 9.2961C1.15519 8.56815 1 7.78793 1 7C1 5.4087 1.63214 3.88258 2.75736 2.75736C3.88258 1.63214 5.4087 1 7 1C8.5913 1 10.1174 1.63214 11.2426 2.75736C12.3679 3.88258 13 5.4087 13 7Z" stroke="#AAAAAA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -128,6 +128,7 @@ const Pudcasts = () => {
     
             ))} 
         </Slider>
+        
     </div>
     
 </div>

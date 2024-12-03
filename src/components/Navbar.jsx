@@ -58,8 +58,7 @@ const Navbar = () => {
 
 
     const token = user?.token 
-
-
+   
 
  
 
@@ -73,8 +72,6 @@ const handleLogout = (token)=>{
     setRemove(false)
     setOpenModal(false)
 }
-
-  
 
 
   return (
@@ -97,9 +94,9 @@ const handleLogout = (token)=>{
                             dark:hover:shadow-slate-700 dark:hover:shadow-md
                             transition-shadow'>
                         <div className=' flex justify-center items-center gap-1 h-12 w-full' >  
-                            <img src={userImageProfile ? userImageProfile.data?.currentPictureAddress : ""} alt="" className={`w-[40px]  border-white h-[40px] rounded-full  top-[4px] left-2  border `}/>
+                            <img src={userImageProfile ? userImageProfile.data?.currentPictureAddress : ""} alt="" className={`w-[40px]  ${user.token == null ? "hidden" : "block border border-white"} h-[40px] rounded-full  top-[4px] left-2 `}/>
                             
-                            <h1 className={`text-sm  font-semibold text-white mt-5 pr-1  w-[60%] h-[40px] text-right ${user.token == null || user.token == undefined  ? "block" : "hidden"}`} >{t("person")} </h1> 
+                            <h1 className={`text-sm  font-semibold text-white mt-5 pr-1   h-[40px] text-center ${user.token == null || user.token == undefined  ? "block" : "hidden"}`} > {t("person")} </h1> 
                             <h1 className={`text-sm  font-semibold text-white  truncate  mt-5  w-[60%] h-[40px] ${user.token == null || user.token == undefined  ? "hidden" : "block"}`}>{t(userImageProfile.data?.fName)} {t(userImageProfile.data?.lName)}</h1>
 
                         </div> 
@@ -110,7 +107,7 @@ const handleLogout = (token)=>{
                     <div className='flex justify-center flex-row gap-4 pr-9 mx-4 max-lg:gap-1 max-lg:ml-0 '>  
                         {/* log out     */}
                         <div>
-                            <IoIosLogOut className={`${user.token == null ? "hidden" : "block"} block mt-8 text-gray-400 text-3xl cursor-pointer`}
+                            <IoIosLogOut className={`${user.token == null ? "hidden" : "block"} block mt-8 text-gray-400 text-3xl cursor-pointer `}
                             onClick={()=>user.token == null ? "": setOpenModal(true) }/>               
                             <div className={`${openModal ==false ? "hidden": "block"} fixed left-0 top-0 w-screen h-screen bg-black/70 z-[9999]
                                  backdrop-blur-sm transition-all duration-700`}

@@ -31,7 +31,25 @@ export const loginApi  = async (user) => {
     return data;
   };
 
+  // forget password
 
+  export const postForgetPassword  = async (params) => {
+    const data = await http.post("/Sign/ForgetPassword" , params)
+     
+    console.log(data);
+    return data;
+  };
 
+  export const getConfigValue  = async (params) => {
+    const { ConfigValue } = params;
+    const data = await http.get(`/Sign/Reset/${ConfigValue}`, { params }); 
+     
+    console.log(data);
+    return data;
+  };
 
-  
+  export const postNewForgetPassword  = async (params) => {
+    const data = await http.post("/Sign/Reset" , params)
+    console.log(data);
+    return data;
+  };

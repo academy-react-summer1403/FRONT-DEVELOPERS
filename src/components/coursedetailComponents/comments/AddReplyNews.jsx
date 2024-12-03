@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { HiXCircle } from 'react-icons/hi2';
 import { usePostReplyNews } from '../../../core/services/mutation/DetailsMutation';
 import { useForm } from 'react-hook-form';
+import * as yup from "yup";
+import { yupResolver } from '@hookform/resolvers/yup';
+
 
 const AddReplyNews = ({comentdiv ,setCommentdiv,Id , UserId  , newsId}) => {
 
@@ -29,11 +32,23 @@ const AddReplyNews = ({comentdiv ,setCommentdiv,Id , UserId  , newsId}) => {
             "parentId": Id
         }
         if(data){
-            console.log(params)
             AddReply.mutate(params)
         }
     }
-    const {register, handleSubmit}= useForm()
+
+    const validation = yup.object().shape({
+
+        Describe:yup.string().required().min(10,'نظر باید بیشتر از 10 حرف باشد').max(79,"نظر طولانی است"),
+
+        Title: yup.string().required().min(5, 'عنوان باید بیشتر از 5 حرف باشد')
+        .max(390,'عنوان باید کمتر از 390 حرف باشد' )
+        ,
+    
+     
+      });
+    const { register, handleSubmit, formState: { errors } } = useForm({
+        resolver: yupResolver(validation)
+    });
 
   return (
     <div className={`${comentdiv === Id  ? "block" : "hidden"} p-5 border border-gray-300  dark:bg-slate-600 bg-[#e2e2e2ee] w-[90%]  rounded-3xl z-50 top-14 absolute `}>
@@ -46,8 +61,12 @@ const AddReplyNews = ({comentdiv ,setCommentdiv,Id , UserId  , newsId}) => {
             <div className=" w-[500px] grid gap-2  max-xl:w-3/4  m-auto mt-6">
                 <input type="text" placeholder={"عنوان"}  {...register("Title")}
                 className='w-[100%] h-12 dark:bg-slate-800 border rounded-3xl px-3  outline-none' id='Title' name='Title'/>
+               {errors.Title && <p className="text-red-500 text-xs">{errors.Title.message}</p>}
+
                  <input type="text" placeholder={"نظر خود را وارد کنید"}  {...register("Describe")}
                 className='w-[100%] h-12 dark:bg-slate-800 border rounded-3xl px-3  outline-none' id='Describe' name='Describe'/>
+               {errors.Describe && <p className="text-red-500 text-xs">{errors.Describe.message}</p>}
+
            </div>
 
            <button type="submit" disabled={AddReply.isPending} value={AddReply.isPending ? "... در حال ارسال ": "افزودن نظر جدید"} className="bg-primary dark:bg-secondary font-Yekan text-darkgreen 

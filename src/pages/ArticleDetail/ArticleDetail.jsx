@@ -30,11 +30,11 @@ const ArticleDetail = () => {
 
   
   const articleDetail = useArticleDetail(id);
-  console.log("articleDetail" , articleDetail.data)
+  console.log(articleDetail?.data)
+  
 
  const [save,setSave]=useState(articleDetail?.data?.detailsNewsDto?.isCurrentUserFavorite)
   
-  console.log("articleDetail" , articleDetail?.data?.detailsNewsDto?.isCurrentUserFavorite)
 
   
   

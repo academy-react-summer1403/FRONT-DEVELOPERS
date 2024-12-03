@@ -15,7 +15,7 @@ const SwipeCards = () => {
 
     <div
 
-      className="grid h-[500px] w-full place-items-center absolute -bottom-[50px]"
+      className="grid h-[500px] w-full  absolute -bottom-[80px]"
 
      
 

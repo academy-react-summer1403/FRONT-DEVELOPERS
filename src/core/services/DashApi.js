@@ -11,7 +11,7 @@ export const getUserProfile = async () => {
 
 
   export const postUserImg = async ( formFile) => {
-    const data = await http.post("/SharePanel/AddProfileImage" , formFile )
+    const data = await http.post("/SharePanel/AddProfileImage" , formFile)
 
 
     return data;
@@ -21,8 +21,12 @@ export const getUserProfile = async () => {
   
   export const postUserMainImg = async (  formId) => {
     const data = await http.post("/SharePanel/SelectProfileImage" , formId )
+    return data;
+  };
 
-
+  export const deleteProfileImage = async (  formId) => {
+    const data = await http.delete("/SharePanel/DeleteProfileImage" , {data : formId} )
+    console.log("data:::" , data)
     return data;
   };
 
@@ -250,8 +254,8 @@ export const getUserProfile = async () => {
   }
 
   export const deleteMyCoursesComments = async (courseCommentId) => {
-    const data = await http.delete(`/Course/DeleteCourseComment` , { data:courseCommentId});
-
+    const data = await http.delete(`/Course/DeleteCourseComment?CourseCommandId=${courseCommentId}`);
+   
     console.log("data" ,data);
     return data;
 };

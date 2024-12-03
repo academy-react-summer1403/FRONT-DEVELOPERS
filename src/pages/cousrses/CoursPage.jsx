@@ -316,7 +316,7 @@ const CoursPage = () => {
                           <CoursListCard {...item} />  ))}
                      </AnimatePresence>
                      
-                     : <AnimatePresence>    {loading ? <GridCardLoading cards={6}/> :                     
+                     : <AnimatePresence>    {loading ? <GridCardLoading cards={16}/> :                     
                         CoursesData.data?.courseFilterDtos.length == 0  ?  <NotFound/> : CoursesData.data?.courseFilterDtos.map((item) => (
                         <CoursGridCard {...item}/> )) }
                       </AnimatePresence>

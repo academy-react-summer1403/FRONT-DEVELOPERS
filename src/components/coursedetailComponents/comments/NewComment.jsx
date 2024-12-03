@@ -80,7 +80,6 @@ const NewComment = ({id , UserId }) => {
 
   const [replydiv,setReplydiv]=useState( )     
  
-  console.log("replydiv" ,replydiv )
   
   const handleReply =(id)=>{ 
     setReplydiv(id);
@@ -89,8 +88,8 @@ const NewComment = ({id , UserId }) => {
 
   return (
     <div  style={{ boxShadow: " 0px 1px 2px 0 rgba(0, 0, 0, 0.25)" }}
-      className={`mt-[15px] bg-white dark:bg-slate-700 rounded-[15px] p-[20.5px]
-       overflow-hidden relative ${showMore ? "h-[774px] mb-40"  : " min-h-[774px]" }`} >
+      className={`mt-[15px] bg-white dark:bg-slate-700 rounded-[15px] p-[20.5px] 
+       overflow-hidden relative ${showMore && GetCommentNews?.data?.length !== 0 ? "mb-40 h-[770px]"  : GetCommentNews?.data?.length === 0 ? " h-[470px]" : "min-h-[770px]"}`} >
         {/* add comment :  */}
         <button  onClick={()=>setCommentdiv(true)} className="  w-[185px] h-[37px] max-xl:w-[170px] max-xl:h-[37px] rounded-[7px] dark:bg-orange bg-primary flex items-center justify-center  gap-2 ">
             <h3 className="font-normal font-Yekan text-[15px] text-darkgreen/90 dark:text-white">
@@ -116,11 +115,11 @@ const NewComment = ({id , UserId }) => {
             <Commentdiv comentdiv={comentdiv} setCommentdiv={setCommentdiv} holder={"نظر جدید"} Id={id} UserId={UserId}/>
     
         {/* comments:  */}
-        {loading ? <CommentsLoading cards={2}/>  : 
-            GetCommentNews.data?.map((item)=>(
-            <div data-aos="zoom-in-down" style={{boxShadow:"-1px 2px 1px 0 rgba(0,0,0,0.2)"}}
+        {loading ? <CommentsLoading cards={2}/>  :  GetCommentNews.data?.length === 0  ? <h1 className='text-3xl text-green py-24 my-12  text-center'>... نظری وجود ندارد</h1>:
+            GetCommentNews.data?.map((item , index)=>(
+            <div key={index} data-aos="zoom-in-down" style={{boxShadow:"-1px 2px 1px 0 rgba(0,0,0,0.2)"}}
                 className={`bg-[#F9F9F9] dark:bg-slate-800 rounded-[7px] w-full  flex flex-col  p-[20.5px] mt-[30px]
-                ${showMore ? "h-[315px] overflow-hidden": "min-h-[315px]"}`}
+                ${showMore ? "overflow-hidden": ""} `}
             >
                 <div className='w-full h-full flex flex-col'>
 
@@ -160,7 +159,7 @@ const NewComment = ({id , UserId }) => {
                                 {" "}
                                 {item?.autor}
                             </h3>
-                            <h4 className=" datecomment "> <DateApi dateapi={item?.inserDate}/></h4>
+                            <h4 className=" datecomment max-sm:mt-4"> <DateApi dateapi={item?.inserDate}/></h4>
                             </div>  
 
                             <img className=' profile' src={item?.pictureAddress ? item?.pictureAddress : ImageErrore} onError={ImageErrore} alt="" />
@@ -176,7 +175,7 @@ const NewComment = ({id , UserId }) => {
                 </div>          
             </div>
 
-            ))
+            ))   
         }
 
 
@@ -186,9 +185,10 @@ const NewComment = ({id , UserId }) => {
 
          <button
               onClick={() => setShowMore(!showMore)}
-              className="border-secondary/80  dark:border-[#E48900]  dark:text-[#fdb359] border-[1px] absolute  bottom-7 left-[43%] 
+              className={`border-secondary/80  dark:border-[#E48900]  dark:text-[#fdb359] border-[1px] absolute  bottom-7 left-[43%] 
               text-secondary hover:scale-105 ease-in-out duration-150 
-              leading-[32px] font-normal font-Yekan text-[12px] flex items-center w-[120px] h-[35px] rounded-[25px] mx-auto justify-center gap-2 max-md:mt-[-50px]   "
+              leading-[32px] font-normal font-Yekan text-[12px] flex items-center w-[120px] h-[35px] rounded-[25px] 
+              mx-auto justify-center gap-2 max-md:mt-[-50px] `}
                            
         >
               {showMore ? (
