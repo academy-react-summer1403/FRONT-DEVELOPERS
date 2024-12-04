@@ -40,6 +40,7 @@ import Q2 from "./components/mainAuth/Q2"
 
 import ForgetPassOne from "./components/mainAuth/forgetPassword/ForgetPassOne"
 import ForgetPassTow from "./components/mainAuth/forgetPassword/ForgetPassTow"
+import Chat from "./pages/Chat/Chat"
 
 
 
@@ -84,7 +85,11 @@ const  PublicRoutes = [
       },  {
         path:"/*",
         element: <PhysicApp/>,
-      }
+      },
+      {
+        path: "/Chat",
+        element: <Chat />,
+      },
 
     ]},
     {
@@ -173,7 +178,11 @@ const  PrivateRoutes = [
     },  {
     path:"/*",
     element: <PhysicApp/>,
-  }
+  },
+  {
+    path: "/Chat",
+    element: <Chat />,
+  },
 
   ]
 
