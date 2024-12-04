@@ -4,13 +4,13 @@ import { createSlice } from "@reduxjs/toolkit";
  const lessRangeSlice = createSlice({
     initialState:{
         
-        less:{}
+        less:0,
 
     },
     name:"less",
     reducers:{
     
-        lessRange:(state , action) =>{
+        LessRange:(state , action) =>{
             state.less = action.payload
         },
     },
@@ -19,5 +19,5 @@ import { createSlice } from "@reduxjs/toolkit";
 
 
 
-export const {  lessRange} = lessRangeSlice.actions;
+export const {  LessRange} = lessRangeSlice.actions;
 export default lessRangeSlice.reducer

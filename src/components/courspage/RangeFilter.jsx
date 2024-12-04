@@ -1,6 +1,11 @@
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux';
+import { AddRange } from '../../core/redux/slices/QueryState/RangeSlice';
 
 const RangeFilter = ({min , max , value , bufferd , onChange}) => {
+
+ const disPatch =useDispatch()
+//  console.log(value)
 
   function mapToRange(value , min , max){
     value = Math.min(Math.max(value , min) , max)
@@ -24,6 +29,7 @@ const RangeFilter = ({min , max , value , bufferd , onChange}) => {
 
       const {value} = e.target
       onChange(+value)
+      disPatch(AddRange(value)) 
   }
 
   const handleDragStart = ()=>{
@@ -42,11 +48,11 @@ const RangeFilter = ({min , max , value , bufferd , onChange}) => {
   return (
 
       <div className='relative bg-white flex items-center rounded'>
-        <input min={min} max={max} value={value} className='range-slider2' type="range"
+        <input min={min} max={max} value={value} className='range-slider2 range-slider' type="range"
         onChange={handleChange}
         onMouseDown={handleDragStart}
         onMouseUp={handleDragEnd}
-        style={{zIndex: isDragging ? 1:2}}
+        style={{zIndex: isDragging ? 1:2 }}
         />
 
         <div style={{width:mapToRange(bufferd , min , max) + "%" }} className='absolute h-full bg-gray-300 rounded'></div>

@@ -27,8 +27,9 @@ const TypeFilter = () => {
       
         <div className="z-40 relative flex flex-col gap-2  ">
           <div className="flex flex-row justify-end ">
-             <label to="checkbox" >{type.data?.[0].typeName}</label>
+             <label htmlFor='type1' to="checkbox" className='cursor-pointer' >{type.data?.[0].typeName}</label>
           <input
+            id='type1'
             type="checkbox"
             name="checkbox"
             className="ml-2 cursor-pointer z-[800]"
@@ -39,8 +40,9 @@ const TypeFilter = () => {
           />
           </div>
           <div className="flex flex-row justify-end ">
-             <label to="checkbox">{type.data?.[1].typeName}</label>
+             <label htmlFor='type2' to="checkbox" className='cursor-pointer'>{type.data?.[1].typeName}</label>
           <input
+            id='type2'
             type="checkbox"
             name="checkbox"
             className="ml-2 cursor-pointer z-[800]"
@@ -51,8 +53,9 @@ const TypeFilter = () => {
           />
           </div>
             <div className=" flex flex-row justify-end ">
-               <label className='whitespace-nowrap' to="checkbox">{type.data?.[2].typeName}</label>
+               <label htmlFor='type3' className='whitespace-nowrap cursor-pointer' to="checkbox">{type.data?.[2].typeName}</label>
           <input
+            id='type3'
             type="checkbox"
             name="checkbox"
             className="ml-2 cursor-pointer z-[800]"

@@ -43,7 +43,7 @@ const PointOfMap = ({ search , category}) => {
 
     // Delete Course Comment :
 
-    const HandleDeleteSubmit = (courseCommentId) => {
+    const HandleDeleteSubmit = async(courseCommentId) => {
   
         return deleteMyCoursesComments(courseCommentId) .then(() => {
           setCoursesComments(prevData => prevData.filter(item => item.commentId !== courseCommentId));
@@ -60,7 +60,6 @@ const PointOfMap = ({ search , category}) => {
         });         
         
     }
-    console.log("HandleDeleteSubmit"  )
 
 
   // NEWES :

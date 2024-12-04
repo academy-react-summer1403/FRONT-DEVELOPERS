@@ -28,8 +28,9 @@ const MainFilter = () => {
       
         <div className="z-40 relative flex flex-col gap-2">
           <div className="flex flex-row justify-end">
-             <label to="checkbox">{category.data?.[0].techName}</label>
+             <label htmlFor="setFilter" to="checkbox" className="cursor-pointer">{category.data?.[0].techName}</label>
           <input
+          id="setFilter"
             type="checkbox"
             name="checkbox"
             className="ml-2 cursor-pointer z-[800]"
@@ -40,8 +41,9 @@ const MainFilter = () => {
           />
           </div>
           <div className="flex flex-row justify-end ">
-             <label to="checkbox">{category.data?.[1].techName}</label>
+             <label htmlFor="setFilter2" to="checkbox" className="cursor-pointer">{category.data?.[1].techName}</label>
           <input
+          id="setFilter2"
             type="checkbox"
             name="checkbox"
             className="ml-2 cursor-pointer z-[800]"
@@ -52,8 +54,9 @@ const MainFilter = () => {
           />
           </div>
             <div className=" flex flex-row justify-end ">
-               <label to="checkbox">{category.data?.[2].techName}</label>
+               <label htmlFor="setFilter3" to="checkbox" className="cursor-pointer">{category.data?.[2].techName}</label>
           <input
+          id="setFilter3"
             type="checkbox"
             name="checkbox"
             className="ml-2 cursor-pointer z-[800]"
@@ -64,8 +67,9 @@ const MainFilter = () => {
           /> 
             </div>
           <div className="flex flex-row justify-end">
-          <label to="checkbox">{category.data?.[3].techName}</label>
+          <label htmlFor="setFilter4" to="checkbox" className="cursor-pointer">{category.data?.[3].techName}</label>
           <input
+            id="setFilter4"
             type="checkbox"
             name="checkbox"
             className="ml-3 cursor-pointer z-[800]"

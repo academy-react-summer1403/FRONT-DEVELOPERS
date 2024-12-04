@@ -4,20 +4,16 @@ import { createSlice } from "@reduxjs/toolkit";
  const RangeSlice = createSlice({
     initialState:{
         
-        Range:{}
-
+        Range:0,
+        
     },
     name:"uprange",
     reducers:{
-    
-        addRange:(state , action) =>{
+        AddRange:(state , action) =>{
             state.Range = action.payload
         },
     },
 
 })
-
-
-
-export const { addRange } = RangeSlice.actions;
+export const { AddRange } = RangeSlice.actions;
 export default RangeSlice.reducer

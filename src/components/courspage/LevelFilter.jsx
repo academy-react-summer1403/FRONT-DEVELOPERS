@@ -23,8 +23,9 @@ const LevelFilter = () => {
       
     <div className="z-40 relative flex flex-col  gap-2 ">
       <div className="flex flex-row justify-end">
-         <label to="checkbox">  مبتدی</label>
+         <label className='cursor-pointer' htmlFor='level1' to="checkbox">  مبتدی</label>
       <input
+        id='level1'
         type="checkbox"
         name="checkbox"
         className="ml-2 cursor-pointer z-[800]"
@@ -35,8 +36,9 @@ const LevelFilter = () => {
       />
       </div>
       <div className="flex flex-row justify-end -ml-[3px]">
-         <label to="checkbox">متوسط</label>
+         <label  className='cursor-pointer' htmlFor='level2' to="checkbox">متوسط</label>
       <input
+        id='level2'
         type="checkbox"
         name="checkbox"
         className="ml-2 cursor-pointer z-[800]"
@@ -47,8 +49,9 @@ const LevelFilter = () => {
       />
       </div>
         <div className=" flex flex-row justify-end">
-           <label to="checkbox">پیشرفته</label>
+           <label  className='cursor-pointer' htmlFor='level3' to="checkbox">پیشرفته</label>
       <input
+        id='level3'
         type="checkbox"
         name="checkbox"
         className="ml-2 cursor-pointer z-[800]"

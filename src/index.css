@@ -260,15 +260,47 @@ body{
 .range-slider2 {
   appearance: none;
   width:100%;
-  height:1rem;
+  height:8px;
   background-color: transparent;  
 }
 
-.range-slider::-webkit-slider-thumb{
-  appearance: none;
-  width: 2rem;
-  height: 3rem;
+.range-slider::-moz-range-thumb{
+  appearance: "none";
+  width: 13px;
+  height: 13px;
   cursor: pointer;
+  border-radius: 100%;      
+  appearance: none;
+  border: none;  
+  cursor: pointer; 
+
+  @apply bg-purple
+}
+
+.range-slider::-webkit-slider-thumb{
+  appearance: "none";
+  width: 13px;
+  height: 13px;
+  cursor: pointer;
+  border-radius: 100%;      
+  appearance: none;
+  border: none;  
+  cursor: pointer; 
+
+  @apply bg-purple
+}
+
+.range-slider::-ms-thumb{
+  appearance: "none";
+  width: 13px;
+  height: 13px;
+  cursor: pointer;
+  border-radius: 100%;      
+  appearance: none;
+  border: none;  
+  cursor: pointer; 
+
+  @apply bg-purple
 }
 
 .Correct{
@@ -279,5 +311,5 @@ body{
 }
 
 .custom-toast {
-  z-index: 9999 !important;
+  z-index: 999999 !important;
 }
