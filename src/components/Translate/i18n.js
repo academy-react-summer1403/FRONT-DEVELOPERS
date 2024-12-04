@@ -108,7 +108,20 @@ i18n
       date: "Date",
       number: "Number",
       complete_purchase: "Complete Purchase"
-   
+   ,
+    lang:"Select the language of the site",
+    last:"last",
+    home:"home",
+    next:"next",
+    theme:"Choose a site theme",
+    green:"blue green",
+    purple:"purple",
+    blue:"blue",
+    night:"dark mode"
+
+
+
+
     
   
 
@@ -172,6 +185,9 @@ i18n
             footer3:"ساری، میدان خزر ، جاده فرح آباد ، جنب مجتمع دنیای آرزو",
             read:"مطالعه مطلب",
             catfooter:"دسته بندی ها",
+            lang:"زبان سایت را انتخاب کنید",
+            last:"قبلی",
+            home:"صفحه اصلی",
 
             // course
 
@@ -223,7 +239,13 @@ suggested_articles: "مطالب پیشنهادی",
   paid: " قیمت دوره",
   date: "تاریخ",
   number: "شماره پیگیری" ,
-  complete_purchase: "تکمیل خرید"
+  complete_purchase: "تکمیل خرید",
+  next:"بعدی",
+  theme:"تم سایت را انتخاب کنید ",
+  green:"سبزآبی",
+  purple:"بنفش",
+  blue:"آبی",
+  night:"مود شب"
  
   
 
@@ -320,6 +342,15 @@ suggested_articles: "مطالب پیشنهادی",
           HeadLines: "Titulares",
           categories: "Categorías",
           requirements: "Requisitos",
+          lang:"Seleccione el idioma del sitio",
+          last:"Anterior",
+                   home:"hogar",
+                   next:"próxima",
+                   theme:"Elija un tema para el sitio",
+    green:"azul verde",
+    purple:"violeta",
+    blue:"azul",
+    night:"modo nocturno"
         }
       },
       tr: {
@@ -420,14 +451,24 @@ suggested_articles: "مطالب پیشنهادی",
             paid: "Kurs Fiyatı",
             date: "Tarih",
             number: "Takip Numarası",
-            complete_purchase: "Satın Almayı Tamamla"
+            complete_purchase: "Satın Almayı Tamamla",
+            lang:"Sitenin dilini seçin",
+            last:"Öncesi",
+            home:"Ev",
+            next:"Sonraki",
+            theme:"Bir site teması seçin",
+    green:"mavi yeşil",
+    purple:"mor",
+    blue:"mavi",
+    night:"gece modu"
+           
           }
         }
       
       
     },
-    lng: 'fa', // زبان پیش‌فرض
-    fallbackLng: 'fa',
+    lng: localStorage.getItem('language') ,
+    fallbackLng: localStorage.getItem('language') ,
 
     interpolation: {
       escapeValue: false, // برای جلوگیری از مشکلات امنیتی XSS

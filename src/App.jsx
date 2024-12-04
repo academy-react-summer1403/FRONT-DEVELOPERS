@@ -34,6 +34,10 @@ import QA from "./components/QA/QA"
 import PhysicApp from "./pages/game/gameWithPhysics/PhysicApp"
 import { useEffect } from "react"
 import StdFavoriteNews from "./pages/dashboard/content/stdFavoriteNews"
+import Suggestion from "./components/mainAuth/Suggestion"
+import Q1 from "./components/mainAuth/Q1"
+import Q2 from "./components/mainAuth/Q2"
+
 import ForgetPassOne from "./components/mainAuth/forgetPassword/ForgetPassOne"
 import ForgetPassTow from "./components/mainAuth/forgetPassword/ForgetPassTow"
 
@@ -273,9 +277,20 @@ const  PrivateRoutes = [
         element: <VorodAuth/>,
       },
       {
-        path: "/auth/forget1",
-        element: <ForgetPassOne/>,
+        path: "/auth/suggestion",
+        element: <Suggestion/>,
       },
+      {
+        path: "/auth/s1",
+        element: <Q1/>,
+      },
+      {
+        path: "/auth/s2",
+        element: <Q2/>,
+        
+      },
+      {path: "/auth/forget1",
+        element: <ForgetPassOne/>,}
 
     ],
   },

@@ -25,7 +25,7 @@ function SpeechBot() {
         onResult: (result) => {
             setText(result);
 
-            // تغییر رنگ صفحه بر اساس تشخیص کلمات "blue" یا "آبی"
+   
             if (result.toLowerCase().includes('blue') || result.toLowerCase().includes('آبی')) {
                 
                

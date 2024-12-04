@@ -22,6 +22,7 @@ const CourseDetial = () => {
 
 
   const CourseDetail = useCourseId(courseId);
+  console.log(CourseDetail)
   const samecourses=useGetRelatedcourse()
 
   const [loading, setLoading] = useState(true)
@@ -93,7 +94,7 @@ const CourseDetial = () => {
           <Description  courseId = {courseId}/>
           {/* headlines */}
 
-          <HeadLines />
+          <HeadLines isCourseUser={CourseDetail.data?.isCourseUser} />
 
           {/* comments */}
 
