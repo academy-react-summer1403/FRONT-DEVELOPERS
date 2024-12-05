@@ -29,8 +29,9 @@ const TeacherFilter = () => {
       
         <div className="z-40 relative flex flex-col gap-2  ">
           <div className="flex flex-row justify-end overflow-hidden">
-             <label to="checkbox" >{teacher.data?.[0].fullName}</label>
+             <label className='cursor-pointer' htmlFor='teacher1' to="checkbox" >{teacher.data?.[0].fullName}</label>
           <input
+            id="teacher1"
             type="checkbox"
             name="checkbox"
             className="ml-2 cursor-pointer z-[800]"
@@ -55,8 +56,9 @@ const TeacherFilter = () => {
           </div> */}
 
             <div className=" flex flex-row justify-end overflow-hidden ">
-               <label className='whitespace-nowrap' to="checkbox">{teacher.data?.[2].fullName}</label>
+               <label className='whitespace-nowrap cursor-pointer' htmlFor='teacher2' to="checkbox">{teacher.data?.[2].fullName}</label>
           <input
+            id='teacher2'
             type="checkbox"
             name="checkbox"
             className="ml-2 cursor-pointer z-[800]"
@@ -68,8 +70,9 @@ const TeacherFilter = () => {
             </div>
 
             <div className=" flex flex-row justify-end overflow-hidden ">
-               <label className='whitespace-nowrap' to="checkbox">{teacher.data?.[3].fullName}</label>
+               <label className='whitespace-nowrap cursor-pointer' htmlFor='teacher3' to="checkbox">{teacher.data?.[3].fullName}</label>
           <input
+            id='teacher3'
             type="checkbox"
             name="checkbox"
             className="ml-2 cursor-pointer z-[800]"

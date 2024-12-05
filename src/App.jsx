@@ -45,6 +45,7 @@ import Qfav1 from "./components/mainAuth/favfeacher/QA1"
 import Qfeacher from "./components/mainAuth/favfeacher/Qfeacher"
 import Qfav2 from "./components/mainAuth/favfeacher/QA2"
 import Qfav3 from "./components/mainAuth/favfeacher/QA3"
+import Chat from "./pages/Chat/Chat"
 
 
 
@@ -89,7 +90,11 @@ const  PublicRoutes = [
       },  {
         path:"/*",
         element: <PhysicApp/>,
-      }
+      },
+      {
+        path: "/Chat",
+        element: <Chat />,
+      },
 
     ]},
     {
@@ -181,7 +186,11 @@ const  PrivateRoutes = [
     },  {
     path:"/*",
     element: <PhysicApp/>,
-  }
+  },
+  {
+    path: "/Chat",
+    element: <Chat />,
+  },
 
   ]
 

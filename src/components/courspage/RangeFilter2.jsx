@@ -1,6 +1,12 @@
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux';
+import {LessRange} from '../../core/redux/slices/QueryState/LessRangeSlice'
 
 const RangeFilterTwo = ({min , max , value , bufferd , onChange}) => {
+
+  const disPatch =useDispatch()
+
+  // console.log(value)
 
   function mapToRange(value , min , max){
     value = Math.min(Math.max(value , min) , max)
@@ -24,6 +30,7 @@ const RangeFilterTwo = ({min , max , value , bufferd , onChange}) => {
 
       const {value} = e.target
       onChange(+value)
+     disPatch(LessRange(value)) 
   }
 
   const handleDragStart = ()=>{
@@ -42,7 +49,7 @@ const RangeFilterTwo = ({min , max , value , bufferd , onChange}) => {
   return (
 
       <div className='relative bg-white flex items-center rounded'>
-        <input min={min} max={max} value={value} className='range-slider2' type="range"
+        <input min={min} max={max} value={value} className='range-slider2 range-slider' type="range"
         onChange={handleChange}
         onMouseDown={handleDragStart}
         onMouseUp={handleDragEnd}

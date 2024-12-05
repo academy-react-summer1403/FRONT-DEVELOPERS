@@ -12,7 +12,7 @@ import Heroring from "../../assets/courses/Ellipse 4.svg";
 import BackImg from "../../assets/courses/background.svg";
 import WindowView from "../../assets/courses/Vector.svg";
 import ListView from "../../assets/courses/Frame.svg";
-import { useCourses, useTopCourses } from "../../core/services/query/queries";
+import { useCourses, useGetCost, useTopCourses } from "../../core/services/query/queries";
 import { SliderRight } from "../../utility/animation";
 import { useDispatch, useSelector } from "react-redux";
 // import { QuerySlice } from "../../core/redux/slices/QueryState/QueryRedux";
@@ -29,30 +29,35 @@ const CoursPage = () => {
 
 
   const [sort, setSort] = useState();
-  console.log(sort);
+  // console.log(sort);
 
 
   const [page, setPage] = useState(1);
-  console.log(page);
+  // console.log(page);
 
   const [view, setView] = useState(false);
-  console.log(view);
+  // console.log(view);
 
  
   const [view1, setView1] = useState(6);
-  console.log(view);
+  // console.log(view);
 
   const [search , setSearch] = useState({});
-  console.log(search)
+  // console.log(search)
 
   
   const query = useSelector((state) => state.QuerySlice.search);
-  console.log(query);
+  // console.log(query);
 
+  const costup = useSelector((state) => state.RangeSlice.Range);
+  const costdown = useSelector((state) => state.lessRangeSlice.less);
+  console.log("costup -- costdown ::: " , costup , costdown )
+
+ const GetCostFillter = useGetCost(page ,view1, costdown , costup )
 
 
   const dispatch = useDispatch();
-  console.log(dispatch);
+  // console.log(dispatch);
 
 
   const params = {
@@ -61,17 +66,16 @@ const CoursPage = () => {
      courseLevelId : query,
      SortingCol : sort,
      CourseTypeId : query,
-
   
     
   }
 
   const CoursesData = useCourses( search , params );
-  console.log("CoursesData",CoursesData);
+  // console.log("CoursesData",CoursesData.data);
 
 
   const getCourseTop=useTopCourses()
-  console.log(getCourseTop.data)
+  // console.log(getCourseTop.data)
  
 
   const lastPage = () => {
@@ -310,7 +314,7 @@ const CoursPage = () => {
              className={` grid w-full z-10 mb-20 
                   ${view ? "grid-cols-1 mt-2":"grid-cols-3 max-lg:grid-cols-2 max-sm:justify-items-center max-sm:grid-cols-1  pt-0"}`}
             >
-                
+                {costup == 0 || costdown == 0 ? <>
                   {view ? <AnimatePresence> 
                           {CoursesData.data?.courseFilterDtos.length == 0  ? <NotFound/> : CoursesData.data?.courseFilterDtos.map((item)=>(
                           <CoursListCard {...item} />  ))}
@@ -320,8 +324,20 @@ const CoursPage = () => {
                         CoursesData.data?.courseFilterDtos.length == 0  ?  <NotFound/> : CoursesData.data?.courseFilterDtos.map((item) => (
                         <CoursGridCard {...item}/> )) }
                       </AnimatePresence>
-                  }                 
-         
+                  }  
+                
+                </> : <>
+                  {view ? <AnimatePresence> 
+                            {GetCostFillter.data?.courseFilterDtos.length == 0  ? <NotFound/> : GetCostFillter.data?.courseFilterDtos.map((item)=>(
+                            <CoursListCard {...item} />  ))}
+                      </AnimatePresence>
+                      
+                      : <AnimatePresence>    {loading ? <GridCardLoading cards={16}/> :                     
+                      GetCostFillter.data?.courseFilterDtos.length == 0  ?  <NotFound/> : GetCostFillter.data?.courseFilterDtos.map((item) => (
+                          <CoursGridCard {...item}/> )) }
+                        </AnimatePresence>
+                    }            
+                </>}
             </motion.div>
 
           {/* paginantion  */}

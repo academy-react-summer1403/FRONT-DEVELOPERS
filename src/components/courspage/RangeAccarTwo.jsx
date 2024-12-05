@@ -8,7 +8,7 @@ import RangeFilterTwo from './RangeFilter2';
 const RangeAccarTwo = ({lessRangeA , toggleAccordeion}) => {
 
    const [value , setValue] = useState(0) 
-   console.log(value)
+  //  console.log(value)
 
 
 
@@ -31,12 +31,12 @@ const RangeAccarTwo = ({lessRangeA , toggleAccordeion}) => {
                           "
                         >{data.name}</p>
                     </div>
-                    {data.isOpen && <div>
+                    {data.isOpen && <div className='py-4'>
 
-                      <h1>{value}</h1>
+                      <h1 className='flex flex-row-reverse pb-2'>{value}   <p>تومان</p>  </h1>
                         
                     
-                        <RangeFilterTwo min={0} max={500} value={value} onChange={setValue} bufferd={30}/>  
+                        <RangeFilterTwo min={0} max={400000} value={value} onChange={setValue} bufferd={30}/>  
                        
 
                     </div>}                  

@@ -1,0 +1,12 @@
+.react-chatbot-kit-chat-container {
+    width: 600px;
+    
+}
+
+.react-chatbot-kit-chat-bot-message {
+    margin-left:10px ;
+
+}
+.react-chatbot-kit-chat-inner-container {
+    background: url(backgroundTelegram.jpg);
+}

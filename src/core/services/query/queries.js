@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 
 import {
   categoryCourses,
+  getCost,
   getCourse,
   getCourseId,
   getCourseLanding,
@@ -112,6 +113,13 @@ export function useLevelCourses() {
   return useQuery({
     queryKey: ["categoryL"],
     queryFn: () => LevelCourses(),
+  });
+}
+
+export function useGetCost(page ,view1, costdown , costup ) {
+  return useQuery({
+    queryKey: ["Cost" , page ,view1, costdown , costup ],
+    queryFn: () => getCost(page ,view1, costdown , costup ),
   });
 }
 

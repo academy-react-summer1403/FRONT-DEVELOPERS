@@ -85,6 +85,7 @@ export const Relatedcourse  = async () => {
 
 export const getCourseId = async (courseId) => {
   const data = await http.get(`/Home/GetCourseDetails?CourseId=${courseId}`);
+  // console.log(data);
   return data;
 };
 
@@ -121,7 +122,11 @@ export const TeacherCourses = async () => {
   return data;
 };
 
-
+export const getCost = async (page ,view1, costdown , costup ) => {
+  const data = await http.get(`/Home/GetCoursesWithPagination?PageNumber=${page}&RowsOfPage=${view1}&CostDown=${costdown}&CostUp=${costup}`);
+  console.log(data);
+  return data;
+};
 
 export const getCourseLanding = async () => {
   const data = await http.get(`/Home/GetCoursesWithPagination?PageNumber=3&RowsOfPage=12`);
