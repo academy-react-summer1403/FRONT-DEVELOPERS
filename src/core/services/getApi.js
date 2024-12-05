@@ -47,6 +47,34 @@ export const getCourse = async (  search , params) => {
 };
 
 
+
+export const getfeature1 = async (params) => {
+
+ 
+  const data = await http.get(
+    `/Home/GetCoursesWithPagination`,{
+      params:params
+    } 
+  );
+  
+  return data;
+
+  
+};
+
+
+export const getfeature2 = async (params) => {
+
+ 
+  const data = await http.get(
+    `/News`,{params:params}
+  );
+  
+  return data;
+
+  
+};
+
 export const Relatedcourse  = async () => {
   const data = await http.get(`/Home/GetCoursesWithPagination?PageNumber=1&RowsOfPage=4`)
      return data;

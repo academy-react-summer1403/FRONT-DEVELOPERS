@@ -142,7 +142,7 @@ const QA1 = () => {
                   
                     
               
-                  <NavLink to={"/"}>
+                  <NavLink to={localStorage.getItem('selectedOption')=="" ? "/auth/Qfeacher" : "/"}>
 
                 
              
@@ -151,7 +151,7 @@ const QA1 = () => {
                     type="submit"
                     className="w-[90px] h-[30px] rounded-2xl 7 absolute top-[170px] right-[-10px] text-green text-[10px] font-semibold"
                   >
-                     {t("home")}
+                     {t("next")}
                   </button>
             </NavLink>
 

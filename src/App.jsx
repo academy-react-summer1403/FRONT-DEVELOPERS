@@ -40,6 +40,11 @@ import Q2 from "./components/mainAuth/Q2"
 
 import ForgetPassOne from "./components/mainAuth/forgetPassword/ForgetPassOne"
 import ForgetPassTow from "./components/mainAuth/forgetPassword/ForgetPassTow"
+import NewPage from "./pages/Newpage"
+import Qfav1 from "./components/mainAuth/favfeacher/QA1"
+import Qfeacher from "./components/mainAuth/favfeacher/Qfeacher"
+import Qfav2 from "./components/mainAuth/favfeacher/QA2"
+import Qfav3 from "./components/mainAuth/favfeacher/QA3"
 
 
 
@@ -144,6 +149,9 @@ const  PrivateRoutes = [
       path: "/courses",
       element: <CoursPage />,
 
+    },
+    {  path: "/oursuggestion",
+      element: <NewPage />,
     },
     {
       path: "/article-news",
@@ -287,6 +295,25 @@ const  PrivateRoutes = [
       {
         path: "/auth/s2",
         element: <Q2/>,
+        
+      },{
+        path: "/auth/fav1",
+        element: <Qfav1/>,
+        
+      },
+      {
+        path: "/auth/fav2",
+        element: <Qfav2/>,
+        
+      },
+      {
+        path: "/auth/fav3",
+        element: <Qfav3/>,
+        
+      },
+      {
+        path: "/auth/Qfeacher",
+        element: <Qfeacher/>,
         
       },
       {path: "/auth/forget1",

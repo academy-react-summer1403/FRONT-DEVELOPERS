@@ -116,7 +116,7 @@ const EditeProfileForm = () => {
               <div className="flex grid-cols-3 max-xl:flex max-xl:flex-col-reverse  border-b pb-8 px-2 ">
 
                 <div className="grid-col-1 w-[100%]">
-                  <AddProfImage allimages={userProfile.data?.userImage} currentImage={userProfile.data?.currentPictureAddress}/>
+                  <AddProfImage allimages={userProfile?.data?.userImage} currentImage={userProfile.data?.currentPictureAddress}/>
                   <div className="w-full">
                     <label className="relative text-right text-sm grid-col-1 text-gray-400">
                       <p className="py-2 px-4">درباره من</p>
