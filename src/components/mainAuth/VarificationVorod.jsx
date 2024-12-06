@@ -53,6 +53,7 @@ const VarificationVorod = () => {
   dispatch(handleToken(token));
 
   if (token) {
+    window.location.reload();
     navigate("/auth/suggestion");
   }
 

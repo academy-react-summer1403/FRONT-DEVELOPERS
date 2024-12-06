@@ -115,7 +115,7 @@ const ArticleDescription = ({id}) => {
         <button
           onClick={() => setShowMore(!showMore)}
           className="border-primary border-[1px] dark:border-[#E48900]   dark:text-[#fdb359] text-darkgreen/90 hover:scale-105 ease-in-out duration-150  
-leading-[32px] font-normal font-Yekan text-[20px] max-xl:text-[18px] flex items-center w-[174px] max-xl:w-[150px] max-xl:h-[40px] h-[45px] rounded-[45px] mx-auto justify-center gap-2 mt-3  "
+          leading-[32px] font-normal font-Yekan text-[20px] max-xl:text-[18px] flex items-center w-[174px] max-xl:w-[150px] max-xl:h-[40px] h-[45px] rounded-[45px] mx-auto justify-center gap-2 mt-3  "
         >
           {showMore ? (
             <IoIosArrowDown />
