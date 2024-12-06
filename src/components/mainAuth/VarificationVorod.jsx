@@ -61,7 +61,7 @@ const VarificationVorod = () => {
 
 
   if(token){
-   navigate("/")
+   navigate("/auth/suggestion")
   }
 
 
