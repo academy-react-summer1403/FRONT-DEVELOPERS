@@ -10,7 +10,7 @@ const AuthRoot = () => {
       <NavbarAuth />
 
       <Outlet />
-      <DarkMode/>
+      <DarkMode />
       <FooterAuth />
     </div>
   );

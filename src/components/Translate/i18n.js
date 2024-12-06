@@ -14,7 +14,7 @@ i18n
             call:"Call to us",
             person:"logIn",
             student:"students",
-            teacher:"teacher",
+            teacher:"suggestion",
             herotext:"Live training and web programming reference with access to more than seven thousand educational videos in Farsi language",
             title: "Name",
             academy:"academy",
@@ -117,7 +117,9 @@ i18n
     green:"blue green",
     purple:"purple",
     blue:"blue",
-    night:"dark mode"
+    night:"dark mode",
+    cancel:"cancel",
+    preferences:"Tell us your preferences"
 
 
 
@@ -146,7 +148,7 @@ i18n
             call:"تماس با ما",
             person:"ورود به حساب ",
             student:"دانشجو ",
-            teacher:"مدرس",
+            teacher:"پیشنهاد ما",
             herotext:"مرجع اموزش زنده و تعاملی برنامه نویسی حوزه وب با دسترسی به بیش از هفت هزار ویدیوی اموزشی به زبان فارسی",
             title: "عنوان",
             academy:"آموزشگاه",
@@ -188,6 +190,7 @@ i18n
             lang:"زبان سایت را انتخاب کنید",
             last:"قبلی",
             home:"صفحه اصلی",
+            cancel:"لفو",
 
             // course
 
@@ -245,7 +248,8 @@ suggested_articles: "مطالب پیشنهادی",
   green:"سبزآبی",
   purple:"بنفش",
   blue:"آبی",
-  night:"مود شب"
+  night:"مود شب",
+  preferences:"علاقه مندی های خود را برای ما مشخص کنید"
  
   
 
@@ -263,7 +267,7 @@ suggested_articles: "مطالب پیشنهادی",
           call: "Contáctanos",
           person: "Cuenta",
           student: "Estudiante",
-          teacher: "Profesor",
+          teacher: "Nuestra sugerencia",
           herotext: "La plataforma líder en cursos interactivos y en vivo de desarrollo web con acceso a más de siete mil videos educativos en español.",
           title: "Título",
           academy: "Academia",
@@ -350,11 +354,14 @@ suggested_articles: "مطالب پیشنهادی",
     green:"azul verde",
     purple:"violeta",
     blue:"azul",
-    night:"modo nocturno"
+    night:"modo nocturno",
+    cancel:"Cancelar",
+    preferences:"Cuéntanos tus preferencias"
         }
       },
       tr: {
         translation: {
+           cancel:"iptal etmek",
             home: "Anasayfa",
             courses: "Kurslar",
             teachers: "Eğitmenler",
@@ -362,7 +369,7 @@ suggested_articles: "مطالب پیشنهادی",
             call: "Bize Ulaşın",
             person: "Hesap",
             student: "Öğrenci",
-            teacher: "Eğitmen",
+            teacher: "Önerimiz",
             herotext: "Yedi binden fazla eğitim videosuna erişim sağlayarak, canlı ve etkileşimli web geliştirme kurslarının öncüsüyüz.",
             title: "Başlık",
             academy: "Akademi",
@@ -460,7 +467,8 @@ suggested_articles: "مطالب پیشنهادی",
     green:"mavi yeşil",
     purple:"mor",
     blue:"mavi",
-    night:"gece modu"
+    night:"gece modu",
+    preferences:"Bize tercihlerinizi söyleyin"
            
           }
         }

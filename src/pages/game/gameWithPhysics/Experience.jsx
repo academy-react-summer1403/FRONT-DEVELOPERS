@@ -11,7 +11,6 @@ export const Experience = () => {
   const cube = useRef();
   const isOnFloor = useRef(true);
   const [start, setStart] = useState(false);
-  console.log(start)
   const kicker = useRef();
 
   const jump = () => {
@@ -46,11 +45,8 @@ export const Experience = () => {
       cube.current.applyImpulse({ x: 0, y: 0, z: 0.1 });
     }
   };
-  console.log("first:::::::::::::::" ,jumpPressed ,leftPressed , rightPressed , forwardPressed , backPressed)
-
 
   const speed = useRef(1);
-
 
   useFrame((_state, delta) => {
     if (jumpPressed) {
@@ -59,7 +55,7 @@ export const Experience = () => {
     handleMovement();
 
     if (!start) {
-      return  ;
+      return;
     }
     const curRotation = quat(kicker.current.rotation());
     const incrementRotation = new THREE.Quaternion().setFromAxisAngle(
@@ -69,9 +65,7 @@ export const Experience = () => {
     curRotation.multiply(incrementRotation);
     kicker.current.setNextKinematicRotation(curRotation);
 
-    // speed.current += delta;
   });
-
 
   return (
     <>
@@ -93,8 +87,7 @@ export const Experience = () => {
             isOnFloor.current = false;
           }
         }}
-      >   
-  
+      >
         <Box
           onPointerEnter={() => setHover(true)}
           onPointerLeave={() => setHover(true)}
@@ -102,28 +95,21 @@ export const Experience = () => {
         >
           <meshStandardMaterial color={hover ? "hotpink" : "royalblue"} />
         </Box>
-    
+      </RigidBody>
 
-       </RigidBody>
+      <RigidBody type="kinematicPosition" position={[0, 0.75, 0]} ref={kicker}>
+        <group position={[2.5, 0, 0]}>
+          <Box args={[5, 0.5, 0.5]}>
+            <meshStandardMaterial color="peachpuff" />
+          </Box>
+        </group>
+      </RigidBody>
 
-       <RigidBody type="kinematicPosition" position={[0, 0.75, 0]} ref={kicker}>
-         <group position={[2.5, 0, 0]}>
-           <Box args={[5, 0.5, 0.5]}>
-             <meshStandardMaterial color="peachpuff" />
-           </Box>
-         </group>
-       </RigidBody>
-      
-       <RigidBody type="fixed" name="floor">
-         <Box position={[0, 0, 0]} args={[10, 1, 10]}>
-           <meshStandardMaterial color="springgreen" />
-         </Box>
-       </RigidBody>
-      
-     </>
+      <RigidBody type="fixed" name="floor">
+        <Box position={[0, 0, 0]} args={[10, 1, 10]}>
+          <meshStandardMaterial color="springgreen" />
+        </Box>
+      </RigidBody>
+    </>
   );
 };
-
-
-
-

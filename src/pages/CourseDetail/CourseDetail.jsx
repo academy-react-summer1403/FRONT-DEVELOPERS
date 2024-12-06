@@ -22,7 +22,6 @@ const CourseDetial = () => {
 
 
   const CourseDetail = useCourseId(courseId);
-  console.log(CourseDetail)
   const samecourses=useGetRelatedcourse()
 
   const [loading, setLoading] = useState(true)

@@ -2,7 +2,6 @@ import React from "react";
 import arrow from "../../assets/courses/arrow.svg";
 import MainFilter from "./MainFilter";
 
-
 const AccarFilter = ({ filter, toggleAccordeion }) => {
   return (
     <div className="max-sm:w-full ">

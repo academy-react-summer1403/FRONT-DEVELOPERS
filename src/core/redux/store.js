@@ -7,6 +7,9 @@ import RangeSlice from "./slices/QueryState/RangeSlice"
 import lessRangeSlice from "./slices/QueryState/LessRangeSlice"
 import TranslateSlice from "./slices/SpeechSlices/TranslateSlice";
 import ThemeSlice from "./slices/SpeechSlices/Theme"
+import SwetchSlice from "./slices/swetchLogin"
+import selectedOptionReducer  from "./slices/FeacherFavorite/fav1"
+
 
 
 
@@ -20,7 +23,12 @@ export const store = configureStore({
     RangeSlice : RangeSlice,
     lessRangeSlice : lessRangeSlice,
     TranslateSlice:TranslateSlice,
-    ThemeSlice:ThemeSlice
+    ThemeSlice:ThemeSlice,
+    SwetchSlice :SwetchSlice,
+    selectedOption: selectedOptionReducer,
+    selectedOption1: selectedOptionReducer,
+    selectedOption2: selectedOptionReducer,
+
 
   },
 

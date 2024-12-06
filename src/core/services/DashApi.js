@@ -4,7 +4,7 @@ import http from "./interceptor";
 
 export const getUserProfile = async () => {
     const data = await http.get("/SharePanel/GetProfileInfo" )
-
+console.log(data)
     
     return data;
   };

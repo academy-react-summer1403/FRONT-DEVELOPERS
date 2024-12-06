@@ -1,6 +1,6 @@
 import { Field, Form, Formik } from 'formik'
 import React from 'react'
-import { IoIosArrowDown } from 'react-icons/io';
+
 import * as yup from "yup";
 
 const ResetEmail = () => {

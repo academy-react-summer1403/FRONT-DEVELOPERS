@@ -29,9 +29,9 @@ const Camera = ({setPreview , base64ToFile}) => {
         <p>دوربین </p>
         <Webcam
           ref={webcamRef}
-          // audio={true}
+       
           screenshotFormat="image/jpeg"
-          // videoConstraints={videoConstraints}
+          
           onUserMedia={onUserMedia}
           className="w-60 h-58  rounded-xl "
         />
