@@ -3,102 +3,88 @@ import image from "../../assets/detail/article.jpg";
 import RelatedCourses from "../../components/coursedetailComponents/RelatedCourses/RelatedCourses";
 import ArticleDescription from "../../components/articledetail/articleDescription/ArticleDescription";
 import { motion } from "framer-motion";
-import { useArticleDetail, useGetRelatedcourse,  useNewsData1 } from "../../core/services/query/queries";
+import {
+  useArticleDetail,
+  useGetRelatedcourse,
+  useNewsData1,
+} from "../../core/services/query/queries";
 import { useParams } from "react-router-dom";
-import {suggestion } from "../CourseDetail/CourseDetail";
-// import { useCommentNews } from "../../core/services/query/CommentQuery";
-import BackImg from "../../assets/courses/background.svg";
 
 import DateApi from "../../components/DateApi";
 import { useTranslation } from "react-i18next";
 import Related from "../../components/skeleton/detail/Related";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-import { useDeleteFavoriteNews, usePostFavoriteNews } from "../../core/services/mutation/DetailsMutation";
+import {
+  useDeleteFavoriteNews,
+  usePostFavoriteNews,
+} from "../../core/services/mutation/DetailsMutation";
 import NewComment from "../../components/coursedetailComponents/comments/NewComment";
 
-
-
-
 const ArticleDetail = () => {
-
-  const {t}=useTranslation()
+  const { t } = useTranslation();
 
   const { id } = useParams();
-  const samecourses=useGetRelatedcourse()
-  const suggestion=useNewsData1()
+  const samecourses = useGetRelatedcourse();
+  const suggestion = useNewsData1();
 
-  
   const articleDetail = useArticleDetail(id);
-  console.log(articleDetail?.data)
-  
 
- const [save,setSave]=useState(articleDetail?.data?.detailsNewsDto?.isCurrentUserFavorite)
-  
+  const [save, setSave] = useState(
+    articleDetail?.data?.detailsNewsDto?.isCurrentUserFavorite
+  );
 
-  
-  
-  const  addFavoriteNew = usePostFavoriteNews()
+  const addFavoriteNew = usePostFavoriteNews();
 
-  const handleAddFavoriteNews=()=>{
+  const handleAddFavoriteNews = () => {
     const params = {
-      NewsId: id 
-    }
+      NewsId: id,
+    };
 
-    addFavoriteNew.mutate(params)
-    setSave(true)
-  }
+    addFavoriteNew.mutate(params);
+    setSave(true);
+  };
 
+  const deleteFavoriteNew = useDeleteFavoriteNews();
 
-  const  deleteFavoriteNew = useDeleteFavoriteNews()
-
-  const handleRemoveFavoriteNews=(deleteFavorite)=>{
-    const params={
-      deleteEntityId:deleteFavorite
-    }
-    deleteFavoriteNew.mutate(params)
-    setSave(false)
-  }
-
+  const handleRemoveFavoriteNews = (deleteFavorite) => {
+    const params = {
+      deleteEntityId: deleteFavorite,
+    };
+    deleteFavoriteNew.mutate(params);
+    setSave(false);
+  };
 
   useEffect(() => {
     if (articleDetail?.data) {
       setSave(articleDetail.data.detailsNewsDto?.isCurrentUserFavorite);
     }
   }, [articleDetail?.data]);
- 
-  
 
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
-    setTimeout(()=>{
-      setLoading(false)
-    }, 1000)
-  }, [])
-  
-
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+  }, []);
 
   return (
     <SkeletonTheme baseColor="#cbd5e1" highlightColor="#f5f5f5">
-      <div
-        className="  relative  container mb-5  max-lg:pt-4" >
-     
-  <img
+      <div className="  relative  container mb-5  max-lg:pt-4">
+        <img
           className="bottom-[15%] absolute opacity-[15%] scale-150  -translate-x-72 rotate-90 "
           src="https://s3-alpha-sig.figma.com/img/19be/48f2/2796a9e90ec1b19857e151fc13e21059?Expires=1728259200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=mZW-g30z8Y9kCtc4Q1Y82wXJ5M3YX1ja6v-gYlyazEUHmGj5fgx4YewqoPzoMl4V4J~Y2sETrcyxsiSfnJArb~OKXnzzQcBQwRsRnlSZI5eAqC9mPjX~jPtEjEaaNYlHuPhaUQ671CFaG9FP8BAUgrxGbtub-sQCi8oLtVfkXsjsO4-KqNeUdQpM9MfXLhXrbdziI4zuOcpcn74-w8NTLCgEbqS66Vs7LO4-uoZQC0Kfv6we2O7hov7fqXpvrD8dLTZNQ22GCZ5C9iP6fYmkkQ6sgbL5HZBGy4Ocxh3cxeAgyhp6R56KMjTb~fHkpUTzkxI2T4Z-fBM4z~wSy~mrcw__"
           alt=""
         />
-      
-    {/*  2 */}
-      
+
+        {/*  2 */}
 
         <div className="flex max-2xl:ml-[0%] max-md:mx-auto   max-xl:ml-[-7%] max-lg:ml-[-13%] mt-[35px] max-md:w-full   max-md:h-[650px] w-[479px] max-xl:w-[400px] max-lg:w-[300px]  max-lg:h-[1300px]   h-[1450px]  flex-wrap  justify-between">
           {/* image section */}
           <motion.div
-          
-          initial={{ x:0,opacity:0,y:-300}}
-          animate={{ x:0,y:0,opacity:1}}
-          transition={{type:"spring" ,duration:3 , delay:0}}
+            initial={{ x: 0, opacity: 0, y: -300 }}
+            animate={{ x: 0, y: 0, opacity: 1 }}
+            transition={{ type: "spring", duration: 3, delay: 0 }}
             style={{ boxShadow: "box-shadow: 0 1px 2px 0 #00000026" }}
             className=" h-[328.15px] max-xl:h-[300.15px] max-lg:h-[250.15px] max-md:hidden w-full bg-gradient-to-bl from-secondary/10 to-primary/10
             rounded-tl-[75px] rounded-[10px] "
@@ -128,20 +114,24 @@ const ArticleDetail = () => {
           text-right text-darkgreen font-Yekan
           font-normal text-[20px] mb-[8px] max-lg:text-[18px] max-md:w-full dark:bg-slate-600 dark:text-slate-100"
             >
-            {t("related_courses")}
+              {t("related_courses")}
             </div>
 
-            {loading? <Related cards={4}  custumStyle="h-[112px] p-[15px]"  imageStyle="w-[126px] h-[84px]" /> : samecourses?.data?.courseFilterDtos.map((data, index) => (
-              <RelatedCourses
-          
-              
-          
-                
-                key={index}
-                title={data.title}
-                image={data.image}
+            {loading ? (
+              <Related
+                cards={4}
+                custumStyle="h-[112px] p-[15px]"
+                imageStyle="w-[126px] h-[84px]"
               />
-            ))}
+            ) : (
+              samecourses?.data?.courseFilterDtos.map((data, index) => (
+                <RelatedCourses
+                  key={index}
+                  title={data.title}
+                  image={data.image}
+                />
+              ))
+            )}
           </div>
 
           {/* suggestion section */}
@@ -155,30 +145,36 @@ const ArticleDetail = () => {
               className=" bg-[#E8E8E8] rounded-t-[10px]  w-[448px] h-[50px] pr-[25px] justify-end flex items-center
   text-right text-darkgreen font-Yekan font-normal  text-[20px] mb-[8px] max-lg:text-[18px] max-md:w-full dark:bg-slate-600 dark:text-slate-100 "
             >
-            {t("suggested_articles")}
+              {t("suggested_articles")}
             </div>
 
-            {loading? <Related cards={3}  custumStyle="h-[112px] p-[15px]"  imageStyle="w-[126px] h-[84px]" /> :suggestion?.data?.news.map((data, index) => (
-              <RelatedCourses
-              
-                key={index}
-                title={data?.title}
-                image={data?.currentImageAddressTumb}
+            {loading ? (
+              <Related
+                cards={3}
+                custumStyle="h-[112px] p-[15px]"
+                imageStyle="w-[126px] h-[84px]"
               />
-            ))}
+            ) : (
+              suggestion?.data?.news.map((data, index) => (
+                <RelatedCourses
+                  key={index}
+                  title={data?.title}
+                  image={data?.currentImageAddressTumb}
+                />
+              ))
+            )}
           </div>
         </div>
 
-
-  {/*  1 */}
-      <div className="w-[754px] max-xl:w-[600px] ml-[42%] mt-[-113.3%] max-2xl:mt-[-116%] max-2xl:ml-[40%] max-xl:mt-[-161.8%]  max-lg:mt-[-213.8%]   max-lg:ml-[38%] 
-      max-md:mt-[110%] max-sm:mt-[140%]  max-md:mx-auto max-lg:w-[450px] max-md:w-full ">
-
-            <motion.div
-
-          initial={{ x:300,opacity:0,y:0}}
-          animate={{ x:0,y:0,opacity:1}}
-          transition={{type:"spring" ,duration:3 , delay:0}}
+        {/*  1 */}
+        <div
+          className="w-[754px] max-xl:w-[600px] ml-[42%] mt-[-113.3%] max-2xl:mt-[-116%] max-2xl:ml-[40%] max-xl:mt-[-161.8%]  max-lg:mt-[-213.8%]   max-lg:ml-[38%] 
+      max-md:mt-[110%] max-sm:mt-[140%]  max-md:mx-auto max-lg:w-[450px] max-md:w-full "
+        >
+          <motion.div
+            initial={{ x: 300, opacity: 0, y: 0 }}
+            animate={{ x: 0, y: 0, opacity: 1 }}
+            transition={{ type: "spring", duration: 3, delay: 0 }}
             style={{
               boxShadow: "0px 1px 2px 0px #00000040",
               backdropFilter: " blur(7px)",
@@ -191,7 +187,11 @@ const ArticleDetail = () => {
                 max-xl:text-[17px] font-bold font-Yekan  dark:text-secondary  text-darkgreen text-justify  
                 "
               >
-              {loading ? <Skeleton width={"200px"}/> : articleDetail.data?.detailsNewsDto.title}
+                {loading ? (
+                  <Skeleton width={"200px"} />
+                ) : (
+                  articleDetail.data?.detailsNewsDto.title
+                )}
               </h1>
 
               <div className="head2 dark:bg-secondary relative top-4 ml-2"></div>
@@ -199,12 +199,10 @@ const ArticleDetail = () => {
 
             <div className=" flex h-[20px] max-md:justify-between mt-10 max-xl:mt-7 flex-nowrap flex-row-reverse justify-end  gap-11 max-lg:gap-5 items-center ">
               <h3 className=" max-2xl:text-[15px] max-xl:text-[13px] max-lg:text-[12px] max-lg:w-24   flex  max-lg:flex-row-reverse  flex-row-reveers text">
-            
                 <svg
                   width="20"
                   height="19"
                   className="mr-3 max-lg:mr-2"
-                
                   viewBox="0 0 20 19"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -223,9 +221,15 @@ const ArticleDetail = () => {
                     stroke-linecap="round"
                     stroke-linejoin="round"
                   />
-                </svg> 
-                <h3 className="max-2xl:text-[15px] max-xl:text-[13px] max-lg:text-[12px] text mr-1"> 
-                  بازدید</h3> {loading ? <Skeleton width={"100px"}/> : articleDetail.data?.detailsNewsDto.currentView} 
+                </svg>
+                <h3 className="max-2xl:text-[15px] max-xl:text-[13px] max-lg:text-[12px] text mr-1">
+                  بازدید
+                </h3>{" "}
+                {loading ? (
+                  <Skeleton width={"100px"} />
+                ) : (
+                  articleDetail.data?.detailsNewsDto.currentView
+                )}
               </h3>
 
               <h3 className=" max-2xl:text-[15px] text max-xl:text-[13px] flex gap-3">
@@ -244,9 +248,13 @@ const ArticleDetail = () => {
                     stroke-linejoin="round"
                   />
                 </svg>
-                {loading ? <Skeleton width={"100px"}/> :
-                <DateApi dateapi={articleDetail.data?.detailsNewsDto.updateDate} />
-                }
+                {loading ? (
+                  <Skeleton width={"100px"} />
+                ) : (
+                  <DateApi
+                    dateapi={articleDetail.data?.detailsNewsDto.updateDate}
+                  />
+                )}
               </h3>
 
               <h3 className=" max-2xl:text-[15px] text max-xl:text-[13px] flex gap-3   max-lg:text-[12px] max-lg:w-28 max-lg:gap-1">
@@ -266,19 +274,26 @@ const ArticleDetail = () => {
                     stroke-linejoin="round"
                   />
                 </svg>
-      {loading ? <Skeleton width={"100px"}/> : articleDetail.data?.detailsNewsDto.addUserFullName} 
-              
-                
+                {loading ? (
+                  <Skeleton width={"100px"} />
+                ) : (
+                  articleDetail.data?.detailsNewsDto.addUserFullName
+                )}
               </h3>
 
               <svg
                 width="18"
-              onClick={()=>{save ?                 
-                  handleRemoveFavoriteNews(articleDetail.data?.detailsNewsDto.currentUserFavoriteId)
-                  : handleAddFavoriteNews(articleDetail.data?.detailsNewsDto.id)                
-              }}                           
+                onClick={() => {
+                  save
+                    ? handleRemoveFavoriteNews(
+                        articleDetail.data?.detailsNewsDto.currentUserFavoriteId
+                      )
+                    : handleAddFavoriteNews(
+                        articleDetail.data?.detailsNewsDto.id
+                      );
+                }}
                 className={`cursor-pointer  dark:stroke-secondary  max-2xl:w-[16px] h-[18px]  max-xl:h-[16px] max-xl:w-[14px] stroke-primary
-                  ${ save ? " fill-primary dark:fill-secondary" :" " }` }
+                  ${save ? " fill-primary dark:fill-secondary" : " "}`}
                 height="20"
                 viewBox="0 0 18 20"
                 fill="none"
@@ -286,7 +301,6 @@ const ArticleDetail = () => {
               >
                 <path
                   d="M14.593 1.322C15.693 1.45 16.5 2.399 16.5 3.507V19L9 15.25L1.5 19V3.507C1.5 2.399 2.306 1.45 3.407 1.322C7.12319 0.890633 10.8768 0.890633 14.593 1.322Z"
-                 
                   stroke-width="2"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -295,34 +309,49 @@ const ArticleDetail = () => {
             </div>
           </motion.div>
           {/* description section */}
-          <ArticleDescription id={id} currentUserIsLike={articleDetail.data?.detailsNewsDto?.currentUserIsLike} />
-  {/* comment section */}
+          <ArticleDescription
+            id={id}
+            currentUserIsLike={
+              articleDetail.data?.detailsNewsDto?.currentUserIsLike
+            }
+          />
+          {/* comment section */}
 
           <div className="">
-            <h4 className="mark mt-5 max-lg:mt-1 max-xl:text-[23px]  dark:text-slate-300   ">{t("comments")}</h4>
-            <NewComment id={articleDetail.data?.detailsNewsDto?.id} UserId={articleDetail.data?.detailsNewsDto?.userId}/>
+            <h4 className="mark mt-5 max-lg:mt-1 max-xl:text-[23px]  dark:text-slate-300   ">
+              {t("comments")}
+            </h4>
+            <NewComment
+              id={articleDetail.data?.detailsNewsDto?.id}
+              UserId={articleDetail.data?.detailsNewsDto?.userId}
+            />
           </div>
-      </div>
-
-    
+        </div>
       </div>
     </SkeletonTheme>
   );
 };
 
 export default ArticleDetail;
-export const samecourses=[
-  {title:"دوره تخصصی ترفند های طراحی فرانت اند",
-  image:"https://s3-alpha-sig.figma.com/img/ff18/00fa/69286aff4819156512be6e0b2ffd22d9?Expires=1728259200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=m8gZMtnAmFHDZAupQ2ddctQNGS1hplRMyG1r8zBHOExGkYljmi21lsVWvgc4DlqMLTpPN2hdBOAQT-t9zb~PneJmVt5qBlQmGDa8s9j-DP1ZmCpSex8NGE40nluJ29PmkIWChB3ALr2zCB~J-PVVKAGCAcxi4Q5aPF10ngtMeWeL6A2qyoZbKgmYl6cjgHeFlSWBhVvYTlOhSt9pvWBK4a6CsGcmTX4cFlDfaWNOK0jLzpzCQel6jqqCFF5Yxny9tcuFsWPr8Hz15CLihJLJeSuHhVpxeNUdUxm88j7QCfcQ~MwOjGTad7~CjN04Es35Bvp6Ni-Up3mvfciybPHJyQ__"
+export const samecourses = [
+  {
+    title: "دوره تخصصی ترفند های طراحی فرانت اند",
+    image:
+      "https://s3-alpha-sig.figma.com/img/ff18/00fa/69286aff4819156512be6e0b2ffd22d9?Expires=1728259200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=m8gZMtnAmFHDZAupQ2ddctQNGS1hplRMyG1r8zBHOExGkYljmi21lsVWvgc4DlqMLTpPN2hdBOAQT-t9zb~PneJmVt5qBlQmGDa8s9j-DP1ZmCpSex8NGE40nluJ29PmkIWChB3ALr2zCB~J-PVVKAGCAcxi4Q5aPF10ngtMeWeL6A2qyoZbKgmYl6cjgHeFlSWBhVvYTlOhSt9pvWBK4a6CsGcmTX4cFlDfaWNOK0jLzpzCQel6jqqCFF5Yxny9tcuFsWPr8Hz15CLihJLJeSuHhVpxeNUdUxm88j7QCfcQ~MwOjGTad7~CjN04Es35Bvp6Ni-Up3mvfciybPHJyQ__",
   },
-  {title:"دوره تخصصی ترفند های طراحی فرانت اند",
-      image:"https://s3-alpha-sig.figma.com/img/ff18/00fa/69286aff4819156512be6e0b2ffd22d9?Expires=1728259200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=m8gZMtnAmFHDZAupQ2ddctQNGS1hplRMyG1r8zBHOExGkYljmi21lsVWvgc4DlqMLTpPN2hdBOAQT-t9zb~PneJmVt5qBlQmGDa8s9j-DP1ZmCpSex8NGE40nluJ29PmkIWChB3ALr2zCB~J-PVVKAGCAcxi4Q5aPF10ngtMeWeL6A2qyoZbKgmYl6cjgHeFlSWBhVvYTlOhSt9pvWBK4a6CsGcmTX4cFlDfaWNOK0jLzpzCQel6jqqCFF5Yxny9tcuFsWPr8Hz15CLihJLJeSuHhVpxeNUdUxm88j7QCfcQ~MwOjGTad7~CjN04Es35Bvp6Ni-Up3mvfciybPHJyQ__"
+  {
+    title: "دوره تخصصی ترفند های طراحی فرانت اند",
+    image:
+      "https://s3-alpha-sig.figma.com/img/ff18/00fa/69286aff4819156512be6e0b2ffd22d9?Expires=1728259200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=m8gZMtnAmFHDZAupQ2ddctQNGS1hplRMyG1r8zBHOExGkYljmi21lsVWvgc4DlqMLTpPN2hdBOAQT-t9zb~PneJmVt5qBlQmGDa8s9j-DP1ZmCpSex8NGE40nluJ29PmkIWChB3ALr2zCB~J-PVVKAGCAcxi4Q5aPF10ngtMeWeL6A2qyoZbKgmYl6cjgHeFlSWBhVvYTlOhSt9pvWBK4a6CsGcmTX4cFlDfaWNOK0jLzpzCQel6jqqCFF5Yxny9tcuFsWPr8Hz15CLihJLJeSuHhVpxeNUdUxm88j7QCfcQ~MwOjGTad7~CjN04Es35Bvp6Ni-Up3mvfciybPHJyQ__",
   },
-  {title:"دوره تخصصی ترفند های طراحی فرانت اند",
-          image:"https://s3-alpha-sig.figma.com/img/ff18/00fa/69286aff4819156512be6e0b2ffd22d9?Expires=1728259200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=m8gZMtnAmFHDZAupQ2ddctQNGS1hplRMyG1r8zBHOExGkYljmi21lsVWvgc4DlqMLTpPN2hdBOAQT-t9zb~PneJmVt5qBlQmGDa8s9j-DP1ZmCpSex8NGE40nluJ29PmkIWChB3ALr2zCB~J-PVVKAGCAcxi4Q5aPF10ngtMeWeL6A2qyoZbKgmYl6cjgHeFlSWBhVvYTlOhSt9pvWBK4a6CsGcmTX4cFlDfaWNOK0jLzpzCQel6jqqCFF5Yxny9tcuFsWPr8Hz15CLihJLJeSuHhVpxeNUdUxm88j7QCfcQ~MwOjGTad7~CjN04Es35Bvp6Ni-Up3mvfciybPHJyQ__"
+  {
+    title: "دوره تخصصی ترفند های طراحی فرانت اند",
+    image:
+      "https://s3-alpha-sig.figma.com/img/ff18/00fa/69286aff4819156512be6e0b2ffd22d9?Expires=1728259200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=m8gZMtnAmFHDZAupQ2ddctQNGS1hplRMyG1r8zBHOExGkYljmi21lsVWvgc4DlqMLTpPN2hdBOAQT-t9zb~PneJmVt5qBlQmGDa8s9j-DP1ZmCpSex8NGE40nluJ29PmkIWChB3ALr2zCB~J-PVVKAGCAcxi4Q5aPF10ngtMeWeL6A2qyoZbKgmYl6cjgHeFlSWBhVvYTlOhSt9pvWBK4a6CsGcmTX4cFlDfaWNOK0jLzpzCQel6jqqCFF5Yxny9tcuFsWPr8Hz15CLihJLJeSuHhVpxeNUdUxm88j7QCfcQ~MwOjGTad7~CjN04Es35Bvp6Ni-Up3mvfciybPHJyQ__",
   },
-  {title:"دوره تخصصی ترفند های طراحی فرانت اند",
-              image:"https://s3-alpha-sig.figma.com/img/ff18/00fa/69286aff4819156512be6e0b2ffd22d9?Expires=1728259200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=m8gZMtnAmFHDZAupQ2ddctQNGS1hplRMyG1r8zBHOExGkYljmi21lsVWvgc4DlqMLTpPN2hdBOAQT-t9zb~PneJmVt5qBlQmGDa8s9j-DP1ZmCpSex8NGE40nluJ29PmkIWChB3ALr2zCB~J-PVVKAGCAcxi4Q5aPF10ngtMeWeL6A2qyoZbKgmYl6cjgHeFlSWBhVvYTlOhSt9pvWBK4a6CsGcmTX4cFlDfaWNOK0jLzpzCQel6jqqCFF5Yxny9tcuFsWPr8Hz15CLihJLJeSuHhVpxeNUdUxm88j7QCfcQ~MwOjGTad7~CjN04Es35Bvp6Ni-Up3mvfciybPHJyQ__"
+  {
+    title: "دوره تخصصی ترفند های طراحی فرانت اند",
+    image:
+      "https://s3-alpha-sig.figma.com/img/ff18/00fa/69286aff4819156512be6e0b2ffd22d9?Expires=1728259200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=m8gZMtnAmFHDZAupQ2ddctQNGS1hplRMyG1r8zBHOExGkYljmi21lsVWvgc4DlqMLTpPN2hdBOAQT-t9zb~PneJmVt5qBlQmGDa8s9j-DP1ZmCpSex8NGE40nluJ29PmkIWChB3ALr2zCB~J-PVVKAGCAcxi4Q5aPF10ngtMeWeL6A2qyoZbKgmYl6cjgHeFlSWBhVvYTlOhSt9pvWBK4a6CsGcmTX4cFlDfaWNOK0jLzpzCQel6jqqCFF5Yxny9tcuFsWPr8Hz15CLihJLJeSuHhVpxeNUdUxm88j7QCfcQ~MwOjGTad7~CjN04Es35Bvp6Ni-Up3mvfciybPHJyQ__",
   },
-]
-
+];

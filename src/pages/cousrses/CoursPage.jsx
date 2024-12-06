@@ -12,71 +12,51 @@ import Heroring from "../../assets/courses/Ellipse 4.svg";
 import BackImg from "../../assets/courses/background.svg";
 import WindowView from "../../assets/courses/Vector.svg";
 import ListView from "../../assets/courses/Frame.svg";
-import { useCourses, useGetCost, useTopCourses } from "../../core/services/query/queries";
+import {
+  useCourses,
+  useGetCost,
+  useTopCourses,
+} from "../../core/services/query/queries";
 import { SliderRight } from "../../utility/animation";
 import { useDispatch, useSelector } from "react-redux";
-// import { QuerySlice } from "../../core/redux/slices/QueryState/QueryRedux";
-import {  useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import NotFound from "../../components/notFound/NotFound";
 import GridCardLoading from "../../components/skeleton/GridCardLoading";
 
-
-
-
 const CoursPage = () => {
- const { t } = useTranslation();
-
+  const { t } = useTranslation();
 
   const [sort, setSort] = useState();
-  // console.log(sort);
-
 
   const [page, setPage] = useState(1);
-  // console.log(page);
 
   const [view, setView] = useState(false);
-  // console.log(view);
 
- 
   const [view1, setView1] = useState(6);
-  // console.log(view);
 
-  const [search , setSearch] = useState({});
-  // console.log(search)
+  const [search, setSearch] = useState({});
 
-  
   const query = useSelector((state) => state.QuerySlice.search);
-  // console.log(query);
 
   const costup = useSelector((state) => state.RangeSlice.Range);
   const costdown = useSelector((state) => state.lessRangeSlice.less);
-  console.log("costup -- costdown ::: " , costup , costdown )
 
- const GetCostFillter = useGetCost(page ,view1, costdown , costup )
-
+  const GetCostFillter = useGetCost(page, view1, costdown, costup);
 
   const dispatch = useDispatch();
-  // console.log(dispatch);
-
 
   const params = {
-    RowsOfPage:view1,
-    PageNumber:page,  
-     courseLevelId : query,
-     SortingCol : sort,
-     CourseTypeId : query,
-  
-    
-  }
+    RowsOfPage: view1,
+    PageNumber: page,
+    courseLevelId: query,
+    SortingCol: sort,
+    CourseTypeId: query,
+  };
 
-  const CoursesData = useCourses( search , params );
-  // console.log("CoursesData",CoursesData.data);
+  const CoursesData = useCourses(search, params);
 
-
-  const getCourseTop=useTopCourses()
-  // console.log(getCourseTop.data)
- 
+  const getCourseTop = useTopCourses();
 
   const lastPage = () => {
     setPage((old) => Math.max(old - 1, 1));
@@ -85,30 +65,28 @@ const CoursPage = () => {
     setPage((old) => Math.min(old + 1, 28));
   };
 
-  const [sortTitle, setSortTitle] = useState("بدون ترتیب")
+  const [sortTitle, setSortTitle] = useState("بدون ترتیب");
   const categories = [
     {
-      title:`${t('Cheapest')}`,
-      col : "cost"
+      title: `${t("Cheapest")}`,
+      col: "cost",
     },
     {
-      title:`${t('Newest')}`,
-      col : "lastUpdate"
+      title: `${t("Newest")}`,
+      col: "lastUpdate",
     },
     {
-      title:`${t('MostPopular')}`,
-      col : "likeCount"
+      title: `${t("MostPopular")}`,
+      col: "likeCount",
     },
-  
   ];
 
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
-    setTimeout(()=>{
-      setLoading(false)
-    }, 1000)
-  }, [])
-  
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+  }, []);
 
   return (
     <div className="xl:container px-2 z-10 h-full ">
@@ -188,14 +166,13 @@ const CoursPage = () => {
           <div className="flex flex-row-reverse mt-4 pt-6">
             <div className="relative w-3 h-3 bg-primary rounded-full top-4 ml-2"></div>
             <h2 className="text-3xl font-bold dark:text-white">
-            {t("Courses")}
-
+              {t("Courses")}
             </h2>
           </div>
           <p className="mr-4 mt-6 text-xl text-gray-400 dark:text-gray-200">
             {t("UpToDateCourses")}
           </p>
-          {/* search box  */} 
+          {/* search box  */}
           {/* <SearchBar placeholder={"...چی میخوای یاد بگیری؟"}/> */}
           <motion.div
             variants={SliderRight(1.0)}
@@ -212,13 +189,7 @@ const CoursPage = () => {
             </div>
 
             <input
-        
-
-      
-            onChange={(e) =>setSearch( e.target.value )}
-
-              
-              
+              onChange={(e) => setSearch(e.target.value)}
               placeholder={t("WhatDoYouWantToLearn")}
               id="search"
               name="search"
@@ -250,20 +221,24 @@ const CoursPage = () => {
             {/* right: buttons */}
             <div className=" relative z-50">
               <button
-                className={` ${view? "" : "bg-gray-200"} relative z-50  mr-2 p-3 hover:bg-gray-200 
+                className={` ${
+                  view ? "" : "bg-gray-200"
+                } relative z-50  mr-2 p-3 hover:bg-gray-200 
                          transition duration-300 shadow-sm shadow-gray-400 outline-none indent-1
                          rounded rounded-tl-2xl top-0  w-[50px]`}
-                onClick={() => (setView(false),setView1(6))}
+                onClick={() => (setView(false), setView1(6))}
               >
                 {" "}
                 <img src={WindowView} className="w-full h-full" />
               </button>
 
               <button
-                className={` ${view? "bg-gray-200" : ""} absolute top-[0.25px] p-2 hover:bg-gray-200 
+                className={` ${
+                  view ? "bg-gray-200" : ""
+                } absolute top-[0.25px] p-2 hover:bg-gray-200 
                         transition duration-300 shadow-sm shadow-gray-400 outline-none indent-1 
                         rounded rounded-tr-2xl w-[50px] h-[50px]`}
-                onClick={() => (setView(true),setView1(3))}
+                onClick={() => (setView(true), setView1(3))}
               >
                 {" "}
                 <img src={ListView} className="w-8 h-8" />{" "}
@@ -290,13 +265,22 @@ const CoursPage = () => {
               >
                 <ul className="space-y-2">
                   {categories.map((item, index) => (
-                    <li key={index} className="group" onClick={()=>setSortTitle(item.title)}>
-                      <div onClick={()=>setSort(item.col) }
+                    <li
+                      key={index}
+                      className="group"
+                      onClick={() => setSortTitle(item.title)}
+                    >
+                      <div
+                        onClick={() => setSort(item.col)}
                         className={`block px-4 font-semibold text-gray-500
                                         hover:text-black dark:hover:text-white duration-200 p-2
                                          w-full hover:bg-primary rounded-md text-right
                                         group-data-[selected]:font-semibold cursor-pointer
-                                        ${sortTitle == item.title ? "bg-primary text-white" : "" }
+                                        ${
+                                          sortTitle == item.title
+                                            ? "bg-primary text-white"
+                                            : ""
+                                        }
                                         `}
                       >
                         {item.title}
@@ -310,35 +294,71 @@ const CoursPage = () => {
 
           {/* cards  */}
 
-            <motion.div layout
-             className={` grid w-full z-10 mb-20 
-                  ${view ? "grid-cols-1 mt-2":"grid-cols-3 max-lg:grid-cols-2 max-sm:justify-items-center max-sm:grid-cols-1  pt-0"}`}
-            >
-                {costup == 0 || costdown == 0 ? <>
-                  {view ? <AnimatePresence> 
-                          {CoursesData.data?.courseFilterDtos.length == 0  ? <NotFound/> : CoursesData.data?.courseFilterDtos.map((item)=>(
-                          <CoursListCard {...item} />  ))}
-                     </AnimatePresence>
-                     
-                     : <AnimatePresence>    {loading ? <GridCardLoading cards={16}/> :                     
-                        CoursesData.data?.courseFilterDtos.length == 0  ?  <NotFound/> : CoursesData.data?.courseFilterDtos.map((item) => (
-                        <CoursGridCard {...item}/> )) }
-                      </AnimatePresence>
-                  }  
-                
-                </> : <>
-                  {view ? <AnimatePresence> 
-                            {GetCostFillter.data?.courseFilterDtos.length == 0  ? <NotFound/> : GetCostFillter.data?.courseFilterDtos.map((item)=>(
-                            <CoursListCard {...item} />  ))}
-                      </AnimatePresence>
-                      
-                      : <AnimatePresence>    {loading ? <GridCardLoading cards={16}/> :                     
-                      GetCostFillter.data?.courseFilterDtos.length == 0  ?  <NotFound/> : GetCostFillter.data?.courseFilterDtos.map((item) => (
-                          <CoursGridCard {...item}/> )) }
-                        </AnimatePresence>
-                    }            
-                </>}
-            </motion.div>
+          <motion.div
+            layout
+            className={` grid w-full z-10 mb-20 
+                  ${
+                    view
+                      ? "grid-cols-1 mt-2"
+                      : "grid-cols-3 max-lg:grid-cols-2 max-sm:justify-items-center max-sm:grid-cols-1  pt-0"
+                  }`}
+          >
+            {costup == 0 || costdown == 0 ? (
+              <>
+                {view ? (
+                  <AnimatePresence>
+                    {CoursesData.data?.courseFilterDtos.length == 0 ? (
+                      <NotFound />
+                    ) : (
+                      CoursesData.data?.courseFilterDtos.map((item) => (
+                        <CoursListCard {...item} />
+                      ))
+                    )}
+                  </AnimatePresence>
+                ) : (
+                  <AnimatePresence>
+                    {" "}
+                    {loading ? (
+                      <GridCardLoading cards={16} />
+                    ) : CoursesData.data?.courseFilterDtos.length == 0 ? (
+                      <NotFound />
+                    ) : (
+                      CoursesData.data?.courseFilterDtos.map((item) => (
+                        <CoursGridCard {...item} />
+                      ))
+                    )}
+                  </AnimatePresence>
+                )}
+              </>
+            ) : (
+              <>
+                {view ? (
+                  <AnimatePresence>
+                    {GetCostFillter.data?.courseFilterDtos.length == 0 ? (
+                      <NotFound />
+                    ) : (
+                      GetCostFillter.data?.courseFilterDtos.map((item) => (
+                        <CoursListCard {...item} />
+                      ))
+                    )}
+                  </AnimatePresence>
+                ) : (
+                  <AnimatePresence>
+                    {" "}
+                    {loading ? (
+                      <GridCardLoading cards={16} />
+                    ) : GetCostFillter.data?.courseFilterDtos.length == 0 ? (
+                      <NotFound />
+                    ) : (
+                      GetCostFillter.data?.courseFilterDtos.map((item) => (
+                        <CoursGridCard {...item} />
+                      ))
+                    )}
+                  </AnimatePresence>
+                )}
+              </>
+            )}
+          </motion.div>
 
           {/* paginantion  */}
 

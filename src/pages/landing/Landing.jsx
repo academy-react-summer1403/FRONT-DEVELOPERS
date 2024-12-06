@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import Famous from '../../components/famous/Famous'
 import Learning from '../../components/learning/Learning'
 import BestTeachers from '../../components/BestTeachers/BestTeachers'
@@ -17,7 +17,6 @@ const Landing = () => {
 
   const getCourseCard = useCourseLanding()
   const [selectedfavoriteOption,setselectedfavoriteOption] =useState(localStorage.getItem('selectedOption'))
- console.log(selectedfavoriteOption);
 
   const params = {
     RowsOfPage: 15,

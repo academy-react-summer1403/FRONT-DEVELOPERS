@@ -1,15 +1,11 @@
-import React from 'react';
-import { SendChatUserApi } from '../../../core/services/Api3/ChatApi';
+import React from "react";
+import { SendChatUserApi } from "../../../core/services/Api3/ChatApi";
 
 const MessageParser = ({ children, actions }) => {
   const parse = (message) => {
-    console.log(message);
+    const Send = SendChatUserApi(message, 7);
 
-   const Send = SendChatUserApi(message , 7)
-   console.log(Send)
-
-
-    actions.afterNameMessage()
+    actions.afterNameMessage();
   };
 
   return (

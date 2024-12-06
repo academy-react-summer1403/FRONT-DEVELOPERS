@@ -1,89 +1,60 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { usefeature1, usefeature2} from "../core/services/query/queries";
-import {motion } from "framer-motion";
+import { usefeature1, usefeature2 } from "../core/services/query/queries";
+import { motion } from "framer-motion";
 import BackImg from "../assets/courses/background.svg";
 import { useDispatch, useSelector } from "react-redux";
-import { DotLottieReact } from '@lottiefiles/dotlottie-react';
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import Sliderfav from "./Feacherdetail/Slider";
 import Slider2 from "./Feacherdetail/Slider2";
 import { NavLink } from "react-router-dom";
 
-const NewPage = () => { 
-  
-  
+const NewPage = () => {
   const { t } = useTranslation();
-  
-  
- 
 
   // favorite
-  const [selectedfavoriteOption,setselectedfavoriteOption] =useState(localStorage.getItem('selectedOption'))
- console.log(selectedfavoriteOption);
-
+  const [selectedfavoriteOption, setselectedfavoriteOption] = useState(
+    localStorage.getItem("selectedOption")
+  );
 
   const params = {
     RowsOfPage: 15,
     PageNumber: 0,
-  
+
     Query: selectedfavoriteOption,
-  }; 
+  };
   const CoursesDataFavorite = usefeature1(params);
-  console.log(CoursesDataFavorite)
-
-
 
   //News
 
-
-
-  const [selectedfavoriteOption1,setselectedfavoriteOption1] =useState(localStorage.getItem('selectedOption1'))
-  
-  
-
-    console.log(selectedfavoriteOption1)
-  
+  const [selectedfavoriteOption1, setselectedfavoriteOption1] = useState(
+    localStorage.getItem("selectedOption1")
+  );
 
   const params1 = {
     RowsOfPage: 15,
     PageNumber: 0,
-  
+
     NewsCategoryId: selectedfavoriteOption1,
-  }; 
- 
+  };
+
   const NewsData = usefeature2(params1);
-  console.log(NewsData?.data?.news)
 
+  // level
 
-  // level 
-
-
-  
-  const [selectedlevelOption,setselectedlevelOption] =useState(localStorage.getItem('selectedOption2'))
-  
-  
-
-    console.log(selectedlevelOption)
-  
+  const [selectedlevelOption, setselectedlevelOption] = useState(
+    localStorage.getItem("selectedOption2")
+  );
 
   const params2 = {
     RowsOfPage: 15,
     PageNumber: 0,
-  
+
     courseLevelId: selectedlevelOption,
-  }; 
- 
+  };
+
   const courseLevel = usefeature1(params2);
-  console.log(courseLevel)
 
- 
- 
- 
-  
-
- 
-
-  
   return (
     <div className="xl:container  px-2 z-10 h-full ">
       <img
@@ -108,18 +79,12 @@ const NewPage = () => {
       max-xl:flex-row  
       "
       >
-     
-
-
-
-     <DotLottieReact
-      src="https://lottie.host/fd74c70d-0118-4fb7-a028-f983b5d8e88f/C950gKHXUn.lottie"
-      loop
-      
-      autoplay
-      className=" absolute top-28 left-44 w-[260px] max-lg:hidden"
-    />
-  
+        <DotLottieReact
+          src="https://lottie.host/fd74c70d-0118-4fb7-a028-f983b5d8e88f/C950gKHXUn.lottie"
+          loop
+          autoplay
+          className=" absolute top-28 left-44 w-[260px] max-lg:hidden"
+        />
 
         <div
           className="grid justify-items-end w-full my-4 mt-8 h-90 relative
@@ -147,24 +112,39 @@ const NewPage = () => {
       >
         {/* cards fave section  */}
 
-        <div className={`${selectedfavoriteOption=="" ? "hidden" : " mb-16"}`}>
-          <Sliderfav h={"... شاید بیشتر دوست داشته باشید "} getCourseCard={CoursesDataFavorite.data?.courseFilterDtos} />
-        </div> 
-
+        <div
+          className={`${selectedfavoriteOption == "" ? "hidden" : " mb-16"}`}
+        >
+          <Sliderfav
+            h={"... شاید بیشتر دوست داشته باشید "}
+            getCourseCard={CoursesDataFavorite.data?.courseFilterDtos}
+          />
+        </div>
 
         {/* news */}
 
-        <div className={`${selectedfavoriteOption1=="" ? "hidden" : " mb-16"}`}>
-          <Slider2 h={"... مطالبی  که  شاید بیشتر دوست داشته باشید "} getNewsCard={NewsData?.data?.news} />
-        </div> 
+        <div
+          className={`${selectedfavoriteOption1 == "" ? "hidden" : " mb-16"}`}
+        >
+          <Slider2
+            h={"... مطالبی  که  شاید بیشتر دوست داشته باشید "}
+            getNewsCard={NewsData?.data?.news}
+          />
+        </div>
 
         {/* {level} */}
-        <div className={`${selectedlevelOption=="" ? "hidden" : " mb-16"}`}>
-          <Sliderfav h={"...  با توجه به سطح شما"} getCourseCard={courseLevel.data?.courseFilterDtos} />
-        </div> 
+        <div className={`${selectedlevelOption == "" ? "hidden" : " mb-16"}`}>
+          <Sliderfav
+            h={"...  با توجه به سطح شما"}
+            getCourseCard={courseLevel.data?.courseFilterDtos}
+          />
+        </div>
 
-
-       <NavLink to={"/auth/fav1"}><button className=" border rounded-xl text-md text-primary p-2 border-primary">ویرایش لیست علاقه مندی</button></NavLink> 
+        <NavLink to={"/auth/fav1"}>
+          <button className=" border rounded-xl text-md text-primary p-2 border-primary">
+            ویرایش لیست علاقه مندی
+          </button>
+        </NavLink>
       </div>
     </div>
   );
