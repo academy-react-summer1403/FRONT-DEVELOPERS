@@ -5,7 +5,6 @@ import CoursPage from "./pages/cousrses/CoursPage"
 import CourseDetial from "./pages/CourseDetail/CourseDetail"
 import ArticleDetail from "./pages/ArticleDetail/ArticleDetail"
 import ArticlesNews from "./pages/articles and news/ArticlesNews"
-import Dashboard from "./pages/dashboard/Dashboard"
 import AuthRoot from "./AuthRoot"
 import SignAuth from "./components/mainAuth/SignAuth"
 import VarificationAuth from "./components/mainAuth/VarificationAuth"
@@ -14,7 +13,6 @@ import VorodAuth from "./components/mainAuth/VorodAuth"
 import VarificationVorod from "./components/mainAuth/VarificationVorod"
 import Layout from "./Layout"
 import { useSelector } from "react-redux"
-import NavbarBasket from "./components/Basket/NavbarBasket"
 import DashPanel from "./components/dashboard/DashPanel"
 import StdInformation from "./pages/dashboard/content/StdInformation"
 import StdDashboard from "./pages/dashboard/content/StdDashboard"
@@ -80,10 +78,6 @@ const  PublicRoutes = [
         path: "/article-detail/:id",
         element: <Notfound />,
       },  
-      {
-        path: "/basket",
-        element: <Notfound />,
-      },
       {
         path: "/PhysicApp",
         element: <PhysicApp/>,
@@ -170,11 +164,7 @@ const  PrivateRoutes = [
     {
       path: "/article-detail/:id",
       element: <ArticleDetail />,
-    },  
-    {
-      path: "/basket",
-      element: <NavbarBasket />,
-    },
+    }, 
     {
       path: "/QA",
       element: <QA/>,

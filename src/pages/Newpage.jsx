@@ -83,11 +83,7 @@ const NewPage = () => {
 
  
 
-  const [loading, setLoading] = useState(true);
- useEffect(() => {
-    setLoading(CoursesDataFavorite.isLoading);
-  }, [CoursesDataFavorite.isLoading]);
-
+  
   return (
     <div className="xl:container  px-2 z-10 h-full ">
       <img

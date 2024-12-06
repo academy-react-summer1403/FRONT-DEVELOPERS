@@ -13,8 +13,7 @@ import RangeAccar from "./RangeAccar";
 import RangeAccarTwo from "./RangeAccarTwo";
 
 const Filter = () => {
-
- const { t } = useTranslation();
+  const { t } = useTranslation();
 
   const [filter, setFilter] = useState([
     {
@@ -36,7 +35,7 @@ const Filter = () => {
   const [level, setLevel] = useState([
     {
       id: 1,
-      name:`${t("level")}`,
+      name: `${t("level")}`,
       isOpen: true,
     },
   ]);
@@ -44,7 +43,7 @@ const Filter = () => {
   const [teacher, setTeacher] = useState([
     {
       id: 1,
-      name:`${t("teacher")}`,
+      name: `${t("teacher")}`,
       isOpen: true,
     },
   ]);
@@ -52,7 +51,7 @@ const Filter = () => {
   const [Range, setRange] = useState([
     {
       id: 1,
-      name:`${t("Range")}`,
+      name: `${t("Range")}`,
       isOpen: true,
     },
   ]);
@@ -60,11 +59,10 @@ const Filter = () => {
   const [lessRangeA, setLessRange] = useState([
     {
       id: 1,
-      name:`${t("LessRange")}`,
+      name: `${t("LessRange")}`,
       isOpen: true,
     },
   ]);
-
 
   const toggleAccordeion = (accordionkey) => {
     const updateAccordions = filter.map((accrdion) => {
@@ -161,12 +159,17 @@ const Filter = () => {
 
         <LevelAccar filter={level} toggleAccordeion={toggleAccordeionLevel} />
 
-        <TeacherAccar teacher={teacher} toggleAccordeion={toggleAccordeionTeacher} />
+        <TeacherAccar
+          teacher={teacher}
+          toggleAccordeion={toggleAccordeionTeacher}
+        />
 
-         <RangeAccar Range={Range} toggleAccordeion={toggleAccordeionRange}/>
-        
-         <RangeAccarTwo lessRangeA={lessRangeA} toggleAccordeion={toggleAccordeionLessRange}/> 
+        <RangeAccar Range={Range} toggleAccordeion={toggleAccordeionRange} />
 
+        <RangeAccarTwo
+          lessRangeA={lessRangeA}
+          toggleAccordeion={toggleAccordeionLessRange}
+        />
       </ul>
     </div>
   );
