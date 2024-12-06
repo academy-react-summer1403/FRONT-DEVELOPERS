@@ -4,6 +4,8 @@ import { useCourseId } from "../../../core/services/query/queries";
 import { useTranslation } from "react-i18next";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import { IoIosArrowDown } from "react-icons/io";
+import Buton from "../../Commen/Buton";
 
 const Description = ({ courseId }) => {
   const [showMore, setShowMore] = useState(true);
@@ -17,7 +19,6 @@ const Description = ({ courseId }) => {
       setLoading(false);
     }, 2000);
   }, []);
-  
 
   return (
     <SkeletonTheme baseColor="#cbd5e1" highlightColor="#f5f5f5">
@@ -48,46 +49,20 @@ const Description = ({ courseId }) => {
                 )}
               </motion.p>
             </div>
-            <button
+            <Buton
               onClick={() => setShowMore(!showMore)}
-              className="border-[#01CEC9] max-xl:text-[18px] dark:border-[#E48900]   dark:text-[#fdb359]  border-[1px] text-[#006865] hover:scale-105 ease-in-out duration-150 
-leading-[32px] font-normal font-Yekan text-[20px] flex items-center w-[174px] h-[45px] rounded-[45px] mx-auto justify-center gap-2 mt-3 max-lg:text-[16px] max-lg:w-[150px] "
-            >
-              {showMore ? (
-                <svg
-                  width="14"
-                  height="8"
-                  className="dark:stroke-orange stroke-[#005B58] "
-                  viewBox="0 0 14 8"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M13.25 0.875L7 7.125L0.75 0.875"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              ) : (
-                <svg
-                  width="14"
-                  height="8"
-                  className="dark:stroke-orange stroke-[#005B58]  rotate-180"
-                  viewBox="0 0 14 8"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M13.25 0.875L7 7.125L0.75 0.875"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              )}
-              {t("readmore")}
-            </button>
+              text={t("readmore")}
+              icon={
+                showMore ? (
+                  <IoIosArrowDown className="text-green dark:text-orange transition duration-500 " />
+                ) : (
+                  <IoIosArrowDown className="text-green dark:text-orange rotate-180 transition duration-500" />
+                )
+              }
+              style={
+                "  border-[#01CEC9] max-xl:text-[18px] dark:border-[#E48900] dark:text-[#fdb359]  border-[1px] text-[#006865] hover:scale-105 ease-in-out duration-150 leading-[32px] font-normal font-Yekan text-[20px] flex flex-row-reverse items-center w-[174px] h-[45px] rounded-[45px] mx-auto justify-center gap-2 mt-3 max-lg:text-[16px] max-lg:w-[150px] "
+              }
+            />
           </motion.div>
         </div>
       </div>

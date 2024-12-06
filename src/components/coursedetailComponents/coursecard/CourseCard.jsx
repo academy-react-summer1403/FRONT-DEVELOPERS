@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useCourseId } from "../../../core/services/query/queries";
 import { postReserv } from "../../../core/services/DashApi";
+import { MdOutlineShoppingCart } from "react-icons/md";
 
 import {
   useDeleteFavoriteCourse,
   usePostFavoriteCourse,
 } from "../../../core/services/mutation/DetailsMutation";
 import { toast } from "react-toastify";
+import Buton from "../../Commen/Buton";
 
 const CourseCard = ({ courseId, isUserFavorite, isCourseReseve }) => {
   const CourseDetail = useCourseId(courseId);
@@ -159,38 +161,16 @@ const CourseCard = ({ courseId, isUserFavorite, isCourseReseve }) => {
           </div>
         </div>
 
-        <button
+        <Buton
           onClick={() => {
             reserve ? "" : setReserve(true);
           }}
-          className="bg-secondary/90 max-lg:text-[16px]   max-md:mx-auto  max-xl:w-[280px] max-xl:h-[40px] max-lg:ml-[0] max-xl:ml-[10%] ml-[18%] max-xl:mt-[15px] mt-[25px] flex gap-3 items-center justify-center  w-[347px] h-[55px] text-white rounded-[9px] font-bold max-xl:text-[19px] text-[22px]  "
-        >
-          <h1 className={`${isReserve == 1 ? "hidden" : "block"}`}>
-            {" "}
-            !شرکت در دوره
-          </h1>
-          <h1 className={`${isReserve == 1 ? "block" : "hidden"}`}>
-            {" "}
-            قبلا شرکت کردید!
-          </h1>
-
-          <svg
-            width="25"
-            height="22"
-            className="max-xl:h-[18px] max-xl:w-[21px]"
-            viewBox="0 0 25 22"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M0.619629 1H2.2238C2.81407 1 3.32912 1.38111 3.4819 1.92778L3.92518 3.52444M3.92518 3.52444C10.3727 3.35099 16.814 4.03906 23.0641 5.56889C22.1104 8.29556 20.9773 10.9444 19.6798 13.5H6.69602M3.92518 3.52444L6.69602 13.5M6.69602 13.5C5.77513 13.5 4.89195 13.8512 4.24079 14.4763C3.58962 15.1014 3.2238 15.9493 3.2238 16.8333H21.453M4.95991 20.1667C4.95991 20.3877 4.86845 20.5996 4.70566 20.7559C4.54287 20.9122 4.32207 21 4.09185 21C3.86163 21 3.64084 20.9122 3.47804 20.7559C3.31525 20.5996 3.2238 20.3877 3.2238 20.1667C3.2238 19.9457 3.31525 19.7337 3.47804 19.5774C3.64084 19.4211 3.86163 19.3333 4.09185 19.3333C4.32207 19.3333 4.54287 19.4211 4.70566 19.5774C4.86845 19.7337 4.95991 19.9457 4.95991 20.1667ZM19.7169 20.1667C19.7169 20.3877 19.6254 20.5996 19.4626 20.7559C19.2998 20.9122 19.079 21 18.8488 21C18.6186 21 18.3978 20.9122 18.235 20.7559C18.0722 20.5996 17.9807 20.3877 17.9807 20.1667C17.9807 19.9457 18.0722 19.7337 18.235 19.5774C18.3978 19.4211 18.6186 19.3333 18.8488 19.3333C19.079 19.3333 19.2998 19.4211 19.4626 19.5774C19.6254 19.7337 19.7169 19.9457 19.7169 20.1667Z"
-              stroke="white"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-        </button>
+          text={`${isReserve == 1 ? "! قبلا شرکت کردید  " : "!شرکت در دوره"}`}
+          icon={<MdOutlineShoppingCart className="text-white w-7 h-7" />}
+          style={
+            "bg-secondary/90 max-lg:text-[16px]   max-md:mx-auto  max-xl:w-[280px] max-xl:h-[40px] max-lg:ml-[0] max-xl:ml-[10%] ml-[18%] max-xl:mt-[15px] mt-[25px] flex gap-3 items-center justify-center  w-[347px] h-[55px] text-white rounded-[9px] font-bold max-xl:text-[19px] text-[22px]"
+          }
+        />
       </div>
     </>
   );

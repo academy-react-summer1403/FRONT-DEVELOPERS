@@ -39,12 +39,10 @@ const QA1 = () => {
   }, [dispatch]);
 
   return (
-    <div className="container relative">
-      <img
-        src={Back}
-        alt=""
-        className="fixed rotate-180 left-[300px] top-[30px] w-[1000px] opacity-30"
-      />
+    <div className="container relative
+      max-sm:bg-gradient-to-br from-secondary/20 dark:from-amber-100/80 from-10% to-primary/30 dark:to-cyan-100/80 to-90%
+    ">
+
 
       {/* hero image  */}
       <div className="flex justify-center items-center relative">
@@ -70,7 +68,7 @@ const QA1 = () => {
             <img
               src={Background}
               alt=""
-              className="w-full h-full  opacity-80 dark:opacity-50 absolute top-0 left-0  "
+              className="w-full h-full  opacity-80 dark:opacity-50 absolute top-0 left-0 max-sm:hidden "
             />
             <motion.div
               initial={{ opacity: 0, x: 200 }}
