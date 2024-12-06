@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { usefeature1, usefeature2} from "../core/services/query/queries";
+import { usefeature, usefeature1, usefeature2} from "../core/services/query/queries";
 import {motion } from "framer-motion";
 import BackImg from "../assets/courses/background.svg";
 import { useDispatch, useSelector } from "react-redux";
@@ -28,7 +28,7 @@ const NewPage = () => {
   
     Query: selectedfavoriteOption,
   }; 
-  const CoursesDataFavorite = usefeature1(params);
+  const CoursesDataFavorite = usefeature(params);
   console.log(CoursesDataFavorite)
 
 

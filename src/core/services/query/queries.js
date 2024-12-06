@@ -7,6 +7,7 @@ import {
   getCourseId,
   getCourseLanding,
   getCourseLandingSearchBar,
+  getfeature,
   getfeature1,
   getfeature2,
   getLandingReport,
@@ -59,6 +60,14 @@ export function useCourses(  search , params ) {
   return useQuery({
     queryKey: ["courses",    search , params ],
     queryFn: () => getCourse(   search , params ),
+  });
+}
+
+
+export function usefeature( params ) {
+  return useQuery({
+    queryKey: ["feature", params ],
+    queryFn: () => getfeature( params),
   });
 }
 
