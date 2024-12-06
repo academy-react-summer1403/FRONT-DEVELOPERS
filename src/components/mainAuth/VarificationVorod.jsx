@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 
 import AuthB1Img from "../../assets/landing/authback3.png";
 import Squer from "../../assets/landing/one.svg";
@@ -11,8 +11,6 @@ import * as yup from "yup";
 import { NavLink, useNavigate, useParams, } from 'react-router-dom';
 import OTPInput from 'react-otp-input';
 import { useDispatch } from 'react-redux';
-// import { usetowStepLoginApi } from '../../core/services/mutation/Authmutation';
-import { towStepLoginApi } from '../../core/services/authApi';
 import { handleToken } from '../../core/redux/slices/QueryState/TokenSlice';
 import { usetowStepLoginApi } from '../../core/services/mutation/Authmutation';
 
