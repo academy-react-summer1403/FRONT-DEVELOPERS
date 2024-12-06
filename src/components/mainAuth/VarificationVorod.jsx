@@ -1,23 +1,22 @@
-import React, { useState } from 'react'
-import { motion } from "framer-motion";
+import React, { useEffect, useState } from 'react'
+
 import AuthB1Img from "../../assets/landing/authback3.png";
 import Squer from "../../assets/landing/one.svg";
 import Back from "../../assets/landing/authBack.png";
 import Background from "../../assets/landing/backgroundV.png";
 import more from "../../assets/landing/more course 2.png";
 
+import { motion } from "framer-motion";
 import * as yup from "yup";
-
 import { NavLink, useNavigate, useParams, } from 'react-router-dom';
 import OTPInput from 'react-otp-input';
+import { useDispatch } from 'react-redux';
 // import { usetowStepLoginApi } from '../../core/services/mutation/Authmutation';
 import { towStepLoginApi } from '../../core/services/authApi';
-// import {  postCode } from '../../core/services/authApi';
-
+import { handleToken } from '../../core/redux/slices/QueryState/TokenSlice';
 
 
 const VarificationVorod = () => {
-
 
   const style = {
     margin: "auto",
@@ -32,20 +31,45 @@ const VarificationVorod = () => {
     border: "1px solid #ddd",
     color:"black"
   };
-  // const navigate=useNavigate()
+
   const {phoneNumber} = useParams()
+  const {password} = useParams()
+  const navigate =useNavigate()
+  const dispatch = useDispatch()
   const [verifyCode, setVerifyCode] = useState("")
 
-  // const towStep = usetowStepLoginApi()
+  const towstepLogin =towStepLoginApi()
+
+
   const onSubmit = (e)=>{
     e.preventDefault();
-    const params={
-      VrifyCode :verifyCode,
+
+    // const params ={
+    //   VrifyCode : verifyCode
+
+    // }
+
+    const dataa ={
+      "phoneOrGmail": phoneNumber,
+      "password": password,
+      
     }
-    console.log(params)
-    towStepLoginApi(params)
+    console.log(dataa)
+    towStepLoginApi(dataa ,verifyCode).then(()=>{
+      // navigate("/")
+
+    })
 
   }
+
+  
+  
+
+
+  
+// localStorage.setItem("token" , token); 
+// dispatch(handleToken(token))
+
 
   const validation = yup.object().shape({
     title: yup.string().required("پر کردن این فیلد اجباریست"),
@@ -101,7 +125,6 @@ const VarificationVorod = () => {
             initial={{ opacity: 0, x: 200 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ type: "spring", stiffness: 100, delay: 0.2 }}
-            //   src={HeroAImg}
             alt=""
             className="w-[350px] h-[360px]   mx-auto mt-[10%] max-md:mt-[15%] relative"
           >

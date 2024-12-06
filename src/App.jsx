@@ -119,7 +119,7 @@ const  PublicRoutes = [
           element: <Game/>,
         },
         {
-          path: "/auth/v2/:phoneNumber",
+          path: "/auth/v2/:phoneNumber/:password",
           element: <VarificationVorod />,
         },
         {

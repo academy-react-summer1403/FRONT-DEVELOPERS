@@ -1,3 +1,4 @@
+import instance from "./interceptor";
 import http from "./interceptor";
 
 export const loginApi  = async (user) => {
@@ -7,8 +8,8 @@ export const loginApi  = async (user) => {
   return data;
 };
 
-export const towStepLoginApi  = async (params) => {
-  const data = await http.post(`/Sign/LoginTwoStep` , null , {params:params})   
+export const towStepLoginApi  = async (dataa ,verifyCode) => {
+  const data = await instance.post(`/Sign/LoginTwoStep?VrifyCode=${verifyCode}` , dataa )   
   console.log(data);
   return data;
 };

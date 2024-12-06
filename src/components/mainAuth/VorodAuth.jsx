@@ -33,11 +33,11 @@ const VorodAuth = () => {
   const dispatch = useDispatch()
   const {handleSubmit , register} = useForm()
   const loginQuery = postQuery()
-
-
+  const [password, setPassword] = useState("")
+  
   const handleCreateSubmit = (user)=>{
     loginQuery.mutate(user)
-    console.log(handleCreateSubmit)
+    setPassword(user.password)
   }
   const token = loginQuery?.data?.token
   console.log(token)
@@ -48,7 +48,7 @@ const VorodAuth = () => {
   
   if(loginQuery?.data?.message === "ارسال پیامک انجام شد."){
     const phoneNumber = loginQuery?.data?.phoneNumber  
-    navigate(`/auth/v2/:${phoneNumber}`)
+    navigate(`/auth/v2/${phoneNumber}/${password}`)
   }
 
   if(token){
@@ -57,13 +57,8 @@ const VorodAuth = () => {
       className:"custom-toast"
    
     })
-    
-
     window.location.reload();
-    navigate("/auth/suggestion")
-
-  
-
+    navigate("/auth/suggestion") 
   }
   else if(token == ""){
     toast.error("اطلاعات ورودی نادرست است" , {
@@ -163,12 +158,6 @@ const VorodAuth = () => {
                    
                     required
                   />
-              
-                  {/* <ErrorMessage
-                    name="email"
-                    component="div"
-                    className="text-red-500 w-[50px] text-[10px] font-semibold absolute whitespace-nowrap left-[50px] top-[35px]"
-                  /> */}
 
                   <i onClick={() => setShowHidePassword(!showHidePassword)} className='absolute right-16 bottom-[27px]'>                      
                     {showHidePassword?<IoEyeOutline className='text-green'/>: <FaRegEyeSlash className='text-green'/> }                      
