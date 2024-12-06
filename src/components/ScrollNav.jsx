@@ -31,7 +31,11 @@ const ScrollNav = ({ color, showText }) => {
 
   return (
     <ProgressContainer>
-      <ProgressBar width={progressWidth} className="fixed z-[9999]" color={color}>
+      <ProgressBar
+        width={progressWidth}
+        className="fixed z-[9999]"
+        color={color}
+      >
         {showText && (
           <ProgressText width={progressWidth}>{`${Math.round(
             progressWidth

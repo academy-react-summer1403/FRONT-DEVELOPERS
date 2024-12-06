@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import Famous from '../../components/famous/Famous'
 import Learning from '../../components/learning/Learning'
 import BestTeachers from '../../components/BestTeachers/BestTeachers'
@@ -15,7 +15,6 @@ import { useCourseLanding, usefeature1 } from '../../core/services/query/queries
 
 const Landing = () => {
 
-  const getCourseCard = useCourseLanding()
  
 
   
@@ -28,7 +27,7 @@ const Landing = () => {
 
         <Hero/>
         <Famous/>
-        <Learning getCourseCard={getCourseCard} h={"دوره های آموزشی"}/>
+        <Learning/>
         <BestTeachers/>
         <Products/>
       

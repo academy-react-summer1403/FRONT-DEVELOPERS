@@ -1,7 +1,5 @@
-// import errore from "../assets/detail/errore.svg"
 
-export const ImageErrore=({ currentTarget }) => {
-        currentTarget.onerror = null; // prevents looping
-        currentTarget.src="https://www.portal.ir/uploads/posts/c99fb8.jpg"
-      }
-
+export const ImageErrore = ({ currentTarget }) => {
+  currentTarget.onerror = null;
+  currentTarget.src = "https://www.portal.ir/uploads/posts/c99fb8.jpg";
+};

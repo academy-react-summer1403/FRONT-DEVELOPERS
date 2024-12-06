@@ -5,24 +5,16 @@ import JobImg from "../../assets/landing/New Job.png";
 
 import BackProducts from "../../assets/landing/backproducts.png";
 
-import BP1Img from "../../assets/landing/BProduct1.png";
-import BP2Img from "../../assets/landing/BProduct2.png";
-import BP3Img from "../../assets/landing/BProduct3.png";
-import BP4Img from "../../assets/landing/BProduct4.png";
-
-
 import AOS from "aos";
-import 'aos/dist/aos.css';
+import "aos/dist/aos.css";
 import { useTranslation } from "react-i18next";
 
 const Products = () => {
   const { t } = useTranslation();
 
-
   useEffect(() => {
     AOS.init();
-  }, [])
-
+  }, []);
 
   return (
     <div>
@@ -35,19 +27,19 @@ const Products = () => {
 
         {/* header section  */}
         <h1 className=" head1">
-          {t("service")} 
+          {t("service")}
           <div className="head2"></div>{" "}
         </h1>
-        <h3 className="head3">
-
-{t("textservice")}        </h3>
+        <h3 className="head3">{t("textservice")} </h3>
         {/* body section  */}
         <div
           className="flex gap-20 max-xl:gap-10 items-center justify-center max-lg:gap-0 
            
         "
         >
-          <div data-aos="fade-down-left" data-aos-duration="900"
+          <div
+            data-aos="fade-down-left"
+            data-aos-duration="900"
             className="  group 
               rounded-2xl 
               relative  duration-hight 
@@ -55,7 +47,7 @@ const Products = () => {
               
             "
           >
-              <svg
+            <svg
               width="210"
               height="170"
               viewBox="0 0 211 171"
@@ -120,34 +112,33 @@ const Products = () => {
               </defs>
             </svg>
 
-           
-
             {/* details section  */}
             <div className="p-4 text-center">
               {/* star rating  */}
 
               <h1 className="productstitle text-[#CC7A00] dark:text-[#4b3515] mt-[-140px] ">
-               {t("Counseling")}
-                
+                {t("Counseling")}
               </h1>
               <p
                 className=" faketext group-hover:text-[#CC7A00] dark:group-hover:text-[#4b3515]
                                 "
               >
-               {t("Counselingtext")}
-               </p>
+                {t("Counselingtext")}
+              </p>
 
               <button
                 style={{ boxShadow: "0px 4px 4px 0px #00000040 inset" }}
-                className=" bg-[#E48900] dark:bg-[#4b3515] mx-[-1px] mt-[1px] proimg
-"
+                className=" bg-[#E48900] dark:bg-[#4b3515] mx-[-1px] mt-[1px] proimg"
+
               >
                 <img src={ChatImg} alt="" className="mx-auto" />
               </button>
             </div>
           </div>
 
-          <div data-aos="fade-down-left" data-aos-duration="900"
+          <div
+            data-aos="fade-down-left"
+            data-aos-duration="900"
             className="
               group
               rounded-2xl 
@@ -227,14 +218,14 @@ const Products = () => {
               {/* star rating  */}
 
               <h1 className="productstitle text-[#AE9C00] dark:text-[#504a15]  mt-[-235px]">
-                {t('certificate')} 
+                {t("certificate")}
               </h1>
               <p
                 className="faketext group-hover:text-[#AE9C00] dark:group-hover:text-[#504a15]
                                 "
               >
-               {t("Counselingtext")}
-               </p>
+                {t("Counselingtext")}
+              </p>
 
               <button
                 style={{ boxShadow: "0px 4px 4px 0px #00000040 inset" }}
@@ -247,7 +238,9 @@ const Products = () => {
             </div>
           </div>
 
-          <div data-aos="fade-down-left" data-aos-duration="900"
+          <div
+            data-aos="fade-down-left"
+            data-aos-duration="900"
             className="
             group
             rounded-2xl 
@@ -266,7 +259,6 @@ const Products = () => {
               <g filter="url(#filter0_bi_109_514)">
                 <path
                   d="M0 15.1985C0 6.91422 6.71573 0.198486 15 0.198486H51.0909C58.5121 0.198486 64.8315 5.70889 67.9544 12.4409C72.8742 23.0464 83.4832 36.6985 105.5 36.6985C127.796 36.6985 138.777 22.6981 143.906 12.0391C147.058 5.48827 153.295 0.198486 160.565 0.198486H196C204.284 0.198486 211 6.91422 211 15.1985V155.198C211 163.483 204.284 170.198 196 170.198H105.5H15C6.71573 170.198 0 163.483 0 155.198V15.1985Z"
-                  
                   fill-opacity="0.5"
                 />
               </g>
@@ -327,15 +319,13 @@ const Products = () => {
               {/* star rating  */}
 
               <h1 className="productstitle text-[#047DC1]  dark:text-[#214d66]  mt-[-240px] leading-6">
-  {t("jobs")}              </h1>
+                {t("jobs")}{" "}
+              </h1>
               <p
                 className="faketext group-hover:text-[#047DC1] dark:group-hover:text-[#214d66]
                                 "
               >
-
-               {t("Counselingtext")}
-
-
+                {t("Counselingtext")}
               </p>
 
               <button
@@ -349,7 +339,9 @@ const Products = () => {
             </div>
           </div>
 
-          <div data-aos="fade-down-left" data-aos-duration="900"
+          <div
+            data-aos="fade-down-left"
+            data-aos-duration="900"
             className=" group
               rounded-2xl 
               relative  duration-hight 
@@ -428,13 +420,13 @@ const Products = () => {
               {/* star rating  */}
 
               <h1 className="productstitle text-[#008A86] dark:text-[#123d3c] mt-[-240px]">
-               {t("Counseling")}
+                {t("Counseling")}
               </h1>
               <p
                 className="faketext group-hover:text-[#008A86] dark:group-hover:text-[#123d3c]
                                 "
               >
-               {t("Counselingtext")}
+                {t("Counselingtext")}
               </p>
 
               <button
@@ -446,7 +438,6 @@ const Products = () => {
               </button>
             </div>
           </div>
-          
         </div>
       </div>
     </div>

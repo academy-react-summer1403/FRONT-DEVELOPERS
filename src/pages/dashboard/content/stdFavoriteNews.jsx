@@ -1,16 +1,12 @@
 import React, { useState } from 'react'
-import { IoIosArrowDown } from 'react-icons/io'
-import { SliderLeft, SliderRight } from '../../../utility/animation'
+import { SliderLeft } from '../../../utility/animation'
 import Search from "../../../assets/landing/Search.svg";
 import { motion } from 'framer-motion'
-import { BiMenuAltRight } from 'react-icons/bi'
 import FavoriteHeaderNews from '../../../components/dashboard/favorite/FavoriteNewsHeader'
 import FavoriteMapNew from '../../../components/dashboard/favorite/FavoriteNewsMap'
 
 const StdFavoriteNews = () => {
 
-  const categories = ["جدید ترین", "محبوب ترین" , "بدون ترتیب"];
-  const [category, setCategory] = useState("بدون ترتیب")
 
   const [search, setSearch] = useState('')
 
@@ -18,48 +14,7 @@ const StdFavoriteNews = () => {
   return (
     <div className='px-1 py-2 min-w-[400px]'>
        {/* search & fillter:  */}
-       <div className='border-b grid grid-cols-4 justify-items-end pb-8 my-4 gap-8' >
-        {/* fillter  */}           
-           {/* <motion.div
-            variants={SliderRight(1.0)}
-            initial="hidden"
-            animate="visible"
-           className="relative group max-sm:grid max-sm:justify-items-center  col-span-1 justify-self-end w-full">
-              <div
-                className="relative group flex px-5 py-4 gap-4 dark:bg-gray-700/70
-                        rounded-full shadow-sm shadow-gray-300 outline-none indent-0 dark:text-white
-                        text-darkgreen  hover:bg-gray-50 cursor-pointer text-md"
-              >
-                <IoIosArrowDown
-                  className="relative mt-1 h-5 w-5 flex-none text-darkgreen dark:text-green 
-                                     rotate-180 group-hover:rotate-0 duration-300"
-                />
-                {category}
-                <BiMenuAltRight className="absolute right-4 w-7 h-7 mt-1 text-darkgreen  dark:text-green  " />
-              </div>
-              <div
-                className="absolute z-[9999] hidden  group-hover:block  max-sm:top-10
-                            w-[200px] rounded-md bg-white shadow-md dark:bg-gray-900 p-2 dark:text-white"
-              >
-                <ul className="space-y-2">
-                  {categories.map((item, index) => (
-                    <li key={index} className="group" onClick={()=>setCategory(item)}>
-                      <div
-                       
-                        className="inline-block px-4 font-semibold text-gray-500
-                                        hover:text-black dark:hover:text-white duration-200 p-2
-                                         w-full hover:bg-teal-100 rounded-md text-right
-                                        group-data-[selected]:font-semibold cursor-pointer
-                                        "
-                      >
-                        {item}
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </motion.div> */}
-        
+       <div className='border-b grid grid-cols-4 justify-items-end pb-8 my-4 gap-8' >        
           {/* search  */}
         <div className='col-span-3 grid justify-items-end w-full'>
          

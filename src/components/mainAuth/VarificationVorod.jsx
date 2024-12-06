@@ -8,12 +8,12 @@ import more from "../../assets/landing/more course 2.png";
 
 import { motion } from "framer-motion";
 import * as yup from "yup";
-import { NavLink, useNavigate, useParams } from "react-router-dom";
-import OTPInput from "react-otp-input";
-import { useDispatch } from "react-redux";
+import { NavLink, useNavigate, useParams, } from 'react-router-dom';
+import OTPInput from 'react-otp-input';
+import { useDispatch } from 'react-redux';
+import { handleToken } from '../../core/redux/slices/QueryState/TokenSlice';
+import { usetowStepLoginApi } from '../../core/services/mutation/Authmutation';
 
-import { handleToken } from "../../core/redux/slices/QueryState/TokenSlice";
-import { usetowStepLoginApi } from "../../core/services/mutation/Authmutation";
 
 const VarificationVorod = () => {
   const style = {
