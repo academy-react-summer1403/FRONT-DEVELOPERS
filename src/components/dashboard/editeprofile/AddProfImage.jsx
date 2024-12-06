@@ -110,7 +110,7 @@ function AddProfImage({allimages , currentImage}) {
 
             {/* map image  */}
             <div className='flex flex-row gap-3 justify-center text-white' >
-                {allimages.map((data , index)=>(
+                {allimages?.map((data , index)=>(
                     <div key={index} className='relative group'>
                         <img onClick={()=>handleChoose(data.id)} src={data.puctureAddress} className='w-[100px] h-[100px] rounded-md' />
                         <div onClick={()=>handleDeleteImage(data.id)} className='cursor-pointer w-6 h-6 absolute hidden group-hover:block rounded-full bg-white text-red-500 p-1 -top-2 -left-2'><HiX /></div>

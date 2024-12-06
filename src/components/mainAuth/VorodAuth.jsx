@@ -55,19 +55,15 @@ const VorodAuth = () => {
     toast.success("ورود با موفقیت انجام شد" , {
       theme:"colored",
       className:"custom-toast"
+   
     })
-    // navigate("/")
     
 
-      toast.success("ورود با موفقیت انجام شد" , {
-      theme:"colored",
-      className:"custom-toast"
-      })
-    
-    navigate("/auth/suggestion")
     window.location.reload();
-  }else if(token == ""){
-    
+    navigate("/auth/suggestion")
+
+  
+
   }
   else if(token == ""){
     toast.error("اطلاعات ورودی نادرست است" , {

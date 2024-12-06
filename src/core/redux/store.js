@@ -8,6 +8,9 @@ import lessRangeSlice from "./slices/QueryState/LessRangeSlice"
 import TranslateSlice from "./slices/SpeechSlices/TranslateSlice";
 import ThemeSlice from "./slices/SpeechSlices/Theme"
 import SwetchSlice from "./slices/swetchLogin"
+import selectedOptionReducer  from "./slices/FeacherFavorite/fav1"
+
+
 
 
 
@@ -21,7 +24,12 @@ export const store = configureStore({
     lessRangeSlice : lessRangeSlice,
     TranslateSlice:TranslateSlice,
     ThemeSlice:ThemeSlice,
-    SwetchSlice :SwetchSlice
+    SwetchSlice :SwetchSlice,
+    selectedOption: selectedOptionReducer,
+    selectedOption1: selectedOptionReducer,
+    selectedOption2: selectedOptionReducer,
+
+
   },
 
   

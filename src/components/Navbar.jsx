@@ -37,7 +37,7 @@ const Navbar = () => {
   {
       id:3,
       title:`${t('teacher')}`,
-      link:"/teacher",
+      link:"/oursuggestion",
   },
   {
       id:4,

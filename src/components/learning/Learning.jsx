@@ -39,13 +39,13 @@ const SamplePrevArrow =(props) => {
 }
 
 
-const Learning = () => {
+const Learning = ({h,getCourseCard}) => {
 
   const { t } = useTranslation();
   
 
 
-  const getCourseCard = useCourseLanding()
+ 
  
     const settings = {
       
@@ -103,7 +103,7 @@ const Learning = () => {
       <img src={BackLearn} alt="2" className='absolute w-full  scale-90 h-[70%] right-[0px] bottom-0 opacity-[30%]'/>
     
 
-        <h1 className=' mt-40 head1 '> {t("learning")}
+        <h1 className=' mt-40 head1 '> {h}
           <div className='head2'></div>
         </h1>
          <h3 className=' head3'>{t("learning1")}</h3>

@@ -1,46 +1,48 @@
 
 
 import React, { useEffect, useState } from 'react'
-import  light from "../../assets/darkmode/icons8-moon-80(1).png"
-import first from "../../assets/darkmode/first.svg"
-import second from "../../assets/darkmode/second.svg"
-import third from "../../assets/darkmode/third.svg"
+import  light from "../../../assets/darkmode/icons8-moon-80(1).png"
+import first from "../../../assets/darkmode/first.svg"
+import second from "../../../assets/darkmode/second.svg"
+import third from "../../../assets/darkmode/third.svg"
 
-import { initializeTheme, setTheme } from '../../core/redux/slices/SpeechSlices/Theme'
+import { initializeTheme, setTheme } from '../../../core/redux/slices/SpeechSlices/Theme'
 
 
 import { motion } from "framer-motion";
-import AuthB1Img from "../../assets/landing/authback1.png";
-import Squer from "../../assets/landing/one.svg";
-import Back from "../../assets/landing/authBack.png";
-import Background from "../../assets/landing/backgroundV.png";
-import more from "../../assets/landing/moreCourse.png";
+import AuthB1Img from "../../../assets/landing/authback1.png";
+import Squer from "../../../assets/landing/one.svg";
+import Back from "../../../assets/landing/authBack.png";
+import Background from "../../../assets/landing/backgroundV.png";
+import more from "../../../assets/landing/moreCourse.png";
 import { GrLanguage } from "react-icons/gr";
-import { useDispatch } from 'react-redux'
-import { TranslateSlice } from '../../core/redux/slices/SpeechSlices/TranslateSlice'
+import { useDispatch, useSelector } from 'react-redux'
+import { TranslateSlice } from '../../../core/redux/slices/SpeechSlices/TranslateSlice'
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next'
+import { setSelectedOption } from '../../../core/redux/slices/FeacherFavorite/fav1'
 
 
 
 
-const QA2 = () => {
+const Qfav1 = () => {
 
     const dispatch = useDispatch();
     const { t,i18n  } = useTranslation();
-    const [l, setL] = useState(localStorage.getItem('language1') || "2");
-    const [l1, setL1] = useState(localStorage.getItem('language') || "fa");
+    const [fav1,setFav1]=useState("")
+   
+   
   
-  
-    useEffect(() => {
-      localStorage.setItem('language1',l );
-      localStorage.setItem('language',l1 );
-    }, [l1,l]);
-  
-    const handleLanguageChange = (languageId, action) => {
-      dispatch(action());
-      setL(languageId);
+    const selectedOption = useSelector(state => state.selectedOption.selectedOption);
+  localStorage.setItem('selectedOption',selectedOption)
+    const handleOptionChange = (event) => {
+      dispatch(setSelectedOption(event.target.value));
+      
     };
+
+    console.log(selectedOption)
+
+  
   return (
     <div className="container relative">
     <img
@@ -94,51 +96,70 @@ const QA2 = () => {
               {/* text section  */}
 
               <h1 className={`w-[200px] h-[50px] text-green text-xl mx-auto text-center absolute left-[50px] -top-[70px] font-semibold `}>
-              {t('lang')}
+              کدام حوزه  توسعه وب را بیشتر می پسندید؟
               </h1>
 
               {/* form  */}
 
               
-                <div className='relative flex flex-col gap-3'>
+                <div className='relative pr-6 flex  items-end flex-col gap-2'>
+
                 
-                  <button
-          className={`cursor-pointer w-full  text-right    block px-2   hover:border-b-pink-300 ${l === "2" ? "text-green/50  " : ""}`}
-          onClick={() => (handleLanguageChange("2", TranslateSlice.actions.toggleLanguage2),setL1("fa"))}
-        >
-          فارسی
-        </button>   
-        
-                   
-                <button
-          className={`cursor-pointer w-full  text-right  block px-2    ${l === "1" ?  "text-green/50  " : " "}`}
-          onClick={() =>( handleLanguageChange("1", TranslateSlice.actions.toggleLanguage1),setL1("en"))}
-        >
-          English
-      
-        </button>
+             <div>  <label className='  mt-3 text-[14px]  font-medium  flex flex-row-reverse gap-2'>
+        <input
+          type="radio"
+          name="option"
+          value="فرانت"
+          checked={selectedOption === "فرانت"}
+          onChange={handleOptionChange}
+        />
+          فرانت اند
+        </label> <hr className=' mt-2 w-20' /></div> 
+
        
-        <button
-          className={`cursor-pointer w-full  text-right  block px-2    ${l === "3" ? "text-green/50  " : " "}`}
-          onClick={() => (handleLanguageChange("3", TranslateSlice.actions.toggleLanguage3,setL1("es")))}
-        >
-          español
-        
-        </button>
-        <button
-          className={`cursor-pointer w-full  text-right  block px-2    ${l === "4" ?  "text-green/50 " : " "}`}
-          onClick={() => (handleLanguageChange("4", TranslateSlice.actions.toggleLanguage4),setL1("tr"))}
-        >
-          Türkçe
-       
-        </button>
+        <div>  <label className='  flex text-[14px]  font-medium flex-row-reverse gap-2'>
+        <input
+          type="radio"
+          name="option"
+          value="بک"
+          checked={selectedOption === "بک"}
+          onChange={handleOptionChange}
+        />
+        بک اند
+      </label><hr className=' mt-2 w-20' /></div> 
       
-                   
-                   
-                  
+     
+      <div>  <label className='  text-[14px]  font-medium flex flex-row-reverse gap-2'>
+        <input
+          type="radio"
+          name="option"
+          value="فول"
+          checked={selectedOption === "فول"}
+          onChange={handleOptionChange}
+        />
+         فول استک
+       
+      </label>  <hr className=' mt-2 w-20' />
+      </div> 
+      <div>  <label className='  text-[14px]  font-medium flex flex-row-reverse gap-2'>
+        <input
+          type="radio"
+          name="option"
+          value=""
+          checked={selectedOption === ""}
+          onChange={handleOptionChange}
+        />
+        هیچکدام
+       
+      </label>  <hr className=' mt-2 w-20' />
+      </div> 
+     
+
+
+      
                     
               
-                  <NavLink to={"/auth/s2"}>
+                  <NavLink to={"/auth/fav2"}>
 
                 
              
@@ -151,18 +172,7 @@ const QA2 = () => {
                   </button>
             </NavLink>
 
-            <NavLink to={"/"}>
-
-                
-             
-<button 
-
-  type="submit"
-  className={`w-[90px] h-[30px] rounded-2xl 7 absolute top-[170px]  text-green text-[10px] font-semibold left-[-10px]`}
->
-    {t("cancel")}
-</button>
-</NavLink>
+    
 
                 
                 </div>
@@ -181,7 +191,7 @@ const QA2 = () => {
             {/* number section  */}
             <motion.div className="absolute  top-[65px] -left-[40px]">
               <p className="absolute text-red-500 top-[12px] left-[23px]">
-               4
+               2
               </p>
               <img src={Squer} alt="" />
             </motion.div>
@@ -195,6 +205,6 @@ const QA2 = () => {
   )
 }
 
-export default QA2
+export default Qfav1
 
 
