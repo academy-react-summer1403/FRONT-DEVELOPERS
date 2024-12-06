@@ -23,9 +23,9 @@ const Lg = () => {
   };
 
   return (
-    <div className='group '>
-      <GrLanguage className='group mt-9 text-gray-400 dark:text-gray-300' />
-      <div className='hidden group-hover:block absolute bg-white rounded-lg
+    <div className='group relative'>
+      <GrLanguage className='group mt-9 text-gray-400 dark:text-gray-300  cursor-pointer' />
+      <div className='hidden group-hover:block absolute bg-white rounded-lg -left-8
        shadow-md text-sm grid p-4 justify-items-center font-normal'
       >
         <button

@@ -8,8 +8,10 @@ import more from "../../assets/landing/more course 2.png";
 
 import * as yup from "yup";
 
-import { NavLink, } from 'react-router-dom';
+import { NavLink, useNavigate, useParams, } from 'react-router-dom';
 import OTPInput from 'react-otp-input';
+// import { usetowStepLoginApi } from '../../core/services/mutation/Authmutation';
+import { towStepLoginApi } from '../../core/services/authApi';
 // import {  postCode } from '../../core/services/authApi';
 
 
@@ -30,7 +32,20 @@ const VarificationVorod = () => {
     border: "1px solid #ddd",
     color:"black"
   };
+  // const navigate=useNavigate()
+  const {phoneNumber} = useParams()
+  const [verifyCode, setVerifyCode] = useState("")
 
+  // const towStep = usetowStepLoginApi()
+  const onSubmit = (e)=>{
+    e.preventDefault();
+    const params={
+      VrifyCode :verifyCode,
+    }
+    console.log(params)
+    towStepLoginApi(params)
+
+  }
 
   const validation = yup.object().shape({
     title: yup.string().required("پر کردن این فیلد اجباریست"),
@@ -105,49 +120,49 @@ const VarificationVorod = () => {
               </h1>
 
               <p className=" w-[200px] h-[20px] text-gray-500 text-[9px] mx-auto text-center absolute left-[50px] -top-[70px] font-sans">
-              کد تایید به شماره ی {`09926695494`} ارسال شده است ، در صورت مغایرت روی <h1 className="text-primary">ویرایش</h1> کلیک کنید
+              کد تایید به شماره ی {phoneNumber} ارسال شده است ، در صورت مغایرت روی <h1 className="text-primary">ویرایش</h1> کلیک کنید
               </p>
 
               {/* form  */}
 
-              <form
+              <form 
                 // initialValues={{ title: "", desc: "" }}
                 onSubmit={(values) => onSubmit(values)}
                 validationSchema={validation}
               >
-                <div className='-mt-[10px]'>
+                <div className='-mt-[10px] dark:text-darkgreen'>
 
-                
-                <OTPInput
+  
+
+                  <OTPInput
                    
                     
-                  //  value={verifyCode.toString("")}
-                  //  onChange={(e)=>setVerifyCode(e.toString(""))}
-                   numInputs={5}
+                    value={verifyCode.toString("")}
+                    onChange={(e)=>setVerifyCode(e.toString(""))}
+                    numInputs={5}
+                    
+                    renderInput={(inputProps , index) => <input {...inputProps} key={index} />}
+                    
+                   inputStyle={{
+                    width:"3rem",
+                    height:"3rem",
+                    border:"1px solid #ccc",
+                    margin:"10px 0.35rem",
+                    fontSize:"1.5rem",
+                    borderRadius:"4px",
+                    
+                   }}
+                    
                    
-                   renderInput={(inputProps , index) => <input {...inputProps} key={index} />}
-                   
-                  inputStyle={{
-                   width:"3rem",
-                   height:"3rem",
-                   border:"1px solid #ccc",
-                   margin:"10px 0.35rem",
-                   fontSize:"1.5rem",
-                   borderRadius:"4px",
-                   
-                  }}
-                   
-                  
-                 />
+                  />
                  
-               
-                  <button
+                  <button 
                     type="submit"
                     className="w-[90px] h-[30px] rounded-2xl bg-orange absolute top-[100px] right-[105px] text-white text-[10px] font-semibold"
                   >
-                    ایجاد حساب کاربری
+                    ورود
                   </button>
-          
+               
                   <button
                     type="submit"
                     className="w-[90px] h-[30px] rounded-2xl  absolute top-[130px] right-[105px] text-green text-[10px] font-semibold underline underline-offset-[5px]"

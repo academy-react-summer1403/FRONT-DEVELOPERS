@@ -81,7 +81,7 @@ const EditeProfileForm = () => {
 
   const [open, setOpen] = useState(false)
   return (
-    <div className="py-10 px-8 max-md:px-1 mt-[5px] font-Yekan ">
+    <div className="py-10 px-8 max-md:px-1 mt-[5px]  ">
       <div className="relative gap-28 grid grid-cols-2 mb-12">
         <div className="border border-gray-100 grid-col-1 w-[85%]"></div>
         <h3 className="absolute bottom-[-8px] left-[38%] text-lg text-gray-400 max-lg:left-[30%] max-md:left-[32%] max-md:text-[16px]">
@@ -113,8 +113,9 @@ const EditeProfileForm = () => {
         {({ values, handleChange, setFieldValue }) => (
           <Form>
             <div>
+              {/* top : */}
               <div className="flex grid-cols-3 max-xl:flex max-xl:flex-col-reverse  border-b pb-8 px-2 ">
-
+                {/* aboutme & profile Image */}
                 <div className="grid-col-1 w-[100%]">
                   <AddProfImage allimages={userProfile.data?.userImage} currentImage={userProfile.data?.currentPictureAddress}/>
                   <div className="w-full">
@@ -134,7 +135,8 @@ const EditeProfileForm = () => {
                     </label>
                   </div>
                 </div>
-
+                
+                {/* right list :  */}
                 <ul className="grid-col-2 w-[100%] pl-4 justify-self-center max-xl:px-32 max-lg:px-20 max-md:px-10">
                   <li className="flex flex-row-reverse max-sm:flex-col gap-4">
                     <label className="relative text-right text-sm text-gray-400 w-full">
@@ -180,7 +182,7 @@ const EditeProfileForm = () => {
                         style={{
                           boxShadow: "0px 1px 3px 0px #00000033 inset",
                         }}
-                        className="px-4 w-full pt-1 font-Yekan  rounded-md bg-gray-50 dark:bg-white leading-8 text-darkgreen placeholder-sm text-right placeholder-darkgreen/30 font-medium focus:outline outline-primary outline-[1.5px]"
+                        className="px-4 w-full pt-1 rounded-md bg-gray-50 dark:bg-white leading-8 text-darkgreen placeholder-sm text-right placeholder-darkgreen/30 font-medium focus:outline outline-primary outline-[1.5px]"
                       />
                       <ErrorMessage name="NationalCode"  component="div"  className="text-red-500 text-xs mt-1" />
 
@@ -233,7 +235,7 @@ const EditeProfileForm = () => {
                           boxShadow: "0px 1px 3px 0px #00000033 inset",
                         }}
                         disabled
-                        className="px-4 pt-1 w-full font-Yekan rounded-md bg-gray-50 dark:bg-white leading-8 text-darkgreen placeholder-sm text-right placeholder-darkgreen/30 font-medium focus:outline outline-primary outline-[1.5px]"
+                        className="px-4 pt-1 w-full rounded-md bg-gray-50 dark:bg-white leading-8 text-darkgreen placeholder-sm text-right placeholder-darkgreen/30 font-medium focus:outline outline-primary outline-[1.5px]"
                       />
 
                     </label>
@@ -291,7 +293,7 @@ const EditeProfileForm = () => {
                   </li>
                 </ul>
               </div>
-
+                 {/* Map & submit */}
               <div className="">
                 <div className=" grid grid-cols-2 max-sm:grid-cols-1">
                   {/* OpenModal  */}

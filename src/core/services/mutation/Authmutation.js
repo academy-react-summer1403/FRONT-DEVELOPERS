@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query"
-import { loginApi, postForgetPassword, postNewForgetPassword } from "../authApi"
+import { loginApi, postForgetPassword, postNewForgetPassword, towStepLoginApi } from "../authApi"
 import { toast } from "react-toastify"
 
 
@@ -71,3 +71,30 @@ export const  usePostNewForgetPassword=()=>{
         },
     })
 }
+
+
+// export const  usetowStepLoginApi=()=>{
+//     const queryClient=useQueryClient()
+//     return useMutation({
+//         mutationFn:(VrifyCode)=>towStepLoginApi(VrifyCode),
+
+//         onSuccess:()=>{
+//             toast.success("! اطلاعات با موفقیت ثبت شد.خوش آمدید " , {
+//                 theme:"colored",
+//                      className:"custom-toast"
+//                 })
+//         },
+//         onSettled:async(_,error) =>{
+//             if (error) {
+              
+//                 toast.error("خطایی رخ داده است", { theme: "colored",
+//                     className:"custom-toast" });
+                
+//             }
+//             else{
+//                await queryClient.invalidateQueries({queryKey:["towStepLoginApi"]})
+
+//             }
+//         },
+//     })
+// }

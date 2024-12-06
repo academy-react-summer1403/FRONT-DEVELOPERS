@@ -8,7 +8,7 @@ import more from "../../assets/landing/moreCourse.png";
 import * as yup from "yup";
 import { NavLink, useNavigate } from 'react-router-dom';
 import http from "../../core/services/interceptor";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { handleToken } from '../../core/redux/slices/QueryState/TokenSlice';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -23,6 +23,9 @@ import { postQuery } from '../../core/services/mutation/Authmutation';
 
 
 const VorodAuth = () => {
+
+  const Switch = useSelector((state)=>state.SwetchSlice)
+  console.log(Switch)
   
   const [showHidePassword, setShowHidePassword] = useState(false);
 
@@ -36,29 +39,35 @@ const VorodAuth = () => {
     loginQuery.mutate(user)
     console.log(handleCreateSubmit)
   }
-
   const token = loginQuery?.data?.token
   console.log(token)
   
 
   localStorage.setItem("token" , token); 
   dispatch(handleToken(token))
-
+  
+  if(loginQuery?.data?.message === "ارسال پیامک انجام شد."){
+    const phoneNumber = loginQuery?.data?.phoneNumber  
+    navigate(`/auth/v2/:${phoneNumber}`)
+  }
 
   if(token){
     toast.success("ورود با موفقیت انجام شد" , {
       theme:"colored",
       className:"custom-toast"
     })
-    navigate("/")
-    window.location.reload();
+    // navigate("/")
+    
 
       toast.success("ورود با موفقیت انجام شد" , {
-theme:"colored",
- className:"custom-toast"
-})
-navigate("/auth/suggestion")
+      theme:"colored",
+      className:"custom-toast"
+      })
+    
+    navigate("/auth/suggestion")
+    window.location.reload();
   }else if(token == ""){
+    
   }
   else if(token == ""){
     toast.error("اطلاعات ورودی نادرست است" , {

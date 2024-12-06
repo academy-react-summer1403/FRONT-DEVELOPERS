@@ -18,8 +18,6 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const VarificationAuth = () => {
 
-const {phoneNumber} = useParams()
-console.log(phoneNumber)
 
  const [verifyCode , setVerifyCode] = useState("");
 
@@ -27,7 +25,7 @@ console.log(phoneNumber)
 
   const navigate = useNavigate()
 
-console.log(verifyCode)
+  console.log(verifyCode)
 
   const onSubmit = (e)=>{
     e.preventDefault();
@@ -38,7 +36,7 @@ console.log(verifyCode)
     };
     console.log(code)
 
-  const res = postCode(code)
+    const res = postCode(code)
     console.log(res)
 
 

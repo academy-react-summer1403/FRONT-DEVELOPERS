@@ -7,6 +7,12 @@ export const loginApi  = async (user) => {
   return data;
 };
 
+export const towStepLoginApi  = async (params) => {
+  const data = await http.post(`/Sign/LoginTwoStep` , null , {params:params})   
+  console.log(data);
+  return data;
+};
+
 
   export const postNumber  = async (number) => {
     const data = await http.post("/Sign/SendVerifyMessage" , number)

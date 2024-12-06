@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { useGetConfigValue } from '../../../core/services/query/queries'
 import { motion } from "framer-motion";
 import AuthB1Img from "../../../assets/landing/authback1.png";
@@ -20,6 +20,7 @@ const ForgetPassTow = () => {
    const {id} =useParams()
    console.log(id)
 
+   const navigate = useNavigate()
    const params = { ConfigValue : id};
    const getConfigValue = useGetConfigValue(params)
 
@@ -33,6 +34,7 @@ const ForgetPassTow = () => {
     }
 
     PostNewForgetPassword.mutate(NewParams)
+    navigate("/auth/v1")
    }
 
 

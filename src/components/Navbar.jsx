@@ -12,6 +12,7 @@ import { HiXCircle } from 'react-icons/hi2';
 import { useSelector } from 'react-redux';
 import { FaRobot } from 'react-icons/fa6';
 import ChatApp from "./chatGPT/ChatApp"
+import SwitchAccounts from './SwitchAccounts';
 
 
 
@@ -88,21 +89,8 @@ const handleLogout = (token)=>{
     
                 {/* ACCOUNT section  */}
                 <div className=' z-[99999] text-2xl flex items-center gap-2 font-bold'>
-                    <NavLink to={user.token!==null ?  "/Dashboard" : "/auth"}  className='group relative w-36 max-md:w-[150px]  max-sm:w-[150px] z-[9999] 
-                            max-lg:w-[150px] max-xl:w-[200px] h-12 bg-primary
-                            mt-6 rounded-3xl hover:shadow-lg  dark:bg-orange 
-                            dark:hover:shadow-slate-700 dark:hover:shadow-md
-                            transition-shadow'>
-                        <div className=' flex justify-center items-center gap-1 h-12 w-full' >  
-                            <img src={userImageProfile ? userImageProfile.data?.currentPictureAddress : ""} alt="" className={`w-[40px]  ${user.token == null ? "hidden" : "block border border-white"} h-[40px] rounded-full  top-[4px] left-2 `}/>
-                            
-                            <h1 className={`text-sm  font-semibold text-white mt-5 pr-1   h-[40px] text-center ${user.token == null || user.token == undefined  ? "block" : "hidden"}`} > {t("person")} </h1> 
-                            <h1 className={`text-sm  font-semibold text-white  truncate  mt-5  w-[60%] h-[40px] ${user.token == null || user.token == undefined  ? "hidden" : "block"}`}>{t(userImageProfile.data?.fName)} {t(userImageProfile.data?.lName)}</h1>
-
-                        </div> 
-                        
-                
-                    </NavLink>
+                   
+                    <SwitchAccounts user={user} ImageProfile={userImageProfile} t={t}/>
                     {/* shop&favorit  */}
                     <div className='flex justify-center flex-row gap-4 pr-9 mx-4 max-lg:gap-1 max-lg:ml-0 '>  
                         {/* log out     */}
