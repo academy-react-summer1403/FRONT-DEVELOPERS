@@ -3,9 +3,14 @@ import { SendChatUserApi } from "../../../core/services/Api3/ChatApi";
 
 const MessageParser = ({ children, actions }) => {
   const parse = (message) => {
-    const Send = SendChatUserApi(message, 7);
+    console.log(message);
+    const id = 5
 
-    actions.afterNameMessage();
+   const Send = SendChatUserApi(message , id)
+   console.log(Send)
+
+
+    actions.afterNameMessage()
   };
 
   return (

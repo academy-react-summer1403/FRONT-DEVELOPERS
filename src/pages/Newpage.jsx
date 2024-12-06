@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { usefeature1, usefeature2 } from "../core/services/query/queries";
+import {
+  usefeature,
+  usefeature1,
+  usefeature2,
+} from "../core/services/query/queries";
 import { motion } from "framer-motion";
 import BackImg from "../assets/courses/background.svg";
-import { useDispatch, useSelector } from "react-redux";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import Sliderfav from "./Feacherdetail/Slider";
 import Slider2 from "./Feacherdetail/Slider2";
@@ -23,7 +26,8 @@ const NewPage = () => {
 
     Query: selectedfavoriteOption,
   };
-  const CoursesDataFavorite = usefeature1(params);
+  const CoursesDataFavorite = usefeature(params);
+  console.log(CoursesDataFavorite);
 
   //News
 
@@ -74,7 +78,10 @@ const NewPage = () => {
               autoplay
               className=" mx-auto w-[260px] "
             />
-            <h1> ! در حال یافتن بهترین ها برای شما <br /> لطفا صبور باشید </h1>
+            <h1>
+              {" "}
+              ! در حال یافتن بهترین ها برای شما <br /> لطفا صبور باشید{" "}
+            </h1>
           </div>{" "}
         </>
       ) : (
@@ -169,12 +176,56 @@ const NewPage = () => {
             </div>
 
             <NavLink to={"/auth/fav1"}>
-              <button className=" border rounded-xl text-md text-primary p-2 border-primary
+              <button
+                className=" border rounded-xl text-md text-primary p-2 border-primary
                 max-sm:flex max-sm:mb-5 max-sm:mx-auto                 
-              ">
+              "
+              >
                 ویرایش لیست علاقه مندی
               </button>
             </NavLink>
+          </div>
+
+          <div
+            className="relative  mt-20        
+            max-md:flex  max-md:mb-20 max-md:flex-col-reverse
+            max-sm:flex "
+          >
+            {/* cards fave section  */}
+
+            <div
+              className={`${
+                selectedfavoriteOption == "" ? "hidden" : " mb-16"
+              }`}
+            >
+              <Sliderfav
+                h={"... شاید بیشتر دوست داشته باشید "}
+                getCourseCard={CoursesDataFavorite.data?.courseFilterDtos}
+              />
+            </div>
+
+            {/* news */}
+
+            <div
+              className={`${
+                selectedfavoriteOption1 == "" ? "hidden" : " mb-16"
+              }`}
+            >
+              <Slider2
+                h={"... مطالبی  که  شاید بیشتر دوست داشته باشید "}
+                getNewsCard={NewsData?.data?.news}
+              />
+            </div>
+
+            {/* {level} */}
+            <div
+              className={`${selectedlevelOption == "" ? "hidden" : " mb-16"}`}
+            >
+              <Sliderfav
+                h={"...  با توجه به سطح شما"}
+                getCourseCard={courseLevel.data?.courseFilterDtos}
+              />
+            </div>
           </div>
         </div>
       )}
