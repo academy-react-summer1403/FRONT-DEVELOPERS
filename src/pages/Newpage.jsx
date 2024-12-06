@@ -174,58 +174,6 @@ const NewPage = () => {
                 getCourseCard={courseLevel.data?.courseFilterDtos}
               />
             </div>
-
-            <NavLink to={"/auth/fav1"}>
-              <button
-                className=" border rounded-xl text-md text-primary p-2 border-primary
-                max-sm:flex max-sm:mb-5 max-sm:mx-auto                 
-              "
-              >
-                ویرایش لیست علاقه مندی
-              </button>
-            </NavLink>
-          </div>
-
-          <div
-            className="relative  mt-20        
-            max-md:flex  max-md:mb-20 max-md:flex-col-reverse
-            max-sm:flex "
-          >
-            {/* cards fave section  */}
-
-            <div
-              className={`${
-                selectedfavoriteOption == "" ? "hidden" : " mb-16"
-              }`}
-            >
-              <Sliderfav
-                h={"... شاید بیشتر دوست داشته باشید "}
-                getCourseCard={CoursesDataFavorite.data?.courseFilterDtos}
-              />
-            </div>
-
-            {/* news */}
-
-            <div
-              className={`${
-                selectedfavoriteOption1 == "" ? "hidden" : " mb-16"
-              }`}
-            >
-              <Slider2
-                h={"... مطالبی  که  شاید بیشتر دوست داشته باشید "}
-                getNewsCard={NewsData?.data?.news}
-              />
-            </div>
-
-            {/* {level} */}
-            <div
-              className={`${selectedlevelOption == "" ? "hidden" : " mb-16"}`}
-            >
-              <Sliderfav
-                h={"...  با توجه به سطح شما"}
-                getCourseCard={courseLevel.data?.courseFilterDtos}
-              />
-            </div>
           </div>
         </div>
       )}

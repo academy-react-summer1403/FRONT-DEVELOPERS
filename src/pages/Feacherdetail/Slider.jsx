@@ -90,12 +90,6 @@ const Sliderfav = ({ getCourseCard, h }) => {
     ],
   };
 
-  const [loading, setLoading] = useState(true);
-  useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 1000);
-  }, []);
 
   return (
     <div className=" relative max-xl:px-2  ">
@@ -105,15 +99,18 @@ const Sliderfav = ({ getCourseCard, h }) => {
         <div className="head2"></div>
       </h1>
 
-      <div className=" m-auto relative bg-primary/5 rounded-[25px] shadow-md   ">
+      <div className=" m-auto relative bg-primary/5 rounded-[25px] shadow-md ">
         <Slider {...settings} className="mx-4 ">
-          {getCourseCard?.map((item) => {
+          {getCourseCard?.map((item ,i) => {
             return (
-              <>
-                <CoursGridCard {...item} />
-              </>
+              <div key={i}>
+                <CoursGridCard {...item} />                
+             </div>
             );
           })}
+          <div></div>
+          <div></div>
+          <div></div>
         </Slider>
       </div>
     </div>
