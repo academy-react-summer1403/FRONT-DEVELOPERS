@@ -4,8 +4,9 @@ import { SendChatUserApi } from '../../../core/services/Api3/ChatApi';
 const MessageParser = ({ children, actions }) => {
   const parse = (message) => {
     console.log(message);
+    const id = 5
 
-   const Send = SendChatUserApi(message , 7)
+   const Send = SendChatUserApi(message , id)
    console.log(Send)
 
 
