@@ -14,6 +14,7 @@ import { useDispatch } from 'react-redux';
 // import { usetowStepLoginApi } from '../../core/services/mutation/Authmutation';
 import { towStepLoginApi } from '../../core/services/authApi';
 import { handleToken } from '../../core/redux/slices/QueryState/TokenSlice';
+import { usetowStepLoginApi } from '../../core/services/mutation/Authmutation';
 
 
 const VarificationVorod = () => {
@@ -37,17 +38,10 @@ const VarificationVorod = () => {
   const navigate =useNavigate()
   const dispatch = useDispatch()
   const [verifyCode, setVerifyCode] = useState("")
-
-  const towstepLogin =towStepLoginApi()
-
+  const towStepLoginApi =usetowStepLoginApi()
 
   const onSubmit = (e)=>{
     e.preventDefault();
-
-    // const params ={
-    //   VrifyCode : verifyCode
-
-    // }
 
     const dataa ={
       "phoneOrGmail": phoneNumber,
@@ -55,20 +49,20 @@ const VarificationVorod = () => {
       
     }
     console.log(dataa)
-    towStepLoginApi(dataa ,verifyCode).then(()=>{
-      // navigate("/")
-
-    })
+    towStepLoginApi.mutate({dataa ,verifyCode})
 
   }
-
+  const token = towStepLoginApi?.data?.token
+  console.log(token)
   
-  
+
+  localStorage.setItem("token" , token); 
+  dispatch(handleToken(token))
 
 
-  
-// localStorage.setItem("token" , token); 
-// dispatch(handleToken(token))
+  if(token){
+   navigate("/")
+  }
 
 
   const validation = yup.object().shape({

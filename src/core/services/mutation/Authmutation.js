@@ -73,28 +73,28 @@ export const  usePostNewForgetPassword=()=>{
 }
 
 
-// export const  usetowStepLoginApi=()=>{
-//     const queryClient=useQueryClient()
-//     return useMutation({
-//         mutationFn:({dataa ,verifyCode})=>towStepLoginApi({dataa ,verifyCode}),
+export const  usetowStepLoginApi=()=>{
+    const queryClient=useQueryClient()
+    return useMutation({
+        mutationFn:({dataa ,verifyCode})=>towStepLoginApi({dataa ,verifyCode}),
 
-//         onSuccess:()=>{
-//             toast.success("! اطلاعات با موفقیت ثبت شد.خوش آمدید " , {
-//                 theme:"colored",
-//                      className:"custom-toast"
-//                 })
-//         },
-//         onSettled:async(_,error) =>{
-//             if (error) {
+        onSuccess:()=>{
+            toast.success("! اطلاعات با موفقیت ثبت شد.خوش آمدید " , {
+                theme:"colored",
+                     className:"custom-toast"
+                })
+        },
+        onSettled:async(_,error) =>{
+            if (error) {
               
-//                 toast.error("خطایی رخ داده است", { theme: "colored",
-//                     className:"custom-toast" });
+                toast.error("خطایی رخ داده است", { theme: "colored",
+                    className:"custom-toast" });
                 
-//             }
-//             else{
-//                await queryClient.invalidateQueries({queryKey:["towStepLoginApi"]})
+            }
+            else{
+               await queryClient.invalidateQueries({queryKey:["towStepLoginApi"]})
 
-//             }
-//         },
-//     })
-// }
+            }
+        },
+    })
+}

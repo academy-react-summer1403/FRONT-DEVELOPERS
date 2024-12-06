@@ -8,7 +8,7 @@ export const loginApi  = async (user) => {
   return data;
 };
 
-export const towStepLoginApi  = async (dataa ,verifyCode) => {
+export const towStepLoginApi  = async ({dataa ,verifyCode}) => {
   const data = await instance.post(`/Sign/LoginTwoStep?VrifyCode=${verifyCode}` , dataa )   
   console.log(data);
   return data;
