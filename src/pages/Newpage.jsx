@@ -142,11 +142,7 @@ const NewPage = () => {
           />
         </div>
 
-        <NavLink to={"/auth/fav1"}>
-          <button className=" border rounded-xl text-md text-primary p-2 border-primary">
-            ویرایش لیست علاقه مندی
-          </button>
-        </NavLink>
+       
       </div>
     </div>
   );
