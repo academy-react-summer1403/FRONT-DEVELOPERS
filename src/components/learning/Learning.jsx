@@ -10,6 +10,7 @@ import { NavLink } from "react-router-dom";
 
 import { useTranslation } from "react-i18next";
 import GridCardLoading from "../skeleton/GridCardLoading";
+import { useCourseLanding } from "../../core/services/query/queries";
 
 const SampleNextArrow = (props) => {
   const { className, style, onClick } = props;
@@ -53,8 +54,10 @@ const SamplePrevArrow = (props) => {
   );
 };
 
-const Learning = ({ h, getCourseCard }) => {
+const Learning = () => {
   const { t } = useTranslation();
+  
+  const getCourseCard = useCourseLanding()
 
   const settings = {
     dots: true,
@@ -113,7 +116,7 @@ const Learning = ({ h, getCourseCard }) => {
 
       <h1 className=" mt-40 head1 ">
         {" "}
-        {h}
+        دوره های آموزشی
         <div className="head2"></div>
       </h1>
       <h3 className=" head3">{t("learning1")}</h3>
