@@ -34,9 +34,9 @@ const Payment1 = () => {
   };
 
   return (
-    <div ref={componentRef}>
+    <div className="overflow-hidden h-[410px]" ref={componentRef}>
       {getMyCourseDetail.data?.map((item) => (
-        <div className="relative w-[550px] rounded-2xl mt-14 bg-[#fcfaf5cb] shadow-md h-[350px] m-auto pt-16">
+        <div className="relative w-[550px]  rounded-2xl mt-14 bg-[#fcfaf5cb] shadow-md h-[350px] m-auto pt-16">
           <div className="w-[350px] h-[150px] flex mx-auto justify-end flex-wrap">
             <div className="w-[100%] h-[100%]   bg-[#fcfaf5cb] overflow-visible  flex mx-auto justify-end flex-wrap">
               <div className=" w-[350px]  px-2 mb-4 text-right font-Yekan flex justify-between">

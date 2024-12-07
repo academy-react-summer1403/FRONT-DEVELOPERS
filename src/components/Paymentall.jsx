@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Tooltip } from "react-tooltip";
 import { addPayImage } from "../core/services/level2api";
+import { toast } from "react-toastify";
 
 const Paymentall = () => {
   const { paymentId } = useParams();
@@ -15,7 +16,9 @@ const Paymentall = () => {
 
   const onSubmit = async () => {
     if (!selectedFile) {
-      alert("لطفاً یک تصویر انتخاب کنید.");
+      toast.success("تصویر با موفقیت آپلود شد.",
+        {theme:"colored"}
+      )
       return;
     }
 
@@ -26,9 +29,14 @@ const Paymentall = () => {
     try {
       const response = await addPayImage(formData);
       navigate("/");
-      alert("تصویر با موفقیت آپلود شد.");
+      toast.success("تصویر با موفقیت آپلود شد.",
+        {theme:"colored"}
+      )
+   
     } catch (error) {
-      alert("آپلود تصویر با خطا مواجه شد.");
+      toast.error("آپلود تصویر با خطا مواجه شد.",
+        {theme:"colored"}
+      )
     }
   };
 
