@@ -333,25 +333,4 @@ const ArticleDetail = () => {
 };
 
 export default ArticleDetail;
-export const samecourses = [
-  {
-    title: "دوره تخصصی ترفند های طراحی فرانت اند",
-    image:
-      "https://s3-alpha-sig.figma.com/img/ff18/00fa/69286aff4819156512be6e0b2ffd22d9?Expires=1728259200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=m8gZMtnAmFHDZAupQ2ddctQNGS1hplRMyG1r8zBHOExGkYljmi21lsVWvgc4DlqMLTpPN2hdBOAQT-t9zb~PneJmVt5qBlQmGDa8s9j-DP1ZmCpSex8NGE40nluJ29PmkIWChB3ALr2zCB~J-PVVKAGCAcxi4Q5aPF10ngtMeWeL6A2qyoZbKgmYl6cjgHeFlSWBhVvYTlOhSt9pvWBK4a6CsGcmTX4cFlDfaWNOK0jLzpzCQel6jqqCFF5Yxny9tcuFsWPr8Hz15CLihJLJeSuHhVpxeNUdUxm88j7QCfcQ~MwOjGTad7~CjN04Es35Bvp6Ni-Up3mvfciybPHJyQ__",
-  },
-  {
-    title: "دوره تخصصی ترفند های طراحی فرانت اند",
-    image:
-      "https://s3-alpha-sig.figma.com/img/ff18/00fa/69286aff4819156512be6e0b2ffd22d9?Expires=1728259200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=m8gZMtnAmFHDZAupQ2ddctQNGS1hplRMyG1r8zBHOExGkYljmi21lsVWvgc4DlqMLTpPN2hdBOAQT-t9zb~PneJmVt5qBlQmGDa8s9j-DP1ZmCpSex8NGE40nluJ29PmkIWChB3ALr2zCB~J-PVVKAGCAcxi4Q5aPF10ngtMeWeL6A2qyoZbKgmYl6cjgHeFlSWBhVvYTlOhSt9pvWBK4a6CsGcmTX4cFlDfaWNOK0jLzpzCQel6jqqCFF5Yxny9tcuFsWPr8Hz15CLihJLJeSuHhVpxeNUdUxm88j7QCfcQ~MwOjGTad7~CjN04Es35Bvp6Ni-Up3mvfciybPHJyQ__",
-  },
-  {
-    title: "دوره تخصصی ترفند های طراحی فرانت اند",
-    image:
-      "https://s3-alpha-sig.figma.com/img/ff18/00fa/69286aff4819156512be6e0b2ffd22d9?Expires=1728259200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=m8gZMtnAmFHDZAupQ2ddctQNGS1hplRMyG1r8zBHOExGkYljmi21lsVWvgc4DlqMLTpPN2hdBOAQT-t9zb~PneJmVt5qBlQmGDa8s9j-DP1ZmCpSex8NGE40nluJ29PmkIWChB3ALr2zCB~J-PVVKAGCAcxi4Q5aPF10ngtMeWeL6A2qyoZbKgmYl6cjgHeFlSWBhVvYTlOhSt9pvWBK4a6CsGcmTX4cFlDfaWNOK0jLzpzCQel6jqqCFF5Yxny9tcuFsWPr8Hz15CLihJLJeSuHhVpxeNUdUxm88j7QCfcQ~MwOjGTad7~CjN04Es35Bvp6Ni-Up3mvfciybPHJyQ__",
-  },
-  {
-    title: "دوره تخصصی ترفند های طراحی فرانت اند",
-    image:
-      "https://s3-alpha-sig.figma.com/img/ff18/00fa/69286aff4819156512be6e0b2ffd22d9?Expires=1728259200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=m8gZMtnAmFHDZAupQ2ddctQNGS1hplRMyG1r8zBHOExGkYljmi21lsVWvgc4DlqMLTpPN2hdBOAQT-t9zb~PneJmVt5qBlQmGDa8s9j-DP1ZmCpSex8NGE40nluJ29PmkIWChB3ALr2zCB~J-PVVKAGCAcxi4Q5aPF10ngtMeWeL6A2qyoZbKgmYl6cjgHeFlSWBhVvYTlOhSt9pvWBK4a6CsGcmTX4cFlDfaWNOK0jLzpzCQel6jqqCFF5Yxny9tcuFsWPr8Hz15CLihJLJeSuHhVpxeNUdUxm88j7QCfcQ~MwOjGTad7~CjN04Es35Bvp6Ni-Up3mvfciybPHJyQ__",
-  },
-];
+

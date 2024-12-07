@@ -45,7 +45,7 @@ const NewGridCard = ({
           </div>
 
           {/* card body  */}
-          <div className="relative top-[-10px]">
+          <div className="relative top-[-10px] overflow-hidden">
             <h3 className=" text-[#444444] text-right text-[19px] line-clamp-1   max-md:text-[16px] font-Yekan font-bold mr-1 dark:text-white">
               {title}
             </h3>

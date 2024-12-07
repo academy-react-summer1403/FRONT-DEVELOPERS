@@ -66,7 +66,7 @@ const Podcasts = () => {
                                     max-lg:w-[92%] 
                                 "
           >
-            <p className="text-[11px] font-medium text-darkgreen/80 dark:text-white mb-3">
+            <p className="text-[11px] w-[80%] ml-8 max-sm:w-[60%] max-sm:ml-20  font-medium text-darkgreen/80 dark:text-white mb-3">
               {item?.title}
             </p>
             <div className="text-[10px] text-gray-400 flex flex-row px-[25%] max-lg:px-[20%] max-sm:px-[10%]  gap-5 ">

@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import AuthB1Img from "../../assets/landing/authback1.png";
 import Squer from "../../assets/landing/one.svg";
-import Back from "../../assets/landing/authBack.png";
 import Background from "../../assets/landing/backgroundV.png";
 import more from "../../assets/landing/moreCourse.png";
 import * as yup from "yup";
@@ -71,15 +70,12 @@ const VorodAuth = () => {
   });
 
   return (
-    <div className="container relative">
-      <img
-        src={Back}
-        alt=""
-        className="fixed rotate-180 left-[300px] top-[30px] w-[1000px] opacity-30"
-      />
+    <div className="container relative
+     max-sm:bg-gradient-to-br from-secondary/20 dark:from-amber-100/80 from-10% to-primary/30 dark:to-cyan-100/80 to-90%">
+     
 
       {/* hero image  */}
-      <div className="flex justify-center items-center relative">
+      <div className="flex justify-center items-center relative  ">
         <motion.div
           initial={{ opacity: 1, x: 0 }}
           animate={{ opacity: 1, x: 0 }}
@@ -89,7 +85,7 @@ const VorodAuth = () => {
           <NavLink
             to={"/auth"}
             className="absolute w-[100px] h-[50px]  text-center font-semibold text-green hover:text-orange dark:text-white 
-          leading-[50px] top-[65px] -right-[90px]"
+          leading-[50px] top-[65px] -right-[90px] max-sm:hidden"
           >
             ثبت نام
           </NavLink>
@@ -97,7 +93,7 @@ const VorodAuth = () => {
           <NavLink
             to={"/auth/v1"}
             className="absolute w-[100px] h-[50px]  text-center font-semibold text-green hover:text-orange dark:text-white 
-          leading-[50px] top-[155px] -right-[90px]"
+          leading-[50px] top-[155px] -right-[90px] max-sm:hidden"
           >
             ورود
           </NavLink>
@@ -112,11 +108,11 @@ const VorodAuth = () => {
             </NavLink>
           </div>
 
-          <div className="w-full h-full border border-[#fff0] relative">
+          <div className="w-full h-full border border-[#fff0] relative ">
             <img
               src={Background}
               alt=""
-              className="w-full h-full opacity-80 dark:opacity-50 absolute top-0 left-0  "
+              className="w-full h-full opacity-80 dark:opacity-50 absolute top-0 left-0 max-sm:hidden "
             />
             <motion.div
               initial={{ opacity: 0, x: 200 }}

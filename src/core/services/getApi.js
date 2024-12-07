@@ -48,6 +48,23 @@ export const getCourse = async (  search , params) => {
 
 
 
+
+
+export const getfeature = async (params) => {
+
+ 
+  const data = await http.get(
+    `/Home/GetCoursesWithPagination`,{
+      params:params
+    } 
+  );
+  
+  return data;
+
+  
+};
+
+
 export const getfeature1 = async (params) => {
 
  

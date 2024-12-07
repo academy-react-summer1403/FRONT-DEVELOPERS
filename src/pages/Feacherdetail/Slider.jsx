@@ -90,30 +90,27 @@ const Sliderfav = ({ getCourseCard, h }) => {
     ],
   };
 
-  const [loading, setLoading] = useState(true);
-  useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 1000);
-  }, []);
 
   return (
     <div className=" relative max-xl:px-2  ">
-      <h1 className=" pr-10 -mb-3 flex items-center justify-end  gap-2  font-bold text-[17px] text-[#1d1d1d] max-xl:text-[30px] dark:text-white">
+      <h1 className=" pr-10 -mb-3 flex items-center justify-end  gap-2  font-bold text-[17px] text-[#1d1d1d] max-xl:text-[30px] max-[450px]:text-center max-[450px]:text-[18px] dark:text-white">
         {" "}
         {h}
         <div className="head2"></div>
       </h1>
 
-      <div className=" m-auto relative bg-primary/5 rounded-[25px] shadow-md   ">
+      <div className=" m-auto relative bg-primary/5 rounded-[25px] shadow-md ">
         <Slider {...settings} className="mx-4 ">
-          {getCourseCard?.map((item) => {
+          {getCourseCard?.map((item ,i) => {
             return (
-              <>
-                <CoursGridCard {...item} />
-              </>
+              <div key={i}>
+                <CoursGridCard {...item} />                
+             </div>
             );
           })}
+          <div></div>
+          <div></div>
+          <div></div>
         </Slider>
       </div>
     </div>

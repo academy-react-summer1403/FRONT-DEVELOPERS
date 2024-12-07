@@ -53,6 +53,7 @@ const VarificationVorod = () => {
   dispatch(handleToken(token));
 
   if (token) {
+    window.location.reload();
     navigate("/auth/suggestion");
   }
 
@@ -61,12 +62,10 @@ const VarificationVorod = () => {
   });
 
   return (
-    <div className="container h-[530px] relative">
-      <img
-        src={Back}
-        alt=""
-        className="fixed rotate-180 left-[300px] -top-[40px] w-[1000px] opacity-30"
-      />
+    <div className="container h-[530px] relative
+        max-sm:bg-gradient-to-br from-secondary/20 dark:from-amber-100/80 from-10% to-primary/30 dark:to-cyan-100/80 to-90%
+    ">
+
 
       {/* hero image  */}
       <div className="flex justify-center items-center relative ">
@@ -80,14 +79,14 @@ const VarificationVorod = () => {
         >
           <h1
             className="absolute w-[100px] h-[50px]  text-center font-semibold text-green hover:text-orange dark:text-white 
-      leading-[50px] top-[65px] -right-[90px]"
+      leading-[50px] top-[65px] -right-[90px] max-sm:hidden"
           >
             ثبت نام
           </h1>
 
           <h1
             className="absolute w-[100px] h-[50px]  text-center font-semibold text-green hover:text-orange dark:text-white 
-      leading-[50px] top-[155px] -right-[90px]"
+      leading-[50px] top-[155px] -right-[90px] max-sm:hidden"
           >
             ورود
           </h1>
@@ -105,7 +104,7 @@ const VarificationVorod = () => {
             <img
               src={Background}
               alt=""
-              className="w-full h-full opacity-80 dark:opacity-50 absolute top-0 left-0  "
+              className="w-full h-full opacity-80 dark:opacity-50 absolute top-0 left-0 max-sm:hidden "
             />
             <motion.div
               initial={{ opacity: 0, x: 200 }}
