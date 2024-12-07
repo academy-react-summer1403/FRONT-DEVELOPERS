@@ -24,6 +24,7 @@ import {
 } from "../getApi";
 import { GetSecurityInfo, StudentCoursePayDetail } from "../level2api";
 import { getConfigValue } from "../authApi";
+import { getSendValue } from "../DashApi";
 
 
 export function useNewsData(params , page,rows ) {
@@ -198,5 +199,12 @@ export function useGetConfigValue(params){
   })
 }
 
+
+export function useGetSendValue(params){
+  return useQuery({
+    queryKey:["getSendValue" , params ],
+    queryFn:()=>getSendValue(params)
+  })
+}
 StudentCoursePayDetail
 

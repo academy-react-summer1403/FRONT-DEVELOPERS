@@ -29,7 +29,7 @@ const RelatedCourses = ({ title, image }) => {
               stiffness: 100,
               delay: 0.2,
             }}
-            className="text-darkgreen/80 max-xl:text-[13px] max-2xl:text-[15px] max-md:line-clamp-none max-md:-mt-[2px] max-md:text-[13px]
+            className="text-darkgreen/80 max-xl:text-[13px] max-2xl:text-[15px] max-md:line-clamp-none max-md:-mt-[2px] max-md:text-[13px] overflow-hidden
                     font-Yekan font-normal text-[17px] dark:text-orange/70  max-sm:ml-[10%] max-sm:line-clamp-2 max-lg:w-[100px]  max-md:w-[198px]  max-lg:text-[15px] 
                     max-lg:line-clamp-1 max-lg:mt-2 text-right mr-[15px] w-[198px] "
           >

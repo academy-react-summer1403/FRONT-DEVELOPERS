@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import ReactPlayer from "react-player";
+import { toast } from "react-toastify";
 
 const HeadLines = ({ isCourseUser }) => {
   const { t } = useTranslation();
@@ -195,7 +196,10 @@ const HeadLines = ({ isCourseUser }) => {
       );
 
       if (itemIndex > 0) {
-        alert("ابتدا باید در دوره شرکت کنید.");
+        toast.error("ابتدا باید در دوره شرکت کنید.", {
+          theme: "colored",
+          className: "custom-toast",
+        });
       }
     }
 
