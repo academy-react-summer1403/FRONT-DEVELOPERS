@@ -1,4 +1,4 @@
-import http from "../services/interceptor/index"
+import http from "../services/interceptor/"
 import 'react-toastify/dist/ReactToastify.css';
 import { toast } from "react-toastify";
 
