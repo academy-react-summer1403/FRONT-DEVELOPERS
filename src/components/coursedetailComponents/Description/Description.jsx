@@ -6,6 +6,7 @@ import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import { IoIosArrowDown } from "react-icons/io";
 import Buton from "../../Commen/Buton";
+import LikeRate from "./LikeRate";
 
 const Description = ({ courseId }) => {
   const [showMore, setShowMore] = useState(true);
@@ -64,6 +65,9 @@ const Description = ({ courseId }) => {
               }
             />
           </motion.div>
+
+
+          <LikeRate CourseDetail={CourseDetail} courseId={courseId}/>
         </div>
       </div>
     </SkeletonTheme>

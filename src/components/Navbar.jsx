@@ -12,6 +12,7 @@ import { useSelector } from "react-redux";
 import { FaRobot } from "react-icons/fa6";
 import ChatApp from "./chatGPT/ChatApp";
 import SwitchAccounts from "./SwitchAccounts";
+import { PiBookOpenTextFill } from "react-icons/pi";
 
 const Navbar = () => {
   const { t, i18n } = useTranslation();
@@ -140,6 +141,10 @@ const Navbar = () => {
               </div>
 
               <Lg />
+              <NavLink to={"/Job"}>
+                <PiBookOpenTextFill className="mt-8 text-gray-400 text-3xl cursor-pointer"/>
+              </NavLink>
+              
             </div>
           </div>
 

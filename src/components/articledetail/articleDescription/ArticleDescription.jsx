@@ -1,12 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useArticleDetail } from "../../../core/services/query/queries";
-import {
-  deletelikeArticle,
-  disslikeArticle,
-  likeArticle,
-} from "../../../core/services/DashApi";
-import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
+import { IoIosArrowDown } from "react-icons/io";
 import { useTranslation } from "react-i18next";
 import { ImageErrore } from "../../ImageErrore";
 
@@ -18,7 +13,6 @@ import {
   uselikeArticle,
   usePostRateNews,
 } from "../../../core/services/mutation/DetailsMutation";
-import { use } from "i18next";
 import { toast } from "react-toastify";
 import Buton from "../../Commen/Buton";
 
