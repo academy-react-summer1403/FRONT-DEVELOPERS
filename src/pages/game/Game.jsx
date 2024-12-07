@@ -99,11 +99,7 @@ const Game = () => {
 
   return (
     <div className="container py-2">
-      <img
-        src={Back}
-        alt=""
-        className="fixed rotate-180 left-[300px] top-[10px] w-[1000px] opacity-30 -z-10"
-      />
+
       <div
         className="rounded-[25px] py-12 px-4 mx-auto w-[60%] max-lg:w-[80%] z-[999]
             bg-gradient-to-br from-secondary/20 dark:from-amber-100/80 from-10% to-primary/30 dark:to-cyan-100/80 to-90%
