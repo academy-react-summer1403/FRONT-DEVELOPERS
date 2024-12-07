@@ -27,7 +27,6 @@ const NewPage = () => {
     Query: selectedfavoriteOption,
   };
   const CoursesDataFavorite = usefeature(params);
-  console.log(CoursesDataFavorite);
 
   //News
 

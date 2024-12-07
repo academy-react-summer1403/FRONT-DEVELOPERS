@@ -5,7 +5,7 @@ import { deleteFavoriteCourse, deleteFavoriteNews, deletelikeArticle,
         } from "../DashApi";
 
 import { toast } from "react-toastify";
-import { postRateNews } from "../getApi";
+import { addDissLikeCourse, addLikeCourse, postRateNews } from "../getApi";
 
 import { deleteCourseCommentLike, deleteLikeComment, dislikeCourseComment,
          likeComment, postCommentCourse, postCommentNews, postCourseCommentLike, 
@@ -232,6 +232,40 @@ import { deleteCourseCommentLike, deleteLikeComment, dislikeCourseComment,
     }
 
 
+    export const useLikeCourse = () => {
+        const queryClient = useQueryClient();
+      
+        const mutate = useMutation({
+          mutationFn: (CourseId)=>addLikeCourse(CourseId),
+          onSuccess: () =>{
+               queryClient.invalidateQueries({ mutationKey: ["addLikeCourse"] }),
+               toast.success(" لایک ثبت شد" , {
+                theme:"colored",
+                     className:"custom-toast"
+                })
+          }
+          
+        });
+        return mutate;
+    }
+
+    
+    export const useDissLikeCourse = () => {
+        const queryClient = useQueryClient();
+      
+        const mutate = useMutation({
+          mutationFn: (CourseId)=>addDissLikeCourse(CourseId),
+          onSuccess: () =>{
+               queryClient.invalidateQueries({ mutationKey: ["addDissLikeCourse"] }),
+               toast.success("دیس لایک  ثبت شد" , {
+                theme:"colored",
+                     className:"custom-toast"
+                })
+          }
+          
+        });
+        return mutate;
+    }
 
 
     // cours article&News Mutations : 

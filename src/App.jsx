@@ -296,7 +296,8 @@ function App() {
           path: "/auth/Qfeacher",
           element: <Qfeacher />,
         },
-        { path: "/auth/forget1", element: <ForgetPassOne /> },
+        { path: "/auth/forget1",
+          element: <ForgetPassOne /> },
       ],
     },
   ];

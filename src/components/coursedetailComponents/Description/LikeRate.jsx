@@ -1,166 +1,77 @@
-import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
-import { useArticleDetail } from "../../../core/services/query/queries";
-import { IoIosArrowDown } from "react-icons/io";
-import { useTranslation } from "react-i18next";
-import { ImageErrore } from "../../ImageErrore";
+import { motion } from 'framer-motion';
+import React, { useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next';
+import { useDissLikeCourse, useLikeCourse } from '../../../core/services/mutation/DetailsMutation';
 
-import Skeleton from "react-loading-skeleton";
-import "react-loading-skeleton/dist/skeleton.css";
-import {
-  useDeletelikeArticle,
-  useDisslikeArticle,
-  uselikeArticle,
-  usePostRateNews,
-} from "../../../core/services/mutation/DetailsMutation";
-import { toast } from "react-toastify";
-import Buton from "../../Commen/Buton";
 
-const ArticleDescription = ({ id }) => {
+const LikeRate = ({CourseDetail , courseId  }) => {
   const { t } = useTranslation();
+ 
 
-  const articleDetail = useArticleDetail(id);
-  const [showMore, setShowMore] = useState(false);
 
-  // like & disslike
+
+// like 
 
   const [like, setLike] = useState(
-    articleDetail.data?.detailsNewsDto?.currentUserIsLike
+    CourseDetail?.data?.currentUserLike
   );
   const [currentlike, setCurrentlike] = useState(
-    articleDetail.data?.detailsNewsDto?.currentLikeCount
+    CourseDetail?.data?.likeCount
   );
   const [disslike, setDissLike] = useState(
-    articleDetail.data?.detailsNewsDto?.currentUserIsDissLike
+    CourseDetail?.data?.currentUserDissLike
   );
 
-  const addlikenew = uselikeArticle(id);
-  const handlelike = (id) => {
-    addlikenew.mutate(id);
+  const addlikenew = useLikeCourse();
+  const handlelike = (courseId) => {
+    addlikenew.mutate(courseId)
   };
 
-  const deletelikenew = useDeletelikeArticle();
-  const handledeletelike = (deleteEntityId) => {
-    deletelikenew.mutate(deleteEntityId);
-  };
-
-  const disslikenew = useDisslikeArticle();
-
-  const handledisslike = (id) => {
-    if (disslike == false) {
-      disslikenew.mutate(id);
-    }
-  };
-
-  //  Rate :
-
-  const [colorRate, setColorRate] = useState(
-    articleDetail.data?.detailsNewsDto?.currentUserRateNumber
-  );
-  const [currentRate, setCurrentRate] = useState(
-    articleDetail.data?.detailsNewsDto.currentRate
-  );
-
-  const postRate = usePostRateNews();
-
-  const handleRate = (NewsId, RateNumber) => {
-    if (articleDetail.data?.detailsNewsDto.currentUserRateNumber === 0) {
-      if (RateNumber !== undefined && RateNumber !== null) {
-        postRate.mutate({ NewsId, RateNumber });
-      } else {
-        console.error("RateNumber is undefined or null");
-      }
-    } else {
-      toast.warning("قبلاً امتیاز داده‌اید", {
-        theme: "colored",
-        className: "custom-toast",
-      });
-    }
+  const addDisslikenew = useDissLikeCourse();
+  const handledisslike = (courseId) => {
+    addDisslikenew.mutate(courseId)
   };
 
   useEffect(() => {
-    if (articleDetail.data) {
-      setColorRate(articleDetail.data?.detailsNewsDto?.currentUserRateNumber);
-      setCurrentRate(articleDetail.data?.detailsNewsDto?.currentRate);
-      setLike(articleDetail.data?.detailsNewsDto?.currentUserIsLike);
-      setCurrentlike(articleDetail.data?.detailsNewsDto?.currentLikeCount);
-      setDissLike(articleDetail.data?.detailsNewsDto?.currentUserIsDissLike);
+    if(CourseDetail?.data){
+     console.log(CourseDetail?.data)
+     setCurrentlike(CourseDetail?.data?.likeCount)
+     setLike(CourseDetail?.data?.currentUserLike)
+     setDissLike(CourseDetail?.data?.currentUserDissLike)
     }
-  }, [articleDetail.data]);
+   }, [CourseDetail?.data])
+   
+// // rate 
 
-  const [loading, setLoading] = useState(true);
-  useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 2000);
-  }, []);
+// const [colorRate, setColorRate] = useState(
+//   CourseDetail?.data?.currentUserSetRate
+// );
+// const [currentRate, setCurrentRate] = useState(
+//   CourseDetail?.data?.currentUserSetRate
+// );
+
+// const postRate = usePostRateNews();
+
+//   const handleRate = (NewsId, RateNumber) => {
+//     if (articleDetail.data?.detailsNewsDto.currentUserRateNumber === 0) {
+//       if (RateNumber !== undefined && RateNumber !== null) {
+//         postRate.mutate({ NewsId, RateNumber });
+//       } else {
+//         console.error("RateNumber is undefined or null");
+//       }
+//     } else {
+//       toast.warning("قبلاً امتیاز داده‌اید", {
+//         theme: "colored",
+//         className: "custom-toast",
+//       });
+//     }
+//   };
+
+
 
   return (
-    <div className=" max-xl:w-[600px] max-sm:w-full max-lg:w-[450px] max-md:w-full">
-      <div
-        style={{ boxShadow: " 0px 1px 2px 0 #00000040" }}
-        className=" bg-white dark:bg-slate-700 max-sm:w-full  p-[24.5px]  mt-[15px] rounded-[15px]   "
-      >
-        <div
-          className={` overflow-hidden ${
-            showMore
-              ? "max-h-[1586px] max-lg:h-[800px] max-xl:h-[995px]"
-              : "h-[] transition delay-150 duration-300"
-          }`}
-        >
-          <motion.p
-            initial={{ x: 0, opacity: 0, y: -300 }}
-            animate={{ x: 0, y: 0, opacity: 1 }}
-            transition={{ type: "spring", duration: 3, delay: 0 }}
-            className={`bg-white dark:text-slate-300 dark:bg-slate-700 text-right font-Yekan  max-sm:w-fullfont-normal text-[18px] max-lg:text-[14px] max-xl:text-[16px] text-[#555555] leading-[30px]   ${
-              showMore
-                ? "max-h-[1586px] max-xl:h-[995px] max-lg:h-[1200px]"
-                : "h-[]"
-            }`}
-          >
-            {loading ? (
-              <Skeleton count={3} />
-            ) : (
-              articleDetail.data?.detailsNewsDto.describe
-            )}
-            {loading ? (
-              <Skeleton
-                width={"600px"}
-                height={"250px"}
-                className="mr-12 mt-6 rounded-xl"
-              />
-            ) : (
-              <img
-                className="w-[575px] h-[320px] max-lg:w-[500px] max-lg:h-[250px] max-xl:w-[535px] max-xl:h-[280px] rounded-[10px] mx-auto my-[20px]"
-                src={
-                  articleDetail.data?.detailsNewsDto.currentImageAddress
-                    ? articleDetail.data?.detailsNewsDto.currentImageAddress
-                    : ImageErrore
-                }
-                onError={ImageErrore}
-                alt=""
-              />
-            )}
-          </motion.p>
-        </div>
-
-        <Buton
-          onClick={() => setShowMore(!showMore)}
-          text={t("readmore")}
-          icon={
-            showMore ? (
-              <IoIosArrowDown className="transition duration-500" />
-            ) : (
-              <IoIosArrowDown className="rotate-180 transition duration-500" />
-            )
-          }
-          style={
-            "border-primary border-[1px] dark:border-[#E48900]   dark:text-[#fdb359] text-darkgreen/90 hover:scale-105 ease-in-out duration-150 leading-[32px] font-normal font-Yekan text-[20px] max-xl:text-[18px] flex flex-row-reverse items-center w-[174px] max-xl:w-[150px] max-xl:h-[40px] h-[45px] rounded-[45px] mx-auto justify-center gap-2 mt-3  "
-          }
-        />
-      </div>
-
-      <motion.div
+    <div>
+        <motion.div
         initial={{ x: 200, opacity: 0, y: 0 }}
         animate={{ x: 0, y: 0, opacity: 1 }}
         transition={{ type: "spring", stiffness: 70, duration: 3, delay: 0 }}
@@ -172,19 +83,19 @@ const ArticleDescription = ({ id }) => {
             {/* Like: */}
             <svg
               onClick={() => {
-                if (like == false) {
-                  handlelike(articleDetail.data?.detailsNewsDto?.id);
-                  setLike(true);
+                if (like == "0") {
+                  handlelike(courseId);
+                  setLike("1");
                 }
-                if (like == true) {
-                  handledeletelike(articleDetail.data?.detailsNewsDto?.likeId);
-                  setLike(false);
-                }
+                if (like == "1") {"handledeletelike(articleDetail.data?.detailsNewsDto?.likeId);setLike(false);"}
+                  
+                  
+                
               }}
               width="20"
               height="19"
               className={`cursor-pointer max-xl:h-[15px] max-xl:w-[16px] stroke-[#AAAAAA] dark:stroke-orange
-                  ${like ? "fill-[#AAAAAA] dark:fill-orange" : "fill-none"}`}
+                 ${like === "1" ? "fill-[#AAAAAA]" : "fill-none"}`}
               viewBox="0 0 20 19"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -200,18 +111,17 @@ const ArticleDescription = ({ id }) => {
 
             {/* DissLike:  */}
             <svg
-              className={`cursor-pointer max-xl:h-[15px] max-xl:w-[16px] stroke-[#AAAAAA] dark:stroke-orange ${
-                disslike ? "fill-[#AAAAAA] dark:fill-orange" : "fill-none "
-              } `}
+              className={`cursor-pointer max-xl:h-[15px] max-xl:w-[16px] stroke-[#AAAAAA] dark:stroke-orange 
+               ${disslike == "1" ? "fill-[#AAAAAA]" : "fill-none" }`}
               width="20"
               height="19"
               onClick={() => {
-                if (disslike == false) {
-                  handledisslike(articleDetail.data?.detailsNewsDto?.id);
-                  setDissLike(true);
+                if (disslike == "0") {
+                  handledisslike(courseId);
+                  setDissLike(0);
 
                   handledeletelike(articleDetail.data?.detailsNewsDto?.likeId);
-                  setLike(false);
+                  setLike("0");
                 }
               }}
               viewBox="0 0 20 19"
@@ -226,7 +136,7 @@ const ArticleDescription = ({ id }) => {
               />
             </svg>
 
-            {articleDetail.data?.detailsNewsDto?.currentDissLikeCount}
+            {CourseDetail?.data?.dissLikeCount}
           </div>
 
           <div className="  flex items-center gap-2">
@@ -252,7 +162,7 @@ const ArticleDescription = ({ id }) => {
         </div>
 
         {/* Rate :  */}
-        <div className="  flex items-center justify-between ">
+        {/* <div className="  flex items-center justify-between ">
           <svg
             width="116"
             height="23"
@@ -361,10 +271,10 @@ const ArticleDescription = ({ id }) => {
           <h1 className=" share max-xl:text-[14px]  max-sm:text-[12px] flex flex-row-reverse">
             {t("rate")} {currentRate} نفر
           </h1>
-        </div>
+        </div> */}
       </motion.div>
     </div>
-  );
-};
+  )
+}
 
-export default ArticleDescription;
+export default LikeRate
