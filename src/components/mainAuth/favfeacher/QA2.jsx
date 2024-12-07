@@ -69,7 +69,7 @@ const Qfav2 = () => {
                 <h1
                   className={`w-[200px] h-[50px] text-green text-xl mx-auto text-center absolute left-[50px] -top-[70px] font-semibold `}
                 >
-                  چه موضوعاتی را بیشتر می پسندید؟
+                 {t("fav2")}
                 </h1>
 
                 <div className="relative pr-6 flex  items-end flex-col gap-2">

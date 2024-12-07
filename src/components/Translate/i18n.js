@@ -119,9 +119,12 @@ i18n
     blue:"blue",
     night:"dark mode",
     cancel:"cancel",
-    preferences:"Tell us your preferences"
-
-
+    preferences:"Tell us your preferences",
+    tosee:"Which area of ​​web development do you like the most?"
+,front:"Front-end",
+back:"Backend"
+,full:"fullstack",
+none:"none"
 
 
     
@@ -249,8 +252,13 @@ suggested_articles: "مطالب پیشنهادی",
   purple:"بنفش",
   blue:"آبی",
   night:"مود شب",
-  preferences:"علاقه مندی های خود را برای ما مشخص کنید"
- 
+  preferences:"علاقه مندی های خود را برای ما مشخص کنید",
+  tosee:"کدام حوزه توسعه وب را بیشتر می پسندید؟"
+ ,   front:"فرانت اند",
+ back:"بک اند",
+ full:" فول استک",
+ none:"هیچکدام",
+ fav2:"چه موضوعاتی را بیشتر می پسندید؟"
   
 
 
@@ -351,16 +359,25 @@ suggested_articles: "مطالب پیشنهادی",
                    home:"hogar",
                    next:"próxima",
                    theme:"Elija un tema para el sitio",
+                   tosee:"¿Qué área del desarrollo web te gusta más?",
     green:"azul verde",
     purple:"violeta",
     blue:"azul",
     night:"modo nocturno",
     cancel:"Cancelar",
-    preferences:"Cuéntanos tus preferencias"
+    preferences:"Cuéntanos tus preferencias",
+    front:'Frontal',
+    back:"parte trasera",
+    full:"bdyd",
+    none:"gdtyt",
+    fav2:"What topics do you like the most?"
         }
       },
       tr: {
         translation: {
+          full:"hjhdqw",
+          front:"Ön uç",
+          tosee:"Web geliştirmenin en çok hangi alanını beğeniyorsunuz?",
            cancel:"iptal etmek",
             home: "Anasayfa",
             courses: "Kurslar",
@@ -469,7 +486,9 @@ suggested_articles: "مطالب پیشنهادی",
     blue:"mavi",
     night:"gece modu",
     preferences:"Bize tercihlerinizi söyleyin"
-           
+          ,back:"arka uç",
+          none:"gyuyt",
+          fav2:"What topics do you like the most?"
           }
         }
       
@@ -479,7 +498,7 @@ suggested_articles: "مطالب پیشنهادی",
     fallbackLng: localStorage.getItem('language') ,
 
     interpolation: {
-      escapeValue: false, // برای جلوگیری از مشکلات امنیتی XSS
+      escapeValue: false, 
     }
   });
 
