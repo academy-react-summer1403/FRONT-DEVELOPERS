@@ -68,33 +68,7 @@ const MakeJob = () => {
             onChange={(e) => setJobTitle(e.target.value)}
           ></input>
 
-<<<<<<< HEAD
-  return (<>
-    <form className='bg-red-300 w-[300px] h-[500px] mx-auto ' onSubmit={onSubmit}>
-      <input className='bg-neutral-300 border' onChange={(e)=>setJobTitle(e.target.value)}></input>
-      <input className='bg-neutral-300 border' onChange={()=>setAboutJob()}></input>
-      <input className='bg-neutral-300 border' onChange={()=>setCompanyWebSite()}></input>     
-      <input className='bg-neutral-300 border' onChange={()=>setCompanyLinkdin()}></input>
-      <input className='bg-neutral-300 border' onChange={()=>setWorkStartDate()}></input>
-      <input className='bg-neutral-300 border' onChange={()=>setWorkEndDate()}></input>
-     <button className='bg-red-400' onChange={()=>setInWork(true)}>true/false</button>
-      <input className='bg-neutral-300 border' onChange={()=>setCompanyName()}></input>       
-
-      <br/>
-        
-      <button className='bg-green' type='submit'>Submit</button>
-    </form>
-  </>
-  
-  )
-}
-=======
-          {/* <input
-            placeholder="...توضیحات "
-            style={{ boxShadow: "0px 1px 3px 0px #00000033 inset" }}
-            className="px-4 pt-1 w-full rounded-md bg-gray-50 dark:bg-white leading-8 text-darkgreen placeholder-sm text-right placeholder-darkgreen/30 font-medium focus:outline outline-primary outline-[1.5px]"
-            onChange={(e) => setAboutJob(e.target.value)}
-          ></input> */}
+       
 
           <label className="relative text-right text-sm text-gray-400 w-full mt-3">
             <DatePicker
@@ -134,7 +108,6 @@ const MakeJob = () => {
               }}
             />
           </label>
->>>>>>> b713fcc945ad3944c5d09c7efee7ce029ba242f6
 
           <input
             placeholder="...لینکدین محل کار "
