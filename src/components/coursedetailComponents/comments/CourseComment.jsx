@@ -16,6 +16,7 @@ import {
 import CommentdivCourse from "./CommentdivCourse";
 import ReplyCourse from "./ReplyCourse";
 import AddReplyCourse from "./AddReplyCourse";
+import Buton from "../../Commen/Buton";
 
 const CourseComment = ({ courseId }) => {
   const [loading, setLoading] = useState(true);
@@ -254,19 +255,18 @@ const CourseComment = ({ courseId }) => {
 
       {/* show more button */}
 
-      <button
-        onClick={() => setShowMore(!showMore)}
-        className="border-secondary/80  dark:border-[#E48900]  dark:text-[#fdb359] border-[1px] absolute  bottom-7 left-[43%] 
-              text-secondary hover:scale-105 ease-in-out duration-150 
-              leading-[32px] font-normal font-Yekan text-[12px] flex items-center w-[120px] h-[35px] rounded-[25px] mx-auto justify-center gap-2 max-md:mt-[-50px]   "
-      >
-        {showMore ? (
-          <IoIosArrowDown />
-        ) : (
-          <IoIosArrowDown className="rotate-180" />
-        )}
-        {t("showmore")}
-      </button>
+      <Buton
+          onClick={() => setShowMore(!showMore)}
+          text={t("showmore")}
+          icon={showMore ? (
+            <IoIosArrowDown className="transition duration-500" />
+          ) : (
+            <IoIosArrowDown className="rotate-180 transition duration-500" />
+          )}
+          style={
+            "border-secondary/80  dark:border-[#E48900]  dark:text-[#fdb359] border-[1px] absolute  bottom-7 left-[43%] text-secondary hover:scale-105 ease-in-out duration-150 leading-[32px] font-normal font-Yekan text-[12px] flex items-center w-[120px] h-[35px] rounded-[25px] mx-auto justify-center gap-2 max-md:mt-[-50px]   "    
+          }
+        />
     </div>
   );
 };

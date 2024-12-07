@@ -84,10 +84,10 @@ const Pudcasts = () => {
                         <h3 className=' text-[#AAAAAA] text-[12px] font-Yekan font-semibold   max-lg:mr-[80px] max-md:mr-[250px] max-sm:-mt-1 max-sm:mr-[90px]  mr-[370px]'>
                              <DateApi dateapi={data?.updateDate}/>
                             </h3>
-                        <h1 className='max-md:-mr-6 text-[26px] text-[#006865]  max-sm:text-[16px] max-sm:-mr-4 max-sm:mt-[9px] font-bold font-Yekan max-lg:text-[22px] max-lg:mr-[-45px]  text-right mt-5'>
+                        <h1 className='truncate w-[80%] max-md:-mr-6 text-[26px] text-[#006865]  max-sm:text-[16px] max-sm:-mr-4 max-sm:mt-[9px] font-bold font-Yekan max-lg:text-[22px] max-lg:mr-[-45px]  text-right mt-5'>
                             {data?.title}
                         </h1>
-                        <p className="max-sm:ml-[60px] overflow-hidden text-[#828F8E] max-md:-mr-5 text-[15px] leading-[21px] font-Yekan font-semibold text-right
+                        <p className="max-sm:ml-[60px] truncate text-[#828F8E] max-md:-mr-5 text-[15px] leading-[21px] font-Yekan font-semibold text-right
                          mt-3 w-96 max-lg:mr-[-45px] max-lg:text-[14px] max-lg:w-80   ml-14">
                             {data?.miniDescribe}
                         </p>

@@ -11,6 +11,7 @@ import "aos/dist/aos.css";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import Related from "../../skeleton/detail/Related";
+import Buton from "../../Commen/Buton";
 
 const Detail = ({ courseId }) => {
   useEffect(() => {
@@ -318,9 +319,14 @@ const Detail = ({ courseId }) => {
               src={profile}
               alt=""
             />
-            <button className=" text-[#6B3A00] max-sm:mx-auto max-sm:w-[100%] max-sm:text-[13px] max-xl:ml-[-15px] border-[2px] border-orange dark:text-secondary rounded-[25px] w-[177px] h-[40px] text-center font-Yekan text-[16px] font-normal mx-auto">
-              پروفایل مدرس دوره
-            </button>
+            <Buton
+              onClick={""}
+              text={"پروفایل مدرس دوره"}
+              icon={""}
+              style={
+                " text-[#6B3A00] max-sm:mx-auto max-sm:w-[100%] max-sm:text-[13px] max-xl:ml-[-15px] border-[2px] border-orange dark:text-secondary rounded-[25px] w-[177px] h-[40px] text-center font-Yekan text-[16px] font-normal mx-auto"
+              }
+            />
           </div>
         </div>
       </div>

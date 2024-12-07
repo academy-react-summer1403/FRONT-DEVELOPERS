@@ -3,10 +3,17 @@ import NavbarAuth from "./components/NavbarAuth";
 import FooterAuth from "./components/FooterAuth";
 import { Outlet } from "react-router-dom";
 import DarkMode from "./components/DarkMode";
+import Back from "./assets/landing/authBack.png";
+
 
 const AuthRoot = () => {
   return (
     <div className=" dark:bg-gray-900 dark:text-white duration-200 h-screen">
+      <img
+        src={Back}
+        alt=""
+        className="fixed rotate-180 left-[300px] top-[10px] w-[1000px] opacity-30 -z-10"
+      />
       <NavbarAuth />
 
       <Outlet />

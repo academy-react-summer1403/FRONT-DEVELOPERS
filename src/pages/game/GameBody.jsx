@@ -66,7 +66,7 @@ const GameBody = ({
         ) : (
           <Button
             onClick={() => handleNext()}
-            className="relative mt-5 mx-auto flex overflow-visible rounded-full px-12 shadow-xl bg-primary/30 after:content-[''] after:absolute after:rounded-full after:inset-0 after:bg-background/40 after:z-[-1] after:transition after:!duration-500 hover:after:scale-150 hover:after:opacity-0"
+            className="relative mt-5 mx-auto w-[80%] flex overflow-visible rounded-full px-12 shadow-xl bg-primary/30 after:content-[''] after:absolute after:rounded-full after:inset-0 after:bg-background/40 after:z-[-1] after:transition after:!duration-500 hover:after:scale-150 hover:after:opacity-0"
           >
             بعدی
           </Button>

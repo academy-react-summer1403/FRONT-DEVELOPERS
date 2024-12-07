@@ -44,6 +44,7 @@ import Qfav2 from "./components/mainAuth/favfeacher/QA2";
 import Qfav3 from "./components/mainAuth/favfeacher/QA3";
 import Chat from "./pages/Chat/Chat";
 import RecoveryEmail from "./components/dashboard/securitysetting/RecoveryEmail";
+import MakeJob from "./pages/Job/MakeJob";
 
 function App() {
   const PublicRoutes = [
@@ -170,6 +171,10 @@ function App() {
         {
           path: "/Chat",
           element: <Chat />,
+        },
+        {
+          path: "/Job",
+          element: <MakeJob />,
         },
       ],
     },

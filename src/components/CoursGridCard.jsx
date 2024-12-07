@@ -6,7 +6,8 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { ImageErrore } from "./ImageErrore";
 
-const CoursGridCard = ({
+const CoursGridCard = ({ 
+  
   title,
   cost,
   teacherName,
@@ -20,7 +21,7 @@ const CoursGridCard = ({
 
   return (
     <NavLink to={"/courses-detail/" + courseId}>
-      <Tilt className="mt-[80px] max-2xl:-ml-6 mb-5 max-sm:-ml-8 grid justify-items-center">
+      <Tilt className="mt-[80px] max-2xl:-ml-6 mb-5 max-sm:-ml-8 justify-items-center">
         <div
           data-aos="zoom-out-left"
           data-aos-duration="900"
@@ -43,8 +44,8 @@ const CoursGridCard = ({
           </div>
 
           {/* card body  */}
-          <div className="relative top-[-10px]">
-            <h3 className=" text-[#444444] text-right text-[19px] line-clamp-1   max-md:text-[16px] font-Yekan font-bold mr-1 dark:text-white">
+          <div className="relative top-[-10px] overflow-hidden">
+            <h3 className="truncate text-[#444444] text-right text-[19px] line-clamp-1   max-md:text-[16px] font-Yekan font-bold mr-1 dark:text-white">
               {title}
             </h3>
 

@@ -66,7 +66,7 @@ const Offers = () => {
                                     max-lg:w-[92%] 
                                 "
           >
-            <p className="text-[11px] font-medium text-darkgreen/80 dark:text-white mb-3">
+            <p className="text-[11px] truncate w-[80%] ml-8 max-sm:w-[60%] max-sm:ml-20 font-medium text-darkgreen/80 dark:text-white mb-3">
               {item?.title}
             </p>
             <NavLink

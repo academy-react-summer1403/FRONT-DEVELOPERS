@@ -87,7 +87,7 @@ const Slider2 = ({getNewsCard,h}) => {
 
     <div className=' relative max-xl:px-2  '>
     
-        <h1 className=' pr-10 -mb-3 flex items-center justify-end  gap-2  font-bold text-[17px] text-[#1d1d1d] max-xl:text-[30px] dark:text-white'> {h}
+        <h1 className=' pr-10 -mb-3 flex items-center justify-end  gap-2  font-bold text-[17px] text-[#1d1d1d] max-xl:text-[30px] max-[450px]:text-center max-[450px]:text-[16px] dark:text-white'> {h}
           <div className='head2'></div>
         </h1> 
          

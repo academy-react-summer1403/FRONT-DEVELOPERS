@@ -80,7 +80,7 @@ const ChangPassword = () => {
                   name="password"
                   placeholder="*****"
                   style={{ boxShadow: " 0px 1px 3px 0px #00000033 inset" }}
-                  className="px-4 pt-1 rounded-md bg-gray-50 leading-8 text-teal-800 
+                  className="px-4 pt-1 rounded-md bg-gray-50 leading-8 text-green 
                     placeholder-md placeholder-green"
                 />
               </label>
