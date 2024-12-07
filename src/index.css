@@ -1,117 +1,289 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
 
+::-webkit-scrollbar {
+  width: "0";
+}
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
-
-body{
-    font-family: "Rubik", sans-serif;;
+.root {
+  --color-primary: 1 206 211;
+  --color-secondary: 228 137 0;
+  --color-purple: 162 89 255;
+  --color-orange: 212 115 0;
+  --color-green: 0 141 138;
+  --color-light: 203 109 0;
+  --color-yellow: 255 190 3;
+  --color-darkgreen: 13 66 64;
 }
 
-
-
-@layer components{
-    .mark{
-        @apply  right-0 -top-10 text-right h-[32px]  text-[#005351] font-Yekan font-bold leading-[25px] text-[25px]
-    }
-
-    .like{
-        @apply font-normal font-Yekan text-[#888888] text-[16px] dark:text-slate-300
-    }
-
-    .commentname{
-        @apply h-[32px] text-[#003B39] text-[15px] font-Yekan  font-normal dark:text-slate-200
-    }
-
-    .datecomment{
-        @apply h-[32px] text-[#888888] text-[14px] font-Yekan  font-normal 
-    }
-
-    .profile{
-        @apply flex items-center justify-center  ml-2 border rounded-full h-[50px] w-[50px]
-    }
-
-    .comment{
-        @apply text-right text-[#333333]  font-Yekan font-normal dark:text-slate-400
-    }
-
-    .share{
-        @apply font-normal font-Yekan text-[16px] text-[#888888] leading-[32px] dark:text-slate-200
-    }
-
-    .text{
-        @apply font-Yekan font-normal  text-[16px]  text-[#AAAAAA] leading-[16px] dark:text-slate-400
-    }
-    
+@layer base {
+  .dark {
+    --color-primary: 1 206 211;
+    --color-secondary: 228 137 0;
+    --color-purple: 162 89 255;
+    --color-orange: 212 115 0;
+    --color-green: 0 141 138;
+    --color-light: 203 109 0;
+    --color-yellow: 255 190 3;
+    --color-darkgreen: 13 66 64;
+  }
 }
 
+@layer base {
+  .maintheme {
+    --color-primary: 1 206 211;
+    --color-secondary: 228 137 0;
+    --color-purple: 162 89 255;
+    --color-orange: 212 115 0;
+    --color-green: 0 141 138;
+    --color-light: 203 109 0;
+    --color-yellow: 255 190 3;
+    --color-darkgreen: 13 66 64;
+  }
+}
+@layer base {
+  .secondTheme {
+    --color-primary: 207 170 254;
+    --color-secondary: 250 113 68;
+    --color-purple: 162 89 255;
+    --color-orange: 243 61 2;
+    --color-green: 84 27 156;
+    --color-light: 211 54 3;
+    --color-yellow: 255 184 3;
+    --color-darkgreen: 54 25 90;
+  }
+}
+@layer base {
+  .thirdTheme {
+    --color-primary: 52 105 255;
+    --color-secondary: 255 213 0;
+    --color-purple: 33 0 199;
+    --color-orange: 255 213 0;
+    --color-green: 33 0 199;
+    --color-light: 255 213 0;
+    --color-yellow: 224 217 126;
+    --color-darkgreen: 20 0 123;
+  }
+}
 
+body {
+  font-family: "Rubik", sans-serif;
+}
 
-@layer base{
-    @font-face {
-        font-family: "Yekan";
-        src: url(./assets/fonts/B_Yekan/Yekan.ttf) format("truetype"),
-        url(./assets/fonts/B_Yekan/Fontyab.com.url),
-        url(./assets/fonts/B_Yekan/Fontyab.ir.url),
-        url(./assets/fonts/B_Yekan/read\ me!.txt),
+@layer components {
+  .mark {
+    @apply right-0 -top-10 text-right h-[32px]  text-darkgreen/90 font-Yekan font-bold leading-[25px] text-[25px];
+  }
 
-    }
+  .like {
+    @apply font-normal font-Yekan text-[#888888] text-[16px] dark:text-slate-300;
+  }
+
+  .commentname {
+    @apply h-[32px] text-[#003B39] text-[15px] font-Yekan  font-normal dark:text-slate-200;
+  }
+
+  .datecomment {
+    @apply h-[32px] text-[#888888] text-[14px] font-Yekan  font-normal;
+  }
+
+  .profile {
+    @apply flex items-center justify-center  ml-2 border rounded-full p-1 h-[50px] w-[50px];
+  }
+
+  .comment {
+    @apply text-right text-[#333333]  font-Yekan font-normal dark:text-slate-400;
+  }
+
+  .share {
+    @apply font-normal font-Yekan text-[16px] text-[#888888] leading-[32px] dark:text-slate-200;
+  }
+
+  .text {
+    @apply font-Yekan font-normal  text-[16px]  text-[#AAAAAA] leading-[16px] dark:text-slate-400;
+  }
+}
+
+@layer base {
+  @font-face {
+    font-family: "Yekan";
+    src: url(./assets/fonts/B_Yekan/Yekan.ttf) format("truetype"),
+      url(./assets/fonts/B_Yekan/Fontyab.com.url),
+      url(./assets/fonts/B_Yekan/Fontyab.ir.url),
+      url(./assets/fonts/B_Yekan/read\ me!.txt);
+  }
 }
 
 .slick-slide > div {
-    margin:0 30px;
+  margin: 0 30px;
 }
 
-
 .button__bar {
-    display: inline-block;
-    vertical-align: middle;
-    margin:40px auto;
-    padding: 0;
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 40px;
-    width: 100px;
-    text-align: center;
-   
-  }
-  
-  .button__bar li {
-    list-style: none;
-    cursor: pointer;
-    display: inline-block;
-    margin: 0 3px;
-    padding: 0;
-  }
-  
-  .button__bar li button {
-    border: none;
-    background: #01CEC9;
-    color: transparent;
-    cursor: pointer;
-    display: block;
-    height: 15px;
-    width: 15px;
-    border-radius: 7.5px;
-  }
-  
-  .button__bar :global(li.slick-active) button {
-    background-color: #D47300;
-  }
-  
-  .button__bar li button:hover,
-  .button__bar li button:focus {
-    background: #D47300;
-    outline: 0;
-  }
-  
-  .slick-slide img {
-    border: 5px solid #fff;
-    display: block;
-    margin: auto;
-  }
+  display: inline-block;
+  vertical-align: middle;
+  margin: 40px auto;
+  padding: 0;
+  background: none;
+  border-radius: 40px;
+  width: 100px;
+  text-align: center;
+}
+.buttompudcast {
+  position: absolute;
+  width: 30px;
+  display: flex;
+  bottom: 0px;
+  left: 40px;
+  height: 70px;
+  overflow: hidden;
+}
 
+.buttompudcast li button:focus {
+  background: #d47300;
+  height: 28px;
+  margin: 0 0 5px 0;
+  outline: 0;
+}
 
+.button__bar li {
+  list-style: none;
+  cursor: pointer;
+  display: inline-block;
+  margin: 0 3px;
+  padding: 0;
+}
 
+.button__bar li button {
+  @apply bg-primary hover:bg-secondary  w-[15px] h-[15px] block rounded-full cursor-pointer text-[rgba(0,0,0,0)];
+}
+
+.button__bar :global(li.slick-active) button {
+  background-color: #d47300;
+}
+
+.button__bar li button:hover,
+.button__bar li button:focus {
+  background: #d47300;
+  outline: 0;
+}
+
+.slick-slide img {
+  border: 5px solid #fff;
+  display: block;
+  margin: auto;
+}
+
+.famous {
+  @apply w-[185px] h-[185px] max-sm:w-[110px] max-sm:h-[110px]  max-xl:h-[160px] max-xl:w-[160px] max-lg:h-[120px] max-lg:w-[120px] rotate-45 rounded-[23px] bg-white dark:bg-[#e9e8e8]  cursor-pointer relative hover:bg-gradient-to-tl hover:from-orange hover:to-yellow;
+}
+
+.famoustext {
+  @apply w-[130px] max-xl:text-[22px] max-lg:text-[15px]  max-sm:text-[12px] text-center text-[25px]  text-green font-Yekan font-bold -rotate-45  absolute bottom-[50%] max-lg:bottom-[55%] max-lg:right-[0%]  right-[25%];
+}
+
+.famousimg {
+  @apply w-[65px] max-lg:w-[45px] h-[65px] max-lg:h-[45px] max-sm:h-[35px] max-sm:w-[35px]   -rotate-45  absolute bottom-[15%] left-[50%];
+}
+
+.productstitle {
+  @apply text-[27px] font-bold  font-Yekan;
+}
+
+.faketext {
+  @apply text-center text-[12px]   text-[#AAAAAA]  font-semibold mt-5;
+}
+
+.proimg {
+  @apply group-hover:scale-105 
+      duration-300  w-[75px] h-[75px] rounded-full 
+       absolute -top-[48px] right-[68px] transition-all;
+}
+
+.head1 {
+  @apply flex items-center justify-center  gap-2 font-Yekan font-bold text-[33px] text-[#000000] max-xl:text-[30px] dark:text-white;
+}
+
+.head2 {
+  @apply w-[13px] h-[13px] rounded-full bg-primary;
+}
+
+.head3 {
+  @apply text-[#AAAAAA] text-[20px] text-center font-Yekan font-normal max-xl:text-[18px];
+}
+
+@layer base {
+  @font-face {
+    font-family: "Yekan";
+    src: url(./assets/fonts/B_Yekan/Yekan.ttf) format("truetype"),
+      url(./assets/fonts/B_Yekan/Fontyab.com.url),
+      url(./assets/fonts/B_Yekan/Fontyab.ir.url),
+      url(./assets/fonts/B_Yekan/read\ me!.txt);
+  }
+}
+
+.range-slider {
+  appearance: none;
+  width: 100%;
+  height: 1rem;
+  background-color: transparent;
+}
+
+.range-slider2 {
+  appearance: none;
+  width: 100%;
+  height: 8px;
+  background-color: transparent;
+}
+
+.range-slider::-moz-range-thumb {
+  appearance: "none";
+  width: 13px;
+  height: 13px;
+  cursor: pointer;
+  border-radius: 100%;
+  appearance: none;
+  border: none;
+  cursor: pointer;
+
+  @apply bg-purple;
+}
+
+.range-slider::-webkit-slider-thumb {
+  appearance: "none";
+  width: 13px;
+  height: 13px;
+  cursor: pointer;
+  border-radius: 100%;
+  appearance: none;
+  border: none;
+  cursor: pointer;
+
+  @apply bg-purple;
+}
+
+.range-slider::-ms-thumb {
+  appearance: "none";
+  width: 13px;
+  height: 13px;
+  cursor: pointer;
+  border-radius: 100%;
+  appearance: none;
+  border: none;
+  cursor: pointer;
+
+  @apply bg-purple;
+}
+
+.Correct {
+  @apply bg-teal-200 border-teal-500;
+}
+.wrong {
+  @apply bg-red-200 border-red-500;
+}
+
+.custom-toast {
+  z-index: 999999 !important;
+}

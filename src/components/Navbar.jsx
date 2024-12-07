@@ -1,121 +1,194 @@
-import React, { useState } from 'react'
-import { motion } from 'framer-motion'
-import FavImg from "../assets/landing/Favorite.svg";
-import ShopImg from "../assets/landing/Shopping Bag.svg";
-import UserImg from "../assets/landing/user.png";
-import Logo from "../assets/landing/logo1.svg";
-import ResponsiveMenu from './ResponsiveMenu';
-import { MdDarkMode, MdMenu } from 'react-icons/md';
-import DarkMode from './DarkMode';
-import { NavLink } from 'react-router-dom';
-
-
-
-
-export const NavbarMenu =[
-  {
-      id:1,
-      title:"تماس با ما",
-      link:"#",
-  },
-  {
-      id:2,
-      title:"اخبار و مقالات",
-      link:"/article-news",
-  },
-  {
-      id:3,
-      title:"اساتید",
-      link:"#",
-  },
-  {
-      id:4,
-      title:"دوره ها",
-      link:"/courses",
-  },
-  {
-      id:5,
-      title:"صفحه نخست",
-      link:"/",
-  },
-]
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { NavLink } from "react-router-dom";
+import Lg from "./Translate/TranslateButton";
+import { useTranslation } from "react-i18next";
+import Logo from "./Logo";
+import { useUserProfile } from "../core/services/query/DashboardQuery";
+import ScrollNav from "./ScrollNav";
+import { IoIosLogOut } from "react-icons/io";
+import { HiXCircle } from "react-icons/hi2";
+import { useSelector } from "react-redux";
+import { FaRobot } from "react-icons/fa6";
+import ChatApp from "./chatGPT/ChatApp";
+import SwitchAccounts from "./SwitchAccounts";
+import { PiBookOpenTextFill } from "react-icons/pi";
 
 const Navbar = () => {
+  const { t, i18n } = useTranslation();
+  const isEnglish = i18n.language === "en";
+  const isTurky = i18n.language === "tr";
+  const isEspanish = i18n.language === "es";
 
-    const  [isOpen , setIsOpen] = useState(false)
+  const NavbarMenu = [
+    {
+      id: 1,
+      title: `${t("call")}`,
+      link: "/call",
+    },
+    {
+      id: 2,
+      title: `${t("news")}`,
+      link: "/article-news",
+    },
+    {
+      id: 3,
+      title: `${t("teacher")}`,
+      link: "/oursuggestion",
+    },
+    {
+      id: 4,
+      title: `${t("courses")}`,
+      link: "/courses",
+    },
+    {
+      id: 5,
+      title: `${t("home")}`,
+      link: "/",
+    },
+  ];
 
+  const userImageProfile = useUserProfile();
+
+  const user = useSelector((state) => state.TokenSlice);
+
+  const token = user?.token;
+
+  const [openModal, setOpenModal] = useState(false);
+  const [openChat, setOpenChat] = useState(false);
+
+  const handleLogout = (token) => {
+    localStorage.removeItem("token", token);
+    setRemove(false);
+    setOpenModal(false);
+  };
 
   return (
-    <motion.div 
-    initial={{opacity:0}}
-    animate={{opacity:1}}
-    transition={{duration:0.5 , delay:0.5}}
->
+    <motion.div
+      className="z-[200] max-md:px-3"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5, delay: 0.5 }}
+    >
+      <ScrollNav color="orange" />
+      <div>
+        <div
+          className="container flex justify-between items-center py-6 dark:bg-gray-900 duration-200
+            max-lg:py-1 max-lg:mb-10  max-xl:px-0  
+        "
+        >
+          {/* ACCOUNT section  */}
+          <div className=" z-[99999] text-2xl flex items-center gap-2 font-bold">
+            <SwitchAccounts user={user} ImageProfile={userImageProfile} t={t} />
+            {/* shop&favorit  */}
+            <div className="flex justify-center flex-row gap-4 pr-9 mx-4 max-lg:gap-1 max-lg:ml-0 ">
+              {/* log out     */}
+              <div>
+                <IoIosLogOut
+                  className={`${
+                    user.token == null ? "hidden" : "block"
+                  } block mt-8 text-gray-400 text-3xl cursor-pointer `}
+                  onClick={() => (user.token == null ? "" : setOpenModal(true))}
+                />
+                <div
+                  className={`${
+                    openModal == false ? "hidden" : "block"
+                  } fixed left-0 top-0 w-screen h-screen bg-black/70 z-[9999]
+                                 backdrop-blur-sm transition-all duration-700`}
+                >
+                  <div className="bg-white rounded-lg shadow-lg grid gap-3 p-8 mx-auto w-1/3 mt-40">
+                    <HiXCircle
+                      onClick={() => setOpenModal(false)}
+                      className=" right-4 top-4 w-5 h-5 cursor-pointer text-secondary opacity-100 justify-self-end "
+                    />
+                    <p className="dark:text-gray-950 text-[20px] text-center">
+                      {" "}
+                      آیا میخواهید از حسابتان خارج شوید ؟{" "}
+                    </p>
+                    <NavLink
+                      to={"#"}
+                      onClick={handleLogout}
+                      className="bg-secondary p-2 rounded-md text-sm w-20 hover:scale-110
+                                    transition duration-500 hover:shadow-md mx-auto text-center"
+                    >
+                      بله
+                    </NavLink>
+                  </div>
+                </div>
+              </div>
 
-<div>
-<div className='container flex justify-between items-center py-6 dark:bg-gray-900  duration-200 '>
- {/* ACCOUNT section  */}
- <div className='text-2xl flex items-center gap-2 font-bold'>
-    <NavLink to={"/auth"} className='relative w-36 max-md:w-[150px]  max-sm:w-[150px] max-lg:w-[150px] max-xl:w-[200px]  h-10 bg-primary
-     mt-8 rounded-3xl hover:shadow-lg hover:shadow-orange dark:bg-orange  dark:hover:shadow-lg dark:hover:shadow-orange
-    transition-shadow'>
-     <img src={UserImg} alt="" className='w-7 h-7  absolute top-1.5 left-4'/>
-     <h1 className='text-sm  font-semibold text-white text-right leading-loose px-2 py-1 '>حساب کاربری</h1>
-  </NavLink>  
-  <div className='flex justify-center flex-row gap-4 ml-4'>
-      <img src={ShopImg} alt="" className='mt-8'/>
-      <div className='relative'>
-   <img src={FavImg} alt=""  className='mt-8 max-xl:mt-[35px] max-xl:w-[80px]  max-lg:w-[30px] max-2xl:mt-[35px] max-2xl:w-[40px]'/>
-    <div className='w-4 h-4 bg-orange rounded-full absolute bottom-0 right-10'></div>
+              {/* ChatGPT     */}
 
-      </div>
+              <div>
+                <FaRobot
+                  className="block mt-8 text-gray-400 text-3xl cursor-pointer"
+                  onClick={() => setOpenChat(true)}
+                />
+                <div
+                  className={`${
+                    openChat == false ? "hidden" : "block"
+                  } fixed left-0 top-0 w-screen h-screen bg-black/70 z-[9999]
+                                 backdrop-blur-sm transition-all duration-700`}
+                >
+                  <div className="bg-white rounded-lg shadow-lg grid gap-3 p-8 mx-auto w-1/3 mt-10">
+                    <HiXCircle
+                      onClick={() => setOpenChat(false)}
+                      className=" right-2 top-2 w-6 h-6 cursor-pointer text-secondary opacity-100 justify-self-end "
+                    />
+                    <ChatApp />
+                  </div>
+                </div>
+              </div>
 
-          {/* darkmode switch */}
-        <div className='mt-[34px] max-lg:mt-[35px]'>
-            <DarkMode/>
-        </div>
-  </div>
-    
-    
- </div>
- {/* menu section  */}
- <div className='hidden lg:block'>
-    <ul className='flex items-center gap-4 pr-10 mx-auto'>
-        {
-            NavbarMenu.map((item)=>(
+              <Lg />
+              <NavLink to={"/Job"}>
+                <PiBookOpenTextFill className="mt-8 text-gray-400 text-3xl cursor-pointer"/>
+              </NavLink>
+              
+            </div>
+          </div>
+
+          {/* menu section  */}
+          <div
+            className=" max-lg:absolute max-lg:bg-primary max-lg:h-8 max-lg:z[3000] 
+                 max-lg:top-[90px] max-lg:w-[100%] max-lg:left-0 max-lg:grid max-lg:justify-items-center"
+          >
+            <ul
+              className={`flex items-center gap-4 max-lg:gap-1 max-lg:pr-0 mx-auto ${
+                isEnglish || isEspanish || isTurky
+                  ? "flex-row-reverse"
+                  : "flex-row"
+              }`}
+            >
+              {NavbarMenu.map((item) => (
                 <li key={item.id}>
-                    <a href={item.link}
-                        className='inline-block justify-center text-gray-500
-                         text-lg max-xl:text-base max-xl:text-right whitespace-nowrap  py-1 px-2 xl:px-3
-                         hover:text-secondary transition-all duration-300 
-                         font-medium  mt-8 dark:text-white  dark:hover:text-orange'
-                    >{item.title}</a>
+                  <NavLink
+                    to={item.link}
+                    className={({ isActive }) => `${
+                      isActive
+                        ? "text-orange"
+                        : " dark:text-white max-lg:text-white"
+                    }
+                                        inline-block justify-center text-[#555555]
+                                        text-[17px]  font-medium max-xl:text-base max-xl:text-right whitespace-nowrap  py-1 px-2 xl:px-3
+                                        hover:text-secondary  transition-all duration-300 max-sm:text-[10px] max-lg:text-sm   max-lg:mt-0
+                                        mt-8   dark:hover:text-orange`}
+                  >
+                    {item.title}
+                  </NavLink>
                 </li>
-            ))
-        }
-    </ul>
- </div>
- {/* Logo section  */}
- <div className='hidden lg:block space-x-6'>
-   <div className=' py-6 mt-0'>
-   <img src={Logo} alt="" className='rounded-full shadow-xl shadow-gray-600'/>
-    </div> 
-   
- </div>
+              ))}
+            </ul>
+          </div>
 
-  {/* mobile hamburger section  */}
-  <div className='lg:hidden' onClick={()=>setIsOpen(!isOpen)}>
-            <MdMenu className='text-4xl '/>
-         </div>
- 
-</div>
-</div>
+          {/* Logo section  */}
+          <div className=" w-[285px]  mb-3 h-[50px] flex flex-row-reverse">
+            <Logo />
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
 
-  {/* mobile sidebar section  */}
-  <ResponsiveMenu isOpen={isOpen}/>
-
-</motion.div>
-  )
-}
-
-export default Navbar
+export default Navbar;

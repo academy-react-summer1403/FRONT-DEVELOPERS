@@ -1,26 +1,39 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 
-export const QuerySlice = createSlice({
+ const QuerySlice = createSlice({
     initialState:{
-        data:{}
+        
+        search:{}
+
     },
     name:"query",
     reducers:{
-
-        search:(state , action)=>{
-            state.data = action.payload
-        },
     
         Add:(state , action) =>{
-            state.data = action.payload
+            state.search = action.payload
         },
 
-      
     },
 
-
 })
+
+
+
+export const { Add} = QuerySlice.actions;
+export default QuerySlice.reducer
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

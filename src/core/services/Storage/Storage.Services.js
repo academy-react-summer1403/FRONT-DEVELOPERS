@@ -3,10 +3,10 @@ const setItem = (key , value)=>{
 };
 
 
-// const getItem = (key)=>{
-//     if (localStorage.getItem(key)) return JSON.parse(localStorage.getItem(key))
-//         return false;
-// }
+const getItem = (key)=>{
+    if (localStorage.getItem(key)) return JSON.parse(localStorage.getItem(key))
+        return false;
+}
 
 
 const getItemGeneric = (key)=>{
@@ -32,7 +32,7 @@ const clearStorage = ()=>{
 export {
 
     setItem,
-    // getItem,
+    getItem,
     getItemGeneric,
     setItemGeneric,
     removeItem,
