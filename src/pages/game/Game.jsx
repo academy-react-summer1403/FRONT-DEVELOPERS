@@ -1,12 +1,14 @@
 import React, {  useRef, useState } from "react";
 import { Button } from "@nextui-org/react";
 import HomeOfAssistant from "../../components/3DAssistant/HomeOfAssistant";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import GameBody from "./GameBody";
 import Back from "../../assets/landing/authBack.png";
 
 
 const Game = () => {
+
+  const navigate=useNavigate()
   const questionList = [
     {
       id: 1,
@@ -121,11 +123,7 @@ const Game = () => {
               answer4={answer4}
             />
           ) : (
-            <NavLink to={"/auth/v3"} className="group ">
-              <Button className="relative mt-5 mx-auto w-[80%] flex overflow-visible rounded-full px-12 shadow-xl bg-primary/30 after:content-[''] after:absolute after:rounded-full after:inset-0 after:bg-background/40 after:z-[-1] after:transition after:!duration-500 hover:after:scale-150 hover:after:opacity-0">
-                ورود
-              </Button>
-            </NavLink>
+            navigate("/auth/v3")
           )}
         </div>
       </div>
