@@ -68,7 +68,7 @@ const Qfav1 = () => {
                 <h1
                   className={`w-[200px] h-[50px] text-green text-xl mx-auto text-center absolute left-[50px] -top-[70px] font-semibold `}
                 >
-                  کدام حوزه توسعه وب را بیشتر می پسندید؟
+                {t("tosee")}
                 </h1>
 
                 <div className="relative pr-6 flex  items-end flex-col gap-2">
@@ -82,7 +82,7 @@ const Qfav1 = () => {
                         checked={selectedOption === "فرانت"}
                         onChange={handleOptionChange}
                       />
-                      فرانت اند
+                    {t("front")}
                     </label>{" "}
                     <hr className=" mt-2 w-20" />
                   </div>
@@ -97,7 +97,7 @@ const Qfav1 = () => {
                         checked={selectedOption === "بک"}
                         onChange={handleOptionChange}
                       />
-                      بک اند
+                      {t("back")}
                     </label>
                     <hr className=" mt-2 w-20" />
                   </div>
@@ -112,7 +112,7 @@ const Qfav1 = () => {
                         checked={selectedOption === "فول"}
                         onChange={handleOptionChange}
                       />
-                      فول استک
+                     {t("full")}
                     </label>{" "}
                     <hr className=" mt-2 w-20" />
                   </div>
@@ -126,7 +126,9 @@ const Qfav1 = () => {
                         checked={selectedOption === ""}
                         onChange={handleOptionChange}
                       />
-                      هیچکدام
+
+                      {t("none")}
+                      
                     </label>{" "}
                     <hr className=" mt-2 w-20" />
                   </div>

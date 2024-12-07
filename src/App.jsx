@@ -43,6 +43,7 @@ import Qfeacher from "./components/mainAuth/favfeacher/Qfeacher";
 import Qfav2 from "./components/mainAuth/favfeacher/QA2";
 import Qfav3 from "./components/mainAuth/favfeacher/QA3";
 import Chat from "./pages/Chat/Chat";
+import RecoveryEmail from "./components/dashboard/securitysetting/RecoveryEmail";
 import MakeJob from "./pages/Job/MakeJob";
 
 function App() {
@@ -222,6 +223,11 @@ function App() {
         },
 
         {
+          path: "/settings/recovery/:id",
+          element: <RecoveryEmail />,
+        },
+
+        {
           path: "/payment/:courseId",
           element: <Payment />,
         },
@@ -296,7 +302,8 @@ function App() {
           path: "/auth/Qfeacher",
           element: <Qfeacher />,
         },
-        { path: "/auth/forget1", element: <ForgetPassOne /> },
+        { path: "/auth/forget1",
+          element: <ForgetPassOne /> },
       ],
     },
   ];

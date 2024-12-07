@@ -297,7 +297,7 @@ const Detail = ({ courseId }) => {
                     <h3 className=" max-lg:text-[13px] max-sm:text-[12px] max-sm:line-clamp-1  text-[#888888] dark:text-slate-200 font-Yekan font-normal text-[15px] leading-[24px] text-right">
                       {item.title}
                     </h3>
-                    <h2 className=" text-darkgreen dark:text-secondary max-sm:text-[13px] max-sm:font-semibold  max-sm:line-clamp-1 max-lg:text-[18px] font-Yekan font-normal text-[21px] leading-[24px] text-right ">
+                    <h2 className=" h-7 overflow-hidden text-darkgreen dark:text-secondary max-sm:text-[13px] max-sm:font-semibold  max-sm:line-clamp-1 max-lg:text-[18px] font-Yekan font-normal text-[18px]  text-right ">
                       {item.subtitle}
                     </h2>
                   </div>

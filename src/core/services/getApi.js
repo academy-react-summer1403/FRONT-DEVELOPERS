@@ -192,3 +192,18 @@ export const addPayImage = async (  ) => {
   // console.log(data);
   return data;
 };
+
+
+export const addLikeCourse = async ( CourseId ) => {
+  const data = await http.post(`/Course/AddCourseLike?CourseId=${CourseId}` )
+
+  console.log(data);
+  return data;
+};
+
+export const addDissLikeCourse = async ( CourseId ) => {
+  const data = await http.post(`/Course/AddCourseDissLike?CourseId=${CourseId}` )
+
+  console.log(data);
+  return data;
+};

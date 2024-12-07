@@ -56,19 +56,7 @@ const SwitchAccounts = ({user , ImageProfile , t}) => {
 
             </NavLink>   
 
-            <div className='hidden group-hover:block grid absolute w-full p-1 rounded-md bg-white gap-1 shadow-md'>
-
-                {logIn.map((data , i)=>(
-                    <Button key={i} 
-                        onClick={()=>handleCreateSubmit(data.phoneOrGmail , data.password)}
-                        className='w-full bg-white dark:bg-primary rounded-xl hover:bg-green/80 text-sm hover:text-white text-black flex'
-                    >
-                        {/* <img src={ImageProfile ? ImageProfile.data?.currentPictureAddress : <ImageErrore/>} className='w-6 h-6 border border-darkgreen rounded-full'/> */}
-                        {data.name}
-                    </Button>
-                ))}
-                
-            </div>              
+          
         </div>
 
        
