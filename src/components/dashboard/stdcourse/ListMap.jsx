@@ -58,7 +58,7 @@ const ListMap = ({ search, category }) => {
                 </NavLink>
               </li>
 
-              <li className="col-1 my-5 ml-4 "> {item?.paymentStatus}</li>
+              <li className="col-1 my-5 ml-4 "> پرداخت شده</li>
               <li className="col-1 my-5">{item?.cost}</li>
               <li className="col-1 my-5">
                 <DateApi dateapi={item?.lastUpdate} />
