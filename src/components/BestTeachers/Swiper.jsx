@@ -15,7 +15,7 @@ const SwipeCards = () => {
 
     <div
 
-      className="grid h-[500px] w-full place-items-center absolute -bottom-[50px]"
+      className="grid h-[500px] w-full  absolute -bottom-[80px]"
 
      
 
@@ -75,12 +75,12 @@ const Card = ({ id, url, setCards, cards }) => {
   return (
 
     <motion.img
-
+     
       src={url}
 
       alt="Placeholder alt"
 
-      className="h-80 w-64 origin-bottom rounded-lg  object-cover hover:cursor-grab active:cursor-grabbing max-md:w-[200px] max-md:h-[300px]"
+      className="h-[364px] w-[266px] origin-bottom rounded-[20px]  object-cover hover:cursor-grab active:cursor-grabbing "
 
       style={{
 
@@ -135,7 +135,7 @@ export default SwipeCards;
 const cardData = [
     {
         id:1,
-        url:AsgharImg4,
+        url:AsgharImg1,
         
     },
     {
@@ -145,12 +145,12 @@ const cardData = [
     },
     {
         id:3,
-        url:AsgharImg2,
+        url:AsgharImg1,
         
     },
     {
         id:4,
-        url:AsgharImg1,
+        url:AsgharImg2,
         
     },
 ]

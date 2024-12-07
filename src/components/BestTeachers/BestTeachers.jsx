@@ -1,94 +1,134 @@
-import React from 'react'
-import BGImg from "../../assets/landing/BG Half.png";
-import { motion} from 'framer-motion';
-import { SliderRight } from '../../utility/animation';
+import React, { useEffect } from "react";
+import { motion } from "framer-motion";
+import { SliderRight } from "../../utility/animation";
 
+import SwipeCards from "./Swiper";
 
-import SwipeCards from './Swiper';
-
-
-
-
-
-
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useTranslation } from "react-i18next";
 
 const BestTeachers = () => {
+  const { t } = useTranslation();
 
-   
-    
+  useEffect(() => {
+    AOS.init();
+  }, []);
 
   return (
-    <div className='flex-1 h-[500px]  '>
+    <div className="flex-1 h-[402px]  w-full">
+      <div className=" flex h-[495px] max-lg:bg-primary/30 max-md:h-[600px] max-sm:my-12    mx-auto  relative justify-center">
+        <svg
+          className=" w-full max-lg:hidden  h-full mx-auto "
+          height="402"
+          viewBox="0 0 1440 402"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g filter="url(#filter0_b_109_539)">
+            <path
+              d="M-521 0L97.75 22.4909L407.125 33.7364L561.812 39.3591L639.156 42.1705C639.156 42.1705 696 22.4909 716.5 22.4909C737 22.4909 794.406 42.1705 794.406 42.1705L872.312 39.3591L1028.12 33.7364L1339.75 22.4909L1963 0V402L1339.75 379.306L1028.12 367.96L872.312 362.286L794.406 359.45C794.406 359.45 731.5 357.384 715 357.384C698.5 357.384 639.156 359.45 639.156 359.45L561.812 362.286L407.125 367.96L97.75 379.306L-521 402V0Z"
+              className="fill-primary"
+              fill-opacity="0.3"
+            />
+          </g>
+          <defs>
+            <filter
+              id="filter0_b_109_539"
+              x="-524"
+              y="-3"
+              width="2490"
+              height="408"
+              filterUnits="userSpaceOnUse"
+              color-interpolation-filters="sRGB"
+            >
+              <feFlood flood-opacity="0" result="BackgroundImageFix" />
+              <feGaussianBlur in="BackgroundImageFix" stdDeviation="1.5" />
+              <feComposite
+                in2="SourceAlpha"
+                operator="in"
+                result="effect1_backgroundBlur_109_539"
+              />
+              <feBlend
+                mode="normal"
+                in="SourceGraphic"
+                in2="effect1_backgroundBlur_109_539"
+                result="shape"
+              />
+            </filter>
+          </defs>
+        </svg>
 
-        <div className='flex-1   mx-auto  rounded-xl h-[400px] relative '>
-            <img src={BGImg} alt=""  className=' w-full  h-full mx-auto'/>
-
-        <div className='flex-1 justify-center items-center w-full absolute top-10'>
-              <div className='w-[1500px] h-[400px]  mx-auto relative'>      
-                
+        <div className="flex  justify-between items-center w-full   absolute top-10">
+          <div
+            className="relative mx-auto w-[1500px] h-[400px]  grid grid-cols-2 justify-between
+           max-xl:w-[full]  
+           max-md:grid-cols-1
+          "
+          >
             {/* Tinder card  */}
-
-        
-               
-                        <div className=' w-[400px] h-[400px]  absolute left-[200px] bottom-[50px] max-xl:left-[100px] max-md:left-[5px] max-sm:-left-[30px]'>
-
-                  
-                        <SwipeCards/>
-
-                        </div>
-                      
-             
-
-
-         
-   
-
+            <div
+              className="pl-[250px] 
+              max-md:h-[250px] max-md:flex max-md:mx-auto max-md:pl-0 max-md:w-[250px]
+              max-md:-left-2
+              max-lg:left-[80px] max-lg:pl-[50px] 
+              max-xl:left-[100px] max-xl:pl-[150px] 
+              max-2xl:left-[200px]   
+            "
+            >
+              <SwipeCards />
+            </div>
 
             {/* text section  */}
-          <div
-            className="flex flex-col  w-[700px] h-[120px] justify-center py-14 
-          md:pr-16 xl:pr-40 md:py-0 absolute top-[140px] right-[100px]  max-xl:right-[400px] max-xl:w-[600px]
-          max-lg:right-[600px] max-md:right-[800px] max-sm:right-[900px] "
-          >
-        
-            <motion.h1
-             variants={SliderRight(0.4)}
-             initial="hidden"
-             animate="visible"
-              className="text-4xl font-semibold 
-              !leading-tight
-              text-right absolute -top-[20px] right-[180px] max-xl:-top-[80px] max-lg:-top-[70px] max-lg:text-5xl max-sm:right-[60px]"
+            <div
+              data-aos="fade-right"
+              data-aos-offset="200"
+              data-aos-duration="600"
+              className="max-xl:right-10  max-md:right-3 pt-32
+            max-lg:pt-36
+            "
             >
-              برترین اساتید  
-        
-            </motion.h1>
+              <div className="flex justify-center  gap-2 max-sm:gap-1 mb-3">
+                <motion.h1
+                  variants={SliderRight(0.4)}
+                  initial="hidden"
+                  animate="visible"
+                  className=" leading-[60px] text-green font-Yekan font-normal text-[25px] 
+                max-lg:text-[20px] max-lg:leading-[40px] 
+                max-md:text-[16px]
+                max-sm:leading-[25px] 
+                "
+                >
+                  {t("findteacher")}
+                </motion.h1>
 
-            <motion.span 
-            variants={SliderRight(0.4)}
-            initial="hidden"
-            animate="visible"
-            className=' font-sans text-[30px] text-green absolute -top-[20px] left-[95px] max-xl:left-[220px] max-xl:-top-[10px] max-sm:left-[280px]
-            max-sm:text-4xl'>رو همینجا پیدا کنید</motion.span>
+                <motion.h1
+                  variants={SliderRight(0.4)}
+                  initial="hidden"
+                  animate="visible"
+                  className=" text-[#000000] max-lg:text-[30px] max-sm:text-[18px] text-right font-Yekan font-bold text-[40px] "
+                >
+                  {t("BestTeachers")}
+                </motion.h1>
+              </div>
 
-            <motion.p
-               variants={SliderRight(0.6)}
-               initial="hidden"
-               animate="visible"
-               className=' text-center indent-[130px] font-sans text-gray-600 pt-[50px] leading-[10px] max-xl:indent-[150px] max-xl:text-right max-md:text-center
-               max-sm:text-sm max-sm:ml-[100px]'
-            >
-            ! برجسته ترین اساتید بزرگترین مجموعه برنامه نویسی<p className='indent-[130px] pt-[25px]'> استان مازندران رو بهتر بشناسیم </p>
-            </motion.p>
+              <motion.p
+                variants={SliderRight(0.6)}
+                initial="hidden"
+                animate="visible"
+                className="text-center   text-[#777777] text-[20px] font-normal font-Yekan 
+             
+               max-lg:text-[18px]  max-lg:text-right max-lg:mr-[20px] "
+              >
+                <p className="text-center "> {t("teach1")}</p>
+                <p className="text-center "> {t("teach2")}</p>
+              </motion.p>
             </div>
-            </div>
-            </div>
-          </div>  
-          
-        </div>    
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
-
-    
-  )
-}
-
-export default BestTeachers
+export default BestTeachers;

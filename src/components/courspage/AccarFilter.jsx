@@ -2,10 +2,9 @@ import React from "react";
 import arrow from "../../assets/courses/arrow.svg";
 import MainFilter from "./MainFilter";
 
-
 const AccarFilter = ({ filter, toggleAccordeion }) => {
   return (
-    <div>
+    <div className="max-sm:w-full ">
       {filter.map((data, index) => (
         <li
           key={index}
@@ -25,8 +24,8 @@ const AccarFilter = ({ filter, toggleAccordeion }) => {
             />
             <p
               className="absolute right-0 top-0 font-medium 
-                            max-md:relative  max-md:ml-2
-                            max-sm:absolute"
+                             max-md:ml-2 max-sm:absolute 
+                          "
             >
               {data.name}
             </p>
