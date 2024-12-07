@@ -7,31 +7,60 @@ import AccarFilter from "./AccarFilter";
 import TypeFilter from "./TypeAccar";
 import TypeAccar from "./TypeAccar";
 import LevelAccar from "./LevelAccar";
+import { useTranslation } from "react-i18next";
+import TeacherAccar from "./TeacherAccar";
+import RangeAccar from "./RangeAccar";
+import RangeAccarTwo from "./RangeAccarTwo";
 
 const Filter = () => {
+  const { t } = useTranslation();
+
   const [filter, setFilter] = useState([
     {
       id: 1,
-      name: "تکنولوژی",
+      name: `${t("technology")}`,
 
-      isOpen: false,
+      isOpen: true,
     },
   ]);
 
   const [type, setType] = useState([
     {
       id: 1,
-      name: "وضعیت",
-      isOpen: false,
+      name: `${t("status")}`,
+      isOpen: true,
     },
   ]);
-
 
   const [level, setLevel] = useState([
     {
       id: 1,
-      name: "سطح",
-      isOpen: false,
+      name: `${t("level")}`,
+      isOpen: true,
+    },
+  ]);
+
+  const [teacher, setTeacher] = useState([
+    {
+      id: 1,
+      name: `${t("teacher")}`,
+      isOpen: true,
+    },
+  ]);
+
+  const [Range, setRange] = useState([
+    {
+      id: 1,
+      name: `${t("Range")}`,
+      isOpen: true,
+    },
+  ]);
+
+  const [lessRangeA, setLessRange] = useState([
+    {
+      id: 1,
+      name: `${t("LessRange")}`,
+      isOpen: true,
     },
   ]);
 
@@ -71,22 +100,58 @@ const Filter = () => {
     setLevel(updateAccordions);
   };
 
+  const toggleAccordeionTeacher = (accordionkey) => {
+    const updateAccordions = teacher.map((accrdion) => {
+      if (accrdion.id === accordionkey) {
+        return { ...accrdion, isOpen: !accrdion.isOpen };
+      } else {
+        return { ...accrdion };
+      }
+    });
+
+    setTeacher(updateAccordions);
+  };
+
+  const toggleAccordeionRange = (accordionkey) => {
+    const updateAccordions = Range.map((accrdion) => {
+      if (accrdion.id === accordionkey) {
+        return { ...accrdion, isOpen: !accrdion.isOpen };
+      } else {
+        return { ...accrdion };
+      }
+    });
+
+    setRange(updateAccordions);
+  };
+
+  const toggleAccordeionLessRange = (accordionkey) => {
+    const updateAccordions = lessRangeA.map((accrdion) => {
+      if (accrdion.id === accordionkey) {
+        return { ...accrdion, isOpen: !accrdion.isOpen };
+      } else {
+        return { ...accrdion };
+      }
+    });
+
+    setLessRange(updateAccordions);
+  };
+
   return (
-    <div className="shadow-sm shadow-gray-300 outline-none rounded-xl p-4 ">
+    <div className="shadow-sm shadow-gray-300 bg-white dark:bg-slate-500 outline-none rounded-xl p-4 ">
       <div
         className="flex p-3 relative 
             rounded-sm rounded-t-lg shadow-sm shadow-gray-400 
             text-gray-900 bg-neutral-200 dark:bg-gray-700/70 dark:text-white"
       >
         <img src={trash} className="h-6 w-6 mr-8 flex-none " />
-        <p className="absolute right-10 ">فیلتر ها</p>
+        <p className="absolute right-10 ">{t("filters")}</p>
         <img src={fillter} className="absolute right-2 top-4" />
       </div>
 
       <ul
-        className="relative bg-white
-            max-md:flex  
-            max-sm:grid"
+        className="relative rounded-b-md 
+            max-md:grid max-md:grid-cols-3 
+            max-sm:grid-cols-1 max-sm:justify-items-center max-sm:rounded-b-md"
       >
         <AccarFilter filter={filter} toggleAccordeion={toggleAccordeion} />
 
@@ -94,11 +159,17 @@ const Filter = () => {
 
         <LevelAccar filter={level} toggleAccordeion={toggleAccordeionLevel} />
 
+        <TeacherAccar
+          teacher={teacher}
+          toggleAccordeion={toggleAccordeionTeacher}
+        />
 
-        
+        <RangeAccar Range={Range} toggleAccordeion={toggleAccordeionRange} />
 
-        
-
+        <RangeAccarTwo
+          lessRangeA={lessRangeA}
+          toggleAccordeion={toggleAccordeionLessRange}
+        />
       </ul>
     </div>
   );
