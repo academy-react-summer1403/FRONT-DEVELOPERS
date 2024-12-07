@@ -259,3 +259,27 @@ console.log(data)
     console.log("data" ,data);
     return data;
 };
+
+
+export const recoveryEmail = async (data) => {
+  try {
+    const response = await http.put("/SharePanel/EditSecurity", data, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    return response.data; 
+  } catch (error) {
+    console.error("Error updating recovery email:", error);
+    throw error; 
+  }
+};
+
+
+export const getSendValue  = async (params) => {
+    
+  const data = await http.get(` /SharePanel/ChangeRecovery/${params}`); 
+   
+  console.log(data);
+  return data;
+};
