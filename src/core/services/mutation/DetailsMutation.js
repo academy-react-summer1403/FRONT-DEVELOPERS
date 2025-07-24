@@ -182,24 +182,11 @@ import { deleteCourseCommentLike, deleteLikeComment, dislikeCourseComment,
     
         return useMutation({
             mutationFn:(formData)=> postCommentCourse(formData),
-            onSuccess:()=>{
-                toast.success("نظر شما ثبت شد و بعد از تایید توسط ادمین نمایش داده میشود " , {
-                    theme:"colored",
-                         className:"custom-toast"
-                    })
-            },
-            onSettled:async(_,error) =>{
-                if (error) {
-                  
-                    toast.error("خطایی رخ داده است", { theme: "colored" ,
-                        className:"custom-toast"});
-                    
-                }
-                else{
-                   await queryClient.invalidateQueries({queryKey:["postCommentCourses"]})
+            onSuccess:()=>
+       
+             queryClient.invalidateQueries({queryKey:["postCommentCourses"]})
     
-                }
-            },
+       
             
         })
     }
@@ -237,13 +224,11 @@ import { deleteCourseCommentLike, deleteLikeComment, dislikeCourseComment,
       
         const mutate = useMutation({
           mutationFn: (CourseId)=>addLikeCourse(CourseId),
-          onSuccess: () =>{
+          onSuccess: () =>
                queryClient.invalidateQueries({ mutationKey: ["addLikeCourse"] }),
-               toast.success(" لایک ثبت شد" , {
-                theme:"colored",
-                     className:"custom-toast"
-                })
-          }
+          
+           
+          
           
         });
         return mutate;
@@ -255,13 +240,11 @@ import { deleteCourseCommentLike, deleteLikeComment, dislikeCourseComment,
       
         const mutate = useMutation({
           mutationFn: (CourseId)=>addDissLikeCourse(CourseId),
-          onSuccess: () =>{
+          onSuccess: () =>
                queryClient.invalidateQueries({ mutationKey: ["addDissLikeCourse"] }),
-               toast.success("دیس لایک  ثبت شد" , {
-                theme:"colored",
-                     className:"custom-toast"
-                })
-          }
+               
+               
+          
           
         });
         return mutate;

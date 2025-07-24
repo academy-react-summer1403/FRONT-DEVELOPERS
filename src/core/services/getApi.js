@@ -1,6 +1,7 @@
 
+import { toast } from "react-toastify";
 import http from "./interceptor";
-
+import 'react-toastify/dist/ReactToastify.css';
 
 
 export const getNews = async (params , page,rows  ) => {
@@ -195,15 +196,53 @@ export const addPayImage = async (  ) => {
 
 
 export const addLikeCourse = async ( CourseId ) => {
+  try{
   const data = await http.post(`/Course/AddCourseLike?CourseId=${CourseId}` )
-
-  console.log(data);
-  return data;
+  
+  if(data?.message =="عملیات با موفقیت انجام شد."){
+    toast.success("عملیات با موفقیت انجام شد" , {
+        theme:"colored"
+    })
+     console.log(data);
+    return data;
+  }
+}catch(error){
+  if(401){
+ toast.warning("ابتدا وارد حساب کاربری خود شوید" , {
+     theme:"colored"
+ })
+ 
+ }
+ else if(error.response.status == 422){
+ toast.error("خطا در ارتباط با سرور" , {
+   theme:"colored"
+ })  
+ }
+ }
 };
 
 export const addDissLikeCourse = async ( CourseId ) => {
+  try{
   const data = await http.post(`/Course/AddCourseDissLike?CourseId=${CourseId}` )
 
-  console.log(data);
-  return data;
+  if(data?.message =="عملیات با موفقیت انجام شد."){
+    toast.success("عملیات با موفقیت انجام شد" , {
+        theme:"colored"
+    })
+     console.log(data);
+    return data;
+  }
+}catch(error){
+  if(401){
+ toast.warning("ابتدا وارد حساب کاربری خود شوید" , {
+     theme:"colored"
+ })
+ 
+ }
+ else if(error.response.status == 422){
+ toast.error("خطا در ارتباط با سرور" , {
+   theme:"colored"
+ })  
+ }
+ }
 };

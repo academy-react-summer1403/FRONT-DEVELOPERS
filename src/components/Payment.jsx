@@ -6,6 +6,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { StudentAddPeyment } from "../core/services/level2api";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Button } from "@nextui-org/react";
 
 const Payment = () => {
   const { t } = useTranslation();
@@ -46,13 +47,13 @@ const Payment = () => {
       <div className="relative w-[550px] rounded-2xl mt-14 bg-[#fcfaf5cb] shadow-md h-[350px] m-auto pt-20">
         <div className="w-[350px] flex mx-auto flex-wrap">
           <form onSubmit={onSubmit}>
-            <input
+            {/* <input
               type="text"
               id="CourseId"
               name="CourseId"
               className=""
               defaultValue={courseId}
-            />
+            /> */}
             <input
               type="text"
               id="Paid"
@@ -64,7 +65,19 @@ const Payment = () => {
               value={selectedDate}
               onChange={setSelectedDate}
               placeholder={t("date")}
-              className="border-gray-300 border w-full rounded-[10px] mb-2 text-md px-2"
+           
+              style={{
+             
+                width: "350px",
+                height: "40px",
+                border: "1px solid #ccc",
+                borderRadius:"10px",
+                textAlign:"right",
+                marginBottom:"8px",
+                
+              
+                
+              }}
             />
             <input
               type="text"
@@ -73,9 +86,9 @@ const Payment = () => {
               className="border-gray-300 border w-full rounded-[10px] text-right mb-2 h-[40px] text-md px-2"
               placeholder={t("number")}
             />
-            <button type="submit">
+            <Button type="submit" className="  rounded-lg  flex justify-center">
               {t("complete_purchase")} <MdNavigateNext />
-            </button>
+            </Button>
           </form>
         </div>
       </div>

@@ -67,7 +67,7 @@ function App() {
         },
         {
           path: "/courses-detail/:courseId",
-          element: <Notfound />,
+          element: <CourseDetial />,
         },
         {
           path: "/article-news",
@@ -75,7 +75,7 @@ function App() {
         },
         {
           path: "/article-detail/:id",
-          element: <Notfound />,
+          element: <ArticleDetail />,
         },
         {
           path: "/PhysicApp",
@@ -154,7 +154,7 @@ function App() {
         {
           path: "/courses-detail/:courseId",
           element: <CourseDetial />,
-          ErrorBoundary: <NotFound />,
+          // ErrorBoundary: <NotFound />,
         },
         {
           path: "/article-detail/:id",
