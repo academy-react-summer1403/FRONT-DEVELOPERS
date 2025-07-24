@@ -47,6 +47,10 @@ import RecoveryEmail from "./components/dashboard/securitysetting/RecoveryEmail"
 import MakeJob from "./pages/Job/MakeJob";
 
 function App() {
+
+
+
+  
   const PublicRoutes = [
     {
       path: "/",
